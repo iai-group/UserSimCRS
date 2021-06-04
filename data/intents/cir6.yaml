@@ -23,10 +23,17 @@ user_intents:
     NOTE-END:
     NOTE-YES:
 agent_intents:
-  ELICIT-REVIEW:
-  END:
-  FAIL:
-  LIST:
-  MORE:
-  REPEAT:
-  SIMILAR:
+  END: Indicate the end of the conversation
+  INQUIRE: Ask for user preferences
+    ELICIT-REVIEW:
+    ELICIT:
+    CLARIFY:
+  REVEAL: Display the recommendations fully, partially or further
+    LIST:
+    SUBSET:
+    SIMILAR:
+  TRAVERSE: Actions in response to user navigate actions
+    BACK:
+    MORE:
+    REPEAT:
+  RECORD: Record the rated items
