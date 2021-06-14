@@ -31,6 +31,7 @@ class AgendaBasedSimulator(UserSimulator):
         super().__init__()
         self.__preference_model = preference_model
         self.__interaction_model = interaction_model
+        self.__interaction_model.initialize_agenda()
         self.__nlu = nlu
         self.__nlg = nlg
 
@@ -62,6 +63,14 @@ class AgendaBasedSimulator(UserSimulator):
         response_intent = None
         slot_values = None
         # TODO(Shuo): add pseudo code
+        # self.__interaction_model.update_agenda()
+        # response_intent = self.__interaction_model.current_intent
+        #
+        # if intent lies in query formulation (agent expects preference eliciation):
+        #   read slots from preference_model (updates slot_values);
+        # elif intent lies in set retrieval (agent is recommending items):
+        #   determins rates based on entities and preference_model (rates or likes)
+
 
         # Generating natural language response through NLG.
         response_text = self.__nlg.generate_utterance_text(response_intent, slot_values)
