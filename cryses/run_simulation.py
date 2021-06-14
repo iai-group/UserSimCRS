@@ -1,7 +1,7 @@
 """Console application for running simulation."""
 
 from dialoguekit.agent.agent import Agent
-from dialoguekit.dialogue.dialogue import Dialogue
+from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.manager.dialogue_manager import DialogueManager
 from cryses.simulator.simulated_user import SimulatedUser
 

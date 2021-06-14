@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 
 from dialoguekit.user.user import User, UserType
-from dialoguekit.utterance.utterance import Utterance
+from dialoguekit.core.utterance import Utterance
 
 
 class UserSimulator(User, ABC):
