@@ -19,7 +19,7 @@ class InteractionModel:
 
         # Initialize agenda.
         self._agenda = []
-        # TODO(Shuo): Write in comment what this variable holds.
+        # Keep track of the current user intent.
         self._current_intent = None
 
     def initialize_agenda(self) -> None:
