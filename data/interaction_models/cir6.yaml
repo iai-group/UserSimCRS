@@ -55,6 +55,11 @@ agent_set_retrieval:
   - LIST
   - SUBSET
   - SIMILAR
+  - TRAVERSE
+  - BACK
+  - MORE
+  - REPEAT
+  - RECORD
 
 
 # Expected agent intents in response to a (simulated) user intent.
