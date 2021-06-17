@@ -70,6 +70,7 @@ class AgendaBasedSimulator(UserSimulator):
         # Agent wants to elicit preferences.
         if self.__interaction_model.is_agent_intent_elicit(agent_intent):
             # read slots from preference_model (updates slot_values);
+            # rely on response intent to determin the slots, e.g., refinement needs replacement items; while expand will need extra item
             response_slot_values = self.__preference_model.next_user_slots(agent_intent, agent_slot_values)
         # Agent is recommending items.
         elif self.__interaction_model.is_agent_intent_set_retrieval(agent_intent):
