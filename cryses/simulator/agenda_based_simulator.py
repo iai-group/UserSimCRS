@@ -30,6 +30,7 @@ class AgendaBasedSimulator(UserSimulator):
         """
         super().__init__()
         self.__preference_model = preference_model
+        self.__preference_model.initialize_preference()
         self.__interaction_model = interaction_model
         self.__interaction_model.initialize_agenda()
         self.__nlu = nlu
@@ -63,19 +64,22 @@ class AgendaBasedSimulator(UserSimulator):
         response_intent = None
         response_slot_values = None
 
-        self.__interaction_model.update_agenda()
+        self.__interaction_model.update_agenda(agent_intent)
         response_intent = self.__interaction_model.current_intent
 
         # Agent wants to elicit preferences.
-        if self.__interaction_model.if_agent_intent_elicit(agent_intent):
+        if self.__interaction_model.is_agent_intent_elicit(agent_intent):
             # read slots from preference_model (updates slot_values);
-            pass
+            # rely on response intent to determin the slots, e.g., refinement needs replacement items; while expand will need extra item
+            response_slot_values = self.__preference_model.next_user_slots(agent_intent, agent_slot_values)
         # Agent is recommending items.
-        elif self.__interaction_model.agent_intent_set_retrieval(agent_intent):
+        elif self.__interaction_model.is_agent_intent_set_retrieval(agent_intent):
             # Determine response/rating based on entities and preference_model (rates or likes)
-            pass
+            ratings = self.__preference_model.update_agent_slots(agent_slot_values)
+            # Update the user preferences
+            self.__preference_model.update_preferences(agent_slot_values, ratings)
 
         # Generating natural language response through NLG.
-        response_text = self.__nlg.generate_utterance_text(response_intent, slot_values)
+        response_text = self.__nlg.generate_utterance_text(response_intent, response_slot_values, ratings)
 
         return Utterance(response_text, response_intent)

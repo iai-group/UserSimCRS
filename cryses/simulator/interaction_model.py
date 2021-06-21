@@ -19,11 +19,32 @@ class InteractionModel:
 
         # Initialize agenda.
         self._agenda = []
-        # TODO(Shuo): Write in comment what this variable holds.
+        # Keep track of the current user intent.
         self._current_intent = None
 
     def initialize_agenda(self) -> None:
-        """Initializes the action agenda."""
+        """Initializes the action agenda.
+
+        Step1: Load all the dialogues with intents and generate a map:
+                intent_map = {
+                    current_intent:
+                        {next_intent1: n_1,
+                         next_intent_2: n_2}
+                }
+        Note: CIR6 only based on user intents while qrfa uses both user and agent intents
+
+        Step2: populate the agenda.
+            starting_intent = "None_disclose"
+            self.agenda.append(starting_intent)
+            next_intent = self.next_intent(starting_intent)
+            agenda.append(next_intent)
+            while next_intent != "stop":
+                self..append(next_intent)
+                next_intent = self.next_intent(next_intent)
+            agenda.append(next_intent)
+
+        Step3: filter the agenda, e.g. too short or too long agenda will triger this function rerun
+        """
         pass
 
     @property
@@ -56,6 +77,15 @@ class InteractionModel:
         """
         return agent_intent in self._config["agent_set_retrieval"]
 
+    def next_intent(self, intent: str) -> str:
+        """Predicts the next user intent.
+
+        Todo: sample the next intent from intent_map, e.g.,
+        Given current_intent, we determine the next intent (either next_intent1 or next_intent2) by probaliities.
+
+        """
+        pass
+
     def update_agenda(self, agent_intent: str) -> None:
         """Updates the agenda and determines the next user intent based on agent
         intent.
@@ -73,4 +103,3 @@ class InteractionModel:
             agent_intent: Agent's intent
         """
         pass
-

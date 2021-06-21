@@ -55,6 +55,11 @@ agent_set_retrieval:
   - LIST
   - SUBSET
   - SIMILAR
+  - TRAVERSE
+  - BACK
+  - MORE
+  - REPEAT
+  - RECORD
 
 
 # Expected agent intents in response to a (simulated) user intent.
@@ -62,3 +67,69 @@ expected_responses:
   NON-DISCLOSE:
     - ELICIT
     - INQUIRE
+  NON-DISCLOSE-REVIEW:
+    - ELICIT
+    - INQUIRE
+  DISCLOSE:
+    - ELICIT
+    - SHOW
+    - LIST
+    - SUGGEST
+    - CLARIFY
+  DISCLOSE-REVIEW:
+    - ELICIT
+    - SHOW
+    - LIST
+    - SUGGEST
+    - CLARIFY
+  REVISE:
+    - ELICIT
+    - SHOW
+    - LIST
+    - SUGGEST
+    - CLARIFY
+  REFINE:
+    - ELICIT
+    - SHOW
+    - LIST
+    - SUGGEST
+    - CLARIFY
+  EXPAND:
+    - ELICIT
+    - SHOW
+    - LIST
+    - SUGGEST
+    - CLARIFY
+  NOTE:
+    - RECORD
+    - REPEAT
+  NOTE-END:
+    - RECORD
+    - REPEAT
+  NOTE-YES:
+    - ELICIT-REVIEW
+  NOTE-DISLIKE:
+    - LIST
+    - ELICIT
+  INTERROGATE:
+    - EXPLAIN
+  INQUIRE:
+    - LIST
+    - ELICIT
+  REPEAT:
+    - REPEAT
+  MORE:
+    - LIST
+    - MORE
+  SIMILAR:
+    - ELICIT
+    - SIMILAR
+    - LIST
+  LIST:
+    - LIST
+  SUBSET:
+    - SUBSET
+  NAVIGATE:
+    - SHOW
+  COMPLETE:
+    - END
