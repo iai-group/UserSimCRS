@@ -3,44 +3,44 @@ description: CIR6 intent scheme by Zhang&Balog (KDD'20)
 
 # Possible user intents with optional description.
 user_intents:
-  COMPLETE: Indicate the end of the conversation
-  DISCLOSE: Information need expressed either actively or in response to the agent's question
-#    DISCLOSE-REVIEW:
-#    NON-DISCLOSE:
-  REVEAL: Revising, refining, or expanding constraints and requirements
-#    EXPAND:
-#    REFINE:
-#    REVISE:
-  INQUIRE: Ask for related items or similar options
-#    LIST:
-#    COMPARE:
-#    SUBSET:
-#    SIMILAR:
-  NAVIGATE: Actions around navigating a list of recommendations as well as questions about a certain recommended item
-#    BACK:
-#    MORE:
-#    REPEAT:
-  NOTE: Mark or save specific items
-#    NOTE-DISLIKE:
-#    NOTE-END:
-#    NOTE-YES:
+  COMPLETE:
+  DISCLOSE:
+    - DISCLOSE-REVIEW
+    - NON-DISCLOSE
+  REVEAL:
+    - EXPAND
+    - REFINE
+    - REVISE
+  INQUIRE:
+    - LIST
+    - COMPARE
+    - SUBSET
+    - SIMILAR
+  NAVIGATE:
+    - BACK
+    - MORE
+    - REPEAT
+  NOTE:
+    - NOTE-DISLIKE
+    - NOTE-END
+    - NOTE-YES
 
 # Possible agent intents with optional description.
 agent_intents:
-  END: Indicate the end of the conversation
-  INQUIRE: Ask for user preferences
-#    ELICIT-REVIEW:
-#    ELICIT:
-#    CLARIFY:
-  REVEAL: Display the recommendations fully, partially or further
-#    LIST:
-#    SUBSET:
-#    SIMILAR:
-  TRAVERSE: Actions in response to user navigate actions
-#    BACK:
-#    MORE:
-#    REPEAT:
-  RECORD: Record the rated items
+  END: 
+  INQUIRE: 
+    - ELICIT-REVIEW
+    - ELICIT
+    - CLARIFY
+  REVEAL: 
+    - LIST
+    - SUBSET
+    - SIMILAR
+  TRAVERSE: 
+    - BACK
+    - MORE
+    - REPEAT
+  RECORD: 
 
 # List of agent intents (including sub-intents) that elicit preferences.
 agent_elicit_intents:
@@ -52,24 +52,20 @@ agent_elicit_intents:
 # List of agent intents (including sub-intents) that are for set retrieval.
 agent_set_retrieval:
   - REVEAL
-  - LIST
-  - SUBSET
-  - SIMILAR
+  - REVEAL.*
   - TRAVERSE
-  - BACK
-  - MORE
-  - REPEAT
+  - TRAVERSE.*
   - RECORD
 
 
 # Expected agent intents in response to a (simulated) user intent.
 expected_responses:
   NON-DISCLOSE:
-    - ELICIT
     - INQUIRE
+    - INQUIRE.ELICIT
   NON-DISCLOSE-REVIEW:
-    - ELICIT
     - INQUIRE
+    - INQUIRE.ELICIT
   DISCLOSE:
     - ELICIT
     - SHOW
