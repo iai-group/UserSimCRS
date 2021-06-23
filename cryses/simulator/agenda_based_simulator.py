@@ -47,18 +47,18 @@ class AgendaBasedSimulator(UserSimulator):
         """
         pass
 
-    def generate_response(self, utterance: Utterance) -> Utterance:
+    def generate_response(self, agent_utterance: Utterance) -> Utterance:
         """Generate response to the agent utterance.
 
         Args:
-            utterance: Agent utterance.
+            agent_utterance: Agent utterance.
 
         Return:
             User utterance.
         """
         # Run agent utterance through NLU.
-        agent_intent = self.__nlu.get_intent()
-        agent_slot_values = self.__nlu.get_slot_values()
+        self.__nlu.annotate_slot_values(agent_utterance)
+        agent_intent = self.__nlu.get_intent(agent_utterance)
 
         # Response generation (intent and slot-values).
         response_intent = None
