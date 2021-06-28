@@ -5,7 +5,7 @@ description: CIR6 intent scheme by Zhang&Balog (KDD'20)
 user_intents:
   COMPLETE:
   DISCLOSE:
-    - DISCLOSE.DISCLOSE-REVIEW
+    - DISCLOSE.REVIEW
     - DISCLOSE.NON-DISCLOSE
     - DISCLOSE.NON-DISCLOSE-REVIEW
   REVEAL:
@@ -72,7 +72,7 @@ expected_responses:
     - REVEAL.LIST
     - SUGGEST
     - INQUIRE.CLARIFY
-  DISCLOSE.DISCLOSE-REVIEW:
+  DISCLOSE.REVIEW:
     - INQUIRE.ELICIT
     - SHOW
     - REVEAL.LIST
