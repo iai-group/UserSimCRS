@@ -5,49 +5,49 @@ description: CIR6 intent scheme by Zhang&Balog (KDD'20)
 user_intents:
   COMPLETE:
   DISCLOSE:
-    - DISCLOSE-REVIEW
-    - NON-DISCLOSE
+    - DISCLOSE.REVIEW
+    - DISCLOSE.NON-DISCLOSE
+    - DISCLOSE.NON-DISCLOSE-REVIEW
   REVEAL:
-    - EXPAND
-    - REFINE
-    - REVISE
+    - REVEAL.EXPAND
+    - REVEAL.REFINE
+    - REVEAL.REVISE
   INQUIRE:
-    - LIST
-    - COMPARE
-    - SUBSET
-    - SIMILAR
+    - INQUIRE.LIST
+    - INQUIRE.COMPARE
+    - INQUIRE.SUBSET
+    - INQUIRE.SIMILAR
   NAVIGATE:
-    - BACK
-    - MORE
-    - REPEAT
+    - NAVIGATE.BACK
+    - NAVIGATE.MORE
+    - NAVIGATE.REPEAT
   NOTE:
-    - NOTE-DISLIKE
-    - NOTE-END
-    - NOTE-YES
+    - NOTE.NOTE-DISLIKE
+    - NOTE.NOTE-END
+    - NOTE.NOTE-YES
+  INTERROGATE:
 
 # Possible agent intents with optional description.
 agent_intents:
   END: 
   INQUIRE: 
-    - ELICIT-REVIEW
-    - ELICIT
-    - CLARIFY
+    - INQUIRE.ELICIT-REVIEW
+    - INQUIRE.ELICIT
+    - INQUIRE.CLARIFY
   REVEAL: 
-    - LIST
-    - SUBSET
-    - SIMILAR
+    - REVEAL.LIST
+    - REVEAL.SUBSET
+    - REVEAL.SIMILAR
   TRAVERSE: 
-    - BACK
-    - MORE
-    - REPEAT
+    - TRAVERSE.BACK
+    - TRAVERSE.MORE
+    - TRAVERSE.REPEAT
   RECORD: 
 
 # List of agent intents (including sub-intents) that elicit preferences.
 agent_elicit_intents:
   - INQUIRE
-  - ELICIT-REVIEW
-  - ELICIT
-  - CLARIFY
+  - INQUIRE.*
 
 # List of agent intents (including sub-intents) that are for set retrieval.
 agent_set_retrieval:
@@ -60,71 +60,71 @@ agent_set_retrieval:
 
 # Expected agent intents in response to a (simulated) user intent.
 expected_responses:
-  NON-DISCLOSE:
+  DISCLOSE.NON-DISCLOSE:
     - INQUIRE
     - INQUIRE.ELICIT
-  NON-DISCLOSE-REVIEW:
+  DISCLOSE.NON-DISCLOSE-REVIEW:
     - INQUIRE
     - INQUIRE.ELICIT
   DISCLOSE:
-    - ELICIT
+    - INQUIRE.ELICIT
     - SHOW
-    - LIST
+    - REVEAL.LIST
     - SUGGEST
-    - CLARIFY
-  DISCLOSE-REVIEW:
-    - ELICIT
+    - INQUIRE.CLARIFY
+  DISCLOSE.REVIEW:
+    - INQUIRE.ELICIT
     - SHOW
-    - LIST
+    - REVEAL.LIST
     - SUGGEST
-    - CLARIFY
-  REVISE:
-    - ELICIT
+    - INQUIRE.CLARIFY
+  REVEAL.REVISE:
+    - INQUIRE.ELICIT
     - SHOW
-    - LIST
+    - REVEAL.LIST
     - SUGGEST
-    - CLARIFY
-  REFINE:
-    - ELICIT
+    - INQUIRE.CLARIFY
+  REVEAL.REFINE:
+    - INQUIRE.ELICIT
     - SHOW
-    - LIST
+    - REVEAL.LIST
     - SUGGEST
-    - CLARIFY
-  EXPAND:
-    - ELICIT
+    - INQUIRE.CLARIFY
+  REVEAL.EXPAND:
+    - INQUIRE.ELICIT
     - SHOW
-    - LIST
+    - REVEAL.LIST
     - SUGGEST
-    - CLARIFY
+    - INQUIRE.CLARIFY
   NOTE:
     - RECORD
-    - REPEAT
-  NOTE-END:
+    - TRAVERSE.REPEAT
+  NOTE.NOTE-END:
     - RECORD
-    - REPEAT
-  NOTE-YES:
-    - ELICIT-REVIEW
-  NOTE-DISLIKE:
-    - LIST
-    - ELICIT
+    - TRAVERSE.REPEAT
+  NOTE.NOTE-YES:
+    - INQUIRE.ELICIT-REVIEW
+  NOTE.NOTE-DISLIKE:
+    - REVEAL.LIST
+    - INQUIRE.ELICIT
   INTERROGATE:
     - EXPLAIN
   INQUIRE:
-    - LIST
-    - ELICIT
-  REPEAT:
-    - REPEAT
-  MORE:
-    - LIST
-    - MORE
-  SIMILAR:
-    - ELICIT
-    - SIMILAR
-    - LIST
-  LIST:
-    - LIST
-  SUBSET:
-    - SUBSET
+    - REVEAL.LIST
+    - INQUIRE.ELICIT
+  NAVIGATE.REPEAT:
+    - TRAVERSE.REPEAT
+  NAVIGATE.MORE:
+    - REVEAL.LIST
+    - TRAVERSE.MORE
+  INQUIRE.SIMILAR:
+    - INQUIRE.ELICIT
+    - REVEAL.SIMILAR
+    - REVEAL.LIST
+  INQUIRE.LIST:
+    - REVEAL.LIST
+  INQUIRE.SUBSET:
+    - REVEAL.SUBSET
   NAVIGATE:
     - SHOW
   COMPLETE:
