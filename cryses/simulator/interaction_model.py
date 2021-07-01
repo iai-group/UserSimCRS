@@ -54,7 +54,7 @@ class InteractionModel:
                 user_intent_dist[user_intent][next_user_intent] += 1
 
             for j, (tag, intent) in enumerate(agenda):
-                # Only consider
+                # Only consider agent intent as keys
                 if tag != "AGENT":
                     continue
                 if intent not in intent_dist:
