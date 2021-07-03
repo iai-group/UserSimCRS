@@ -16,7 +16,7 @@
                 "participant": "USER",
                 "utterance": "action, fantasy\n",
                 "intent": "DISCLOSE",
-                "slot_values": "action;fantasy"
+                "slot_values": "GENRE:action;GENRE:fantasy"
             },
             {
                 "participant": "AGENT",
@@ -32,13 +32,13 @@
                 "participant": "USER",
                 "utterance": "something like the lord of the rings and fast and furious\n",
                 "intent": "REVEAL.EXPAND",
-                "slot_values": "lord of the Rings;fast and furious"
+                "slot_values": "TITLE:lord of the Rings;TITLE:fast and furious"
             },
             {
                 "participant": "AGENT",
                 "utterance": "There is a fantasy and action, lord film named \"\"Kung Fu Hustle\"\". Have you seen this one?\n",
                 "intent": "REVEAL.LIST",
-                "slot_values": "Kung Fu Hustle"
+                "slot_values": "TITLE:Kung Fu Hustle"
             },
             {
                 "participant": "USER",
@@ -49,7 +49,7 @@
                 "participant": "AGENT",
                 "utterance": "There is a fantasy and action, lord film named \"\"Conan the Barbarian\"\". Have you seen this one?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "Conan the Barbarian"
+                "slot_values": "TITLE:Conan the Barbarian"
             },
             {
                 "participant": "USER",
@@ -60,7 +60,7 @@
                 "participant": "AGENT",
                 "utterance": "I would like to recommend you a fantasy and action, lord film named \"\"Dracula Untold\"\". Have you watched it?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "Dracula Untold"
+                "slot_values": "TITLE:Dracula Untold"
             },
             {
                 "participant": "USER",
@@ -71,7 +71,7 @@
                 "participant": "AGENT",
                 "utterance": "Sorry, I don't have any fantasy and action, lord films named similar to one. Please select from the list of options to continue.\n",
                 "intent": "SUGGEST",
-                "slot_values": "fantasy;action;lord;similar to one"
+                "slot_values": "GENRE:fantasy;GENRE:action;GENRE:lord;TITLE:similar to one"
             },
             {
                 "participant": "USER",
@@ -82,7 +82,7 @@
                 "participant": "AGENT",
                 "utterance": "Sorry, I couldn't find any fantasy and action, lord films named similar to one from the year  > 2010. Please select from the list of options to continue.\n",
                 "intent": "SUGGEST",
-                "slot_values": "fantasy;action;lord;similar to one"
+                "slot_values": "GENRE:fantasy;GENRE:action;GENRE:lord;TITLE:similar to one"
             },
             {
                 "participant": "USER",
@@ -93,19 +93,19 @@
                 "participant": "AGENT",
                 "utterance": "Sorry, I couldn't find any fantasy and action, lord films named similar to one. Please select from the list of options to continue.\n",
                 "intent": "SUGGEST",
-                "slot_values": "fantasy;action;lord;similar to one"
+                "slot_values": "GENRE:fantasy;GENRE:action;GENRE:lord;TITLE:similar to one"
             },
             {
                 "participant": "USER",
                 "utterance": "No movies named like \"\"one\"\".\n",
                 "intent": "REVEAL.REFINE",
-                "slot_values": "one"
+                "slot_values": "TITLE:one"
             },
             {
                 "participant": "AGENT",
                 "utterance": "I would like to recommend you a fantasy and action, lord film named \"\"Bright\"\". Have you watched it?\n",
                 "intent": "REVEAL.LIST",
-                "slot_values": "fantasy;action;lord;Bright"
+                "slot_values": "GENRE:fantasy;GENRE:action;GENRE:lord;TITLE:Bright"
             },
             {
                 "participant": "USER",
@@ -116,7 +116,7 @@
                 "participant": "AGENT",
                 "utterance": "Sorry, I don't have any action, lord films named similar to thank you. Please select from the list of options to continue.\n",
                 "intent": "FAILED",
-                "slot_values": "action;lord;similar to thank you"
+                "slot_values": "GENRE:action;GENRE:lord;TITLE:similar to thank you"
             },
             {
                 "participant": "USER",
@@ -167,13 +167,13 @@
                 "participant": "USER",
                 "utterance": "How about sci-fi?\n",
                 "intent": "DISCLOSE",
-                "slot_values": "sci-fi"
+                "slot_values": "GENRE:sci-fi"
             },
             {
                 "participant": "AGENT",
                 "utterance": "There are almost 2100 sci-fi films. Can you guide me more to narrow down the search space?\n",
                 "intent": "INQUIRE.ELICIT",
-                "slot_values": "sci-fi"
+                "slot_values": "GENRE:sci-fi"
             },
             {
                 "participant": "AGENT",
@@ -184,13 +184,13 @@
                 "participant": "USER",
                 "utterance": "Cyberpunk\n",
                 "intent": "DISCLOSE",
-                "slot_values": "Cyberpunk"
+                "slot_values": "GENRE:Cyberpunk"
             },
             {
                 "participant": "AGENT",
                 "utterance": "I would like to recommend you a sci-fi, Cyberpunk film named \"\"Blade Runner\"\". Have you watched it?\n",
                 "intent": "REVEAL.LIST",
-                "slot_values": "sci-fi;Cyberpunk;Blade Runner"
+                "slot_values": "GENRE:sci-fi;GENRE:Cyberpunk;TITLE:Blade Runner"
             },
             {
                 "participant": "USER",
@@ -201,7 +201,7 @@
                 "participant": "AGENT",
                 "utterance": "I would like to recommend you a sci-fi, Cyberpunk film named \"\"Akira\"\". Have you watched it?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "sci-fi;Cyberpunk;Akira"
+                "slot_values": "GENRE:sci-fi;GENRE:Cyberpunk;TITLE:Akira"
             },
             {
                 "participant": "USER",
@@ -212,7 +212,7 @@
                 "participant": "AGENT",
                 "utterance": "There is a sci-fi, Cyberpunk film named \"\"Ghost in the Shell 2: Innocence\"\". Have you seen this one?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "sci-fi;Cyberpunk;Ghost in the Shell 2: Innocence"
+                "slot_values": "GENRE:sci-fi;GENRE:Cyberpunk;TITLE:Ghost in the Shell 2: Innocence"
             },
             {
                 "participant": "USER",
@@ -223,7 +223,7 @@
                 "participant": "AGENT",
                 "utterance": "I would like to recommend you a sci-fi, Cyberpunk film named \"\"Gunnm\"\". Have you watched it?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "sci-fi;Cyberpunk;Gunnm"
+                "slot_values": "GENRE:sci-fi;GENRE:Cyberpunk;TITLE:Gunnm"
             },
             {
                 "participant": "USER",
@@ -234,13 +234,13 @@
                 "participant": "AGENT",
                 "utterance": "What would you like to know about \"\"Gunnm\"\"?\n",
                 "intent": "TRAVERSE.REPEAT",
-                "slot_values": "Gunnm"
+                "slot_values": "TITLE:Gunnm"
             },
             {
                 "participant": "USER",
                 "utterance": "duration\n",
                 "intent": "TRAVERSE.REPEAT",
-                "slot_values": "duration"
+                "slot_values": "DURATION:duration"
             },
             {
                 "participant": "AGENT",
@@ -256,25 +256,25 @@
                 "participant": "USER",
                 "utterance": "Recommend me a movie similar to The Lawnmower Man.\n",
                 "intent": "TRAVERSE.REPEAT",
-                "slot_values": "The Lawnmower Man"
+                "slot_values": "TITLE:The Lawnmower Man"
             },
             {
                 "participant": "AGENT",
                 "utterance": "Sorry, I don't have any sci-fi, Cyberpunk films named similar to The Lawnmower Man. Please select from the list of options to continue.\n",
                 "intent": "SUGGEST",
-                "slot_values": "sci-fi;Cyberpunk;The Lawnmower Man"
+                "slot_values": "GENRE:sci-fi;GENRE:Cyberpunk;TITLE:The Lawnmower Man"
             },
             {
                 "participant": "USER",
                 "utterance": "No need of a \"\"Cyberpunk\"\" film.\n",
                 "intent": "REVEAL.REFINE",
-                "slot_values": "Cyberpunk"
+                "slot_values": "GENRE:Cyberpunk"
             },
             {
                 "participant": "AGENT",
                 "utterance": "There is a sci-fi film named \"\"The Lawnmower Man\"\". Have you seen this one?\n",
                 "intent": "REVEAL.LIST",
-                "slot_values": "sci-fi;The Lawnmower Man"
+                "slot_values": "GENRE:sci-fi;TITLE:The Lawnmower Man"
             },
             {
                 "participant": "USER",
@@ -295,19 +295,19 @@
                 "participant": "AGENT",
                 "utterance": "Sorry, I couldn't find any other sci-fi films named similar to The Lawnmower Man. Please select from the list of options to continue.\n",
                 "intent": "SUGGEST",
-                "slot_values": "sci-fi;The Lawnmower Man"
+                "slot_values": "GENRE:sci-fi;TITLE:The Lawnmower Man"
             },
             {
                 "participant": "USER",
                 "utterance": "No movies named like \"\"The Lawnmower Man\"\".\n",
                 "intent": "REVEAL.REFINE",
-                "slot_values": "The Lawnmower Man"
+                "slot_values": "TITLE:The Lawnmower Man"
             },
             {
                 "participant": "AGENT",
                 "utterance": "Any specific director you are looking for? For example, 'Peter Ramsey' or 'Christopher Nolan'.\n",
                 "intent": "INQUIRE.ELICIT",
-                "slot_values": "Peter Ramsey;Christopher Nolan"
+                "slot_values": "DIRECTOR:Peter Ramsey;DIRECTOR:Christopher Nolan"
             },
             {
                 "participant": "USER",
@@ -324,7 +324,7 @@
                 "participant": "AGENT",
                 "utterance": "There is a sci-fi film named \"\"Inception\"\". Have you seen this one?\n",
                 "intent": "REVEAL.LIST",
-                "slot_values": "sci-fi;Inception"
+                "slot_values": "GENRE:sci-fi;TITLE:Inception"
             },
             {
                 "participant": "USER",
@@ -345,31 +345,31 @@
                 "participant": "USER",
                 "utterance": "Conspiracy thriller\n",
                 "intent": "DISCLOSE",
-                "slot_values": "Conspiracy thriller"
+                "slot_values": "TITLE:Conspiracy thriller"
             },
             {
                 "participant": "AGENT",
                 "utterance": "I have found almost 6600 thriller films. Please answer a few more questions to help me find a good movie.\n",
                 "intent": "INQUIRE.ELICIT",
-                "slot_values": "thriller"
+                "slot_values": "GENRE:thriller"
             },
             {
                 "participant": "AGENT",
                 "utterance": "What are you looking for in a movie? Some keywords would be good. For example, 'hidden microphone' or 'crown jewels'.\n",
                 "intent": "INQUIRE.ELICIT",
-                "slot_values": "hidden microphone;crown jewels"
+                "slot_values": "PLOT:hidden microphone;PLOT:crown jewels"
             },
             {
                 "participant": "USER",
                 "utterance": "conspiracy\n",
                 "intent": "DISCLOSE",
-                "slot_values": "conspiracy"
+                "slot_values": "GENRE:conspiracy"
             },
             {
                 "participant": "AGENT",
                 "utterance": "There is a thriller, conspiracy film named \"\"JFK\"\". Have you seen this one?\n",
                 "intent": "REVEAL.LIST",
-                "slot_values": "thriller;conspiracy;;JFK"
+                "slot_values": "GENRE:thriller;GENRE:conspiracy;TITLE:JFK"
             },
             {
                 "participant": "USER",
@@ -380,19 +380,19 @@
                 "participant": "AGENT",
                 "utterance": "What would you like to know about \"\"JFK\"\"?\n",
                 "intent": "TRAVERSE.REPEAT",
-                "slot_values": "JFK"
+                "slot_values": "TITLE:JFK"
             },
             {
                 "participant": "USER",
                 "utterance": "director name\n",
                 "intent": "TRAVERSE.REPEAT",
-                "slot_values": "director name"
+                "slot_values": "DIRECTOR:director"
             },
             {
                 "participant": "AGENT",
                 "utterance": "The director of this movie is Oliver Stone.\n",
                 "intent": "TRAVERSE.REPEAT",
-                "slot_values": "Oliver Stone"
+                "slot_values": "DIRECTOR:Oliver Stone"
             },
             {
                 "participant": "USER",
@@ -413,7 +413,7 @@
                 "participant": "AGENT",
                 "utterance": "There is a film similar to \"\"JFK\"\" named \"\"Die Hard\"\". Have you seen this one?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "JFK;Die Hard"
+                "slot_values": "TITLE:JFK;TITLE:Die Hard"
             },
             {
                 "participant": "USER",
@@ -424,7 +424,7 @@
                 "participant": "AGENT",
                 "utterance": "There is a film similar to \"\"JFK\"\" named \"\"Black Swan\"\". Have you seen this one?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "JFK;Black Swan"
+                "slot_values": "TITLE:JFK;TITLE:Black Swan"
             },
             {
                 "participant": "USER",
@@ -435,7 +435,7 @@
                 "participant": "AGENT",
                 "utterance": "There is a film similar to \"\"JFK\"\" named \"\"Wall Street\"\". Have you seen this one?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "JFK;Wall Street"
+                "slot_values": "TITLE:JFK;TITLE:Wall Street"
             },
             {
                 "participant": "USER",
@@ -476,31 +476,31 @@
                 "participant": "USER",
                 "utterance": "Action\n",
                 "intent": "DISCLOSE",
-                "slot_values": "Action"
+                "slot_values": "GENRE:Action"
             },
             {
                 "participant": "AGENT",
                 "utterance": "There are almost 4700 action films. Can you guide me more to narrow down the search space?\n",
                 "intent": "REVEAL.EXPAND",
-                "slot_values": "action"
+                "slot_values": "GENRE:action"
             },
             {
                 "participant": "AGENT",
                 "utterance": "What are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'turkish military'.\n",
                 "intent": "REVEAL.EXPAND",
-                "slot_values": "criminal mastermind;turkish military"
+                "slot_values": "GENRE:criminal mastermind;GENRE:turkish military"
             },
             {
                 "participant": "USER",
                 "utterance": "Prison break",
                 "intent": "REVEAL.REFINE",
-                "slot_values": "Prison break"
+                "slot_values": "GENRE:Prison break"
             },
             {
                 "participant": "AGENT",
                 "utterance": "I would like to recommend you an action, Prison break film named \"\"The Count of Monte Cristo\"\". Have you watched it?\n",
                 "intent": "REVEAL.LIST",
-                "slot_values": "The Count of Monte Cristo"
+                "slot_values": "TITLE:The Count of Monte Cristo"
             },
             {
                 "participant": "USER",
@@ -521,7 +521,7 @@
                 "participant": "AGENT",
                 "utterance": "I would like to recommend you a  film similar to \"\"The Count of Monte Cristo\"\"  named \"\"V for Vendetta\"\". Have you watched it?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "The Count of Monte Cristo;V for Vendetta"
+                "slot_values": "TITLE:The Count of Monte Cristo;TITLE:V for Vendetta"
             },
             {
                 "participant": "USER",
@@ -532,7 +532,7 @@
                 "participant": "AGENT",
                 "utterance": "I would like to recommend you a  film similar to \"\"The Count of Monte Cristo\"\"  named \"\"Captain Blood\"\". Have you watched it?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "The Count of Monte Cristo;Captain Blood"
+                "slot_values": "TITLE:The Count of Monte Cristo;TITLE:Captain Blood"
             },
             {
                 "participant": "USER",
@@ -553,31 +553,31 @@
                 "participant": "USER",
                 "utterance": "Sports\n",
                 "intent": "DISCLOSE",
-                "slot_values": "Sports"
+                "slot_values": "GENRE:Sports"
             },
             {
                 "participant": "AGENT",
                 "utterance": "There are almost 900 sport films. Please answer a few more questions to help me find a good movie.\n",
                 "intent": "REVEAL.EXPAND",
-                "slot_values": "sport"
+                "slot_values": "GENRE:sport"
             },
             {
                 "participant": "AGENT",
                 "utterance": "Can you give me a few keywords? For example, 'racing driver' or 'car racing'.\n",
                 "intent": "REVEAL.EXPAND",
-                "slot_values": "racing driver;car racing"
+                "slot_values": "GENRE:racing driver;GENRE:car racing"
             },
             {
                 "participant": "USER",
                 "utterance": "Soccer\n",
                 "intent": "DISCLOSE",
-                "slot_values": "Soccer"
+                "slot_values": "GENRE:Soccer"
             },
             {
                 "participant": "AGENT",
                 "utterance": "There is a sport, Soccer film named \"\"Montevideo: Taste of a Dream\"\". Have you seen this one?\n",
                 "intent": "REVEAL.LIST",
-                "slot_values": "Sports;Soccer;Montevideo: Taste of a Dream"
+                "slot_values": "GENRE:Sports;GENRE:Soccer;TITLE:Montevideo: Taste of a Dream"
             },
             {
                 "participant": "USER",
@@ -588,7 +588,7 @@
                 "participant": "AGENT",
                 "utterance": "There is a sport, Soccer film named \"\"Les yeux dans les Bleus\"\". Have you seen this one?\n",
                 "intent": "REVEAL.SIMILAR",
-                "slot_values": "sport;Soccer;Les yeux dans les Bleus"
+                "slot_values": "GENRE:sport;GENRE:Soccer;TITLE:Les yeux dans les Bleus"
             },
             {
                 "participant": "USER",
