@@ -31,8 +31,10 @@ class InteractionModel:
         # Keep track of the current user intent.
         self._current_intent = self._agenda.pop()
 
-    def intent_distribution(self, annotated_conversations: List[Dict]) -> Tuple[Dict, Dict]:
-        """Distill user intent distributions based on agenda list.
+    def intent_distribution(
+        self, annotated_conversations: List[Dict]
+    ) -> Tuple[Dict, Dict]:
+        """Distill user intent distributions based on conversations.
 
         Arg:
             Annotated_conversations: list of annotated conversations.
@@ -41,8 +43,12 @@ class InteractionModel:
             Intent distributions: {user of agent intent: {next_user_intent: occurrence}}
         """
         user_intent_dist, intent_dist = dict(), dict()
-        for agenda in annotated_conversations:
-            user_agenda = [u["intent"] for u in agenda["conversation"] if u["participant"] == "USER"]
+        for annotated_conversation in annotated_conversations:
+            user_agenda = [
+                u["intent"]
+                for u in annotated_conversation["conversation"]
+                if u["participant"] == "USER"
+            ]
             for i, user_intent in enumerate(user_agenda):
                 if user_intent not in user_intent_dist:
                     user_intent_dist[user_intent] = dict()
@@ -53,7 +59,9 @@ class InteractionModel:
                     user_intent_dist[user_intent][next_user_intent] = 0
                 user_intent_dist[user_intent][next_user_intent] += 1
 
-            for j, utterance_record in enumerate(agenda["conversation"]):
+            for j, utterance_record in enumerate(
+                annotated_conversation["conversation"]
+            ):
                 # Only consider agent intent as keys
                 if utterance_record["participant"] != "AGENT":
                     continue
@@ -62,7 +70,9 @@ class InteractionModel:
                     intent_dist[intent] = dict()
                 # TODO: consider the case when the next intent is not user intent.
                 next_user_intent = (
-                    agenda["conversation"][j + 1]["intent"] if j < len(agenda["conversation"]) - 1 else self.START_INTENT
+                    annotated_conversation["conversation"][j + 1]["intent"]
+                    if j < len(annotated_conversation["conversation"]) - 1
+                    else self.START_INTENT
                 )
                 if next_user_intent not in intent_dist[intent]:
                     intent_dist[intent][next_user_intent] = 0
