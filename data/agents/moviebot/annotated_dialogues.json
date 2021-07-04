@@ -32,7 +32,7 @@
                 "participant": "USER",
                 "utterance": "something like the lord of the rings and fast and furious\n",
                 "intent": "REVEAL.EXPAND",
-                "slot_values": "TITLE:lord of the Rings;TITLE:fast and furious"
+                "slot_values": "TITLE:lord of the rings;TITLE:fast and furious"
             },
             {
                 "participant": "AGENT",
