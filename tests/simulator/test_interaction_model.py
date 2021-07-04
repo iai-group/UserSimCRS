@@ -131,17 +131,17 @@ def test_intent_distribution(im_cir6, annotated_conversations):
     user_intent_distribution, intent_distribution = im_cir6.intent_distribution(
         annotated_conversations
     )
-    exepcted_user_intent_distribution = {
+    expected_user_intent_distribution = {
         "DISCLOSE.NON-DISCLOSE": {"Intent-A": 3},
         "Intent-A": {"Intent-B": 1, "Intent-A": 1, "Intent-C": 2},
         "Intent-B": {"Intent-C": 1},
-        "Intent-C": {"STOP": 3, "Intent-C": 1},
+        "Intent-C": {"STOP": 3, "Intent-C": 1}
     }
-    exepcted_intent_distribution = {
+    expected_intent_distribution = {
         "INQUIRE": {"Intent-A": 4, "Intent-B": 1, "Intent-C": 4}
     }
-    assert user_intent_distribution == exepcted_user_intent_distribution
-    assert intent_distribution == exepcted_intent_distribution
+    assert user_intent_distribution == expected_user_intent_distribution
+    assert intent_distribution == expected_intent_distribution
 
 
 def test_next_intent(im_cir6, annotated_conversations):
