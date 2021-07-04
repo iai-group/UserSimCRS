@@ -156,6 +156,7 @@ class InteractionModel:
 
         Args:
             Intent_str: str of current user intent.
+            Intent_dist: intent distributions.
 
         Returns:
             Next user intent string based on probability distribution.
