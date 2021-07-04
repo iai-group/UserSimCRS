@@ -211,7 +211,7 @@ class InteractionModel:
             updates the current intent.
 
         Args:
-            Agent_intent: Agent's intent
+            Agent_intent: Agent's intent.
 
         Returns:
             The current intent (the next intent).
@@ -226,5 +226,4 @@ class InteractionModel:
             self._current_intent = self.next_intent(
                 agent_intent, self._intent_distribution
             )
-        print(self._agenda.pop())
         return self._current_intent
