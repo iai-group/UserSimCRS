@@ -81,7 +81,7 @@ class InteractionModel:
         return user_intent_dist, intent_dist
 
     def initialize_agenda(self) -> List:
-        """Initializes the action agenda.
+        """Initializes user agenda.
 
         Step1: Load all the dialogues with intents and generate a map:
                 intent_map = {
