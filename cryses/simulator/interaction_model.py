@@ -49,6 +49,9 @@ class InteractionModel:
                 for u in annotated_conversation["conversation"]
                 if u["participant"] == "USER"
             ]
+            # Makes sure all the user agenda end with "COMPLETE".
+            if user_agenda[-1] != self.STOP_INTENT:
+                user_agenda.append(self.STOP_INTENT)
             for i, user_intent in enumerate(user_agenda):
                 if user_intent not in user_intent_dist:
                     user_intent_dist[user_intent] = dict()
