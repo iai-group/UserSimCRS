@@ -7,42 +7,114 @@ from cryses.simulator.interaction_model import InteractionModel
 
 # List of user intents in agenda
 @pytest.fixture
-def agenda_list():
+def annotated_conversations():
     return [
-        [
-            ("USER", "DISCLOSE.NON-DISCLOSE"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-A"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-B"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-C"),
-        ],
-        [
-            ("USER", "DISCLOSE.NON-DISCLOSE"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-A"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-A"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-C"),
-        ],
-        [
-            ("USER", "DISCLOSE.NON-DISCLOSE"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-A"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-C"),
-            ("AGENT", "INQUIRE"),
-            ("USER", "Intent-C"),
-        ],
+        {
+            "conversation ID": "1",
+            "conversation": [
+                {
+                    "participant": "USER",
+                    "intent": "DISCLOSE.NON-DISCLOSE"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-A"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-B"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-C"
+                }
+            ]
+        },
+        {
+            "conversation ID": "2",
+            "conversation": [
+                {
+                    "participant": "USER",
+                    "intent": "DISCLOSE.NON-DISCLOSE"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-A"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-A"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-C"
+                }
+            ]
+        },
+        {
+            "conversation ID": "3",
+            "conversation": [
+                {
+                    "participant": "USER",
+                    "intent": "DISCLOSE.NON-DISCLOSE"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-A"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-C"
+                },
+                {
+                    "participant": "AGENT",
+                    "intent": "INQUIRE"
+                },
+                {
+                    "participant": "USER",
+                    "intent": "Intent-C"
+                }
+            ]
+        }
     ]
 
 
 # CIR6 Interaction model.
 @pytest.fixture
-def im_cir6(agenda_list):
-    return InteractionModel("../../data/interaction_models/cir6.yaml", agenda_list)
+def im_cir6(annotated_conversations):
+    return InteractionModel("../../data/interaction_models/cir6.yaml", annotated_conversations)
 
 
 def test_is_agent_intent_elicit(im_cir6):
@@ -55,9 +127,9 @@ def test_is_agent_intent_set_retrieval(im_cir6):
     assert not im_cir6.is_agent_intent_set_retrieval("INQUIRE")
 
 
-def test_intent_distribution(im_cir6, agenda_list):
+def test_intent_distribution(im_cir6, annotated_conversations):
     user_intent_distribution, intent_distribution = im_cir6.intent_distribution(
-        agenda_list
+        annotated_conversations
     )
     exepcted_user_intent_distribution = {
         "DISCLOSE.NON-DISCLOSE": {"Intent-A": 3},
@@ -72,9 +144,9 @@ def test_intent_distribution(im_cir6, agenda_list):
     assert intent_distribution == exepcted_intent_distribution
 
 
-def test_next_intent(im_cir6, agenda_list):
+def test_next_intent(im_cir6, annotated_conversations):
     user_intent_distribution, intent_distribution = im_cir6.intent_distribution(
-        agenda_list
+        annotated_conversations
     )
     assert im_cir6.next_intent("DISCLOSE.NON-DISCLOSE", user_intent_distribution)
     assert im_cir6.next_intent("Intent-A", user_intent_distribution)

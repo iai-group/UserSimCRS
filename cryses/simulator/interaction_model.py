@@ -14,7 +14,7 @@ class InteractionModel:
     START_INTENT = "DISCLOSE.NON-DISCLOSE"
     STOP_INTENT = "STOP"
 
-    def __init__(self, config_file, agenda_list: List[List]) -> None:
+    def __init__(self, config_file, annotated_conversations: List[List]) -> None:
         """Initializes the interaction model."""
         # Load interaction model.
         if not os.path.isfile(config_file):
@@ -25,24 +25,24 @@ class InteractionModel:
         (
             self._user_intent_distribution,
             self._intent_distribution,
-        ) = self.intent_distribution(agenda_list)
+        ) = self.intent_distribution(annotated_conversations)
         # Initialize agenda.
         self._agenda = self.initialize_agenda()
         # Keep track of the current user intent.
         self._current_intent = self._agenda.pop()
 
-    def intent_distribution(self, agenda_list: List[List]) -> Tuple[Dict, Dict]:
+    def intent_distribution(self, annotated_conversations: List[Dict]) -> Tuple[Dict, Dict]:
         """Distill user intent distributions based on agenda list.
 
         Arg:
-            Agenda_list: list of user agenda of intents.
+            Annotated_conversations: list of annotated conversations.
 
         Returns:
             Intent distributions: {user of agent intent: {next_user_intent: occurrence}}
         """
         user_intent_dist, intent_dist = dict(), dict()
-        for agenda in agenda_list:
-            user_agenda = [i[1] for i in agenda if i[0] == "USER"]
+        for agenda in annotated_conversations:
+            user_agenda = [u["intent"] for u in agenda["conversation"] if u["participant"] == "USER"]
             for i, user_intent in enumerate(user_agenda):
                 if user_intent not in user_intent_dist:
                     user_intent_dist[user_intent] = dict()
@@ -53,15 +53,16 @@ class InteractionModel:
                     user_intent_dist[user_intent][next_user_intent] = 0
                 user_intent_dist[user_intent][next_user_intent] += 1
 
-            for j, (tag, intent) in enumerate(agenda):
+            for j, utterance_record in enumerate(agenda["conversation"]):
                 # Only consider agent intent as keys
-                if tag != "AGENT":
+                if utterance_record["participant"] != "AGENT":
                     continue
+                intent = utterance_record["intent"]
                 if intent not in intent_dist:
                     intent_dist[intent] = dict()
                 # TODO: consider the case when the next intent is not user intent.
                 next_user_intent = (
-                    agenda[j + 1][1] if j < len(agenda) - 1 else self.START_INTENT
+                    agenda["conversation"][j + 1]["intent"] if j < len(agenda["conversation"]) - 1 else self.START_INTENT
                 )
                 if next_user_intent not in intent_dist[intent]:
                     intent_dist[intent][next_user_intent] = 0
