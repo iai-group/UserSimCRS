@@ -114,7 +114,7 @@ def annotated_conversations():
 # CIR6 Interaction model.
 @pytest.fixture
 def im_cir6(annotated_conversations):
-    return InteractionModel("../../data/interaction_models/cir6.yaml", annotated_conversations)
+    return InteractionModel("data/interaction_models/cir6.yaml", annotated_conversations)
 
 
 def test_is_agent_intent_elicit(im_cir6):
@@ -161,6 +161,5 @@ def test_initialize_agenda(im_cir6):
 
 
 def test_update_agenda(im_cir6):
-    agenda_intent = "INQUIRE"
-    next_intent = im_cir6.update_agenda(agenda_intent)
+    next_intent = im_cir6.update_agenda("INQUIRE")
     assert next_intent

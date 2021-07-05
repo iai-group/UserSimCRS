@@ -43,6 +43,7 @@ class InteractionModel:
             Intent distributions: {user of agent intent: {next_user_intent: occurrence}}
         """
         user_intent_dist, intent_dist = dict(), dict()
+        # Extracts conjoint user intent pairs from conversations.
         for annotated_conversation in annotated_conversations:
             user_agenda = [
                 u["intent"]
@@ -59,6 +60,7 @@ class InteractionModel:
                     user_intent_dist[user_intent][next_user_intent] = 0
                 user_intent_dist[user_intent][next_user_intent] += 1
 
+            # Extracts conjoint agent intent and user intent pairs from conversations.
             for j, utterance_record in enumerate(
                 annotated_conversation["conversation"]
             ):
@@ -149,7 +151,7 @@ class InteractionModel:
         """
         return agent_intent in self._config["agent_set_retrieval"]
 
-    def next_intent(self, intent_str: str, intent_dist: dict) -> str:
+    def next_intent(self, intent_str: str, intent_dist: Dict[str, Dict]) -> str:
         """Predicts the next user intent.
 
         Given current_intent, we determine the next intent (either next_intent1 or next_intent2) by probabilities.
@@ -176,15 +178,15 @@ class InteractionModel:
         for next_intent, next_intent_occurrence in intent_map.items():
             d.append(next_intent_occurrence / next_intent_occurences_sum)
             next_intents.append(next_intent)
-        return self.p_sample(p_random, d, next_intents)
+        return self.__sample_random_intent(p_random, d, next_intents)
 
     @staticmethod
-    def p_sample(p: float, d: List, items: List) -> Any:
+    def __sample_random_intent(p: float, d: List[float], items: List[str]) -> Any:
         """Determines the next item based on a randomly generated probability.
 
         Args:
             p: a randomly generated uniform probability.
-            d: list of probablitities of items.
+            d: list of probabilities of items.
             items: items to be sampled from.
 
         Return:
