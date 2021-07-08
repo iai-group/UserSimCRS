@@ -26,6 +26,7 @@ user_intents:
     - NOTE.NOTE-END
     - NOTE.NOTE-YES
   INTERROGATE:
+  COMPLETE:
 
 # Possible agent intents with optional description.
 agent_intents:
@@ -42,7 +43,8 @@ agent_intents:
     - TRAVERSE.BACK
     - TRAVERSE.MORE
     - TRAVERSE.REPEAT
-  RECORD: 
+  RECORD:
+  END:
 
 # List of agent intents (including sub-intents) that elicit preferences.
 agent_elicit_intents:
