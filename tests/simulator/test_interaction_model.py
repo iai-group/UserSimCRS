@@ -6,9 +6,7 @@ from cryses.simulator.interaction_model import InteractionModel
 
 
 # List of user intents in agenda
-@pytest.fixture
-def annotated_conversations():
-    return [
+ANNOTATED_CONVERSATIONS = [
         {
             "conversation ID": "1",
             "conversation": [
@@ -113,8 +111,8 @@ def annotated_conversations():
 
 # CIR6 Interaction model.
 @pytest.fixture
-def im_cir6(annotated_conversations):
-    return InteractionModel("data/interaction_models/cir6.yaml", annotated_conversations)
+def im_cir6():
+    return InteractionModel("data/interaction_models/cir6.yaml", ANNOTATED_CONVERSATIONS)
 
 
 def test_is_agent_intent_elicit(im_cir6):
@@ -127,9 +125,9 @@ def test_is_agent_intent_set_retrieval(im_cir6):
     assert not im_cir6.is_agent_intent_set_retrieval("INQUIRE")
 
 
-def test_intent_distribution(im_cir6, annotated_conversations):
+def test_intent_distribution(im_cir6):
     user_intent_distribution, intent_distribution = im_cir6.intent_distribution(
-        annotated_conversations
+        ANNOTATED_CONVERSATIONS
     )
     expected_user_intent_distribution = {
         "DISCLOSE.NON-DISCLOSE": {"Intent-A": 3},
@@ -144,11 +142,12 @@ def test_intent_distribution(im_cir6, annotated_conversations):
     assert intent_distribution == expected_intent_distribution
 
 
-def test_next_intent(im_cir6, annotated_conversations):
+def test_next_intent(im_cir6):
     user_intent_distribution, intent_distribution = im_cir6.intent_distribution(
-        annotated_conversations
+        ANNOTATED_CONVERSATIONS
     )
     assert im_cir6.next_intent("DISCLOSE.NON-DISCLOSE", user_intent_distribution)
+    # Note the next intent is picked randomly, so we only check its eixistence.
     assert im_cir6.next_intent("Intent-A", user_intent_distribution)
     assert im_cir6.next_intent("Intent-C", user_intent_distribution)
     assert im_cir6.next_intent("Intent-B", user_intent_distribution) == "Intent-C"
