@@ -2,7 +2,7 @@
 
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.nlu import NLU
-from dialoguekit.user.preference_model import PreferenceModel
+from cryses.simulator.preference_model import PreferenceModel
 from cryses.simulator.user_simulator import UserSimulator
 from dialoguekit.core.utterance import Utterance
 
@@ -59,27 +59,34 @@ class AgendaBasedSimulator(UserSimulator):
         # Run agent utterance through NLU.
         self.__nlu.annotate_slot_values(agent_utterance)
         agent_intent = self.__nlu.get_intent(agent_utterance)
+        agent_annotations = agent_utterance.get_annotations()
 
         # Response generation (intent and slot-values).
         response_intent = None
         response_slot_values = None
+        response_preference = None
 
         self.__interaction_model.update_agenda(agent_intent)
         response_intent = self.__interaction_model.current_intent
 
         # Agent wants to elicit preferences.
         if self.__interaction_model.is_agent_intent_elicit(agent_intent):
-            # read slots from preference_model (updates slot_values);
-            # rely on response intent to determin the slots, e.g., refinement needs replacement items; while expand will need extra item
-            response_slot_values = self.__preference_model.next_user_slots(agent_intent, agent_slot_values)
+            # Read entities (slots) from preference_model.
+            # The choice of slots depends on the agent intent, e.g., REFINE
+            # needs replacement items; while EXPAND will need an extra item.
+            response_slot_values = self.__preference_model.get_next_user_slots(
+                agent_intent, agent_annotations
+            )
         # Agent is recommending items.
         elif self.__interaction_model.is_agent_intent_set_retrieval(agent_intent):
-            # Determine response/rating based on entities and preference_model (rates or likes)
-            ratings = self.__preference_model.update_agent_slots(agent_slot_values)
-            # Update the user preferences
-            self.__preference_model.update_preferences(agent_slot_values, ratings)
+            # Determine user preference for the agent's recommendation.
+            response_preference = self.__preference_model.get_preference(
+                agent_utterance
+            )
 
         # Generating natural language response through NLG.
-        response_text = self.__nlg.generate_utterance_text(response_intent, response_slot_values, ratings)
+        response_text = self.__nlg.generate_utterance_text(
+            response_intent, response_slot_values, response_preference
+        )
 
         return Utterance(response_text, response_intent)
