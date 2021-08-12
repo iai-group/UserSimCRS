@@ -1,83 +1,171 @@
-"""Abstract class for user preference modeling.
+"""User preference modeling component.
 
-Currently, there is no difference made between "seen" and "liked" information.
+This class implements the "single item preference" and "personal knowledge
+graph" approaches in (Zhang & Balog, KDD'20).
+
+Preferences are stored for (1) items in the collection and (2) slot-value pairs
+(for slots defined in the ontology).  Preferences are represented as real values
+in [-1,1], where zero corresponds to neutral.
+Missing preferences are inferred running time (depending on the model type).
 """
 
+import random
+import string
+from enum import Enum
 from typing import Dict, List
 
-from dialoguekit.core.annotation import Annotation
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
+from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.ontology import Ontology
-from dialoguekit.core.utterance import Utterance
+from dialoguekit.user.user_preferences import UserPreferences
+
+
+class PreferenceModelVariant(Enum):
+    """Corresponds to the different preference model variants in
+    (Zhang & Balog, KDD'20).
+    """
+
+    SIP = 0  # Single item preference
+    PKG = 1  # Personal knowledge graphs
 
 
 class PreferenceModel:
     """Representation of the user's preferences."""
 
-    def __init__(self, ontology: Ontology) -> None:
-        """Initializes the user's preference model.
+    def __init__(
+        self,
+        ontology: Ontology,
+        item_collection: ItemCollection,
+        historical_ratings: Ratings,
+        model_variant: PreferenceModelVariant,
+        historical_user_id: str = None,
+    ) -> None:
+        """Generates a simulated user, by assigning initial preferences based on
+        historical ratings according to the specified model type (SIP or PKG).
+
+        Further preferences are inferred along the way as the simulated user is
+        being prompted by the agent for preferences.
 
         Args:
-            ontology: An ontology.
+            ontology: Ontology.
+            item_collection: Item collection.
+            historical_ratings: Historical ratings.
+            model_variant: Preference model variant (SIP or PKG).
+            historical_user_id (Optional): If provided, the simulated user is
+                based on this particular historical user; otherwise, it is based
+                on a randomly sampled user. This is mostly added to make the
+                class testable.
         """
-        # For each type of entity in the ontology, the user can have
-        # preferences, which are stored as entity-preference pairs.
-        self.__preferences = {
-            class_name: {} for class_name in ontology.get_slot_names()
-        }
+        self._ontology = ontology
+        self._item_collection = item_collection
+        self._historical_ratings = historical_ratings
+        self._model_variant = model_variant
 
-    # def load_db(self) -> None:
-    #     """Loads db/csv file as backend knowledge."""
-    #     pass
+        # If historical user ID is not provided, randomly pick one.
+        self._historical_user_id = (
+            historical_user_id or self._historical_ratings.get_random_user_id()
+        )
+        # Create a random user ID (in {real_user_id}_{3_random_chars} format).
+        random_str = "".join(random.choices(string.ascii_uppercase, k=3))
+        self._user_id = f"{self._historical_user_id}_{random_str}"
 
-    def initialize_preferences(self) -> None:
-        """Initializes the user's preferences via sampling items."""
-        # We assume item-based preferences.
-        # We infer preference for classes based on item attributes.
-        pass
+        # Store item and slot-value preferences separately.
+        self._item_preferences = UserPreferences(self._user_id)
+        self._slotvalue_preferences = UserPreferences(self._user_id)
 
-    def set_preference(self, class_name: str, entity: str, preference: int) -> None:
-        """Sets (or updates) preference for a given entity.
+        # Initialize item preferences by sampling from historical ratings.
+        self._initialize_item_preferences()
+
+    def _initialize_item_preferences(self) -> None:
+        """Initializes the simulated user's preferences on items by sampling
+        from ratings of a historical user."""
+        # TODO Update, as currently all historical item preferences are copied;
+        # instead, there should only be a sample of them. Note that that'll make
+        # testing a bit tricky...
+        for item_id, rating in self._historical_ratings.get_user_ratings(
+            self._historical_user_id
+        ).items():
+            self._item_preferences.set_preference("ITEM_ID", item_id, rating)
+
+    def get_item_preference(self, item_id: str) -> float:
+        """Returns preference for a given item.
+
+        This is used to answer questions like "Did you like The Fast and the
+        Furious?" (assuming the user has seen it).
 
         Args:
-            class_name: Name of class in the ontology.
-            entity: Name of the entity for which the preference is set.
-            preference: Preference, represented as an int (negative
-                value=dislike, 0=neutral, positive value=like).
+            item_id: Item ID.
+
+        Returns:
+            Preference on an item as a float in [-1,1].
         """
-        self.__preferences[class_name][entity] = preference
-
-    def get_entity_preference(self, class_name: str, entity: str) -> int:
-        """Determines the preference for a given entity.
-
-        Args:
-            class_name: Class.
-            entity: Entity.
-
-        Return: Preference.
-        """
-        # TODO: Move this part to CRYSES?
-        # If the entity is not in the preference model, we need to infer it.
-        if entity not in self.__preferences[class_name]:
-            # TODO: infer preference (informed by ontology)
-            self.__preferences[class_name][entity] = 0
-        return self.__preferences[class_name][entity]
-
-    def get_preference(self, agent_utterance: Utterance) -> int:
-        """Determines the preference with regards to an agent recommendation.
-        For simplicity, for the time being it's a single number."""
-        preference = 0
-        for annotation in agent_utterance.get_annotations():
-            # Infer preference for the given annotation.
-            entity_preference = self.get_entity_preference(annotation.slot, annotation.value)
-        # TODO: determine overall preference
+        preference = self._item_preferences.get_preference("ITEM_ID", item_id)
+        if not preference:
+            # TODO Infer and set item preference based on model variant.
+            # See: https://github.com/iai-group/cryses/issues/21
+            preference = 0
+            # Stores inferred preference.
+            self._item_preferences.set_preference(
+                "ITEM_ID", item_id, preference
+            )
         return preference
 
+    def get_slotvalue_preference(self, slot: str, value: str) -> float:
+        """Returns preference for a given slot-value pair.
+
+        For example, to answer the question "Do you like action movies?", we'd
+        call `get_slotvalue_preference("GENRE", "action").
+
+        Args:
+            slot: Slot name.
+            value: Slot value.
+
+        Returns:
+            Preference on slot-value pair as a float in [-1,1].
+        """
+        preference = self._slotvalue_preferences.get_preference(slot, value)
+        if not preference:
+            # TODO Infer and set slot-value preference based on model variant.
+            # See: https://github.com/iai-group/cryses/issues/21
+            preference = 0
+            # Stores inferred preference.
+            self._slotvalue_preferences.set_preference(slot, value, preference)
+        return preference
+
+    def get_slot_preference(self, slot: str) -> float:
+        """Returns preference for a given slot.
+
+        This is used to answer questions like "What kind of movies do you
+        like?", where we'd call `get_slot_preference("GENRE").
+
+        Args:
+            slot: Slot name.
+
+        Returns:
+            Preference on slot as a value-preference pair.
+        """
+        # Fetch value-preference pairs for a given slot.
+        preferences = self._slotvalue_preferences.get_preference(slot)
+        if not preferences:
+            # TODO Infers and sets slot preference based on model variant.
+            # See: https://github.com/iai-group/cryses/issues/21
+            pass
+        # TODO Need to select which slot value to return if the user has
+        # preferences for multiple ones.
+        slot = "TDB"
+        preference = 0
+        return slot, preference
+
     def get_next_user_slots(
-        self, agent_intent: Intent, agent_slot_values: List[Annotation]
+        self, agent_intent: Intent, agent_slot_values: List[SlotValueAnnotation]
     ) -> Dict:
         """Determines the next user slots via loading from the initialized
-        preferences or sampling."""
-        # TODO
-        pass
+        preferences or sampling.
 
+        This method is called by the simulated user's NLU.
+        """
+        # TODO Figure out what could be delegated to NLU, so that this part is
+        # kept as simple as possible. Use get_slot_preference() if possible.
+        pass
