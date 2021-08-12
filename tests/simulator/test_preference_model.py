@@ -88,17 +88,6 @@ def test_get_item_preference_sip(preference_model_sip):
     # Then
     assert preference in [1, -1]
 
-
-def test_get_item_preference_pkg(preference_model_pkg):
-    # Given
-    item_id = "10000"
-
-    # When
-    preference = preference_model_pkg.get_item_preference(item_id)
-
-    # Then
-    assert preference in [1, -1]
-
 def test_get_item_preference_pkg(preference_model_pkg):
     # Given
     item_id = "100"  # geners = ['Drama', 'Thriller']
