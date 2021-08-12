@@ -31,12 +31,94 @@ def preference_model_sip():
         historical_user_id="13",
     )
 
+# Peronal Knowledge Graph preference model variant.
+@pytest.fixture
+def preference_model_pkg():
+    ontology = Ontology(ONTOLOGY_YAML_FILE)
+    item_collection = ItemCollection()
+    item_collection.load_items_csv(ITEMS_CSV_FILE, ["ID", "NAME", "genres"])
+    ratings = Ratings()
+    ratings.load_ratings_csv(RATINGS_CSV_FILE)
+    return PreferenceModel(
+        ontology,
+        item_collection,
+        ratings,
+        PreferenceModelVariant.PKG,
+        historical_user_id="13",
+    )
+
 
 def test_initial_item_preferences_sip(preference_model_sip):
     # TODO this is the value in the original rating file, but it'll be a bit
     # tricky to test when only a sample of the original ratings is used.
     assert preference_model_sip.get_item_preference("356") == 1.0
 
+
+def test_get_slotvalue_preference_sip(preference_model_sip):
+    # Given
+    slot = "GENRE"
+    value = "Comedy"
+
+    # When
+    preference = preference_model_sip.get_slotvalue_preference(slot, value)
+
+    # Then
+    assert preference in [1, -1]
+
+
+def test_get_slotvalue_preference_pkg(preference_model_pkg):
+    # Given
+    slot = "GENRE"
+    value = "Drama"
+
+    # When
+    preference = preference_model_sip.get_slotvalue_preference(slot, value)
+
+    # Then
+    assert preference == 1
+
+
+def test_get_item_preference_sip(preference_model_sip):
+    # Given
+    item_id = "10"
+
+    # When
+    preference = preference_model_sip.get_item_preference(item_id)
+
+    # Then
+    assert preference in [1, -1]
+
+
+def test_get_item_preference_pkg(preference_model_pkg):
+    # Given
+    item_id = "10000"
+
+    # When
+    preference = preference_model_pkg.get_item_preference(item_id)
+
+    # Then
+    assert preference in [1, -1]
+
+def test_get_item_preference_pkg(preference_model_pkg):
+    # Given
+    item_id = "100"  # geners = ['Drama', 'Thriller']
+
+    # When (Both Drama and Thriller are favored as 1)
+    preference = preference_model_pkg.get_item_preference(item_id)
+
+    # Then
+    assert preference == 1
+
+def test_get_slot_preference_pkg(preference_model_pkg):
+    # Given
+    slot = "GENRE"
+
+    # When
+    slot, preference = preference_model_pkg.get_slot_preference()
+
+    # Then
+    assert isinstance(slot, str)
+    assert preference in [-1, 0, 1]
 
 # TODO Write tests for get_item_preference(), get_slotvalue_preference,
 # and get_slot_preference()
