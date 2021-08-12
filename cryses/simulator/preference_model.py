@@ -140,7 +140,7 @@ class PreferenceModel:
             elif self._model_variant == PreferenceModelVariant.PKG:
                 # Item does not exist.
                 if not self._item_collection.exists(item_id):
-                    raise ValueError("Item is not in item collection!")
+                    raise ValueError("Item does not exist in item collection!")
                 # Get current item's properties in a list, e.g., genres.
                 current_item_properties = (
                     self._item_collection.get_item(item_id)
@@ -185,7 +185,7 @@ class PreferenceModel:
         if not preference:
             # Infer and set slot-value preference based on model variant.
             if self._model_variant == PreferenceModelVariant.SIP:
-                preference = random.choice([-1, 0, 1])
+                preference = random.choice([-1, 1])
             elif self._model_variant == PreferenceModelVariant.PKG:
                 # Cache all the ratings for properties based on items, e.g., {"action": [-1, -1, -1]}.
                 property_preferences = self._get_property_preferences()
