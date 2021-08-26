@@ -13,6 +13,7 @@ import random
 import string
 from enum import Enum
 from typing import Dict, List
+from collections import defaultdict
 
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.core.recsys.ratings import Ratings
@@ -89,6 +90,36 @@ class PreferenceModel:
         ).items():
             self._item_preferences.set_preference("ITEM_ID", item_id, rating)
 
+    def _get_property_preferences(
+        self, property: str = "genres"
+    ) -> Dict[str, float]:
+        """Gets the property (e.g, genre) preferences based on rated items.
+
+        This is used to infer both item and slotvalue preference.
+
+        Returns:
+            The averaged ratings based on rated items.
+        """
+        property_ratings = defaultdict(list)
+        # Cache all the ratings for properties based on items, e.g., {"action": [-1, -1, -1]}.
+        for (
+            hist_item_id,
+            rating,
+        ) in self._item_preferences.get_preferences("ITEM_ID").items():
+            for genre in (
+                self._item_collection.get_item(hist_item_id)
+                .get_property(property)
+                .split("|")
+            ):
+                property_ratings[genre].append(rating)
+        property_preferences = dict()
+        # Calculate the averaged rating for each genre.
+        for genre, rating_list in property_ratings.items():
+            property_preferences[genre] = round(
+                sum(rating_list) / len(rating_list)
+            )
+        return property_preferences
+
     def get_item_preference(self, item_id: str) -> float:
         """Returns preference for a given item.
 
@@ -103,10 +134,35 @@ class PreferenceModel:
         """
         preference = self._item_preferences.get_preference("ITEM_ID", item_id)
         if not preference:
-            # TODO Infer and set item preference based on model variant.
-            # See: https://github.com/iai-group/cryses/issues/21
-            preference = 0
-            # Stores inferred preference.
+            # Infer and set item preference based on model variant.
+            if self._model_variant == PreferenceModelVariant.SIP:
+                preference = random.choice([-1, 1])
+            elif self._model_variant == PreferenceModelVariant.PKG:
+                # Item does not exist.
+                if not self._item_collection.exists(item_id):
+                    raise ValueError("Item does not exist in item collection!")
+                # Get current item's properties in a list, e.g., genres.
+                current_item_properties = (
+                    self._item_collection.get_item(item_id)
+                    .get_property("genres")
+                    .split("|")
+                )
+
+                # Get the properties' perferences based on historically-rated items.
+                property_preferences = self._get_property_preferences()
+
+                # Infer the preference based on the cached ratings towards genres.
+                averaged_ratings = sum(  # Averaged ratings of all genres.
+                    [
+                        property_preferences.get(genre, 0)
+                        for genre in current_item_properties
+                    ]
+                ) / len(current_item_properties)
+                preference = round(averaged_ratings)
+            else:
+                raise ValueError("Preference model not supported!")
+
+            # Store inferred preference.
             self._item_preferences.set_preference(
                 "ITEM_ID", item_id, preference
             )
@@ -127,10 +183,23 @@ class PreferenceModel:
         """
         preference = self._slotvalue_preferences.get_preference(slot, value)
         if not preference:
-            # TODO Infer and set slot-value preference based on model variant.
-            # See: https://github.com/iai-group/cryses/issues/21
-            preference = 0
-            # Stores inferred preference.
+            # Infer and set slot-value preference based on model variant.
+            if self._model_variant == PreferenceModelVariant.SIP:
+                preference = random.choice([-1, 1])
+            elif self._model_variant == PreferenceModelVariant.PKG:
+                # Cache all the ratings for properties based on items, e.g., {"action": [-1, -1, -1]}.
+                property_preferences = self._get_property_preferences()
+
+                # Infer the preference towards slot value based on historically-rated items.
+                preference = (
+                    property_preferences.get(value)
+                    if value in property_preferences
+                    else random.choice([-1, 1])
+                )
+            else:
+                raise ValueError("Preference model not supported!")
+
+            # Store inferred preference.
             self._slotvalue_preferences.set_preference(slot, value, preference)
         return preference
 
@@ -147,15 +216,14 @@ class PreferenceModel:
             Preference on slot as a value-preference pair.
         """
         # Fetch value-preference pairs for a given slot.
-        preferences = self._slotvalue_preferences.get_preference(slot)
+        preferences = self._slotvalue_preferences.get_preferences(slot)
         if not preferences:
-            # TODO Infers and sets slot preference based on model variant.
-            # See: https://github.com/iai-group/cryses/issues/21
-            pass
-        # TODO Need to select which slot value to return if the user has
-        # preferences for multiple ones.
-        slot = "TDB"
-        preference = 0
+            preferences = self._get_property_preferences()
+
+        # Randomly pick one slot.
+        slot = random.choice(list(preferences.keys()))
+        preference = preferences.get(slot)
+        # TODO: keep track of the slots.
         return slot, preference
 
     def get_next_user_slots(
