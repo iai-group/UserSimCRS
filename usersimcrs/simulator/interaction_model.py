@@ -14,7 +14,9 @@ class InteractionModel:
     START_INTENT = "DISCLOSE.NON-DISCLOSE"
     STOP_INTENT = "STOP"
 
-    def __init__(self, config_file, annotated_conversations: List[List]) -> None:
+    def __init__(
+        self, config_file, annotated_conversations: List[List]
+    ) -> None:
         """Initializes the interaction model."""
         # Load interaction model.
         if not os.path.isfile(config_file):
@@ -40,7 +42,8 @@ class InteractionModel:
             Annotated_conversations: list of annotated conversations.
 
         Returns:
-            Intent distributions: {user of agent intent: {next_user_intent: occurrence}}
+            Intent distributions:
+                {user of agent intent: {next_user_intent: occurrence}}
         """
         user_intent_dist, intent_dist = dict(), dict()
         # Extracts conjoint user intent pairs from conversations.
@@ -54,13 +57,16 @@ class InteractionModel:
                 if user_intent not in user_intent_dist:
                     user_intent_dist[user_intent] = dict()
                 next_user_intent = (
-                    user_agenda[i + 1] if i < len(user_agenda) - 1 else self.STOP_INTENT
+                    user_agenda[i + 1]
+                    if i < len(user_agenda) - 1
+                    else self.STOP_INTENT
                 )
                 if next_user_intent not in user_intent_dist[user_intent]:
                     user_intent_dist[user_intent][next_user_intent] = 0
                 user_intent_dist[user_intent][next_user_intent] += 1
 
-            # Extracts conjoint agent intent and user intent pairs from conversations.
+            # Extracts conjoint agent intent and user intent pairs
+            # from conversations.
             for j, utterance_record in enumerate(
                 annotated_conversation["conversation"]
             ):
@@ -70,7 +76,8 @@ class InteractionModel:
                 intent = utterance_record["intent"]
                 if intent not in intent_dist:
                     intent_dist[intent] = dict()
-                # TODO: consider the case when the next intent is not user intent.
+                # TODO: consider the case when the next intent is not
+                # user intent.
                 next_user_intent = (
                     annotated_conversation["conversation"][j + 1]["intent"]
                     if j < len(annotated_conversation["conversation"]) - 1
@@ -91,7 +98,8 @@ class InteractionModel:
                         {next_intent1: n_1,
                          next_intent_2: n_2}
                 }
-        Note: CIR6 only based on user intents while qrfa uses both user and agent intents
+        Note: CIR6 only based on user intents while qrfa uses both
+            user and agent intents
 
         Step2: populate the agenda.
             starting_intent = "None_disclose"
@@ -103,7 +111,8 @@ class InteractionModel:
                 next_intent = self.next_intent(next_intent)
             agenda.append(next_intent)
 
-        Step3: filter the agenda, e.g. too short or too long agenda will triger this function rerun
+        Step3: filter the agenda, e.g. too short or too long agenda will
+            trigger this function rerun
         """
         current_intent_str = self.START_INTENT
         agenda = list()
@@ -154,7 +163,8 @@ class InteractionModel:
     def next_intent(self, intent_str: str, intent_dist: Dict[str, Dict]) -> str:
         """Predicts the next user intent.
 
-        Given current_intent, we determine the next intent (either next_intent1 or next_intent2) by probabilities.
+        Given current_intent, we determine the next intent
+            (either next_intent1 or next_intent2) by probabilities.
 
         Args:
             Intent_str: str of current user intent.
@@ -173,7 +183,8 @@ class InteractionModel:
         # Get the sum of the next intent occurences.
         next_intent_occurences_sum = sum(intent_map.values())
 
-        # Get normalized next intent distribution occurences and next intent list.
+        # Get normalized next intent distribution occurences and next intent
+        # list.
         d, next_intents = [], []
         for next_intent, next_intent_occurrence in intent_map.items():
             d.append(next_intent_occurrence / next_intent_occurences_sum)
@@ -181,7 +192,9 @@ class InteractionModel:
         return self.__sample_random_intent(p_random, d, next_intents)
 
     @staticmethod
-    def __sample_random_intent(p: float, d: List[float], items: List[str]) -> Any:
+    def __sample_random_intent(
+        p: float, d: List[float], items: List[str]
+    ) -> Any:
         """Determines the next item based on a randomly generated probability.
 
         Args:
@@ -221,7 +234,8 @@ class InteractionModel:
         expected_agent_intents = self._config.get("expected_responses").get(
             self._current_intent
         )
-        # If agent replies in an expected intent, then pop the next intent from agenda.
+        # If agent replies in an expected intent, then pop the next intent from
+        # agenda.
         if agent_intent in expected_agent_intents:
             self._current_intent = self._agenda.pop()
         else:  # Find a replacement based on last agent intent

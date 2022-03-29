@@ -2,17 +2,17 @@
 
 import pytest
 
-from cryses.simulator.preference_model import (
+from usersimcrs.simulator.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
-from dialoguekit.core.ontology import Ontology
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.dialoguekit.core.ontology import Ontology
+from dialoguekit.dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.dialoguekit.core.recsys.ratings import Ratings
 
-ONTOLOGY_YAML_FILE = "../dialoguekit/tests/data/ontology.yaml"
-ITEMS_CSV_FILE = "../dialoguekit/tests/data/movielens-20m-sample/movies.csv"
-RATINGS_CSV_FILE = "../dialoguekit/tests/data/movielens-20m-sample/ratings.csv"
+ONTOLOGY_YAML_FILE = "dialoguekit/tests/data/ontology.yaml"
+ITEMS_CSV_FILE = "dialoguekit/tests/data/movielens-20m-sample/movies.csv"
+RATINGS_CSV_FILE = "dialoguekit/tests/data/movielens-20m-sample/ratings.csv"
 
 
 # Single item preference model variant.
@@ -30,6 +30,7 @@ def preference_model_sip():
         PreferenceModelVariant.SIP,
         historical_user_id="13",
     )
+
 
 # Peronal Knowledge Graph preference model variant.
 @pytest.fixture
@@ -63,7 +64,7 @@ def test_get_slotvalue_preference_sip(preference_model_sip):
     preference = preference_model_sip.get_slotvalue_preference(slot, value)
 
     # Then
-    assert preference in [1, -1]
+    assert -1 <= preference <= 1
 
 
 def test_get_slotvalue_preference_pkg(preference_model_pkg):
@@ -72,7 +73,7 @@ def test_get_slotvalue_preference_pkg(preference_model_pkg):
     value = "Drama"
 
     # When
-    preference = preference_model_sip.get_slotvalue_preference(slot, value)
+    preference = preference_model_pkg.get_slotvalue_preference(slot, value)
 
     # Then
     assert preference == 1
@@ -86,7 +87,8 @@ def test_get_item_preference_sip(preference_model_sip):
     preference = preference_model_sip.get_item_preference(item_id)
 
     # Then
-    assert preference in [1, -1]
+    assert -1 <= preference <= 1
+
 
 def test_get_item_preference_pkg(preference_model_pkg):
     # Given
@@ -98,17 +100,19 @@ def test_get_item_preference_pkg(preference_model_pkg):
     # Then
     assert preference == 1
 
+
 def test_get_slot_preference_pkg(preference_model_pkg):
     # Given
     slot = "GENRE"
 
     # When
-    slot, preference = preference_model_pkg.get_slot_preference()
+    slot, preference = preference_model_pkg.get_slot_preference(slot)
 
     # Then
     assert isinstance(slot, str)
     assert preference in [-1, 0, 1]
 
+
 # TODO Write tests for get_item_preference(), get_slotvalue_preference,
 # and get_slot_preference()
-# See: https://github.com/iai-group/cryses/issues/21
+# See: https://github.com/iai-group/UserSimCRS/issues/21

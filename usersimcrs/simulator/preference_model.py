@@ -15,12 +15,14 @@ from enum import Enum
 from typing import Dict, List
 from collections import defaultdict
 
-from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
-from dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.intent import Intent
-from dialoguekit.core.ontology import Ontology
-from dialoguekit.user.user_preferences import UserPreferences
+from dialoguekit.dialoguekit.core.slot_value_annotation import (
+    SlotValueAnnotation,
+)
+from dialoguekit.dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.dialoguekit.core.intent import Intent
+from dialoguekit.dialoguekit.core.ontology import Ontology
+from dialoguekit.dialoguekit.user.user_preferences import UserPreferences
 
 
 class PreferenceModelVariant(Enum):
@@ -101,7 +103,8 @@ class PreferenceModel:
             The averaged ratings based on rated items.
         """
         property_ratings = defaultdict(list)
-        # Cache all the ratings for properties based on items, e.g., {"action": [-1, -1, -1]}.
+        # Cache all the ratings for properties based on items, e.g.,
+        # {"action": [-1, -1, -1]}.
         for (
             hist_item_id,
             rating,
@@ -148,10 +151,12 @@ class PreferenceModel:
                     .split("|")
                 )
 
-                # Get the properties' perferences based on historically-rated items.
+                # Get the properties' perferences based on historically-rated
+                # items.
                 property_preferences = self._get_property_preferences()
 
-                # Infer the preference based on the cached ratings towards genres.
+                # Infer the preference based on the cached ratings towards
+                # genres.
                 averaged_ratings = sum(  # Averaged ratings of all genres.
                     [
                         property_preferences.get(genre, 0)
@@ -187,10 +192,12 @@ class PreferenceModel:
             if self._model_variant == PreferenceModelVariant.SIP:
                 preference = random.choice([-1, 1])
             elif self._model_variant == PreferenceModelVariant.PKG:
-                # Cache all the ratings for properties based on items, e.g., {"action": [-1, -1, -1]}.
+                # Cache all the ratings for properties based on items, e.g.,
+                # {"action": [-1, -1, -1]}.
                 property_preferences = self._get_property_preferences()
 
-                # Infer the preference towards slot value based on historically-rated items.
+                # Infer the preference towards slot value based on
+                # historically-rated items.
                 preference = (
                     property_preferences.get(value)
                     if value in property_preferences
