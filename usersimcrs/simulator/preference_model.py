@@ -15,14 +15,14 @@ from enum import Enum
 from typing import Dict, List
 from collections import defaultdict
 
-from dialoguekit.dialoguekit.core.slot_value_annotation import (
+from dialoguekit.core.slot_value_annotation import (
     SlotValueAnnotation,
 )
-from dialoguekit.dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.dialoguekit.core.intent import Intent
-from dialoguekit.dialoguekit.core.ontology import Ontology
-from dialoguekit.dialoguekit.user.user_preferences import UserPreferences
+from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.core.recsys.item_collection import ItemCollection
+import dialoguekit.core.intent as Intent
+from dialoguekit.core.ontology import Ontology
+from dialoguekit.user.user_preferences import UserPreferences
 
 
 class PreferenceModelVariant(Enum):

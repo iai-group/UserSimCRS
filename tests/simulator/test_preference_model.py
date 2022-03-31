@@ -6,13 +6,13 @@ from usersimcrs.simulator.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
-from dialoguekit.dialoguekit.core.ontology import Ontology
-from dialoguekit.dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.core.recsys.ratings import Ratings
 
-ONTOLOGY_YAML_FILE = "dialoguekit/tests/data/ontology.yaml"
-ITEMS_CSV_FILE = "dialoguekit/tests/data/movielens-20m-sample/movies.csv"
-RATINGS_CSV_FILE = "dialoguekit/tests/data/movielens-20m-sample/ratings.csv"
+ONTOLOGY_YAML_FILE = "data/dialoguekit_data/ontology.yaml"
+ITEMS_CSV_FILE = "data/dialoguekit_data/movielens-20m-sample/movies.csv"
+RATINGS_CSV_FILE = "data/dialoguekit_data/movielens-20m-sample/ratings.csv"
 
 
 # Single item preference model variant.

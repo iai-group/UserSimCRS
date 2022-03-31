@@ -1,11 +1,11 @@
 """Console application for running simulation."""
 
-from dialoguekit.dialoguekit.agent.agent import Agent
-from dialoguekit.dialoguekit.core.dialogue import Dialogue
-from dialoguekit.dialoguekit.core.ontology import Ontology
-from dialoguekit.dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.dialoguekit.manager.dialogue_manager import DialogueManager
+from dialoguekit.agent.agent import Agent
+from dialoguekit.core.dialogue import Dialogue
+from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.manager.dialogue_manager import DialogueManager
 
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.sample_agent.sample_agent import SampleAgent

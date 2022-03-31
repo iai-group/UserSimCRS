@@ -2,8 +2,8 @@
 
 from abc import ABC, abstractmethod
 
-from dialoguekit.dialoguekit.user.user import User, UserType
-from dialoguekit.dialoguekit.core.utterance import Utterance
+from dialoguekit.user.user import User, UserType
+from dialoguekit.core.utterance import Utterance
 
 
 class UserSimulator(User, ABC):
