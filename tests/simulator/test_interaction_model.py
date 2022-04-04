@@ -3,7 +3,7 @@
 import pytest
 
 from usersimcrs.simulator.interaction_model import InteractionModel
-
+from dialoguekit.core.intent import Intent
 
 # List of user intents in agenda
 ANNOTATED_CONVERSATIONS = [
@@ -55,13 +55,13 @@ def im_cir6():
 
 
 def test_is_agent_intent_elicit(im_cir6):
-    assert im_cir6.is_agent_intent_elicit("INQUIRE")
-    assert not im_cir6.is_agent_intent_elicit("REVEAL")
+    assert im_cir6.is_agent_intent_elicit(Intent("INQUIRE"))
+    assert not im_cir6.is_agent_intent_elicit(Intent("REVEAL"))
 
 
 def test_is_agent_intent_set_retrieval(im_cir6):
-    assert im_cir6.is_agent_intent_set_retrieval("REVEAL")
-    assert not im_cir6.is_agent_intent_set_retrieval("INQUIRE")
+    assert im_cir6.is_agent_intent_set_retrieval(Intent("REVEAL"))
+    assert not im_cir6.is_agent_intent_set_retrieval(Intent("INQUIRE"))
 
 
 def test_intent_distribution(im_cir6):
@@ -69,13 +69,21 @@ def test_intent_distribution(im_cir6):
         ANNOTATED_CONVERSATIONS
     )
     expected_user_intent_distribution = {
-        "DISCLOSE.NON-DISCLOSE": {"Intent-A": 3},
-        "Intent-A": {"Intent-B": 1, "Intent-A": 1, "Intent-C": 2},
-        "Intent-B": {"Intent-C": 1},
-        "Intent-C": {"STOP": 3, "Intent-C": 1},
+        "DISCLOSE.NON-DISCLOSE": {Intent("Intent-A").label: 3},
+        "Intent-A": {
+            Intent("Intent-B").label: 1,
+            Intent("Intent-A").label: 1,
+            Intent("Intent-C").label: 2,
+        },
+        "Intent-B": {Intent("Intent-C").label: 1},
+        "Intent-C": {Intent("STOP").label: 3, Intent("Intent-C").label: 1},
     }
     expected_intent_distribution = {
-        "INQUIRE": {"Intent-A": 4, "Intent-B": 1, "Intent-C": 4}
+        "INQUIRE": {
+            Intent("Intent-A").label: 4,
+            Intent("Intent-B").label: 1,
+            Intent("Intent-C").label: 4,
+        }
     }
     assert user_intent_distribution == expected_user_intent_distribution
     assert intent_distribution == expected_intent_distribution
@@ -86,22 +94,23 @@ def test_next_intent(im_cir6):
         ANNOTATED_CONVERSATIONS
     )
     assert im_cir6.next_intent(
-        "DISCLOSE.NON-DISCLOSE", user_intent_distribution
+        Intent("DISCLOSE.NON-DISCLOSE"), user_intent_distribution
     )
     # Note the next intent is picked randomly, so we only check its eixistence.
-    assert im_cir6.next_intent("Intent-A", user_intent_distribution)
-    assert im_cir6.next_intent("Intent-C", user_intent_distribution)
+    assert im_cir6.next_intent(Intent("Intent-A"), user_intent_distribution)
+    assert im_cir6.next_intent(Intent("Intent-C"), user_intent_distribution)
     assert (
-        im_cir6.next_intent("Intent-B", user_intent_distribution) == "Intent-C"
+        im_cir6.next_intent(Intent("Intent-B"), user_intent_distribution).label
+        == "Intent-C"
     )
 
 
 def test_initialize_agenda(im_cir6):
     assert len(im_cir6.initialize_agenda()) > 0
     assert len(im_cir6.agenda) > 0
-    assert im_cir6.agenda[-1] == "DISCLOSE.NON-DISCLOSE"
+    assert im_cir6.agenda[-1].label == "DISCLOSE.NON-DISCLOSE"
 
 
 def test_update_agenda(im_cir6):
-    next_intent = im_cir6.update_agenda("INQUIRE")
+    next_intent = im_cir6.update_agenda(Intent("INQUIRE"))
     assert next_intent
