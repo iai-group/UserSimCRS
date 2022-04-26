@@ -5,11 +5,11 @@ from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.nlu import NLU
-from cryses.simulator.preference_model import PreferenceModel
-from cryses.simulator.user_simulator import UserSimulator
+from usersimcrs.simulator.preference_model import PreferenceModel
+from usersimcrs.simulator.user_simulator import UserSimulator
 from dialoguekit.core.utterance import Utterance
 
-from cryses.simulator.interaction_model import InteractionModel
+from usersimcrs.simulator.interaction_model import InteractionModel
 
 
 class AgendaBasedSimulator(UserSimulator):
@@ -90,9 +90,13 @@ class AgendaBasedSimulator(UserSimulator):
                 agent_intent, agent_annotations
             )
         # Agent is recommending items.
-        elif self._interaction_model.is_agent_intent_set_retrieval(agent_intent):
+        elif self._interaction_model.is_agent_intent_set_retrieval(
+            agent_intent
+        ):
             # Determine user preference for the agent's recommendation.
-            response_preference = self._preference_model.get_preference(agent_utterance)
+            response_preference = self._preference_model.get_preference(
+                agent_utterance
+            )
 
         # Generating natural language response through NLG.
         response_text = self._nlg.generate_utterance_text(

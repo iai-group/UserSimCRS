@@ -1,0 +1,18 @@
+repos:
+-   repo: https://github.com/ambv/black
+    rev: 20.8b1
+    hooks:
+    - id: black
+      language_version: python3.7
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.0
+    hooks:
+    - id: flake8
+-   repo: local
+    hooks:
+    -   id: pytest
+        name: run tests
+        entry: python -m pytest tests -vv
+        language: system
+        always_run: true
+        pass_filenames: false

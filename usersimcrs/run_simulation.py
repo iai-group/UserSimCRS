@@ -7,12 +7,14 @@ from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.manager.dialogue_manager import DialogueManager
 
-from cryses.simulator.user_simulator import UserSimulator
-from cryses.sample_agent.sample_agent import SampleAgent
-from cryses.simulator.agenda_based_simulator import AgendaBasedSimulator
+from usersimcrs.simulator.user_simulator import UserSimulator
+from usersimcrs.sample_agent.sample_agent import SampleAgent
+from usersimcrs.simulator.agenda_based_simulator import AgendaBasedSimulator
 
 
-def simulate_conversation(agent: Agent, user_simulator: UserSimulator) -> Dialogue:
+def simulate_conversation(
+    agent: Agent, user_simulator: UserSimulator
+) -> Dialogue:
     """Simulates a single conversation and returns the resulting dialogue.
 
     Args:
