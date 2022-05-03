@@ -56,21 +56,16 @@ class InteractionModel:
                 if u["participant"] == "USER"
             ]
             for i, user_intent in enumerate(user_agenda):
-                if user_intent.label not in user_intent_dist:
-                    user_intent_dist[user_intent.label] = dict()
+                if user_intent not in user_intent_dist:
+                    user_intent_dist[user_intent] = dict()
                 next_user_intent = (
                     user_agenda[i + 1]
                     if i < len(user_agenda) - 1
                     else self.STOP_INTENT
                 )
-                if (
-                    next_user_intent.label
-                    not in user_intent_dist[user_intent.label]
-                ):
-                    user_intent_dist[user_intent.label][
-                        next_user_intent.label
-                    ] = 0
-                user_intent_dist[user_intent.label][next_user_intent.label] += 1
+                if next_user_intent not in user_intent_dist[user_intent]:
+                    user_intent_dist[user_intent][next_user_intent] = 0
+                user_intent_dist[user_intent][next_user_intent] += 1
 
             # Extracts conjoint agent intent and user intent pairs
             # from conversations.
@@ -81,8 +76,8 @@ class InteractionModel:
                 if utterance_record["participant"] != "AGENT":
                     continue
                 intent = Intent(utterance_record["intent"])
-                if intent.label not in intent_dist:
-                    intent_dist[intent.label] = dict()
+                if intent not in intent_dist:
+                    intent_dist[intent] = dict()
                 # TODO: consider the case when the next intent is not
                 # user intent.
                 next_user_intent = (
@@ -92,9 +87,9 @@ class InteractionModel:
                     if j < len(annotated_conversation["conversation"]) - 1
                     else self.START_INTENT
                 )
-                if next_user_intent.label not in intent_dist[intent.label]:
-                    intent_dist[intent.label][next_user_intent.label] = 0
-                intent_dist[intent.label][next_user_intent.label] += 1
+                if next_user_intent not in intent_dist[intent]:
+                    intent_dist[intent][next_user_intent] = 0
+                intent_dist[intent][next_user_intent] += 1
         return user_intent_dist, intent_dist
 
     def initialize_agenda(self) -> List:
@@ -128,7 +123,7 @@ class InteractionModel:
         next_intent = self.next_intent(
             current_intent, self._user_intent_distribution
         )
-        while next_intent.label != self.STOP_INTENT.label:
+        while next_intent != self.STOP_INTENT:
             current_intent = next_intent
             agenda.append(current_intent)
             next_intent = self.next_intent(
@@ -169,7 +164,7 @@ class InteractionModel:
         return agent_intent.label in self._config["agent_set_retrieval"]
 
     def next_intent(
-        self, intent: Intent, intent_dist: Dict[str, Dict]
+        self, intent: Intent, intent_dist: Dict[Intent, Dict]
     ) -> Intent:
         """Predicts the next user intent.
 
@@ -184,7 +179,7 @@ class InteractionModel:
             Next user intent based on probability distribution.
         """
         # Get the distribution of next intent for the current user intent.
-        intent_map = intent_dist.get(intent.label)
+        intent_map = intent_dist.get(intent)
         assert isinstance(intent_map, dict)
 
         # Randomly generates a probability from 0~1.
@@ -199,7 +194,7 @@ class InteractionModel:
         for next_intent, next_intent_occurrence in intent_map.items():
             d.append(next_intent_occurrence / next_intent_occurences_sum)
             next_intents.append(next_intent)
-        return Intent(self.__sample_random_intent(p_random, d, next_intents))
+        return self.__sample_random_intent(p_random, d, next_intents)
 
     @staticmethod
     def __sample_random_intent(

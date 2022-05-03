@@ -69,20 +69,20 @@ def test_intent_distribution(im_cir6):
         ANNOTATED_CONVERSATIONS
     )
     expected_user_intent_distribution = {
-        "DISCLOSE.NON-DISCLOSE": {Intent("Intent-A").label: 3},
-        "Intent-A": {
-            Intent("Intent-B").label: 1,
-            Intent("Intent-A").label: 1,
-            Intent("Intent-C").label: 2,
+        Intent("DISCLOSE.NON-DISCLOSE"): {Intent("Intent-A"): 3},
+        Intent("Intent-A"): {
+            Intent("Intent-B"): 1,
+            Intent("Intent-A"): 1,
+            Intent("Intent-C"): 2,
         },
-        "Intent-B": {Intent("Intent-C").label: 1},
-        "Intent-C": {Intent("STOP").label: 3, Intent("Intent-C").label: 1},
+        Intent("Intent-B"): {Intent("Intent-C"): 1},
+        Intent("Intent-C"): {Intent("STOP"): 3, Intent("Intent-C"): 1},
     }
     expected_intent_distribution = {
-        "INQUIRE": {
-            Intent("Intent-A").label: 4,
-            Intent("Intent-B").label: 1,
-            Intent("Intent-C").label: 4,
+        Intent("INQUIRE"): {
+            Intent("Intent-A"): 4,
+            Intent("Intent-B"): 1,
+            Intent("Intent-C"): 4,
         }
     }
     assert user_intent_distribution == expected_user_intent_distribution
@@ -99,16 +99,15 @@ def test_next_intent(im_cir6):
     # Note the next intent is picked randomly, so we only check its eixistence.
     assert im_cir6.next_intent(Intent("Intent-A"), user_intent_distribution)
     assert im_cir6.next_intent(Intent("Intent-C"), user_intent_distribution)
-    assert (
-        im_cir6.next_intent(Intent("Intent-B"), user_intent_distribution).label
-        == "Intent-C"
-    )
+    assert im_cir6.next_intent(
+        Intent("Intent-B"), user_intent_distribution
+    ) == Intent("Intent-C")
 
 
 def test_initialize_agenda(im_cir6):
     assert len(im_cir6.initialize_agenda()) > 0
     assert len(im_cir6.agenda) > 0
-    assert im_cir6.agenda[-1].label == "DISCLOSE.NON-DISCLOSE"
+    assert im_cir6.agenda[-1] == Intent("DISCLOSE.NON-DISCLOSE")
 
 
 def test_update_agenda(im_cir6):
