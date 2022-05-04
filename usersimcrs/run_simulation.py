@@ -73,6 +73,7 @@ if __name__ == "__main__":
         "data/agents/moviebot/annotated_dialogues.json"
     )
     annotated_conversations = json.load(annotated_dialogues_file)
+
     with open("data/interaction_models/cir6.yaml") as yaml_file:
         config = yaml.load(yaml_file, Loader=yaml.FullLoader)
     # TODO: initialization of the simulator with NLU, NLG, etc.

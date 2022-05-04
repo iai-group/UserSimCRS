@@ -1,6 +1,6 @@
 """Interaction model."""
 
-# TODO: change intent types to Intent once that's been added to dialoguekit.core
+# TODO: change "AGENT" and "USER" to DialogueParticipant.AGENT/USER
 
 import os
 import yaml
