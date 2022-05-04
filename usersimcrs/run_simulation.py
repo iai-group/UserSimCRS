@@ -4,6 +4,8 @@ import argparse
 import os
 import sys
 import json
+import yaml
+
 
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
 from dialoguekit.nlg.nlg import NLG
@@ -71,7 +73,8 @@ if __name__ == "__main__":
         "data/agents/moviebot/annotated_dialogues.json"
     )
     annotated_conversations = json.load(annotated_dialogues_file)
-
+    with open("data/interaction_models/cir6.yaml") as yaml_file:
+        config = yaml.load(yaml_file, Loader=yaml.FullLoader)
     # TODO: initialization of the simulator with NLU, NLG, etc.
     preference_model = PreferenceModel(
         ontology,
@@ -83,7 +86,9 @@ if __name__ == "__main__":
     interaction_model = InteractionModel(
         "data/interaction_models/cir6.yaml", annotated_conversations
     )
-    nlu = IntentClassifierRasa()
+    nlu = IntentClassifierRasa(
+        config["agent_intents"], "data/annotated_dialogues_rasa_agent.yml"
+    )
     nlg = NLG()
     simulator = AgendaBasedSimulator(
         preference_model,
