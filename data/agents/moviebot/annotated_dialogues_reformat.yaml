@@ -19,7 +19,7 @@
     utterance: 'action, fantasy
 
       '
-    utterance_annotated: '[action](GENRE), [fantasy](GENRE)'
+    utterance_annotated: action, fantasy
   - intent: REVEAL.EXPAND
     participant: AGENT
     utterance: 'I have found almost 500 fantasy and action films. Can you guide me
@@ -42,7 +42,7 @@
     utterance: 'something like the lord of the rings
 
       '
-    utterance_annotated: something like the [lord of the rings](TITLE)
+    utterance_annotated: something like the lord of the rings
   - intent: REVEAL.LIST
     participant: AGENT
     slot_values:
@@ -52,8 +52,8 @@
       Have you seen this one?
 
       '
-    utterance_annotated: There is a fantasy and action, lord film named ""[Kung Fu
-      Hustle](TITLE)"". Have you seen this one?
+    utterance_annotated: There is a fantasy and action, lord film named ""Kung Fu
+      Hustle"". Have you seen this one?
   - intent: REVEAL.SIMILAR
     participant: USER
     utterance: 'anything else?
@@ -68,8 +68,8 @@
       Have you seen this one?
 
       '
-    utterance_annotated: There is a fantasy and action, lord film named ""[Conan the
-      Barbarian](TITLE)"". Have you seen this one?
+    utterance_annotated: There is a fantasy and action, lord film named ""Conan the
+      Barbarian"". Have you seen this one?
   - intent: NOTE.NOTE-YES
     participant: USER
     utterance: 'already seen it
@@ -85,7 +85,7 @@
 
       '
     utterance_annotated: I would like to recommend you a fantasy and action, lord
-      film named ""[Dracula Untold](TITLE)"". Have you watched it?
+      film named ""Dracula Untold"". Have you watched it?
   - intent: NOTE.NOTE-YES
     participant: USER
     utterance: 'i know this one
@@ -106,9 +106,8 @@
       to one. Please select from the list of options to continue.
 
       '
-    utterance_annotated: Sorry, I don't have any [fantasy](GENRE) and [action](GENRE),
-      [lord](GENRE) films named [similar to one](TITLE). Please select from the list
-      of options to continue.
+    utterance_annotated: Sorry, I don't have any [fantasy](GENRE) and action, [action](GENRE)
+      films named similar to one. Please select from the list of options to continue.
   - intent: DISCLOSE
     participant: USER
     utterance: 'a new movie
@@ -129,9 +128,9 @@
       to one from the year  > 2010. Please select from the list of options to continue.
 
       '
-    utterance_annotated: Sorry, I couldn't find any [fantasy](GENRE) and [action](GENRE),
-      [lord](GENRE) films named [similar to one](TITLE) from the year  > 2010. Please
-      select from the list of options to continue.
+    utterance_annotated: Sorry, I couldn't find any [fantasy](GENRE) and action, [action](GENRE)
+      films named [similar to one](TITLE) from the year  > 2010. Please select from
+      the list of options to continue.
   - intent: INQUIRE
     participant: USER
     utterance: 'Release year shouldn''t be the ""year  > 2010"".
@@ -152,9 +151,8 @@
       to one. Please select from the list of options to continue.
 
       '
-    utterance_annotated: Sorry, I couldn't find any [fantasy](GENRE) and [action](GENRE),
-      [lord](GENRE) films named [similar to one](TITLE). Please select from the list
-      of options to continue.
+    utterance_annotated: Sorry, I couldn't find any [fantasy](GENRE) and action, [action](GENRE)
+      films named similar to one. Please select from the list of options to continue.
   - intent: REVEAL.REFINE
     participant: USER
     slot_values:
@@ -163,7 +161,7 @@
     utterance: 'No movies named like ""one"".
 
       '
-    utterance_annotated: No movies named like ""[one](TITLE)"".
+    utterance_annotated: No movies named like ""one"".
   - intent: REVEAL.LIST
     participant: AGENT
     slot_values:
@@ -179,8 +177,8 @@
       ""Bright"". Have you watched it?
 
       '
-    utterance_annotated: I would like to recommend you a [fantasy](GENRE) and [action](GENRE),
-      [lord](GENRE) film named ""[Bright](TITLE)"". Have you watched it?
+    utterance_annotated: I would like to recommend you a [fantasy](GENRE) and action,
+      [action](GENRE) film named ""Bright"". Have you watched it?
   - intent: COMPLETE
     participant: USER
     utterance: 'thank you
@@ -199,9 +197,8 @@
       you. Please select from the list of options to continue.
 
       '
-    utterance_annotated: Sorry, I don't have any [action](GENRE), [lord](GENRE) films
-      named [similar to thank you](TITLE). Please select from the list of options
-      to continue.
+    utterance_annotated: Sorry, I don't have any action, [action](GENRE) films named
+      similar to thank you. Please select from the list of options to continue.
   - intent: COMPLETE
     participant: USER
     utterance: '/exit
@@ -254,7 +251,7 @@
     utterance: 'How about sci-fi?
 
       '
-    utterance_annotated: How about [sci-fi](GENRE)?
+    utterance_annotated: How about sci-fi?
   - intent: INQUIRE.ELICIT
     participant: AGENT
     slot_values:
@@ -280,7 +277,7 @@
     utterance: 'Cyberpunk
 
       '
-    utterance_annotated: '[Cyberpunk](GENRE)'
+    utterance_annotated: Cyberpunk
   - intent: REVEAL.LIST
     participant: AGENT
     slot_values:
@@ -294,8 +291,8 @@
       Runner"". Have you watched it?
 
       '
-    utterance_annotated: I would like to recommend you a [sci-fi](GENRE), [Cyberpunk](GENRE)
-      film named ""[Blade Runner](TITLE)"". Have you watched it?
+    utterance_annotated: I would like to recommend you a sci-fi, [sci-fi](GENRE) film
+      named ""Blade Runner"". Have you watched it?
   - intent: NOTE.NOTE-YES
     participant: USER
     utterance: 'I have already watched it.
@@ -314,8 +311,8 @@
       Have you watched it?
 
       '
-    utterance_annotated: I would like to recommend you a [sci-fi](GENRE), [Cyberpunk](GENRE)
-      film named ""[Akira](TITLE)"". Have you watched it?
+    utterance_annotated: I would like to recommend you a sci-fi, [sci-fi](GENRE) film
+      named ""Akira"". Have you watched it?
   - intent: NOTE.NOTE-YES
     participant: USER
     utterance: 'I have already watched it.
@@ -334,8 +331,8 @@
       Have you seen this one?
 
       '
-    utterance_annotated: 'There is a [sci-fi](GENRE), [Cyberpunk](GENRE) film named
-      ""[Ghost in the Shell 2: Innocence](TITLE)"". Have you seen this one?'
+    utterance_annotated: 'There is a sci-fi, [sci-fi](GENRE) film named ""Ghost in
+      the Shell 2: Innocence"". Have you seen this one?'
   - intent: NOTE.NOTE-YES
     participant: USER
     utterance: 'I have already watched it.
@@ -354,8 +351,8 @@
       Have you watched it?
 
       '
-    utterance_annotated: I would like to recommend you a [sci-fi](GENRE), [Cyberpunk](GENRE)
-      film named ""[Gunnm](TITLE)"". Have you watched it?
+    utterance_annotated: I would like to recommend you a sci-fi, [sci-fi](GENRE) film
+      named ""Gunnm"". Have you watched it?
   - intent: TRAVERSE.REPEAT
     participant: USER
     utterance: 'Tell me something about it.
@@ -369,7 +366,7 @@
     utterance: 'What would you like to know about ""Gunnm""?
 
       '
-    utterance_annotated: What would you like to know about ""[Gunnm](TITLE)""?
+    utterance_annotated: What would you like to know about ""Gunnm""?
   - intent: TRAVERSE.REPEAT
     participant: USER
     slot_values:
@@ -378,7 +375,7 @@
     utterance: 'duration
 
       '
-    utterance_annotated: '[duration](DURATION)'
+    utterance_annotated: duration
   - intent: TRAVERSE.REPEAT
     participant: AGENT
     utterance: 'Its duration is 54 minutes.
@@ -397,7 +394,7 @@
     utterance: 'Recommend me a movie similar to The Lawnmower Man.
 
       '
-    utterance_annotated: Recommend me a movie similar to [The Lawnmower Man](TITLE).
+    utterance_annotated: Recommend me a movie similar to The Lawnmower Man.
   - intent: SUGGEST
     participant: AGENT
     slot_values:
@@ -411,9 +408,8 @@
       The Lawnmower Man. Please select from the list of options to continue.
 
       '
-    utterance_annotated: Sorry, I don't have any [sci-fi](GENRE), [Cyberpunk](GENRE)
-      films named similar to [The Lawnmower Man](TITLE). Please select from the list
-      of options to continue.
+    utterance_annotated: Sorry, I don't have any sci-fi, [sci-fi](GENRE) films named
+      similar to The Lawnmower Man. Please select from the list of options to continue.
   - intent: REVEAL.REFINE
     participant: USER
     slot_values:
@@ -422,7 +418,7 @@
     utterance: 'No need of a ""Cyberpunk"" film.
 
       '
-    utterance_annotated: No need of a ""[Cyberpunk](GENRE)"" film.
+    utterance_annotated: No need of a ""Cyberpunk"" film.
   - intent: REVEAL.LIST
     participant: AGENT
     slot_values:
@@ -434,7 +430,7 @@
       this one?
 
       '
-    utterance_annotated: There is a [sci-fi](GENRE) film named ""[The Lawnmower Man](TITLE)"".
+    utterance_annotated: There is a [sci-fi](GENRE) film named ""The Lawnmower Man"".
       Have you seen this one?
   - intent: REVEAL.SIMILAR
     participant: USER
@@ -463,8 +459,7 @@
 
       '
     utterance_annotated: Sorry, I couldn't find any other [sci-fi](GENRE) films named
-      similar to [The Lawnmower Man](TITLE). Please select from the list of options
-      to continue.
+      similar to The Lawnmower Man. Please select from the list of options to continue.
   - intent: REVEAL.REFINE
     participant: USER
     slot_values:
@@ -473,7 +468,7 @@
     utterance: 'No movies named like ""The Lawnmower Man"".
 
       '
-    utterance_annotated: No movies named like ""[The Lawnmower Man](TITLE)"".
+    utterance_annotated: No movies named like ""The Lawnmower Man"".
   - intent: INQUIRE.ELICIT
     participant: AGENT
     slot_values:
@@ -485,8 +480,8 @@
       or ''Christopher Nolan''.
 
       '
-    utterance_annotated: Any specific director you are looking for? For example, '[Peter
-      Ramsey](DIRECTOR)' or '[Christopher Nolan](DIRECTOR)'.
+    utterance_annotated: Any specific director you are looking for? For example, 'Peter
+      Ramsey' or 'Christopher Nolan'.
   - intent: DISCLOSE.NON-DISCLOSE
     participant: USER
     utterance: 'Let''s start over.
@@ -500,7 +495,7 @@
     utterance: 'I could not find the the director name Let''s start over..
 
       '
-    utterance_annotated: I could not find the the director name [Let's start over](TITLE)..
+    utterance_annotated: I could not find the the director name Let's start over..
   - intent: REVEAL.LIST
     participant: AGENT
     slot_values:
@@ -511,8 +506,8 @@
     utterance: 'There is a sci-fi film named ""Inception"". Have you seen this one?
 
       '
-    utterance_annotated: There is a [sci-fi](GENRE) film named ""[Inception](TITLE)"".
-      Have you seen this one?
+    utterance_annotated: There is a [sci-fi](GENRE) film named ""Inception"". Have
+      you seen this one?
   - intent: DISCLOSE.NON-DISCLOSE
     participant: USER
     utterance: '/restart
@@ -536,7 +531,7 @@
     utterance: 'Conspiracy thriller
 
       '
-    utterance_annotated: '[Conspiracy thriller](TITLE)'
+    utterance_annotated: Conspiracy thriller
   - intent: INQUIRE.ELICIT
     participant: AGENT
     slot_values:
@@ -560,7 +555,7 @@
 
       '
     utterance_annotated: What are you looking for in a movie? Some keywords would
-      be good. For example, '[hidden microphone](PLOT)' or '[crown jewels](PLOT)'.
+      be good. For example, 'hidden microphone' or 'crown jewels'.
   - intent: DISCLOSE
     participant: USER
     slot_values:
@@ -569,7 +564,7 @@
     utterance: 'conspiracy
 
       '
-    utterance_annotated: '[conspiracy](GENRE)'
+    utterance_annotated: conspiracy
   - intent: REVEAL.LIST
     participant: AGENT
     slot_values:
@@ -583,8 +578,8 @@
       this one?
 
       '
-    utterance_annotated: There is a [thriller](GENRE), [conspiracy](GENRE) film named
-      ""[JFK](TITLE)"". Have you seen this one?
+    utterance_annotated: There is a thriller, [thriller](GENRE) film named ""JFK"".
+      Have you seen this one?
   - intent: TRAVERSE.REPEAT
     participant: USER
     utterance: 'Tell me more about it.
@@ -598,7 +593,7 @@
     utterance: 'What would you like to know about ""JFK""?
 
       '
-    utterance_annotated: What would you like to know about ""[JFK](TITLE)""?
+    utterance_annotated: What would you like to know about ""JFK""?
   - intent: TRAVERSE.REPEAT
     participant: USER
     slot_values:
@@ -607,7 +602,7 @@
     utterance: 'director name
 
       '
-    utterance_annotated: '[director](DIRECTOR) name'
+    utterance_annotated: director name
   - intent: TRAVERSE.REPEAT
     participant: AGENT
     slot_values:
@@ -616,7 +611,7 @@
     utterance: 'The director of this movie is Oliver Stone.
 
       '
-    utterance_annotated: The director of this movie is [Oliver Stone](DIRECTOR).
+    utterance_annotated: The director of this movie is Oliver Stone.
   - intent: NOTE.NOTE
     participant: USER
     utterance: 'I like this recommendation.
@@ -643,8 +638,8 @@
       this one?
 
       '
-    utterance_annotated: There is a film similar to ""[JFK](TITLE)"" named ""[Die
-      Hard](TITLE)"". Have you seen this one?
+    utterance_annotated: There is a film similar to ""JFK"" named ""Die Hard"". Have
+      you seen this one?
   - intent: NOTE.NOTE-YES
     participant: USER
     utterance: 'I have already watched it.
@@ -661,8 +656,8 @@
       seen this one?
 
       '
-    utterance_annotated: There is a film similar to ""[JFK](TITLE)"" named ""[Black
-      Swan](TITLE)"". Have you seen this one?
+    utterance_annotated: There is a film similar to ""JFK"" named ""Black Swan"".
+      Have you seen this one?
   - intent: REVEAL.SIMILAR
     participant: USER
     utterance: 'Recommend me something else please.
@@ -679,8 +674,8 @@
       seen this one?
 
       '
-    utterance_annotated: There is a film similar to ""[JFK](TITLE)"" named ""[Wall
-      Street](TITLE)"". Have you seen this one?
+    utterance_annotated: There is a film similar to ""JFK"" named ""Wall Street"".
+      Have you seen this one?
   - intent: NOTE.NOTE
     participant: USER
     utterance: 'I like this recommendation.
@@ -721,7 +716,7 @@
     utterance: 'Action
 
       '
-    utterance_annotated: '[Action](GENRE)'
+    utterance_annotated: Action
   - intent: REVEAL.EXPAND
     participant: AGENT
     slot_values:
@@ -745,14 +740,14 @@
 
       '
     utterance_annotated: What are you looking for in a movie? Some keywords would
-      be good. For example, '[criminal mastermind](GENRE)' or '[turkish military](GENRE)'.
+      be good. For example, 'criminal mastermind' or 'turkish military'.
   - intent: REVEAL.REFINE
     participant: USER
     slot_values:
     - - GENRE
       - Prison break
     utterance: Prison break
-    utterance_annotated: '[Prison break](GENRE)'
+    utterance_annotated: Prison break
   - intent: REVEAL.LIST
     participant: AGENT
     slot_values:
@@ -763,7 +758,7 @@
 
       '
     utterance_annotated: I would like to recommend you an action, Prison break film
-      named ""[The Count of Monte Cristo](TITLE)"". Have you watched it?
+      named ""The Count of Monte Cristo"". Have you watched it?
   - intent: NOTE.NOTE
     participant: USER
     utterance: I like this recommendation.
@@ -788,9 +783,8 @@
       Cristo""  named ""V for Vendetta"". Have you watched it?
 
       '
-    utterance_annotated: I would like to recommend you a  film similar to ""[The Count
-      of Monte Cristo](TITLE)""  named ""[V for Vendetta](TITLE)"". Have you watched
-      it?
+    utterance_annotated: I would like to recommend you a  film similar to ""The Count
+      of Monte Cristo""  named ""V for Vendetta"". Have you watched it?
   - intent: REVEAL.SIMILAR
     participant: USER
     utterance: 'Recommend me something else please.
@@ -807,9 +801,8 @@
       Cristo""  named ""Captain Blood"". Have you watched it?
 
       '
-    utterance_annotated: I would like to recommend you a  film similar to ""[The Count
-      of Monte Cristo](TITLE)""  named ""[Captain Blood](TITLE)"". Have you watched
-      it?
+    utterance_annotated: I would like to recommend you a  film similar to ""The Count
+      of Monte Cristo""  named ""Captain Blood"". Have you watched it?
   - intent: DISCLOSE
     participant: USER
     utterance: 'I want to restart for a new movie.
@@ -833,7 +826,7 @@
     utterance: 'Sports
 
       '
-    utterance_annotated: '[Sports](GENRE)'
+    utterance_annotated: Sports
   - intent: REVEAL.EXPAND
     participant: AGENT
     slot_values:
@@ -856,8 +849,8 @@
       ''car racing''.
 
       '
-    utterance_annotated: Can you give me a few keywords? For example, '[racing driver](GENRE)'
-      or '[car racing](GENRE)'.
+    utterance_annotated: Can you give me a few keywords? For example, 'racing driver'
+      or 'car racing'.
   - intent: DISCLOSE
     participant: USER
     slot_values:
@@ -866,7 +859,7 @@
     utterance: 'Soccer
 
       '
-    utterance_annotated: '[Soccer](GENRE)'
+    utterance_annotated: Soccer
   - intent: REVEAL.LIST
     participant: AGENT
     slot_values:
@@ -880,8 +873,8 @@
       Have you seen this one?
 
       '
-    utterance_annotated: 'There is a sport, [Soccer](GENRE) film named ""[Montevideo:
-      Taste of a Dream](TITLE)"". Have you seen this one?'
+    utterance_annotated: 'There is a sport, [Sports](GENRE) film named ""Montevideo:
+      Taste of a Dream"". Have you seen this one?'
   - intent: REVEAL.SIMILAR
     participant: USER
     utterance: 'Recommend me something else please.
@@ -900,8 +893,8 @@
       you seen this one?
 
       '
-    utterance_annotated: There is a [sport](GENRE), [Soccer](GENRE) film named ""[Les
-      yeux dans les Bleus](TITLE)"". Have you seen this one?
+    utterance_annotated: There is a sport, [sport](GENRE) film named ""Les yeux dans
+      les Bleus"". Have you seen this one?
   - intent: NOTE.NOTE
     participant: USER
     utterance: 'I like this recommendation.

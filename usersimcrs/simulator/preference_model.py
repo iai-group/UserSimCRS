@@ -109,14 +109,19 @@ class PreferenceModel:
             hist_item_id,
             rating,
         ) in self._item_preferences.get_preferences("ITEM_ID").items():
+            # TODO: handling all properties generally by creating a new issue
             for genre in (
-                self._item_collection.get_item(hist_item_id)
-                .get_property(property)
+                self._item_collection.get_item(hist_item_id).get_property(
+                    property
+                )
+                # TODO: remove splitting
                 .split("|")
             ):
                 property_ratings[genre].append(rating)
         property_preferences = dict()
         # Calculate the averaged rating for each genre.
+        # TODO: use property instead of genre and make property a parameter of
+        # property_ratings
         for genre, rating_list in property_ratings.items():
             property_preferences[genre] = round(
                 sum(rating_list) / len(rating_list)
@@ -142,12 +147,15 @@ class PreferenceModel:
                 preference = random.choice([-1, 1])
             elif self._model_variant == PreferenceModelVariant.PKG:
                 # Item does not exist.
+                # TODO: This check can be done before (applies to SIP variant)
                 if not self._item_collection.exists(item_id):
                     raise ValueError("Item does not exist in item collection!")
                 # Get current item's properties in a list, e.g., genres.
                 current_item_properties = (
-                    self._item_collection.get_item(item_id)
-                    .get_property("genres")
+                    self._item_collection.get_item(item_id).get_property(
+                        "genres"
+                    )
+                    # TODO: Remove splitting
                     .split("|")
                 )
 

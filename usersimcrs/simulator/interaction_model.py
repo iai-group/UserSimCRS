@@ -8,6 +8,7 @@ import random
 from typing import List, Dict, Tuple
 
 from dialoguekit.core.intent import Intent
+from dialoguekit.core.dialogue import DialogueParticipant
 
 
 class InteractionModel:
@@ -53,7 +54,7 @@ class InteractionModel:
             user_agenda = [
                 Intent(u["intent"])
                 for u in annotated_conversation["conversation"]
-                if u["participant"] == "USER"
+                if u["participant"] == DialogueParticipant.USER.name
             ]
             for i, user_intent in enumerate(user_agenda):
                 if user_intent not in user_intent_dist:
@@ -73,7 +74,10 @@ class InteractionModel:
                 annotated_conversation["conversation"]
             ):
                 # Only consider agent intent as keys
-                if utterance_record["participant"] != "AGENT":
+                if (
+                    utterance_record["participant"]
+                    != DialogueParticipant.AGENT.name
+                ):
                     continue
                 intent = Intent(utterance_record["intent"])
                 if intent not in intent_dist:
