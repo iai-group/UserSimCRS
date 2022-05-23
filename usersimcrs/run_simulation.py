@@ -58,11 +58,11 @@ if __name__ == "__main__":
 
     # TODO Load settings from command line arguments or config file.
     if not os.path.exists(args.ontology):
-        sys.exit("FileNotFound: ", args.ontology)
+        sys.exit("FileNotFound: {file}".format(file=args.ontology))
     if not os.path.exists(args.items):
-        sys.exit("FileNotFound: ", args.items)
+        sys.exit("FileNotFound: {file}".format(file=args.items))
     if not os.path.exists(args.ratings):
-        sys.exit("FileNotFound: ", args.ratings)
+        sys.exit("FileNotFound: {file}".format(file=args.ratings))
 
     ontology = Ontology(args.ontology)
 
