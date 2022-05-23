@@ -1,0 +1,73 @@
+nlu:
+- examples: |
+    - What are you looking for in a movie? Some keywords would be good. For example, 'hidden microphone' or 'crown jewels'.
+    - Any specific director you are looking for? For example, 'Peter Ramsey' or 'Christopher Nolan'.
+    - There are almost 2100 [sci-fi](GENRE) films. Can you guide me more to narrow down the search space?
+    - Let's restart.
+    - Do you have any specific genres in mind?
+    - I have found almost 6600 [thriller](GENRE) films. Please answer a few more questions to help me find a good movie.
+    - What are you looking for in a movie? Some keywords would be good. For example, 'simulated reality' or 'artificial reality'.
+    - Which genres do you prefer?
+  intent: INQUIRE.ELICIT
+- examples: |
+    - There are almost 4700 [action](GENRE) films. Can you guide me more to narrow down the search space?
+    - Can you give me a few keywords? For example, 'racing driver' or 'car racing'.
+    - There are almost 900 [sport](GENRE) films. Please answer a few more questions to help me find a good movie.
+    - I have found almost 500 fantasy and action films. Can you guide me more to narrow down the search space?
+    - What are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'turkish military'.
+    - Can you give me a few keywords? For example, 'space opera' or 'galactic war'.
+  intent: REVEAL.EXPAND
+- examples: |
+    - There is a [sci-fi](GENRE) film named ""The Lawnmower Man"". Have you seen this one?
+    - There is a fantasy and action, lord film named ""Kung Fu Hustle"". Have you seen this one?
+    - I would like to recommend you a sci-fi, [sci-fi](GENRE) film named ""Blade Runner"". Have you watched it?
+    - There is a thriller, [thriller](GENRE) film named ""JFK"". Have you seen this one?
+    - There is a [sci-fi](GENRE) film named ""Inception"". Have you seen this one?
+    - I would like to recommend you a [fantasy](GENRE) and action, [action](GENRE) film named ""Bright"". Have you watched it?
+    - I would like to recommend you an action, Prison break film named ""The Count of Monte Cristo"". Have you watched it?
+    - There is a sport, [Sports](GENRE) film named ""Montevideo: Taste of a Dream"". Have you seen this one?
+  intent: REVEAL.LIST
+- examples: |
+    - There is a fantasy and action, lord film named ""Conan the Barbarian"". Have you seen this one?
+    - There is a film similar to ""JFK"" named ""Die Hard"". Have you seen this one?
+    - I would like to recommend you a sci-fi, [sci-fi](GENRE) film named ""Gunnm"". Have you watched it?
+    - There is a sport, [sport](GENRE) film named ""Les yeux dans les Bleus"". Have you seen this one?
+    - There is a sci-fi, [sci-fi](GENRE) film named ""Ghost in the Shell 2: Innocence"". Have you seen this one?
+    - There is a film similar to ""JFK"" named ""Black Swan"". Have you seen this one?
+    - I would like to recommend you a  film similar to ""The Count of Monte Cristo""  named ""Captain Blood"". Have you watched it?
+    - I would like to recommend you a sci-fi, [sci-fi](GENRE) film named ""Akira"". Have you watched it?
+    - I would like to recommend you a fantasy and action, lord film named ""Dracula Untold"". Have you watched it?
+    - There is a film similar to ""JFK"" named ""Wall Street"". Have you seen this one?
+    - I would like to recommend you a  film similar to ""The Count of Monte Cristo""  named ""V for Vendetta"". Have you watched it?
+  intent: REVEAL.SIMILAR
+- examples: |
+    - Sorry, I don't have any sci-fi, [sci-fi](GENRE) films named similar to The Lawnmower Man. Please select from the list of options to continue.
+    - Sorry, I don't have any [fantasy](GENRE) and action, [action](GENRE) films named similar to one. Please select from the list of options to continue.
+    - Sorry, I couldn't find any [fantasy](GENRE) and action, [action](GENRE) films named similar to one. Please select from the list of options to continue.
+    - Please choose your next step:
+    - Sorry, I couldn't find any [fantasy](GENRE) and action, [action](GENRE) films named [similar to one](TITLE) from the year  > 2010. Please select from the list of options to continue.
+    - Sorry, I couldn't find any other [sci-fi](GENRE) films named similar to The Lawnmower Man. Please select from the list of options to continue.
+  intent: SUGGEST
+- examples: |
+    - Sorry, I don't have any action, [action](GENRE) films named similar to thank you. Please select from the list of options to continue.
+    - I believe I am stuck. I can't help you here.
+    - I could not find the the director name Let's start over..
+  intent: FAILED
+- examples: |
+    - You are exiting. I hope you found a movie. Bye.",
+    - Hope to see you soon. Bye.
+  intent: END
+- examples: |
+    - Hi Ethan. Welcome to IAI MovieBot. Shall we start?
+    - I will ask you a few questions and based on your answers, I will try to find a movie for you.
+    - Hi Rand. Welcome back. Shall we start?
+    - We are starting again.
+    - Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences.
+  intent: DISCLOSE.NON-DISCLOSE
+- examples: |
+    - What would you like to know about ""Gunnm""?
+    - Its duration is 54 minutes.
+    - The director of this movie is Oliver Stone.
+    - What would you like to know about ""JFK""?
+  intent: TRAVERSE.REPEAT
+version: '3.0'

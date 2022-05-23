@@ -4,6 +4,8 @@ import argparse
 import os
 import sys
 import json
+import yaml
+
 
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
 from dialoguekit.nlg.nlg import NLG
@@ -13,6 +15,7 @@ from dialoguekit.core.ontology import Ontology
 from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.manager.dialogue_manager import DialogueManager
+from dialoguekit.platform.platform import Platform
 
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.sample_agent.sample_agent import SampleAgent
@@ -33,8 +36,10 @@ def simulate_conversation(
         agent: An agent.
         user_simulator: A user simulator.
     """
-    platform = None  # TODO: Add simulator platform
+    platform = Platform()  # TODO: Add simulator platform
     dm = DialogueManager(agent, user_simulator, platform)
+    agent.connect_dialogue_manager(dialogue_manager=dm)
+    user_simulator.connect_dialogue_manager(dialogue_manager=dm)
     dm.start()
     dm.close()
     return dm.dialogue_history
@@ -53,11 +58,11 @@ if __name__ == "__main__":
 
     # TODO Load settings from command line arguments or config file.
     if not os.path.exists(args.ontology):
-        sys.exit("FileNotFound: ", args.ontology)
+        sys.exit("FileNotFound: {file}".format(file=args.ontology))
     if not os.path.exists(args.items):
-        sys.exit("FileNotFound: ", args.items)
+        sys.exit("FileNotFound: {file}".format(file=args.items))
     if not os.path.exists(args.ratings):
-        sys.exit("FileNotFound: ", args.ratings)
+        sys.exit("FileNotFound: {file}".format(file=args.ratings))
 
     ontology = Ontology(args.ontology)
 
@@ -72,6 +77,9 @@ if __name__ == "__main__":
     )
     annotated_conversations = json.load(annotated_dialogues_file)
 
+    with open("data/interaction_models/cir6.yaml") as yaml_file:
+        config = yaml.load(yaml_file, Loader=yaml.FullLoader)
+
     # TODO: initialization of the simulator with NLU, NLG, etc.
     preference_model = PreferenceModel(
         ontology,
@@ -83,8 +91,13 @@ if __name__ == "__main__":
     interaction_model = InteractionModel(
         "data/interaction_models/cir6.yaml", annotated_conversations
     )
-    nlu = IntentClassifierRasa()
+    nlu = IntentClassifierRasa(
+        config["agent_intents"],
+        "data/agents/moviebot/annotated_dialogues_rasa_agent.yml",
+        ".rasa",
+    )
     nlg = NLG()
+    nlg.template_from_file("data/agents/moviebot/annotated_dialogues.json")
     simulator = AgendaBasedSimulator(
         preference_model,
         interaction_model,
