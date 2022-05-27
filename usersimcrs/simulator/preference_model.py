@@ -17,12 +17,15 @@ from collections import defaultdict
 
 from dialoguekit.core.slot_value_annotation import (
     SlotValueAnnotation,
+    Annotation,
 )
 from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.core.recsys.item_collection import ItemCollection
 import dialoguekit.core.intent as Intent
 from dialoguekit.core.ontology import Ontology
 from dialoguekit.user.user_preferences import UserPreferences
+
+K_TO_FETCH = 3
 
 
 class PreferenceModelVariant(Enum):
@@ -65,6 +68,7 @@ class PreferenceModel:
         self._item_collection = item_collection
         self._historical_ratings = historical_ratings
         self._model_variant = model_variant
+        self._keyword_preferences = defaultdict(list)
 
         # If historical user ID is not provided, randomly pick one.
         self._historical_user_id = (
@@ -91,6 +95,13 @@ class PreferenceModel:
             self._historical_user_id
         ).items():
             self._item_preferences.set_preference("ITEM_ID", item_id, rating)
+            print(item_id)
+            for keyword in (
+                self._item_collection.get_item(item_id)
+                .get_property("keywords")
+                .split("|")
+            ):
+                self._keyword_preferences[keyword].append(rating)
 
     def _get_property_preferences(
         self, property: str = "genres"
@@ -110,20 +121,20 @@ class PreferenceModel:
             rating,
         ) in self._item_preferences.get_preferences("ITEM_ID").items():
             # TODO: handling all properties generally by creating a new issue
-            for genre in (
+            for prop in (
                 self._item_collection.get_item(hist_item_id).get_property(
                     property
                 )
                 # TODO: remove splitting
                 .split("|")
             ):
-                property_ratings[genre].append(rating)
+                property_ratings[prop].append(rating)
         property_preferences = dict()
         # Calculate the averaged rating for each genre.
         # TODO: use property instead of genre and make property a parameter of
         # property_ratings
-        for genre, rating_list in property_ratings.items():
-            property_preferences[genre] = round(
+        for prop, rating_list in property_ratings.items():
+            property_preferences[prop] = round(
                 sum(rating_list) / len(rating_list)
             )
         return property_preferences
@@ -142,14 +153,13 @@ class PreferenceModel:
         """
         preference = self._item_preferences.get_preference("ITEM_ID", item_id)
         if not preference:
-            # Infer and set item preference based on model variant.
-            if self._model_variant == PreferenceModelVariant.SIP:
+            # Item does not exist or SIP model. In both cases, infer rating.
+            if (
+                not self._item_collection.exists(item_id)
+                or self._model_variant == PreferenceModelVariant.SIP
+            ):
                 preference = random.choice([-1, 1])
             elif self._model_variant == PreferenceModelVariant.PKG:
-                # Item does not exist.
-                # TODO: This check can be done before (applies to SIP variant)
-                if not self._item_collection.exists(item_id):
-                    raise ValueError("Item does not exist in item collection!")
                 # Get current item's properties in a list, e.g., genres.
                 current_item_properties = (
                     self._item_collection.get_item(item_id).get_property(
@@ -158,7 +168,6 @@ class PreferenceModel:
                     # TODO: Remove splitting
                     .split("|")
                 )
-
                 # Get the properties' perferences based on historically-rated
                 # items.
                 property_preferences = self._get_property_preferences()
@@ -243,7 +252,7 @@ class PreferenceModel:
 
     def get_next_user_slots(
         self, agent_intent: Intent, agent_slot_values: List[SlotValueAnnotation]
-    ) -> Dict:
+    ) -> List[Annotation]:
         """Determines the next user slots via loading from the initialized
         preferences or sampling.
 
@@ -251,4 +260,40 @@ class PreferenceModel:
         """
         # TODO Figure out what could be delegated to NLU, so that this part is
         # kept as simple as possible. Use get_slot_preference() if possible.
-        pass
+        next_user_slots = []
+        if not agent_slot_values:
+            # Agent is asking for next step?
+            pass
+        else:
+            # Agent is eliciting preference on either genres, keywords or
+            # director
+            for slot_value in agent_slot_values:
+                value = slot_value._value
+                # Agent is explicitly asking for which genres the user likes
+                if value == "genres":
+                    preferences = self._get_property_preferences()
+                elif value == "director":
+                    preferences = self._get_property_preferences(
+                        property="director"
+                    )
+                elif value == "keywords":
+                    preferences = self._get_property_preferences(
+                        property="keywords"
+                    )
+                    preferences.update(
+                        self._get_property_preferences(property="genres")
+                    )
+                    preferences.update(
+                        self._get_property_preferences(property="director")
+                    )
+                sorted_preferences = sorted(
+                    preferences.items(), key=lambda item: item[1], reverse=True
+                )
+                assert len(sorted_preferences) > 0
+                top_K_preferences = sorted_preferences[0:K_TO_FETCH]
+                sorted_preferences = dict(sorted_preferences)
+                for preference in top_K_preferences:
+                    next_user_slots.append(
+                        Annotation(str=preference),
+                        value=sorted_preferences[preference[0]],
+                    )
