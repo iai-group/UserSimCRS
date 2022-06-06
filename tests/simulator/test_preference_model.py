@@ -56,7 +56,7 @@ def preference_model_pkg():
 def test_initial_item_preferences_sip(preference_model_sip):
     # TODO this is the value in the original rating file, but it'll be a bit
     # tricky to test when only a sample of the original ratings is used.
-    assert preference_model_sip.get_item_preference("356") == 1.0
+    assert preference_model_sip.get_item_preference("356") == (True, 1.0)
 
 
 def test_get_slotvalue_preference_sip(preference_model_sip):
@@ -91,7 +91,7 @@ def test_get_item_preference_sip(preference_model_sip):
     preference = preference_model_sip.get_item_preference(item_id)
 
     # Then
-    assert -1 <= preference <= 1
+    assert -1 <= preference[1] <= 1
 
 
 def test_get_item_preference_pkg(preference_model_pkg):
@@ -102,7 +102,7 @@ def test_get_item_preference_pkg(preference_model_pkg):
     preference = preference_model_pkg.get_item_preference(item_id)
 
     # Then
-    assert preference == 1
+    assert preference[1] == 1
 
 
 def test_get_slot_preference_pkg(preference_model_pkg):
