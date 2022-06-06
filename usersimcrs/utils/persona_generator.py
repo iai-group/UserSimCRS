@@ -9,18 +9,6 @@ import json
 from dataclasses import dataclass
 from copy import deepcopy
 
-_GROUP_SETTING_MAPPING = {
-    0: 0,
-    1: 2.7,
-    2: 2.3,
-    3: 1.5,
-    4: 1.4,
-    5: 1.3,
-    6: 1.2,
-    7: 1.1,
-    8: 1.1,
-    9: 1.0,
-}
 _TIME_OF_THE_DAY_MAPPING = {
     "weekend": {
         (datetime.time(0, 0, 0), datetime.time(3, 0, 0)): {
@@ -95,6 +83,8 @@ _TIME_OF_THE_DAY_MAPPING = {
 
 @dataclass
 class Persona:
+    """Represents a persons context features."""
+
     name: str
     id: str
     group_setting: int
@@ -106,6 +96,7 @@ class Persona:
 
 class PersonaGenerator:
     def __init__(self) -> None:
+        """Generates personas."""
         self._personas = []
         self._TIME_OF_THE_DAY_MAPPING = _TIME_OF_THE_DAY_MAPPING
         for value in self._TIME_OF_THE_DAY_MAPPING.values():
@@ -119,6 +110,22 @@ class PersonaGenerator:
         weekend_probability: float = 3 / 7,
         group_probability: float = 3 / 4,
     ) -> Dict[str, Any]:
+        """Sample context parameters.
+
+        Samples:
+            - group_setting: bool.
+            - weekend : bool.
+            - time_of_the_day: datetime.
+            - cooperativeness: float [0-1].
+            - satisfaction: float [0-1] .
+
+        Args:
+            weekend_probability: Probability of 'weekend' being 'True'.
+            group_probability: Probability of 'group_setting' being 'True'.
+
+        Returns:
+            Dictionary containing the mentioned context features.
+        """
         # Weekend
         weekend = 1 if random.random() < weekend_probability else 0
 
@@ -170,6 +177,15 @@ class PersonaGenerator:
     def generate_personas(
         self, amount: Optional[int] = 10, ids: Optional[List[str]] = None
     ) -> List[Persona]:
+        """Generates 'amount' of personas.
+
+        Args:
+            amount (Optional[int], optional): _description_. Defaults to 10.
+            ids (Optional[List[str]], optional): _description_. Defaults to None.
+
+        Returns:
+            List[Persona]: _description_
+        """
         used_names = set()
         if ids:
             ids = random.sample(ids, amount)
@@ -196,6 +212,7 @@ class PersonaGenerator:
         return self._personas
 
     def export_json(self, filepath: str):
+        """Exports the generated personas to filepath as JSON."""
         output_personas = []
         for persona in self._personas:
             p = deepcopy(persona.__dict__)
@@ -209,6 +226,7 @@ class PersonaGenerator:
         return output_personas
 
     def read_json(self, filepath: str) -> List[Persona]:
+        """Reads persona JSON from filepath."""
         with open(filepath, "r") as infile:
             data = json.load(infile)
         for person_data in data:
@@ -235,7 +253,7 @@ class PersonaGenerator:
 
 if __name__ == "__main__":
     pg = PersonaGenerator()
-    persones = pg.generate_personas(amount=1000, ids=list(range(4000,10000)))
+    persones = pg.generate_personas(amount=1000, ids=list(range(4000, 10000)))
     print(persones)
     pg.export_json("usersimcrs/utils/export_personas.json")
     pg = PersonaGenerator()
