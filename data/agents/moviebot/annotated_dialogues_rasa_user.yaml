@@ -1,59 +1,105 @@
 nlu:
 - examples: |
+    - Hi, okay.
     - Let's start over.
     - hello
-    - /restart
-    - /start
+    - Sure, sounds fun.
     - Hello.
+    - /start
+    - Hi
+    - Okay, sounds good.
   intent: DISCLOSE.NON-DISCLOSE
 - examples: |
-    - Sports
-    - Action
-    - How about sci-fi?
-    - Conspiracy thriller
-    - action, fantasy
-    - I want to restart for a new movie.
-    - Cyberpunk
+    - I would like to restart
+    - [conspiracy](GENRE)
+    - something with [superpowers](KEYWORD)
+    - [Conspiracy](GENRE) [thriller](GENRE)
     - a new movie
-    - Soccer
-    - conspiracy
+    - How about [sci-fi](GENRE)?
+    - I like [action](GENRE) movies
+    - something like the [lord of the rings](TITLE)
+    - /restart
+    - [happy ending](KEYWORD)
+    - [action](GENRE), [fantasy](GENRE)
+    - [Soccer](GENRE)
+    - [Sports](GENRE)
+    - something [funny](KEYWORD) and [scary](KEYWORD)
+    - [Western](GENRE)
+    - [Cyberpunk](GENRE)
+    - [Prison break](TITLE)
+    - [Action](GENRE)
+    - I want to restart for a new movie.
+    - yes, [action](GENRE)
+    - [superhero](KEYWORD)
+    - [Romance](GENRE)
   intent: DISCLOSE
 - examples: |
-    - something like the lord of the rings
-  intent: REVEAL.EXPAND
-- examples: |
-    - Recommend me something else please.
-    - I would like a similar recommendation.
+    - Recommend me something else
+    - another recommendation
     - anything else?
-  intent: REVEAL.SIMILAR
+    - Recommend me something else please.
+    - that sounded too cheesy. Do you have any other recommendations?
+  intent: INQUIRE.LIST
 - examples: |
-    - already seen it
-    - I have already watched it.
-    - I have seen that.
     - i know this one
+    - I have already watched it.
+    - already seen it
+    - I have seen that.
   intent: NOTE.NOTE-YES
 - examples: |
-    - Release year shouldn't be the ""year  > 2010"".
-  intent: INQUIRE
-- examples: |
-    - No need of a ""Cyberpunk"" film.
-    - No movies named like ""one"".
-    - Prison break
-    - No movies named like ""The Lawnmower Man"".
+    - No movies named like [The Lawnmower Man](TITLE).
+    - No need of a [Cyberpunk](GENRE) film.
+    - No movies named like [one](TITLE).
   intent: REVEAL.REFINE
 - examples: |
-    - /exit
-    - I would like to quit now.
+    - bye...
     - thank you
+    - I would like to quit now.
+    - Thanks, bye
+    - /exit
+    - Bye!
+    - Bye
   intent: COMPLETE
 - examples: |
-    - Recommend me a movie similar to The Lawnmower Man.
-    - duration
-    - director name
+    - What is the plot?
+    - What is it about?
     - Tell me something about it.
+    - what is the plot of the movie?
+    - director name
+    - Tell me more about it
+    - duration
+    - How long is it?
     - Tell me more about it.
-  intent: TRAVERSE.REPEAT
+  intent: NAVIGATE.REPEAT
 - examples: |
+    - Recommend me a movie similar to [The Lawnmower Man](TITLE).
+    - Recommend me something else please.
+    - I would like a similar recommendation.
+  intent: INQUIRE.SIMILAR
+- examples: |
+    - I like this
     - I like this recommendation.
-  intent: NOTE.NOTE
+    - I will try this movie.
+    - yes I like it
+    - I will try it
+    - okay sounds good! I will give it a try.
+    - yes I like [Avengers: Infinity War](TITLE)
+    - I like this recommendation
+    - yes
+    - I like this movie
+    - Yes
+  intent: NOTE.NOTE-LIKE
+- examples: |
+    - No
+    - No, I dont like this movie
+    - No I dont like it
+  intent: NOTE.NOTE-DISLIKE
+- examples: |
+    - the movie plot
+  intent: NAGIVATE.REPEAT
+- examples: |
+    - No The sons of Katie Elder
+    - no please.
+    - No [The Man Who Shot Liberty Valance](TITLE)
+  intent: NAVIGATE
 version: '3.0'

@@ -25,7 +25,7 @@ class UserSimulator(User, ABC):
         """
         pass
 
-    def receive_agent_utterance(self, agent_utterance: Utterance) -> None:
+    def receive_utterance(self, agent_utterance: Utterance) -> None:
         """This method is called each time there is a new agent utterance.
 
         Args:

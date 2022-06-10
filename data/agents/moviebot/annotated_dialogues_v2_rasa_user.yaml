@@ -1,0 +1,102 @@
+nlu:
+- examples: |
+    - Hi
+    - Sure, sounds fun.
+    - Okay, sounds good.
+    - Hi, okay.
+    - Hello.
+    - hello
+  intent: DISCLOSE.NON-DISCLOSE
+- examples: |
+    - [action](GENRE), [fantasy](GENRE)
+    - /restart
+    - [Cyberpunk](GENRE)
+    - [happy ending](KEYWORD)
+    - [conspiracy](GENRE)
+    - [Conspiracy](GENRE) [thriller](GENRE)
+    - [Western](GENRE)
+    - How about [sci-fi](GENRE)?
+    - Let's start over.
+    - something with [superpowers](KEYWORD)
+    - [Romance](GENRE)
+    - yes, [action](GENRE)
+    - [Soccer](GENRE)
+    - I want to restart for a new movie.
+    - no please.
+    - [Prison break](TITLE)
+    - a new movie
+    - [Sports](GENRE)
+    - something like the [lord of the rings](TITLE)
+    - I like [action](GENRE) movies
+    - [Action](GENRE)
+    - something [funny](KEYWORD) and [scary](KEYWORD)
+    - [superhero](KEYWORD)
+    - I would like to restart
+  intent: DISCLOSE
+- examples: |
+    - anything else?
+    - Recommend me something else please.
+    - Recommend me something else
+    - another recommendation
+    - that sounded too cheesy. Do you have any other recommendations?
+  intent: INQUIRE
+- examples: |
+    - I have seen that.
+    - I have already watched it.
+    - already seen it
+    - i know this one
+  intent: NOTE.NOTE-YES
+- examples: |
+    - No need of a [Cyberpunk](GENRE) film.
+    - No movies named like [one](TITLE).
+    - No movies named like [The Lawnmower Man](TITLE).
+  intent: REVEAL.REVISE
+- examples: |
+    - I will try it
+    - okay sounds good! I will give it a try.
+    - thank you
+    - I will try this movie.
+  intent: NOTE.NOTE-ACCEPT
+- examples: |
+    - Bye!
+    - I would like to quit now.
+    - Thanks, bye
+    - bye...
+    - Bye
+    - /exit
+  intent: COMPLETE
+- examples: |
+    - Tell me more about it
+    - Tell me more about it.
+    - Tell me something about it.
+  intent: INQUIRE.ITEMINFO
+- examples: |
+    - the movie plot
+    - What is it about?
+    - What is the plot?
+    - director name
+    - what is the plot of the movie?
+    - duration
+    - How long is it?
+  intent: INQUIRE.MORE
+- examples: |
+    - I would like a similar recommendation.
+    - Recommend me a movie similar to [The Lawnmower Man](TITLE).
+    - Recommend me something else please.
+  intent: INQUIRE.SIMILAR
+- examples: |
+    - yes
+    - I like this movie
+    - Yes
+    - I like this recommendation.
+    - yes I like [Avengers: Infinity War](TITLE)
+    - yes I like it
+    - I like this
+  intent: NOTE.NOTE-LIKE
+- examples: |
+    - No, I dont like this movie
+    - No I dont like it
+    - No
+    - I dont like it.
+  intent: NOTE.NOTE-DISLIKE
+version: '3.0'

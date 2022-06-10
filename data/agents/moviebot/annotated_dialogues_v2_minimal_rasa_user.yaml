@@ -1,0 +1,59 @@
+nlu:
+- examples: |
+    - Hello.
+    - hello
+  intent: DISCLOSE.NON-DISCLOSE
+- examples: |
+    - [Prison break](TITLE)
+    - [Sports](GENRE)
+    - [Cyberpunk](GENRE)
+    - [action](GENRE), [fantasy](GENRE)
+    - [Conspiracy](GENRE) [thriller](GENRE)
+    - I want to restart for a new movie.
+    - [Soccer](GENRE)
+    - How about [sci-fi](GENRE)?
+    - [Action](GENRE)
+    - Let's start over.
+    - [conspiracy](GENRE)
+    - /restart
+    - a new movie
+    - something like the [lord of the rings](TITLE)
+  intent: DISCLOSE
+- examples: |
+    - anything else?
+    - Recommend me something else please.
+  intent: INQUIRE
+- examples: |
+    - I have seen that.
+    - I have already watched it.
+    - i know this one
+    - already seen it
+  intent: NOTE.NOTE-YES
+- examples: |
+    - No movies named like [The Lawnmower Man](TITLE).
+    - No movies named like [one](TITLE).
+    - No need of a [Cyberpunk](GENRE) film.
+  intent: REVEAL.REVISE
+- examples: |
+    - thank you
+  intent: NOTE.NOTE-ACCEPT
+- examples: |
+    - /exit
+    - I would like to quit now.
+  intent: COMPLETE
+- examples: |
+    - Tell me something about it.
+    - Tell me more about it.
+  intent: INQUIRE.ITEMINFO
+- examples: |
+    - duration
+    - director name
+  intent: INQUIRE.MORE
+- examples: |
+    - I would like a similar recommendation.
+    - Recommend me a movie similar to [The Lawnmower Man](TITLE).
+  intent: INQUIRE.SIMILAR
+- examples: |
+    - I like this recommendation.
+  intent: NOTE.NOTE-LIKE
+version: '3.0'

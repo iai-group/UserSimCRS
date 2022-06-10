@@ -5,28 +5,21 @@ description: CIR6 intent scheme by Zhang&Balog (KDD'20)
 user_intents:
   COMPLETE:
   DISCLOSE:
-    # - DISCLOSE.REVIEW
     - DISCLOSE.NON-DISCLOSE
-    # - DISCLOSE.NON-DISCLOSE-REVIEW
   REVEAL:
     - REVEAL.EXPAND
     - REVEAL.REFINE
     - REVEAL.REVISE
   INQUIRE:
-    - INQUIRE.LIST
-    # - INQUIRE.COMPARE
-    # - INQUIRE.SUBSET
     - INQUIRE.SIMILAR
   NAVIGATE:
-    # - NAVIGATE.BACK
-    - NAVIGATE.MORE
-    - NAVIGATE.REPEAT
+    - NAVIGATE.MORE # User is asking for the recommendation properties, "plot?"
   NOTE:
     - NOTE.NOTE-LIKE
     - NOTE.NOTE-DISLIKE
     - NOTE.NOTE-YES
     - NOTE.NOTE-NO
-    - NOTE.NOTE-END
+    - NOTE.NOTE-ACCEPT
   INTERROGATE:
   COMPLETE:
 
@@ -46,18 +39,14 @@ agent_intents:
   END: 
   DISCLOSE:
     - DISCLOSE.NON-DISCLOSE
+    - DISCLOSE.MORE
   INQUIRE: 
-    # - INQUIRE.ELICIT-REVIEW
     - INQUIRE.ELICIT
-    # - INQUIRE.CLARIFY
+    - INQUIRE.MORE # "What would you like to know about [ITEM]"
+    - INQUIRE.NEXT # This is used when the agent asks the user for next step.
   REVEAL: 
-    - REVEAL.LIST
-    # - REVEAL.SUBSET
+    - REVEAL.NONE
     - REVEAL.SIMILAR
-  TRAVERSE: 
-    # - TRAVERSE.BACK
-    - TRAVERSE.MORE
-    - TRAVERSE.REPEAT
   RECORD:
   END:
 
@@ -69,14 +58,9 @@ agent_elicit_intents:
 # List of agent intents (including sub-intents) that are for set retrieval.
 agent_set_retrieval:
   - REVEAL
-  - REVEAL.LIST
-  # - REVEAL.SUBSET
+  - REVEAL.NONE
   - REVEAL.SIMILAR
-  - TRAVERSE
-  - TRAVERSE.REPEAT
-  # - TRAVERSE.BACK
-  - TRAVERSE.MORE
-  # - RECORD
+  - DISCLOSE.MORE
 
 
 # Expected agent intents in response to a (simulated) user intent.
@@ -84,75 +68,60 @@ expected_responses:
   DISCLOSE.NON-DISCLOSE:
     - INQUIRE
     - INQUIRE.ELICIT
-    - DISCLOSES.NON-DISCLOSE
-  # DISCLOSE.NON-DISCLOSE-REVIEW:
-  #   - INQUIRE
-  #   - INQUIRE.ELICIT
+    - DISCLOSE.NON-DISCLOSE
   DISCLOSE:
     - INQUIRE.ELICIT
-    # - SHOW
-    - REVEAL.LIST
-    - SUGGEST
-    # - INQUIRE.CLARIFY
-  # DISCLOSE.REVIEW:
-  #   - INQUIRE.ELICIT
-  #   - SHOW
-  #   - REVEAL.LIST
-  #   - SUGGEST
-  #   - INQUIRE.CLARIFY
+    - REVEAL
+    - REVEAL.NONE
   REVEAL.REVISE:
     - INQUIRE.ELICIT
-    # - SHOW
-    - REVEAL.LIST
-    # - SUGGEST
-    # - INQUIRE.CLARIFY
+    - REVEAL
+    - REVEAL.NONE
   REVEAL.REFINE:
     - INQUIRE.ELICIT
-    # - SHOW
-    - REVEAL.LIST
-    # - SUGGEST
-    # - INQUIRE.CLARIFY
+    - REVEAL
+    - REVEAL.NONE
   REVEAL.EXPAND:
     - INQUIRE.ELICIT
-    # - SHOW
-    - REVEAL.LIST
-    # - SUGGEST
-    # - INQUIRE.CLARIFY
+    - REVEAL
+    - REVEAL.NONE
   NOTE:
-    - RECORD
-    - TRAVERSE.REPEAT
-  NOTE.NOTE-END:
-    - RECORD
-    - TRAVERSE.REPEAT
-  NOTE.NOTE:
-    - RECORD
-    - INQUIRE.ELICIT
-    - TRAVERSE.REPEAT
   NOTE.NOTE-YES:
-    - INQUIRE.ELICIT-REVIEW
+    - INQUIRE.ELICIT
+    - REVEAL
+    - REVEAL.NONE
+    - REVEAL.SIMILAR
+  NOTE.NOTE-NO:
+    - INQUIRE.ELICIT
+    - REVEAL
+    - REVEAL.NONE
+    - REVEAL.SIMILAR
+  NOTE.NOTE-LIKE:
+    - INQUIRE.NEXT
+    - REVEAL
     - REVEAL.SIMILAR
   NOTE.NOTE-DISLIKE:
-    - REVEAL.LIST
-    - INQUIRE.ELICIT
-  # INTERROGATE:
-  #   - EXPLAIN
-  INQUIRE:
-    - REVEAL.LIST
-    - INQUIRE.ELICIT
-  NAVIGATE.REPEAT:
-    - TRAVERSE.REPEAT
-  NAVIGATE.MORE:
-    - REVEAL.LIST
-    - TRAVERSE.MORE
-  INQUIRE.SIMILAR:
-    - INQUIRE.ELICIT
+    - REVEAL
+    - REVEAL.NONE
     - REVEAL.SIMILAR
-    - REVEAL.LIST
-  INQUIRE.LIST:
-    - REVEAL.LIST
-  # INQUIRE.SUBSET:
-  #   - REVEAL.SUBSET
-  NAVIGATE:
-    - SHOW
+  NOTE.NOTE-ACCEPT:
+    - INQUIRE.NEXT
+    - INQUIRE.MORE
+    - END
+  INQUIRE:
+    - INQUIRE.ELICIT
+    - REVEAL
+    - REVEAL.NONE
+    - REVEAL.SIMILAR
+  INQUIRE.SIMILAR:
+    - REVEAL
+    - REVEAL.SIMILAR
+    - REVEAL.NONE
+  INQUIRE.ITEMINFO:
+    - INQUIRE.MORE
+  INQUIRE.MORE:
+    - DISCLOSE.MORE
+  NAVIGATE.MORE: # User is asking for more information regarding an item
+    - DISCLOSE.MORE
   COMPLETE:
     - END

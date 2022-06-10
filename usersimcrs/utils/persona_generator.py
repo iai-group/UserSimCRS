@@ -1,7 +1,7 @@
 """Generator for different personas with contexts."""
 
 import numpy as np
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Tuple
 import datetime
 import random
 import names
@@ -84,14 +84,14 @@ _TIME_OF_THE_DAY_MAPPING = {
 @dataclass
 class Persona:
     """Represents a persons context features."""
-
     name: str
     id: str
-    group_setting: int
+    group_setting: bool
     time_of_the_day: datetime
     weekend: bool
-    satisfaction: int
-    cooperativeness: int
+    satisfaction: float
+    cooperativeness: float
+    max_retries: int
 
 
 class PersonaGenerator:
@@ -115,7 +115,7 @@ class PersonaGenerator:
         Samples:
             - group_setting: bool.
             - weekend : bool.
-            - time_of_the_day: datetime.
+            - time_of_the_day: Tuple[datetime.time, datetime.time]
             - cooperativeness: float [0-1].
             - satisfaction: float [0-1] .
 
@@ -149,6 +149,7 @@ class PersonaGenerator:
 
         # Satisfaction
         satisfaction = self.satisfaction_function()
+        max_retrires = self.max_retrires(cooperativeness=cooperativeness, group_setting=group_setting,time_of_the_day=time_range_selected)
 
         return {
             "weekend": weekend,
@@ -156,6 +157,7 @@ class PersonaGenerator:
             "time_of_the_day": time_range_selected,
             "cooperativeness": cooperativeness,
             "satisfaction": satisfaction,
+            "max_retrires": max_retrires,
         }
 
     def satisfaction_function(
@@ -173,6 +175,11 @@ class PersonaGenerator:
         score = max(min(5, score), 1)
 
         return score
+    
+    def max_retrires(self,group_setting:bool, weekend:bool,time_of_the_day:Tuple[datetime.time,datetime.time], cooperativeness) -> int:
+        day = "weekend" if weekend else "weekday"
+        time_bonus = _TIME_OF_THE_DAY_MAPPING.get(day).get(time_of_the_day).get("patience") 
+        return round(cooperativeness*[int(group_setting) + time_bonus])
 
     def generate_personas(
         self, amount: Optional[int] = 10, ids: Optional[List[str]] = None
@@ -206,6 +213,7 @@ class PersonaGenerator:
                 weekend=context.get("weekend"),
                 satisfaction=context.get("satisfaction"),
                 cooperativeness=context.get("cooperativeness"),
+                max_retries=context.get("max_retries")
             )
             self._personas.append(persona)
 

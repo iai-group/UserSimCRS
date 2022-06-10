@@ -1,0 +1,854 @@
+[
+    {
+        "conversation ID": "\"39GHHAVOMGCMCWD43ZNZ2ARD9RF4JH\"",
+        "conversation": [
+            {
+                "participant": "AGENT",
+                "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences.\nI will ask you a few questions and based on your answers, I will try to find a movie for you.\nHi Ethan. Welcome to IAI MovieBot. Shall we start?\n",
+                "intent": "DISCLOSE.NON-DISCLOSE"
+            },
+            {
+                "participant": "USER",
+                "utterance": "hello\n",
+                "intent": "DISCLOSE.NON-DISCLOSE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Which genres do you prefer?\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "genres"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "action, fantasy\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "action"
+                    ],
+                    [
+                        "GENRE",
+                        "fantasy"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I have found almost 500 fantasy and action films. Can you guide me more to narrow down the search space? Can you give me a few keywords? For example, 'space opera' or 'galactic war'.\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "keywords"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "something like the lord of the rings\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "lord of the rings"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a fantasy and action, lord film named Kung Fu Hustle. Have you seen this one?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Kung Fu Hustle"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "anything else?\n",
+                "intent": "INQUIRE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a fantasy and action, lord film named Conan the Barbarian. Have you seen this one?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Conan the Barbarian"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "already seen it\n",
+                "intent": "NOTE.NOTE-YES"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I would like to recommend you a fantasy and action, lord film named Dracula Untold. Have you watched it?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Dracula Untold"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "i know this one\n",
+                "intent": "NOTE.NOTE-YES"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Sorry, I don't have any fantasy and action, lord films named similar to one. Please select from the list of options to continue.\n",
+                "intent": "REVEAL.NONE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "one"
+                    ],
+                    [
+                        "GENRE",
+                        "action"
+                    ],
+                    [
+                        "GENRE",
+                        "fantasy"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "a new movie\n",
+                "intent": "DISCLOSE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Sorry, I couldn't find any fantasy and action, lord films named similar to one. Please select from the list of options to continue.\n",
+                "intent": "REVEAL.NONE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "one"
+                    ],
+                    [
+                        "GENRE",
+                        "action"
+                    ],
+                    [
+                        "GENRE",
+                        "fantasy"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "No movies named like one.\n",
+                "intent": "REVEAL.REVISE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "one"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I would like to recommend you a fantasy and action, lord film named Bright. Have you watched it?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Bright"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "thank you\n",
+                "intent": "NOTE.NOTE-ACCEPT"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Sorry, I don't have any action, lord films named similar to thank you. Please select from the list of options to continue.\n",
+                "intent": "REVEAL.NONE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "thank you"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "/exit\n",
+                "intent": "COMPLETE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "You are exiting. I hope you found a movie. Bye.\",\n",
+                "intent": "END"
+            }
+        ]
+    },
+    {
+        "conversation ID": "\"3WOKGM4L721JEJM00BS2Y3IMR910O8\"",
+        "conversation": [
+            {
+                "participant": "AGENT",
+                "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences.\nI will ask you a few questions and based on your answers, I will try to find a movie for you.\nHi Ethan. Welcome to IAI MovieBot. Shall we start?\n",
+                "intent": "DISCLOSE.NON-DISCLOSE"
+            },
+            {
+                "participant": "USER",
+                "utterance": "Hello.\n",
+                "intent": "DISCLOSE.NON-DISCLOSE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Do you have any specific genres in mind?\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "genres"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "How about sci-fi?\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "sci-fi"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There are almost 2100 sci-fi films. Can you guide me more to narrow down the search space?\nWhat are you looking for in a movie? Some keywords would be good. For example, 'simulated reality' or 'artificial reality'.\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "keywords"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Cyberpunk\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "Cyberpunk"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I would like to recommend you a sci-fi, Cyberpunk film named Blade Runner. Have you watched it?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Blade Runner"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I have already watched it.\n",
+                "intent": "NOTE.NOTE-YES"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I would like to recommend you a sci-fi, Cyberpunk film named Akira. Have you watched it?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Akira"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I have already watched it.\n",
+                "intent": "NOTE.NOTE-YES"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a sci-fi, Cyberpunk film named Ghost in the Shell 2: Innocence. Have you seen this one?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Ghost in the Shell 2: Innocence"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I have already watched it.\n",
+                "intent": "NOTE.NOTE-YES"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I would like to recommend you a sci-fi, Cyberpunk film named Gunnm. Have you watched it?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Gunnm"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Tell me something about it.\n",
+                "intent": "INQUIRE.ITEMINFO"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "What would you like to know about Gunnm?\n",
+                "intent": "INQUIRE.MORE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Gunnm"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "duration\n",
+                "intent": "INQUIRE.MORE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Its duration is 54 minutes.\n",
+                "intent": "DISCLOSE.MORE"
+            },
+            {
+                "participant": "USER",
+                "utterance": "Recommend me a movie similar to The Lawnmower Man.\n",
+                "intent": "INQUIRE.SIMILAR",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "The Lawnmower Man"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Sorry, I don't have any sci-fi, Cyberpunk films named similar to The Lawnmower Man. Please select from the list of options to continue.\n",
+                "intent": "REVEAL.NONE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "The Lawnmower Man"
+                    ],
+                    [
+                        "GENRE",
+                        "sci-fi"
+                    ],
+                    [
+                        "GENRE",
+                        "Cyberpunk"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "No need of a Cyberpunk film.\n",
+                "intent": "REVEAL.REVISE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "Cyberpunk"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a sci-fi film named The Lawnmower Man. Have you seen this one?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "The Lawnmower Man"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I would like a similar recommendation.\n",
+                "intent": "INQUIRE.SIMILAR"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I believe I am stuck. I can't help you here.\n",
+                "intent": "FAILED"
+            },
+            {
+                "participant": "USER",
+                "utterance": "I have seen that.\n",
+                "intent": "NOTE.NOTE-YES"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Sorry, I couldn't find any other sci-fi films named similar to The Lawnmower Man. Please select from the list of options to continue.\n",
+                "intent": "REVEAL.NONE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "The Lawnmower Man"
+                    ],
+                    [
+                        "GENRE",
+                        "sci-fi"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "No movies named like The Lawnmower Man.\n",
+                "intent": "REVEAL.REVISE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "The Lawnmower Man"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Any specific director you are looking for? For example, 'Peter Ramsey' or 'Christopher Nolan'.\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "director"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Let's start over.\n",
+                "intent": "DISCLOSE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I could not find the the director name Let's start over..\n",
+                "intent": "REVEAL.NONE",
+                "slot_values": [
+                    [
+                        "DIRECTOR",
+                        "Let's start over"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "/restart\n",
+                "intent": "DISCLOSE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "We are starting again. Which genres do you prefer?\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "genres"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Conspiracy thriller\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "Conspiracy"
+                    ],
+                    [
+                        "GENRE",
+                        "thriller"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I have found almost 6600 thriller films. Please answer a few more questions to help me find a good movie.\nWhat are you looking for in a movie? Some keywords would be good. For example, 'hidden microphone' or 'crown jewels'.\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "keywords"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "conspiracy\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "conspiracy"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a thriller, conspiracy film named JFK. Have you seen this one?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "JFK"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Tell me more about it.\n",
+                "intent": "INQUIRE.ITEMINFO"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "What would you like to know about JFK?\n",
+                "intent": "INQUIRE.MORE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "JFK"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "director name\n",
+                "intent": "INQUIRE.MORE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "The director of this movie is Oliver Stone.\n",
+                "intent": "DISCLOSE.MORE",
+                "slot_values": [
+                    [
+                        "DIRECTOR",
+                        "Oliver Stone"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I like this recommendation.\n",
+                "intent": "NOTE.NOTE-LIKE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Please choose your next step:\n",
+                "intent": "INQUIRE.NEXT"
+            },
+            {
+                "participant": "USER",
+                "utterance": "I would like a similar recommendation.\n",
+                "intent": "INQUIRE.SIMILAR"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a film similar to JFK named Die Hard. Have you seen this one?\n",
+                "intent": "REVEAL.SIMILAR",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "JFK"
+                    ],
+                    [
+                        "TITLE",
+                        "Die Hard"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I have already watched it.\n",
+                "intent": "NOTE.NOTE-YES"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a film similar to JFK named Black Swan. Have you seen this one?\n",
+                "intent": "REVEAL.SIMILAR",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "JFK"
+                    ],
+                    [
+                        "TITLE",
+                        "Black Swan"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Recommend me something else please.\n",
+                "intent": "INQUIRE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a film similar to JFK named Wall Street. Have you seen this one?\n",
+                "intent": "REVEAL.SIMILAR",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "JFK"
+                    ],
+                    [
+                        "TITLE",
+                        "Wall Street"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I like this recommendation.\n",
+                "intent": "NOTE.NOTE-LIKE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Please choose your next step:\n",
+                "intent": "INQUIRE.NEXT"
+            },
+            {
+                "participant": "USER",
+                "utterance": "I would like to quit now.\n",
+                "intent": "COMPLETE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Hope to see you soon. Bye.\n",
+                "intent": "END"
+            }
+        ]
+    },
+    {
+        "conversation ID": "\"3IXEICO7934U5MDNYHUI1EY03KLT65\"",
+        "conversation": [
+            {
+                "participant": "AGENT",
+                "utterance": "Hi Rand. Welcome back. Shall we start?\n",
+                "intent": "DISCLOSE.NON-DISCLOSE"
+            },
+            {
+                "participant": "USER",
+                "utterance": "Action\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "Action"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There are almost 4700 action films. Can you guide me more to narrow down the search space?\nWhat are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'turkish military'.\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "keywords"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Prison break",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Prison break"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I would like to recommend you an action, Prison break film named The Count of Monte Cristo. Have you watched it?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "The Count of Monte Cristo"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I like this recommendation.",
+                "intent": "NOTE.NOTE-LIKE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Please choose your next step:\n",
+                "intent": "INQUIRE.NEXT"
+            },
+            {
+                "participant": "USER",
+                "utterance": "I would like a similar recommendation.\n",
+                "intent": "INQUIRE.SIMILAR"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I would like to recommend you a film similar to The Count of Monte Cristo named V for Vendetta. Have you watched it?\n",
+                "intent": "REVEAL.SIMILAR",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "The Count of Monte Cristo"
+                    ],
+                    [
+                        "TITLE",
+                        "V for Vendetta"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Recommend me something else please.\n",
+                "intent": "INQUIRE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "I would like to recommend you a  film similar to The Count of Monte Cristo  named Captain Blood. Have you watched it?\n",
+                "intent": "REVEAL.SIMILAR",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "The Count of Monte Cristo"
+                    ],
+                    [
+                        "TITLE",
+                        "Captain Blood"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I want to restart for a new movie.\n",
+                "intent": "DISCLOSE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Let's restart. Do you have any specific genres in mind?\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "genres"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Sports\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "Sports"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There are almost 900 sport films. Please answer a few more questions to help me find a good movie.\nCan you give me a few keywords? For example, 'racing driver' or 'car racing'.\n",
+                "intent": "INQUIRE.ELICIT",
+                "slot_values": [
+                    [
+                        "REQUEST",
+                        "keywords"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Soccer\n",
+                "intent": "DISCLOSE",
+                "slot_values": [
+                    [
+                        "GENRE",
+                        "Soccer"
+                    ]
+                ]
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a sport, Soccer film named Montevideo: Taste of a Dream. Have you seen this one?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Montevideo: Taste of a Dream"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "Recommend me something else please.\n",
+                "intent": "INQUIRE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "There is a sport, Soccer film named Les yeux dans les Bleus. Have you seen this one?\n",
+                "intent": "REVEAL",
+                "slot_values": [
+                    [
+                        "TITLE",
+                        "Les yeux dans les Bleus"
+                    ]
+                ]
+            },
+            {
+                "participant": "USER",
+                "utterance": "I like this recommendation.\n",
+                "intent": "NOTE.NOTE-LIKE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Please choose your next step:\n",
+                "intent": "INQUIRE.NEXT"
+            },
+            {
+                "participant": "USER",
+                "utterance": "I would like to quit now.\n",
+                "intent": "COMPLETE"
+            },
+            {
+                "participant": "AGENT",
+                "utterance": "Hope to see you soon. Bye.\n",
+                "intent": "END"
+            }
+        ]
+    }
+]

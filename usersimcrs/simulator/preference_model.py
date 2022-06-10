@@ -9,6 +9,7 @@ in [-1,1], where zero corresponds to neutral.
 Missing preferences are inferred running time (depending on the model type).
 """
 
+from email.policy import default
 import random
 import string
 from enum import Enum
@@ -82,7 +83,7 @@ class PreferenceModel:
         # Store item and slot-value preferences separately.
         self._item_preferences = UserPreferences(self._user_id)
         self._slotvalue_preferences = UserPreferences(self._user_id)
-
+        self._session_preferences = defaultdict()
         # Initialize item preferences by sampling from historical ratings.
         self._initialize_item_preferences()
 
@@ -96,7 +97,6 @@ class PreferenceModel:
             self._historical_user_id
         ).items():
             self._item_preferences.set_preference("ITEM_ID", item_id, rating)
-            print(item_id)
             for keyword in (
                 self._item_collection.get_item(item_id)
                 .get_property("keywords")
@@ -259,6 +259,13 @@ class PreferenceModel:
         # TODO: keep track of the slots.
         return slot, preference
 
+    def revise_random_preference(self, annotations: List[Annotation]) -> Annotation:
+        existing_annotations = set(self._session_preferences["PREFERENCES"].keys())
+        existing_annotations = existing_annotations.update(set(annotations))
+        annotation_to_revise = random.sample(existing_annotations, 1)
+        self._session_preferences["PREFERENCES"].pop(annotation_to_revise)
+        return annotation_to_revise
+
     def get_next_user_slots(
         self, agent_intent: Intent, agent_slot_values: List[SlotValueAnnotation]
     ) -> List[Annotation]:
@@ -309,7 +316,8 @@ class PreferenceModel:
                     next_user_slots.append(
                         Annotation(
                             slot,
-                            value=preference[0],
+                            value=preference[0].replace("-"," "),
                         )
                     )
+                    self._session_preferences[Annotation(slot,preference[0])] = preference[1]
         return next_user_slots

@@ -18,7 +18,7 @@ class InteractionModel:
     STOP_INTENT = Intent("STOP")
 
     def __init__(
-        self, config_file, annotated_conversations: List[List]
+        self, config_file, annotated_conversations: List[Dict]
     ) -> None:
         """Initializes the interaction model."""
         # Load interaction model.
@@ -26,7 +26,7 @@ class InteractionModel:
             raise FileNotFoundError(f"Config file not found: {config_file}")
         with open(config_file) as yaml_file:
             self._config = yaml.load(yaml_file, Loader=yaml.FullLoader)
-
+        self._preference_intent_config()
         (
             self._user_intent_distribution,
             self._intent_distribution,
@@ -51,11 +51,11 @@ class InteractionModel:
         user_intent_dist, intent_dist = dict(), dict()
         # Extracts conjoint user intent pairs from conversations.
         for annotated_conversation in annotated_conversations:
-            user_agenda = [
-                Intent(u["intent"])
-                for u in annotated_conversation["conversation"]
-                if u["participant"] == DialogueParticipant.USER.name
-            ]
+            user_agenda = []
+            for u in annotated_conversation["conversation"]:
+                intent = Intent(self._config["user_preference_intents_reverse"].get(u["intent"],u["intent"]))
+                if u["participant"] == DialogueParticipant.USER.name:
+                    user_agenda.append(intent)
             for i, user_intent in enumerate(user_agenda):
                 if user_intent not in user_intent_dist:
                     user_intent_dist[user_intent] = dict()
@@ -85,9 +85,7 @@ class InteractionModel:
                 # TODO: consider the case when the next intent is not
                 # user intent.
                 next_user_intent = (
-                    Intent(
-                        annotated_conversation["conversation"][j + 1]["intent"]
-                    )
+                    Intent(self._config["user_preference_intents_reverse"].get(annotated_conversation["conversation"][j + 1]["intent"],annotated_conversation["conversation"][j + 1]["intent"]))
                     if j < len(annotated_conversation["conversation"]) - 1
                     else self.START_INTENT
                 )
@@ -136,6 +134,14 @@ class InteractionModel:
         agenda.reverse()
         self._agenda = agenda
         return agenda
+
+    def _preference_intent_config(self):
+        tmp_dict = dict()
+        for main_intent, preference_data in self._config["user_preference_intents"].items():
+            for preference_key, sub_intents in preference_data.items():
+                for sub_intent in sub_intents:
+                    tmp_dict[sub_intent] = main_intent
+        self._config["user_preference_intents_reverse"] = tmp_dict
 
     @property
     def agenda(self):
@@ -214,6 +220,7 @@ class InteractionModel:
         Return:
             The sampled item.
         """
+        # TODO: Check if multiple intents have same probability!
         p_start = 0
         for i, p_item in enumerate(d):
             p_start += p_item
@@ -246,9 +253,15 @@ class InteractionModel:
         # If agent replies in an expected intent, then pop the next intent from
         # agenda.
         if agent_intent.label in expected_agent_intents:
-            self._current_intent = self._agenda.pop()
+            print("Agenda expected")
+            try:
+                self._current_intent = self._agenda.pop()
+            except IndexError as ie:
+                self._current_intent = self.STOP_INTENT
         else:  # Find a replacement based on last agent intent
+            print("Agenda not expected")
             self._current_intent = self.next_intent(
                 agent_intent, self._intent_distribution
             )
+        print("AGENDA UPDATE:",self._current_intent)
         return self._current_intent
