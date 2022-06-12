@@ -129,6 +129,7 @@ class Persona:
                 self._cooperativeness
                 * (int(self.context.group_setting) + time_bonus)
             )
+            self._max_retries = max(self._max_retries, 0)
         else:
             raise TypeError("Context was not set.")
 
