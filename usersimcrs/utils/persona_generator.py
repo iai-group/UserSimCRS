@@ -188,12 +188,6 @@ class PersonaGenerator:
 
         # Satisfaction
         satisfaction = self.satisfaction_function()
-        """ max_retries = self.max_retries(
-            cooperativeness=cooperativeness,
-            group_setting=group_setting,
-            time_of_the_day=time_range_selected,
-            weekend=mode
-        ) """
 
         return {
             "weekend": weekend,
