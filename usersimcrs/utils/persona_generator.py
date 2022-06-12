@@ -288,7 +288,7 @@ class PersonaGenerator:
             p["context"] = deepcopy(p["context"].__dict__)
             output_personas.append(p)
         with open(filepath, "w") as outfile:
-            json.dump(output_personas, outfile)
+            json.dump(output_personas, outfile, indent=4)
         return output_personas
 
     def read_json(self, filepath: str) -> List[Persona]:
