@@ -1,7 +1,7 @@
 """Generator for different personas with contexts."""
 
 import numpy as np
-from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, List, Optional, Tuple, Union
 import datetime
 import random
 import names
@@ -82,16 +82,55 @@ _TIME_OF_THE_DAY_MAPPING = {
 
 
 @dataclass
-class Persona:
-    """Represents a persons context features."""
-    name: str
-    id: str
+class Context:
     group_setting: bool
-    time_of_the_day: datetime
+    time_of_the_day: datetime.time
     weekend: bool
-    satisfaction: float
-    cooperativeness: float
-    max_retries: int
+
+
+class Persona:
+    def __init__(
+        self,
+        name: str,
+        id: str,
+        satisfaction: float,
+        cooperativeness: float,
+        context: Optional[Union[Context, None]] = None,
+        max_retries: Optional[Union[int, None]] = None,
+    ) -> None:
+        self._name = name
+        self._id = id
+        self._satisfaction = satisfaction
+        self._cooperativeness = cooperativeness
+        self._context = context
+        self._max_retries = max_retries
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def id(self) -> str:
+        return self._id
+
+    @property
+    def context(self) -> Union[Context, None]:
+        return self._context
+
+    def calculate_max_retries(self) -> None:
+        if self.context:
+            day = "weekend" if self.context.weekend else "weekday"
+            time_bonus = (
+                _TIME_OF_THE_DAY_MAPPING.get(day)
+                .get(self.context.time_of_the_day)
+                .get("patience")
+            )
+            self._max_retries = round(
+                self._cooperativeness
+                * (int(self.context.group_setting) + time_bonus)
+            )
+        else:
+            raise TypeError("Context was not set.")
 
 
 class PersonaGenerator:
@@ -149,7 +188,6 @@ class PersonaGenerator:
 
         # Satisfaction
         satisfaction = self.satisfaction_function()
-        max_retrires = self.max_retrires(cooperativeness=cooperativeness, group_setting=group_setting,time_of_the_day=time_range_selected)
 
         return {
             "weekend": weekend,
@@ -157,7 +195,6 @@ class PersonaGenerator:
             "time_of_the_day": time_range_selected,
             "cooperativeness": cooperativeness,
             "satisfaction": satisfaction,
-            "max_retrires": max_retrires,
         }
 
     def satisfaction_function(
@@ -175,11 +212,21 @@ class PersonaGenerator:
         score = max(min(5, score), 1)
 
         return score
-    
-    def max_retrires(self,group_setting:bool, weekend:bool,time_of_the_day:Tuple[datetime.time,datetime.time], cooperativeness) -> int:
+
+    def max_retries(
+        self,
+        group_setting: bool,
+        weekend: bool,
+        time_of_the_day: Tuple[datetime.time, datetime.time],
+        cooperativeness,
+    ) -> int:
         day = "weekend" if weekend else "weekday"
-        time_bonus = _TIME_OF_THE_DAY_MAPPING.get(day).get(time_of_the_day).get("patience") 
-        return round(cooperativeness*[int(group_setting) + time_bonus])
+        time_bonus = (
+            _TIME_OF_THE_DAY_MAPPING.get(day)
+            .get(time_of_the_day)
+            .get("patience")
+        )
+        return round(cooperativeness * [int(group_setting) + time_bonus])
 
     def generate_personas(
         self, amount: Optional[int] = 10, ids: Optional[List[str]] = None
@@ -200,21 +247,24 @@ class PersonaGenerator:
             name = names.get_full_name()
             while name in used_names:
                 name = names.get_full_name()
-            context = self.sample_context(weekend_probability=3 / 7)
+            context_params = self.sample_context(weekend_probability=3 / 7)
             if ids:
                 persona_id = ids.pop()
             else:
                 persona_id = name
+            context = Context(
+                group_setting=context_params.get("group_setting"),
+                time_of_the_day=context_params.get("time_of_the_day"),
+                weekend=context_params.get("weekend"),
+            )
             persona = Persona(
                 name=name,
                 id=persona_id,
-                group_setting=context.get("group_setting"),
-                time_of_the_day=context.get("time_of_the_day"),
-                weekend=context.get("weekend"),
-                satisfaction=context.get("satisfaction"),
-                cooperativeness=context.get("cooperativeness"),
-                max_retries=context.get("max_retries")
+                satisfaction=context_params.get("satisfaction"),
+                cooperativeness=context_params.get("cooperativeness"),
+                context=context,
             )
+            persona.calculate_max_retries()
             self._personas.append(persona)
 
         return self._personas
@@ -224,13 +274,15 @@ class PersonaGenerator:
         output_personas = []
         for persona in self._personas:
             p = deepcopy(persona.__dict__)
-            p["time_of_the_day"] = (
-                p["time_of_the_day"][0].isoformat(),
-                p["time_of_the_day"][1].isoformat(),
+            p = {k.replace("_", "", 1): v for k, v in p.items()}
+            p["context"].time_of_the_day = (
+                p["context"].time_of_the_day[0].isoformat(),
+                p["context"].time_of_the_day[1].isoformat(),
             )
+            p["context"] = deepcopy(p["context"].__dict__)
             output_personas.append(p)
         with open(filepath, "w") as outfile:
-            json.dump(output_personas, outfile)
+            json.dump(output_personas, outfile, indent=4)
         return output_personas
 
     def read_json(self, filepath: str) -> List[Persona]:
@@ -238,22 +290,29 @@ class PersonaGenerator:
         with open(filepath, "r") as infile:
             data = json.load(infile)
         for person_data in data:
+            context_params = person_data.get("context")
+            context = None
+            if context_params:
+                context = Context(
+                    group_setting=context_params.get("group_setting"),
+                    weekend=context_params.get("weekend"),
+                    time_of_the_day=(
+                        datetime.time.fromisoformat(
+                            context_params.get("time_of_the_day")[0]
+                        ),
+                        datetime.time.fromisoformat(
+                            context_params.get("time_of_the_day")[1]
+                        ),
+                    ),
+                )
             self._personas.append(
                 Persona(
                     name=person_data.get("name"),
                     id=person_data.get("id"),
-                    weekend=person_data.get("weekend"),
-                    group_setting=person_data.get("group_setting"),
-                    time_of_the_day=(
-                        datetime.time.fromisoformat(
-                            person_data.get("time_of_the_day")[0]
-                        ),
-                        datetime.time.fromisoformat(
-                            person_data.get("time_of_the_day")[1]
-                        ),
-                    ),
                     cooperativeness=person_data.get("cooperativeness"),
                     satisfaction=person_data.get("satisfaction"),
+                    context=context,
+                    max_retries=person_data.get("max_retries"),
                 )
             )
         return self._personas
@@ -263,7 +322,7 @@ if __name__ == "__main__":
     pg = PersonaGenerator()
     persones = pg.generate_personas(amount=1000, ids=list(range(4000, 10000)))
     print(persones)
-    pg.export_json("usersimcrs/utils/export_personas.json")
+    pg.export_json("usersimcrs/utils/export_persona_v2.json")
     pg = PersonaGenerator()
-    personas = pg.read_json("usersimcrs/utils/export_personas.json")
+    personas = pg.read_json("usersimcrs/utils/export_persona_v2.json")
     print(personas)
