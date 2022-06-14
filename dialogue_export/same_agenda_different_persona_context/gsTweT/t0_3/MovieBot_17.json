@@ -1,0 +1,3035 @@
+[
+  {
+    "conversation ID": "1655154400",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'dark comedy' or 'criminal mastermind'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154404",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 400 fun films. Please answer a few more questions to help me find a good movie.Do you have any specific genres in mind? For example, 'Mystery' or 'News'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Third Man 8.1 104 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Joseph Cotten, Alida Valli, Orson Welles, Trevor Howard, Bernard Lee, Paul H\u00f6rbiger have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Joseph Cotten, Alida Valli, Orson Welles, Trevor Howard, Bernard Lee, Paul H\u00f6rbiger.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "a new movie",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Knives Out 7.9 131 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Knives Out\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Rian Johnson.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, fun films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, fun films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "bye",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154407",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'crown jewels' or 'hidden microphone'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154409",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'love triangle' or 'contact lens'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154413",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Thriller",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'contact lens' or 'hidden microphone'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154415",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'love triangle' or 'dark comedy'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with kids.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Thank You, Mr. Moto 7.0 67 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154417",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Thriller",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'dc comics' or 'love triangle'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something kids and fight scenes",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ],
+          [
+            "KEYWORD",
+            "fight scenes"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Thriller film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154420",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'love triangle' or 'dc comics'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something kids and fight scenes",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ],
+          [
+            "KEYWORD",
+            "fight scenes"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Recommend me something else",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with fight scenes.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "fight scenes"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Reichenbach Fall 9.7 88 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Thank You, Mr. Moto 7.0 67 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, non fight films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, non fight films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Thanks, bye",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154422",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'crown jewels' or 'dc comics'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with fight scenes.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "fight scenes"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Thank You, Mr. Moto 7.0 67 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154424",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'crown jewels' or 'dc comics'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154431",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'hidden microphone' or 'dark comedy'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Recommend me something else",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with fight scenes.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "fight scenes"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Reichenbach Fall 9.7 88 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Thank You, Mr. Moto 7.0 67 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, non fight films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, non fight films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "already seen it",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, non fight films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, non fight films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "i know this one",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Prisoners 8.1 153 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154432",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'contact lens' or 'dc comics'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154436",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'hidden microphone' or 'dark comedy'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154439",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer? For example, 'Adventure' or 'Music'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Thriller film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Her Composition 5.3 93 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Stephan Littger.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154441",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'hidden microphone'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154442",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Thriller",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'dc comics'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154443",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'dc comics' or 'dark comedy'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "bye",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154449",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Thriller",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Michael Curtiz.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, kids films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Thriller film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154451",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Thriller",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'hidden microphone'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154456",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Thriller?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with kids.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What are you looking for in a movie? Some keywords would be good. For example, 'criminal mastermind' or 'dark comedy'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, director name films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, director name films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, director name films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, director name films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, director name films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any thriller, director name films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any thriller, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with fight scenes.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "fight scenes"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Thank You, Mr. Moto 7.0 67 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  }
+]

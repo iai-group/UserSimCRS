@@ -1,0 +1,844 @@
+[
+  {
+    "conversation ID": "1655071215",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 400 fun films. Can you guide me more to narrow down the search space?Do you have any specific genres in mind? For example, 'Sci-Fi' or 'News'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Salt of the Earth 8.5 110 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Sebasti\u00e3o Salgado, Wim Wenders, L\u00e9lia Wanick Salgado, Juliano Ribeiro Salgado, Hugo Barbier, Jacques Barth\u00e9l\u00e9my have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "What is it about?",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655071217",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Sora Aoi, Hiroto Kat\u00f4, Sh\u00f4 Nishino, Takashi Oda, Mutsuo Yoshioka, Keita \u00d4no.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Man, Woman & the Wall\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "This movie is 84 minutes long.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Man, Woman & the Wall\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Man, Woman & the Wall\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 84 minutes.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655071220",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind? For example, 'Thriller' or 'Romance'.",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Salt of the Earth 8.5 110 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "This movie is 110 minutes long.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Sebasti\u00e3o Salgado, Wim Wenders, L\u00e9lia Wanick Salgado, Juliano Ribeiro Salgado, Hugo Barbier, Jacques Barth\u00e9l\u00e9my have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: 2001: A Space Odyssey 8.3 149 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Keir Dullea, Gary Lockwood, William Sylvester, Daniel Richter, Leonard Rossiter, Margaret Tyzack.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"2001: A Space Odyssey\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this movie",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655071222",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind? For example, 'Drama' or 'Adventure'.",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like Crime movies",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with pixar animation.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and non animation, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655071226",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 400 fun films. Can you guide me more to narrow down the search space?Do you have any specific genres in mind? For example, 'Sci-Fi' or 'War'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Salt of the Earth 8.5 110 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this movie",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Repentance 8.4 153 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Autumn Sonata 8.3 99 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Ingrid Bergman, Liv Ullmann, Lena Nyman, Halvar Bj\u00f6rk, Marianne Aminoff, Arne Bang-Hansen.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Persona 8.1 85 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Host 7.1 120 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 120 minutes.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Host\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Kang-ho Song, Hee-Bong Byun, Hae-il Park, Doona Bae, Ko Asung, Dal-su Oh have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Four Seasons 6.9 107 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I dont like it.",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Third Man 8.1 104 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Joseph Cotten, Alida Valli, Orson Welles, Trevor Howard, Bernard Lee, Paul H\u00f6rbiger have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Carol Reed.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "no please.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Third Man\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Joseph Cotten, Alida Valli, Orson Welles, Trevor Howard, Bernard Lee, Paul H\u00f6rbiger have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Third Man\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Joseph Cotten, Alida Valli, Orson Welles, Trevor Howard, Bernard Lee, Paul H\u00f6rbiger have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "the movie plot",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "An out of work pulp fiction novelist, Holly Martins, arrives in a post war Vienna divided into sectors by the victorious allies, and where a shortage of supplies has led to a flourishing black market. He arrives at the invitation of an ex-school friend, Harry Lime, who has offered him a job, only to discover that Lime has recently died in a peculiar traffic accident. From talking to Lime's friends and associates Martins soon notices that some of the stories are inconsistent, and determines to discover what really happened to Harry Lime.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Third Man\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Spider-Man: Into the Spider-Verse 8.4 117 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Spider-Man: Into the Spider-Verse\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  }
+]

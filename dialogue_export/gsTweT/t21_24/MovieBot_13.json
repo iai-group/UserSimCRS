@@ -1,0 +1,582 @@
+[
+  {
+    "conversation ID": "1655072193",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 400 fun films. Please answer a few more questions to help me find a good movie.Do you have any specific genres in mind? For example, 'Family' or 'Adventure'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Her Composition 5.3 93 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655072196",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Salt of the Earth 8.5 110 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Sebasti\u00e3o Salgado, Wim Wenders, L\u00e9lia Wanick Salgado, Juliano Ribeiro Salgado, Hugo Barbier, Jacques Barth\u00e9l\u00e9my have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "/restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again.Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'crown jewels' or 'crime family'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655072203",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer? For example, 'Fantasy' or 'Romance'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Her Composition 5.3 93 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Her Composition\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Her Composition\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Lulu Wilson, Heather Matarazzo, Margot Bingham, Christian Campbell, Kevin Breznahan, John Rothman have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Let's restart.Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'contact lens' or 'hidden microphone'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Reichenbach Fall 9.7 88 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Thanks, bye",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655072205",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655072217",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Salt of the Earth 8.5 110 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Salt of the Earth\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Salt of the Earth\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Sebasti\u00e3o Salgado, Wim Wenders, L\u00e9lia Wanick Salgado, Juliano Ribeiro Salgado, Hugo Barbier, Jacques Barth\u00e9l\u00e9my have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Sebasti\u00e3o Salgado, Wim Wenders, L\u00e9lia Wanick Salgado, Juliano Ribeiro Salgado, Hugo Barbier, Jacques Barth\u00e9l\u00e9my.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "no please.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Salt of the Earth\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Sebasti\u00e3o Salgado, Wim Wenders, L\u00e9lia Wanick Salgado, Juliano Ribeiro Salgado, Hugo Barbier, Jacques Barth\u00e9l\u00e9my.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Sebasti\u00e3o Salgado, Wim Wenders, L\u00e9lia Wanick Salgado, Juliano Ribeiro Salgado, Hugo Barbier, Jacques Barth\u00e9l\u00e9my.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Sebasti\u00e3o Salgado, Wim Wenders, L\u00e9lia Wanick Salgado, Juliano Ribeiro Salgado, Hugo Barbier, Jacques Barth\u00e9l\u00e9my have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  }
+]

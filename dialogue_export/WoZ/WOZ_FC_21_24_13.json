@@ -1,0 +1,1871 @@
+[
+  {
+    "conversation ID": "1655124157",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The 400 Blows 8.1 99 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 99 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 99 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 99 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 99 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 99 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 99 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \\\"The 400 Blows\\\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 99 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "anything else?",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Sign of Three 9.0 86 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No I dont like it",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Heart of Nuba 9.0 85 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "yes I like it",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Mountain II 8.9 135 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "What is the plot?",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment, the fate of Earth and existence has never been more uncertain.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:\\n",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655124264",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you. Hi Ethan. Welcome to IAI MovieBot. Shall we start?",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with pixar animation.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Reichenbach Fall 9.7 88 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655124918",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer? For example, 'Fantasy' or 'Thriller'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer? For example, 'Fantasy' or 'Thriller'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime None",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "None"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Reichenbach Fall 9.7 88 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have seen that.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Scream for Me Sarajevo 8.9 95 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 88 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 88 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 88 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 88 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 88 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 88 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I would like to recommend you a film similar to The Reichenbach Fall named The Mountain II. Have you watched it?",
+        "intent": "REVEAL.SIMILAR"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have seen that.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I would like to recommend you a film similar to The Reichenbach Fall named The Empty Hearse. Have you watched it?",
+        "intent": "REVEAL.SIMILAR"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again. Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Heart of Nuba 9.0 85 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "/restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again. Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with pixar animation.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 8000 non pixar animation films. Can you guide me more to narrow down the search space? Do you have any specific genres in mind? For example, 'Musical' or 'War'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer? For example, 'Fantasy' or 'Thriller'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655125219",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Reichenbach Fall 9.7 88 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "anything else?",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The 400 Blows 8.1 99 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have seen that.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Sign of Three 9.0 86 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655125327",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Mountain II 8.9 135 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have seen that.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Heart of Nuba 9.0 85 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have seen that.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Sign of Three 9.0 86 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \\\"The Sign of Three\\\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 86 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655125452",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Heart of Nuba 9.0 85 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "/restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again. Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Scream for Me Sarajevo 8.9 95 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "/restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again. Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "anything else?",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Scream for Me Sarajevo 8.9 95 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "anything else?",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Reichenbach Fall 9.7 88 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have seen that.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Mountain II 8.9 135 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655125528",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Reichenbach Fall 9.7 88 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 88 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655125559",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "/restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again. Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655125669",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Lion King (2019) 8.9 95 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655125800",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a None film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "None"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Toy Story (1995) 9.0 85 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "/restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again. Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime Adventure",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ],
+          [
+            "GENRE",
+            "Adventure"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 Crime and Adventure films. Please answer a few more questions to help me find a good movie. What are you looking for in a movie? Some keywords would be good. For example, 'dark comedy' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Lion King (2019) 8.9 95 min",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Toy Story (1995) 8.9 95 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "anything else?",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Jumanji (1995) 8.9 95 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Heat (1995) 8.9 95 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "yes I like it",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  }
+]

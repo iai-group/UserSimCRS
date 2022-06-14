@@ -1,0 +1,2933 @@
+[
+  {
+    "conversation ID": "1655154716",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 20200 drama films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'wrongful imprisonment' or 'crime family'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154722",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Drama",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 20200 drama films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'wrongful imprisonment' or 'crime family'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154723",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind? For example, 'Adventure' or 'Fantasy'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Her Composition 5.3 93 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Lulu Wilson, Heather Matarazzo, Margot Bingham, Christian Campbell, Kevin Breznahan, John Rothman have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Lulu Wilson, Heather Matarazzo, Margot Bingham, Christian Campbell, Kevin Breznahan, John Rothman have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "no please.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Her Composition\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "What is the plot?",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "A very talented but artistically stuck composition student starts visiting high-end escort clients throughout New York City after failing to obtain her PhD scholarship. Absurdly out of place at first, morally pink Malorie is suddenly struck with unexpected musical experiences during her encounters and feels the urge to turn those perceptions into music. Recognizing her previous writing as rigid and boring, she decides to throw out her already finished thesis score and build her new one around her adventures, turning the unsuspecting men into her collective muse. In need of ever new experiences to finish her score within the 3 remaining weeks, Malorie for the first time feels in complete touch with her inner creative forces... or could she be simply on the verge of becoming insane? For nobody can explain her radical transformation and only her final performance can possibly tell the whole story -- if she can finish on time.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Stephan Littger.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Her Composition\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Stephan Littger.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154729",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 20200 drama films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'wrongful imprisonment' or 'crime family'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154733",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 20200 drama films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'organized crime' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154748",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 20200 drama films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'organized crime' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154755",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 400 fun films. Can you guide me more to narrow down the search space?Which genres do you prefer? For example, 'Film-Noir' or 'Romance'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Drama",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Repentance 8.4 153 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "no please.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Repentance\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Recommend me something else",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Autumn Sonata 8.3 99 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Autumn Sonata\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Ingmar Bergman.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with oscar (best directing).",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films named similar to thank you not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154763",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 400 fun films. Can you guide me more to narrow down the search space?Which genres do you prefer? For example, 'Drama' or 'Western'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Drama",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Repentance 8.4 153 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "no please.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Repentance\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "a new movie",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Captain Fantastic 7.9 118 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Recommend me something else",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Knives Out 7.9 131 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Rian Johnson.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, fun films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, fun films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, sounds films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with oscar (best picture).",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best picture)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best picture films named similar to thank you from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "bye...",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154765",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 20200 drama films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'crown jewels' or 'organized crime'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154775",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Drama",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 20200 drama films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'organized crime' or 'crime family'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154779",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 20200 drama films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'crown jewels' or 'organized crime'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154796",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 20200 drama films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'crown jewels' or 'wrongful imprisonment'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154805",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Drama",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 20200 drama films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'crime family' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154817",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 400 fun films. Please answer a few more questions to help me find a good movie.Do you have any specific genres in mind? For example, 'Biography' or 'Comedy'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Repentance 8.4 153 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "a new movie",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Captain Fantastic 7.9 118 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "FAILED"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Matt Ross.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Matt Ross.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, fun films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, fun films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, sounds films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with oscar (best directing).",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films named similar to thank you from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154826",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 20200 drama films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'crown jewels' or 'organized crime'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154851",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer? For example, 'Fantasy' or 'Romance'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Her Composition 5.3 93 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Lulu Wilson, Heather Matarazzo, Margot Bingham, Christian Campbell, Kevin Breznahan, John Rothman have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "a new movie",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I have already watched it.",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with oscar (best directing).",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "What is the plot?",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "What is the plot?",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, (best films from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with oscar (best picture).",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best picture)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best picture films from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films from the year  > 2010 not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154855",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 400 fun films. Can you guide me more to narrow down the search space?Do you have any specific genres in mind? For example, 'Horror' or 'Film-Noir'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Drama",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Repentance 8.4 153 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "INQUIRE.NEXT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Repentance\"?",
+        "intent": "INQUIRE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is Tengiz Abuladze.",
+        "intent": "DISCLOSE.MORE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154887",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Her Composition 5.3 93 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer? For example, 'Thriller' or 'Drama'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with oscar (best directing).",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films named similar to thank you not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any drama, sounds films named similar to thank you not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "okay sounds good! I will give it a try.",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, sounds films named similar to thank you not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, sounds films named similar to thank you not starring oscar. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "bye",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154895",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Her Composition 5.3 93 min",
+        "intent": "REVEAL"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind? For example, 'Thriller' or 'Romance'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other drama, sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Drama film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other sounds films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "END"
+      }
+    ]
+  },
+  {
+    "conversation ID": "1655154907",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "DISCLOSE.NON-DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Drama?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Drama"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 20200 drama films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'organized crime' or 'crown jewels'.",
+        "intent": "INQUIRE.ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "oscar (best directing)",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "oscar (best directing)"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any drama, (best films. Please select from the list of options to continue.",
+        "intent": "REVEAL.NONE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "END"
+      }
+    ]
+  }
+]

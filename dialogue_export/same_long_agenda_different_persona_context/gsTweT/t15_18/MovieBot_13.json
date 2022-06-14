@@ -1,0 +1,2415 @@
+[
+  {
+    "conversation ID": "1655161741",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'organized crime' or 'contact lens'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with pixar animation.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Thank You, Mr. Moto 7.0 67 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161742",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 400 fun films. Can you guide me more to narrow down the search space?Which genres do you prefer? For example, 'Drama' or 'Biography'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The 400 Blows 8.1 99 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "a new movie",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Knives Out 7.9 131 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Knives Out\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Rian Johnson.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime, fun films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with pixar animation.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and non animation, fun films named similar to thank you from the year  > 2010. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161743",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 crime films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'dark comedy' or 'hidden microphone'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161745",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'contact lens' or 'organized crime'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Crime film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Ghost in the Shell 8.0 83 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161747",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 400 fun films. Please answer a few more questions to help me find a good movie.Which genres do you prefer? For example, 'Biography' or 'Family'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The 400 Blows 8.1 99 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "/restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again.Which genres do you prefer?",
+        "intent": "RESTART"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I could not find the genres you mentioned.Can you guide me to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'tv special' or 'wrongful imprisonment'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Godfather 9.2 175 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "the movie plot",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The Godfather \"Don\" Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter's wedding. Michael, Vito's youngest son and a decorated WW II Marine is also present at the wedding. Michael seems to be uninterested in being a part of the family business. Vito is a powerful man, and is kind to all those who give him respect but is ruthless against those who do not. But when a powerful and treacherous rival wants to sell drugs and needs the Don's influence for the same, Vito refuses to do it. What follows is a clash between Vito's fading old values and the new ways which may cause Michael to do the thing he was most reluctant in doing and wage a mob war against all the other mafia families which could tear the Corleone family apart.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any Crime films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Crime film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Goodfellas 8.7 146 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161748",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'hidden microphone' or 'crown jewels'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161750",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 400 fun films. Can you guide me more to narrow down the search space?Do you have any specific genres in mind? For example, 'Sci-Fi' or 'Biography'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The 400 Blows 8.1 99 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Jean-Pierre L\u00e9aud, Claire Maurier, Albert R\u00e9my, Guy Decomble, Georges Flamant, Patrick Auffay have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by Fran\u00e7ois Truffaut.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161751",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'crime family' or 'crown jewels'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161752",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'contact lens' or 'crown jewels'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161754",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer? For example, 'Thriller' or 'Romance'.",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with pixar animation.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and non animation, sounds films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and non animation, sounds films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Crime film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and non animation, sounds films named not similar to a Crime. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161755",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 crime films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'hidden microphone' or 'crime family'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something pixar animation and pigs",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ],
+          [
+            "KEYWORD",
+            "pigs"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Blues Brothers 7.9 133 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"The Blues Brothers\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by John Landis.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime, pigs films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Crime film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other crime, pigs films named not similar to a Crime. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161756",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'dark comedy' or 'crime family'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something pixar animation and pigs",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ],
+          [
+            "KEYWORD",
+            "pigs"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Blues Brothers 7.9 133 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"The Blues Brothers\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by John Landis.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime, pigs films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with pigs.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pigs"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Thank You, Mr. Moto 7.0 67 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161757",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'hidden microphone' or 'dark comedy'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161758",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'crown jewels' or 'organized crime'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161759",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 400 fun films. Please answer a few more questions to help me find a good movie.Do you have any specific genres in mind? For example, 'History' or 'Sci-Fi'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The 400 Blows 8.1 99 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Jean-Pierre L\u00e9aud, Claire Maurier, Albert R\u00e9my, Guy Decomble, Georges Flamant, Patrick Auffay have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161760",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 crime films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'contact lens' or 'crown jewels'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something pixar animation and pigs",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ],
+          [
+            "KEYWORD",
+            "pigs"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Blues Brothers 7.9 133 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"The Blues Brothers\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by John Landis.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime, pigs films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No need of a Crime film.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other crime, pigs films named not similar to a Crime. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161761",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 crime films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'crown jewels' or 'dark comedy'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161762",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 5300 crime films. Can you guide me more to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'contact lens' or 'hidden microphone'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its directed by B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161763",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "How about Crime?",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 5300 crime films. Can you guide me more to narrow down the search space?Can you give me a few keywords? For example, 'crime family' or 'hidden microphone'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "something with pixar animation",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Cat City 8.4 96 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me more about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Cat City\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The director of this movie is B\u00e9la Ternovszky.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and animation films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655161765",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 400 fun films. Please answer a few more questions to help me find a good movie.Do you have any specific genres in mind? For example, 'Music' or 'Sci-Fi'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Crime",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Crime"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The 400 Blows 8.1 99 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "no please.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The 400 Blows\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No movies with pixar animation.",
+        "intent": "REVEAL.REVISE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "pixar animation"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and non animation, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and non animation, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and non animation, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and non animation, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "director name",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any crime and non animation, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and non animation, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "thank you",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any crime and non animation, fun films named similar to thank you. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Bye!",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "13",
+      "type": "SIMULATOR"
+    }
+  }
+]

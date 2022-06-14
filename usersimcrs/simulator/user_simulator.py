@@ -8,9 +8,10 @@ from dialoguekit.core.utterance import Utterance
 
 class UserSimulator(User, ABC):
     def __init__(
-        self,
+        self, id
     ) -> None:
         """"Initializes the user simulator."""
+        super().__init__(id=id, type=UserType.SIMULATOR)
         self._user_type = UserType.SIMULATOR
 
     @abstractmethod

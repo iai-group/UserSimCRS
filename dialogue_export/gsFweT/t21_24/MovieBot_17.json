@@ -1,0 +1,1707 @@
+[
+  {
+    "conversation ID": "1655071248",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Okay, sounds good.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Man, Woman & the Wall 6.4 84 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Man, Woman & the Wall\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Man, Woman & the Wall\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Man, Woman & the Wall\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Her Composition 5.3 93 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Lulu Wilson, Heather Matarazzo, Margot Bingham, Christian Campbell, Kevin Breznahan, John Rothman.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Lulu Wilson, Heather Matarazzo, Margot Bingham, Christian Campbell, Kevin Breznahan, John Rothman.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Let's restart.Which genres do you prefer?",
+        "intent": "RESTART"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like Thriller movies",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I have found almost 6600 thriller films. Please answer a few more questions to help me find a good movie.Can you give me a few keywords? For example, 'criminal mastermind' or 'crown jewels'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "This movie is 97 minutes long.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "17",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655071249",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Which genres do you prefer?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I could not find the genres Hi.Please answer a few questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'wrongful imprisonment' or 'tv special'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Tell me something about it.",
+        "intent": "INQUIRE.ITEMINFO",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "What would you like to know about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 97 minutes.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 97 minutes.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "17",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655071259",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hello.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I could not find the genres Hi, okay..Can you guide me to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'wrongful imprisonment' or 'tv special'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Good, the Bad and the Ugly 8.8 161 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Good, the Bad and the Ugly\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Good, the Bad and the Ugly\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Good, the Bad and the Ugly\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "What is the plot?",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Blondie (The Good) (Clint Eastwood) is a professional gunslinger who is out trying to earn a few dollars. Angel Eyes (The Bad) (Lee Van Cleef) is a hitman who always commits to a task and sees it through, as long as he is paid to do so. And Tuco (The Ugly) (Eli Wallach) is a wanted outlaw trying to take care of his own hide. Tuco and Blondie share a partnership together making money off of Tuco's bounty, but when Blondie unties the partnership, Tuco tries to hunt down Blondie. When Blondie and Tuco come across a horse carriage loaded with dead bodies, they soon learn from the only survivor, Bill Carson (Antonio Casale), that he and a few other men have buried a stash of gold in a cemetery. Unfortunately, Carson dies and Tuco only finds out the name of the cemetery, while Blondie finds out the name on the grave. Now the two must keep each other alive in order to find the gold. Angel Eyes (who had been looking for Bill Carson) discovers that Tuco and Blondie met with Carson and knows they know the location of the gold. All he needs is for the two to lead him to it. Now The Good, the Bad and the Ugly must all battle it out to get their hands on two hundred thousand dollars worth of gold.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Good, the Bad and the Ugly\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Good, the Bad and the Ugly\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Good, the Bad and the Ugly\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "already seen it",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Irishman 7.9 209 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Irishman\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Irishman\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Irishman\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Lion King 8.5 88 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Joker 8.5 122 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Joker\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Joker\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Joker\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "already seen it",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Shining 8.4 146 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Shining\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Shining\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Shining\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Us 8.0 163 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Jojo Rabbit 7.9 108 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Jojo Rabbit\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Jojo Rabbit\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Jojo Rabbit\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 108 minutes.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Great Dictator 8.4 125 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Producers 7.6 88 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Watchmen 7.6 162 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Watchmen\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Watchmen\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "No",
+        "intent": "NOTE.DISLIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Watchmen\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "already seen it",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: How to Train Your Dragon: The Hidden World 7.5 104 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "17",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655071262",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "hello",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I could not find the genres hello.Can you guide me to narrow down the search space?What are you looking for in a movie? Some keywords would be good. For example, 'wrongful imprisonment' or 'tv special'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "no please.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Angels with Dirty Faces\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "yes I like it",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The World of Us 7.6 95 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Its duration is 95 minutes.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Stalker 8.2 162 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Us 8.0 163 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "already seen it",
+        "intent": "NOTE.YES",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Fury 7.9 92 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this movie",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I hope you had a good experience. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "17",
+      "type": "SIMULATOR"
+    }
+  },
+  {
+    "conversation ID": "1655071269",
+    "conversation": [
+      {
+        "participant": "AGENT",
+        "utterance": "Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences. I will ask you a few questions and based on your answers, I will try to find a movie for you.",
+        "intent": "REVEAL.DISCLOSE"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have any specific genres in mind?",
+        "intent": "ELICIT"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sure, sounds fun.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: The Salt of the Earth 8.5 110 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Hi, okay.",
+        "intent": "DISCLOSE.NON-DISCLOSE",
+        "satisfaction": 3
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Salt of the Earth\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Salt of the Earth\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"The Salt of the Earth\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I will try it",
+        "intent": "NOTE.ACCEPT",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Repentance 8.4 153 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "no please.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Repentance\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Repentance\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Repentance\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Would you want to know more about \"Repentance\"?",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I like this recommendation.",
+        "intent": "NOTE.LIKE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Please choose your next step:",
+        "intent": "CONTINUE_RECOMMENDATION"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors Avtandil Makharadze, Ia Ninidze, Zeinab Botsvadze, Ketevan Abuladze, David Giorgobiani, Kakhi Kavsadze have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I want to restart for a new movie.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "We are starting again.Do you have any specific genres in mind?",
+        "intent": "RESTART"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Thriller",
+        "intent": "DISCLOSE",
+        "satisfaction": 1,
+        "slot_values": [
+          [
+            "GENRE",
+            "Thriller"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "There are almost 6600 thriller films. Please answer a few more questions to help me find a good movie.What are you looking for in a movie? Some keywords would be good. For example, 'love triangle' or 'dark comedy'.",
+        "intent": "COUNT_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "kids",
+        "intent": "DISCLOSE",
+        "satisfaction": 2,
+        "slot_values": [
+          [
+            "KEYWORD",
+            "kids"
+          ]
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you like: Angels with Dirty Faces 7.9 97 min",
+        "intent": "RECOMMEND"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to restart",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "This movie is 97 minutes long.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Some of the famous actors in this movie are James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Actors James Cagney, Pat O'Brien, Humphrey Bogart, Ann Sheridan, George Bancroft, The Dead End Kids have played prominent roles in this movie.",
+        "intent": "INFORM"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "I believe I am stuck. I can't help you here.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "that sounded too cheesy. Do you have any other recommendations?",
+        "intent": "INQUIRE",
+        "satisfaction": 1
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry I can't help you with that.",
+        "intent": "CANT_HELP"
+      },
+      {
+        "participant": "USER",
+        "utterance": "another recommendation",
+        "intent": "INQUIRE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "duration",
+        "intent": "INQUIRE.MORE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like a similar recommendation.",
+        "intent": "INQUIRE.SIMILAR",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sorry, I did not understand you.",
+        "intent": "NOTE"
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I couldn't find any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "Let's start over.",
+        "intent": "DISCLOSE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sorry, I don't have any other thriller, kids films. Please select from the list of options to continue.",
+        "intent": "NO_RESULTS"
+      },
+      {
+        "participant": "USER",
+        "utterance": "I would like to quit now.",
+        "intent": "COMPLETE",
+        "satisfaction": 2
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Hope to see you soon. Bye.",
+        "intent": "BYE"
+      }
+    ],
+    "agent": {
+      "id": "MovieBot",
+      "type": "BOT"
+    },
+    "user": {
+      "id": "17",
+      "type": "SIMULATOR"
+    }
+  }
+]

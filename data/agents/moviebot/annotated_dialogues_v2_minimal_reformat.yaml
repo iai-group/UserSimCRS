@@ -84,7 +84,7 @@
       '
     utterance_annotated: There is a fantasy and action, lord film named [Conan the
       Barbarian](TITLE). Have you seen this one?
-  - intent: NOTE.NOTE-YES
+  - intent: NOTE.YES
     participant: USER
     utterance: 'already seen it
 
@@ -100,7 +100,7 @@
       '
     utterance_annotated: I would like to recommend you a fantasy and action, lord
       film named [Dracula Untold](TITLE). Have you watched it?
-  - intent: NOTE.NOTE-YES
+  - intent: NOTE.YES
     participant: USER
     utterance: 'i know this one
 
@@ -114,13 +114,15 @@
       - action
     - - GENRE
       - fantasy
+    - - KEYWORD
+      - lord
     utterance: 'Sorry, I don''t have any fantasy and action, lord films named similar
       to one. Please select from the list of options to continue.
 
       '
     utterance_annotated: Sorry, I don't have any [action](GENRE) and [fantasy](GENRE),
-      lord films named similar to [one](TITLE). Please select from the list of options
-      to continue.
+      [lord](KEYWORD) films named similar to [one](TITLE). Please select from the
+      list of options to continue.
   - intent: DISCLOSE
     participant: USER
     utterance: 'a new movie
@@ -135,22 +137,24 @@
       - action
     - - GENRE
       - fantasy
+    - - KEYWORD
+      - lord
     utterance: 'Sorry, I couldn''t find any fantasy and action, lord films named similar
       to one. Please select from the list of options to continue.
 
       '
     utterance_annotated: Sorry, I couldn't find any [action](GENRE) and [fantasy](GENRE),
-      lord films named similar to [one](TITLE). Please select from the list of options
-      to continue.
+      [lord](KEYWORD) films named similar to [one](TITLE). Please select from the
+      list of options to continue.
   - intent: REVEAL.REVISE
     participant: USER
     slot_values:
-    - - TITLE
-      - one
-    utterance: 'No movies named like one.
+    - - KEYWORD
+      - lord
+    utterance: 'No movies with lord.
 
       '
-    utterance_annotated: No movies named like [one](TITLE).
+    utterance_annotated: No movies with [lord](KEYWORD).
   - intent: REVEAL
     participant: AGENT
     slot_values:
@@ -162,7 +166,7 @@
       '
     utterance_annotated: I would like to recommend you a fantasy and action, lord
       film named [Bright](TITLE). Have you watched it?
-  - intent: NOTE.NOTE-ACCEPT
+  - intent: NOTE.ACCEPT
     participant: USER
     utterance: 'thank you
 
@@ -180,7 +184,7 @@
       to [thank you](TITLE). Please select from the list of options to continue.
   - intent: COMPLETE
     participant: USER
-    utterance: '/exit
+    utterance: 'bye
 
       '
   - intent: END
@@ -259,7 +263,7 @@
       '
     utterance_annotated: I would like to recommend you a sci-fi, Cyberpunk film named
       [Blade Runner](TITLE). Have you watched it?
-  - intent: NOTE.NOTE-YES
+  - intent: NOTE.YES
     participant: USER
     utterance: 'I have already watched it.
 
@@ -275,7 +279,7 @@
       '
     utterance_annotated: I would like to recommend you a sci-fi, Cyberpunk film named
       [Akira](TITLE). Have you watched it?
-  - intent: NOTE.NOTE-YES
+  - intent: NOTE.YES
     participant: USER
     utterance: 'I have already watched it.
 
@@ -291,7 +295,7 @@
       '
     utterance_annotated: 'There is a sci-fi, Cyberpunk film named [Ghost in the Shell
       2: Innocence](TITLE). Have you seen this one?'
-  - intent: NOTE.NOTE-YES
+  - intent: NOTE.YES
     participant: USER
     utterance: 'I have already watched it.
 
@@ -386,7 +390,7 @@
     utterance: 'I believe I am stuck. I can''t help you here.
 
       '
-  - intent: NOTE.NOTE-YES
+  - intent: NOTE.YES
     participant: USER
     utterance: 'I have seen that.
 
@@ -528,7 +532,7 @@
 
       '
     utterance_annotated: The director of this movie is [Oliver Stone](DIRECTOR).
-  - intent: NOTE.NOTE-LIKE
+  - intent: NOTE.LIKE
     participant: USER
     utterance: 'I like this recommendation.
 
@@ -556,7 +560,7 @@
       '
     utterance_annotated: There is a film similar to [JFK](TITLE) named [Die Hard](TITLE).
       Have you seen this one?
-  - intent: NOTE.NOTE-YES
+  - intent: NOTE.YES
     participant: USER
     utterance: 'I have already watched it.
 
@@ -592,7 +596,7 @@
       '
     utterance_annotated: There is a film similar to [JFK](TITLE) named [Wall Street](TITLE).
       Have you seen this one?
-  - intent: NOTE.NOTE-LIKE
+  - intent: NOTE.LIKE
     participant: USER
     utterance: 'I like this recommendation.
 
@@ -661,7 +665,7 @@
       '
     utterance_annotated: I would like to recommend you an action, Prison break film
       named [The Count of Monte Cristo](TITLE). Have you watched it?
-  - intent: NOTE.NOTE-LIKE
+  - intent: NOTE.LIKE
     participant: USER
     utterance: I like this recommendation.
   - intent: INQUIRE.NEXT
@@ -779,7 +783,7 @@
       '
     utterance_annotated: There is a sport, Soccer film named [Les yeux dans les Bleus](TITLE).
       Have you seen this one?
-  - intent: NOTE.NOTE-LIKE
+  - intent: NOTE.LIKE
     participant: USER
     utterance: 'I like this recommendation.
 

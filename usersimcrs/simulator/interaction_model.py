@@ -253,15 +253,12 @@ class InteractionModel:
         # If agent replies in an expected intent, then pop the next intent from
         # agenda.
         if agent_intent.label in expected_agent_intents:
-            print("Agenda expected")
             try:
                 self._current_intent = self._agenda.pop()
             except IndexError as ie:
                 self._current_intent = self.STOP_INTENT
         else:  # Find a replacement based on last agent intent
-            print("Agenda not expected")
             self._current_intent = self.next_intent(
                 agent_intent, self._intent_distribution
             )
-        print("AGENDA UPDATE:",self._current_intent)
         return self._current_intent

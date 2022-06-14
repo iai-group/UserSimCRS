@@ -33,7 +33,7 @@ from usersimcrs.simulator.preference_model import (
     PreferenceModelVariant,
 )
 from usersimcrs.simulator.interaction_model import InteractionModel
-from usersimcrs.utils.persona_generator import Persona
+from usersimcrs.utils.persona_generator import Persona, Context
 
 
 def simulate_conversation(
@@ -56,7 +56,6 @@ def simulate_conversation(
 
 if __name__ == "__main__":
     # agent = SampleAgent(agent_id="sample_agent")
-    agent = MovieBotAgent("14","http://152.94.232.109:5001")
     # agent = TerminalAgent("test")
     conf_parser = argparse.ArgumentParser(
         description=__doc__, # printed with -h/--help
@@ -76,7 +75,6 @@ if __name__ == "__main__":
             cp = configparser.ConfigParser()
             cp.read([args.conf_file])
             default_args.update(dict(cp.items("SETTINGS")))
-    print(default_args)
 
     
     parser = argparse.ArgumentParser(parents=[conf_parser])
@@ -136,7 +134,7 @@ if __name__ == "__main__":
         item_collection,
         ratings,
         PreferenceModelVariant.PKG,
-        historical_user_id="17",
+        historical_user_id="1",
     )
     interaction_model = InteractionModel(
         args.ir, annotated_conversations
@@ -150,12 +148,13 @@ if __name__ == "__main__":
         "data\\agents\\moviebot\\annotated_dialogues_v2_rasa_agent.yaml",
         ".rasa",
     )
-    nlur.train_model()
-    nlu = NLU(nluc,[nlur])
+    ctx = Context(group_setting=False, time_of_the_day=(datetime.time(21,0,0),datetime.time(23,59,59)),weekend=False)
+    persona = Persona("Jafar","1",3.0,0.5,ctx)
+    persona.calculate_max_retries()
     nlg = NLG()
     nlg.template_from_file(args.dialogues,"USER",satisfaction_model)
-
-    persona = Persona("Jafar","17",False,(datetime.time(18,0,0),datetime.time(21,0,0)),True,3,0.6,2)
+    nlur.train_model()
+    nlu = NLU(nluc,[nlur])
 
     simulator = AgendaBasedSimulator(
         "simulator",
@@ -169,4 +168,5 @@ if __name__ == "__main__":
         persona,
         satisfaction_model
     )
+    agent = MovieBotAgent("14","http://152.94.232.28:5001")
     simulate_conversation(agent, simulator)

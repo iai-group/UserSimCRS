@@ -90,7 +90,7 @@
             {
                 "participant": "USER",
                 "utterance": "already seen it\n",
-                "intent": "NOTE.NOTE-YES"
+                "intent": "NOTE.YES"
             },
             {
                 "participant": "AGENT",
@@ -106,7 +106,7 @@
             {
                 "participant": "USER",
                 "utterance": "i know this one\n",
-                "intent": "NOTE.NOTE-YES"
+                "intent": "NOTE.YES"
             },
             {
                 "participant": "AGENT",
@@ -124,6 +124,10 @@
                     [
                         "GENRE",
                         "fantasy"
+                    ],
+                    [
+                        "KEYWORD",
+                        "lord"
                     ]
                 ]
             },
@@ -148,17 +152,21 @@
                     [
                         "GENRE",
                         "fantasy"
+                    ],
+                    [
+                        "KEYWORD",
+                        "lord"
                     ]
                 ]
             },
             {
                 "participant": "USER",
-                "utterance": "No movies named like one.\n",
+                "utterance": "No movies with lord.\n",
                 "intent": "REVEAL.REVISE",
                 "slot_values": [
                     [
-                        "TITLE",
-                        "one"
+                        "KEYWORD",
+                        "lord"
                     ]
                 ]
             },
@@ -176,7 +184,7 @@
             {
                 "participant": "USER",
                 "utterance": "thank you\n",
-                "intent": "NOTE.NOTE-ACCEPT"
+                "intent": "NOTE.ACCEPT"
             },
             {
                 "participant": "AGENT",
@@ -191,7 +199,7 @@
             },
             {
                 "participant": "USER",
-                "utterance": "/exit\n",
+                "utterance": "bye\n",
                 "intent": "COMPLETE"
             },
             {
@@ -272,7 +280,7 @@
             {
                 "participant": "USER",
                 "utterance": "I have already watched it.\n",
-                "intent": "NOTE.NOTE-YES"
+                "intent": "NOTE.YES"
             },
             {
                 "participant": "AGENT",
@@ -288,7 +296,7 @@
             {
                 "participant": "USER",
                 "utterance": "I have already watched it.\n",
-                "intent": "NOTE.NOTE-YES"
+                "intent": "NOTE.YES"
             },
             {
                 "participant": "AGENT",
@@ -304,7 +312,7 @@
             {
                 "participant": "USER",
                 "utterance": "I have already watched it.\n",
-                "intent": "NOTE.NOTE-YES"
+                "intent": "NOTE.YES"
             },
             {
                 "participant": "AGENT",
@@ -408,7 +416,7 @@
             {
                 "participant": "USER",
                 "utterance": "I have seen that.\n",
-                "intent": "NOTE.NOTE-YES"
+                "intent": "NOTE.YES"
             },
             {
                 "participant": "AGENT",
@@ -562,7 +570,7 @@
             {
                 "participant": "USER",
                 "utterance": "I like this recommendation.\n",
-                "intent": "NOTE.NOTE-LIKE"
+                "intent": "NOTE.LIKE"
             },
             {
                 "participant": "AGENT",
@@ -592,7 +600,7 @@
             {
                 "participant": "USER",
                 "utterance": "I have already watched it.\n",
-                "intent": "NOTE.NOTE-YES"
+                "intent": "NOTE.YES"
             },
             {
                 "participant": "AGENT",
@@ -632,7 +640,7 @@
             {
                 "participant": "USER",
                 "utterance": "I like this recommendation.\n",
-                "intent": "NOTE.NOTE-LIKE"
+                "intent": "NOTE.LIKE"
             },
             {
                 "participant": "AGENT",
@@ -706,7 +714,7 @@
             {
                 "participant": "USER",
                 "utterance": "I like this recommendation.",
-                "intent": "NOTE.NOTE-LIKE"
+                "intent": "NOTE.LIKE"
             },
             {
                 "participant": "AGENT",
@@ -832,7 +840,7 @@
             {
                 "participant": "USER",
                 "utterance": "I like this recommendation.\n",
-                "intent": "NOTE.NOTE-LIKE"
+                "intent": "NOTE.LIKE"
             },
             {
                 "participant": "AGENT",

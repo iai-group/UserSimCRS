@@ -11,6 +11,7 @@ Missing preferences are inferred running time (depending on the model type).
 
 from email.policy import default
 import random
+from site import execsitecustomize
 import string
 from enum import Enum
 from typing import Dict, List, Tuple
@@ -83,6 +84,7 @@ class PreferenceModel:
         # Store item and slot-value preferences separately.
         self._item_preferences = UserPreferences(self._user_id)
         self._slotvalue_preferences = UserPreferences(self._user_id)
+        self._session_preferences_user = defaultdict()
         self._session_preferences = defaultdict()
         # Initialize item preferences by sampling from historical ratings.
         self._initialize_item_preferences()
@@ -103,6 +105,10 @@ class PreferenceModel:
                 .split("|")
             ):
                 self._keyword_preferences[keyword].append(rating)
+
+    def _set_session_preference(self, annotations: List[Annotation]):
+        for annotation in annotations:
+            self._session_preferences[annotation] = self._session_preferences_user[annotation]
 
     def _get_property_preferences(
         self, property: str = "genres"
@@ -132,7 +138,7 @@ class PreferenceModel:
                 ):
                     property_ratings[prop].append(rating)
             except AttributeError:
-                print("HEY")
+                continue
         property_preferences = dict()
         # Calculate the averaged rating for each genre.
         # TODO: use property instead of genre and make property a parameter of
@@ -166,7 +172,7 @@ class PreferenceModel:
                 not self._item_collection.exists(item_id)
                 or self._model_variant == PreferenceModelVariant.SIP
             ):
-                self._item_collection.add_item(Item(item_id, name=item_id))
+                self._item_collection.add_item(Item(item_id, name=item_id, properties={"genres":"None"}))
                 preference = random.choice([-1, 1])
             elif self._model_variant == PreferenceModelVariant.PKG:
                 # Get current item's properties in a list, e.g., genres.
@@ -259,11 +265,13 @@ class PreferenceModel:
         # TODO: keep track of the slots.
         return slot, preference
 
-    def revise_random_preference(self, annotations: List[Annotation]) -> Annotation:
-        existing_annotations = set(self._session_preferences["PREFERENCES"].keys())
-        existing_annotations = existing_annotations.update(set(annotations))
-        annotation_to_revise = random.sample(existing_annotations, 1)
-        self._session_preferences["PREFERENCES"].pop(annotation_to_revise)
+    def revise_random_preference(self) -> Annotation:
+        existing_annotations = set(self._session_preferences.keys()) 
+        annotation_to_revise = []
+        if len(existing_annotations)>0:
+            annotation_to_revise = random.choice(list(existing_annotations))
+            self._session_preferences.pop(annotation_to_revise)
+            annotation_to_revise = [annotation_to_revise]
         return annotation_to_revise
 
     def get_next_user_slots(
@@ -290,11 +298,11 @@ class PreferenceModel:
                 if value == "genres":
                     slot = "GENRE"
                     preferences = self._get_property_preferences()
-                elif value == "director":
-                    slot = "DIRECTOR"
-                    preferences = self._get_property_preferences(
-                        property="director"
-                    )
+                # elif value == "director":
+                #     slot = "DIRECTOR"
+                #     preferences = self._get_property_preferences(
+                #         property="director"
+                #     )
                 elif value == "keywords":
                     slot = "KEYWORD"
                     preferences = self._get_property_preferences(
@@ -319,5 +327,5 @@ class PreferenceModel:
                             value=preference[0].replace("-"," "),
                         )
                     )
-                    self._session_preferences[Annotation(slot,preference[0])] = preference[1]
+                    self._session_preferences_user[Annotation(slot,preference[0].replace("-"," "))] = preference[1]
         return next_user_slots
