@@ -5,20 +5,20 @@ description: CIR6 intent scheme by Zhang&Balog (KDD'20)
 user_intents:
   COMPLETE:
   DISCLOSE:
-    # - DISCLOSE.REVIEW
+    - DISCLOSE.REVIEW
     - DISCLOSE.NON-DISCLOSE
-    # - DISCLOSE.NON-DISCLOSE-REVIEW
+    - DISCLOSE.NON-DISCLOSE-REVIEW
   REVEAL:
     - REVEAL.EXPAND
     - REVEAL.REFINE
     - REVEAL.REVISE
   INQUIRE:
-    - INQUIRE.LIST
-    # - INQUIRE.COMPARE
-    # - INQUIRE.SUBSET
+    - INQUIRE.LIST.
+    - INQUIRE.COMPARE
+    - INQUIRE.SUBSET
     - INQUIRE.SIMILAR
   NAVIGATE:
-    # - NAVIGATE.BACK
+    - NAVIGATE.BACK
     - NAVIGATE.MORE
     - NAVIGATE.REPEAT
   NOTE:
@@ -30,32 +30,21 @@ user_intents:
   INTERROGATE:
   COMPLETE:
 
-user_preference_intents:
-  NOTE:
-    POSITIVE:
-      - NOTE.NOTE-LIKE
-    NEGATIVE:
-      - NOTE.NOTE-DISLIKE
-    CONSUMED:
-      - NOTE.NOTE-YES
-    NOT.CONSUMED: # Not used for IAI MovieBot
-      - NOTE.NOTE-NO
-
 # Possible agent intents with optional description.
 agent_intents:
   END: 
   DISCLOSE:
     - DISCLOSE.NON-DISCLOSE
   INQUIRE: 
-    # - INQUIRE.ELICIT-REVIEW
+    - INQUIRE.ELICIT-REVIEW
     - INQUIRE.ELICIT
-    # - INQUIRE.CLARIFY
+    - INQUIRE.CLARIFY
   REVEAL: 
     - REVEAL.LIST
-    # - REVEAL.SUBSET
+    - REVEAL.SUBSET
     - REVEAL.SIMILAR
   TRAVERSE: 
-    # - TRAVERSE.BACK
+    - TRAVERSE.BACK
     - TRAVERSE.MORE
     - TRAVERSE.REPEAT
   RECORD:
@@ -70,13 +59,13 @@ agent_elicit_intents:
 agent_set_retrieval:
   - REVEAL
   - REVEAL.LIST
-  # - REVEAL.SUBSET
+  - REVEAL.SUBSET
   - REVEAL.SIMILAR
   - TRAVERSE
   - TRAVERSE.REPEAT
-  # - TRAVERSE.BACK
+  - TRAVERSE.BACK
   - TRAVERSE.MORE
-  # - RECORD
+  - RECORD
 
 
 # Expected agent intents in response to a (simulated) user intent.
@@ -85,39 +74,39 @@ expected_responses:
     - INQUIRE
     - INQUIRE.ELICIT
     - DISCLOSES.NON-DISCLOSE
-  # DISCLOSE.NON-DISCLOSE-REVIEW:
-  #   - INQUIRE
-  #   - INQUIRE.ELICIT
+  DISCLOSE.NON-DISCLOSE-REVIEW:
+    - INQUIRE
+    - INQUIRE.ELICIT
   DISCLOSE:
     - INQUIRE.ELICIT
-    # - SHOW
+    - SHOW
     - REVEAL.LIST
     - SUGGEST
-    # - INQUIRE.CLARIFY
-  # DISCLOSE.REVIEW:
-  #   - INQUIRE.ELICIT
-  #   - SHOW
-  #   - REVEAL.LIST
-  #   - SUGGEST
-  #   - INQUIRE.CLARIFY
+    - INQUIRE.CLARIFY
+  DISCLOSE.REVIEW:
+    - INQUIRE.ELICIT
+    - SHOW
+    - REVEAL.LIST
+    - SUGGEST
+    - INQUIRE.CLARIFY
   REVEAL.REVISE:
     - INQUIRE.ELICIT
-    # - SHOW
+    - SHOW
     - REVEAL.LIST
-    # - SUGGEST
-    # - INQUIRE.CLARIFY
+    - SUGGEST
+    - INQUIRE.CLARIFY
   REVEAL.REFINE:
     - INQUIRE.ELICIT
-    # - SHOW
+    - SHOW
     - REVEAL.LIST
-    # - SUGGEST
-    # - INQUIRE.CLARIFY
+    - SUGGEST
+    - INQUIRE.CLARIFY
   REVEAL.EXPAND:
     - INQUIRE.ELICIT
-    # - SHOW
+    - SHOW
     - REVEAL.LIST
-    # - SUGGEST
-    # - INQUIRE.CLARIFY
+    - SUGGEST
+    - INQUIRE.CLARIFY
   NOTE:
     - RECORD
     - TRAVERSE.REPEAT
@@ -134,8 +123,8 @@ expected_responses:
   NOTE.NOTE-DISLIKE:
     - REVEAL.LIST
     - INQUIRE.ELICIT
-  # INTERROGATE:
-  #   - EXPLAIN
+  INTERROGATE:
+    - EXPLAIN
   INQUIRE:
     - REVEAL.LIST
     - INQUIRE.ELICIT
@@ -150,8 +139,8 @@ expected_responses:
     - REVEAL.LIST
   INQUIRE.LIST:
     - REVEAL.LIST
-  # INQUIRE.SUBSET:
-  #   - REVEAL.SUBSET
+  INQUIRE.SUBSET:
+    - REVEAL.SUBSET
   NAVIGATE:
     - SHOW
   COMPLETE:
