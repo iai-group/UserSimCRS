@@ -26,7 +26,7 @@ from dialoguekit.core.ontology import Ontology
 from dialoguekit.user.user_preferences import UserPreferences
 from dialoguekit.core.recsys.item import Item
 
-K_TO_FETCH = 3
+_K_TO_FETCH = 3
 
 
 class PreferenceModelVariant(Enum):
@@ -82,7 +82,7 @@ class PreferenceModel:
         # Store item and slot-value preferences separately.
         self._item_preferences = UserPreferences(self._user_id)
         self._slotvalue_preferences = UserPreferences(self._user_id)
-
+        self._session_preferences = defaultdict()
         # Initialize item preferences by sampling from historical ratings.
         self._initialize_item_preferences()
 
@@ -96,7 +96,6 @@ class PreferenceModel:
             self._historical_user_id
         ).items():
             self._item_preferences.set_preference("ITEM_ID", item_id, rating)
-            print(item_id)
             for keyword in (
                 self._item_collection.get_item(item_id)
                 .get_property("keywords")
@@ -123,22 +122,22 @@ class PreferenceModel:
         ) in self._item_preferences.get_preferences("ITEM_ID").items():
             # TODO: handling all properties generally by creating a new issue
             try:
-                for prop in (
+                for property_value in (
                     self._item_collection.get_item(hist_item_id).get_property(
                         property
                     )
                     # TODO: remove splitting
                     .split("|")
                 ):
-                    property_ratings[prop].append(rating)
+                    property_ratings[property_value].append(rating)
             except AttributeError:
-                print("HEY")
+                continue
         property_preferences = dict()
         # Calculate the averaged rating for each genre.
         # TODO: use property instead of genre and make property a parameter of
         # property_ratings
-        for prop, rating_list in property_ratings.items():
-            property_preferences[prop] = round(
+        for property_value, rating_list in property_ratings.items():
+            property_preferences[property_value] = round(
                 sum(rating_list) / len(rating_list)
             )
         # tester = "testing property preferences."
@@ -161,12 +160,14 @@ class PreferenceModel:
         consumed = True
         if not preference:
             consumed = False
-            # Item does not exist or SIP model. In both cases, infer rating.
+            # Infer and set item preference based on model variant.
             if (
                 not self._item_collection.exists(item_id)
                 or self._model_variant == PreferenceModelVariant.SIP
             ):
-                self._item_collection.add_item(Item(item_id, name=item_id))
+                self._item_collection.add_item(
+                    Item(item_id, name=item_id, properties={"genres": "None"})
+                )
                 preference = random.choice([-1, 1])
             elif self._model_variant == PreferenceModelVariant.PKG:
                 # Get current item's properties in a list, e.g., genres.
@@ -259,6 +260,19 @@ class PreferenceModel:
         # TODO: keep track of the slots.
         return slot, preference
 
+    def revise_random_preference(self) -> Annotation:
+        """Revises a random preference given during the conversation.
+
+        This is used when the agent is not able to find any items to recommend.
+        """
+        existing_annotations = set(self._session_preferences.keys())
+        annotation_to_revise = []
+        if len(existing_annotations) > 0:
+            annotation_to_revise = random.choice(list(existing_annotations))
+            self._session_preferences.pop(annotation_to_revise)
+            annotation_to_revise = [annotation_to_revise]
+        return annotation_to_revise
+
     def get_next_user_slots(
         self, agent_intent: Intent, agent_slot_values: List[SlotValueAnnotation]
     ) -> List[Annotation]:
@@ -269,13 +283,10 @@ class PreferenceModel:
         """
         # TODO Figure out what could be delegated to NLU, so that this part is
         # kept as simple as possible. Use get_slot_preference() if possible.
+        # Maybe use Ontology to avoid the slot setting in each if-statement,
+        # and thus can remove all if-statements.
         next_user_slots = []
-        if not agent_slot_values:
-            # Agent is asking for next step?
-            pass
-        else:
-            # Agent is eliciting preference on either genres, keywords or
-            # director
+        if agent_slot_values:
             for slot_value in agent_slot_values:
                 slot = slot_value._slot
                 value = slot_value._value
@@ -283,11 +294,11 @@ class PreferenceModel:
                 if value == "genres":
                     slot = "GENRE"
                     preferences = self._get_property_preferences()
-                elif value == "director":
-                    slot = "DIRECTOR"
-                    preferences = self._get_property_preferences(
-                        property="director"
-                    )
+                # elif value == "director":
+                #     slot = "DIRECTOR"
+                #     preferences = self._get_property_preferences(
+                #         property="director"
+                #     )
                 elif value == "keywords":
                     slot = "KEYWORD"
                     preferences = self._get_property_preferences(
@@ -303,13 +314,16 @@ class PreferenceModel:
                     preferences.items(), key=lambda item: item[1], reverse=True
                 )
                 assert len(sorted_preferences) > 0
-                top_K_preferences = sorted_preferences[0:K_TO_FETCH]
+                top_K_preferences = sorted_preferences[0:_K_TO_FETCH]
                 sorted_preferences = dict(sorted_preferences)
                 for preference in top_K_preferences:
                     next_user_slots.append(
                         Annotation(
                             slot,
-                            value=preference[0],
+                            value=preference[0].replace("-", " "),
                         )
                     )
+                    self._session_preferences_user[
+                        Annotation(slot, preference[0].replace("-", " "))
+                    ] = preference[1]
         return next_user_slots
