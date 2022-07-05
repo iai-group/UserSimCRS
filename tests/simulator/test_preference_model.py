@@ -10,7 +10,7 @@ from dialoguekit.core.ontology import Ontology
 from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
 
-ONTOLOGY_YAML_FILE = "data/ontology.yaml"
+ONTOLOGY_YAML_FILE = "data/domains/movies.yaml"
 ITEMS_CSV_FILE = "data/movielens-20m-sample/movies.csv"
 RATINGS_CSV_FILE = "data/movielens-20m-sample/ratings.csv"
 
