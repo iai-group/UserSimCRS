@@ -1,4 +1,11 @@
-"""Generates Rasa NLU files from DialogueKit annotated dialogues JSON format."""
+"""Generates Rasa NLU files from the JSON formatted annotated dialogues.
+
+Usage:
+  cd usersimcrs/utils
+  python -m annotation_converter_rasa \
+    -source PathToAnnotatedDialoguesFile \
+    -destination PathToDestinationFolder
+"""
 
 from dialoguekit.utils.annotation_converter_dialoguekit_to_rasa import (
     AnnotationConverterRasa,
