@@ -26,7 +26,7 @@ class InteractionModel:
             raise FileNotFoundError(f"Config file not found: {config_file}")
         with open(config_file) as yaml_file:
             self._config = yaml.load(yaml_file, Loader=yaml.FullLoader)
-        self._preference_intent_config()
+        self._initialize_preference_intent_config()
         (
             self._user_intent_distribution,
             self._intent_distribution,
@@ -144,23 +144,33 @@ class InteractionModel:
         self._agenda = agenda
         return agenda
 
-    def _preference_intent_config(self):
-        tmp_dict = dict()
+    def _initialize_preference_intent_config(self):
+        sub_to_main_intent = dict()
         self._config["user_preference_intents"] = dict()
         for intent_label, properties in self._config["user_intents"].items():
             if "preference_contingent" in properties:
                 if (
-                    not intent_label.split(".")[0]
+                    not self.__get_main_intent_from_sub_intent_label(
+                        intent_label
+                    )
                     in self._config["user_preference_intents"]
                 ):
                     self._config["user_preference_intents"][
-                        intent_label.split(".")[0]
+                        self.__get_main_intent_from_sub_intent_label(
+                            intent_label
+                        )
                     ] = {}
                 self._config["user_preference_intents"][
-                    intent_label.split(".")[0]
+                    self.__get_main_intent_from_sub_intent_label(intent_label)
                 ][properties["preference_contingent"]] = intent_label
-                tmp_dict[intent_label] = intent_label.split(".")[0]
-        self._config["user_preference_intents_reverse"] = tmp_dict
+                sub_to_main_intent[
+                    intent_label
+                ] = self.__get_main_intent_from_sub_intent_label(intent_label)
+        self._config["user_preference_intents_reverse"] = sub_to_main_intent
+
+    @staticmethod
+    def __get_main_intent_from_sub_intent_label(sub_intent: str):
+        return sub_intent.split(".")[0]
 
     @property
     def agenda(self):

@@ -92,3 +92,12 @@ agent_set_retrieval:
   - REVEAL
   - REVEAL.SIMILAR
   - REVEAL.NONE
+
+# Reward settings
+REWARD:
+  full_set_points: 20
+  missing_intent_penalties:
+    - INQUIRE: 4
+    - ...
+  repeat_penalty: 1
+  cost: 1
