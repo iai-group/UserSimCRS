@@ -1,6 +1,6 @@
 # Intent schema
 
-The interaction model defines the user-system interactions that can take place in a converastion. We define it in the form of an *intent schema*, as specified below.
+The interaction model defines the user-system interactions that can take place in a conversation. We define it in the form of an *intent schema*, as specified below.
 
 ## Format:
 
