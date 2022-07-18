@@ -11,17 +11,15 @@ Missing preferences are inferred running time (depending on the model type).
 
 import random
 import string
+from collections import defaultdict
 from enum import Enum
 from typing import Dict, List
-from collections import defaultdict
 
-from dialoguekit.core.slot_value_annotation import (
-    SlotValueAnnotation,
-)
-from dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.core.recsys.item_collection import ItemCollection
 import dialoguekit.core.intent as Intent
 from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.user.user_preferences import UserPreferences
 
 
@@ -248,6 +246,9 @@ class PreferenceModel:
         preferences or sampling.
 
         This method is called by the simulated user's NLU.
+
+        Args:
+            
         """
         # TODO Figure out what could be delegated to NLU, so that this part is
         # kept as simple as possible. Use get_slot_preference() if possible.
