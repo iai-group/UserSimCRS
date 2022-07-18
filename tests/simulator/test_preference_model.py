@@ -1,17 +1,16 @@
 """Tests for PreferenceModel."""
 
 import pytest
-
+from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.core.recsys.ratings import Ratings
 from usersimcrs.simulator.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
-from dialoguekit.core.ontology import Ontology
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
 
-ONTOLOGY_YAML_FILE = "data/domains/movies.yaml"
-ITEMS_CSV_FILE = "data/movielens-20m-sample/movies.csv"
+ONTOLOGY_YAML_FILE = "data/ontology.yaml"
+ITEMS_CSV_FILE = "data/movielens-20m-sample/movies_w_keywords.csv"
 RATINGS_CSV_FILE = "data/movielens-20m-sample/ratings.csv"
 
 
@@ -20,7 +19,9 @@ RATINGS_CSV_FILE = "data/movielens-20m-sample/ratings.csv"
 def preference_model_sip():
     ontology = Ontology(ONTOLOGY_YAML_FILE)
     item_collection = ItemCollection()
-    item_collection.load_items_csv(ITEMS_CSV_FILE, ["ID", "NAME", "genres"])
+    item_collection.load_items_csv(
+        ITEMS_CSV_FILE, ["ID", "NAME", "genres", "keywords"]
+    )
     ratings = Ratings()
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
     return PreferenceModel(
@@ -37,7 +38,9 @@ def preference_model_sip():
 def preference_model_pkg():
     ontology = Ontology(ONTOLOGY_YAML_FILE)
     item_collection = ItemCollection()
-    item_collection.load_items_csv(ITEMS_CSV_FILE, ["ID", "NAME", "genres"])
+    item_collection.load_items_csv(
+        ITEMS_CSV_FILE, ["ID", "NAME", "genres", "keywords"]
+    )
     ratings = Ratings()
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
     return PreferenceModel(
@@ -52,7 +55,7 @@ def preference_model_pkg():
 def test_initial_item_preferences_sip(preference_model_sip):
     # TODO this is the value in the original rating file, but it'll be a bit
     # tricky to test when only a sample of the original ratings is used.
-    assert preference_model_sip.get_item_preference("356") == 1.0
+    assert preference_model_sip.get_item_preference("356") == (True, 1.0)
 
 
 def test_get_slotvalue_preference_sip(preference_model_sip):
@@ -87,7 +90,7 @@ def test_get_item_preference_sip(preference_model_sip):
     preference = preference_model_sip.get_item_preference(item_id)
 
     # Then
-    assert -1 <= preference <= 1
+    assert -1 <= preference[1] <= 1
 
 
 def test_get_item_preference_pkg(preference_model_pkg):
@@ -98,7 +101,7 @@ def test_get_item_preference_pkg(preference_model_pkg):
     preference = preference_model_pkg.get_item_preference(item_id)
 
     # Then
-    assert preference == 1
+    assert preference[1] == 1
 
 
 def test_get_slot_preference_pkg(preference_model_pkg):
