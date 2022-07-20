@@ -1,18 +1,18 @@
 """Generates Rasa NLU files from the JSON formatted annotated dialogues.
 
 Usage:
-  cd usersimcrs/utils
-  python -m annotation_converter_rasa \
+  $ python -m usersimcrs.utils.annotation_converter_rasa \
     -source PathToAnnotatedDialoguesFile \
     -destination PathToDestinationFolder
 """
 
+import argparse
+import os
+import sys
+
 from dialoguekit.utils.annotation_converter_dialoguekit_to_rasa import (
     AnnotationConverterRasa,
 )
-import argparse
-import sys
-import os
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
