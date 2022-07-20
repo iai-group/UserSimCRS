@@ -1,15 +1,20 @@
 """Tests for PreferenceModel."""
 
 import pytest
+from dialoguekit.core.intent import Intent
 from dialoguekit.core.ontology import Ontology
 from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.core.slot_value_annotation import (
+    Annotation,
+    SlotValueAnnotation,
+)
 from usersimcrs.simulator.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
 
-ONTOLOGY_YAML_FILE = "data/ontology.yaml"
+ONTOLOGY_YAML_FILE = "data/domains/movies.yaml"
 ITEMS_CSV_FILE = "data/movielens-20m-sample/movies_w_keywords.csv"
 RATINGS_CSV_FILE = "data/movielens-20m-sample/ratings.csv"
 
@@ -116,6 +121,31 @@ def test_get_slot_preference_pkg(preference_model_pkg):
     assert preference in [-1, 0, 1]
 
 
-# TODO Write tests for get_item_preference(), get_slotvalue_preference,
-# and get_slot_preference()
-# See: https://github.com/iai-group/UserSimCRS/issues/21
+def test_get_next_user_slots(preference_model_pkg):
+    slot_value = SlotValueAnnotation(slot="GENRE", value="genres")
+    intent = Intent("TEST")
+    annotations = preference_model_pkg.get_next_user_slots(intent, [slot_value])
+    assert len(annotations) == 3
+    assert annotations[0] == Annotation("GENRE", "Thriller")
+    assert annotations[1] == Annotation("GENRE", "Drama")
+    assert annotations[2] == Annotation("GENRE", "Mystery")
+
+    slot_value = SlotValueAnnotation(slot="KEYWORD", value="keywords")
+    annotations = preference_model_pkg.get_next_user_slots(intent, [slot_value])
+    assert len(annotations) == 3
+    assert annotations[0] == Annotation("KEYWORD", "toy")
+    assert annotations[1] == Annotation("KEYWORD", "toy comes to life")
+    assert annotations[2] == Annotation("KEYWORD", "rivalry")
+
+
+def test_revise_random_preference(preference_model_pkg):
+    slot_value = SlotValueAnnotation(slot="GENRE", value="genres")
+    intent = Intent("TEST")
+    preference_model_pkg.get_next_user_slots(intent, [slot_value])
+    assert len(preference_model_pkg._session_preferences) == 3
+    revised_annotations = preference_model_pkg.revise_random_preference()
+    assert len(revised_annotations) == 1
+    assert (
+        revised_annotations[0]
+        not in preference_model_pkg._session_preferences.keys()
+    )
