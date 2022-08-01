@@ -59,7 +59,7 @@ _INTENT_STOP = Intent("STOP")
 @pytest.fixture
 def im_cir6():
     return InteractionModel(
-        "data/interaction_models/cir6.yaml", ANNOTATED_CONVERSATIONS
+        "data/interaction_models/crs_v1.yaml", ANNOTATED_CONVERSATIONS
     )
 
 

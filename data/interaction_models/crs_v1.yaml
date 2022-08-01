@@ -1,0 +1,103 @@
+name: intent_schema
+description: Intent schema for CIR by Afzali, Drzewiecki, and Balog
+
+# Possible user intents with optional description.
+user_intents:
+  COMPLETE:
+    expected_agent_intents:
+      - END
+  DISCLOSE.NON-DISCLOSE:
+    expected_agent_intents:
+      - INQUIRE
+      - INQUIRE.ELICIT
+      - DISCLOSE.NON-DISCLOSE
+  DISCLOSE:
+    expected_agent_intents:
+      - INQUIRE.ELICIT
+      - REVEAL
+      - REVEAL.NONE
+  REVEAL:
+    expected_agent_intents:
+  REVEAL.EXPAND:
+    expected_agent_intents:
+      - INQUIRE.ELICIT
+      - REVEAL
+      - REVEAL.NONE
+  REVEAL.REFINE:
+    expected_agent_intents:
+      - INQUIRE.ELICIT
+      - REVEAL
+      - REVEAL.NONE
+  REVEAL.REVISE:
+    expected_agent_intents:
+      - INQUIRE.ELICIT
+      - REVEAL
+      - REVEAL.NONE
+    remove_user_preference: true
+  INQUIRE:
+    expected_agent_intents:
+      - INQUIRE.ELICIT
+      - REVEAL
+      - REVEAL.SIMILAR
+      - REVEAL.NONE
+  INQUIRE.SIMILAR:
+    expected_agent_intents:
+      - REVEAL
+      - REVEAL.SIMILAR
+      - REVEAL.NONE
+  INQUIRE.ITEMINFO:
+    expected_agent_intents:
+      - INQUIRE.MORE
+  INQUIRE.MORE:
+    expected_agent_intents:
+      - DISCLOSE.MORE
+  NOTE:
+    expected_agent_intents:
+      - INQUIRE.NEXT
+      - INQUIRE.MORE
+      - END
+      - REVEAL
+      - REVEAL.SIMILAR
+  NOTE.DISLIKE:
+    expected_agent_intents:
+    preference_contingent: NEGATIVE
+  NOTE.LIKE:
+    expected_agent_intents:
+      - INQUIRE.NEXT
+      - REVEAL
+      - REVEAL.SIMILAR
+    preference_contingent: POSITIVE
+  NOTE.NO:
+    expected_agent_intents:
+      - REVEAL
+      - INQUIRE.NEXT
+    preference_contingent: NOT_CONSUMED
+  NOTE.YES:
+    expected_agent_intents:
+      - INQUIRE.ELICIT
+      - REVEAL
+      - REVEAL.SIMILAR
+    preference_contingent: CONSUMED
+  NOTE.ACCEPT:
+    expected_agent_intents:
+      - INQUIRE.NEXT
+
+# List of agent intents (including sub-intents) that elicit preferences.
+agent_elicit_intents:
+  - INQUIRE
+  - INQUIRE.ELICIT
+
+# List of agent intents (including sub-intents) that are for set retrieval.
+agent_set_retrieval:
+  - REVEAL
+  - REVEAL.SIMILAR
+  - REVEAL.NONE
+
+# Reward settings
+REWARD:
+  full_set_points: 20
+  missing_intent_penalties:
+    - INQUIRE: 4
+    - ...
+  repeat_penalty: 1
+  cost: 1
