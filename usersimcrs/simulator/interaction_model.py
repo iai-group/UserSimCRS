@@ -26,7 +26,7 @@ class InteractionModel:
             raise FileNotFoundError(f"Config file not found: {config_file}")
         with open(config_file) as yaml_file:
             self._config = yaml.load(yaml_file, Loader=yaml.FullLoader)
-
+        self._initialize_preference_intent_config()
         (
             self._user_intent_distribution,
             self._intent_distribution,
@@ -86,7 +86,14 @@ class InteractionModel:
                 # user intent.
                 next_user_intent = (
                     Intent(
-                        annotated_conversation["conversation"][j + 1]["intent"]
+                        self._config["user_preference_intents_reverse"].get(
+                            annotated_conversation["conversation"][j + 1][
+                                "intent"
+                            ],
+                            annotated_conversation["conversation"][j + 1][
+                                "intent"
+                            ],
+                        )
                     )
                     if j < len(annotated_conversation["conversation"]) - 1
                     else self.START_INTENT
@@ -136,6 +143,34 @@ class InteractionModel:
         agenda.reverse()
         self._agenda = agenda
         return agenda
+
+    def _initialize_preference_intent_config(self):
+        sub_to_main_intent = dict()
+        self._config["user_preference_intents"] = dict()
+        for intent_label, properties in self._config["user_intents"].items():
+            if "preference_contingent" in properties:
+                if (
+                    not self.__get_main_intent_from_sub_intent_label(
+                        intent_label
+                    )
+                    in self._config["user_preference_intents"]
+                ):
+                    self._config["user_preference_intents"][
+                        self.__get_main_intent_from_sub_intent_label(
+                            intent_label
+                        )
+                    ] = {}
+                self._config["user_preference_intents"][
+                    self.__get_main_intent_from_sub_intent_label(intent_label)
+                ][properties["preference_contingent"]] = intent_label
+                sub_to_main_intent[
+                    intent_label
+                ] = self.__get_main_intent_from_sub_intent_label(intent_label)
+        self._config["user_preference_intents_reverse"] = sub_to_main_intent
+
+    @staticmethod
+    def __get_main_intent_from_sub_intent_label(sub_intent: str):
+        return sub_intent.split(".")[0]
 
     @property
     def agenda(self):
@@ -240,9 +275,12 @@ class InteractionModel:
         Returns:
             The current intent (the next intent).
         """
-        expected_agent_intents = self._config.get("expected_responses").get(
-            self._current_intent.label
+        expected_agent_intents = (
+            self._config["user_intents"]
+            .get(self._current_intent.label)
+            .get("expected_agent_intents")
         )
+
         # If agent replies in an expected intent, then pop the next intent from
         # agenda.
         if agent_intent.label in expected_agent_intents:
