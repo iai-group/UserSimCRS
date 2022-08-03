@@ -2,65 +2,55 @@
 
 import argparse
 import configparser
-import os
 
 # import sys
 import json
-import yaml
-from typing import Any
+import os
+from typing import Any, Dict
 
-from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.nlu.models.intent_classifier_cosine import (
-    IntentClassifierCosine,
-)
-from dialoguekit.nlg.nlg import NLG
+import yaml
 from dialoguekit.agent.agent import Agent
 from dialoguekit.core.dialogue import Dialogue
-from dialoguekit.core.ontology import Ontology
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.manager.dialogue_manager import DialogueManager
-from dialoguekit.platforms.platform import Platform
 
 # from dialoguekit.agent.terminal_agent import TerminalAgent
 # from dialoguekit.agent.moviebot_agent import MovieBotAgent
 from dialoguekit.core.intent import Intent
+from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.core.utterance import Utterance
+from dialoguekit.manager.dialogue_manager import DialogueManager
+from dialoguekit.nlg.nlg import NLG
+from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
+from dialoguekit.nlu.models.intent_classifier_cosine import (
+    IntentClassifierCosine,
+)
 from dialoguekit.nlu.models.satisfaction_classifier import (
     SatisfactionClassifier,
 )
+from dialoguekit.platforms.platform import Platform
 
-from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.sample_agent.sample_agent import SampleAgent
 from usersimcrs.simulator.agenda_based_simulator import AgendaBasedSimulator
+from usersimcrs.simulator.interaction_model import InteractionModel
 from usersimcrs.simulator.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
-from usersimcrs.simulator.interaction_model import InteractionModel
+from usersimcrs.simulator.user_simulator import UserSimulator
 
 # from usersimcrs.utils.persona_generator import Persona, Context
 
 
-def simulate_conversation(
-    agent: Agent, user_simulator: UserSimulator
-) -> Dialogue:
-    """Simulates a single conversation and returns the resulting dialogue.
-
-    Args:
-        agent: An agent.
-        user_simulator: A user simulator.
-    """
-    platform = Platform()  # TODO: Add simulator platform
-    dm = DialogueManager(agent, user_simulator, platform)
-    agent.connect_dialogue_manager(dialogue_manager=dm)
-    user_simulator.connect_dialogue_manager(dialogue_manager=dm)
-    dm.start()
-    dm.close()
-    return dm.dialogue_history
-
-
 def parse_args() -> Any:
+    """Parses arguments in a .ini file and/or via the command line. The .ini
+        config file is used to set default values which can be overridden via
+        the command line.
+
+    Returns:
+        A namespace object containing the arguments.
+    """
+
     conf_parser = argparse.ArgumentParser(
         description=__doc__,  # printed with -h/--help
         # Don't mess with format of description
@@ -121,7 +111,17 @@ def parse_args() -> Any:
     return args
 
 
-def load_cosine_classifier(dialogues):
+def load_cosine_classifier(
+    dialogues: Dict[str, Dict[str, str]]
+) -> IntentClassifierCosine:
+    """Trains a cosine classifier on annotated dialogues for NLU module.
+
+    Args:
+        dialogues: A JSON format of annotated dialogues.
+
+    Returns:
+        A trained cosine model for intent classification.
+    """
     gt_intents = []
     utterances = []
     for conversation in dialogues:
@@ -132,6 +132,27 @@ def load_cosine_classifier(dialogues):
     nlu = IntentClassifierCosine(intents=gt_intents)
     nlu.train_model(utterances=utterances, labels=gt_intents)
     return nlu
+
+
+def simulate_conversation(
+    agent: Agent, user_simulator: UserSimulator
+) -> Dialogue:
+    """Simulates a single conversation and returns the resulting dialogue.
+
+    Args:
+        agent: An agent.
+        user_simulator: A user simulator.
+
+    Returns:
+        The simulated dialogue.
+    """
+    platform = Platform()  # TODO: Add simulator platform
+    dm = DialogueManager(agent, user_simulator, platform)
+    agent.connect_dialogue_manager(dialogue_manager=dm)
+    user_simulator.connect_dialogue_manager(dialogue_manager=dm)
+    dm.start()
+    dm.close()
+    return dm.dialogue_history
 
 
 if __name__ == "__main__":
