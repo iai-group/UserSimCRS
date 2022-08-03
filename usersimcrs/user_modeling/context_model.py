@@ -1,28 +1,40 @@
-"""Context model."""
+"""Context model including multiple context dimensions, e.g., temporal."""
 
 
-from typing import Any, Dict
+from typing import Dict
 
 
 class ContextModel:
-    """Represents a context model."""
 
     _DEFAULT_CONTEXT_PROBABILITIES = dict()
 
     def __init__(
-        self, context_probability_mapping: Dict[Any, Any] = None
+        self, context_probability_mapping: Dict[str, Dict[str, float]] = None
     ) -> None:
-        """Instantiates a context model with temporal and relational context.
+        """Instantiates a context model.
 
         Args:
             context_probability_mapping: A dictionary with necessary
-            probabilities to sample context. If it is not provided, we use
-            default values.
+              probabilities to sample context. If it is not provided, we use
+              default values. The dictionary should contain the context
+              dimension as the outer key and the corresponding value should be
+              another dictionary with key-value pairs for events and the
+              respective probability assigned to it. Example structure:
+              {
+                temporal: {
+                    weekend: 0.50,
+                    weekday: 0.50
+                },
+                relational: {
+                    group: 0.50,
+                    alone: 0.50
+                }
+              }
         """
         pass
 
     def sample_context(self):
-        """Samples a temporal and relational context.
+        """Samples context along each of the dimensions independently.
 
         Args:
 
@@ -30,9 +42,12 @@ class ContextModel:
         """
         pass
 
-    def _sample_temporal_context(self):
-        """Samples a temporal context."""
-        pass
+    def _sample_context_dimension(self, dimension: str):
+        """Samples a context along the given dimension.
 
-    def _sample_relational_context(self):
-        """Samples a relational context"""
+        Args:
+            dimension: The dimension which context is to be sampled along.
+
+        Returns:
+        """
+        pass
