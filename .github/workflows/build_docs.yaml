@@ -26,7 +26,7 @@ jobs:
       - name: Sphinx docs to GitHub Pages
         uses: ./.github/actions/build_docs/
         with:
-          branch: main
+          branch: feature/#52_Set-up-documentation-similar-to-DialogueKit
           dir_docs: docs/source
           sphinxapiopts: '--separate -o . ../'
           sphinxapiexclude: '../*setup* ../*.ipynb'
