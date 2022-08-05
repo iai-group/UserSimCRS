@@ -23,10 +23,6 @@ jobs:
       - name: Installing the Documentation requirements
         run: |
           pip3 install -r requirements/docs_requirements.txt
-      - name: Installing UserSimCRS
-        shell: bash -l {0}
-        run: |
-          pip install .
       - name: Sphinx docs to GitHub Pages
         uses: ./.github/actions/build_docs/
         with:
