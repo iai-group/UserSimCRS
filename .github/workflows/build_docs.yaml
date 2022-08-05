@@ -1,0 +1,37 @@
+name: Sphinx docs to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+# workflow_dispatch:        # Un comment line if you also want to trigger action manually
+
+jobs:
+  sphinx_docs_to_gh-pages:
+    runs-on: ubuntu-latest
+    name: Sphinx docs to gh-pages
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+        with:
+          ref: feature/#52_Set-up-documentation-similar-to-DialogueKit
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7.12
+      - name: Installing the Documentation requirements
+        run: |
+          pip3 install -r requirements/docs_requirements.txt
+      - name: Installing DialogueKit
+        shell: bash -l {0}
+        run: |
+          pip install .
+      - name: Sphinx docs to GitHub Pages
+        uses: ./.github/actions/build_docs/
+        with:
+          branch: main
+          dir_docs: docs/source
+          sphinxapiopts: '--separate -o . ../'
+          sphinxapiexclude: '../*setup* ../*.ipynb'
+          sphinxopts: ''

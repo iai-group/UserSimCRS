@@ -1,0 +1,10 @@
+sphinx<5.0;
+scipy==1.7.2;
+sphinx;
+sphinx_rtd_theme;
+sphinxcontrib-bibtex;
+nbsphinx;
+recommonmark;
+sphinx-markdown-tables;
+sphinx-autoapi
+myst-parser
