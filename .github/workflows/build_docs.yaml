@@ -3,7 +3,7 @@ name: Sphinx docs to gh-pages
 on:
   push:
     branches:
-      - main
+      - feature/#52_Set-up-documentation-similar-to-DialogueKit
 
 # workflow_dispatch:        # Un comment line if you also want to trigger action manually
 
@@ -23,7 +23,7 @@ jobs:
       - name: Installing the Documentation requirements
         run: |
           pip3 install -r requirements/docs_requirements.txt
-      - name: Installing DialogueKit
+      - name: Installing UserSimCRS
         shell: bash -l {0}
         run: |
           pip install .
