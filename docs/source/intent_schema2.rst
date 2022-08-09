@@ -1,5 +1,5 @@
 Intent schema
-===============
+=============
 
 The interaction model defines the user-system interactions that can take place in a conversation. We define it in the form of an *intent schema*, as specified below.
 
@@ -13,7 +13,7 @@ Format
 * **REWARD**: The reward settings for automatic assessment of simulated dialogues.
 
 Example
-^^^^^^^^^^^^
+^^^^^^^
 
 .. code-block:: yaml
   

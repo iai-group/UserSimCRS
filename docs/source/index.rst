@@ -1,4 +1,3 @@
-
 UserSimCRS |release| documentation
 =====================================
 
@@ -8,9 +7,9 @@ Conversational Recommender System Evaluation via Simulation
    :maxdepth: 1
    :caption: Contents:
 
-   Intent_schema
-   Intents
-   Setup_agent
+   intent_schema
+   intents
+   setup_agent
    :ref:`modindex`
 
 Indices and tables
