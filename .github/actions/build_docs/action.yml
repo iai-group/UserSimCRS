@@ -1,0 +1,102 @@
+name: 'Sphinx docs to GitHub Pages'
+description: 'Automatic Sphinx html docs compilation and deployment through the gh-pages branch.'
+author: "Diego Prada-Gracia"
+branding:
+  icon: "upload-cloud"
+  color: "orange"
+inputs:
+  branch:
+    description: Name of the branch where the sphinx documentation is located
+    required: false
+    default: 'main'
+  dir_docs:
+    description: Path where the sphinx documentation is located
+    required: false
+    default: 'docs'
+  sphinxapiexclude:
+    description: Files/directories to exclude from sphinx-apidoc
+    require: false
+    default: '*setup* tests*'
+  sphinxapiopts:
+    description: Options for sphinx-apidoc (default outputs to dir_docs and searches for modules one level up)
+    require: false
+    default: '-o . ../'
+  sphinxopts:
+    description: Compilation options for sphinx-build
+    required: false
+    default: ''
+
+runs:
+  using: "composite"
+  steps:
+    - name: setting the committer name and email
+      id: committer
+      shell: bash
+      run: |
+        author_name="$(git show --format=%an -s)"
+        author_email="$(git show --format=%ae -s)"
+        echo "::group::Set committer"
+        echo "git config user.name $author_name"
+        git config user.name $author_name
+        echo "git config user.email $author_email"
+        git config user.email $author_email
+        echo "::endgroup::"
+    - name: gh-pages branch creation if needed
+      id: gh-pages-branch-creation
+      shell: bash
+      run: |
+        echo "::group::Checking if gh-pages branch exists"
+        if [[ -z $(git ls-remote --heads origin gh-pages) ]]; then
+           echo "Creating gh-pages branch"
+           git checkout --orphan gh-pages
+           git reset --hard
+           git commit --allow-empty -m "First commit to create gh-pages branch"
+           git push origin gh-pages
+           echo "Created gh-pages branch"
+        else
+           echo "Branch gh-pages already exists"
+        fi
+        echo "::endgroup::"
+    - name: Moving to branch where sphinx docs are located
+      id: to-branch-with-docs
+      shell: bash
+      run: |
+           git checkout ${{ inputs.branch }}
+    - name: sphinx apidoc generation
+      shell: bash -l {0}
+      working-directory: ./${{ inputs.dir_docs }}
+      run: |
+        echo ::group::Sphinx apidocs generation
+        sphinx-apidoc ${{ inputs.sphinxapiopts }}  ${{ inputs.sphinxapiexclude }}
+        echo ::endgroup::
+    - name: sphinx html docs compilation
+      shell: bash -l {0}      # This is needed to work with conda here. See:https://github.com/marketplace/actions/setup-miniconda#IMPORTANT
+      working-directory: ./${{ inputs.dir_docs }}
+      run: |
+        echo ::group::Sphinx docs compilation
+        sphinx-build -M html . _build ${{ inputs.sphinxopts }}
+        echo ::endgroup::
+    - name: pushing to gh-pages
+      shell: bash
+      run: |
+        echo ::group::Create README for gh-pages
+        SHA=$GITHUB_SHA
+        echo "$SHA $GITHUB_EVENT_NAME"
+        if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+            SHA=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.head.sha)
+        fi
+        SHORT_SHA="$(git rev-parse --short $SHA)"
+        DIR_HTML=${{ inputs.dir_docs }}/_build/html
+        echo "#GitHub Pages" > $DIR_HTML/README.md
+        echo "" >> $DIR_HTML/README.md
+        echo "Last update of sphinx html documentation from [$SHORT_SHA](https://github.com/$GITHUB_REPOSITORY/tree/$SHA)" >> $DIR_HTML/README.md
+        cat $DIR_HTML/README.md
+        echo ::endgroup::
+        echo ::group::Create .nojekyll in case 'sphinx.ext.githubpages' is not used
+        touch $DIR_HTML/.nojekyll
+        echo ::endgroup::
+        echo ::group::Push to gh-pages
+        git add -f $DIR_HTML
+        git commit -m "From $GITHUB_REF $SHA"
+        git push origin `git subtree split --prefix $DIR_HTML ${{ inputs.branch }}`:gh-pages --force
+        echo ::endgroup::
