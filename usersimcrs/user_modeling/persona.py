@@ -1,15 +1,13 @@
-"""Persona."""
+"""Persona, which is a profile of the user to represent different backgrounds
+(e.g., age, gender, education), personality types, and behavioral tendencies
+(e.g., patience, conscientiousness, or curiosity)."""
 
 from dataclasses import dataclass
+from typing import Any, Dict
 
 
 @dataclass
 class Persona:
-    """Persona dataclass. This dataclass is used to store user metadata, such as
-    age, gender, education, and so on.
-    TODO: Write why the metadata is significant for simulation."""
+    """Represents personal user characteristics as key-value pairs."""
 
-    age: int
-    gender: str
-    education_level: str
-    cooperativeness: float
+    characteristics: Dict[str, Any]
