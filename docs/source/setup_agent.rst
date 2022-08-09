@@ -2,12 +2,12 @@ Setting up an agent
 ===================
 
 How to connect
------------------
+--------------
 
 *TODO: what interface to implement for the agent; examples of how to connect Telegram and FB applications*
 
 Data
------
+----
 
 Intent scheme
 ^^^^^^^^^^^^^

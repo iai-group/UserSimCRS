@@ -1,5 +1,5 @@
 UserSimCRS |release| documentation
-=====================================
+==================================
 
 Conversational Recommender System Evaluation via Simulation
 
