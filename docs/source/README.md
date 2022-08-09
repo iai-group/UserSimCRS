@@ -1,3 +1,3 @@
 # Documentation
 
-Read the docs style documentation is contained in the `source` folder. That documentations is to document the **usage** of UserSimCRS. While documentation related to **development** of UserSimCRS is in the [Wiki](https://github.com/iai-group/usersimcrs/wiki)
+The usage-oriented documentation (in Read the Docs style) is available [here](https://iai-group.github.io/UserSimCRS), with the corresponding sources contained in the source folder. Documentation related to development is found in the [Wiki](https://github.com/iai-group/UserSimCRS/wiki).
