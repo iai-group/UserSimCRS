@@ -12,8 +12,6 @@ from usersimcrs.simulator.user_simulator import UserSimulator
 
 
 class AgendaBasedSimulator(UserSimulator):
-    """Agenda based user simulator."""
-
     def __init__(
         self,
         preference_model: PreferenceModel,
@@ -24,7 +22,7 @@ class AgendaBasedSimulator(UserSimulator):
         item_collection: ItemCollection,
         ratings: Ratings,
     ) -> None:
-        """ "
+        """
         Initializes the agenda-based simulated user.
 
         Args:
