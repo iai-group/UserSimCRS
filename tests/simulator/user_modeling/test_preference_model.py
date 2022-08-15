@@ -4,7 +4,7 @@ import pytest
 from dialoguekit.core.ontology import Ontology
 from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
-from usersimcrs.simulator.preference_model import (
+from usersimcrs.user_modeling.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )

@@ -14,7 +14,7 @@ from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.manager.dialogue_manager import DialogueManager
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.platforms.platform import Platform
+from dialoguekit.platformss.platform import Platform
 
 from usersimcrs.sample_agent.sample_agent import SampleAgent
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
