@@ -1,14 +1,13 @@
 """Tests for PreferenceModel."""
 
 import pytest
-
+from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.core.recsys.ratings import Ratings
 from usersimcrs.simulator.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
-from dialoguekit.core.ontology import Ontology
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
 
 ONTOLOGY_YAML_FILE = "data/domains/movies.yaml"
 ITEMS_CSV_FILE = "data/movielens-20m-sample/movies.csv"
