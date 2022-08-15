@@ -1,9 +1,8 @@
 """Tests for the InteractionModel class."""
 
 import pytest
-
-from usersimcrs.simulator.interaction_model import InteractionModel
 from dialoguekit.core.intent import Intent
+from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 
 # List of user intents in agenda
 ANNOTATED_CONVERSATIONS = [

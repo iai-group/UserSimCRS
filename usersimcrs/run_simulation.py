@@ -14,16 +14,18 @@ from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.manager.dialogue_manager import DialogueManager
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.platforms.platform import Platform
+from dialoguekit.platformss.platform import Platform
 
 from usersimcrs.sample_agent.sample_agent import SampleAgent
-from usersimcrs.simulator.agenda_based_simulator import AgendaBasedSimulator
-from usersimcrs.simulator.interaction_model import InteractionModel
-from usersimcrs.simulator.user_simulator import UserSimulator
-from usersimcrs.user_modeling.preference_model import (
+from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
+    AgendaBasedSimulator,
+)
+from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.simulator.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
+from usersimcrs.simulator.user_simulator import UserSimulator
 
 
 def simulate_conversation(
