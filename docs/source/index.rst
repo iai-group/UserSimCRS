@@ -5,7 +5,7 @@ Conversational Recommender System Evaluation via Simulation
 
 .. image:: _static/UserSimCRS-Overview.png
     :width: 700
-    :alt: Conceptual overview figure.
+    :alt: Conceptual overview of the user simulator.
 
 .. toctree::
    :maxdepth: 1
