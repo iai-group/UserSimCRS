@@ -9,6 +9,7 @@ Conversational Recommender System Evaluation via Simulation
 
    intents
    intent_schema
+   setup_agent
    :ref:`modindex`
 
 Indices and tables
