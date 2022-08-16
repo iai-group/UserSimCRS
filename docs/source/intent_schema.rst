@@ -1,7 +1,10 @@
-Intent schema
-=============
+Interation model
+================
 
-The interaction model defines the user-system interactions that can take place in a conversation. We define it in the form of an *intent schema*, as specified below.
+TODO: rename page
+
+The interaction model defines the user-agent interactions that can take place in a conversation. We define it in terms a set of *user intents*, a set of *agent intents*, and *expected agent responses* to each user intent.
+Below, we specify the YAML format that is used for defining an interaction model and then discuss a specific interaction model (CIR6) that is shipped with the toolkit.
 
 Format
 ------
