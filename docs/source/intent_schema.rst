@@ -1,3 +1,5 @@
+.. _Intent Schema:
+
 Intent schema
 =============
 

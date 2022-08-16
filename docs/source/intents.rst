@@ -1,9 +1,9 @@
 Intents
 =======
 
-**TODO:** Define what intents are and the intent schemes that are included with the toolkit `#60 <https://github.com/iai-group/UserSimCRS/issues/60>`_.
+Intents are dialogue actions that can be performed by the participants in a dialogue. UserSimCRS by default implements the :ref:`CIR6 intent schema <Intent Schema>` which includes intents shown below.
 
-CIR6
+CIR6  
 ----
 
 User intents
