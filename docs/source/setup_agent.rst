@@ -1,83 +1,51 @@
 Setting up an agent
 ===================
 
-How to connect
---------------
 
-*TODO: what interface to implement for the agent; examples of how to connect Telegram and FB applications*
+.. contents:: Table of Contents
+    :depth: 3
 
-Data
-----
+1. Prepare domain and item collection
+-------------------------------------
 
-Intent scheme
-^^^^^^^^^^^^^
+A config file with domain-specific slot names must be prepared for the preference model. Additionally, a file containing the item collection is required; currently, this is expected in CSV format.
 
-The *intent scheme* defines the space of actions supported by the conversational agent and the user simulator.
+2. Provide preference data
+--------------------------
 
+Preference data is consumed in the form of item ratings and needs to be provided in a CSV file in the shape of user ID, item ID, and rating triples.
 
-Annotated conversation logs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3. Dialogue sample
+------------------
 
-Training data is accepted in JSON format, where each conversation is an entry in a dictionary, with utterances represented as a list of dictionaries.  Each utterance needs to include the participant, utterance text, and intent annotations, and can include arbitrary additional annotations.
+A small sample of dialogues with the target CRS needs to be collected. The sample size depends on the complexity of the system, in terms of action space and language variety, but is generally in the order of 5-50 dialogues
 
-.. code-block:: json
+4. Define interaction model 
+---------------------------
 
-    {'conversation ID':
-    [
-        {
-            "participant": "USER or AGENT",
-            "utterance": "text",
-            "intent": "REVEAL, ... ALLCAPS",
-            "annotation_1": "value_1",
-            "annotation_2": "value_2",
-        },
-        {...}
-    ]
-    ..
-    }
+A config file containing the users’ and agent’s intent space, as well as the set of expected agents for each user intent, is required for the interaction model. The CRSv1 interaction model shipped with library offers a baseline starting point, which may be further tailored according to the behavior and capabilities of the target CRS
 
+5. Annotate sample 
+------------------
 
-The intent scheme is to be defined in a separate file, see [Intents](Intents.md).
+The sample of dialogues must contain utterance-level annotations in terms of intents and entities, as this is required to train the NLU and NLG components. Note that the slots used for annotation should be the same as the ones defined in the domain file (cf. Step 1) and intents should follow the ones defined in the interaction model (cf. Step 4.)
 
+6. Define user model/population
+-------------------------------
 
-Example:
+Simulation is seeded with a user population that needs to be characterized, in terms of the different contexts (e.g., weekday vs. weekend, alone vs. group setting) and personas (e.g., patient and impatient users) and the number of users to be generated for each combination of context and persona. Each user has their own preference model, which may be instantiated by grounding it to actual preferences (i.e., the ratings dataset given in Step 2)
 
-.. code-block:: json
-        
-    {
-        "1018216123": [
-            {...},
-            {
-                "participant": "AGENT",
-                "utterance": "Guide me. Any genres you like?",
-                "intent": "ELICIT",
-                "request": "GENRE"
-            },
-            {
-                "participant": "USER",
-                "utterance": "Action",
-                "intent": "DISCLOSE"
-            },
-            {
-                "participant": "AGENT",
-                "utterance": "There is a movie named \"Lone Wolf McQuade\". Have you watched it?",
-                "intent": "LIST"
-            },
-            {
-                "participant": "USER",
-                "utterance": "No",
-                "intent": "NOTE"
-            },
-            [...]
-        ]
-    }
+7. Train simulator
+------------------
 
+The NLU and NLG components of the simulator are trained using the annotated dialogue sample.
 
-Conversation logs are to be placed under  `data/agents/{agent}/annotated_dialogues/` as one or multiple JSON files.
+8. Run simulation
+-----------------
 
-What kind of data is needed to enable the simulator → JSON files containing annotations for dialogues
+Running the simulator will generate a set of simulated conversations for each user with the target CRS and save those to files.
 
-Measures
---------
+9. Perform evaluation
+---------------------
 
-*TODO: How to define custom measures*
+Evaluation takes the set of simulated dialogues generated in the previous step as input, and measures the performance of the target CRS in terms of the metrics implemented in DialogueKit (cf. Section 3.1)

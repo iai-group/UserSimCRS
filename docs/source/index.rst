@@ -13,6 +13,7 @@ Conversational Recommender System Evaluation via Simulation
 
    intent_schema
    intents
+   components
    setup_agent
    :ref:`modindex`
 
