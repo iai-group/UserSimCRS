@@ -24,7 +24,7 @@ User modeling consists of three sub-components: preference model, context model,
 Natural language generation (NLG) 
 ---------------------------------
 
-Following the work in [4]_, the NLG component is template-based, that is, given the output of the response generation module, a fitting textual response is chosen and may be instantiated with preferences. Additionally, we extend template-based generation to be conditioned on user satisfaction, such that users could use for example stronger language when getting dissatisfied with the system.
+Following the work in [4]_, the NLG component is template-based, that is, given the output of the response generation module, a fitting textual response is chosen and may be instantiated with preferences. Additionally, we extend template-based generation to be conditioned with metadata, specifically on user satisfaction, such that users could use for example stronger language when getting dissatisfied with the system.
 
 Footnotes
 ---------
