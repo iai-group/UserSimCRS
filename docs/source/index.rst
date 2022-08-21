@@ -11,8 +11,7 @@ Conversational Recommender System Evaluation via Simulation
    :maxdepth: 1
    :caption: Contents:
 
-   intents
-   intent_schema
+   interaction_model
    setup_agent
    :ref:`modindex`
 
