@@ -1,15 +1,13 @@
 """Tests for PreferenceModel."""
 
 import pytest
+from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.ontology import Ontology
 from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.core.slot_value_annotation import (
-    Annotation,
-    SlotValueAnnotation,
-)
-from usersimcrs.simulator.preference_model import (
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
+from usersimcrs.user_modeling.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
@@ -100,7 +98,7 @@ def test_get_item_preference_sip(preference_model_sip):
 
 def test_get_item_preference_pkg(preference_model_pkg):
     # Given
-    item_id = "100"  # geners = ['Drama', 'Thriller']
+    item_id = "100"  # genres = ['Drama', 'Thriller']
 
     # When (Both Drama and Thriller are favored as 1)
     preference = preference_model_pkg.get_item_preference(item_id)
