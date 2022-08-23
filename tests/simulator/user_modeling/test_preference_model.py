@@ -52,6 +52,7 @@ def preference_model_pkg():
         ratings,
         PreferenceModelVariant.PKG,
         historical_user_id="13",
+        sample_fraction=0.50,
     )
 
 
@@ -147,3 +148,7 @@ def test_revise_random_preference(preference_model_pkg):
         revised_annotations[0]
         not in preference_model_pkg._session_preferences.keys()
     )
+
+
+def test_sampled_preferences(preference_model_pkg):
+    pass

@@ -48,6 +48,7 @@ class PreferenceModel:
         historical_ratings: Ratings,
         model_variant: PreferenceModelVariant,
         historical_user_id: str = None,
+        sample_fraction: float = 0.50,
     ) -> None:
         """Generates a simulated user, by assigning initial preferences based on
         historical ratings according to the specified model type (SIP or PKG).
@@ -61,9 +62,11 @@ class PreferenceModel:
             historical_ratings: Historical ratings.
             model_variant: Preference model variant (SIP or PKG).
             historical_user_id (Optional): If provided, the simulated user is
-                based on this particular historical user; otherwise, it is based
-                on a randomly sampled user. This is mostly added to make the
-                class testable.
+              based on this particular historical user; otherwise, it is based
+              on a randomly sampled user. This is mostly added to make the
+              class testable.
+            sample_fraction (Optional): If provided, it defines how big a
+              fraction of items should be sampled of total items, per user.
         """
         self._ontology = ontology
         self._item_collection = item_collection
@@ -83,18 +86,30 @@ class PreferenceModel:
         self._slotvalue_preferences = UserPreferences(self._user_id)
         self._session_preferences = defaultdict()
         # Initialize item preferences by sampling from historical ratings.
-        self._initialize_item_preferences()
+        self._initialize_item_preferences(fraction=sample_fraction)
 
-    def _initialize_item_preferences(self) -> None:
+    def _initialize_item_preferences(self, fraction: float) -> None:
         """Initializes the simulated user's preferences on items by sampling
         from ratings of a historical user."""
         # TODO Update, as currently all historical item preferences are copied;
         # instead, there should only be a sample of them. Note that that'll make
         # testing a bit tricky...
+        items_to_sample = int(
+            len(
+                self._historical_ratings.get_user_ratings(
+                    self._historical_user_id
+                )
+            )
+            * fraction
+        )
+        items_sampled = 0
         for item_id, rating in self._historical_ratings.get_user_ratings(
             self._historical_user_id
         ).items():
+            if items_sampled == items_to_sample:
+                break
             self._item_preferences.set_preference("ITEM_ID", item_id, rating)
+            items_sampled += 1
 
     def _get_property_preferences(
         self, property: str = "genres"
