@@ -3,18 +3,15 @@
 from dialoguekit.core.ontology import Ontology
 from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.nlu import NLU
+from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.simulator.preference_model import PreferenceModel
 from usersimcrs.simulator.user_simulator import UserSimulator
-from dialoguekit.core.utterance import Utterance
-
-from usersimcrs.simulator.interaction_model import InteractionModel
 
 
 class AgendaBasedSimulator(UserSimulator):
-    """Agenda based user simulator."""
-
     def __init__(
         self,
         preference_model: PreferenceModel,
@@ -25,7 +22,7 @@ class AgendaBasedSimulator(UserSimulator):
         item_collection: ItemCollection,
         ratings: Ratings,
     ) -> None:
-        """ "
+        """
         Initializes the agenda-based simulated user.
 
         Args:
