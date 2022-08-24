@@ -7,8 +7,8 @@ from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.nlu import NLU
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
-from usersimcrs.simulator.preference_model import PreferenceModel
 from usersimcrs.simulator.user_simulator import UserSimulator
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 
 class AgendaBasedSimulator(UserSimulator):

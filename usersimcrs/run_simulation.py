@@ -1,9 +1,6 @@
 """Console application for running simulation."""
 
 import argparse
-import configparser
-
-# import sys
 import json
 import os
 from typing import Any, Dict
@@ -11,9 +8,6 @@ from typing import Any, Dict
 import yaml
 from dialoguekit.agent.agent import Agent
 from dialoguekit.core.dialogue import Dialogue
-
-# from dialoguekit.agent.terminal_agent import TerminalAgent
-# from dialoguekit.agent.moviebot_agent import MovieBotAgent
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.ontology import Ontology
 from dialoguekit.core.recsys.item_collection import ItemCollection
@@ -41,8 +35,6 @@ from usersimcrs.user_modeling.preference_model import (
     PreferenceModelVariant,
 )
 
-# from usersimcrs.utils.persona_generator import Persona, Context
-
 
 def parse_args() -> Any:
     """Parses arguments in a .ini file and/or via the command line. The .ini
@@ -53,27 +45,10 @@ def parse_args() -> Any:
         A namespace object containing the arguments.
     """
 
-    conf_parser = argparse.ArgumentParser(
-        description=__doc__,  # printed with -h/--help
-        # Don't mess with format of description
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        # Turn off help, so we print all options in response to -h
-        add_help=False,
-    )
-    conf_parser.add_argument(
-        "-c", "--conf_file", help="Specify config file", metavar="FILE"
-    )
-    args, remaining_argv = conf_parser.parse_known_args()
-    default_args = {}
-    if not os.path.exists(args.conf_file):
-        raise FileNotFoundError(f"Config file not found: {args.conf_file}")
-    else:
-        cp = configparser.ConfigParser()
-        cp.read([args.conf_file])
-        default_args.update(dict(cp.items("SETTINGS")))
-
     parser = argparse.ArgumentParser()
-    parser.set_defaults(**default_args)
+    parser.add_argument(
+        "-config", help="Specify config file *.yaml", metavar="FILE"
+    )
     parser.add_argument(
         "-ontology", type=str, help="Path to ontology config file."
     )
@@ -92,9 +67,19 @@ def parse_args() -> Any:
         "-interaction_model",
         type=str,
         help="Interaction model to be used. Currently, either 'cosine' or "
-        " 'diet'.",
+        "diet"
+        ".",
     )
     args = parser.parse_args()
+    print("arguments: {}".format(str(args)))
+
+    opt = vars(args)
+    print("opt", opt)
+    args = yaml.load(open(args.config), Loader=yaml.FullLoader)
+    print("Yargs", args)
+    opt.update(args)
+    args = opt
+    print("arguments: {}".format(str(args)))
 
     # TODO Load settings from command line arguments or config file.
     if not os.path.exists(args.ontology):
@@ -159,7 +144,41 @@ def simulate_conversation(
 
 if __name__ == "__main__":
     agent = SampleAgent(agent_id="Tester")
-    args = parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-config", help="Specify config file *.yaml", metavar="FILE"
+    )
+    parser.add_argument(
+        "-ontology", type=str, help="Path to ontology config file."
+    )
+    parser.add_argument(
+        "-intents", type=str, help="Path to the intent scheme file."
+    )
+    parser.add_argument("-items", type=str, help="Path to item file.")
+    parser.add_argument("-ratings", type=str, help="Path to rating file.")
+    parser.add_argument(
+        "-dialogues", type=str, help="Path to the annotated dialogues file."
+    )
+    parser.add_argument(
+        "-satisfaction", type=str, help="Enables satisfaction classifier."
+    )
+    parser.add_argument(
+        "-interaction_model",
+        type=str,
+        help="Interaction model to be used. Currently, either 'cosine' or "
+        "diet"
+        ".",
+    )
+    args = parser.parse_args()
+    print("arguments: {}".format(str(args)))
+
+    opt = vars(args)
+    print("opt", opt)
+    args = yaml.load(open(args.config), Loader=yaml.FullLoader)
+    print("Yargs", args)
+    opt.update(args)
+    args = opt
+    print("arguments: {}".format(str(args)))
 
     ontology = Ontology(args.ontology)
 
