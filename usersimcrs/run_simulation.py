@@ -179,31 +179,32 @@ if __name__ == "__main__":
     opt.update(args)
     args = opt
     print("arguments: {}".format(str(args)))
+    print("arguments2: ", args)
 
-    ontology = Ontology(args.ontology)
+    ontology = Ontology(args["ontology"])
 
     item_collection = ItemCollection()
     item_collection.load_items_csv(
-        args.items, ["ID", "NAME", "genres", "keywords"]
+        args["items"], ["ID", "NAME", "genres", "keywords"]
     )
 
     ratings = Ratings(item_collection)
-    ratings.load_ratings_csv(file_path=args.ratings)
+    ratings.load_ratings_csv(file_path=args["ratings"])
 
-    with open(args.dialogues) as annotated_dialogues_file:
+    with open(args["dialogues"]) as annotated_dialogues_file:
         annotated_conversations = json.load(annotated_dialogues_file)
         interaction_model = InteractionModel(
-            config_file=args.intents,
+            config_file=args["intents"],
             annotated_conversations=annotated_conversations,
         )
-        if args.interaction_model == "cosine":
+        if args["interaction_model"] == "cosine":
             nlu = load_cosine_classifier(dialogues=annotated_conversations)
 
     satisfaction_model = None
-    if args.satisfaction:
+    if args["satisfaction"]:
         satisfaction_model = SatisfactionClassifier()
 
-    with open(args.intents) as yaml_file:
+    with open(args["intents"]) as yaml_file:
         config = yaml.load(yaml_file, Loader=yaml.FullLoader)
 
     # TODO: initialization of the simulator with NLU, NLG, etc.
@@ -214,21 +215,29 @@ if __name__ == "__main__":
         PreferenceModelVariant.SIP,
         historical_user_id="13",
     )
-    interaction_model = InteractionModel(args.intents, annotated_conversations)
+    interaction_model = InteractionModel(
+        args["intents"], annotated_conversations
+    )
+    agent_intents_str = config["agent_elicit_intents"]
+    agent_intents_str.extend(config["agent_set_retrieval"])
+    agent_intents = [Intent(intent) for intent in agent_intents_str]
+    print("Agent intents", agent_intents)
     nlu = IntentClassifierRasa(
-        config["agent_intents"],
+        agent_intents,
         "data/agents/moviebot/annotated_dialogues_rasa_agent.yml",
         ".rasa",
     )
     nlg = NLG()
-    nlg.template_from_file(template_file=args.dialogues)
+    nlg.template_from_file(template_file=args["dialogues"])
     simulator = AgendaBasedSimulator(
+        "TEST03",
         preference_model,
         interaction_model,
         nlu,
         nlg,
         ontology,
-        item_collection,
-        ratings,
+        # item_collection,
+        # ratings,
     )
     simulate_conversation(agent, simulator)
+    print("FINISHED")

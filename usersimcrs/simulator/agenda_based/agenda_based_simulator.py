@@ -1,8 +1,9 @@
 """Agenda-based user simulator from [Zhang and Balog, KDD'20]."""
 
 from dialoguekit.core.ontology import Ontology
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
+
+# from dialoguekit.core.recsys.item_collection import ItemCollection
+# from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.nlu import NLU
@@ -14,13 +15,14 @@ from usersimcrs.user_modeling.preference_model import PreferenceModel
 class AgendaBasedSimulator(UserSimulator):
     def __init__(
         self,
+        id: str,
         preference_model: PreferenceModel,
         interaction_model: InteractionModel,
         nlu: NLU,
         nlg: NLG,
         ontology: Ontology,
-        item_collection: ItemCollection,
-        ratings: Ratings,
+        # item_collection: ItemCollection,
+        # ratings: Ratings,
     ) -> None:
         """
         Initializes the agenda-based simulated user.
@@ -34,16 +36,16 @@ class AgendaBasedSimulator(UserSimulator):
             item_collection: Item collection.
             ratings: Historical ratings.
         """
-        super().__init__()
+        super().__init__(id=id)
         self._preference_model = preference_model
-        self._preference_model.initialize_preference()
+        # self._preference_model.initialize_preference()
         self._interaction_model = interaction_model
         self._interaction_model.initialize_agenda()
         self._nlu = nlu
         self._nlg = nlg
         self._ontology = ontology
-        self._item_collection = item_collection
-        self._ratings = ratings
+        # self._item_collection = item_collection
+        # self._ratings = ratings
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
         """Generate response to the agent utterance.
