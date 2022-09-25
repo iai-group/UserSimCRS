@@ -1,8 +1,8 @@
 Configuration
 =============
 
-The agenda based simulator has a number of parameters that can be customized by
-the users of UserSimCRS. These can be either provided in a config file and/or via the command line. Note that arguments passed through the command line will override its counterpart in the config file.
+The agenda based simulator has a number of parameters that can be customized.
+These can be either provided in a config file and/or via the command line. Note that arguments passed through the command line will override those in the config file.
 
 Example
 -------

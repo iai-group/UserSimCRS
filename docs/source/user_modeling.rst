@@ -4,7 +4,7 @@ User modeling
 Preference model
 ----------------
 
-Preference modeling refers to modeling users' individual tastes and allows for a personalized experience. We model preferences as a Personal Knowledge Graph (PGK), where nodes can be either items or attributes. The preference model is built such that it remains consistent across simulations.
+Preference modeling refers to modeling users' individual tastes and allows for a personalized experience. We model preferences as a Personal Knowledge Graph (PGK), where nodes can be either items or attributes. The preference model assumes a temporal ordering of the preference data and is built such that it remains consistent across simulations and assumes a temporal ordering.
 
 Context model
 -------------
@@ -15,4 +15,4 @@ For example, during *weekdays*, a person might be busy with work and have other 
 Persona
 -------
 
-Persona contains user variables, e.g., age, education level, etc. These characteristics also affect the language of a person. People with higher education might have more formal language and vice versa. Age will also affect word choices and sentence structure.
+Persona contains user variables, e.g., age, education level, etc. These characteristics also affect the behaviour and language usage of a person. People with higher education might use more formal or refined language. Age might also affect word choices and sentence structure.
