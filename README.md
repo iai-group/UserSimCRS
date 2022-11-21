@@ -7,7 +7,7 @@ UserSimCRS is an extensible user simulation toolkit for conversational recommend
 
 It is built on top of the [DialogueKit](https://github.com/iai-group/dialoguekit) library, which provides basic dialogue management functionalities.
 
-![UserSimCRS architecture](docs/source/_static/UserSimCRS-Overview.png "UserSimCRS architecture")
+<img src="docs/source/_static/UserSimCRS-Overview.png" width="600px" alt="UserSimCRS architecture" />
 
 UserSimCRS follows the architecture of a typical task-based dialogue system, which consists of natural language understanding, response generation, and natural language generation components. Additionally, there is a dedicated user modeling component in order to make simulation more human-like.
 
