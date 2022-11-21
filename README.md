@@ -3,7 +3,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) 
 
 
-UserSimCRS is an extensible user simulation toolkit for conversational recommender systems.  
+UserSimCRS is an extensible user simulation toolkit for evaluating conversational recommender systems.  
 
 It is built on top of the [DialogueKit](https://github.com/iai-group/dialoguekit) library, which provides basic dialogue management functionalities.
 
