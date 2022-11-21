@@ -7,9 +7,9 @@ UserSimCRS is an extensible user simulation toolkit for evaluating conversationa
 
 It is built on top of the [DialogueKit](https://github.com/iai-group/dialoguekit) library, which provides basic dialogue management functionalities.
 
-<img src="docs/source/_static/UserSimCRS-Overview.png" width="600px" alt="UserSimCRS architecture" />
-
 UserSimCRS follows the architecture of a typical task-based dialogue system, which consists of natural language understanding, response generation, and natural language generation components. Additionally, there is a dedicated user modeling component in order to make simulation more human-like.
+
+<img src="docs/source/_static/UserSimCRS-Overview.png" width="600px" alt="UserSimCRS architecture" />
 
   * **Natural language understanding** is responsible for obtaining a structured representation of text utterances.  Conventionally, it entails intent classification and entity recognition.  Additionally, we also include a classifier for user satisfaction prediction.
   * **Response generation** is currently based on agenda-based simulation, however, there are plans for extending the library with other approaches in the future.  Agenda-based response generation is based on an *interaction model*, which specifies the space of user and agent actions.
