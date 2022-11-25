@@ -1,2 +1,37 @@
 name: QRFA
-description: QRFA intent scheme by ... used in ...
+description: QRFA intent schema
+
+# Possible user intents with optional description.
+user_intents:
+  QUERY:
+    expected_agent_intents:
+      - REQUEST
+      - ANSWER
+  FEEDBACK:
+    expected_agent_intents:
+      - REQUEST
+      - ANSWER
+  EXIT:
+    expected_agent_intents:
+      - EXIT
+
+# Possible agent intents with optional description
+agent_intents:
+  REQUEST:
+    expected_user_intents:
+      - QUERY
+      - FEEDBACK
+  ANSWER:
+    expected_user_intents:
+      - QUERY
+      - FEEDBACK
+  EXIT:
+    expected_user_intents:
+      - EXIT
+# List of agent intents (including sub-intents) that elicit preferences.
+agent_elicit_intents:
+  - REQUEST
+
+# List of agent intents (including sub-intents) that are for set retrieval.
+agent_set_retrieval:
+  - ANSWER
