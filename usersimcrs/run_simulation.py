@@ -5,27 +5,33 @@ import json
 import os
 import sys
 
+import numpy as np
 import yaml
 from dialoguekit.agent.agent import Agent
+from dialoguekit.connector.dialogue_connector import DialogueConnector
 from dialoguekit.core.dialogue import Dialogue
-from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.domain import Domain
+from dialoguekit.core.intent import Intent
 from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.manager.dialogue_manager import DialogueManager
-from dialoguekit.nlg.nlg import NLG
+from dialoguekit.nlg import ConditionalNLG
+from dialoguekit.nlg.template_from_training_data import (
+    extract_utterance_template,
+)
+from dialoguekit.nlu import NLU, SatisfactionClassifierSVM
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.platformss.platform import Platform
+from dialoguekit.platforms.platform import Platform
 
-from usersimcrs.sample_agent.sample_agent import SampleAgent
+from usersimcrs.sample_agent.mdp_agent import MDPAgent
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
-from usersimcrs.simulator.preference_model import (
+from usersimcrs.simulator.user_simulator import UserSimulator
+from usersimcrs.user_modeling.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
-from usersimcrs.simulator.user_simulator import UserSimulator
 
 
 def simulate_conversation(
@@ -38,74 +44,202 @@ def simulate_conversation(
         user_simulator: A user simulator.
     """
     platform = Platform()  # TODO: Add simulator platform
-    dm = DialogueManager(agent, user_simulator, platform)
-    agent.connect_dialogue_manager(dialogue_manager=dm)
-    user_simulator.connect_dialogue_manager(dialogue_manager=dm)
+    dm = DialogueConnector(
+        agent, user_simulator, platform, save_dialogue_history=False
+    )
+    agent.connect_dialogue_connector(dialogue_connector=dm)
+    user_simulator.connect_dialogue_connector(dialogue_connector=dm)
     dm.start()
     dm.close()
     return dm.dialogue_history
 
 
-if __name__ == "__main__":
-    agent = SampleAgent(agent_id="sample_agent")
+def parse_cmdline_arguments() -> argparse.Namespace:
+    """Defines accepted arguments and returns the parsed values.
 
+    Returns:
+        Object with a property for each argument.
+    """
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-ontology", type=str, help="Path to ontology config file."
-    )
+    parser.add_argument("-domain", type=str, help="Path to domain config file.")
     parser.add_argument("-items", type=str, help="Path to items file.")
     parser.add_argument("-ratings", type=str, help="Path to ratings file.")
-    args = parser.parse_args()
 
-    # TODO Load settings from command line arguments or config file.
-    if not os.path.exists(args.ontology):
-        sys.exit("FileNotFound: {file}".format(file=args.ontology))
-    if not os.path.exists(args.items):
-        sys.exit("FileNotFound: {file}".format(file=args.items))
-    if not os.path.exists(args.ratings):
-        sys.exit("FileNotFound: {file}".format(file=args.ratings))
+    return parser.parse_args()
 
-    ontology = Ontology(args.ontology)
+
+def file_exist(filepath: str) -> None:
+    """Tests if a file exists.
+
+    Raises:
+        SystemExit if file does not exit.
+    """
+    if not os.path.exists(filepath):
+        sys.exit("FileNotFound: {file}".format(file=filepath))
+
+
+def initialize_user_simulator(
+    args: argparse.Namespace,
+) -> UserSimulator:
+    """Initializes the user simulator.
+
+    Args:
+        args: command line arguments.
+
+    Returns:
+        A user simulator.
+    """
+    # 1. Domain and item collection
+    domain = Domain(args.domain)
 
     item_collection = ItemCollection()
-    item_collection.load_items_csv(args.items, ["ID", "NAME", "genres"])
+    item_collection.load_items_csv(
+        args.items, ["ID", "NAME", "genres", "keywords"]
+    )
 
+    # 2. Preference data
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(args.ratings)
 
-    annotated_dialogues_file = open(
-        "data/agents/moviebot/annotated_dialogues.json"
+    # 4. Annotated sample
+    annotated_dialogue_path = "data/agents/MDP/annotated_dialogues_QRFA.json"
+    annotated_dialogue_file = open(annotated_dialogue_path)
+    annotated_conversations = json.load(annotated_dialogue_file)
+
+    # 5. Load interaction model
+    interaction_model_path = "data/interaction_models/qrfa.yaml"
+    interaction_model = InteractionModel(
+        interaction_model_path, annotated_conversations
     )
-    annotated_conversations = json.load(annotated_dialogues_file)
+    InteractionModel.START_INTENT = Intent("QUERY")
 
-    with open("data/interaction_models/cir6.yaml") as yaml_file:
-        config = yaml.load(yaml_file, Loader=yaml.FullLoader)
-
-    # TODO: initialization of the simulator with NLU, NLG, etc.
+    # 6. Define user model / population
     preference_model = PreferenceModel(
-        ontology,
+        domain,
         item_collection,
         ratings,
         PreferenceModelVariant.SIP,
         historical_user_id="13",
     )
-    interaction_model = InteractionModel(
-        "data/interaction_models/cir6.yaml", annotated_conversations
+
+    # 7. Train NLU components
+    nlu_training_data_path = (
+        "data/agents/MDP/annotated_dialogues_QRFA_rasa_agent.yaml"
     )
-    nlu = IntentClassifierRasa(
-        config["agent_intents"],
-        "data/agents/moviebot/annotated_dialogues_rasa_agent.yml",
+    with open(interaction_model_path) as yaml_file:
+        config = yaml.load(yaml_file, Loader=yaml.FullLoader)
+    agent_intents = [Intent(i) for i in config["agent_intents"].keys()]
+    intent_classifier = IntentClassifierRasa(
+        agent_intents,
+        nlu_training_data_path,
         ".rasa",
     )
-    nlg = NLG()
-    nlg.template_from_file("data/agents/moviebot/annotated_dialogues.json")
+    intent_classifier.train_model()
+    nlu = NLU(
+        intent_classifier,
+        [intent_classifier],
+    )
+    # 7. Train NLG component
+    template = extract_utterance_template(
+        annotated_dialogue_file=annotated_dialogue_path,
+        satisfaction_classifier=SatisfactionClassifierSVM(),
+    )
+    nlg = ConditionalNLG(response_templates=template)
+
     simulator = AgendaBasedSimulator(
+        "simulator_agent",
         preference_model,
         interaction_model,
         nlu,
         nlg,
-        ontology,
+        domain,
         item_collection,
         ratings,
     )
-    simulate_conversation(agent, simulator)
+    return simulator
+
+
+def initialize_agent() -> Agent:
+    """Initializes the CRS agent.
+
+    Here you can initialize the CRS agent of your choice, note the agent needs
+    to inherit from the Agent class in dialoguekit. An example creating a MDP
+    agent is provided.
+
+    Returns:
+        An agent.
+    """
+    agent = create_sample_mdp_agent()
+    return agent
+
+
+def create_sample_mdp_agent() -> MDPAgent:
+    """Creates a sample MDP agent."""
+    stop_state = Intent("EXIT")
+    actions = ["reply"]
+    states = [
+        Intent("QUERY"),
+        Intent("FEEDBACK"),
+        Intent("REQUEST"),
+        Intent("ANSWER"),
+    ]
+    transition_model = np.zeros((len(states), len(actions), len(states)))
+    transition_model[0][0] = [0, 0, 0.7, 0.3]
+    transition_model[1][0] = [0, 0, 0.2, 0.8]
+    policy = [0, 0, 0, 0]
+
+    # Train NLU component
+    interaction_model_path = "data/interaction_models/qrfa.yaml"
+    nlu_training_data_path = (
+        "data/agents/MDP/annotated_dialogues_QRFA_rasa_user.yaml"
+    )
+    with open(interaction_model_path) as yaml_file:
+        config = yaml.load(yaml_file, Loader=yaml.FullLoader)
+    user_intents = [Intent(i) for i in config["user_intents"].keys()]
+    intent_classifier = IntentClassifierRasa(
+        user_intents,
+        nlu_training_data_path,
+        ".rasa",
+    )
+    intent_classifier.train_model()
+    nlu = NLU(
+        intent_classifier,
+        [intent_classifier],
+    )
+
+    # Train NLG component
+    annotated_dialogue_path = "data/agents/MDP/annotated_dialogues_QRFA.json"
+    template = extract_utterance_template(
+        annotated_dialogue_file=annotated_dialogue_path,
+        satisfaction_classifier=SatisfactionClassifierSVM(),
+        participant_to_learn="AGENT",
+    )
+    nlg = ConditionalNLG(response_templates=template)
+
+    agent = MDPAgent(
+        "mdp_agent",
+        nlu,
+        nlg,
+        states,
+        stop_state,
+        actions,
+        transition_model,
+        policy,
+    )
+
+    return agent
+
+
+if __name__ == "__main__":
+
+    args = parse_cmdline_arguments()
+
+    # TODO Load settings from command line arguments or config file.
+    file_exist(args.domain)
+    file_exist(args.items)
+    file_exist(args.ratings)
+
+    simulator = initialize_user_simulator(args)
+    agent = initialize_agent()
+
+    dialog_history = simulate_conversation(agent, simulator)
