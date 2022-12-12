@@ -12,6 +12,7 @@ Conversational Recommender System Evaluation via Simulation
    :caption: Contents:
 
    interaction_model
+   components
    setup_agent
    :ref:`modindex`
 
