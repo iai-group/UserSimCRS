@@ -6,6 +6,7 @@ class SampleAgent(Agent):
 
     def __init__(self, agent_id: str):
         """Initializes agent.
+
         Args:
             agent_id: Agent id.
         """
