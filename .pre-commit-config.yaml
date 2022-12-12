@@ -1,13 +1,38 @@
 repos:
 -   repo: https://github.com/ambv/black
-    rev: 20.8b1
+    rev: 22.6.0
     hooks:
     - id: black
-      language_version: python3.7
--   repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.0
+      language_version: python3.9
+-   repo: https://github.com/pycqa/flake8
+    rev: 5.0.4
     hooks:
     - id: flake8
+- repo: https://github.com/PyCQA/docformatter
+    rev: v1.5.0
+    hooks:
+      - id: docformatter
+        name: docformatter
+        description: "Formats docstrings to follow PEP 257."
+        entry: docformatter
+        args: [--in-place]
+        language: python
+        types: [python]
+- repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: "mypy"
+        language: python
+        exclude: ^tests/
+        types: [python]
+        verbose: true
+        args: 
+          - --no-strict-optional
+          - --ignore-missing-imports
+          - --no-incremental
+          - --disable-error-code=override
+        additional_dependencies: [types-all]
 -   repo: local
     hooks:
     -   id: pytest
