@@ -1,0 +1,10 @@
+pre-commit
+flake8
+black
+pytest
+pytest-cov
+mypy
+docformatter
+types-PyYAML
+types-requests
+dialoguekit
