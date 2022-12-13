@@ -89,7 +89,7 @@ jobs:
         continue-on-error: true
         run: |
           pytest --junitxml pytest.xml --cov=. --cov-report=term-missing --cov-report=xml --cov-branch | tee pytest-coverage.txt
-          
+
       - name: Upload Coverage Results txt
         if: always()
         uses: actions/upload-artifact@v3
@@ -149,7 +149,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.6.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: 4f783c1a3358dbd1e01d44f9656676a0
+          gistID: cd558f4b76df656b67277f8ae214b7e0
           filename: coverage.${{ env.REPO_NAME }}.${{ github.event.number }}.json
           label: coverage
           message: ${{ env.COVERAGE }}
@@ -171,5 +171,5 @@ jobs:
           body: |
             Current Branch | Main Branch |
             | ------ | ------ |
-            ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/IKostric/4f783c1a3358dbd1e01d44f9656676a0/raw/coverage.${{ env.REPO_NAME }}.${{ github.event.number  }}.json) | ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/IKostric/4f783c1a3358dbd1e01d44f9656676a0/raw/coverage.${{ env.REPO_NAME }}.main.json) |
+            ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.${{ env.REPO_NAME }}.${{ github.event.number  }}.json) | ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.${{ env.REPO_NAME }}.main.json) |
           edit-mode: replace
