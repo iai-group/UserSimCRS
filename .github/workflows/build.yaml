@@ -33,11 +33,11 @@ jobs:
 
       - name: Run black
         shell: bash
-        run: pre-commit run black
+        run: pre-commit run black --all-files
 
       - name: Run flake8
         shell: bash
-        run: pre-commit run flake8
+        run: pre-commit run flake8 --all-files
 
   mypy:
     if: always()
