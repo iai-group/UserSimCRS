@@ -4,25 +4,23 @@ This class implements the "single item preference" and "personal knowledge
 graph" approaches in (Zhang & Balog, KDD'20).
 
 Preferences are stored for (1) items in the collection and (2) slot-value pairs
-(for slots defined in the ontology).  Preferences are represented as real values
+(for slots defined in the domain).  Preferences are represented as real values
 in [-1,1], where zero corresponds to neutral.
 Missing preferences are inferred running time (depending on the model type).
 """
 
 import random
 import string
+from collections import defaultdict
 from enum import Enum
 from typing import Dict, List
-from collections import defaultdict
 
-from dialoguekit.core.slot_value_annotation import (
-    SlotValueAnnotation,
-)
-from dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.core.recsys.item_collection import ItemCollection
 import dialoguekit.core.intent as Intent
-from dialoguekit.core.ontology import Ontology
-from dialoguekit.user.user_preferences import UserPreferences
+from dialoguekit.core.domain import Domain
+from dialoguekit.core.recsys.item_collection import ItemCollection
+from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
+from dialoguekit.participant.user_preferences import UserPreferences
 
 
 class PreferenceModelVariant(Enum):
@@ -39,7 +37,7 @@ class PreferenceModel:
 
     def __init__(
         self,
-        ontology: Ontology,
+        domain: Domain,
         item_collection: ItemCollection,
         historical_ratings: Ratings,
         model_variant: PreferenceModelVariant,
@@ -52,7 +50,7 @@ class PreferenceModel:
         being prompted by the agent for preferences.
 
         Args:
-            ontology: Ontology.
+            domain: Domain.
             item_collection: Item collection.
             historical_ratings: Historical ratings.
             model_variant: Preference model variant (SIP or PKG).
@@ -61,7 +59,7 @@ class PreferenceModel:
                 on a randomly sampled user. This is mostly added to make the
                 class testable.
         """
-        self._ontology = ontology
+        self._domain = domain
         self._item_collection = item_collection
         self._historical_ratings = historical_ratings
         self._model_variant = model_variant

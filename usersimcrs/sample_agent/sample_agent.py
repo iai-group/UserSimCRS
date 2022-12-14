@@ -1,4 +1,4 @@
-from dialoguekit.agent.agent import Agent
+from dialoguekit.participant.agent import Agent
 
 
 class SampleAgent(Agent):

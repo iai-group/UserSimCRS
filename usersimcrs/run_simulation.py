@@ -6,15 +6,18 @@ import os
 import sys
 
 import yaml
-from dialoguekit.agent.agent import Agent
+from dialoguekit.connector.dialogue_connector import DialogueConnector
 from dialoguekit.core.dialogue import Dialogue
-from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.domain import Domain
 from dialoguekit.core.recsys.item_collection import ItemCollection
 from dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.manager.dialogue_manager import DialogueManager
-from dialoguekit.nlg.nlg import NLG
+from dialoguekit.nlg import ConditionalNLG
+from dialoguekit.nlg.template_from_training_data import (
+    extract_utterance_template,
+)
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.platformss.platform import Platform
+from dialoguekit.participant.agent import Agent
+from dialoguekit.platforms.platform import Platform
 
 from usersimcrs.sample_agent.sample_agent import SampleAgent
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
@@ -38,34 +41,32 @@ def simulate_conversation(
         user_simulator: A user simulator.
     """
     platform = Platform()  # TODO: Add simulator platform
-    dm = DialogueManager(agent, user_simulator, platform)
-    agent.connect_dialogue_manager(dialogue_manager=dm)
-    user_simulator.connect_dialogue_manager(dialogue_manager=dm)
-    dm.start()
-    dm.close()
-    return dm.dialogue_history
+    dc = DialogueConnector(agent, user_simulator, platform)
+    agent.connect_dialogue_manager(dialogue_manager=dc)
+    user_simulator.connect_dialogue_manager(dialogue_manager=dc)
+    dc.start()
+    dc.close()
+    return dc.dialogue_history
 
 
 if __name__ == "__main__":
     agent = SampleAgent(agent_id="sample_agent")
 
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-ontology", type=str, help="Path to ontology config file."
-    )
+    parser.add_argument("-domain", type=str, help="Path to domain config file.")
     parser.add_argument("-items", type=str, help="Path to items file.")
     parser.add_argument("-ratings", type=str, help="Path to ratings file.")
     args = parser.parse_args()
 
     # TODO Load settings from command line arguments or config file.
-    if not os.path.exists(args.ontology):
-        sys.exit("FileNotFound: {file}".format(file=args.ontology))
+    if not os.path.exists(args.domain):
+        sys.exit("FileNotFound: {file}".format(file=args.domain))
     if not os.path.exists(args.items):
         sys.exit("FileNotFound: {file}".format(file=args.items))
     if not os.path.exists(args.ratings):
         sys.exit("FileNotFound: {file}".format(file=args.ratings))
 
-    ontology = Ontology(args.ontology)
+    domain = Domain(args.domain)
 
     item_collection = ItemCollection()
     item_collection.load_items_csv(args.items, ["ID", "NAME", "genres"])
@@ -83,7 +84,7 @@ if __name__ == "__main__":
 
     # TODO: initialization of the simulator with NLU, NLG, etc.
     preference_model = PreferenceModel(
-        ontology,
+        domain,
         item_collection,
         ratings,
         PreferenceModelVariant.SIP,
@@ -97,14 +98,16 @@ if __name__ == "__main__":
         "data/agents/moviebot/annotated_dialogues_rasa_agent.yml",
         ".rasa",
     )
-    nlg = NLG()
-    nlg.template_from_file("data/agents/moviebot/annotated_dialogues.json")
+    template = extract_utterance_template(
+        annotated_dialogue_file="data/agents/moviebot/annotated_dialogues.json",
+    )
+    nlg = ConditionalNLG(template)
     simulator = AgendaBasedSimulator(
         preference_model,
         interaction_model,
         nlu,
         nlg,
-        ontology,
+        domain,
         item_collection,
         ratings,
     )
