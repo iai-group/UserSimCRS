@@ -29,7 +29,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements/requirements.txt
 
       - name: Run black
         shell: bash
@@ -60,7 +60,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements/pre_commit.txt  TODO
+          pip install -r requirements/requirements.txt
       - name: Run mypy
         shell: bash
         run: pre-commit run mypy --all-file
@@ -82,7 +82,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements/requirements.txt
           pip install pytest-github-actions-annotate-failures
       
       - name: PyTest with code coverage
