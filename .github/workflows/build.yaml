@@ -39,10 +39,6 @@ jobs:
         shell: bash
         run: pre-commit run flake8
 
-      - name: Run pydocstyle
-        shell: bash
-        run: pre-commit run pydocstyle --all-file
-
   mypy:
     if: always()
     runs-on: ubuntu-latest
