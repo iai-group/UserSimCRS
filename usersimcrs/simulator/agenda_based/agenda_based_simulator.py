@@ -23,8 +23,7 @@ class AgendaBasedSimulator(UserSimulator):
         item_collection: ItemCollection,
         ratings: Ratings,
     ) -> None:
-        """
-        Initializes the agenda-based simulated user.
+        """Initializes the agenda-based simulated user.
 
         Args:
             preference_model: Preference model.
