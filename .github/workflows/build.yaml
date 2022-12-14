@@ -39,6 +39,10 @@ jobs:
         shell: bash
         run: pre-commit run flake8 --all-files
 
+      - name: Run docformatter
+        shell: bash
+        run: pre-commit run docformatter --all-file
+
   mypy:
     if: always()
     runs-on: ubuntu-latest
