@@ -1,11 +1,12 @@
 """Agenda-based user simulator from [Zhang and Balog, KDD'20]."""
 
 from dialoguekit.core.ontology import Ontology
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.nlu import NLU
+
+from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.simulator.preference_model import PreferenceModel
 from usersimcrs.simulator.user_simulator import UserSimulator

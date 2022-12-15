@@ -9,13 +9,13 @@ import yaml
 from dialoguekit.agent.agent import Agent
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.ontology import Ontology
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.manager.dialogue_manager import DialogueManager
 from dialoguekit.nlg.nlg import NLG
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
 from dialoguekit.platformss.platform import Platform
 
+from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.items.ratings import Ratings
 from usersimcrs.sample_agent.sample_agent import SampleAgent
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
