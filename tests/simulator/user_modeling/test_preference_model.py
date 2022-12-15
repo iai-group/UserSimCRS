@@ -17,7 +17,7 @@ RATINGS_CSV_FILE = "data/movielens-20m-sample/ratings.csv"
 
 # Single item preference model variant.
 @pytest.fixture
-def preference_model_sip():
+def preference_model_sip() -> PreferenceModel:
     domain = Domain(DOMAIN_YAML_FILE)
     item_collection = ItemCollection()
     item_collection.load_items_csv(ITEMS_CSV_FILE, ["ID", "NAME", "genres"])
@@ -34,7 +34,7 @@ def preference_model_sip():
 
 # Peronal Knowledge Graph preference model variant.
 @pytest.fixture
-def preference_model_pkg():
+def preference_model_pkg() -> PreferenceModel:
     domain = Domain(DOMAIN_YAML_FILE)
     item_collection = ItemCollection()
     item_collection.load_items_csv(ITEMS_CSV_FILE, ["ID", "NAME", "genres"])
@@ -49,52 +49,37 @@ def preference_model_pkg():
     )
 
 
-def test_initial_item_preferences_sip(preference_model_sip):
+def test_initial_item_preferences_sip(preference_model_sip) -> None:
     # TODO this is the value in the original rating file, but it'll be a bit
     # tricky to test when only a sample of the original ratings is used.
     assert preference_model_sip.get_item_preference("356") == 1.0
 
 
-def test_get_slotvalue_preference_sip(preference_model_sip):
-    slot = "GENRE"
-    value = "Comedy"
-
-    preference = preference_model_sip.get_slotvalue_preference(slot, value)
-
+def test_get_slotvalue_preference_sip(preference_model_sip) -> None:
+    preference = preference_model_sip.get_slotvalue_preference(
+        "GENRE", "Comedy"
+    )
     assert -1 <= preference <= 1
 
 
-def test_get_slotvalue_preference_pkg(preference_model_pkg):
-    slot = "GENRE"
-    value = "Drama"
-
-    preference = preference_model_pkg.get_slotvalue_preference(slot, value)
-
+def test_get_slotvalue_preference_pkg(preference_model_pkg) -> None:
+    preference = preference_model_pkg.get_slotvalue_preference("GENRE", "Drama")
     assert preference == 1
 
 
-def test_get_item_preference_sip(preference_model_sip):
-    item_id = "10"
-
-    preference = preference_model_sip.get_item_preference(item_id)
-
+def test_get_item_preference_sip(preference_model_sip) -> None:
+    preference = preference_model_sip.get_item_preference("10")
     assert -1 <= preference <= 1
 
 
 def test_get_item_preference_pkg(preference_model_pkg):
-    item_id = "100"  # geners = ['Drama', 'Thriller']
-
     # When (Both Drama and Thriller are favored as 1)
-    preference = preference_model_pkg.get_item_preference(item_id)
-
+    preference = preference_model_pkg.get_item_preference("100")
     assert preference == 1
 
 
 def test_get_slot_preference_pkg(preference_model_pkg):
-    slot = "GENRE"
-
-    slot, preference = preference_model_pkg.get_slot_preference(slot)
-
+    slot, preference = preference_model_pkg.get_slot_preference("GENRE")
     assert isinstance(slot, str)
     assert preference in [-1, 0, 1]
 
