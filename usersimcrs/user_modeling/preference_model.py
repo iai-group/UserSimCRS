@@ -11,24 +11,22 @@ Missing preferences are inferred running time (depending on the model type).
 
 import random
 import string
+from collections import defaultdict
 from enum import Enum
 from typing import Dict, List
-from collections import defaultdict
 
-from dialoguekit.core.slot_value_annotation import (
-    SlotValueAnnotation,
-)
-from dialoguekit.core.recsys.ratings import Ratings
-from dialoguekit.core.recsys.item_collection import ItemCollection
 import dialoguekit.core.intent as Intent
 from dialoguekit.core.ontology import Ontology
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.user.user_preferences import UserPreferences
+
+from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.items.ratings import Ratings
 
 
 class PreferenceModelVariant(Enum):
-    """Corresponds to the different preference model variants in
-    (Zhang & Balog, KDD'20).
-    """
+    """Corresponds to the different preference model variants in (Zhang &
+    Balog, KDD'20)."""
 
     SIP = 0  # Single item preference
     PKG = 1  # Personal knowledge graphs
@@ -45,8 +43,9 @@ class PreferenceModel:
         model_variant: PreferenceModelVariant,
         historical_user_id: str = None,
     ) -> None:
-        """Generates a simulated user, by assigning initial preferences based on
-        historical ratings according to the specified model type (SIP or PKG).
+        """Generates a simulated user, by assigning initial preferences based
+        on historical ratings according to the specified model type (SIP or
+        PKG).
 
         Further preferences are inferred along the way as the simulated user is
         being prompted by the agent for preferences.
