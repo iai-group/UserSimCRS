@@ -2,9 +2,9 @@
 
 import pytest
 from dialoguekit.core.domain import Domain
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
 
+from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.items.ratings import Ratings
 from usersimcrs.user_modeling.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,

@@ -17,10 +17,11 @@ from typing import Dict, List
 
 import dialoguekit.core.intent as Intent
 from dialoguekit.core.domain import Domain
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.participant.user_preferences import UserPreferences
+
+from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.items.ratings import Ratings
 
 
 class PreferenceModelVariant(Enum):
