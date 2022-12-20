@@ -1,7 +1,8 @@
 # UserSimCRS
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) 
-
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![Tests](https://img.shields.io/github/actions/workflow/status/iai-group/UserSimCRS/merge.yaml?label=Tests&branch=main)
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.UserSimCRS.main.json) 
 
 UserSimCRS is an extensible user simulation toolkit for evaluating conversational recommender systems.  
 
