@@ -13,7 +13,7 @@ import random
 import string
 from collections import defaultdict
 from enum import Enum
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 import dialoguekit.core.intent as Intent
 from dialoguekit.core.domain import Domain
@@ -123,7 +123,7 @@ class PreferenceModel:
         # property_ratings
         for genre, rating_list in property_ratings.items():
             property_preferences[genre] = round(
-                sum(rating_list) / len(rating_list)
+                sum(rating_list) / len(rating_list), ndigits=1
             )
         return property_preferences
 
@@ -217,7 +217,7 @@ class PreferenceModel:
             self._slotvalue_preferences.set_preference(slot, value, preference)
         return preference
 
-    def get_slot_preference(self, slot: str) -> float:
+    def get_slot_preference(self, slot: str) -> Tuple[str, float]:
         """Returns preference for a given slot.
 
         This is used to answer questions like "What kind of movies do you

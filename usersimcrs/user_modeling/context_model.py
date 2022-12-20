@@ -6,10 +6,13 @@ from typing import Dict
 
 class ContextModel:
 
-    _DEFAULT_CONTEXT_PROBABILITIES = dict()
+    _DEFAULT_CONTEXT_PROBABILITIES: Dict[str, Dict[str, float]] = dict()
 
     def __init__(
-        self, context_probability_mapping: Dict[str, Dict[str, float]] = None
+        self,
+        context_probability_mapping: Dict[
+            str, Dict[str, float]
+        ] = _DEFAULT_CONTEXT_PROBABILITIES,
     ) -> None:
         """Instantiates a context model.
 
