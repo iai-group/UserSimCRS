@@ -9,8 +9,6 @@ import yaml
 from dialoguekit.connector.dialogue_connector import DialogueConnector
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.domain import Domain
-from dialoguekit.core.recsys.item_collection import ItemCollection
-from dialoguekit.core.recsys.ratings import Ratings
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlg.template_from_training_data import (
     extract_utterance_template,
