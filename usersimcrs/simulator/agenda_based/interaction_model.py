@@ -1,14 +1,12 @@
 """Interaction model."""
 
-# TODO: change "AGENT" and "USER" to DialogueParticipant.AGENT/USER
-
 import os
-import yaml
 import random
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
 
+import yaml
 from dialoguekit.core.intent import Intent
-from dialoguekit.core.dialogue import DialogueParticipant
+from dialoguekit.participant import DialogueParticipant
 
 
 class InteractionModel:
