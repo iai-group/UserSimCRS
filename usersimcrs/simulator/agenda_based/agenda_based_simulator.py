@@ -92,6 +92,8 @@ class AgendaBasedSimulator(UserSimulator):
             agent_intent
         ):
             # Determine user preference for the agent's recommendation.
+            # TODO: Replace get_preference with appropriate method.
+            # See: https://github.com/iai-group/UserSimCRS/issues/88
             response_preference = self._preference_model.get_preference(
                 agent_utterance
             )
