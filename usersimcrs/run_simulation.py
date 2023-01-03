@@ -2,7 +2,6 @@
 
 import argparse
 import json
-from typing import Dict
 
 import confuse
 import yaml
@@ -233,7 +232,7 @@ def get_intent_classifier(config: confuse.Configuration) -> IntentClassifier:
 
 
 def load_cosine_classifier(
-    dialogues: Dict[str, Dict[str, str]]
+    config: confuse.Configuration,
 ) -> IntentClassifierCosine:
     """Trains a cosine classifier on annotated dialogues for NLU module.
 
