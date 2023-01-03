@@ -1,12 +1,12 @@
 """Agenda-based user simulator from [Zhang and Balog, KDD'20]."""
 
-from dialoguekit.core.ontology import Ontology
-
-# from dialoguekit.core.recsys.item_collection import ItemCollection
-# from dialoguekit.core.recsys.ratings import Ratings
+from dialoguekit.core.domain import Domain
 from dialoguekit.core.utterance import Utterance
-from dialoguekit.nlg.nlg import NLG
+from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlu.nlu import NLU
+
+from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.preference_model import PreferenceModel
@@ -19,20 +19,19 @@ class AgendaBasedSimulator(UserSimulator):
         preference_model: PreferenceModel,
         interaction_model: InteractionModel,
         nlu: NLU,
-        nlg: NLG,
-        ontology: Ontology,
-        # item_collection: ItemCollection,
-        # ratings: Ratings,
+        nlg: ConditionalNLG,
+        domain: Domain,
+        item_collection: ItemCollection,
+        ratings: Ratings,
     ) -> None:
-        """
-        Initializes the agenda-based simulated user.
+        """Initializes the agenda-based simulated user.
 
         Args:
             preference_model: Preference model.
             interaction_model: Interaction model.
             nlu: NLU module performing intent classification and entity linking.
             nlg: NLG module generating textual responses.
-            ontology: Ontology.
+            domain: Domain.
             item_collection: Item collection.
             ratings: Historical ratings.
         """
@@ -43,9 +42,9 @@ class AgendaBasedSimulator(UserSimulator):
         self._interaction_model.initialize_agenda()
         self._nlu = nlu
         self._nlg = nlg
-        self._ontology = ontology
-        # self._item_collection = item_collection
-        # self._ratings = ratings
+        self._domain = domain
+        self._item_collection = item_collection
+        self._ratings = ratings
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
         """Generate response to the agent utterance.
@@ -56,7 +55,7 @@ class AgendaBasedSimulator(UserSimulator):
         Return:
             User utterance.
         """
-        pass
+        self.generate_response(agent_utterance)
 
     def generate_response(self, agent_utterance: Utterance) -> Utterance:
         """Generate response to the agent utterance.

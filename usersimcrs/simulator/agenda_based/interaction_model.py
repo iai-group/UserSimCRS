@@ -1,14 +1,12 @@
 """Interaction model."""
 
-# TODO: change "AGENT" and "USER" to DialogueParticipant.AGENT/USER
-
 import os
-import yaml
 import random
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
 
+import yaml
 from dialoguekit.core.intent import Intent
-from dialoguekit.core.dialogue import DialogueParticipant
+from dialoguekit.participant import DialogueParticipant
 
 
 class InteractionModel:
@@ -257,8 +255,8 @@ class InteractionModel:
         return items[-1]
 
     def update_agenda(self, agent_intent: Intent) -> Intent:
-        """Updates the agenda and determines the next user intent based on agent
-        intent.
+        """Updates the agenda and determines the next user intent based on
+        agent intent.
 
         If agent replies with an expected intent in response to the last user
         intent (based on the expected_responses mapping in the config file),

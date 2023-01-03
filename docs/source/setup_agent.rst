@@ -1,83 +1,81 @@
 Setting up an agent
 ===================
 
-How to connect
---------------
 
-*TODO: what interface to implement for the agent; examples of how to connect Telegram and FB applications*
+.. contents:: Table of Contents
+    :depth: 3
 
-Data
-----
+1. Prepare domain and item collection
+-------------------------------------
 
-Intent scheme
-^^^^^^^^^^^^^
+A YAML file with domain-specific slot names must be prepared for the preference model. Additionally, a file containing the item collection is required; currently, this is expected in CSV format.
 
-The *intent scheme* defines the space of actions supported by the conversational agent and the user simulator.
+.. code-block:: YAML
+ :caption: domain.yaml
 
+    slot_names:
+      TITLE:
+      GENRE:
+      ACTOR:
+      KEYWORD:
+      DIRECTOR:
 
-Annotated conversation logs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: YAML
+ :caption: item_collection.csv
 
-Training data is accepted in JSON format, where each conversation is an entry in a dictionary, with utterances represented as a list of dictionaries.  Each utterance needs to include the participant, utterance text, and intent annotations, and can include arbitrary additional annotations.
-
-.. code-block:: json
-
-    {'conversation ID':
-    [
-        {
-            "participant": "USER or AGENT",
-            "utterance": "text",
-            "intent": "REVEAL, ... ALLCAPS",
-            "annotation_1": "value_1",
-            "annotation_2": "value_2",
-        },
-        {...}
-    ]
-    ..
-    }
+    movieId,title,genres
+    1,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy
+    2,Jumanji (1995),Adventure|Children|Fantasy
+    3,Grumpier Old Men (1995),Comedy|Romance
+    4,Waiting to Exhale (1995),Comedy|Drama|Romance
+    5,Father of the Bride Part II (1995),Comedy
+    6,Heat (1995),Action|Crime|Thriller
+    7,Sabrina (1995),Comedy|Romance
 
 
-The intent scheme is to be defined in a separate file, see [Intents](Intents.md).
+2. Provide preference data
+--------------------------
+
+Preference data is consumed in the form of item ratings and needs to be provided in a CSV file in the shape of user ID, item ID, and rating triples.
+
+3. Dialogue sample
+------------------
+
+A small sample of dialogues with the target CRS needs to be collected. The sample size depends on the complexity of the system, in terms of action space and language variety, but is generally in the order of 5-50 dialogues
 
 
-Example:
+4. Annotate sample 
+------------------
 
-.. code-block:: json
-        
-    {
-        "1018216123": [
-            {...},
-            {
-                "participant": "AGENT",
-                "utterance": "Guide me. Any genres you like?",
-                "intent": "ELICIT",
-                "request": "GENRE"
-            },
-            {
-                "participant": "USER",
-                "utterance": "Action",
-                "intent": "DISCLOSE"
-            },
-            {
-                "participant": "AGENT",
-                "utterance": "There is a movie named \"Lone Wolf McQuade\". Have you watched it?",
-                "intent": "LIST"
-            },
-            {
-                "participant": "USER",
-                "utterance": "No",
-                "intent": "NOTE"
-            },
-            [...]
-        ]
-    }
+The sample of dialogues must contain utterance-level annotations in terms of intents and entities, as this is required to train the NLU and NLG components. Note that the slots used for annotation should be the same as the ones defined in the domain file (cf. Step 1) and intents should follow the ones defined in the interaction model (cf. Step 4.)
 
 
-Conversation logs are to be placed under  `data/agents/{agent}/annotated_dialogues/` as one or multiple JSON files.
+5. Define interaction model 
+---------------------------
 
-What kind of data is needed to enable the simulator → JSON files containing annotations for dialogues
+A config file containing the users’ and agent’s intent space, as well as the set of expected agents for each user intent, is required for the interaction model. The CIR6 interaction model shipped with library offers a baseline starting point, which may be further tailored according to the behavior and capabilities of the target CRS
 
-Measures
---------
+6. Define user model/population
+-------------------------------
 
-*TODO: How to define custom measures*
+# TODO Change this when we decide more specifically on our use of context and persona.
+
+Simulation is seeded with a user population that needs to be characterized, in terms of the different contexts (e.g., weekday vs. weekend, alone vs. group setting) and personas (e.g., patient and impatient users) and the number of users to be generated for each combination of context and persona. Each user has their own preference model, which may be instantiated by grounding it to actual preferences (i.e., the ratings dataset given in Step 2)
+
+
+**Note:** The next three steps are done when running the ``run_simulator.py`` script.
+
+7. Train simulator
+------------------
+
+The NLU and NLG components of the simulator are trained using the annotated dialogue sample.
+
+8. Run simulation
+-----------------
+
+Running the simulator will generate a set of simulated conversations for each user with the target CRS and save those to files.
+
+9. Perform evaluation
+---------------------
+
+Evaluation takes the set of simulated dialogues generated in the previous step as input, and measures the performance of the target CRS in terms of the metrics implemented in DialogueKit (cf. Section 3.1)

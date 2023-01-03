@@ -1,0 +1,175 @@
+name: CI
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths-ignore:
+      - "**.md"
+
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+
+jobs:
+  pre-commit:
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements/requirements.txt
+
+      - name: Run black
+        shell: bash
+        run: pre-commit run black --all-files
+
+      - name: Run flake8
+        shell: bash
+        run: pre-commit run flake8 --all-files
+
+      - name: Run docformatter
+        shell: bash
+        run: pre-commit run docformatter --all-file
+
+  mypy:
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements/requirements.txt
+      - name: Run mypy
+        shell: bash
+        run: pre-commit run mypy --all-file
+
+  build-and-test:
+    name: "Build and Test Python 3.9"
+    runs-on: ubuntu-latest
+    if: always()
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements/requirements.txt
+          pip install pytest-github-actions-annotate-failures
+      
+      - name: PyTest with code coverage
+        continue-on-error: true
+        run: |
+          pytest --junitxml pytest.xml --cov=. --cov-report=term-missing --cov-report=xml --cov-branch | tee pytest-coverage.txt
+
+      - name: Upload Coverage Results txt
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-results-txt
+          path: ./pytest-coverage.txt
+
+      - name: Upload Coverage Results xml
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-results-xml
+          path: ./coverage.xml
+
+      - name: Upload Unit Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-py39
+          path: ./pytest.xml
+
+  publish-test-results:
+    name: "Publish Unit Tests Results"
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: always()
+    timeout-minutes: 20
+
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        with:
+          files: artifacts/unit-test-py39/*.xml
+          comment_mode: off
+
+      - name: Get the Coverage
+        shell: bash
+        run: |
+          regex='<coverage.+line-rate="([0-9).[0-9]+)".+>'
+          line=$(grep -oP $regex artifacts/coverage-results-xml/coverage.xml)
+          [[ $line =~ $regex ]]
+          coverage=$( bc <<< ${BASH_REMATCH[1]}*100 )
+          if (( $(echo "$coverage > 90" |bc -l) )); then
+            COLOR=green
+          else
+            COLOR=red
+          fi
+          echo "COVERAGE=${coverage%.*}%" >> $GITHUB_ENV
+          echo "COLOR=$COLOR" >> $GITHUB_ENV
+
+      - name: Create the Badge
+        uses: schneegans/dynamic-badges-action@v1.6.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: cd558f4b76df656b67277f8ae214b7e0
+          filename: coverage.${{ env.REPO_NAME }}.${{ github.event.number }}.json
+          label: coverage
+          message: ${{ env.COVERAGE }}
+          color: ${{ env.COLOR }}
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: Current Branch | Main Branch |
+
+      - name: Create coverage comment
+        uses: peter-evans/create-or-update-comment@v2.1.0
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{  github.event.pull_request.number }}
+          body: |
+            Current Branch | Main Branch |
+            | ------ | ------ |
+            ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.${{ env.REPO_NAME }}.${{ github.event.number  }}.json) | ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.${{ env.REPO_NAME }}.main.json) |
+          edit-mode: replace

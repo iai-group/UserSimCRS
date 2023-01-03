@@ -22,7 +22,7 @@ inputs:
     require: false
     default: '-o . ../'
   sphinxopts:
-    description: Compilation options for sphinx-build
+    description: Compilation options for sphinx-multiversion
     required: false
     default: ''
 
@@ -74,7 +74,7 @@ runs:
       working-directory: ./${{ inputs.dir_docs }}
       run: |
         echo ::group::Sphinx docs compilation
-        sphinx-build -M html . _build ${{ inputs.sphinxopts }}
+        sphinx-multiversion . _build ${{ inputs.sphinxopts }}
         echo ::endgroup::
     - name: pushing to gh-pages
       shell: bash
@@ -86,7 +86,7 @@ runs:
             SHA=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.head.sha)
         fi
         SHORT_SHA="$(git rev-parse --short $SHA)"
-        DIR_HTML=${{ inputs.dir_docs }}/_build/html
+        DIR_HTML=${{ inputs.dir_docs }}/_build/${{ inputs.branch }}
         echo "#GitHub Pages" > $DIR_HTML/README.md
         echo "" >> $DIR_HTML/README.md
         echo "Last update of sphinx html documentation from [$SHORT_SHA](https://github.com/$GITHUB_REPOSITORY/tree/$SHA)" >> $DIR_HTML/README.md

@@ -3,13 +3,14 @@
 from abc import ABC, abstractmethod
 
 from dialoguekit.core.utterance import Utterance
-from dialoguekit.user.user import User, UserType
+from dialoguekit.participant.user import User, UserType
 
 
 class UserSimulator(User, ABC):
-    def __init__(self, id) -> None:
-        """ "Initializes the user simulator."""
-        super().__init__(id=id, type=UserType.SIMULATOR)
+    def __init__(
+        self,
+    ) -> None:
+        """Initializes the user simulator."""
         self._user_type = UserType.SIMULATOR
 
     @abstractmethod
