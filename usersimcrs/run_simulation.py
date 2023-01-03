@@ -2,9 +2,9 @@
 
 import argparse
 import json
-import os
-from typing import Any, Dict
+from typing import Dict
 
+import confuse
 import yaml
 from dialoguekit.connector.dialogue_connector import DialogueConnector
 from dialoguekit.core.dialogue import Dialogue
@@ -12,17 +12,12 @@ from dialoguekit.core.domain import Domain
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
-from dialoguekit.nlg.template_from_training_data import (
-    extract_utterance_template,
-)
+from dialoguekit.nlg.template_from_training_data import extract_utterance_template
+from dialoguekit.nlu.intent_classifier import IntentClassifier
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.nlu.models.intent_classifier_cosine import (
-    IntentClassifierCosine,
-)
-from dialoguekit.nlu.models.satisfaction_classifier import (
-    SatisfactionClassifier,
-)
+from dialoguekit.nlu.models.intent_classifier_cosine import IntentClassifierCosine
 from dialoguekit.participant.agent import Agent
+from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms.platform import Platform
 
 from usersimcrs.items.item_collection import ItemCollection
@@ -38,90 +33,69 @@ from usersimcrs.user_modeling.preference_model import (
     PreferenceModelVariant,
 )
 
-
-def parse_args() -> Any:
-    """Parses arguments in a .ini file and/or via the command line. The .ini
-        config file is used to set default values which can be overridden via
-        the command line.
-
-    Returns:
-        A namespace object containing the arguments.
-    """
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-config", help="Specify config file *.yaml", metavar="FILE"
-    )
-    parser.add_argument(
-        "-ontology", type=str, help="Path to ontology config file."
-    )
-    parser.add_argument(
-        "-intents", type=str, help="Path to the intent scheme file."
-    )
-    parser.add_argument("-items", type=str, help="Path to item file.")
-    parser.add_argument("-ratings", type=str, help="Path to rating file.")
-    parser.add_argument(
-        "-dialogues", type=str, help="Path to the annotated dialogues file."
-    )
-    parser.add_argument(
-        "-satisfaction", type=str, help="Enables satisfaction classifier."
-    )
-    parser.add_argument(
-        "-interaction_model",
-        type=str,
-        help="Interaction model to be used. Currently, either 'cosine' or "
-        "diet"
-        ".",
-    )
-    args = parser.parse_args()
-    print("arguments: {}".format(str(args)))
-
-    opt = vars(args)
-    print("opt", opt)
-    args = yaml.load(open(args.config), Loader=yaml.FullLoader)
-    print("Yargs", args)
-    opt.update(args)
-    args = opt
-    print("arguments: {}".format(str(args)))
-
-    # TODO Load settings from command line arguments or config file.
-    if not os.path.exists(args.ontology):
-        raise FileNotFoundError(f"Ontology file not found: {args.ontology}")
-    if not os.path.exists(args.items):
-        raise FileNotFoundError(f"Item file not found: {args.items}")
-    if not os.path.exists(args.ratings):
-        raise FileNotFoundError(f"Rating file not found: {args.ratings}")
-    if not os.path.exists(args.dialogues):
-        raise FileNotFoundError(
-            f"Annotated dialogues file not found: {args.dialogues}"
-        )
-    if not os.path.exists(args.intents):
-        raise FileNotFoundError(f"Intent schema file not found: {args.intents}")
-
-    return args
+DEFAULT_CONFIG_PATH = "config/default/config_default.yaml"
 
 
-def load_cosine_classifier(
-    dialogues: Dict[str, Dict[str, str]]
-) -> IntentClassifierCosine:
-    """Trains a cosine classifier on annotated dialogues for NLU module.
+def main(config: confuse.Configuration):
+    """Executes the specified configuration.
+
+    Loads domain and interaction model. Initializes agent and user. Runs the
+    simulation.
 
     Args:
-        dialogues: A JSON format of annotated dialogues.
-
-    Returns:
-        A trained cosine model for intent classification.
+        config: Configuration generated from YAML configuration file.
     """
-    gt_intents = []
-    utterances = []
-    for conversation in dialogues:
-        for turn in conversation["conversation"]:
-            if turn["participant"] == "AGENT":
-                gt_intents.append(Intent(turn["intent"]))
-                utterances.append(Utterance(turn["utterance"]))
-    nlu = IntentClassifierCosine(intents=gt_intents)
-    nlu.train_model(utterances=utterances, labels=gt_intents)
-    return nlu
+    agent = SampleAgent(agent_id="Tester")
+
+    # Loads domain, item collection, and preference data
+    domain = Domain(config["ontology"].get())
+
+    item_collection = ItemCollection()
+    item_collection.load_items_csv(
+        config["items"].get(), ["ID", "NAME", "genres", "keywords"]
+    )
+
+    ratings = Ratings(item_collection)
+    ratings.load_ratings_csv(file_path=config["ratings"].get())
+
+    preference_model = PreferenceModel(
+        domain,
+        item_collection,
+        ratings,
+        PreferenceModelVariant.SIP,
+        historical_user_id="13",
+    )
+
+    # Loads dialogue sample
+    annotated_dialogues_file = config["dialogues"].get()
+    annotated_conversations = json.load(open(annotated_dialogues_file))
+
+    # Loads interaction model
+    interaction_model = InteractionModel(
+        config_file=config["intents"].get(),
+        annotated_conversations=annotated_conversations,
+    )
+
+    # NLU
+    nlu = get_intent_classifier(config)
+
+    # NLG
+    template = extract_utterance_template(
+        annotated_dialogue_file=annotated_dialogues_file,
+    )
+    nlg = ConditionalNLG(template)
+
+    simulator = AgendaBasedSimulator(
+        "TEST03",
+        preference_model,
+        interaction_model,
+        nlu,
+        nlg,
+        domain,
+        item_collection,
+        ratings,
+    )
+    simulate_conversation(agent, simulator)
 
 
 def simulate_conversation(
@@ -138,111 +112,179 @@ def simulate_conversation(
     """
     platform = Platform()  # TODO: Add simulator platform
     dc = DialogueConnector(agent, user_simulator, platform)
-    agent.connect_dialogue_manager(dialogue_manager=dc)
-    user_simulator.connect_dialogue_manager(dialogue_manager=dc)
     dc.start()
     dc.close()
     return dc.dialogue_history
 
 
-if __name__ == "__main__":
-    agent = SampleAgent(agent_id="Tester")
-    parser = argparse.ArgumentParser()
+def parse_args() -> argparse.Namespace:
+    """Defines accepted arguments and returns the parsed values.
+
+    Returns:
+        A namespace object containing the arguments.
+    """
+
+    parser = argparse.ArgumentParser(prog="run_simulation.py")
     parser.add_argument(
-        "-config", help="Specify config file *.yaml", metavar="FILE"
+        "-c",
+        "--config-file",
+        help=(
+            "Path to configuration file to overwrite default values. "
+            "Defaults to None."
+        ),
     )
     parser.add_argument(
-        "-ontology", type=str, help="Path to ontology config file."
-    )
-    parser.add_argument(
-        "-intents", type=str, help="Path to the intent scheme file."
-    )
-    parser.add_argument("-items", type=str, help="Path to item file.")
-    parser.add_argument("-ratings", type=str, help="Path to rating file.")
-    parser.add_argument(
-        "-dialogues", type=str, help="Path to the annotated dialogues file."
-    )
-    parser.add_argument(
-        "-satisfaction", type=str, help="Enables satisfaction classifier."
-    )
-    parser.add_argument(
-        "-interaction_model",
+        "-a",
+        "--agent_id",
         type=str,
-        help="Interaction model to be used. Currently, either 'cosine' or "
-        "diet"
-        ".",
+        help=("Id of the agent tested. Defaults to 'SampleAgent'."),
     )
-    args = parser.parse_args()
-    print("arguments: {}".format(str(args)))
-
-    opt = vars(args)
-    print("opt", opt)
-    args = yaml.load(open(args.config), Loader=yaml.FullLoader)
-    print("Yargs", args)
-    opt.update(args)
-    args = opt
-    print("arguments: {}".format(str(args)))
-    print("arguments2: ", args)
-
-    domain = Domain(args["ontology"])
-
-    item_collection = ItemCollection()
-    item_collection.load_items_csv(
-        args["items"], ["ID", "NAME", "genres", "keywords"]
+    parser.add_argument(
+        "-o",
+        "--output_name",
+        type=str,
+        help="Specifies the output name for the simulation configuration.",
     )
+    parser.add_argument(
+        "--domain", type=str, help="Path to domain config file."
+    )
+    parser.add_argument(
+        "--intents", type=str, help="Path to the intent schema file."
+    )
+    parser.add_argument("--items", type=str, help="Path to items file.")
+    parser.add_argument("--ratings", type=str, help="Path to ratings file.")
+    parser.add_argument(
+        "--dialogues", type=str, help="Path to the annotated dialogues file."
+    )
+    parser.add_argument(
+        "--intent_classifier",
+        choices=["cosine", "diet"],
+        help="Intent classifier model to be used. Defaults to cosine.",
+    )
+    parser.add_argument(
+        "--rasa_dialogues",
+        type=str,
+        help="Path to the Rasa annotated dialogues file.",
+    )
+    return parser.parse_args()
+    
 
-    ratings = Ratings(item_collection)
-    ratings.load_ratings_csv(file_path=args["ratings"])
+def load_config(args: argparse.Namespace) -> confuse.Configuration:
+    """Loads config from config file and command line parameters.
 
-    with open(args["dialogues"]) as annotated_dialogues_file:
-        annotated_conversations = json.load(annotated_dialogues_file)
-        interaction_model = InteractionModel(
-            config_file=args["intents"],
-            annotated_conversations=annotated_conversations,
+    Loads default values from `config/default/config_default.yaml`. Values are
+    then updated with any value specified in the command line arguments.
+
+    Args:
+        args: Arguments parsed with argparse.
+    """
+    # Load default config
+    config = confuse.Configuration("usrsimcrs")
+    config.set_file(DEFAULT_CONFIG_PATH.format("general"))
+
+    # Load simulation specific config
+    agent_id = args.agent_id or config["agent_id"].get()
+    config.set_file(DEFAULT_CONFIG_PATH.format(agent_id))
+
+    # Load additional config (update defaults).
+    if args.config_file:
+        config.set_file(args.config_file)
+
+    # Update config from command line arguments
+    config.set_args(args, dots=True)
+
+    # Save run config to metadata file
+    output_name = config["output_name"].get()
+    with open(f"data/runs/{output_name}.meta.yaml", "w") as f:
+        f.write(config.dump())
+
+    return config
+
+
+def get_intent_classifier(config: confuse.Configuration) -> IntentClassifier:
+    """Returns intent classifier model.
+
+    Only supports DialogueKit intent classifiers.
+
+    Args:
+        config: Configuration for the simulation.
+
+    Raises:
+        ValueError: Unsupported intent classifier.
+
+    Returns:
+        The intent classifier.
+    """
+
+    intent_classifier = config["intent_classifier"].get()
+    if intent_classifier == "cosine":
+        return load_cosine_classifier(config)
+    elif intent_classifier == "diet":
+        return load_rasa_diet_classifier(config)
+    elif intent_classifier:
+        raise ValueError(
+            "Unsupported intent classifier. Check DialogueKit intent"
+            " classifiers."
         )
-        if args["interaction_model"] == "cosine":
-            nlu = load_cosine_classifier(dialogues=annotated_conversations)
 
-    satisfaction_model = None
-    if args["satisfaction"]:
-        satisfaction_model = SatisfactionClassifier()
 
-    with open(args["intents"]) as yaml_file:
-        config = yaml.load(yaml_file, Loader=yaml.FullLoader)
+def load_cosine_classifier(
+    dialogues: Dict[str, Dict[str, str]]
+) -> IntentClassifierCosine:
+    """Trains a cosine classifier on annotated dialogues for NLU module.
 
-    # TODO: initialization of the simulator with NLU, NLG, etc.
-    preference_model = PreferenceModel(
-        domain,
-        item_collection,
-        ratings,
-        PreferenceModelVariant.SIP,
-        historical_user_id="13",
-    )
-    interaction_model = InteractionModel(
-        args["intents"], annotated_conversations
-    )
-    agent_intents_str = config["agent_elicit_intents"]
-    agent_intents_str.extend(config["agent_set_retrieval"])
+    Args:
+        config: Configuration generated from YAML configuration file.
+
+    Returns:
+        A trained cosine model for intent classification.
+    """
+    annotated_dialogues_file = config["dialogues"].get()
+    dialogues = json.load(open(annotated_dialogues_file))
+
+    gt_intents = []
+    utterances = []
+    for conversation in dialogues:
+        for turn in conversation["conversation"]:
+            if turn["participant"] == "AGENT":
+                gt_intents.append(Intent(turn["intent"]))
+                utterances.append(
+                    Utterance(
+                        turn["utterance"], participant=DialogueParticipant.AGENT
+                    )
+                )
+    nlu = IntentClassifierCosine(intents=gt_intents)
+    nlu.train_model(utterances=utterances, labels=gt_intents)
+    return nlu
+
+
+def load_rasa_diet_classifier(
+    config: confuse.Configuration,
+) -> IntentClassifierCosine:
+    """Trains a DIET classifier on Rasa annotated dialogues for NLU module.
+
+    Args:
+        config: Configuration generated from YAML configuration file.
+
+    Returns:
+        A trained Rasa DIET model for intent classification.
+    """
+    intent_schema_file = config["intents"].get()
+    intent_schema = yaml.load(open(intent_schema_file), Loader=yaml.FullLoader)
+
+    agent_intents_str = intent_schema["agent_elicit_intents"]
+    agent_intents_str.extend(intent_schema["agent_set_retrieval"])
     agent_intents = [Intent(intent) for intent in agent_intents_str]
-    print("Agent intents", agent_intents)
     nlu = IntentClassifierRasa(
         agent_intents,
-        "data/agents/moviebot/annotated_dialogues_rasa_agent.yml",
+        config["rasa_dialogues"].get(),
         ".rasa",
     )
-    template = extract_utterance_template(
-        annotated_dialogue_file="data/agents/moviebot/annotated_dialogues.json",
-    )
-    nlg = ConditionalNLG(template)
-    simulator = AgendaBasedSimulator(
-        "TEST03",
-        preference_model,
-        interaction_model,
-        nlu,
-        nlg,
-        domain,
-        # item_collection,
-        # ratings,
-    )
-    simulate_conversation(agent, simulator)
-    print("FINISHED")
+    nlu.train_model()
+    return nlu
+
+
+if __name__ == "__main__":
+    args = parse_args()
+    config = load_config(args)
+    main(config)

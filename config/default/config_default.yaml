@@ -1,0 +1,9 @@
+agent_id: "SampleAgent"
+output_name: "sample_agent"
+ontology: data/domains/movies.yaml
+intents: data/interaction_models/crs_v1.yaml
+items: data/movielens-25m-sample/movies_w_keywords.csv
+ratings: data/movielens-25m-sample/ratings.csv
+dialogues: data/agents/moviebot/annotated_dialogues.json
+intent_classifier: "cosine"
+rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
