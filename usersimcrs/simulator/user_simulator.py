@@ -15,15 +15,18 @@ class UserSimulator(User, ABC):
 
     @abstractmethod
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
-        """Generate response to the agent utterance.
+        """Generates response to the agent utterance.
 
         Args:
             agent_utterance: Agent utterance.
 
-        Return:
+        Raises:
+            NotImplementedError: If not implemented in derived class.
+            
+        Returns:
             User utterance.
         """
-        pass
+        raise NotImplementedError
 
     def receive_agent_utterance(self, agent_utterance: Utterance) -> None:
         """This method is called each time there is a new agent utterance.
