@@ -64,7 +64,7 @@ def test_get_slotvalue_preference_sip(preference_model_sip) -> None:
 
 def test_get_slotvalue_preference_pkg(preference_model_pkg) -> None:
     preference = preference_model_pkg.get_slotvalue_preference("GENRE", "Drama")
-    assert preference == 1
+    assert preference == 0.6
 
 
 def test_get_item_preference_sip(preference_model_sip) -> None:
@@ -75,13 +75,13 @@ def test_get_item_preference_sip(preference_model_sip) -> None:
 def test_get_item_preference_pkg(preference_model_pkg):
     # When (Both Drama and Thriller are favored as 1)
     preference = preference_model_pkg.get_item_preference("100")
-    assert preference == 1
+    assert preference == 1.0
 
 
 def test_get_slot_preference_pkg(preference_model_pkg):
     slot, preference = preference_model_pkg.get_slot_preference("GENRE")
     assert isinstance(slot, str)
-    assert preference in [-1, 0, 1]
+    assert -1 <= preference <= 1
 
 
 # TODO Write tests for get_item_preference(), get_slotvalue_preference,

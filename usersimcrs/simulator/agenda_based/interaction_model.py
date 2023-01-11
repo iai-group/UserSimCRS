@@ -16,7 +16,7 @@ class InteractionModel:
     STOP_INTENT = Intent("STOP")
 
     def __init__(
-        self, config_file, annotated_conversations: List[List]
+        self, config_file, annotated_conversations: List[Dict]
     ) -> None:
         """Initializes the interaction model."""
         # Load interaction model.
@@ -46,7 +46,8 @@ class InteractionModel:
             Intent distributions:
                 {user of agent intent: {next_user_intent: occurrence}}
         """
-        user_intent_dist, intent_dist = dict(), dict()
+        user_intent_dist: Dict[Intent, Dict] = dict()
+        intent_dist: Dict[Intent, Dict] = dict()
         # Extracts conjoint user intent pairs from conversations.
         for annotated_conversation in annotated_conversations:
             user_agenda = [
@@ -247,7 +248,7 @@ class InteractionModel:
         Return:
             The sampled item.
         """
-        p_start = 0
+        p_start = 0.0
         for i, p_item in enumerate(d):
             p_start += p_item
             if p < p_start:
