@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import os
 
 import confuse
 import yaml
@@ -37,6 +38,7 @@ from usersimcrs.user_modeling.preference_model import (
 )
 
 DEFAULT_CONFIG_PATH = "config/default/config_default.yaml"
+OUTPUT_DIR = "data/runs"
 
 
 def main(config: confuse.Configuration):
@@ -51,7 +53,7 @@ def main(config: confuse.Configuration):
     agent = SampleAgent(agent_id="Tester")
 
     # Loads domain, item collection, and preference data
-    domain = Domain(config["ontology"].get())
+    domain = Domain(config["domain"].get())
 
     item_collection = ItemCollection()
     item_collection.load_items_csv(
@@ -182,12 +184,8 @@ def load_config(args: argparse.Namespace) -> confuse.Configuration:
         args: Arguments parsed with argparse.
     """
     # Load default config
-    config = confuse.Configuration("usrsimcrs")
-    config.set_file(DEFAULT_CONFIG_PATH.format("general"))
-
-    # Load simulation specific config
-    agent_id = args.agent_id or config["agent_id"].get()
-    config.set_file(DEFAULT_CONFIG_PATH.format(agent_id))
+    config = confuse.Configuration("usersimcrs")
+    config.set_file(DEFAULT_CONFIG_PATH)
 
     # Load additional config (update defaults).
     if args.config_file:
@@ -198,7 +196,10 @@ def load_config(args: argparse.Namespace) -> confuse.Configuration:
 
     # Save run config to metadata file
     output_name = config["output_name"].get()
-    with open(f"data/runs/{output_name}.meta.yaml", "w") as f:
+    if not os.path.exists(OUTPUT_DIR):
+        os.makedirs(OUTPUT_DIR)
+    output_config_file = os.path.join(OUTPUT_DIR, f"{output_name}.meta.yaml")
+    with open(output_config_file, "w") as f:
         f.write(config.dump())
 
     return config
