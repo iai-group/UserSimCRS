@@ -8,8 +8,8 @@ from dialoguekit.nlu.nlu import NLU
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
-from usersimcrs.simulator.preference_model import PreferenceModel
 from usersimcrs.simulator.user_simulator import UserSimulator
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 
 class AgendaBasedSimulator(UserSimulator):
@@ -36,7 +36,6 @@ class AgendaBasedSimulator(UserSimulator):
         """
         super().__init__()
         self._preference_model = preference_model
-        self._preference_model.initialize_preference()
         self._interaction_model = interaction_model
         self._interaction_model.initialize_agenda()
         self._nlu = nlu
@@ -66,9 +65,8 @@ class AgendaBasedSimulator(UserSimulator):
             User utterance.
         """
         # Run agent utterance through NLU.
-        self._nlu.annotate_slot_values(agent_utterance)
-        agent_intent = self._nlu.get_intent(agent_utterance)
-        agent_annotations = agent_utterance.get_annotations()
+        agent_annotations = self._nlu.annotate_slot_values(agent_utterance)
+        agent_intent = self._nlu.classify_intent(agent_utterance)
 
         # Response generation (intent and slot-values).
         response_intent = None
