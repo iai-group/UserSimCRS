@@ -243,6 +243,8 @@ def load_cosine_classifier(
     Returns:
         A trained cosine model for intent classification.
     """
+    # TODO: Move to DialogueKit as util function.
+    # See: https://github.com/iai-group/UserSimCRS/issues/92
     annotated_dialogues_file = config["dialogues"].get()
     dialogues = json.load(open(annotated_dialogues_file))
 
@@ -273,6 +275,8 @@ def load_rasa_diet_classifier(
     Returns:
         A trained Rasa DIET model for intent classification.
     """
+    # TODO: Move to DialogueKit as util function.
+    # See: https://github.com/iai-group/UserSimCRS/issues/92
     intent_schema_file = config["intents"].get()
     intent_schema = yaml.load(open(intent_schema_file), Loader=yaml.FullLoader)
 
