@@ -24,11 +24,11 @@ from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
-from usersimcrs.simulator.preference_model import (
+from usersimcrs.simulator.user_simulator import UserSimulator
+from usersimcrs.user_modeling.preference_model import (
     PreferenceModel,
     PreferenceModelVariant,
 )
-from usersimcrs.simulator.user_simulator import UserSimulator
 
 
 def simulate_conversation(
