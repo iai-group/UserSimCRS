@@ -22,7 +22,7 @@ class UserSimulator(User, ABC):
 
         Raises:
             NotImplementedError: If not implemented in derived class.
-            
+
         Returns:
             User utterance.
         """
