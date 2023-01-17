@@ -9,9 +9,10 @@ from dialoguekit.participant.user import User, UserType
 class UserSimulator(User, ABC):
     def __init__(
         self,
+        id: str,
     ) -> None:
         """Initializes the user simulator."""
-        self._user_type = UserType.SIMULATOR
+        super().__init__(id, UserType.SIMULATOR)
 
     @abstractmethod
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
