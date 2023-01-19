@@ -1,3 +1,7 @@
+# :warning: Notice
+
+> It appears that you have stumbled upon our GitHub repository as a result of our publication being [released on arXiv](https://arxiv.org/abs/2301.05544) ahead of schedule. While you are welcome to look around, please be advised that the code is not yet fully functional as we have been making a few breaking changes. We kindly ask that you check back at a later time for updates. Be assured, by the time of the WSDM conference, the code will be working as described and this message will be gone. Thank you for your understanding!
+
 # UserSimCRS
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
