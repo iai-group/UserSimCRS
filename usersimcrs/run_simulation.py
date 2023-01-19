@@ -5,6 +5,7 @@ import json
 import os
 
 import confuse
+import requests
 import yaml
 from dialoguekit.connector.dialogue_connector import DialogueConnector
 from dialoguekit.core.dialogue import Dialogue
@@ -15,6 +16,7 @@ from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlg.template_from_training_data import (
     extract_utterance_template,
 )
+from dialoguekit.nlu import NLU
 from dialoguekit.nlu.intent_classifier import IntentClassifier
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
 from dialoguekit.nlu.models.intent_classifier_cosine import (
@@ -23,10 +25,10 @@ from dialoguekit.nlu.models.intent_classifier_cosine import (
 from dialoguekit.participant.agent import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms.platform import Platform
+from sample_agents.moviebot_agent import MovieBotAgent
 
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.sample_agent.sample_agent import SampleAgent
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
 )
@@ -41,7 +43,7 @@ DEFAULT_CONFIG_PATH = "config/default/config_default.yaml"
 OUTPUT_DIR = "data/runs"
 
 
-def main(config: confuse.Configuration):
+def main(config: confuse.Configuration, agent: Agent) -> None:
     """Executes the specified configuration.
 
     Loads domain and interaction model. Initializes agent and user. Runs the
@@ -49,9 +51,8 @@ def main(config: confuse.Configuration):
 
     Args:
         config: Configuration generated from YAML configuration file.
+        agent: Conversational agent.
     """
-    agent = SampleAgent(agent_id="Tester")
-
     # Loads domain, item collection, and preference data
     domain = Domain(config["domain"].get())
 
@@ -82,7 +83,7 @@ def main(config: confuse.Configuration):
     )
 
     # NLU
-    nlu = get_intent_classifier(config)
+    nlu = get_NLU(config)
 
     # NLG
     template = extract_utterance_template(
@@ -205,8 +206,8 @@ def load_config(args: argparse.Namespace) -> confuse.Configuration:
     return config
 
 
-def get_intent_classifier(config: confuse.Configuration) -> IntentClassifier:
-    """Returns intent classifier model.
+def get_NLU(config: confuse.Configuration) -> IntentClassifier:
+    """Returns a NLU component.
 
     Only supports DialogueKit intent classifiers.
 
@@ -217,14 +218,16 @@ def get_intent_classifier(config: confuse.Configuration) -> IntentClassifier:
         ValueError: Unsupported intent classifier.
 
     Returns:
-        The intent classifier.
+        A NLU component.
     """
 
     intent_classifier = config["intent_classifier"].get()
     if intent_classifier == "cosine":
-        return load_cosine_classifier(config)
+        # NLU without slot annotators
+        return NLU(load_cosine_classifier(config), slot_annotators=[])
     elif intent_classifier == "diet":
-        return load_rasa_diet_classifier(config)
+        classifier = load_rasa_diet_classifier(config)
+        return NLU(classifier, [classifier])
     elif intent_classifier:
         raise ValueError(
             "Unsupported intent classifier. Check DialogueKit intent"
@@ -259,9 +262,9 @@ def load_cosine_classifier(
                         turn["utterance"], participant=DialogueParticipant.AGENT
                     )
                 )
-    nlu = IntentClassifierCosine(intents=gt_intents)
-    nlu.train_model(utterances=utterances, labels=gt_intents)
-    return nlu
+    intent_classifier = IntentClassifierCosine(intents=gt_intents)
+    intent_classifier.train_model(utterances=utterances, labels=gt_intents)
+    return intent_classifier
 
 
 def load_rasa_diet_classifier(
@@ -283,16 +286,30 @@ def load_rasa_diet_classifier(
     agent_intents_str = intent_schema["agent_elicit_intents"]
     agent_intents_str.extend(intent_schema["agent_set_retrieval"])
     agent_intents = [Intent(intent) for intent in agent_intents_str]
-    nlu = IntentClassifierRasa(
+    intent_classifier = IntentClassifierRasa(
         agent_intents,
         config["rasa_dialogues"].get(),
         ".rasa",
     )
-    nlu.train_model()
-    return nlu
+    intent_classifier.train_model()
+    return intent_classifier
 
 
 if __name__ == "__main__":
     args = parse_args()
     config = load_config(args)
-    main(config)
+
+    # Defines the agent for the simulation.
+    # By default, a local moviebot is used. See TODO for more details.
+    moviebot_uri = config["moviebot_uri"].get()
+    try:
+        response = requests.get(moviebot_uri)
+        assert response.status_code == 200
+        agent = MovieBotAgent(agent_id="MovieBotTester", uri=moviebot_uri)
+    except requests.exceptions.RequestException:
+        raise RuntimeError(
+            f"Connection refused to {moviebot_uri}. Please check that "
+            "moviebot is running at this address. See the full traceback above."
+        )
+
+    main(config, agent)

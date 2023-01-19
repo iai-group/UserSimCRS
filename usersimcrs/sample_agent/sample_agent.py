@@ -1,3 +1,8 @@
+"""Sample agent without any logic.
+
+This class can be used as a template to create your own agent that interacts
+with the simulator.
+"""
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
@@ -37,7 +42,8 @@ class SampleAgent(Agent):
             return
 
         response = AnnotatedUtterance(
-            "This sample agent does not perform actions.",
+            "This sample agent does not perform actions. Please type EXIT "
+            "to quit the conversation.",
             participant=DialogueParticipant.AGENT,
         )
         self._dialogue_connector.register_agent_utterance(response)
