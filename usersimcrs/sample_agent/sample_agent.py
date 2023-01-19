@@ -1,7 +1,7 @@
 """Sample agent without any logic.
 
-This class can be used as a template to create your own agent that interacts
-with the simulator.
+This class can be used as a template to create your own agent that
+interacts with the simulator.
 """
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.intent import Intent
