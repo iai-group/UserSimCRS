@@ -23,7 +23,7 @@ UserSimCRS follows the architecture of a typical task-based dialogue system, whi
   * **User modeling** consists of three sub-components: *preference model* (to capture individual tastes, e.g., likes and dislikes), *context model* (to characterize the situation of the user, e.g., time of the day), and *persona* (to capture user-specific traits, e.g., user cooperativeness).  
   * **Natural language generation** is currently template-based, but it can be conditioned on context (e.g., users could use a different language depending on the time of day or based on their satisfaction with the system).
 
-We refer to the [documentation](https://iai-group.github.io/UserSimCRS/) for details. Specifically, see [this page](https://iai-group.github.io/UserSimCRS/setup_agent.html) on how to set up an existing agent to be evaluated using UserSimCRS.
+We refer to the [documentation](https://iai-group.github.io/UserSimCRS/main) for details. Specifically, see [this page](https://iai-group.github.io/UserSimCRS/main/setup_agent.html) on how to set up an existing agent to be evaluated using UserSimCRS.
 
 ## Installation
 
