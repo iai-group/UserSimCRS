@@ -1,5 +1,6 @@
 """Agenda-based user simulator from [Zhang and Balog, KDD'20]."""
 
+from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.domain import Domain
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -46,7 +47,7 @@ class AgendaBasedSimulator(UserSimulator):
         self._ratings = ratings
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
-        """Generate response to the agent utterance.
+        """Generates response to the agent's utterance.
 
         Args:
             agent_utterance: Agent utterance.
@@ -54,10 +55,12 @@ class AgendaBasedSimulator(UserSimulator):
         Return:
             User utterance.
         """
-        self.generate_response(agent_utterance)
+        return self.generate_response(agent_utterance)
 
-    def generate_response(self, agent_utterance: Utterance) -> Utterance:
-        """Generate response to the agent utterance.
+    def generate_response(
+        self, agent_utterance: Utterance
+    ) -> AnnotatedUtterance:
+        """Generates response to the agent's utterance.
 
         Args:
             agent_utterance: Agent utterance.
@@ -97,8 +100,8 @@ class AgendaBasedSimulator(UserSimulator):
             )
 
         # Generating natural language response through NLG.
-        response_text = self._nlg.generate_utterance_text(
+        response = self._nlg.generate_utterance_text(
             response_intent, response_slot_values, response_preference
         )
 
-        return Utterance(response_text, response_intent)
+        return response

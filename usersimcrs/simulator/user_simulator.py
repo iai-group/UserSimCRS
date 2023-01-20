@@ -29,12 +29,11 @@ class UserSimulator(User, ABC):
         """
         raise NotImplementedError
 
-    def receive_agent_utterance(self, agent_utterance: Utterance) -> None:
-        """This method is called each time there is a new agent utterance.
+    def receive_utterance(self, utterance: Utterance) -> None:
+        """Gets called every time there is a new agent utterance.
 
         Args:
-            agent_utterance: Agent utterance.
+            utterance: Agent utterance.
         """
-        self._dialogue_manager.register_user_utterance(
-            self._generate_response(agent_utterance)
-        )
+        response = self._generate_response(utterance)
+        self._dialogue_connector.register_user_utterance(response)
