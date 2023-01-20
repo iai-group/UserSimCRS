@@ -15,7 +15,7 @@ Conversational Recommender System Evaluation via Simulation
    usage
    interaction_model
    components
-   setup_agent
+   configuration
    :ref:`modindex`
 
 Indices and tables
