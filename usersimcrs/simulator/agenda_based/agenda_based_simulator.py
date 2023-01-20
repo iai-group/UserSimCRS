@@ -47,7 +47,7 @@ class AgendaBasedSimulator(UserSimulator):
         self._ratings = ratings
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
-        """Generate response to the agent utterance.
+        """Generates response to the agent's utterance.
 
         Args:
             agent_utterance: Agent utterance.
@@ -60,7 +60,7 @@ class AgendaBasedSimulator(UserSimulator):
     def generate_response(
         self, agent_utterance: Utterance
     ) -> AnnotatedUtterance:
-        """Generate response to the agent utterance.
+        """Generates response to the agent's utterance.
 
         Args:
             agent_utterance: Agent utterance.

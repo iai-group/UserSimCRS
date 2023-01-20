@@ -52,7 +52,13 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
     Args:
         config: Configuration generated from YAML configuration file.
         agent: Conversational agent.
+
+    Raises:
+        TypeError: if the agent is not an instance of Agent.
     """
+    if not isinstance(agent, Agent):
+        raise TypeError(f"agent must be Agent, not {type(agent).__name__}")
+
     # Loads domain, item collection, and preference data
     domain = Domain(config["domain"].get())
 
@@ -207,7 +213,7 @@ def load_config(args: argparse.Namespace) -> confuse.Configuration:
 
 
 def get_NLU(config: confuse.Configuration) -> IntentClassifier:
-    """Returns a NLU component.
+    """Returns an NLU component.
 
     Only supports DialogueKit intent classifiers.
 
@@ -218,7 +224,7 @@ def get_NLU(config: confuse.Configuration) -> IntentClassifier:
         ValueError: Unsupported intent classifier.
 
     Returns:
-        A NLU component.
+        An NLU component.
     """
 
     intent_classifier = config["intent_classifier"].get()
@@ -300,16 +306,18 @@ if __name__ == "__main__":
     config = load_config(args)
 
     # Defines the agent for the simulation.
-    # By default, a local moviebot is used. See TODO for more details.
-    moviebot_uri = config["moviebot_uri"].get()
+    # By default, a local moviebot is used.
+    # See usage example in README for more details.
+    agent_uri = config["agent_uri"].get()
     try:
-        response = requests.get(moviebot_uri)
+        response = requests.get(agent_uri)
         assert response.status_code == 200
-        agent = MovieBotAgent(agent_id="MovieBotTester", uri=moviebot_uri)
+        agent = MovieBotAgent(agent_id="MovieBotTester", uri=agent_uri)
     except requests.exceptions.RequestException:
         raise RuntimeError(
-            f"Connection refused to {moviebot_uri}. Please check that "
-            "moviebot is running at this address. See the full traceback above."
+            f"Connection refused to {agent_uri}. Please check that "
+            "the conversational agent is running at this address. See the full "
+            "traceback above."
         )
 
     main(config, agent)

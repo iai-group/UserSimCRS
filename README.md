@@ -25,23 +25,29 @@ We refer to the [documentation](https://iai-group.github.io/UserSimCRS/) for det
 
 The recommended version of Python is 3.9.  
 The easiest way to install UserSimCRS and all of its dependencies is by using pip:
+
 ```shell
 python -m pip install -r requirements/requirements.txt
 ```
+
 To work on the documentation you also need to install other dependencies:
+
 ```shell
 python -m pip install -r requirements/docs_requirements.txt
 ```
+
 ## Usage 
 
-A YAML configuration file is necessary to start the MovieBot, see [default configuration](config/default/config_default.yaml) as example.  
+A YAML configuration file is necessary to start the MovieBot; see [default configuration](config/default/config_default.yaml) for an example.  
 Run the following command to start the simulation:
+
 ```shell
 python -m usersimcrs.run_simulation -c <path_to_config.yaml>
 ```
+
 ### Example
 
-This example shows how to run simulation using the default configuration and the [IAI MovieBot](https://github.com/iai-group/MovieBot).
+This example shows how to run simulation using the default configuration and the [IAI MovieBot](https://github.com/iai-group/MovieBot) as the conversational agent.
 
 1. Start IAI MovieBot locally
 
@@ -50,13 +56,16 @@ This example shows how to run simulation using the default configuration and the
   * Follow the IAI MovieBot installation instructions
   * Start the IAI MovieBot locally: `python -m run_bot -c config/moviebot_config_no_integration.yaml`
 
-Note: you need to update the parameter `moviebot_uri` in the configuration in case MovieBot does not run on the default URI (i.e., `http://127.0.0.1:5001`).
+Note: you need to update the parameter `agent_uri` in the configuration in case MovieBot does not run on the default URI (i.e., `http://127.0.0.1:5001`).
 
 2. Run simulation
 
 ```shell
 python -m usersimcrs.run_simulation -c config/default/config_default.yaml
 ```
+
+After the simulation, the YAML configuration is saved under `data/runs` using the `output_name` parameter.
+The simulated dialogue is saved under `dialogue_export`.
 
 ## Conventions
 
@@ -66,8 +75,8 @@ We follow the [IAI Python Style Guide](https://github.com/iai-group/styleguide/t
 
 (Alphabetically ordered by last name)
 
-  * Jafar Afzali 
-  * Krisztian Balog 
-  * Nolwenn Bernard 
-  * Aleksander Drzewiecki 
-  * Shuo Zhang 
+  * Jafar Afzali (2022)
+  * Krisztian Balog (2021-present)
+  * Nolwenn Bernard (2022-present)
+  * Aleksander Drzewiecki (2022)
+  * Shuo Zhang (2021)
