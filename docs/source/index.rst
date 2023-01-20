@@ -11,6 +11,8 @@ Conversational Recommender System Evaluation via Simulation
    :maxdepth: 1
    :caption: Contents:
 
+   installation
+   usage
    interaction_model
    components
    setup_agent
