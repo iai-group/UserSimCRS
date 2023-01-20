@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - documentation/fix-documentation-versioning
 
 # workflow_dispatch:        # Un comment line if you also want to trigger action manually
 
@@ -16,7 +15,7 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v3
         with:
-          ref: documentation/fix-documentation-versioning
+          ref: main
           fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -29,7 +28,7 @@ jobs:
       - name: Sphinx docs to GitHub Pages
         uses: ./.github/actions/build_docs/
         with:
-          branch: documentation/fix-documentation-versioning
+          branch: main
           dir_docs: docs/source
           sphinxapiopts: '--separate -o . ../'
           sphinxapiexclude: '../*setup* ../*.ipynb'
