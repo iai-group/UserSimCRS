@@ -26,11 +26,9 @@ Natural language generation (NLG)
 
 Following the work in [4]_, the NLG component is template-based, that is, given the output of the response generation module, a fitting textual response is chosen and may be instantiated with preferences. Additionally, we extend template-based generation to be conditioned with metadata, specifically on user satisfaction, such that users could use for example stronger language when getting dissatisfied with the system.
 
-Footnotes
----------
+**Footnotes**
 
 .. [1] Alexandre Salle, Shervin Malmasi, Oleg Rokhlenko, and Eugene Agichtein. 2021. Studying the Effectiveness of Conversational Search Refinement Through User Simulation. In Proceedings of the 43rd European Conference on IR Research (ECIR ’21). 587–602.
-
 
 .. [2] Jost Schatzmann, Blaise Thomson, Karl Weilhammer, Hui Ye, and Steve Young. 2007. Agenda-Based User Simulation for Bootstrapping a POMDP Dialogue System. In Human Language Technologies 2007: The Conference of the North American Chapter of the Association for Computational Linguistics; Companion Volume, Short Papers (NAACL ’07).
 
