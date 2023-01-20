@@ -152,6 +152,12 @@ def parse_args() -> argparse.Namespace:
         help=("Id of the agent tested. Defaults to 'SampleAgent'."),
     )
     parser.add_argument(
+        "--agent_uri",
+        type=str,
+        help="URI to communicate with the agent. By default we assume that the"
+        " agent has an HTTP API.",
+    )
+    parser.add_argument(
         "-o",
         "--output_name",
         type=str,
