@@ -86,7 +86,7 @@ runs:
             SHA=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.head.sha)
         fi
         SHORT_SHA="$(git rev-parse --short $SHA)"
-        DIR_HTML=${{ inputs.dir_docs }}/_build/${{ inputs.branch }}
+        DIR_HTML=${{ inputs.dir_docs }}/_build/
         echo "#GitHub Pages" > $DIR_HTML/README.md
         echo "" >> $DIR_HTML/README.md
         echo "Last update of sphinx html documentation from [$SHORT_SHA](https://github.com/$GITHUB_REPOSITORY/tree/$SHA)" >> $DIR_HTML/README.md
