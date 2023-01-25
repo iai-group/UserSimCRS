@@ -58,7 +58,7 @@ A config file containing the users’ and agent’s intent space, as well as the
 6. Define user model/population
 -------------------------------
 
-# TODO Change this when we decide more specifically on our use of context and persona.
+.. todo:: Change this when we decide more specifically on our use of context and persona.
 
 Simulation is seeded with a user population that needs to be characterized, in terms of the different contexts (e.g., weekday vs. weekend, alone vs. group setting) and personas (e.g., patient and impatient users) and the number of users to be generated for each combination of context and persona. Each user has their own preference model, which may be instantiated by grounding it to actual preferences (i.e., the ratings dataset given in Step 2)
 

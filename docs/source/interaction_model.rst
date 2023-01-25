@@ -48,7 +48,7 @@ In order to add a new interaction model, a YAML file with the same format as the
 Intents
 -------
 
-TODO: Update DKs intent link page once it is available
+.. todo:: Update DKs intent link page once it is available
 Intents are dialogue actions that can be performed by the participants in a dialogue. UserSimCRS uses DialogueKit's `implementation <https://github.com/iai-group/dialoguekit/tree/main/docs>`_ for intents.
 
 
