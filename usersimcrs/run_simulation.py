@@ -149,7 +149,7 @@ def parse_args() -> argparse.Namespace:
         "-a",
         "--agent_id",
         type=str,
-        help=("Id of the agent tested. Defaults to 'SampleAgent'."),
+        help=("Id of the agent tested. Defaults to 'IAI MovieBot'."),
     )
     parser.add_argument(
         "--agent_uri",
