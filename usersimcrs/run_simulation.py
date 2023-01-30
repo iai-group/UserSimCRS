@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import logging
 import os
 
 import confuse
@@ -41,6 +42,12 @@ from usersimcrs.user_modeling.preference_model import (
 
 DEFAULT_CONFIG_PATH = "config/default/config_default.yaml"
 OUTPUT_DIR = "data/runs"
+
+logging.basicConfig(
+    format="[%(asctime)s] %(levelname)-12s %(message)s",
+    handlers=[logging.StreamHandler()],
+)
+logger = logging.getLogger()
 
 
 def main(config: confuse.Configuration, agent: Agent) -> None:
@@ -184,6 +191,13 @@ def parse_args() -> argparse.Namespace:
         type=str,
         help="Path to the Rasa annotated dialogues file.",
     )
+    parser.add_argument(
+        "-d",
+        "--debug",
+        action="store_const",
+        const=True,
+        help=("Debug mode. Defaults to False."),
+    )
     return parser.parse_args()
 
 
@@ -310,6 +324,9 @@ def load_rasa_diet_classifier(
 if __name__ == "__main__":
     args = parse_args()
     config = load_config(args)
+
+    if config["debug"].get():
+        logger.setLevel(logging.DEBUG)
 
     # Defines the agent for the simulation.
     # By default, a local moviebot is used.

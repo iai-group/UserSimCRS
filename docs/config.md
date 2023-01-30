@@ -13,6 +13,7 @@ These can be either provided in a YAML config file and/or via the command line. 
 * `dialogues`: Path to domain config file.
 * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifier.
 * `rasa_dialogues`: File with Rasa annotated dialogues. Only needed when using a DIET intent classifier.
+* `debug`: Boolean activating the debug mode.
 
 ## Example config file
 
@@ -31,4 +32,5 @@ dialogues: data/agents/moviebot/annotated_dialogues.json
 intent_classifier: "cosine"
 # If using the DIET classifier the following file needs to be provided. 
 # rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
+debug: False
 ```
