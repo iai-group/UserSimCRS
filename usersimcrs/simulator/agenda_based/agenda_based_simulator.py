@@ -72,6 +72,10 @@ class AgendaBasedSimulator(UserSimulator):
         agent_annotations = self._nlu.annotate_slot_values(agent_utterance)
         agent_intent = self._nlu.classify_intent(agent_utterance)
 
+        if agent_intent.label == "END":
+            self._dialogue_connector.close()
+            quit()
+
         # Response generation (intent and slot-values).
         response_intent = None
         response_slot_values = None
