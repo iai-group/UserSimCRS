@@ -2,11 +2,13 @@
 
 import os
 import random
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Tuple
 
 import yaml
 from dialoguekit.core.intent import Intent
 from dialoguekit.participant import DialogueParticipant
+
+INTENT_DISTRIBUTION = Dict[Intent, Dict[Intent, int]]
 
 
 class InteractionModel:
@@ -16,31 +18,40 @@ class InteractionModel:
     STOP_INTENT = Intent("STOP")
 
     def __init__(
-        self, config_file, annotated_conversations: List[Dict]
+        self, config_file: str, annotated_conversations: List[Dict[str, Any]]
     ) -> None:
-        """Initializes the interaction model."""
+        """Initializes the interaction model.
+
+        Args:
+            config_file: Path to configuration file.
+            annotated_conversations: List of annotated conversations.
+        """
         # Load interaction model.
         if not os.path.isfile(config_file):
             raise FileNotFoundError(f"Config file not found: {config_file}")
+
         with open(config_file) as yaml_file:
             self._config = yaml.load(yaml_file, Loader=yaml.FullLoader)
+
         self._initialize_preference_intent_config()
         (
             self._user_intent_distribution,
             self._intent_distribution,
         ) = self.intent_distribution(annotated_conversations)
+
         # Initialize agenda.
         self._agenda = self.initialize_agenda()
+
         # Keep track of the current user intent.
         self._current_intent = self._agenda.pop()
 
     def intent_distribution(
-        self, annotated_conversations: List[Dict]
-    ) -> Tuple[Dict, Dict]:
-        """Distill user intent distributions based on conversations.
+        self, annotated_conversations: List[Dict[str, Any]]
+    ) -> Tuple[INTENT_DISTRIBUTION, INTENT_DISTRIBUTION]:
+        """Distills user intent distributions based on conversations.
 
         Arg:
-            Annotated_conversations: list of annotated conversations.
+            annotated_conversations: List of annotated conversations.
 
         Returns:
             Intent distributions:
@@ -278,7 +289,7 @@ class InteractionModel:
             self._config["user_intents"]
             .get(self._current_intent.label)
             .get("expected_agent_intents")
-        )
+        ) or []
 
         # If agent replies in an expected intent, then pop the next intent from
         # agenda.
