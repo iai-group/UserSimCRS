@@ -281,9 +281,6 @@ class InteractionModel:
 
         Args:
             Agent_intent: Agent's intent.
-
-        Returns:
-            The current intent (the next intent).
         """
         expected_agent_intents = (
             self._config["user_intents"]
@@ -299,4 +296,3 @@ class InteractionModel:
             self._current_intent = self.next_intent(
                 agent_intent, self._intent_distribution
             )
-        return self._current_intent
