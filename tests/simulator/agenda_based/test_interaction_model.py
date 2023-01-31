@@ -2,6 +2,7 @@
 
 import pytest
 from dialoguekit.core.intent import Intent
+
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 
 # List of user intents in agenda
@@ -56,23 +57,23 @@ _INTENT_STOP = Intent("STOP")
 
 # CIR6 Interaction model.
 @pytest.fixture
-def im_cir6():
+def im_cir6() -> InteractionModel:
     return InteractionModel(
         "data/interaction_models/crs_v1.yaml", ANNOTATED_CONVERSATIONS
     )
 
 
-def test_is_agent_intent_elicit(im_cir6):
+def test_is_agent_intent_elicit(im_cir6: InteractionModel) -> None:
     assert im_cir6.is_agent_intent_elicit(_INTENT_INQUIRE)
     assert not im_cir6.is_agent_intent_elicit(_INTENT_REVEAL)
 
 
-def test_is_agent_intent_set_retrieval(im_cir6):
+def test_is_agent_intent_set_retrieval(im_cir6: InteractionModel) -> None:
     assert im_cir6.is_agent_intent_set_retrieval(_INTENT_REVEAL)
     assert not im_cir6.is_agent_intent_set_retrieval(_INTENT_INQUIRE)
 
 
-def test_intent_distribution(im_cir6):
+def test_intent_distribution(im_cir6: InteractionModel) -> None:
     user_intent_distribution, intent_distribution = im_cir6.intent_distribution(
         ANNOTATED_CONVERSATIONS
     )
@@ -97,25 +98,27 @@ def test_intent_distribution(im_cir6):
     assert intent_distribution == expected_intent_distribution
 
 
-def test_next_intent(im_cir6):
+def test_next_intent(im_cir6: InteractionModel) -> None:
     user_intent_distribution, intent_distribution = im_cir6.intent_distribution(
         ANNOTATED_CONVERSATIONS
     )
     assert im_cir6.next_intent(
         _INTENT_DISCLOSE_NON_DISCLOSE, user_intent_distribution
     )
-    # Note the next intent is picked randomly, so we only check its eixistence.
+    # Note the next intent is picked randomly, so we only check its existence.
     assert im_cir6.next_intent(_INTENT_A, user_intent_distribution)
     assert im_cir6.next_intent(_INTENT_C, user_intent_distribution)
     assert im_cir6.next_intent(_INTENT_B, user_intent_distribution) == _INTENT_C
 
 
-def test_initialize_agenda(im_cir6):
+def test_initialize_agenda(im_cir6: InteractionModel) -> None:
     assert len(im_cir6.initialize_agenda()) > 0
     assert len(im_cir6.agenda) > 0
     assert im_cir6.agenda[-1] == _INTENT_DISCLOSE_NON_DISCLOSE
 
 
-def test_update_agenda(im_cir6):
-    next_intent = im_cir6.update_agenda(_INTENT_INQUIRE)
-    assert next_intent
+def test_update_agenda(im_cir6: InteractionModel) -> None:
+    initial_intent = im_cir6.current_intent
+    im_cir6.update_agenda(_INTENT_INQUIRE)
+    assert im_cir6.current_intent is not im_cir6.START_INTENT
+    assert initial_intent is not im_cir6.current_intent
