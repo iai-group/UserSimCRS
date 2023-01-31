@@ -72,7 +72,9 @@ class AgendaBasedSimulator(UserSimulator):
         agent_annotations = self._nlu.annotate_slot_values(agent_utterance)
         agent_intent = self._nlu.classify_intent(agent_utterance)
 
-        if agent_intent.label == "END":
+        # Test in case the intent was not in the utterance received by the
+        # dialogue connector.
+        if agent_intent == self._dialogue_connector._agent.stop_intent:
             self._dialogue_connector.close()
             quit()
 
