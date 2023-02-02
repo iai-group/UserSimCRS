@@ -42,7 +42,7 @@ python -m pip install -r requirements/docs_requirements.txt
 
 ## Usage 
 
-A YAML configuration file is necessary to start the MovieBot; see [default configuration](config/default/config_default.yaml) for an example.  
+A YAML configuration file is necessary to start the simulation; see [default configuration](config/default/config_default.yaml) for an example.  
 Run the following command to start the simulation:
 
 ```shell
@@ -55,8 +55,7 @@ This example shows how to run simulation using the default configuration and the
 
 1. Start IAI MovieBot locally
 
-  * Download the IAI MovieBot [here](https://github.com/iai-group/MovieBot/)
-  * Checkout to the 'separate-flask-server' branch
+  * Download IAI MovieBot v1.0.1 [here](https://github.com/iai-group/MovieBot/releases/tag/v1.0.1)
   * Follow the IAI MovieBot installation instructions
   * Start the IAI MovieBot locally: `python -m run_bot -c config/moviebot_config_no_integration.yaml`
 
