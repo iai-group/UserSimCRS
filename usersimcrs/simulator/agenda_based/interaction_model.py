@@ -1,5 +1,6 @@
 """Interaction model."""
 
+import logging
 import os
 import random
 from typing import Dict, List, Tuple
@@ -7,6 +8,8 @@ from typing import Dict, List, Tuple
 import yaml
 from dialoguekit.core.intent import Intent
 from dialoguekit.participant import DialogueParticipant
+
+logger = logging.getLogger(__name__)
 
 
 class InteractionModel:
@@ -279,6 +282,8 @@ class InteractionModel:
             .get(self._current_intent.label)
             .get("expected_agent_intents")
         )
+
+        logger.debug(f"Agent intent: {agent_intent}\n")
 
         # If agent replies in an expected intent, then pop the next intent from
         # agenda.
