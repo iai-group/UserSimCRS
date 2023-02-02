@@ -8,7 +8,7 @@ import yaml
 from dialoguekit.core.intent import Intent
 from dialoguekit.participant import DialogueParticipant
 
-INTENT_DISTRIBUTION = Dict[Intent, Dict[Intent, int]]
+IntentDistribution = Dict[Intent, Dict[Intent, int]]
 
 
 class InteractionModel:
@@ -47,7 +47,7 @@ class InteractionModel:
 
     def intent_distribution(
         self, annotated_conversations: List[Dict[str, Any]]
-    ) -> Tuple[INTENT_DISTRIBUTION, INTENT_DISTRIBUTION]:
+    ) -> Tuple[IntentDistribution, IntentDistribution]:
         """Distills user intent distributions based on conversations.
 
         Arg:
