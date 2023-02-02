@@ -31,7 +31,7 @@ Simulator parameters
   * `dialogues`: Path to domain config file.
   * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifiers.
   * `rasa_dialogues`: File with Rasa annotated dialogues. Only needed when using a DIET intent classifier.
-  * `debug`: Boolean activating the debug mode.
+  * `debug`: Flag (boolean) to activate debug mode.
 
 Configuration example
 ^^^^^^^^^^^^^^^^^^^^^

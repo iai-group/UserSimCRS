@@ -13,7 +13,7 @@ These can be either provided in a YAML config file and/or via the command line. 
 * `dialogues`: Path to domain config file.
 * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifier.
 * `rasa_dialogues`: File with Rasa annotated dialogues. Only needed when using a DIET intent classifier.
-* `debug`: Boolean activating the debug mode.
+* `debug`: Flag (boolean) to activate debug mode.
 
 ## Example config file
 
