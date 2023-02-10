@@ -72,6 +72,14 @@ class AgendaBasedSimulator(UserSimulator):
         agent_annotations = self._nlu.annotate_slot_values(agent_utterance)
         agent_intent = self._nlu.classify_intent(agent_utterance)
 
+        # Test for the agent's stopping intent. Note that this would normally
+        # handled by the dialogue connector. However, since intent annotations
+        # for the agent's utterance are not available when the response is
+        # received by the dialogue connector, an extra check is needed here.
+        if agent_intent == self._dialogue_connector._agent.stop_intent:
+            self._dialogue_connector.close()
+            quit()
+
         # Response generation (intent and slot-values).
         response_intent = None
         response_slot_values = None
