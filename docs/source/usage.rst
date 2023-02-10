@@ -1,7 +1,7 @@
 Usage
 =====
 
-A YAML configuration file is necessary to start the IAI MovieBot; see `default configuration <https://github.com/iai-group/UserSimCRS/blob/main/config/default/config_default.yaml>`_ for an example.  
+A YAML configuration file is necessary to start the simulation; see `default configuration <https://github.com/iai-group/UserSimCRS/blob/main/config/default/config_default.yaml>`_ for an example.  
 Run the following command to start the simulation:
 
 .. code-block:: shell
@@ -16,14 +16,13 @@ This example shows how to run simulation using the default configuration and the
 
 1. Start IAI MovieBot locally
 
-  * Download the IAI MovieBot `here <https://github.com/iai-group/MovieBot/>`_.
-  * Checkout to the 'separate-flask-server' branch.
+  * Download IAI MovieBot v1.0.1 `here <https://github.com/iai-group/MovieBot/releases/tag/v1.0.1>`_.
   * Follow the IAI MovieBot installation instructions.
   * Start the IAI MovieBot locally: 
   
 .. code-block:: shell
     
-    python -m run_bot -c config/moviebot_config_no_integration.yaml`
+    python -m run_bot -c config/moviebot_config_no_integration.yaml
 
 Note: the parameter `agent_uri` needs to be updated in the configuration in case IAI MovieBot does not run on the default URI (i.e., `http://127.0.0.1:5001`).
 

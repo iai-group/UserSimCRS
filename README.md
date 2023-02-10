@@ -23,7 +23,7 @@ UserSimCRS follows the architecture of a typical task-based dialogue system, whi
   * **User modeling** consists of three sub-components: *preference model* (to capture individual tastes, e.g., likes and dislikes), *context model* (to characterize the situation of the user, e.g., time of the day), and *persona* (to capture user-specific traits, e.g., user cooperativeness).  
   * **Natural language generation** is currently template-based, but it can be conditioned on context (e.g., users could use a different language depending on the time of day or based on their satisfaction with the system).
 
-We refer to the [documentation](https://iai-group.github.io/UserSimCRS/main) for details. Specifically, see [this page](https://iai-group.github.io/UserSimCRS/main/setup_agent.html) on how to set up an existing agent to be evaluated using UserSimCRS.
+We refer to the [documentation](https://iai-group.github.io/UserSimCRS/main) for details. Specifically, see [this page](https://iai-group.github.io/UserSimCRS/main/configuration.html) on how to set up an existing agent to be evaluated using UserSimCRS.
 
 ## Installation
 
@@ -42,7 +42,7 @@ python -m pip install -r requirements/docs_requirements.txt
 
 ## Usage 
 
-A YAML configuration file is necessary to start the MovieBot; see [default configuration](config/default/config_default.yaml) for an example.  
+A YAML configuration file is necessary to start the simulation; see [default configuration](config/default/config_default.yaml) for an example.  
 Run the following command to start the simulation:
 
 ```shell
@@ -55,8 +55,7 @@ This example shows how to run simulation using the default configuration and the
 
 1. Start IAI MovieBot locally
 
-  * Download the IAI MovieBot [here](https://github.com/iai-group/MovieBot/)
-  * Checkout to the 'separate-flask-server' branch
+  * Download IAI MovieBot v1.0.1 [here](https://github.com/iai-group/MovieBot/releases/tag/v1.0.1)
   * Follow the IAI MovieBot installation instructions
   * Start the IAI MovieBot locally: `python -m run_bot -c config/moviebot_config_no_integration.yaml`
 

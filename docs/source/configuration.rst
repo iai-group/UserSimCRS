@@ -31,6 +31,7 @@ Simulator parameters
   * `dialogues`: Path to domain config file.
   * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifiers.
   * `rasa_dialogues`: File with Rasa annotated dialogues. Only needed when using a DIET intent classifier.
+  * `debug`: Flag (boolean) to activate debug mode.
 
 Configuration example
 ^^^^^^^^^^^^^^^^^^^^^
@@ -53,3 +54,4 @@ Below is the default configuration to run simulation with the IAI MovieBot as th
   intent_classifier: "cosine"
   # If using the DIET classifier the following file needs to be provided. 
   # rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
+  debug: False
