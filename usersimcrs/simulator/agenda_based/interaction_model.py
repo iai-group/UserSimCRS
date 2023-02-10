@@ -57,6 +57,9 @@ class InteractionModel:
             Intent distributions:
                 {user of agent intent: {next_user_intent: occurrence}}
         """
+        # TODO: refactor the method to accept Collection[Dialogue] instead of
+        # List[Dict[str, Any]].
+        # See: https://github.com/iai-group/UserSimCRS/issues/104
         user_intent_dist: Dict[Intent, Dict] = dict()
         intent_dist: Dict[Intent, Dict] = dict()
         # Extracts conjoint user intent pairs from conversations.
