@@ -54,10 +54,9 @@ class ItemCollection:
     def load_items_csv(
         self,
         file_path: str,
-        id_col: str = "ID",
-        name_col: str = "NAME",
         delimiter: str = ",",
         domain: Domain = None,
+        domain_mapping: Dict[str, Dict[str, Any]] = {"ID": {"slot": "ID"}},
     ) -> None:
         """Loads an item collection from a CSV file.
 
@@ -69,22 +68,31 @@ class ItemCollection:
             name_col: Name of the field containing item name. Defaults to
               'NAME'.
             delimiter: Field separator, Defaults to ','.
-            domain: Domain knowledge. Defaults to None.
+            domain: Domain of the items. Defaults to None.
+            domain_mapping: Field mapping to create item based on domain slots.
 
         Raises:
-            ValueError: if the id column and/or the name column do not exist.
+            ValueError: if there is no id column.
         """
         with open(file_path, "r", encoding="utf-8") as csvfile:
             csvreader = csv.DictReader(csvfile, delimiter=delimiter)
             for row in csvreader:
-                item_id = row.pop(id_col, None)
-                name = row.pop(name_col, None)
-                properties = row
-
-                if not (item_id and name):  # Checks if both ID and name exist.
-                    raise ValueError(
-                        "Item ID and Name are mandatory. Please check that "
-                        "'id_col' and 'name_col' are properly defined."
+                properties = {}
+                for field, _mapping in domain_mapping.items():
+                    if _mapping["slot"] == "ID":
+                        item_id = row.pop(field, None)
+                        continue
+                    properties[_mapping["slot"]] = (
+                        row[field]
+                        if not _mapping.get("multi-valued", False)
+                        else row[field].split(_mapping["delimiter"])
                     )
-                item = Item(str(item_id), name, properties, domain)
+
+                if not item_id:  # Checks if both ID and name exist.
+                    raise ValueError(
+                        "Item ID is mandatory. Please check that the correct "
+                        "field mapping is used."
+                    )
+
+                item = Item(str(item_id), properties, domain)
                 self.add_item(item)

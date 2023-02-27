@@ -9,35 +9,29 @@ class Item:
     def __init__(
         self,
         item_id: str,
-        name: str,
         properties: Dict[str, Any] = None,
         domain: Domain = None,
     ) -> None:
-        """Create recsys item.
+        """Creates recsys item.
 
-        Creates an item, which minimally has an ID and a canonical name, and
+        Creates an item, which minimally has an ID and
         can optionally have any number of properties, which are represented as
         key-value pairs.
 
         Args:
             item_id: Item ID.
-            name: Item name.
             properties: Dictionary of item properties (key-value pairs).
               Defaults to None.
-            domain: Domain knowledge. Defaults to None.
+            domain: Domain of the item. Defaults to None.
         """
         self._item_id = item_id
-        self._name = name
         self._domain = domain
         self._slot_names = None
 
         if self._domain:
-            self._slot_names = list(
-                map(str.lower, self._domain.get_slot_names())
-            )
             self._properties = dict(
                 filter(
-                    lambda i: i[0] in self._slot_names,
+                    lambda i: i[0] in self._domain.get_slot_names(),
                     properties.items(),
                 )
             )
@@ -48,11 +42,6 @@ class Item:
     def id(self) -> str:
         """Return the item id."""
         return self._item_id
-
-    @property
-    def name(self) -> str:
-        """Return the item name."""
-        return self._name
 
     def get_property(self, key: str) -> Any:
         """Returns a given item property.
@@ -77,8 +66,9 @@ class Item:
         Raises:
             ValueError: if the property is not part of the domain knowledge.
         """
-        if self._domain and key not in self._slot_names:
+        if self._domain and key not in self._domain.get_slot_names():
             raise ValueError(
-                f"The property {key} is not part of the Domain classes."
+                f"The property {key} is not part of the slots specified by "
+                "the domain."
             )
         self._properties[key] = value

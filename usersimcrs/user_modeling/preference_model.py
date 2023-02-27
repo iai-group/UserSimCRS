@@ -92,7 +92,7 @@ class PreferenceModel:
             self._item_preferences.set_preference("ITEM_ID", item_id, rating)
 
     def _get_property_preferences(
-        self, property: str = "genres"
+        self, property: str = "GENRE"
     ) -> Dict[str, float]:
         """Gets the property (e.g, genre) preferences based on rated items.
 
@@ -109,13 +109,9 @@ class PreferenceModel:
             rating,
         ) in self._item_preferences.get_preferences("ITEM_ID").items():
             # TODO: handling all properties generally by creating a new issue
-            for genre in (
-                self._item_collection.get_item(hist_item_id).get_property(
-                    property
-                )
-                # TODO: remove splitting
-                .split("|")
-            ):
+            for genre in self._item_collection.get_item(
+                hist_item_id
+            ).get_property(property):
                 property_ratings[genre].append(rating)
         property_preferences = dict()
         # Calculate the averaged rating for each genre.
@@ -150,13 +146,9 @@ class PreferenceModel:
                 if not self._item_collection.exists(item_id):
                     raise ValueError("Item does not exist in item collection!")
                 # Get current item's properties in a list, e.g., genres.
-                current_item_properties = (
-                    self._item_collection.get_item(item_id).get_property(
-                        "genres"
-                    )
-                    # TODO: Remove splitting
-                    .split("|")
-                )
+                current_item_properties = self._item_collection.get_item(
+                    item_id
+                ).get_property("GENRE")
 
                 # Get the properties' perferences based on historically-rated
                 # items.
