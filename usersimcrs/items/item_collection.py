@@ -64,9 +64,6 @@ class ItemCollection:
 
         Args:
             file_path: Path to CSV file.
-            id_col: Name of the field containing item id. Defaults to 'ID'.
-            name_col: Name of the field containing item name. Defaults to
-              'NAME'.
             delimiter: Field separator, Defaults to ','.
             domain: Domain of the items. Defaults to None.
             domain_mapping: Field mapping to create item based on domain slots.
