@@ -29,11 +29,15 @@ class Item:
         self._item_id = item_id
         self._name = name
         self._domain = domain
+        self._slot_names = None
 
         if self._domain:
+            self._slot_names = list(
+                map(str.lower, self._domain.get_slot_names())
+            )
             self._properties = dict(
                 filter(
-                    lambda i: i[0] in self._domain.get_slot_names(),
+                    lambda i: i[0] in self._slot_names,
                     properties.items(),
                 )
             )
@@ -73,7 +77,7 @@ class Item:
         Raises:
             ValueError: if the property is not part of the domain knowledge.
         """
-        if self._domain and key not in self._domain.get_slot_names():
+        if self._domain and key not in self._slot_names:
             raise ValueError(
                 f"The property {key} is not part of the Domain classes."
             )

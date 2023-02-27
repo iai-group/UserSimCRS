@@ -20,7 +20,9 @@ RATINGS_CSV_FILE = "data/movielens-20m-sample/ratings.csv"
 def preference_model_sip() -> PreferenceModel:
     domain = Domain(DOMAIN_YAML_FILE)
     item_collection = ItemCollection()
-    item_collection.load_items_csv(ITEMS_CSV_FILE, ["ID", "NAME", "genres"])
+    item_collection.load_items_csv(
+        ITEMS_CSV_FILE, id_col="movieId", name_col="title", domain=domain
+    )
     ratings = Ratings()
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
     return PreferenceModel(
@@ -37,7 +39,9 @@ def preference_model_sip() -> PreferenceModel:
 def preference_model_pkg() -> PreferenceModel:
     domain = Domain(DOMAIN_YAML_FILE)
     item_collection = ItemCollection()
-    item_collection.load_items_csv(ITEMS_CSV_FILE, ["ID", "NAME", "genres"])
+    item_collection.load_items_csv(
+        ITEMS_CSV_FILE, id_col="movieId", name_col="title", domain=domain
+    )
     ratings = Ratings()
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
     return PreferenceModel(

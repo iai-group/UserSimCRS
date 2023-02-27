@@ -86,5 +86,5 @@ class ItemCollection:
                         "Item ID and Name are mandatory. Please check that "
                         "'id_col' and 'name_col' are properly defined."
                     )
-                item = Item(item_id, name, properties, domain)
+                item = Item(str(item_id), name, properties, domain)
                 self.add_item(item)
