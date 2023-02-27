@@ -1,7 +1,9 @@
 """Represents a collection of items."""
 
 import csv
-from typing import Any, Dict, List
+from typing import Any, Dict
+
+from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item import Item
 
@@ -50,46 +52,39 @@ class ItemCollection:
         self._items[item.id] = item
 
     def load_items_csv(
-        self, file_path: str, fields: List[Any], delimiter: str = ","
+        self,
+        file_path: str,
+        id_col: str = "ID",
+        name_col: str = "NAME",
+        delimiter: str = ",",
+        domain: Domain = None,
     ) -> None:
         """Loads an item collection from a CSV file.
 
-        The CSV file is assumed to have a header row, which is ignored. Instead,
-        the fields argument specifies which item properties the values
-        correspond to.
+        If items are connected to a Domain, only domain properties will be kept.
 
         Args:
             file_path: Path to CSV file.
-            fields: Mapping of CSV fields to item properties. ID and NAME are
-                designated values for mapping to item ID and name. A None value
-                means that the field is ignored. Otherwise, the value if fields
-                is used as the name (key) of the item property.
-            delimiter: Field separator (default: comma).
+            id_col: Name of the field containing item id. Defaults to 'ID'.
+            name_col: Name of the field containing item name. Defaults to
+              'NAME'.
+            delimiter: Field separator, Defaults to ','.
+            domain: Domain knowledge. Defaults to None.
+
+        Raises:
+            ValueError: if the id column and/or the name column do not exist.
         """
-        # TODO Optionally, connect items to an Domain and allow only for
-        # properties that correspond to Domain classes.
-        # See: https://github.com/iai-group/dialoguekit/issues/42
         with open(file_path, "r", encoding="utf-8") as csvfile:
-            csvreader = csv.reader(csvfile, delimiter=delimiter)
-            next(csvreader)  # Skips header row.
-            for values in csvreader:
-                if len(fields) != len(values):
-                    raise ValueError(
-                        "Mismatch between provided fields and values in CSV "
-                        "file."
-                    )
-                item_id = None
-                name = None
-                properties = {}
-                for field, value in zip(fields, values):
-                    if field == "ID":
-                        item_id = value
-                    elif field == "NAME":
-                        name = value
-                    elif field:
-                        properties[field] = value
+            csvreader = csv.DictReader(csvfile, delimiter=delimiter)
+            for row in csvreader:
+                item_id = row.pop(id_col, None)
+                name = row.pop(name_col, None)
+                properties = row
 
                 if not (item_id and name):  # Checks if both ID and name exist.
-                    raise ValueError("Item ID and Name are mandatory.")
-                item = Item(item_id, name, properties)
+                    raise ValueError(
+                        "Item ID and Name are mandatory. Please check that "
+                        "'id_col' and 'name_col' are properly defined."
+                    )
+                item = Item(item_id, name, properties, domain)
                 self.add_item(item)

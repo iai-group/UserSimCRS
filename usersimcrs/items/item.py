@@ -2,10 +2,16 @@
 
 from typing import Any, Dict
 
+from dialoguekit.core.domain import Domain
+
 
 class Item:
     def __init__(
-        self, item_id: str, name: str, properties: Dict[str, Any] = None
+        self,
+        item_id: str,
+        name: str,
+        properties: Dict[str, Any] = None,
+        domain: Domain = None,
     ) -> None:
         """Create recsys item.
 
@@ -17,14 +23,22 @@ class Item:
             item_id: Item ID.
             name: Item name.
             properties: Dictionary of item properties (key-value pairs).
-                Defaults to None.
+              Defaults to None.
+            domain: Domain knowledge. Defaults to None.
         """
-        # TODO Optionally, connect items to an Domain and allow only for
-        # properties that correspond to Domain classes.
-        # See: https://github.com/iai-group/dialoguekit/issues/42
         self._item_id = item_id
         self._name = name
-        self._properties = properties
+        self._domain = domain
+
+        if self._domain:
+            self._properties = dict(
+                filter(
+                    lambda i: i[0] in self._domain.get_slot_names(),
+                    properties.items(),
+                )
+            )
+        else:
+            self._properties = properties
 
     @property
     def id(self) -> str:
@@ -55,5 +69,12 @@ class Item:
         Args:
             key: Property name.
             value: Property value.
+
+        Raises:
+            ValueError: if the property is not part of the domain knowledge.
         """
+        if self._domain and key not in self._domain.get_slot_names():
+            raise ValueError(
+                f"The property {key} is not part of the Domain classes."
+            )
         self._properties[key] = value

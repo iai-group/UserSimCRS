@@ -71,7 +71,7 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
 
     item_collection = ItemCollection()
     item_collection.load_items_csv(
-        config["items"].get(), ["ID", "NAME", "genres", "keywords"]
+        config["items"].get(), id_col="movieId", name_col="title", domain=domain
     )
 
     ratings = Ratings(item_collection)
