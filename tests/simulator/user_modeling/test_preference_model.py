@@ -10,9 +10,8 @@ from usersimcrs.user_modeling.preference_model import (
     PreferenceModelVariant,
 )
 
-DOMAIN_YAML_FILE = "data/domains/movies.yaml"
+DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
 DOMAIN_MAPPING = {
-    "movieId": {"slot": "ID"},
     "title": {"slot": "TITLE"},
     "genres": {
         "slot": "GENRE",
@@ -20,8 +19,8 @@ DOMAIN_MAPPING = {
         "delimiter": "|",
     },
 }
-ITEMS_CSV_FILE = "data/movielens-20m-sample/movies.csv"
-RATINGS_CSV_FILE = "data/movielens-20m-sample/ratings.csv"
+ITEMS_CSV_FILE = "tests/data/items/movies.csv"
+RATINGS_CSV_FILE = "tests/data/items/ratings.csv"
 
 
 # Single item preference model variant.
@@ -30,7 +29,10 @@ def preference_model_sip() -> PreferenceModel:
     domain = Domain(DOMAIN_YAML_FILE)
     item_collection = ItemCollection()
     item_collection.load_items_csv(
-        ITEMS_CSV_FILE, domain=domain, domain_mapping=DOMAIN_MAPPING
+        ITEMS_CSV_FILE,
+        id_col="movieId",
+        domain=domain,
+        domain_mapping=DOMAIN_MAPPING,
     )
     ratings = Ratings()
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
@@ -49,7 +51,10 @@ def preference_model_pkg() -> PreferenceModel:
     domain = Domain(DOMAIN_YAML_FILE)
     item_collection = ItemCollection()
     item_collection.load_items_csv(
-        ITEMS_CSV_FILE, domain=domain, domain_mapping=DOMAIN_MAPPING
+        ITEMS_CSV_FILE,
+        id_col="movieId",
+        domain=domain,
+        domain_mapping=DOMAIN_MAPPING,
     )
     ratings = Ratings()
     ratings.load_ratings_csv(RATINGS_CSV_FILE)

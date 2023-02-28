@@ -54,9 +54,10 @@ class ItemCollection:
     def load_items_csv(
         self,
         file_path: str,
+        id_col: str = "ID",
         delimiter: str = ",",
         domain: Domain = None,
-        domain_mapping: Dict[str, Dict[str, Any]] = {"ID": {"slot": "ID"}},
+        domain_mapping: Dict[str, Dict[str, Any]] = None,
     ) -> None:
         """Loads an item collection from a CSV file.
 
@@ -64,9 +65,11 @@ class ItemCollection:
 
         Args:
             file_path: Path to CSV file.
+            id_col: Name of the field containing item id. Defaults to 'ID'.
             delimiter: Field separator, Defaults to ','.
             domain: Domain of the items. Defaults to None.
             domain_mapping: Field mapping to create item based on domain slots.
+              Defaults to None.
 
         Raises:
             ValueError: if there is no id column.
@@ -74,16 +77,18 @@ class ItemCollection:
         with open(file_path, "r", encoding="utf-8") as csvfile:
             csvreader = csv.DictReader(csvfile, delimiter=delimiter)
             for row in csvreader:
+                item_id = row.pop(id_col, None)
                 properties = {}
-                for field, _mapping in domain_mapping.items():
-                    if _mapping["slot"] == "ID":
-                        item_id = row.pop(field, None)
-                        continue
-                    properties[_mapping["slot"]] = (
-                        row[field]
-                        if not _mapping.get("multi-valued", False)
-                        else row[field].split(_mapping["delimiter"])
-                    )
+
+                if domain_mapping:
+                    for field, _mapping in domain_mapping.items():
+                        properties[_mapping["slot"]] = (
+                            row[field]
+                            if not _mapping.get("multi-valued", False)
+                            else row[field].split(_mapping["delimiter"])
+                        )
+                else:
+                    properties = row
 
                 if not item_id:  # Checks if both ID and name exist.
                     raise ValueError(

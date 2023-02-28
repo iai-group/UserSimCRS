@@ -6,8 +6,8 @@ from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item_collection import ItemCollection
 
-DOMAIN_YAML_FILE = "data/domains/movies.yaml"
-ITEMS_CSV_FILE = "data/movielens-25m-sample/movies_w_keywords.csv"
+DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
+ITEMS_CSV_FILE = "tests/data/items/movies_w_keywords.csv"
 
 
 @pytest.fixture
@@ -39,7 +39,6 @@ def test_load_items_csv_domain_mapping(
     """Test items loading with a domain and mapping."""
     item_collection = ItemCollection()
     mapping = {
-        "movieId": {"slot": "ID"},
         "title": {"slot": "TITLE"},
         "genres": {
             "slot": "GENRE",
@@ -50,6 +49,7 @@ def test_load_items_csv_domain_mapping(
 
     item_collection.load_items_csv(
         ITEMS_CSV_FILE,
+        id_col="movieId",
         domain=domain,
         domain_mapping=mapping,
     )
