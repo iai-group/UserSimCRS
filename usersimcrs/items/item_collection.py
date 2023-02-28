@@ -54,10 +54,10 @@ class ItemCollection:
     def load_items_csv(
         self,
         file_path: str,
+        domain: Domain,
+        domain_mapping: Dict[str, Dict[str, Any]],
         id_col: str = "ID",
         delimiter: str = ",",
-        domain: Domain = None,
-        domain_mapping: Dict[str, Dict[str, Any]] = None,
     ) -> None:
         """Loads an item collection from a CSV file.
 
@@ -65,11 +65,10 @@ class ItemCollection:
 
         Args:
             file_path: Path to CSV file.
+            domain: Domain of the items.
+            domain_mapping: Field mapping to create item based on domain slots.
             id_col: Name of the field containing item id. Defaults to 'ID'.
             delimiter: Field separator, Defaults to ','.
-            domain: Domain of the items. Defaults to None.
-            domain_mapping: Field mapping to create item based on domain slots.
-              Defaults to None.
 
         Raises:
             ValueError: if there is no id column.
@@ -80,15 +79,12 @@ class ItemCollection:
                 item_id = row.pop(id_col, None)
                 properties = {}
 
-                if domain_mapping:
-                    for field, _mapping in domain_mapping.items():
-                        properties[_mapping["slot"]] = (
-                            row[field]
-                            if not _mapping.get("multi-valued", False)
-                            else row[field].split(_mapping["delimiter"])
-                        )
-                else:
-                    properties = row
+                for field, _mapping in domain_mapping.items():
+                    properties[_mapping["slot"]] = (
+                        row[field]
+                        if not _mapping.get("multi-valued", False)
+                        else row[field].split(_mapping["delimiter"])
+                    )
 
                 if not item_id:  # Checks if both ID and name exist.
                     raise ValueError(
