@@ -96,8 +96,7 @@ agent_set_retrieval:
 # Reward settings
 REWARD:
   full_set_points: 20
-  missing_intent_penalties:
-    - INQUIRE: 4
-    - ...
+  intents:
+    INQUIRE: 4
   repeat_penalty: 1
   cost: 1
