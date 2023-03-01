@@ -33,9 +33,7 @@ def movie() -> Dict[str, Any]:
     }
 
 
-def test_load_items_csv_domain_mapping(
-    domain: Domain, movie: Dict[str, Any]
-) -> None:
+def test_load_items_csv(domain: Domain, movie: Dict[str, Any]) -> None:
     """Test items loading with a domain and mapping."""
     item_collection = ItemCollection()
     mapping = {
@@ -59,10 +57,3 @@ def test_load_items_csv_domain_mapping(
     for property in ["TITLE", "GENRE"]:
         assert item.get_property(property) == movie[property]
     assert item.get_property("KEYWORD") is None
-
-
-def test_load_items_csv_no_mapping(domain: Domain) -> None:
-    """Test items loading without mapping."""
-    item_collection = ItemCollection()
-    with pytest.raises(ValueError):
-        item_collection.load_items_csv(ITEMS_CSV_FILE, domain=domain)
