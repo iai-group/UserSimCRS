@@ -123,7 +123,7 @@ class Ratings:
 
         Args:
             historical_ratio: Ratio ([0..1]) of ratings to be used as historical
-                data.
+              data.
 
         Returns:
             Two Ratings objects, one corresponding to historical and another to

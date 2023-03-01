@@ -95,7 +95,7 @@ class ItemCollection:
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
 
-    def get_possible_slot_values(self, slot: str) -> Set[str]:
+    def get_possible_property_values(self, slot: str) -> Set[str]:
         """Returns the set of possible values for a given slot.
 
         Args:

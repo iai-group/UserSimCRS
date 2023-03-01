@@ -14,15 +14,11 @@ from dialoguekit.core.domain import Domain
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
-from dialoguekit.nlg.template_from_training_data import (
-    extract_utterance_template,
-)
+from dialoguekit.nlg.template_from_training_data import extract_utterance_template
 from dialoguekit.nlu import NLU
 from dialoguekit.nlu.intent_classifier import IntentClassifier
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.nlu.models.intent_classifier_cosine import (
-    IntentClassifierCosine,
-)
+from dialoguekit.nlu.models.intent_classifier_cosine import IntentClassifierCosine
 from dialoguekit.participant.agent import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms.platform import Platform
@@ -102,7 +98,6 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
         domain,
         item_collection,
         ratings,
-        PreferenceModelVariant.SIP,
         historical_user_id="13",
     )
 

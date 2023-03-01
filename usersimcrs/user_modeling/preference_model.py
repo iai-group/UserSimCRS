@@ -51,6 +51,11 @@ _KEY_ITEM_ID = "ITEM_ID"
 class PreferenceModel:
     """Representation of the user's preferences."""
 
+    # Above this threshold, a preference is considered positive;
+    # below -1 x this threshold, a preference is considered negative;
+    # otherwise, it's considered neutral.
+    PREFERENCE_THRESHOLD = 0.25
+
     def __init__(
         self,
         domain: Domain,
@@ -69,7 +74,6 @@ class PreferenceModel:
             domain: Domain.
             item_collection: Item collection.
             historical_ratings: Historical ratings.
-            model_variant: Preference model variant (SIP or PKG).
             historical_user_id (Optional): If provided, the simulated user is
                 based on this particular historical user; otherwise, it is based
                 on a randomly sampled user. This is mostly added to make the
@@ -94,6 +98,8 @@ class PreferenceModel:
     def is_item_consumed(self, item_id: str) -> bool:
         """Returns whether or not an item has been consumed by the user.
 
+        This is used to answer questions like: "Have you seen Inception?"
+
         Args:
             item_id: Item ID.
 
@@ -101,18 +107,28 @@ class PreferenceModel:
             True if the item has been consumed (i.e., appears among the
             historical ratings).
         """
-        return item_id in self._historical_ratings
+        return (
+            self._historical_ratings.get_user_item_rating(
+                self._historical_user_id, item_id
+            )
+            is not None
+        )
 
     def get_item_preference(self, item_id: str) -> float:
-        """Returns a preference on a given item.
+        """Returns a preference for a given item.
 
-        This is used to answer questions like: "Have you seen Inception?"
+        This is used to answer questions like: "How did you like it?",
+        where "it" refers to the movie mentioned previously.
 
         Args:
             item_id: Item ID.
 
         Returns:
-            Randomly chosen preference, which is either -1 or +1.
+            Randomly chosen preference, which is generally in [-1,1], but in
+            case of the simple preference model it's either -1 or +1.
+
+        Raises:
+            ValueError: If the item does not exist in the collection.
         """
         if not self._item_collection.exists(item_id):
             raise ValueError("Item does not exist in item collection.")
@@ -145,7 +161,7 @@ class PreferenceModel:
         Returns:
             Randomly chosen preference, which is either -1 or +1.
         """
-        self._check_slot_exists()
+        self._check_slot_exists(slot)
         preference = self._slot_value_preferences.get_preference(slot, value)
         if not preference:
             preference = random.choice([-1, 1])
@@ -167,14 +183,14 @@ class PreferenceModel:
             A value and corresponding preferences; if no preference could be
             obtained for that slot, then (None, 0) are returned.
         """
-        self._check_slot_exists()
+        self._check_slot_exists(slot)
         preference = None
         attempts = 0
 
         while not preference:
             # Pick a random value for the slot.
             value = random.choice(
-                self._item_collection.get_possible_slot_values(slot)
+                self._item_collection.get_possible_property_values(slot)
             )
             # If there is either (1) a positive preference on that value from
             # before, or (2) there is no preference, then it can be returned.

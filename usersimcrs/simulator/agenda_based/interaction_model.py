@@ -27,10 +27,11 @@ class InteractionModel:
     # The user responds to a recommendation positively or negatively.
     INTENT_LIKE = Intent("NOTE.LIKE")
     INTENT_DISLIKE = Intent("NOTE.DISLIKE")
+    INTENT_NEUTRAL = Intent("ADD-INTENT-NAME")  # TODO: intent to be created
     # The user expresses preference on some slot/value.
     INTENT_DISCLOSE = Intent("DISCLOSE")
     # The user cannot answer.
-    INTENT_DONT_KNOW = Intent("ADD-INTENT-NAME")
+    INTENT_DONT_KNOW = Intent("ADD-INTENT-NAME")  # TODO: intent to be created
 
     def __init__(
         self, config_file: str, annotated_conversations: List[Dict[str, Any]]
@@ -197,7 +198,7 @@ class InteractionModel:
         self._config["user_preference_intents_reverse"] = sub_to_main_intent
 
     @staticmethod
-    def _get_main_intent_from_sub_intent_label(sub_intent: str):
+    def _get_main_intent_from_sub_intent_label(sub_intent: str) -> str:
         return sub_intent.split(".")[0]
 
     @property
@@ -255,7 +256,7 @@ class InteractionModel:
         # Get the sum of the next intent occurrences.
         next_intent_occurrences_sum = sum(intent_map.values())
 
-        # Get normalized next intent distribution occurences and next intent
+        # Get normalized next intent distribution occurrences and next intent
         # list.
         d, next_intents = [], []
         for next_intent, next_intent_occurrence in intent_map.items():
