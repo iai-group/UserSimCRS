@@ -133,12 +133,10 @@ class AgendaBasedSimulator(UserSimulator):
                 # and a preference.
                 pass
 
-            # TODO: These are old comments that I'm not sure how to interpret...
-            # The choice of slots depends on the agent intent, e.g., REFINE
-            # needs replacement items; while EXPAND will need an extra item.
-            # response_slot_values = self._preference_model.get_next_user_slots(
-            #     agent_intent, agent_annotations
-            # )
+            # TODO: Check if there are other cases that'd need to be dealt with,
+            # based on KDD paper implementation.
+            # See: https://github.com/iai-group/UserSimCRS/issues/115
+
         # Agent is recommending items.
         elif self._interaction_model.is_agent_intent_set_retrieval(
             agent_intent
@@ -160,16 +158,12 @@ class AgendaBasedSimulator(UserSimulator):
                 # ask questions about the item before deciding (this should be
                 # based on the agenda).
                 preference = self._preference_model.get_item_preference(item_id)
-                if preference == 1:
-                    response_intent = (
-                        self._interaction_model.INTENT_LIKE
-                    )
-                elif preference == -1:
-                    response_intent = (
-                        self._interaction_model.INTENT_DISLIKE
-                    )
+                if preference > self._preference_model.PREFERENCE_THRESHOLD:
+                    response_intent = self._interaction_model.INTENT_LIKE
+                elif preference < -self._preference_model.PREFERENCE_THRESHOLD:
+                    response_intent = self._interaction_model.INTENT_DISLIKE
                 else:
-                    raise ValueError("Could not obtain preference for item.")
+                    response_intent = self._interaction_model.INTENT_NEUTRAL
 
         # Generating natural language response through NLG.
         response = self._nlg.generate_utterance_text(
