@@ -14,27 +14,28 @@ from dialoguekit.core.domain import Domain
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
-from dialoguekit.nlg.template_from_training_data import extract_utterance_template
+from dialoguekit.nlg.template_from_training_data import (
+    extract_utterance_template,
+)
 from dialoguekit.nlu import NLU
 from dialoguekit.nlu.intent_classifier import IntentClassifier
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.nlu.models.intent_classifier_cosine import IntentClassifierCosine
+from dialoguekit.nlu.models.intent_classifier_cosine import (
+    IntentClassifierCosine,
+)
 from dialoguekit.participant.agent import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms.platform import Platform
 from sample_agents.moviebot_agent import MovieBotAgent
 
-from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.items.item_collection import ItemCollection, MappingConfig
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.simulator.user_simulator import UserSimulator
-from usersimcrs.user_modeling.preference_model import (
-    PreferenceModel,
-    PreferenceModelVariant,
-)
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 DEFAULT_CONFIG_PATH = "config/default/config_default.yaml"
 OUTPUT_DIR = "data/runs"
@@ -67,7 +68,7 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
 
     item_collection = ItemCollection()
     # TODO: Move mapping to config.yaml.
-    mapping = {
+    mapping: MappingConfig = {
         "title": {"slot": "TITLE"},
         "genres": {
             "slot": "GENRE",

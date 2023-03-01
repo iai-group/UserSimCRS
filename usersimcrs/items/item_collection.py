@@ -1,11 +1,15 @@
 """Represents a collection of items."""
 
 import csv
-from typing import Any, Dict, Set
+from typing import Any, Dict, List
 
 from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item import Item
+
+# Mapping configuration: for each csv field as key, it provides a dict with
+# mapping instructions. This inner dict has minimally a "slot" key.
+MappingConfig = Dict[str, Dict[str, Any]]
 
 
 class ItemCollection:
@@ -55,7 +59,7 @@ class ItemCollection:
         self,
         file_path: str,
         domain: Domain,
-        domain_mapping: Dict[str, Dict[str, Any]],
+        domain_mapping: MappingConfig,
         id_col: str = "ID",
         delimiter: str = ",",
     ) -> None:
@@ -95,14 +99,14 @@ class ItemCollection:
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
 
-    def get_possible_property_values(self, slot: str) -> Set[str]:
+    def get_possible_property_values(self, slot: str) -> List[str]:
         """Returns the set of possible values for a given slot.
 
         Args:
             slot: Slot name.
 
         Returns:
-            Set of possible values.
+            List of possible values.
         """
         # TODO: https://github.com/iai-group/UserSimCRS/issues/112
-        return set()
+        return []
