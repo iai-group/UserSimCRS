@@ -70,8 +70,25 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
     domain = Domain(config["domain"].get())
 
     item_collection = ItemCollection()
+    # TODO: Move mapping to config.yaml.
+    mapping = {
+        "title": {"slot": "TITLE"},
+        "genres": {
+            "slot": "GENRE",
+            "multi-valued": True,
+            "delimiter": "|",
+        },
+        "keywords": {
+            "slot": "KEYWORD",
+            "multi-valued": True,
+            "delimiter": "|",
+        },
+    }
     item_collection.load_items_csv(
-        config["items"].get(), ["ID", "NAME", "genres", "keywords"]
+        config["items"].get(),
+        id_col="movieId",
+        domain=domain,
+        domain_mapping=mapping,
     )
 
     ratings = Ratings(item_collection)
