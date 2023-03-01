@@ -1,6 +1,7 @@
 """Agenda-based user simulator from [Zhang and Balog, KDD'20]."""
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
+from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.domain import Domain
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -83,33 +84,96 @@ class AgendaBasedSimulator(UserSimulator):
         # Response generation (intent and slot-values).
         response_intent = None
         response_slot_values = None
-        response_preference = None
 
         self._interaction_model.update_agenda(agent_intent)
         response_intent = self._interaction_model.current_intent
 
+        # TODO: Refactor the part below to private methods, once the logic
+        # is clear.
+
         # Agent wants to elicit preferences.
         if self._interaction_model.is_agent_intent_elicit(agent_intent):
-            # Read entities (slots) from preference_model.
+            # TODO: Extract the slots from agent response on which preferences
+            # are elicited. For now, we just focus on a single slot.
+            slot = None
+
+            # Agent is soliciting preferences on a particular slot.
+            if slot:
+                # TODO: Extract value from agent response.
+                value = None
+                # Agent is asking about a particular slot-value pair, e.g.,
+                # "Do you like action movies?"
+                if value:
+                    (
+                        response_slot,
+                        response_value,
+                    ) = self._preference_model.get_slot_value_preference(
+                        slot, value
+                    )
+                # Agent is asking about value preferences on a given slot, e.g.,
+                # "What movie genre would you prefer?"
+                else:
+                    (
+                        response_slot,
+                        response_value,
+                    ) = self._preference_model.get_slot_preference(slot)
+
+                if response_slot:
+                    response_intent = self._interaction_model.INTENT_DISCLOSE
+                    response_slot_values = [
+                        Annotation(slot=response_slot, value=response_value)
+                    ]
+                else:
+                    response_intent = self._interaction_model.INTENT_DONT_KNOW
+
+            # Agent is eliciting preferences in general, e.g., "What kind of
+            # movies do you like"
+            else:
+                # TODO: Add method to interaction model that picks both a slot
+                # and a preference.
+                pass
+
+            # TODO: These are old comments that I'm not sure how to interpret...
             # The choice of slots depends on the agent intent, e.g., REFINE
             # needs replacement items; while EXPAND will need an extra item.
-            response_slot_values = self._preference_model.get_next_user_slots(
-                agent_intent, agent_annotations
-            )
+            # response_slot_values = self._preference_model.get_next_user_slots(
+            #     agent_intent, agent_annotations
+            # )
         # Agent is recommending items.
         elif self._interaction_model.is_agent_intent_set_retrieval(
             agent_intent
         ):
+            # TODO: Extract the ID of the recommended item:
+            item_id = None
+
             # Determine user preference for the agent's recommendation.
-            # TODO: Replace get_preference with appropriate method.
-            # See: https://github.com/iai-group/UserSimCRS/issues/88
-            response_preference = self._preference_model.get_preference(
-                agent_utterance
-            )
+            # First, check if the user has already consumed the item.
+            if self._preference_model.is_item_consumed(item_id):
+                # Currently, the user only responds by saying that they already
+                # consumed the item. If there is a follow-up question by the
+                # agent whether they've liked it, that should end up in the
+                # other branch of the fork.
+                response_intent = self._interaction_model.INTENT_ITEM_CONSUMED
+            else:
+                # Get a response based on the recommendation. Currently, the
+                # user responds immediately with a like/dislike, but it could
+                # ask questions about the item before deciding (this should be
+                # based on the agenda).
+                preference = self._preference_model.get_item_preference(item_id)
+                if preference == 1:
+                    response_intent = (
+                        self._interaction_model.INTENT_LIKE
+                    )
+                elif preference == -1:
+                    response_intent = (
+                        self._interaction_model.INTENT_DISLIKE
+                    )
+                else:
+                    raise ValueError("Could not obtain preference for item.")
 
         # Generating natural language response through NLG.
         response = self._nlg.generate_utterance_text(
-            response_intent, response_slot_values, response_preference
+            response_intent, response_slot_values
         )
 
         return response

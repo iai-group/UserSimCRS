@@ -1,7 +1,7 @@
 """Represents a collection of items."""
 
 import csv
-from typing import Any, Dict
+from typing import Any, Dict, Set
 
 from dialoguekit.core.domain import Domain
 
@@ -94,3 +94,15 @@ class ItemCollection:
 
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
+
+    def get_possible_slot_values(self, slot: str) -> Set[str]:
+        """Returns the set of possible values for a given slot.
+
+        Args:
+            slot: Slot name.
+
+        Returns:
+            Set of possible values.
+        """
+        # TODO: https://github.com/iai-group/UserSimCRS/issues/112
+        return set()

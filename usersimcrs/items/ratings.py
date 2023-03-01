@@ -2,12 +2,15 @@
 
 Ratings are normalized in the [-1,1] range, where -1 corresponds to
 (strong) dislike, 0 is neutral, and 1 is (strong) like.
+
+TODO: Create tests for this file 
+See: https://github.com/iai-group/UserSimCRS/issues/109
 """
 
 import csv
 import random
 from collections import defaultdict
-from typing import Dict, Optional
+from typing import Dict, Optional, Tuple
 
 from usersimcrs.items.item_collection import ItemCollection
 
@@ -112,3 +115,23 @@ class Ratings:
             User ID.
         """
         return random.choice(list(self._user_ratings.keys()))
+
+    def create_split(
+        self, historical_ratio: float
+    ) -> Tuple["Ratings", "Ratings"]:
+        """Splits ratings into historical and ground truth ratings.
+
+        Args:
+            historical_ratio: Ratio ([0..1]) of ratings to be used as historical
+                data.
+
+        Returns:
+            Two Ratings objects, one corresponding to historical and another to
+            ground truth ratings.
+        """
+        historical_ratings = Ratings(self._item_collection)
+        ground_truth_ratings = Ratings(self._item_collection)
+        # TODO: Implement this method with tests
+        # See: https://github.com/iai-group/UserSimCRS/issues/108
+
+        return historical_ratings, ground_truth_ratings

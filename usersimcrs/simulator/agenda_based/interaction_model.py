@@ -16,8 +16,21 @@ logger = logging.getLogger(__name__)
 class InteractionModel:
     """Represents an interaction model."""
 
-    START_INTENT = Intent("DISCLOSE.NON-DISCLOSE")
-    STOP_INTENT = Intent("STOP")
+    # TODO: These should probably be loaded from the interaction model yaml file.
+    # We can require that these are defined.
+    INTENT_START = Intent("DISCLOSE.NON-DISCLOSE")
+    INTENT_STOP = Intent("STOP")
+    # TODO: Add intents for item consumption and preferences
+    # See: https://github.com/iai-group/UserSimCRS/issues/111
+    # The user expresses that they have consumed an item in the past.
+    INTENT_ITEM_CONSUMED = Intent("NOTE.YES")
+    # The user responds to a recommendation positively or negatively.
+    INTENT_LIKE = Intent("NOTE.LIKE")
+    INTENT_DISLIKE = Intent("NOTE.DISLIKE")
+    # The user expresses preference on some slot/value.
+    INTENT_DISCLOSE = Intent("DISCLOSE")
+    # The user cannot answer.
+    INTENT_DONT_KNOW = Intent("ADD-INTENT-NAME")
 
     def __init__(
         self, config_file: str, annotated_conversations: List[Dict[str, Any]]
@@ -77,7 +90,7 @@ class InteractionModel:
                 next_user_intent = (
                     user_agenda[i + 1]
                     if i < len(user_agenda) - 1
-                    else self.STOP_INTENT
+                    else self.INTENT_STOP
                 )
                 if next_user_intent not in user_intent_dist[user_intent]:
                     user_intent_dist[user_intent][next_user_intent] = 0
@@ -111,7 +124,7 @@ class InteractionModel:
                         )
                     )
                     if j < len(annotated_conversation["conversation"]) - 1
-                    else self.START_INTENT
+                    else self.INTENT_START
                 )
                 if next_user_intent not in intent_dist[intent]:
                     intent_dist[intent][next_user_intent] = 0
@@ -143,13 +156,13 @@ class InteractionModel:
         Step3: filter the agenda, e.g. too short or too long agenda will
             trigger this function rerun
         """
-        current_intent = self.START_INTENT
+        current_intent = self.INTENT_START
         agenda = list()
         agenda.append(current_intent)
         next_intent = self.next_intent(
             current_intent, self._user_intent_distribution
         )
-        while next_intent != self.STOP_INTENT:
+        while next_intent != self.INTENT_STOP:
             current_intent = next_intent
             agenda.append(current_intent)
             next_intent = self.next_intent(
@@ -165,26 +178,26 @@ class InteractionModel:
         for intent_label, properties in self._config["user_intents"].items():
             if "preference_contingent" in properties:
                 if (
-                    not self.__get_main_intent_from_sub_intent_label(
+                    not self._get_main_intent_from_sub_intent_label(
                         intent_label
                     )
                     in self._config["user_preference_intents"]
                 ):
                     self._config["user_preference_intents"][
-                        self.__get_main_intent_from_sub_intent_label(
+                        self._get_main_intent_from_sub_intent_label(
                             intent_label
                         )
                     ] = {}
                 self._config["user_preference_intents"][
-                    self.__get_main_intent_from_sub_intent_label(intent_label)
+                    self._get_main_intent_from_sub_intent_label(intent_label)
                 ][properties["preference_contingent"]] = intent_label
                 sub_to_main_intent[
                     intent_label
-                ] = self.__get_main_intent_from_sub_intent_label(intent_label)
+                ] = self._get_main_intent_from_sub_intent_label(intent_label)
         self._config["user_preference_intents_reverse"] = sub_to_main_intent
 
     @staticmethod
-    def __get_main_intent_from_sub_intent_label(sub_intent: str):
+    def _get_main_intent_from_sub_intent_label(sub_intent: str):
         return sub_intent.split(".")[0]
 
     @property
@@ -239,19 +252,19 @@ class InteractionModel:
         # Randomly generates a probability from 0~1.
         p_random = random.uniform(0, 1)
 
-        # Get the sum of the next intent occurences.
-        next_intent_occurences_sum = sum(intent_map.values())
+        # Get the sum of the next intent occurrences.
+        next_intent_occurrences_sum = sum(intent_map.values())
 
         # Get normalized next intent distribution occurences and next intent
         # list.
         d, next_intents = [], []
         for next_intent, next_intent_occurrence in intent_map.items():
-            d.append(next_intent_occurrence / next_intent_occurences_sum)
+            d.append(next_intent_occurrence / next_intent_occurrences_sum)
             next_intents.append(next_intent)
-        return self.__sample_random_intent(p_random, d, next_intents)
+        return self._sample_random_intent(p_random, d, next_intents)
 
     @staticmethod
-    def __sample_random_intent(
+    def _sample_random_intent(
         p: float, d: List[float], items: List[Intent]
     ) -> Intent:
         """Determines the next item based on a randomly generated probability.

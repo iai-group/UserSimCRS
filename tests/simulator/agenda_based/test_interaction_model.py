@@ -120,5 +120,5 @@ def test_initialize_agenda(im_cir6: InteractionModel) -> None:
 def test_update_agenda(im_cir6: InteractionModel) -> None:
     initial_intent = im_cir6.current_intent
     im_cir6.update_agenda(_INTENT_INQUIRE)
-    assert im_cir6.current_intent is not im_cir6.START_INTENT
+    assert im_cir6.current_intent is not im_cir6.INTENT_START
     assert initial_intent is not im_cir6.current_intent

@@ -12,11 +12,10 @@ class Item:
         properties: Dict[str, Any] = None,
         domain: Domain = None,
     ) -> None:
-        """Creates recsys item.
+        """Creates an item.
 
-        Creates an item, which minimally has an ID and
-        can optionally have any number of properties, which are represented as
-        key-value pairs.
+        Each item has minimally an ID and can optionally have any number of
+        properties, which are represented as key-value pairs.
 
         Args:
             item_id: Item ID.
