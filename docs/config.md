@@ -9,6 +9,8 @@ These can be either provided in a YAML config file and/or via the command line. 
 * `domain`: A YAML file with domain-specific slot names.
 * `intents`: Path to the intent schema file.
 * `items`: Path to items file.
+* `id_col`: Name of the CSV field containing item id.
+* `domain_mapping`: CSV field mapping to create item based on domain slots.
 * `ratings`: Path to ratings file.
 * `dialogues`: Path to domain config file.
 * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifier.
@@ -24,13 +26,29 @@ agent_id: "IAI MovieBot"
 output_name: "moviebot"
 # By default, the agent has an HTTP API.
 agent_uri: "http://127.0.0.1:5001"
+
 domain: data/domains/movies.yaml
 intents: data/interaction_models/crs_v1.yaml
+
 items: data/movielens-25m-sample/movies_w_keywords.csv
+id_col: movieId
+domain_mapping:
+  title:
+    slot: TITLE
+  genres:
+    slot: GENRE
+    multi-valued: True
+    delimiter: "|"
+  keywords:
+    slot: KEYWORD
+    multi-valued: True
+    delimiter: "|"
 ratings: data/movielens-25m-sample/ratings.csv
+
 dialogues: data/agents/moviebot/annotated_dialogues.json
 intent_classifier: "cosine"
-# If using the DIET classifier the following file needs to be provided. 
+# If using the diet classifier the following file needs to be provided. 
 # rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
+
 debug: False
 ```
