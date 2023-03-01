@@ -9,33 +9,33 @@ KDD'20].
 
 - Whenever a user is prompted whether they had seen/consumed a specific item, we
   answer that based on historical data.
-- Whenever the user is prompted for their preference on a given item or 
-  slot-value pair, we provide a positive/negative response by flipping a coin 
-  (i.e., either -1 or +1 as the preference). 
+- Whenever the user is prompted for their preference on a given item or
+  slot-value pair, we provide a positive/negative response by flipping a coin
+  (i.e., either -1 or +1 as the preference).
 - Whenever the user is prompted for a preference on a given slot, a random value
   among the existing slot values is picked and returned as positive preference.
 
 The responses given are remembered so that the user would respond the same way
 if they are asked the same question again.
 
-This approach offers limited consistency. Items that are seen/consumed are rooted
-in real user behavior, but the preferences expressed about them are not. Hence,
-the user might express a preference about a slot that is inconsistent with the
-answers given to other questions (e.g., likes "action" as a genre, but has not
-seen a single action movie).
+This approach offers limited consistency. Items that are seen/consumed are
+rooted in real user behavior, but the preferences expressed about them are not.
+Hence, the user might express a preference about a slot that is inconsistent
+with the answers given to other questions (e.g., likes "action" as a genre, but
+has not seen a single action movie).
 
 TODO: Tests are needed for this class
 See: https://github.com/iai-group/UserSimCRS/issues/113
 
 TODO: This class is to be made abstract and SimplePreferenceModel and
 PKGPreferenceModel will be derived classes, once the PKG preference model is
-implemented. 
+implemented.
 See: https://github.com/iai-group/UserSimCRS/issues/110
 """
 
 import random
 import string
-from typing import Optional, Tuple
+from typing import Tuple
 
 from dialoguekit.core.domain import Domain
 from dialoguekit.participant.user_preferences import UserPreferences
