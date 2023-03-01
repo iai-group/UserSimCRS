@@ -47,7 +47,7 @@ ratings: data/movielens-25m-sample/ratings.csv
 
 dialogues: data/agents/moviebot/annotated_dialogues.json
 intent_classifier: "cosine"
-# If using the diet classifier the following file needs to be provided. 
+# If using the DIET classifier the following file needs to be provided. 
 # rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
 
 debug: False
