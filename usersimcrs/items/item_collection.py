@@ -1,4 +1,9 @@
-"""Represents a collection of items."""
+"""Represents a collection of items.
+
+Items are characterized by a set of properties, which correspond to slots in a
+domain. Items and can be loaded from CSV by providing a mapping from CSV fields
+to properties (i.e., domain slots).
+"""
 
 import csv
 from typing import Any, Dict, List
@@ -99,11 +104,11 @@ class ItemCollection:
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
 
-    def get_possible_property_values(self, slot: str) -> List[str]:
-        """Returns the set of possible values for a given slot.
+    def get_possible_property_values(self, property: str) -> List[str]:
+        """Returns the set of possible values for a given property.
 
         Args:
-            slot: Slot name.
+            property: Property name.
 
         Returns:
             List of possible values.
