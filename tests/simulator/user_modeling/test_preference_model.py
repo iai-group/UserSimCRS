@@ -5,10 +5,7 @@ from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.user_modeling.preference_model import (
-    PreferenceModel,
-    PreferenceModelVariant,
-)
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
 DOMAIN_MAPPING = {
@@ -40,7 +37,6 @@ def preference_model_sip() -> PreferenceModel:
         domain,
         item_collection,
         ratings,
-        PreferenceModelVariant.SIP,
         historical_user_id="13",
     )
 
@@ -62,7 +58,6 @@ def preference_model_pkg() -> PreferenceModel:
         domain,
         item_collection,
         ratings,
-        PreferenceModelVariant.PKG,
         historical_user_id="13",
     )
 
