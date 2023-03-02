@@ -1,8 +1,8 @@
 """Represents a collection of items.
 
-Items are characterized by a set of properties, which correspond to slots in a
-domain. Items and can be loaded from CSV by providing a mapping from CSV fields
-to properties (i.e., domain slots).
+Items are characterized by a set of properties, which correspond to
+slots in a domain. Items and can be loaded from CSV by providing a
+mapping from CSV fields to properties (i.e., domain slots).
 """
 
 import csv
@@ -20,7 +20,7 @@ MappingConfig = Dict[str, Dict[str, Any]]
 class ItemCollection:
     def __init__(self) -> None:
         """Initializes an empty item collection."""
-        self._items: Dict[str, Any] = {}
+        self._items: Dict[str, Item] = {}
 
     def get_item(self, item_id: str) -> Item:
         """Returns an item from the collection based on its ID.
@@ -113,5 +113,12 @@ class ItemCollection:
         Returns:
             List of possible values.
         """
-        # TODO: https://github.com/iai-group/UserSimCRS/issues/112
-        return []
+        values: List[Any] = []
+        for item in self._items.values():
+            value = item.get_property(property)
+            if value:
+                if isinstance(value, List):
+                    values.extend(value)
+                else:
+                    values.append(value)
+        return [*set(values)]
