@@ -28,7 +28,7 @@ from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms.platform import Platform
 from sample_agents.moviebot_agent import MovieBotAgent
 
-from usersimcrs.items.item_collection import ItemCollection, MappingConfig
+from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
@@ -67,25 +67,11 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
     domain = Domain(config["domain"].get())
 
     item_collection = ItemCollection()
-    # TODO: Move mapping to config.yaml.
-    mapping: MappingConfig = {
-        "title": {"slot": "TITLE"},
-        "genres": {
-            "slot": "GENRE",
-            "multi-valued": True,
-            "delimiter": "|",
-        },
-        "keywords": {
-            "slot": "KEYWORD",
-            "multi-valued": True,
-            "delimiter": "|",
-        },
-    }
     item_collection.load_items_csv(
         config["items"].get(),
-        id_col="movieId",
         domain=domain,
-        domain_mapping=mapping,
+        domain_mapping=config["domain_mapping"].get(),
+        id_col=config["id_col"].get(),
     )
 
     ratings = Ratings(item_collection)
@@ -194,6 +180,14 @@ def parse_args() -> argparse.Namespace:
         "--intents", type=str, help="Path to the intent schema file."
     )
     parser.add_argument("--items", type=str, help="Path to items file.")
+    parser.add_argument(
+        "--id_col", type=str, help="Name of the CSV field containing item id."
+    )
+    parser.add_argument(
+        "--domain_mapping",
+        type=json.loads,
+        help="String form of field mapping.",
+    )
     parser.add_argument("--ratings", type=str, help="Path to ratings file.")
     parser.add_argument(
         "--dialogues", type=str, help="Path to the annotated dialogues file."
