@@ -28,17 +28,14 @@ from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms.platform import Platform
 from sample_agents.moviebot_agent import MovieBotAgent
 
-from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.items.item_collection import ItemCollection, MappingConfig
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.simulator.user_simulator import UserSimulator
-from usersimcrs.user_modeling.preference_model import (
-    PreferenceModel,
-    PreferenceModelVariant,
-)
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 DEFAULT_CONFIG_PATH = "config/default/config_default.yaml"
 OUTPUT_DIR = "data/runs"
@@ -71,7 +68,7 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
 
     item_collection = ItemCollection()
     # TODO: Move mapping to config.yaml.
-    mapping = {
+    mapping: MappingConfig = {
         "title": {"slot": "TITLE"},
         "genres": {
             "slot": "GENRE",
@@ -93,12 +90,15 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
 
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(file_path=config["ratings"].get())
+    # TODO: Split ratings to historical and ground truth and use historical
+    # ratings in preference model
+    # See: https://github.com/iai-group/UserSimCRS/issues/108
+    # historical_ratings, ground_truth_ratings = ratings.create_split(config["historical_ratings_ratio"].get(0.8))
 
     preference_model = PreferenceModel(
         domain,
         item_collection,
         ratings,
-        PreferenceModelVariant.SIP,
         historical_user_id="13",
     )
 

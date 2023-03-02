@@ -1,11 +1,20 @@
-"""Represents a collection of items."""
+"""Represents a collection of items.
+
+Items are characterized by a set of properties, which correspond to slots in a
+domain. Items and can be loaded from CSV by providing a mapping from CSV fields
+to properties (i.e., domain slots).
+"""
 
 import csv
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item import Item
+
+# Mapping configuration: for each csv field as key, it provides a dict with
+# mapping instructions. This inner dict has minimally a "slot" key.
+MappingConfig = Dict[str, Dict[str, Any]]
 
 
 class ItemCollection:
@@ -55,7 +64,7 @@ class ItemCollection:
         self,
         file_path: str,
         domain: Domain,
-        domain_mapping: Dict[str, Dict[str, Any]],
+        domain_mapping: MappingConfig,
         id_col: str = "ID",
         delimiter: str = ",",
     ) -> None:
@@ -94,3 +103,15 @@ class ItemCollection:
 
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
+
+    def get_possible_property_values(self, property: str) -> List[str]:
+        """Returns the set of possible values for a given property.
+
+        Args:
+            property: Property name.
+
+        Returns:
+            List of possible values.
+        """
+        # TODO: https://github.com/iai-group/UserSimCRS/issues/112
+        return []
