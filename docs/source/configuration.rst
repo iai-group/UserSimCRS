@@ -30,6 +30,7 @@ Simulator parameters
   * `id_col`: Name of the CSV field containing item id.
   * `domain_mapping`: CSV field mapping to create item based on domain slots.
   * `ratings`: Path to ratings file.
+  * `historical_ratings_ratio`: Ratio ([0..1]) of ratings to be used as historical data.
   * `dialogues`: Path to domain config file.
   * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifiers.
   * `rasa_dialogues`: File with Rasa annotated dialogues. Only needed when using a DIET intent classifier.
@@ -66,7 +67,8 @@ Below is the default configuration to run simulation with the IAI MovieBot as th
       multi-valued: True
       delimiter: "|"
   ratings: data/movielens-25m-sample/ratings.csv
-
+  historical_ratings_ratio: 0.8
+  
   dialogues: data/agents/moviebot/annotated_dialogues.json
   intent_classifier: "cosine"
   # If using the DIET classifier the following file needs to be provided. 
