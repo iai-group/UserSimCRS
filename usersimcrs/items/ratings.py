@@ -8,11 +8,14 @@ See: https://github.com/iai-group/UserSimCRS/issues/109
 """
 
 import csv
+import logging
 import random
 from collections import defaultdict
 from typing import Dict, Optional, Tuple
 
 from usersimcrs.items.item_collection import ItemCollection
+
+logger = logging.getLogger(__name__)
 
 
 class Ratings:
@@ -65,12 +68,7 @@ class Ratings:
                 normalized_rating = (
                     2 * (rating - min_rating) / (max_rating - min_rating) - 1
                 )
-                # Filters items based on their existence in ItemCollection.
-                if self._item_collection:
-                    if not self._item_collection.exists(item_id):
-                        continue
-                self._item_ratings[item_id][user_id] = normalized_rating
-                self._user_ratings[user_id][item_id] = normalized_rating
+                self.add_user_item_rating(user_id, item_id, normalized_rating)
 
     def get_user_ratings(self, user_id: str) -> Dict[str, float]:
         """Returns all ratings of a given user.
@@ -93,6 +91,24 @@ class Ratings:
             Dictionary with user IDs as keys and ratings as values.
         """
         return self._item_ratings[item_id]
+
+    def add_user_item_rating(
+        self, user_id: str, item_id: str, normalized_rating: float
+    ) -> None:
+        """Adds the rating by a given user on a specific item.
+
+        Args:
+            user_id: User ID.
+            item_id: Item ID.
+            normalized_rating: Normalized rating.
+        """
+        # Filters items based on their existence in ItemCollection.
+        if self._item_collection:
+            if not self._item_collection.exists(item_id):
+                logger.debug(f"Ratings for {item_id} are not included.")
+                return
+        self._item_ratings[item_id][user_id] = normalized_rating
+        self._user_ratings[user_id][item_id] = normalized_rating
 
     def get_user_item_rating(
         self, user_id: str, item_id: str
@@ -125,13 +141,31 @@ class Ratings:
             historical_ratio: Ratio ([0..1]) of ratings to be used as historical
               data.
 
+        Raises:
+            ValueError: if historical_ratio is not in the interval [0,1].
+
         Returns:
             Two Ratings objects, one corresponding to historical and another to
             ground truth ratings.
         """
+        if historical_ratio > 1.0 or historical_ratio < 0.0:
+            raise ValueError("historical_ratio is bounded in [0,1]")
+
+        # Determine the number of items to use as historical data.
+        nb_historical_items = int(historical_ratio * len(self._item_ratings))
+
         historical_ratings = Ratings(self._item_collection)
         ground_truth_ratings = Ratings(self._item_collection)
-        # TODO: Implement this method with tests
-        # See: https://github.com/iai-group/UserSimCRS/issues/108
+
+        for i, (item_id, user_ratings) in enumerate(self._item_ratings.items()):
+            for user_id, rating in user_ratings.items():
+                if i < nb_historical_items:
+                    historical_ratings.add_user_item_rating(
+                        user_id, item_id, rating
+                    )
+                else:
+                    ground_truth_ratings.add_user_item_rating(
+                        user_id, item_id, rating
+                    )
 
         return historical_ratings, ground_truth_ratings
