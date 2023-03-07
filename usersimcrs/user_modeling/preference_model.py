@@ -24,9 +24,6 @@ Hence, the user might express a preference about a slot that is inconsistent
 with the answers given to other questions (e.g., likes "action" as a genre, but
 has not seen a single action movie).
 
-TODO: Tests are needed for this class
-See: https://github.com/iai-group/UserSimCRS/issues/113
-
 TODO: This class is to be made abstract and SimplePreferenceModel and
 PKGPreferenceModel will be derived classes, once the PKG preference model is
 implemented.
