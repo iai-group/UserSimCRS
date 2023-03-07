@@ -53,7 +53,9 @@ def test_get_item_preference(preference_model: PreferenceModel) -> None:
     assert preference == 1.0 or preference == -1.0
 
 
-def test_get_item_preference_error(preference_model: PreferenceModel) -> None:
+def test_get_item_preference_nonexisting_item(
+    preference_model: PreferenceModel,
+) -> None:
     with pytest.raises(ValueError):
         preference_model.get_item_preference("1020")
 
@@ -65,7 +67,7 @@ def test_get_slot_value_preference(preference_model: PreferenceModel) -> None:
     assert preference == 1.0 or preference == -1.0
 
 
-def test_get_slot_value_preference_error(
+def test_get_slot_value_preference_nonexisting_slot(
     preference_model: PreferenceModel,
 ) -> None:
     with pytest.raises(ValueError):
@@ -83,6 +85,8 @@ def test_get_slot_preference(preference_model: PreferenceModel) -> None:
     assert preference == 1
 
 
-def test_get_slot_preference_error(preference_model: PreferenceModel) -> None:
+def test_get_slot_preference_nonexisting_slot(
+    preference_model: PreferenceModel,
+) -> None:
     with pytest.raises(ValueError):
         preference_model.get_slot_preference("YEAR")
