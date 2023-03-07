@@ -83,10 +83,12 @@ def test_get_possible_property_values(domain: Domain) -> None:
     assert {"Adventure", "Animation", "Children", "Comedy", "Fantasy"}.issubset(
         genres
     )
+    assert not {"Biography", "Short Film"}.issubset(genres)
 
     titles = item_collection.get_possible_property_values("TITLE")
     assert len(titles) == 13813
     assert "Toy Story (1995)" in titles
+    assert "Toy Story 4" not in titles
 
     unknown_property = item_collection.get_possible_property_values("UNKNOWN")
     assert len(unknown_property) == 0
