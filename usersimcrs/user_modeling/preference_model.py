@@ -143,7 +143,8 @@ class PreferenceModel:
         return preference
 
     def _check_slot_exists(self, slot: str) -> None:
-        """Checks if slot exists in the domain and throws an exception if not."""
+        """Checks if slot exists in the domain and throws an exception if
+        not."""
         if slot not in self._domain.get_slot_names():
             raise ValueError(
                 f"The slot '{slot}' does not exist in this domain."
