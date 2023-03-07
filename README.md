@@ -76,6 +76,8 @@ We follow the [IAI Python Style Guide](https://github.com/iai-group/styleguide/t
 
 ## Contributors
 
+UserSimCRS is developed and maintained by the [IAI group](https://iai.group) at the University of Stavanger. 
+
 (Alphabetically ordered by last name)
 
   * Jafar Afzali (2022)
