@@ -1,6 +1,6 @@
 # :warning: Disclaimer
 
-> The code is currently undergoing some refactoring, so the simulation is not working as describe in the paper. We kindly ask for some more of your patience. Be assured, we are doing our best to finish this refactoring as quickly as possible. Thank you for your understanding!
+> The code is currently undergoing some refactoring, so the simulation is not working as described in the paper. We kindly ask for some more of your patience. Be assured, we are doing our best to finish this refactoring as quickly as possible. Thank you for your understanding!
 
 # UserSimCRS
 
@@ -74,15 +74,21 @@ The simulated dialogue is saved under `dialogue_export`.
 
 We follow the [IAI Python Style Guide](https://github.com/iai-group/styleguide/tree/main/python).
 
-## Contributions
+## Contributors
 
-UserSimCRS is developed and maintained by the [IAI group](https://iai.group) at the University of Stavanger. 
+(Alphabetically ordered by last name)
+
+  * Jafar Afzali (2022)
+  * Krisztian Balog (2021-present)
+  * Nolwenn Bernard (2022-present)
+  * Aleksander Drzewiecki (2022)
+  * Shuo Zhang (2021)
 
 We welcome contributions both on the high level (feedback and ideas) as well as on the more technical level (pull requests). See our [contribution guidelines](https://github.com/iai-group/guidelines/blob/feature/63-Add-guidelines-for-contributors/github/Contribution.md) for more details.
 
 ## Publication
 
-If you are using this repository, please cite the following paper:
+If you are using our simulation tool, please cite the following paper:
 
 ```
 @inproceedings{Afzali:2023:WSDM,
