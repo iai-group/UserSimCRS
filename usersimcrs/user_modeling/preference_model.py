@@ -24,9 +24,6 @@ Hence, the user might express a preference about a slot that is inconsistent
 with the answers given to other questions (e.g., likes "action" as a genre, but
 has not seen a single action movie).
 
-TODO: Tests are needed for this class
-See: https://github.com/iai-group/UserSimCRS/issues/113
-
 TODO: This class is to be made abstract and SimplePreferenceModel and
 PKGPreferenceModel will be derived classes, once the PKG preference model is
 implemented.
@@ -196,7 +193,7 @@ class PreferenceModel:
             # If there is either (1) a positive preference on that value from
             # before, or (2) there is no preference, then it can be returned.
             # Otherwise, we try again to sample a different value for the slot.
-            preference = self._slot_value_preferences.get_slot_value_preference(
+            preference = self._slot_value_preferences.get_preference(
                 slot, value
             )
             if preference is None:
