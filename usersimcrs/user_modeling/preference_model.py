@@ -195,7 +195,7 @@ class PreferenceModel:
             # If there is either (1) a positive preference on that value from
             # before, or (2) there is no preference, then it can be returned.
             # Otherwise, we try again to sample a different value for the slot.
-            preference = self._slot_value_preferences.get_slot_value_preference(
+            preference = self._slot_value_preferences.get_preference(
                 slot, value
             )
             if preference is None:

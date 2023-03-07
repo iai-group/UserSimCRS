@@ -5,10 +5,7 @@ from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.user_modeling.preference_model import (
-    PreferenceModel,
-    PreferenceModelVariant,
-)
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
 DOMAIN_MAPPING = {
@@ -23,9 +20,9 @@ ITEMS_CSV_FILE = "tests/data/items/movies.csv"
 RATINGS_CSV_FILE = "tests/data/items/ratings.csv"
 
 
-# Single item preference model variant.
 @pytest.fixture
-def preference_model_sip() -> PreferenceModel:
+def preference_model() -> PreferenceModel:
+    """Preference model fixture."""
     domain = Domain(DOMAIN_YAML_FILE)
     item_collection = ItemCollection()
     item_collection.load_items_csv(
@@ -40,68 +37,52 @@ def preference_model_sip() -> PreferenceModel:
         domain,
         item_collection,
         ratings,
-        PreferenceModelVariant.SIP,
         historical_user_id="13",
     )
 
 
-# Peronal Knowledge Graph preference model variant.
-@pytest.fixture
-def preference_model_pkg() -> PreferenceModel:
-    domain = Domain(DOMAIN_YAML_FILE)
-    item_collection = ItemCollection()
-    item_collection.load_items_csv(
-        ITEMS_CSV_FILE,
-        id_col="movieId",
-        domain=domain,
-        domain_mapping=DOMAIN_MAPPING,
+@pytest.mark.parametrize("item_id, expected", [("377", True), ("591", False)])
+def test_is_item_consumed(
+    item_id: str, expected: bool, preference_model: PreferenceModel
+) -> None:
+    assert expected == preference_model.is_item_consumed(item_id)
+
+
+def test_get_item_preference(preference_model: PreferenceModel) -> None:
+    preference = preference_model.get_item_preference("527")
+    assert preference == 1.0 or preference == -1.0
+
+
+def test_get_item_preference_error(preference_model: PreferenceModel) -> None:
+    with pytest.raises(ValueError):
+        preference_model.get_item_preference("1020")
+
+
+def test_get_slot_value_preference(preference_model: PreferenceModel) -> None:
+    preference = preference_model.get_slot_value_preference(
+        "GENRE", "Animation"
     )
-    ratings = Ratings()
-    ratings.load_ratings_csv(RATINGS_CSV_FILE)
-    return PreferenceModel(
-        domain,
-        item_collection,
-        ratings,
-        PreferenceModelVariant.PKG,
-        historical_user_id="13",
+    assert preference == 1.0 or preference == -1.0
+
+
+def test_get_slot_value_preference_error(
+    preference_model: PreferenceModel,
+) -> None:
+    with pytest.raises(ValueError):
+        preference_model.get_slot_value_preference("WRITER", "Billy Wilder")
+
+
+def test_get_slot_preference(preference_model: PreferenceModel) -> None:
+    value, preference = preference_model.get_slot_preference("GENRE")
+    assert (
+        value
+        in preference_model._item_collection.get_possible_property_values(
+            "GENRE"
+        )
     )
+    assert preference == 1
 
 
-def test_initial_item_preferences_sip(preference_model_sip) -> None:
-    # TODO this is the value in the original rating file, but it'll be a bit
-    # tricky to test when only a sample of the original ratings is used.
-    assert preference_model_sip.get_item_preference("356") == 1.0
-
-
-def test_get_slotvalue_preference_sip(preference_model_sip) -> None:
-    preference = preference_model_sip.get_slotvalue_preference(
-        "GENRE", "Comedy"
-    )
-    assert -1 <= preference <= 1
-
-
-def test_get_slotvalue_preference_pkg(preference_model_pkg) -> None:
-    preference = preference_model_pkg.get_slotvalue_preference("GENRE", "Drama")
-    assert preference == 0.6
-
-
-def test_get_item_preference_sip(preference_model_sip) -> None:
-    preference = preference_model_sip.get_item_preference("10")
-    assert -1 <= preference <= 1
-
-
-def test_get_item_preference_pkg(preference_model_pkg):
-    # When (Both Drama and Thriller are favored as 1)
-    preference = preference_model_pkg.get_item_preference("100")
-    assert preference == 1.0
-
-
-def test_get_slot_preference_pkg(preference_model_pkg):
-    slot, preference = preference_model_pkg.get_slot_preference("GENRE")
-    assert isinstance(slot, str)
-    assert -1 <= preference <= 1
-
-
-# TODO Write tests for get_item_preference(), get_slotvalue_preference,
-# and get_slot_preference()
-# See: https://github.com/iai-group/UserSimCRS/issues/21
+def test_get_slot_preference_error(preference_model: PreferenceModel) -> None:
+    with pytest.raises(ValueError):
+        preference_model.get_slot_preference("YEAR")
