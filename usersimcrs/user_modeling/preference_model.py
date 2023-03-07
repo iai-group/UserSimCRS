@@ -188,7 +188,7 @@ class PreferenceModel:
         while not preference:
             # Pick a random value for the slot.
             value: str = random.choice(
-                self._item_collection.get_possible_property_values(slot)
+                list(self._item_collection.get_possible_property_values(slot))
             )
             # If there is either (1) a positive preference on that value from
             # before, or (2) there is no preference, then it can be returned.

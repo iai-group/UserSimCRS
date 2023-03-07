@@ -1,12 +1,12 @@
 """Represents a collection of items.
 
-Items are characterized by a set of properties, which correspond to
-slots in a domain. Items and can be loaded from CSV by providing a
-mapping from CSV fields to properties (i.e., domain slots).
+Items are characterized by a set of properties, which correspond to slots in a
+domain. Items and can be loaded from CSV by providing a mapping from CSV fields
+to properties (i.e., domain slots).
 """
 
 import csv
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Set
 
 from dialoguekit.core.domain import Domain
 
@@ -104,7 +104,7 @@ class ItemCollection:
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
 
-    def get_possible_property_values(self, property: str) -> List[str]:
+    def get_possible_property_values(self, property: str) -> Set[Any]:
         """Returns the set of possible values for a given property.
 
         Args:
@@ -113,12 +113,12 @@ class ItemCollection:
         Returns:
             List of possible values.
         """
-        values: List[Any] = []
+        values: Set[Any] = set()
         for item in self._items.values():
             value = item.get_property(property)
             if value:
                 if isinstance(value, List):
-                    values.extend(value)
+                    values.update(value)
                 else:
-                    values.append(value)
-        return [*set(values)]
+                    values.add(value)
+        return values
