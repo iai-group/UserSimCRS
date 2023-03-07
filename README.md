@@ -1,6 +1,6 @@
-# :warning: Notice
+# :warning: Disclaimer
 
-> It appears that you have stumbled upon our GitHub repository as a result of our publication being [released on arXiv](https://arxiv.org/abs/2301.05544) ahead of schedule. While you are welcome to look around, please be advised that the code is not yet fully functional as we have been making a few breaking changes. We kindly ask that you check back at a later time for updates. Be assured, by the time of the WSDM conference, the code will be working as described and this message will be gone. Thank you for your understanding!
+> The code is currently undergoing some refactoring, so the simulation is not working as describe in the paper. We kindly ask for some more of your patience. Be assured, we are doing our best to finish this refactoring as quickly as possible. Thank you for your understanding!
 
 # UserSimCRS
 
@@ -74,12 +74,23 @@ The simulated dialogue is saved under `dialogue_export`.
 
 We follow the [IAI Python Style Guide](https://github.com/iai-group/styleguide/tree/main/python).
 
-## Contributors
+## Contributions
 
-(Alphabetically ordered by last name)
+UserSimCRS is developed and maintained by the [IAI group](https://iai.group) at the University of Stavanger. 
 
-  * Jafar Afzali (2022)
-  * Krisztian Balog (2021-present)
-  * Nolwenn Bernard (2022-present)
-  * Aleksander Drzewiecki (2022)
-  * Shuo Zhang (2021)
+We welcome contributions both on the high level (feedback and ideas) as well as on the more technical level (pull requests). See our [contribution guidelines](https://github.com/iai-group/guidelines/blob/feature/63-Add-guidelines-for-contributors/github/Contribution.md) for more details.
+
+## Publication
+
+If you are using this repository, please cite the following paper:
+
+```
+@inproceedings{Afzali:2023:WSDM,
+  author = {Afzali, Jafar and Drzewiecki, Aleksander Mark and Balog, Krisztian and Zhang, Shuo},
+  title = {UserSimCRS: A User Simulation Toolkit for Evaluating Conversational Recommender Systems},
+  year = {2023},
+  booktitle = {Proceedings of the Sixteenth ACM International Conference on Web Search and Data Mining},
+  pages = {1160--1163},
+  series = {WSDM '23}
+}
+```
