@@ -34,7 +34,7 @@ In addition to preference and interaction modeling, we also model other user con
 Persona
 ^^^^^^^
 
-Persona contains user variables, e.g., cooperativeness.
+Persona is used to capture user-specific traits, e.g., cooperativeness.
 
 Natural language generation (NLG) 
 ---------------------------------
