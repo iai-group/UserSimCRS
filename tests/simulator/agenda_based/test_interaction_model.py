@@ -55,9 +55,9 @@ _INTENT_C = Intent("Intent-C")
 _INTENT_STOP = Intent("STOP")
 
 
-# CIR6 Interaction model.
 @pytest.fixture
 def im_crsv1() -> InteractionModel:
+    """CRS v1 Interaction model fixture."""
     return InteractionModel(
         "tests/data/interaction_models/crs_v1.yaml", ANNOTATED_CONVERSATIONS
     )
