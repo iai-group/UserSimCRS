@@ -1,5 +1,7 @@
 """Tests for Ratings."""
 
+from typing import Dict, List
+
 import pytest
 from dialoguekit.core.domain import Domain
 
@@ -17,6 +19,25 @@ DOMAIN_MAPPING = {
 }
 ITEMS_CSV_FILE = "tests/data/items/movies.csv"
 RATINGS_CSV_FILE = "tests/data/items/ratings.csv"
+
+
+def simple_user_item_sampler(
+    item_ratings: Dict[str, float],
+    historical_ratio: float,
+) -> List[str]:
+    """Creates a sample of items for a given user.
+
+    Args:
+        item_ratings: Item ratings to sample.
+        historical_ratio: Ratio of items ratings to be used as historical
+          data.
+
+    Returns:
+        List of sampled item ids.
+    """
+    # Determine the number of items to use as historical data for a given user.
+    nb_historical_items = int(historical_ratio * len(item_ratings))
+    return list(item_ratings.keys())[:nb_historical_items]
 
 
 @pytest.fixture
@@ -39,32 +60,63 @@ def ratings() -> Ratings:
     "historical_ratio",
     [0.5, 0.8, 0.2],
 )
-def test_create_split_user_item_sampler(
-    historical_ratio: float, ratings: Ratings
+def test_user_item_sampler(historical_ratio: float, ratings: Ratings) -> None:
+    user_id = "1"
+    user_ratings = ratings.get_user_ratings(user_id)
+
+    item_sample = user_item_sampler(
+        user_ratings,
+        historical_ratio,
+    )
+
+    assert len(item_sample) == int(len(user_ratings) * historical_ratio)
+
+
+@pytest.mark.parametrize(
+    "historical_ratio, user_id,historical_item_id, ground_truth_item_id",
+    [
+        (0.5, "1", "29", "367"),
+        (0.8, "1", "32", "919"),
+        (0.8, "23", "293", "838"),
+        (0.2, "5", "60", "377"),
+    ],
+)
+def test_create_split(
+    historical_ratio: float,
+    user_id: str,
+    historical_item_id: str,
+    ground_truth_item_id: str,
+    ratings: Ratings,
 ) -> None:
-    """Tests create_split with `user_item_sampler` method.
+    """Tests create_split method with a simple sampler.
 
     Args:
         historical_ratio: Ratio of historical items.
+        user_id: User id.
+        historical_item_id: Id of a historical item for user_id.
+        ground_truth_item_id: Id of an unseen item ofr user_id.
     """
     historical_ratings, ground_truth_ratings = ratings.create_split(
-        historical_ratio, user_item_sampler
+        historical_ratio, simple_user_item_sampler
     )
 
-    for user_id, user_ratings in ratings._user_ratings.items():
-        historical_user_ratings = historical_ratings.get_user_ratings(user_id)
-        ground_truth_user_ratings = ground_truth_ratings.get_user_ratings(
-            user_id
-        )
-        assert len(historical_user_ratings) == int(
-            len(user_ratings) * historical_ratio
-        )
-        assert len(ground_truth_user_ratings) == len(user_ratings) - len(
-            historical_ratings.get_user_ratings(user_id)
-        )
-        assert set(
-            historical_ratings.get_user_ratings(user_id).keys()
-        ).isdisjoint(set(ground_truth_ratings.get_user_ratings(user_id)))
+    assert set(historical_ratings.get_user_ratings(user_id).keys()).isdisjoint(
+        set(ground_truth_ratings.get_user_ratings(user_id))
+    )
+
+    assert historical_ratings.get_user_item_rating(user_id, historical_item_id)
+    assert (
+        ground_truth_ratings.get_user_item_rating(user_id, historical_item_id)
+        is None
+    )
+
+    assert ground_truth_ratings.get_user_item_rating(
+        user_id, ground_truth_item_id
+    )
+    assert (
+        historical_ratings.get_user_item_rating(user_id, ground_truth_item_id)
+        is None
+    )
 
 
 def test_create_split_ratio_error(ratings: Ratings) -> None:
