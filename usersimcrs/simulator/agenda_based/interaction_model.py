@@ -104,7 +104,7 @@ class InteractionModel:
                 next_user_intent = (
                     user_agenda[i + 1]
                     if i < len(user_agenda) - 1
-                    else self.INTENT_STOP
+                    else self.INTENT_STOP  # type: ignore[attr-defined]
                 )
                 if next_user_intent not in user_intent_dist[user_intent]:
                     user_intent_dist[user_intent][next_user_intent] = 0
@@ -170,13 +170,13 @@ class InteractionModel:
         Step3: filter the agenda, e.g. too short or too long agenda will
             trigger this function rerun
         """
-        current_intent = self.INTENT_START
+        current_intent = self.INTENT_START  # type: ignore[attr-defined]
         agenda = list()
         agenda.append(current_intent)
         next_intent = self.next_intent(
             current_intent, self._user_intent_distribution
         )
-        while next_intent != self.INTENT_STOP:
+        while next_intent != self.INTENT_STOP:  # type: ignore[attr-defined]
             current_intent = next_intent
             agenda.append(current_intent)
             next_intent = self.next_intent(
