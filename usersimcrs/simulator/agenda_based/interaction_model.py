@@ -16,22 +16,16 @@ logger = logging.getLogger(__name__)
 class InteractionModel:
     """Represents an interaction model."""
 
-    # TODO: These should probably be loaded from the interaction model yaml file.
-    # We can require that these are defined.
-    INTENT_START = Intent("DISCLOSE.NON-DISCLOSE")
-    INTENT_STOP = Intent("STOP")
-    # TODO: Add intents for item consumption and preferences
-    # See: https://github.com/iai-group/UserSimCRS/issues/111
-    # The user expresses that they have consumed an item in the past.
-    INTENT_ITEM_CONSUMED = Intent("NOTE.YES")
-    # The user responds to a recommendation positively or negatively.
-    INTENT_LIKE = Intent("NOTE.LIKE")
-    INTENT_DISLIKE = Intent("NOTE.DISLIKE")
-    INTENT_NEUTRAL = Intent("ADD-INTENT-NAME")  # TODO: intent to be created
-    # The user expresses preference on some slot/value.
-    INTENT_DISCLOSE = Intent("DISCLOSE")
-    # The user cannot answer.
-    INTENT_DONT_KNOW = Intent("ADD-INTENT-NAME")  # TODO: intent to be created
+    REQUIRED_INTENTS = {
+        "INTENT_START",
+        "INTENT_STOP",
+        "INTENT_ITEM_CONSUMED",
+        "INTENT_LIKE",
+        "INTENT_DISLIKE",
+        "INTENT_NEUTRAL",
+        "INTENT_DISCLOSE",
+        "INTENT_DONT_KNOW",
+    }
 
     def __init__(
         self, config_file: str, annotated_conversations: List[Dict[str, Any]]
@@ -49,6 +43,8 @@ class InteractionModel:
         with open(config_file) as yaml_file:
             self._config = yaml.load(yaml_file, Loader=yaml.FullLoader)
 
+        self._initialize_required_intent()
+
         self._initialize_preference_intent_config()
         (
             self._user_intent_distribution,
@@ -60,6 +56,23 @@ class InteractionModel:
 
         # Keep track of the current user intent.
         self._current_intent = self._agenda.pop()
+
+    def _initialize_required_intent(self) -> None:
+        """Initializes required intent.
+
+        Raises:
+            RuntimeError: if some required intents are not defined.
+        """
+        required_intents = self._config.get("required_intents", {})
+        if not self.REQUIRED_INTENTS.issubset(required_intents.keys()):
+            raise RuntimeError(
+                f'The interaction model {self._config.get("name")} needs to '
+                "defined the following intents under required_intents: "
+                f"{self.REQUIRED_INTENTS}"
+            )
+
+        for k, v in required_intents.items():
+            setattr(self, k, Intent(v))
 
     def intent_distribution(
         self, annotated_conversations: List[Dict[str, Any]]
