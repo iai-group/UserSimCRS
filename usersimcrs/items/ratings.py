@@ -11,7 +11,7 @@ import csv
 import logging
 import random
 from collections import defaultdict
-from typing import Callable, Dict, Optional, Tuple
+from typing import Callable, Dict, List, Optional, Tuple
 
 from usersimcrs.items.item_collection import ItemCollection
 
@@ -19,36 +19,22 @@ logger = logging.getLogger(__name__)
 
 
 def user_item_sampler(
-    ratings: "Ratings",
+    item_ratings: Dict[str, float],
     historical_ratio: float,
-    historical_ratings: "Ratings",
-    ground_truth_ratings: "Ratings",
-) -> None:
-    """Creates a random sample of items for each users.
+) -> List[str]:
+    """Creates a random sample of items for a given user.
 
     Args:
-        ratings: Ratings to sample.
+        item_ratings: Item ratings to sample.
         historical_ratio: Ratio of items ratings to be used as historical
           data.
-        historical_ratings: Historical ratings.
-        ground_truth_ratings: Unseen ratings.
+
+    Returns:
+        List of sampled item ids.
     """
-    for user_id, item_ratings in ratings._user_ratings.items():
-        # Determine the number of items to use as historical data for a
-        # given user.
-        nb_historical_items = int(historical_ratio * len(item_ratings))
-        historical_item_ids = random.sample(
-            item_ratings.keys(), nb_historical_items
-        )
-        for item_id, rating in item_ratings.items():
-            if item_id in historical_item_ids:
-                historical_ratings.add_user_item_rating(
-                    user_id, item_id, rating
-                )
-            else:
-                ground_truth_ratings.add_user_item_rating(
-                    user_id, item_id, rating
-                )
+    # Determine the number of items to use as historical data for a given user.
+    nb_historical_items = int(historical_ratio * len(item_ratings))
+    return random.sample(item_ratings.keys(), nb_historical_items)
 
 
 class Ratings:
@@ -175,7 +161,7 @@ class Ratings:
         Args:
             historical_ratio: Ratio ([0..1]) of ratings to be used as historical
               data.
-            sampler: Callable performing the sampling.
+            sampler: Callable performing the sampling of items per user.
 
         Raises:
             ValueError: if historical_ratio is not in the interval [0,1].
@@ -190,8 +176,19 @@ class Ratings:
         historical_ratings = Ratings(self._item_collection)
         ground_truth_ratings = Ratings(self._item_collection)
 
-        sampler(
-            self, historical_ratio, historical_ratings, ground_truth_ratings
-        )
+        for user_id, item_ratings in self._user_ratings.items():
+            historical_item_ids = sampler(
+                item_ratings,
+                historical_ratio,
+            )
+            for item_id, rating in item_ratings.items():
+                if item_id in historical_item_ids:
+                    historical_ratings.add_user_item_rating(
+                        user_id, item_id, rating
+                    )
+                else:
+                    ground_truth_ratings.add_user_item_rating(
+                        user_id, item_id, rating
+                    )
 
         return historical_ratings, ground_truth_ratings
