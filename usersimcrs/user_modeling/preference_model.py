@@ -139,7 +139,7 @@ class PreferenceModel:
             )
         return preference
 
-    def _check_slot_exists(self, slot: str) -> None:
+    def _assert_slot_exists(self, slot: str) -> None:
         """Checks if slot exists in the domain and throws an exception if
         not."""
         if slot not in self._domain.get_slot_names():
@@ -159,7 +159,7 @@ class PreferenceModel:
         Returns:
             Randomly chosen preference, which is either -1 or +1.
         """
-        self._check_slot_exists(slot)
+        self._assert_slot_exists(slot)
         preference = self._slot_value_preferences.get_preference(slot, value)
         if not preference:
             preference = random.choice([-1, 1])
@@ -181,14 +181,14 @@ class PreferenceModel:
             A value and corresponding preferences; if no preference could be
             obtained for that slot, then (None, 0) are returned.
         """
-        self._check_slot_exists(slot)
+        self._assert_slot_exists(slot)
         preference = None
         attempts = 0
 
         while not preference:
             # Pick a random value for the slot.
             value: str = random.choice(
-                self._item_collection.get_possible_property_values(slot)
+                list(self._item_collection.get_possible_property_values(slot))
             )
             # If there is either (1) a positive preference on that value from
             # before, or (2) there is no preference, then it can be returned.

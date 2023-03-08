@@ -34,7 +34,7 @@ def movie() -> Dict[str, Any]:
 
 
 def test_load_items_csv(domain: Domain, movie: Dict[str, Any]) -> None:
-    """Test items loading with a domain and mapping."""
+    """Tests items loading with a domain and mapping."""
     item_collection = ItemCollection()
     mapping = {
         "title": {"slot": "TITLE"},
@@ -57,3 +57,38 @@ def test_load_items_csv(domain: Domain, movie: Dict[str, Any]) -> None:
     for property in ["TITLE", "GENRE"]:
         assert item.get_property(property) == movie[property]
     assert item.get_property("KEYWORD") is None
+
+
+def test_get_possible_property_values(domain: Domain) -> None:
+    """Tests using slot with different types (str, list) and unknown slot."""
+    item_collection = ItemCollection()
+    mapping = {
+        "title": {"slot": "TITLE"},
+        "genres": {
+            "slot": "GENRE",
+            "multi-valued": True,
+            "delimiter": "|",
+        },
+    }
+
+    item_collection.load_items_csv(
+        ITEMS_CSV_FILE,
+        id_col="movieId",
+        domain=domain,
+        domain_mapping=mapping,
+    )
+
+    genres = item_collection.get_possible_property_values("GENRE")
+    assert len(genres) == 20
+    assert {"Adventure", "Animation", "Children", "Comedy", "Fantasy"}.issubset(
+        genres
+    )
+    assert not {"Biography", "Short Film"}.issubset(genres)
+
+    titles = item_collection.get_possible_property_values("TITLE")
+    assert len(titles) == 13813
+    assert "Toy Story (1995)" in titles
+    assert "Toy Story 4" not in titles
+
+    unknown_property = item_collection.get_possible_property_values("UNKNOWN")
+    assert len(unknown_property) == 0

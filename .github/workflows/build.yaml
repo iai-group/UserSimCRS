@@ -41,7 +41,7 @@ jobs:
 
       - name: Run docformatter
         shell: bash
-        run: pre-commit run docformatter --all-file
+        run: pre-commit run docformatter --all-files
 
   mypy:
     if: always()
