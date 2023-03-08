@@ -6,7 +6,7 @@ to properties (i.e., domain slots).
 """
 
 import csv
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Set
 
 from dialoguekit.core.domain import Domain
 
@@ -20,7 +20,7 @@ MappingConfig = Dict[str, Dict[str, Any]]
 class ItemCollection:
     def __init__(self) -> None:
         """Initializes an empty item collection."""
-        self._items: Dict[str, Any] = {}
+        self._items: Dict[str, Item] = {}
 
     def get_item(self, item_id: str) -> Item:
         """Returns an item from the collection based on its ID.
@@ -104,7 +104,7 @@ class ItemCollection:
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
 
-    def get_possible_property_values(self, property: str) -> List[str]:
+    def get_possible_property_values(self, property: str) -> Set[Any]:
         """Returns the set of possible values for a given property.
 
         Args:
@@ -113,5 +113,12 @@ class ItemCollection:
         Returns:
             List of possible values.
         """
-        # TODO: https://github.com/iai-group/UserSimCRS/issues/112
-        return []
+        values: Set[Any] = set()
+        for item in self._items.values():
+            value = item.get_property(property)
+            if value:
+                if isinstance(value, List):
+                    values.update(value)
+                else:
+                    values.add(value)
+        return values
