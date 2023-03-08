@@ -11,11 +11,44 @@ import csv
 import logging
 import random
 from collections import defaultdict
-from typing import Dict, Optional, Tuple
+from typing import Callable, Dict, Optional, Tuple
 
 from usersimcrs.items.item_collection import ItemCollection
 
 logger = logging.getLogger(__name__)
+
+
+def user_item_sampler(
+    ratings: "Ratings",
+    historical_ratio: float,
+    historical_ratings: "Ratings",
+    ground_truth_ratings: "Ratings",
+) -> None:
+    """Creates a random sample of items for each users.
+
+    Args:
+        ratings: Ratings to sample.
+        historical_ratio: Ratio of items ratings to be used as historical
+          data.
+        historical_ratings: Historical ratings.
+        ground_truth_ratings: Unseen ratings.
+    """
+    for user_id, item_ratings in ratings._user_ratings.items():
+        # Determine the number of items to use as historical data for a
+        # given user.
+        nb_historical_items = int(historical_ratio * len(item_ratings))
+        historical_item_ids = random.sample(
+            item_ratings.keys(), nb_historical_items
+        )
+        for item_id, rating in item_ratings.items():
+            if item_id in historical_item_ids:
+                historical_ratings.add_user_item_rating(
+                    user_id, item_id, rating
+                )
+            else:
+                ground_truth_ratings.add_user_item_rating(
+                    user_id, item_id, rating
+                )
 
 
 class Ratings:
@@ -133,13 +166,16 @@ class Ratings:
         return random.choice(list(self._user_ratings.keys()))
 
     def create_split(
-        self, historical_ratio: float
+        self,
+        historical_ratio: float,
+        sampler: Callable = user_item_sampler,
     ) -> Tuple["Ratings", "Ratings"]:
         """Splits ratings into historical and ground truth ratings.
 
         Args:
             historical_ratio: Ratio ([0..1]) of ratings to be used as historical
               data.
+            sampler: Callable performing the sampling.
 
         Raises:
             ValueError: if historical_ratio is not in the interval [0,1].
@@ -151,21 +187,11 @@ class Ratings:
         if historical_ratio > 1.0 or historical_ratio < 0.0:
             raise ValueError("historical_ratio is bounded in [0,1]")
 
-        # Determine the number of items to use as historical data.
-        nb_historical_items = int(historical_ratio * len(self._item_ratings))
-
         historical_ratings = Ratings(self._item_collection)
         ground_truth_ratings = Ratings(self._item_collection)
 
-        for i, (item_id, user_ratings) in enumerate(self._item_ratings.items()):
-            for user_id, rating in user_ratings.items():
-                if i < nb_historical_items:
-                    historical_ratings.add_user_item_rating(
-                        user_id, item_id, rating
-                    )
-                else:
-                    ground_truth_ratings.add_user_item_rating(
-                        user_id, item_id, rating
-                    )
+        sampler(
+            self, historical_ratio, historical_ratings, ground_truth_ratings
+        )
 
         return historical_ratings, ground_truth_ratings
