@@ -51,7 +51,7 @@ def ratings() -> Ratings:
         domain=domain,
         domain_mapping=DOMAIN_MAPPING,
     )
-    ratings = Ratings()
+    ratings = Ratings(item_collection)
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
     return ratings
 
@@ -115,3 +115,17 @@ def test_create_split(
 def test_create_split_ratio_error(ratings: Ratings) -> None:
     with pytest.raises(ValueError):
         ratings.create_split(2)
+
+
+def test_add_user_item_rating_nonexistent_item(ratings: Ratings) -> None:
+    user_id = "1"
+    item_id = "1342"
+    rating = 0.3
+
+    original_item_ratings = ratings.get_item_ratings(item_id)
+    original_user_ratings = ratings.get_user_ratings(user_id)
+
+    ratings.add_user_item_rating(user_id, item_id, rating)
+
+    assert original_item_ratings == ratings.get_item_ratings(item_id)
+    assert original_user_ratings == ratings.get_user_ratings(user_id)
