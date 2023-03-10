@@ -12,6 +12,7 @@ These can be either provided in a YAML config file and/or via the command line. 
 * `id_col`: Name of the CSV field containing item id.
 * `domain_mapping`: CSV field mapping to create item based on domain slots.
 * `ratings`: Path to ratings file.
+* `historical_ratings_ratio`: Ratio ([0..1]) of ratings to be used as historical data.
 * `dialogues`: Path to domain config file.
 * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifier.
 * `rasa_dialogues`: File with Rasa annotated dialogues. Only needed when using a DIET intent classifier.
@@ -44,6 +45,7 @@ domain_mapping:
     multi-valued: True
     delimiter: "|"
 ratings: data/movielens-25m-sample/ratings.csv
+historical_ratings_ratio: 0.8
 
 dialogues: data/agents/moviebot/annotated_dialogues.json
 intent_classifier: "cosine"

@@ -20,6 +20,7 @@ domain_mapping:
     multi-valued: True
     delimiter: "|"
 ratings: data/movielens-25m-sample/ratings.csv
+historical_ratings_ratio: 0.8
 
 dialogues: data/agents/moviebot/annotated_dialogues.json
 intent_classifier: "cosine"

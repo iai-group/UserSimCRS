@@ -76,15 +76,14 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
 
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(file_path=config["ratings"].get())
-    # TODO: Split ratings to historical and ground truth and use historical
-    # ratings in preference model
-    # See: https://github.com/iai-group/UserSimCRS/issues/108
-    # historical_ratings, ground_truth_ratings = ratings.create_split(config["historical_ratings_ratio"].get(0.8))
+    historical_ratings, ground_truth_ratings = ratings.create_split(
+        config["historical_ratings_ratio"].get(0.8)
+    )
 
     preference_model = PreferenceModel(
         domain,
         item_collection,
-        ratings,
+        historical_ratings,
         historical_user_id="13",
     )
 
@@ -189,6 +188,11 @@ def parse_args() -> argparse.Namespace:
         help="String form of field mapping.",
     )
     parser.add_argument("--ratings", type=str, help="Path to ratings file.")
+    parser.add_argument(
+        "--historical_ratings_ratio",
+        type=float,
+        help="Ratio of ratings to be used as historical data.",
+    )
     parser.add_argument(
         "--dialogues", type=str, help="Path to the annotated dialogues file."
     )

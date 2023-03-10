@@ -8,11 +8,33 @@ See: https://github.com/iai-group/UserSimCRS/issues/109
 """
 
 import csv
+import logging
 import random
 from collections import defaultdict
-from typing import Dict, Optional, Tuple
+from typing import Callable, Dict, List, Optional, Tuple
 
 from usersimcrs.items.item_collection import ItemCollection
+
+logger = logging.getLogger(__name__)
+
+
+def user_item_sampler(
+    item_ratings: Dict[str, float],
+    historical_ratio: float,
+) -> List[str]:
+    """Creates a random sample of items for a given user.
+
+    Args:
+        item_ratings: Item ratings to sample.
+        historical_ratio: Ratio of items ratings to be used as historical
+          data.
+
+    Returns:
+        List of sampled item ids.
+    """
+    # Determine the number of items to use as historical data for a given user.
+    nb_historical_items = int(historical_ratio * len(item_ratings))
+    return random.sample(item_ratings.keys(), nb_historical_items)
 
 
 class Ratings:
@@ -65,12 +87,7 @@ class Ratings:
                 normalized_rating = (
                     2 * (rating - min_rating) / (max_rating - min_rating) - 1
                 )
-                # Filters items based on their existence in ItemCollection.
-                if self._item_collection:
-                    if not self._item_collection.exists(item_id):
-                        continue
-                self._item_ratings[item_id][user_id] = normalized_rating
-                self._user_ratings[user_id][item_id] = normalized_rating
+                self.add_user_item_rating(user_id, item_id, normalized_rating)
 
     def get_user_ratings(self, user_id: str) -> Dict[str, float]:
         """Returns all ratings of a given user.
@@ -93,6 +110,24 @@ class Ratings:
             Dictionary with user IDs as keys and ratings as values.
         """
         return self._item_ratings[item_id]
+
+    def add_user_item_rating(
+        self, user_id: str, item_id: str, normalized_rating: float
+    ) -> None:
+        """Adds the rating by a given user on a specific item.
+
+        Args:
+            user_id: User ID.
+            item_id: Item ID.
+            normalized_rating: Normalized rating.
+        """
+        # Filters items based on their existence in ItemCollection.
+        if self._item_collection:
+            if not self._item_collection.exists(item_id):
+                logger.debug(f"Ratings for {item_id} are not included.")
+                return
+        self._item_ratings[item_id][user_id] = normalized_rating
+        self._user_ratings[user_id][item_id] = normalized_rating
 
     def get_user_item_rating(
         self, user_id: str, item_id: str
@@ -117,21 +152,43 @@ class Ratings:
         return random.choice(list(self._user_ratings.keys()))
 
     def create_split(
-        self, historical_ratio: float
+        self,
+        historical_ratio: float,
+        sampler: Callable = user_item_sampler,
     ) -> Tuple["Ratings", "Ratings"]:
         """Splits ratings into historical and ground truth ratings.
 
         Args:
             historical_ratio: Ratio ([0..1]) of ratings to be used as historical
               data.
+            sampler: Callable performing the sampling of items per user.
+
+        Raises:
+            ValueError: if historical_ratio is not in the interval [0,1].
 
         Returns:
             Two Ratings objects, one corresponding to historical and another to
             ground truth ratings.
         """
+        if historical_ratio > 1.0 or historical_ratio < 0.0:
+            raise ValueError("historical_ratio is bounded in [0,1]")
+
         historical_ratings = Ratings(self._item_collection)
         ground_truth_ratings = Ratings(self._item_collection)
-        # TODO: Implement this method with tests
-        # See: https://github.com/iai-group/UserSimCRS/issues/108
+
+        for user_id, item_ratings in self._user_ratings.items():
+            historical_item_ids = sampler(
+                item_ratings,
+                historical_ratio,
+            )
+            for item_id, rating in item_ratings.items():
+                if item_id in historical_item_ids:
+                    historical_ratings.add_user_item_rating(
+                        user_id, item_id, rating
+                    )
+                else:
+                    ground_truth_ratings.add_user_item_rating(
+                        user_id, item_id, rating
+                    )
 
         return historical_ratings, ground_truth_ratings
