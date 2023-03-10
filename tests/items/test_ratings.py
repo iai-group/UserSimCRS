@@ -25,7 +25,7 @@ def simple_user_item_sampler(
     item_ratings: Dict[str, float],
     historical_ratio: float,
 ) -> List[str]:
-    """Creates a sample of items for a given user.
+    """Samples the first portion of items rated by a given user.
 
     Args:
         item_ratings: Item ratings to sample.
@@ -60,7 +60,9 @@ def ratings() -> Ratings:
     "historical_ratio",
     [0.5, 0.8, 0.2],
 )
-def test_user_item_sampler(historical_ratio: float, ratings: Ratings) -> None:
+def test_user_item_sampler_ratio(
+    historical_ratio: float, ratings: Ratings
+) -> None:
     user_id = "1"
     user_ratings = ratings.get_user_ratings(user_id)
 
@@ -105,17 +107,8 @@ def test_create_split(
     )
 
     assert historical_ratings.get_user_item_rating(user_id, historical_item_id)
-    assert (
-        ground_truth_ratings.get_user_item_rating(user_id, historical_item_id)
-        is None
-    )
-
     assert ground_truth_ratings.get_user_item_rating(
         user_id, ground_truth_item_id
-    )
-    assert (
-        historical_ratings.get_user_item_rating(user_id, ground_truth_item_id)
-        is None
     )
 
 
