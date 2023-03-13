@@ -19,7 +19,7 @@ Response generation is currently developed with an agenda-based simulator [2]_ i
 User modeling
 -------------
 
-User modeling consists of three sub-components: preference model, context model, and persona. The responsibility of the preference model is to capture users’ individual tastes and thus allow for a personalized experience. Following Zhang and Balog [4]_, it is modeled as a personal knowledge graph, where nodes can indicate either an item or an attribute. Novel to our work is the modeling of persona, which is used to capture user-specific traits, e.g., user cooperativeness, and context, which can characterize the situation of the user.
+User modeling consists of three sub-components: preference model, context model, and persona.
 
 Preference model
 ^^^^^^^^^^^^^^^^
