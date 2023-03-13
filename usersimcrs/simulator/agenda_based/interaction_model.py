@@ -16,22 +16,18 @@ logger = logging.getLogger(__name__)
 class InteractionModel:
     """Represents an interaction model."""
 
-    # TODO: These should probably be loaded from the interaction model yaml file.
-    # We can require that these are defined.
-    INTENT_START = Intent("DISCLOSE.NON-DISCLOSE")
-    INTENT_STOP = Intent("STOP")
-    # TODO: Add intents for item consumption and preferences
-    # See: https://github.com/iai-group/UserSimCRS/issues/111
-    # The user expresses that they have consumed an item in the past.
-    INTENT_ITEM_CONSUMED = Intent("NOTE.YES")
-    # The user responds to a recommendation positively or negatively.
-    INTENT_LIKE = Intent("NOTE.LIKE")
-    INTENT_DISLIKE = Intent("NOTE.DISLIKE")
-    INTENT_NEUTRAL = Intent("ADD-INTENT-NAME")  # TODO: intent to be created
-    # The user expresses preference on some slot/value.
-    INTENT_DISCLOSE = Intent("DISCLOSE")
-    # The user cannot answer.
-    INTENT_DONT_KNOW = Intent("ADD-INTENT-NAME")  # TODO: intent to be created
+    # This set contains the name of the required intents that need to be
+    # defined in the configuration file under the field required_intents.
+    REQUIRED_INTENTS = {
+        "INTENT_START",
+        "INTENT_STOP",
+        "INTENT_ITEM_CONSUMED",
+        "INTENT_LIKE",
+        "INTENT_DISLIKE",
+        "INTENT_NEUTRAL",
+        "INTENT_DISCLOSE",
+        "INTENT_DONT_KNOW",
+    }
 
     def __init__(
         self, config_file: str, annotated_conversations: List[Dict[str, Any]]
@@ -49,6 +45,8 @@ class InteractionModel:
         with open(config_file) as yaml_file:
             self._config = yaml.load(yaml_file, Loader=yaml.FullLoader)
 
+        self._initialize_required_intents()
+
         self._initialize_preference_intent_config()
         (
             self._user_intent_distribution,
@@ -60,6 +58,23 @@ class InteractionModel:
 
         # Keep track of the current user intent.
         self._current_intent = self._agenda.pop()
+
+    def _initialize_required_intents(self) -> None:
+        """Initializes required intents.
+
+        Raises:
+            RuntimeError: if some required intents are not defined.
+        """
+        required_intents = self._config.get("required_intents", {})
+        if not self.REQUIRED_INTENTS.issubset(required_intents.keys()):
+            raise RuntimeError(
+                f'The interaction model {self._config.get("name")} needs to '
+                "define the following intents under required_intents: "
+                f"{self.REQUIRED_INTENTS}"
+            )
+
+        for k, v in required_intents.items():
+            setattr(self, k, Intent(v))
 
     def intent_distribution(
         self, annotated_conversations: List[Dict[str, Any]]
@@ -91,7 +106,7 @@ class InteractionModel:
                 next_user_intent = (
                     user_agenda[i + 1]
                     if i < len(user_agenda) - 1
-                    else self.INTENT_STOP
+                    else self.INTENT_STOP  # type: ignore[attr-defined]
                 )
                 if next_user_intent not in user_intent_dist[user_intent]:
                     user_intent_dist[user_intent][next_user_intent] = 0
@@ -157,13 +172,13 @@ class InteractionModel:
         Step3: filter the agenda, e.g. too short or too long agenda will
             trigger this function rerun
         """
-        current_intent = self.INTENT_START
+        current_intent = self.INTENT_START  # type: ignore[attr-defined]
         agenda = list()
         agenda.append(current_intent)
         next_intent = self.next_intent(
             current_intent, self._user_intent_distribution
         )
-        while next_intent != self.INTENT_STOP:
+        while next_intent != self.INTENT_STOP:  # type: ignore[attr-defined]
             current_intent = next_intent
             agenda.append(current_intent)
             next_intent = self.next_intent(

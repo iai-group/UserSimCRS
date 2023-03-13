@@ -119,12 +119,12 @@ class AgendaBasedSimulator(UserSimulator):
                     ) = self._preference_model.get_slot_preference(slot)
 
                 if response_slot:
-                    response_intent = self._interaction_model.INTENT_DISCLOSE
+                    response_intent = self._interaction_model.INTENT_DISCLOSE  # type: ignore[attr-defined] # noqa
                     response_slot_values = [
                         Annotation(slot=response_slot, value=response_value)
                     ]
                 else:
-                    response_intent = self._interaction_model.INTENT_DONT_KNOW
+                    response_intent = self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
 
             # Agent is eliciting preferences in general, e.g., "What kind of
             # movies do you like"
@@ -151,7 +151,7 @@ class AgendaBasedSimulator(UserSimulator):
                 # consumed the item. If there is a follow-up question by the
                 # agent whether they've liked it, that should end up in the
                 # other branch of the fork.
-                response_intent = self._interaction_model.INTENT_ITEM_CONSUMED
+                response_intent = self._interaction_model.INTENT_ITEM_CONSUMED  # type: ignore[attr-defined] # noqa
             else:
                 # Get a response based on the recommendation. Currently, the
                 # user responds immediately with a like/dislike, but it could
@@ -159,11 +159,11 @@ class AgendaBasedSimulator(UserSimulator):
                 # based on the agenda).
                 preference = self._preference_model.get_item_preference(item_id)
                 if preference > self._preference_model.PREFERENCE_THRESHOLD:
-                    response_intent = self._interaction_model.INTENT_LIKE
+                    response_intent = self._interaction_model.INTENT_LIKE  # type: ignore[attr-defined] # noqa
                 elif preference < -self._preference_model.PREFERENCE_THRESHOLD:
-                    response_intent = self._interaction_model.INTENT_DISLIKE
+                    response_intent = self._interaction_model.INTENT_DISLIKE  # type: ignore[attr-defined] # noqa
                 else:
-                    response_intent = self._interaction_model.INTENT_NEUTRAL
+                    response_intent = self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
 
         # Generating natural language response through NLG.
         response = self._nlg.generate_utterance_text(
