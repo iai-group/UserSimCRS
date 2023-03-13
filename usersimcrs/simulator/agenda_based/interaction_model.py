@@ -16,6 +16,8 @@ logger = logging.getLogger(__name__)
 class InteractionModel:
     """Represents an interaction model."""
 
+    # This set contains the name of the required intents that need to be
+    # defined in the configuration file under the field required_intents.
     REQUIRED_INTENTS = {
         "INTENT_START",
         "INTENT_STOP",
@@ -57,8 +59,8 @@ class InteractionModel:
         # Keep track of the current user intent.
         self._current_intent = self._agenda.pop()
 
-    def _initialize_required_intent(self) -> None:
-        """Initializes required intent.
+    def _initialize_required_intents(self) -> None:
+        """Initializes required intents.
 
         Raises:
             RuntimeError: if some required intents are not defined.
@@ -67,7 +69,7 @@ class InteractionModel:
         if not self.REQUIRED_INTENTS.issubset(required_intents.keys()):
             raise RuntimeError(
                 f'The interaction model {self._config.get("name")} needs to '
-                "defined the following intents under required_intents: "
+                "define the following intents under required_intents: "
                 f"{self.REQUIRED_INTENTS}"
             )
 
