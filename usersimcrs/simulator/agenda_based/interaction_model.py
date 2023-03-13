@@ -45,7 +45,7 @@ class InteractionModel:
         with open(config_file) as yaml_file:
             self._config = yaml.load(yaml_file, Loader=yaml.FullLoader)
 
-        self._initialize_required_intent()
+        self._initialize_required_intents()
 
         self._initialize_preference_intent_config()
         (
