@@ -11,7 +11,7 @@ UserSimCRS follows the architecture of a typical task-based dialogue system, whi
     :width: 700
     :alt: Conceptual overview of the user simulator.
 
-This toolkit offers repeatable and reproducible means of evaluation for conversational recommender systems that can complement human evaluation.
+This toolkit offers repeatable and reproducible means of evaluation that can complement human evaluation.
 UserSimCRS is designed to work with existing conversational recommender systems, without needing access to source code or knowledge of their inner workings.
 UserSimCRS can also be extended with other types of simulators and user modeling options.
 
