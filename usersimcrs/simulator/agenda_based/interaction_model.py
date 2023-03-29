@@ -140,7 +140,7 @@ class InteractionModel:
                         )
                     )
                     if j < len(annotated_conversation["conversation"]) - 1
-                    else self.INTENT_START
+                    else self.INTENT_START  # type: ignore[attr-defined]
                 )
                 if next_user_intent not in intent_dist[intent]:
                     intent_dist[intent][next_user_intent] = 0
