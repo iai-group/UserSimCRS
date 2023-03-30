@@ -5,6 +5,7 @@
 # UserSimCRS
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![docs](https://img.shields.io/github/actions/workflow/status/iai-group/UserSimCRS/build_docs.yaml?label=docs&branch=main)
 ![Tests](https://img.shields.io/github/actions/workflow/status/iai-group/UserSimCRS/merge.yaml?label=Tests&branch=main)
 ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.UserSimCRS.main.json) 
 ![Python version](https://img.shields.io/badge/python-3.9-blue)
@@ -86,7 +87,7 @@ UserSimCRS is developed and maintained by the [IAI group](https://iai.group) at 
   * Aleksander Drzewiecki (2022)
   * Shuo Zhang (2021)
 
-We welcome contributions both on the high level (feedback and ideas) as well as on the more technical level (pull requests). See our [contribution guidelines](https://github.com/iai-group/guidelines/blob/feature/63-Add-guidelines-for-contributors/github/Contribution.md) for more details.
+We welcome contributions both on the high level (feedback and ideas) as well as on the more technical level (pull requests). See our [contribution guidelines](https://github.com/iai-group/guidelines/blob/main/github/Contribution.md) for more details.
 
 ## Publication
 
