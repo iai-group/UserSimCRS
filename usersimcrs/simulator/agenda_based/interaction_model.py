@@ -3,9 +3,11 @@
 import logging
 import os
 import random
-from typing import Any, Dict, List, Tuple
+from typing import Dict, List, Tuple
 
 import yaml
+from dialoguekit.core.annotated_utterance import AnnotatedUtterance
+from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
 from dialoguekit.participant import DialogueParticipant
 
@@ -30,7 +32,7 @@ class InteractionModel:
     }
 
     def __init__(
-        self, config_file: str, annotated_conversations: List[Dict[str, Any]]
+        self, config_file: str, annotated_conversations: List[Dialogue]
     ) -> None:
         """Initializes the interaction model.
 
@@ -77,7 +79,7 @@ class InteractionModel:
             setattr(self, k, Intent(v))
 
     def intent_distribution(
-        self, annotated_conversations: List[Dict[str, Any]]
+        self, annotated_conversations: List[Dialogue]
     ) -> Tuple[IntentDistribution, IntentDistribution]:
         """Distills user intent distributions based on conversations.
 
@@ -87,18 +89,29 @@ class InteractionModel:
         Returns:
             Intent distributions:
                 {user of agent intent: {next_user_intent: occurrence}}
+
+        Raises:
+            TypeError: if some utterances are not instance of
+              AnnotatedUtterance.
         """
-        # TODO: refactor the method to accept Collection[Dialogue] instead of
-        # List[Dict[str, Any]].
-        # See: https://github.com/iai-group/UserSimCRS/issues/104
+        # Check if all the utterances are annotated utterances.
+        if not all(
+            isinstance(utterance, AnnotatedUtterance)
+            for dialogue in annotated_conversations
+            for utterance in dialogue.utterances
+        ):
+            raise TypeError(
+                "Some utterances are not instance of 'AnnotatedUtterance'."
+            )
+
         user_intent_dist: Dict[Intent, Dict] = dict()
         intent_dist: Dict[Intent, Dict] = dict()
         # Extracts conjoint user intent pairs from conversations.
         for annotated_conversation in annotated_conversations:
             user_agenda = [
-                Intent(u["intent"])
-                for u in annotated_conversation["conversation"]
-                if u["participant"] == DialogueParticipant.USER.name
+                u.intent
+                for u in annotated_conversation.utterances
+                if u.participant == DialogueParticipant.USER.name
             ]
             for i, user_intent in enumerate(user_agenda):
                 if user_intent not in user_intent_dist:
@@ -114,32 +127,21 @@ class InteractionModel:
 
             # Extracts conjoint agent intent and user intent pairs
             # from conversations.
-            for j, utterance_record in enumerate(
-                annotated_conversation["conversation"]
-            ):
+            for j, utterance in enumerate(annotated_conversation.utterances):
                 # Only consider agent intent as keys
-                if (
-                    utterance_record["participant"]
-                    != DialogueParticipant.AGENT.name
-                ):
+                if utterance.participant != DialogueParticipant.AGENT.name:
                     continue
-                intent = Intent(utterance_record["intent"])
+                intent = utterance.intent
                 if intent not in intent_dist:
                     intent_dist[intent] = dict()
                 # TODO: consider the case when the next intent is not
                 # user intent.
                 next_user_intent = (
-                    Intent(
-                        self._config["user_preference_intents_reverse"].get(
-                            annotated_conversation["conversation"][j + 1][
-                                "intent"
-                            ],
-                            annotated_conversation["conversation"][j + 1][
-                                "intent"
-                            ],
-                        )
+                    self._config["user_preference_intents_reverse"].get(
+                        annotated_conversation.utterances[j + 1].intent,
+                        annotated_conversation.utterances[j + 1].intent,
                     )
-                    if j < len(annotated_conversation["conversation"]) - 1
+                    if j < len(annotated_conversation.utterances) - 1
                     else self.INTENT_START  # type: ignore[attr-defined]
                 )
                 if next_user_intent not in intent_dist[intent]:

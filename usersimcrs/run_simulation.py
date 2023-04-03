@@ -26,6 +26,7 @@ from dialoguekit.nlu.models.intent_classifier_cosine import (
 from dialoguekit.participant.agent import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms.platform import Platform
+from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from sample_agents.moviebot_agent import MovieBotAgent
 
 from usersimcrs.items.item_collection import ItemCollection
@@ -89,7 +90,9 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
 
     # Loads dialogue sample
     annotated_dialogues_file = config["dialogues"].get()
-    annotated_conversations = json.load(open(annotated_dialogues_file))
+    annotated_conversations = json_to_dialogues(
+        annotated_dialogues_file, agent_id=agent.id, user_id="User"
+    )
 
     # Loads interaction model
     interaction_model = InteractionModel(

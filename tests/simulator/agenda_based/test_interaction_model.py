@@ -2,49 +2,52 @@
 
 import pytest
 from dialoguekit.core.intent import Intent
+from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 
 # List of user intents in agenda
-ANNOTATED_CONVERSATIONS = [
-    {
-        "conversation ID": "1",
-        "conversation": [
-            {"participant": "USER", "intent": "DISCLOSE.NON-DISCLOSE"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-A"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-B"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-C"},
-        ],
-    },
-    {
-        "conversation ID": "2",
-        "conversation": [
-            {"participant": "USER", "intent": "DISCLOSE.NON-DISCLOSE"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-A"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-A"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-C"},
-        ],
-    },
-    {
-        "conversation ID": "3",
-        "conversation": [
-            {"participant": "USER", "intent": "DISCLOSE.NON-DISCLOSE"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-A"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-C"},
-            {"participant": "AGENT", "intent": "INQUIRE"},
-            {"participant": "USER", "intent": "Intent-C"},
-        ],
-    },
-]
-
+# ANNOTATED_CONVERSATIONS = [
+#     {
+#         "conversation ID": "1",
+#         "conversation": [
+#             {"participant": "USER", "intent": "DISCLOSE.NON-DISCLOSE"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-A"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-B"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-C"},
+#         ],
+#     },
+#     {
+#         "conversation ID": "2",
+#         "conversation": [
+#             {"participant": "USER", "intent": "DISCLOSE.NON-DISCLOSE"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-A"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-A"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-C"},
+#         ],
+#     },
+#     {
+#         "conversation ID": "3",
+#         "conversation": [
+#             {"participant": "USER", "intent": "DISCLOSE.NON-DISCLOSE"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-A"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-C"},
+#             {"participant": "AGENT", "intent": "INQUIRE"},
+#             {"participant": "USER", "intent": "Intent-C"},
+#         ],
+#     },
+# ]
+ANNOTATED_CONVERSATIONS = json_to_dialogues(
+    "tests/data/annotated_dialogues.json", agent_id="AGENT", user_id="USER"
+)
 
 _INTENT_INQUIRE = Intent("INQUIRE")
 _INTENT_REVEAL = Intent("REVEAL")
