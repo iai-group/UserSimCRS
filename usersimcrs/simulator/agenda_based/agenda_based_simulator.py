@@ -142,7 +142,12 @@ class AgendaBasedSimulator(UserSimulator):
             agent_intent
         ):
             # TODO: Extract the ID of the recommended item:
-            item_id = None
+            possible_items = (
+                self._item_collection.get_items_by_properties(agent_annotations)
+                if agent_annotations
+                else []
+            )
+            item_id = possible_items[0].id if possible_items else None
 
             # Determine user preference for the agent's recommendation.
             # First, check if the user has already consumed the item.
