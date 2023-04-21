@@ -19,7 +19,22 @@ Response generation is currently developed with an agenda-based simulator [2]_ i
 User modeling
 -------------
 
-User modeling consists of three sub-components: preference model, context model, and persona. The responsibility of the preference model is to capture users’ individual tastes and thus allow for a personalized experience. Following Zhang and Balog [4]_, it is modeled as a personal knowledge graph, where nodes can indicate either an item or an attribute. Novel to our work is the modeling of persona, which is used to capture user-specific traits, e.g., user cooperativeness, and context, which can characterize the situation of the user.
+User modeling consists of three sub-components: preference model, context model, and persona.
+
+Preference model
+^^^^^^^^^^^^^^^^
+
+Preference modeling refers to modeling users’ individual tastes and allows for a personalized experience. We model preferences as a Personal Knowledge Graph (PGK), where nodes can be either items or attributes. The preference model is built such that it remains consistent across simulations.
+
+Context model
+^^^^^^^^^^^^^
+
+In addition to preference and interaction modeling, we also model other user contexts, specifically temporal and relational. Temporal context refers to time context such as *time of the day* and whether it is a *weekday* or *weekend*. Relational context on the other hand is used to indicate the group setting of the user.
+
+Persona
+^^^^^^^
+
+Persona is used to capture user-specific traits, e.g., cooperativeness.
 
 Natural language generation (NLG) 
 ---------------------------------
