@@ -141,7 +141,6 @@ class AgendaBasedSimulator(UserSimulator):
         elif self._interaction_model.is_agent_intent_set_retrieval(
             agent_intent
         ):
-            # TODO: Extract the ID of the recommended item:
             possible_items = (
                 self._item_collection.get_items_by_properties(agent_annotations)
                 if agent_annotations
@@ -149,26 +148,36 @@ class AgendaBasedSimulator(UserSimulator):
             )
             item_id = possible_items[0].id if possible_items else None
 
-            # Determine user preference for the agent's recommendation.
-            # First, check if the user has already consumed the item.
-            if self._preference_model.is_item_consumed(item_id):
-                # Currently, the user only responds by saying that they already
-                # consumed the item. If there is a follow-up question by the
-                # agent whether they've liked it, that should end up in the
-                # other branch of the fork.
-                response_intent = self._interaction_model.INTENT_ITEM_CONSUMED  # type: ignore[attr-defined] # noqa
+            if item_id is None:
+                # The recommended item was not found in the item collection.
+                # response_intent = self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
+                response_intent = self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
             else:
-                # Get a response based on the recommendation. Currently, the
-                # user responds immediately with a like/dislike, but it could
-                # ask questions about the item before deciding (this should be
-                # based on the agenda).
-                preference = self._preference_model.get_item_preference(item_id)
-                if preference > self._preference_model.PREFERENCE_THRESHOLD:
-                    response_intent = self._interaction_model.INTENT_LIKE  # type: ignore[attr-defined] # noqa
-                elif preference < -self._preference_model.PREFERENCE_THRESHOLD:
-                    response_intent = self._interaction_model.INTENT_DISLIKE  # type: ignore[attr-defined] # noqa
+                # Determine user preference for the agent's recommendation.
+                # First, check if the user has already consumed the item.
+                if self._preference_model.is_item_consumed(item_id):
+                    # Currently, the user only responds by saying that they
+                    # already consumed the item. If there is a follow-up
+                    # question by the agent whether they've liked it, that
+                    # should end up in the other branch of the fork.
+                    response_intent = self._interaction_model.INTENT_ITEM_CONSUMED  # type: ignore[attr-defined] # noqa
                 else:
-                    response_intent = self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
+                    # Get a response based on the recommendation. Currently, the
+                    # user responds immediately with a like/dislike, but it
+                    # could ask questions about the item before deciding (this
+                    # should be based on the agenda).
+                    preference = self._preference_model.get_item_preference(
+                        item_id
+                    )
+                    if preference > self._preference_model.PREFERENCE_THRESHOLD:
+                        response_intent = self._interaction_model.INTENT_LIKE  # type: ignore[attr-defined] # noqa
+                    elif (
+                        preference
+                        < -self._preference_model.PREFERENCE_THRESHOLD
+                    ):
+                        response_intent = self._interaction_model.INTENT_DISLIKE  # type: ignore[attr-defined] # noqa
+                    else:
+                        response_intent = self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
 
         # Generating natural language response through NLG.
         response = self._nlg.generate_utterance_text(

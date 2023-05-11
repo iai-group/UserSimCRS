@@ -300,7 +300,7 @@ class InteractionModel:
                 return items[i]
         return items[-1]
 
-    def update_agenda(self, agent_intent: Intent) -> Intent:
+    def update_agenda(self, agent_intent: Intent) -> None:
         """Updates the agenda and determines the next user intent based on
         agent intent.
 
@@ -323,6 +323,10 @@ class InteractionModel:
         ) or []
 
         logger.debug(f"Agent intent: {agent_intent}\n")
+
+        if not self._agenda:
+            self._current_intent = self.INTENT_STOP  # type: ignore[attr-defined] # noqa
+            return
 
         # If agent replies in an expected intent, then pop the next intent from
         # agenda.
