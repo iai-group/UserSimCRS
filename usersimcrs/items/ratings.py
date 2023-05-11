@@ -2,9 +2,6 @@
 
 Ratings are normalized in the [-1,1] range, where -1 corresponds to
 (strong) dislike, 0 is neutral, and 1 is (strong) like.
-
-TODO: Create tests for this file
-See: https://github.com/iai-group/UserSimCRS/issues/109
 """
 
 import csv
