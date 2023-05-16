@@ -70,8 +70,7 @@ class AgendaBasedSimulator(UserSimulator):
         """
         if item_id is None:
             # The recommended item was not found in the item collection.
-            # response_intent = self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
-            response_intent = self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
+            response_intent = self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
         else:
             # Determine user preference for the agent's recommendation.
             # First, check if the user has already consumed the item.
