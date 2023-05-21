@@ -104,6 +104,8 @@ class AgendaBasedSimulator(UserSimulator):
                 # Agent is asking about a particular slot-value pair, e.g.,
                 # "Do you like action movies?"
                 if value:
+                    # TODO: Refactor this part to return an intent reflecting
+                    # preference (like, dislike, neutral)
                     (
                         response_slot,
                         response_value,
@@ -132,10 +134,6 @@ class AgendaBasedSimulator(UserSimulator):
                 # TODO: Add method to interaction model that picks both a slot
                 # and a preference.
                 pass
-
-            # TODO: Check if there are other cases that'd need to be dealt with,
-            # based on KDD paper implementation.
-            # See: https://github.com/iai-group/UserSimCRS/issues/115
 
         # Agent is recommending items.
         elif self._interaction_model.is_agent_intent_set_retrieval(
