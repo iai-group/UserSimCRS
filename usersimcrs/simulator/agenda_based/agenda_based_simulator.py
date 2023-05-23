@@ -182,6 +182,7 @@ class AgendaBasedSimulator(UserSimulator):
                 if agent_annotations
                 else []
             )
+            # The first identified item is considered the recommended item.
             item_id = possible_items[0].id if possible_items else None
             response_intent = self._generate_item_preference_response_intent(
                 item_id

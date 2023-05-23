@@ -136,6 +136,9 @@ class ItemCollection:
             List of matching items.
         """
         matching_items: List[Item] = []
+
+        # TODO: Refactor to use a more efficient data structure.
+        # See: https://github.com/iai-group/UserSimCRS/issues/137
         for item in self._items.values():
             if all(
                 item.get_property(annotation.slot) == annotation.value
