@@ -112,8 +112,8 @@ class InteractionModel:
         intent_dist: Dict[Intent, Dict[Intent, int]] = defaultdict(
             functools.partial(defaultdict, int)
         )
-        # Extracts conjoint user intent pairs from conversations.
         for annotated_conversation in annotated_conversations:
+            # Extracts conjoint user intent pairs from conversations.
             user_agenda = [
                 u.intent
                 for u in annotated_conversation.utterances
@@ -137,10 +137,7 @@ class InteractionModel:
                 # TODO: consider the case when the next intent is not
                 # user intent.
                 next_user_intent = (
-                    self._config["user_preference_intents_reverse"].get(
-                        annotated_conversation.utterances[j + 1].intent,
-                        annotated_conversation.utterances[j + 1].intent,
-                    )
+                    annotated_conversation.utterances[j + 1].intent
                     if j < len(annotated_conversation.utterances) - 1
                     else self.INTENT_START  # type: ignore[attr-defined]
                 )
