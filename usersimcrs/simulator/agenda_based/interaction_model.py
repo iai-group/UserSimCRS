@@ -1,8 +1,10 @@
 """Interaction model."""
 
+import functools
 import logging
 import os
 import random
+from collections import defaultdict
 from typing import Dict, List, Tuple
 
 import yaml
@@ -91,7 +93,7 @@ class InteractionModel:
                 {user of agent intent: {next_user_intent: occurrence}}
 
         Raises:
-            TypeError: if some utterances are not instance of
+            TypeError: if some utterances are not an instance of
               AnnotatedUtterance.
         """
         # Check if all the utterances are annotated utterances.
@@ -101,11 +103,15 @@ class InteractionModel:
             for utterance in dialogue.utterances
         ):
             raise TypeError(
-                "Some utterances are not instance of 'AnnotatedUtterance'."
+                "Some utterances are not an instance of 'AnnotatedUtterance'."
             )
 
-        user_intent_dist: Dict[Intent, Dict] = dict()
-        intent_dist: Dict[Intent, Dict] = dict()
+        user_intent_dist: Dict[Intent, Dict[Intent, int]] = defaultdict(
+            functools.partial(defaultdict, int)
+        )
+        intent_dist: Dict[Intent, Dict[Intent, int]] = defaultdict(
+            functools.partial(defaultdict, int)
+        )
         # Extracts conjoint user intent pairs from conversations.
         for annotated_conversation in annotated_conversations:
             user_agenda = [
@@ -114,15 +120,11 @@ class InteractionModel:
                 if u.participant == DialogueParticipant.USER.name
             ]
             for i, user_intent in enumerate(user_agenda):
-                if user_intent not in user_intent_dist:
-                    user_intent_dist[user_intent] = dict()
                 next_user_intent = (
                     user_agenda[i + 1]
                     if i < len(user_agenda) - 1
                     else self.INTENT_STOP  # type: ignore[attr-defined]
                 )
-                if next_user_intent not in user_intent_dist[user_intent]:
-                    user_intent_dist[user_intent][next_user_intent] = 0
                 user_intent_dist[user_intent][next_user_intent] += 1
 
             # Extracts conjoint agent intent and user intent pairs
@@ -132,8 +134,6 @@ class InteractionModel:
                 if utterance.participant != DialogueParticipant.AGENT.name:
                     continue
                 intent = utterance.intent
-                if intent not in intent_dist:
-                    intent_dist[intent] = dict()
                 # TODO: consider the case when the next intent is not
                 # user intent.
                 next_user_intent = (
@@ -144,8 +144,6 @@ class InteractionModel:
                     if j < len(annotated_conversation.utterances) - 1
                     else self.INTENT_START  # type: ignore[attr-defined]
                 )
-                if next_user_intent not in intent_dist[intent]:
-                    intent_dist[intent][next_user_intent] = 0
                 intent_dist[intent][next_user_intent] += 1
         return user_intent_dist, intent_dist
 
