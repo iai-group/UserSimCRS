@@ -1,17 +1,24 @@
 """Agenda-based user simulator from [Zhang and Balog, KDD'20]."""
 
+import random
+from typing import List, Tuple
+
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.domain import Domain
+from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlu.nlu import NLU
+from nltk.stem import WordNetLemmatizer
 
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.preference_model import PreferenceModel
+
+_LEMMATIZER = WordNetLemmatizer()
 
 
 class AgendaBasedSimulator(UserSimulator):
@@ -58,6 +65,78 @@ class AgendaBasedSimulator(UserSimulator):
         """
         return self.generate_response(agent_utterance)
 
+    def _get_preference_intent(self, preference: float) -> Intent:
+        """Gets the intent associated to a preference value.
+
+        Args:
+            preference: Preference value.
+
+        Return:
+            Preference intent.
+        """
+        if preference > self._preference_model.PREFERENCE_THRESHOLD:
+            return self._interaction_model.INTENT_LIKE  # type: ignore[attr-defined] # noqa
+
+        if preference < -self._preference_model.PREFERENCE_THRESHOLD:
+            return self._interaction_model.INTENT_DISLIKE  # type: ignore[attr-defined] # noqa
+
+        return self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
+
+    def _generate_elicit_response_intent_and_annotations(
+        self, slot: str = None, value: str = None
+    ) -> Tuple[Intent, List[Annotation]]:
+        """Generates response intent and annotations for the elicited slot value
+        pair.
+
+        Args:
+            slot: Elicited slot.
+            value: Elicited value.
+
+        Return:
+            Response intent and annotations.
+        """
+        elicited_slot = (
+            slot
+            if slot
+            else random.choice(self._preference_model._domain.get_slot_names())
+        )
+        # During training of the slot annotator, a slot's name and value can be
+        # the almost the same, e.g., (GENRE, genres). In that case, value does
+        # not represent an entity.
+        elicited_value = (
+            None
+            if _LEMMATIZER.lemmatize(value).lower()
+            == _LEMMATIZER.lemmatize(elicited_slot).lower()
+            else value
+        )
+
+        # Agent is asking about a particular slot-value pair, e.g.,
+        # "Do you like action movies?"
+        if elicited_value:
+            preference = self._preference_model.get_slot_value_preference(
+                elicited_slot, elicited_value
+            )
+            return self._get_preference_intent(preference), [
+                Annotation(slot=elicited_slot, value=elicited_value)
+            ]
+        else:
+            # Agent is asking about value preferences on a given slot, e.g.,
+            # "What movie genre would you prefer?"
+            (
+                response_value,
+                preference,
+            ) = self._preference_model.get_slot_preference(elicited_slot)
+
+            if response_value:
+                response_intent = self._interaction_model.INTENT_DISCLOSE  # type: ignore[attr-defined] # noqa
+                response_slot_values = [
+                    Annotation(slot=elicited_slot, value=response_value)
+                ]
+                return response_intent, response_slot_values
+
+        response_intent = self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
+        return response_intent, None
+
     def generate_response(
         self, agent_utterance: Utterance
     ) -> AnnotatedUtterance:
@@ -88,52 +167,23 @@ class AgendaBasedSimulator(UserSimulator):
         self._interaction_model.update_agenda(agent_intent)
         response_intent = self._interaction_model.current_intent
 
-        # TODO: Refactor the part below to private methods, once the logic
-        # is clear.
-
         # Agent wants to elicit preferences.
         if self._interaction_model.is_agent_intent_elicit(agent_intent):
-            # TODO: Extract the slots from agent response on which preferences
-            # are elicited. For now, we just focus on a single slot.
-            slot = None
+            # Extract the first slot, value pair from agent response on
+            # which preferences are elicited. For now, we just focus on a
+            # single slot.
+            slot, value = (
+                (agent_annotations[0].slot, agent_annotations[0].value)
+                if agent_annotations
+                else (None, None)
+            )
 
-            # Agent is soliciting preferences on a particular slot.
-            if slot:
-                # TODO: Extract value from agent response.
-                value = None
-                # Agent is asking about a particular slot-value pair, e.g.,
-                # "Do you like action movies?"
-                if value:
-                    # TODO: Refactor this part to return an intent reflecting
-                    # preference (like, dislike, neutral)
-                    (
-                        response_slot,
-                        response_value,
-                    ) = self._preference_model.get_slot_value_preference(
-                        slot, value
-                    )
-                # Agent is asking about value preferences on a given slot, e.g.,
-                # "What movie genre would you prefer?"
-                else:
-                    (
-                        response_slot,
-                        response_value,
-                    ) = self._preference_model.get_slot_preference(slot)
-
-                if response_slot:
-                    response_intent = self._interaction_model.INTENT_DISCLOSE  # type: ignore[attr-defined] # noqa
-                    response_slot_values = [
-                        Annotation(slot=response_slot, value=response_value)
-                    ]
-                else:
-                    response_intent = self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
-
-            # Agent is eliciting preferences in general, e.g., "What kind of
-            # movies do you like"
-            else:
-                # TODO: Add method to interaction model that picks both a slot
-                # and a preference.
-                pass
+            (
+                response_intent,
+                response_slot_values,
+            ) = self._generate_elicit_response_intent_and_annotations(
+                slot, value
+            )
 
         # Agent is recommending items.
         elif self._interaction_model.is_agent_intent_set_retrieval(
@@ -156,12 +206,7 @@ class AgendaBasedSimulator(UserSimulator):
                 # ask questions about the item before deciding (this should be
                 # based on the agenda).
                 preference = self._preference_model.get_item_preference(item_id)
-                if preference > self._preference_model.PREFERENCE_THRESHOLD:
-                    response_intent = self._interaction_model.INTENT_LIKE  # type: ignore[attr-defined] # noqa
-                elif preference < -self._preference_model.PREFERENCE_THRESHOLD:
-                    response_intent = self._interaction_model.INTENT_DISLIKE  # type: ignore[attr-defined] # noqa
-                else:
-                    response_intent = self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
+                response_intent = self._get_preference_intent(preference)
 
         # Generating natural language response through NLG.
         response = self._nlg.generate_utterance_text(
