@@ -85,8 +85,8 @@ class AgendaBasedSimulator(UserSimulator):
     def _generate_elicit_response_intent_and_annotations(
         self, slot: str = None, value: str = None
     ) -> Tuple[Intent, List[Annotation]]:
-        """Generates response intent and annotations for the elicited slot value
-        pair.
+        """Generates response intent and annotations for the elicited slot
+        value pair.
 
         Args:
             slot: Elicited slot.
