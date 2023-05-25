@@ -327,8 +327,8 @@ def load_rasa_diet_classifier(
 
     agent_intents_str: Set[str] = set()
     for v in intent_schema["user_intents"].values():
-        if "expected_agent_intents" in v:
-            agent_intents_str.update(v["expected_agent_intents"])
+        intents = v.get("expected_agent_intents", []) or []
+        agent_intents_str.update(intents)
     # agent_intents_str = intent_schema["agent_elicit_intents"]
     # agent_intents_str.extend(intent_schema["agent_set_retrieval"])
     agent_intents = [Intent(intent) for intent in agent_intents_str]
