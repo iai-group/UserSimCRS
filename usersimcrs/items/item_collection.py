@@ -1,8 +1,8 @@
 """Represents a collection of items.
 
-Items are characterized by a set of properties, which correspond to
-slots in a domain. Items and can be loaded from CSV by providing a
-mapping from CSV fields to properties (i.e., domain slots).
+Items are characterized by a set of properties, which correspond to slots in a
+domain. Items and can be loaded from CSV by providing a mapping from CSV fields
+to properties (i.e., domain slots).
 """
 
 import csv
