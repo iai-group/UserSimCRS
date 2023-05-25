@@ -15,7 +15,10 @@ repos:
         name: docformatter
         description: "Formats docstrings to follow PEP 257."
         entry: docformatter
-        args: [--in-place --wrap-summaries=80 --wrap-descriptions=80]
+        args: 
+          - --in-place
+          - --wrap-summaries=80
+          - --wrap-descriptions=80
         language: python
         types: [python]
 -   repo: local
