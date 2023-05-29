@@ -183,6 +183,8 @@ class AgendaBasedSimulator(UserSimulator):
                 else []
             )
             # The first identified item is considered the recommended item.
+            # TODO: Handle multiple possible items.
+            # See: https://github.com/iai-group/UserSimCRS/issues/138
             item_id = possible_items[0].id if possible_items else None
             response_intent = self._generate_item_preference_response_intent(
                 item_id
