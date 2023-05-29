@@ -301,8 +301,8 @@ class InteractionModel:
         return items[-1]
 
     def update_agenda(self, agent_intent: Intent) -> None:
-        """Updates the agenda and determines the next user intent based on
-        agent intent.
+        """Updates the agenda and determines the next user intent based on agent
+        intent.
 
         If agent replies with an expected intent in response to the last user
         intent (based on the expected_responses mapping in the config file),

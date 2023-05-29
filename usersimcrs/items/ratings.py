@@ -1,7 +1,7 @@
 """Represents item ratings and provides access either based on items or users.
 
-Ratings are normalized in the [-1,1] range, where -1 corresponds to
-(strong) dislike, 0 is neutral, and 1 is (strong) like.
+Ratings are normalized in the [-1,1] range, where -1 corresponds to (strong)
+dislike, 0 is neutral, and 1 is (strong) like.
 """
 
 import csv
