@@ -8,6 +8,7 @@ to properties (i.e., domain slots).
 import csv
 from typing import Any, Dict, List, Set
 
+from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item import Item
@@ -122,3 +123,26 @@ class ItemCollection:
                 else:
                     values.add(value)
         return values
+
+    def get_items_by_properties(
+        self, annotations: List[Annotation]
+    ) -> List[Item]:
+        """Returns a list of items that match the given utterance annotations.
+
+        Args:
+            annotations: List of annotation.
+
+        Returns:
+            List of matching items.
+        """
+        matching_items: List[Item] = []
+
+        # TODO: Refactor to use a more efficient data structure.
+        # See: https://github.com/iai-group/UserSimCRS/issues/137
+        for item in self._items.values():
+            if all(
+                item.get_property(annotation.slot) == annotation.value
+                for annotation in annotations
+            ):
+                matching_items.append(item)
+        return matching_items

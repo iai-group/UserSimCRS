@@ -3,6 +3,7 @@
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.domain import Domain
+from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlu.nlu import NLU
@@ -57,6 +58,41 @@ class AgendaBasedSimulator(UserSimulator):
             User utterance.
         """
         return self.generate_response(agent_utterance)
+
+    def _generate_item_preference_response_intent(self, item_id: str) -> Intent:
+        """Generates response preference intent for a given item id.
+
+        Args:
+            item_id: Item id.
+
+        Returns:
+            Preference intent.
+        """
+        if item_id is None:
+            # The recommended item was not found in the item collection.
+            return self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
+
+        # Check if the user has already consumed the item.
+        if self._preference_model.is_item_consumed(item_id):
+            # Currently, the user only responds by saying that they
+            # already consumed the item. If there is a follow-up
+            # question by the agent whether they've liked it, that
+            # should end up in the other branch of the fork.
+            return self._interaction_model.INTENT_ITEM_CONSUMED  # type: ignore[attr-defined] # noqa
+
+        # Get a response based on the recommendation. Currently, the
+        # user responds immediately with a like/dislike, but it
+        # could ask questions about the item before deciding (this
+        # should be based on the agenda).
+        preference = self._preference_model.get_item_preference(item_id)
+        if preference > self._preference_model.PREFERENCE_THRESHOLD:
+            response_intent = self._interaction_model.INTENT_LIKE  # type: ignore[attr-defined] # noqa
+        elif preference < -self._preference_model.PREFERENCE_THRESHOLD:
+            response_intent = self._interaction_model.INTENT_DISLIKE  # type: ignore[attr-defined] # noqa
+        else:
+            response_intent = self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
+
+        return response_intent
 
     def generate_response(
         self, agent_utterance: Utterance
@@ -139,29 +175,18 @@ class AgendaBasedSimulator(UserSimulator):
         elif self._interaction_model.is_agent_intent_set_retrieval(
             agent_intent
         ):
-            # TODO: Extract the ID of the recommended item:
-            item_id = None
-
-            # Determine user preference for the agent's recommendation.
-            # First, check if the user has already consumed the item.
-            if self._preference_model.is_item_consumed(item_id):
-                # Currently, the user only responds by saying that they already
-                # consumed the item. If there is a follow-up question by the
-                # agent whether they've liked it, that should end up in the
-                # other branch of the fork.
-                response_intent = self._interaction_model.INTENT_ITEM_CONSUMED  # type: ignore[attr-defined] # noqa
-            else:
-                # Get a response based on the recommendation. Currently, the
-                # user responds immediately with a like/dislike, but it could
-                # ask questions about the item before deciding (this should be
-                # based on the agenda).
-                preference = self._preference_model.get_item_preference(item_id)
-                if preference > self._preference_model.PREFERENCE_THRESHOLD:
-                    response_intent = self._interaction_model.INTENT_LIKE  # type: ignore[attr-defined] # noqa
-                elif preference < -self._preference_model.PREFERENCE_THRESHOLD:
-                    response_intent = self._interaction_model.INTENT_DISLIKE  # type: ignore[attr-defined] # noqa
-                else:
-                    response_intent = self._interaction_model.INTENT_NEUTRAL  # type: ignore[attr-defined] # noqa
+            possible_items = (
+                self._item_collection.get_items_by_properties(agent_annotations)
+                if agent_annotations
+                else []
+            )
+            # The first identified item is considered the recommended item.
+            # TODO: Handle multiple possible items.
+            # See: https://github.com/iai-group/UserSimCRS/issues/138
+            item_id = possible_items[0].id if possible_items else None
+            response_intent = self._generate_item_preference_response_intent(
+                item_id
+            )
 
         # Generating natural language response through NLG.
         response = self._nlg.generate_utterance_text(

@@ -4,6 +4,7 @@ import argparse
 import json
 import logging
 import os
+from typing import Set
 
 import confuse
 import requests
@@ -324,8 +325,12 @@ def load_rasa_diet_classifier(
     intent_schema_file = config["intents"].get()
     intent_schema = yaml.load(open(intent_schema_file), Loader=yaml.FullLoader)
 
-    agent_intents_str = intent_schema["agent_elicit_intents"]
-    agent_intents_str.extend(intent_schema["agent_set_retrieval"])
+    agent_intents_str: Set[str] = set()
+    for v in intent_schema["user_intents"].values():
+        intents = v.get("expected_agent_intents", []) or []
+        agent_intents_str.update(intents)
+    # agent_intents_str = intent_schema["agent_elicit_intents"]
+    # agent_intents_str.extend(intent_schema["agent_set_retrieval"])
     agent_intents = [Intent(intent) for intent in agent_intents_str]
     intent_classifier = IntentClassifierRasa(
         agent_intents,

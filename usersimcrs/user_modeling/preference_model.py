@@ -60,9 +60,8 @@ class PreferenceModel:
         historical_ratings: Ratings,
         historical_user_id: str = None,
     ) -> None:
-        """Generates a simulated user, by assigning initial preferences based
-        on historical ratings according to the specified model type (SIP or
-        PKG).
+        """Generates a simulated user, by assigning initial preferences based on
+        historical ratings according to the specified model type (SIP or PKG).
 
         Further preferences are inferred along the way as the simulated user is
         being prompted by the agent for preferences.
