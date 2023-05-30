@@ -103,6 +103,8 @@ class AgendaBasedSimulator(UserSimulator):
         # During training of the slot annotator, a slot's name and value can be
         # the almost the same, e.g., (GENRE, genres). In that case, value does
         # not represent an entity.
+        # TODO: Revise annotator to avoid this behavior.
+        # See: https://github.com/iai-group/DialogueKit/issues/234
         elicited_value = (
             None
             if _LEMMATIZER.lemmatize(value).lower()
@@ -136,6 +138,35 @@ class AgendaBasedSimulator(UserSimulator):
 
         response_intent = self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
         return response_intent, None
+
+    def _generate_item_preference_response_intent(self, item_id: str) -> Intent:
+        """Generates response preference intent for a given item id.
+
+        Args:
+            item_id: Item id.
+
+        Returns:
+            Preference intent.
+        """
+        if item_id is None:
+            # The recommended item was not found in the item collection.
+            return self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
+
+        # Check if the user has already consumed the item.
+        if self._preference_model.is_item_consumed(item_id):
+            # Currently, the user only responds by saying that they
+            # already consumed the item. If there is a follow-up
+            # question by the agent whether they've liked it, that
+            # should end up in the other branch of the fork.
+            return self._interaction_model.INTENT_ITEM_CONSUMED  # type: ignore[attr-defined] # noqa
+
+        # Get a response based on the recommendation. Currently, the
+        # user responds immediately with a like/dislike, but it
+        # could ask questions about the item before deciding (this
+        # should be based on the agenda).
+        preference = self._preference_model.get_item_preference(item_id)
+        response_intent = self._get_preference_intent(preference)
+        return response_intent
 
     def generate_response(
         self, agent_utterance: Utterance
@@ -189,24 +220,18 @@ class AgendaBasedSimulator(UserSimulator):
         elif self._interaction_model.is_agent_intent_set_retrieval(
             agent_intent
         ):
-            # TODO: Extract the ID of the recommended item:
-            item_id = None
-
-            # Determine user preference for the agent's recommendation.
-            # First, check if the user has already consumed the item.
-            if self._preference_model.is_item_consumed(item_id):
-                # Currently, the user only responds by saying that they already
-                # consumed the item. If there is a follow-up question by the
-                # agent whether they've liked it, that should end up in the
-                # other branch of the fork.
-                response_intent = self._interaction_model.INTENT_ITEM_CONSUMED  # type: ignore[attr-defined] # noqa
-            else:
-                # Get a response based on the recommendation. Currently, the
-                # user responds immediately with a like/dislike, but it could
-                # ask questions about the item before deciding (this should be
-                # based on the agenda).
-                preference = self._preference_model.get_item_preference(item_id)
-                response_intent = self._get_preference_intent(preference)
+            possible_items = (
+                self._item_collection.get_items_by_properties(agent_annotations)
+                if agent_annotations
+                else []
+            )
+            # The first identified item is considered the recommended item.
+            # TODO: Handle multiple possible items.
+            # See: https://github.com/iai-group/UserSimCRS/issues/138
+            item_id = possible_items[0].id if possible_items else None
+            response_intent = self._generate_item_preference_response_intent(
+                item_id
+            )
 
         # Generating natural language response through NLG.
         response = self._nlg.generate_utterance_text(

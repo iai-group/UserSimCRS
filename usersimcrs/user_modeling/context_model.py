@@ -5,7 +5,6 @@ from typing import Dict
 
 
 class ContextModel:
-
     _DEFAULT_CONTEXT_PROBABILITIES: Dict[str, Dict[str, float]] = dict()
 
     def __init__(
