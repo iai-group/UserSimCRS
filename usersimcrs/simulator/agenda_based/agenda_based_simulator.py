@@ -203,6 +203,8 @@ class AgendaBasedSimulator(UserSimulator):
             # Extract the first slot, value pair from agent response on
             # which preferences are elicited. For now, we just focus on a
             # single slot.
+            # TODO: Handle multiple slots.
+            # See: https://github.com/iai-group/UserSimCRS/issues/141
             slot, value = (
                 (agent_annotations[0].slot, agent_annotations[0].value)
                 if agent_annotations
