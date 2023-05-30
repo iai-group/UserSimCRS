@@ -130,14 +130,12 @@ class AgendaBasedSimulator(UserSimulator):
             ) = self._preference_model.get_slot_preference(elicited_slot)
 
             if response_value:
-                response_intent = self._interaction_model.INTENT_DISCLOSE  # type: ignore[attr-defined] # noqa
-                response_slot_values = [
-                    Annotation(slot=elicited_slot, value=response_value)
-                ]
-                return response_intent, response_slot_values
+                return (
+                    self._interaction_model.INTENT_DISCLOSE,  # type: ignore[attr-defined] # noqa
+                    [Annotation(slot=elicited_slot, value=response_value)],
+                )
 
-        response_intent = self._interaction_model.INTENT_DONT_KNOW  # type: ignore[attr-defined] # noqa
-        return response_intent, None
+        return self._interaction_model.INTENT_DONT_KNOW, None  # type: ignore[attr-defined] # noqa
 
     def _generate_item_preference_response_intent(self, item_id: str) -> Intent:
         """Generates response preference intent for a given item id.
@@ -165,8 +163,7 @@ class AgendaBasedSimulator(UserSimulator):
         # could ask questions about the item before deciding (this
         # should be based on the agenda).
         preference = self._preference_model.get_item_preference(item_id)
-        response_intent = self._get_preference_intent(preference)
-        return response_intent
+        return self._get_preference_intent(preference)
 
     def generate_response(
         self, agent_utterance: Utterance
