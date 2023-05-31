@@ -4,6 +4,7 @@ import argparse
 import json
 import logging
 import os
+from typing import Set
 
 import confuse
 import requests
@@ -26,6 +27,7 @@ from dialoguekit.nlu.models.intent_classifier_cosine import (
 from dialoguekit.participant.agent import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms.platform import Platform
+from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from sample_agents.moviebot_agent import MovieBotAgent
 
 from usersimcrs.items.item_collection import ItemCollection
@@ -89,7 +91,9 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
 
     # Loads dialogue sample
     annotated_dialogues_file = config["dialogues"].get()
-    annotated_conversations = json.load(open(annotated_dialogues_file))
+    annotated_conversations = json_to_dialogues(
+        annotated_dialogues_file, agent_id=agent.id, user_id="User"
+    )
 
     # Loads interaction model
     interaction_model = InteractionModel(
@@ -324,8 +328,12 @@ def load_rasa_diet_classifier(
     intent_schema_file = config["intents"].get()
     intent_schema = yaml.load(open(intent_schema_file), Loader=yaml.FullLoader)
 
-    agent_intents_str = intent_schema["agent_elicit_intents"]
-    agent_intents_str.extend(intent_schema["agent_set_retrieval"])
+    agent_intents_str: Set[str] = set()
+    for v in intent_schema["user_intents"].values():
+        intents = v.get("expected_agent_intents", []) or []
+        agent_intents_str.update(intents)
+    # agent_intents_str = intent_schema["agent_elicit_intents"]
+    # agent_intents_str.extend(intent_schema["agent_set_retrieval"])
     agent_intents = [Intent(intent) for intent in agent_intents_str]
     intent_classifier = IntentClassifierRasa(
         agent_intents,
