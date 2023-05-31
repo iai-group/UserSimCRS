@@ -37,7 +37,9 @@ from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.simulator.user_simulator import UserSimulator
-from usersimcrs.user_modeling.preference_model import PreferenceModel
+from usersimcrs.user_modeling.simple_preference_model import (
+    SimplePreferenceModel,
+)
 
 DEFAULT_CONFIG_PATH = "config/default/config_default.yaml"
 OUTPUT_DIR = "data/runs"
@@ -82,7 +84,7 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
         config["historical_ratings_ratio"].get(0.8)
     )
 
-    preference_model = PreferenceModel(
+    preference_model = SimplePreferenceModel(
         domain,
         item_collection,
         historical_ratings,
