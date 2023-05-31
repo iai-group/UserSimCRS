@@ -1,0 +1,122 @@
+[
+    {
+        "conversation ID": "1",
+        "conversation": [
+            {
+                "participant": "USER",
+                "intent": "DISCLOSE.NON-DISCLOSE",
+                "utterance": "Utterance 1"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 2"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-A",
+                "utterance": "Utterance 3"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 4"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-B",
+                "utterance": "Utterance 5"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 6"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-C",
+                "utterance": "Utterance 7"
+            }
+        ]
+    },
+    {
+        "conversation ID": "2",
+        "conversation": [
+            {
+                "participant": "USER",
+                "intent": "DISCLOSE.NON-DISCLOSE",
+                "utterance": "Utterance 1"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 2"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-A",
+                "utterance": "Utterance 3"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 4"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-A",
+                "utterance": "Utterance 5"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 6"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-C",
+                "utterance": "Utterance 7"
+            }
+        ]
+    },
+    {
+        "conversation ID": "3",
+        "conversation": [
+            {
+                "participant": "USER",
+                "intent": "DISCLOSE.NON-DISCLOSE",
+                "utterance": "Utterance 1"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 2"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-A",
+                "utterance": "Utterance 3"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 4"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-C",
+                "utterance": "Utterance 5"
+            },
+            {
+                "participant": "AGENT",
+                "intent": "INQUIRE",
+                "utterance": "Utterance 6"
+            },
+            {
+                "participant": "USER",
+                "intent": "Intent-C",
+                "utterance": "Utterance 7"
+            }
+        ]
+    }
+]
