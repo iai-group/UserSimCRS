@@ -5,7 +5,7 @@ import logging
 import os
 import random
 from collections import defaultdict
-from typing import Dict, List, Tuple
+from typing import Any, DefaultDict, List, Tuple
 
 import yaml
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
@@ -13,7 +13,7 @@ from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
 from dialoguekit.participant import DialogueParticipant
 
-IntentDistribution = Dict[Intent, Dict[Intent, int]]
+IntentDistribution = DefaultDict[Intent, DefaultDict[Intent, Any]]
 logger = logging.getLogger(__name__)
 
 
@@ -106,12 +106,12 @@ class InteractionModel:
                 "Some utterances are not an instance of 'AnnotatedUtterance'."
             )
 
-        user_intent_dist: Dict[Intent, Dict[Intent, int]] = defaultdict(
-            functools.partial(defaultdict, int)
-        )
-        intent_dist: Dict[Intent, Dict[Intent, int]] = defaultdict(
-            functools.partial(defaultdict, int)
-        )
+        user_intent_dist: DefaultDict[
+            Intent, DefaultDict[Intent, Any]
+        ] = defaultdict(functools.partial(defaultdict, int))
+        intent_dist: DefaultDict[
+            Intent, DefaultDict[Intent, Any]
+        ] = defaultdict(functools.partial(defaultdict, int))
         for annotated_conversation in annotated_conversations:
             # Extracts conjoint user intent pairs from conversations.
             user_agenda = [
@@ -244,7 +244,7 @@ class InteractionModel:
         return agent_intent.label in self._config["agent_set_retrieval"]
 
     def next_intent(
-        self, intent: Intent, intent_dist: Dict[Intent, Dict]
+        self, intent: Intent, intent_dist: IntentDistribution
     ) -> Intent:
         """Predicts the next user intent.
 
