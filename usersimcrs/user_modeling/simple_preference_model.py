@@ -28,7 +28,10 @@ from dialoguekit.participant.user_preferences import UserPreferences
 
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.user_modeling.preference_model import KEY_ITEM_ID, PreferenceModel
+from usersimcrs.user_modeling.preference_model import (
+    KEY_ITEM_ID,
+    PreferenceModel,
+)
 
 
 class SimplePreferenceModel(PreferenceModel):
