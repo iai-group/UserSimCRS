@@ -22,17 +22,13 @@ has not seen a single action movie).
 """
 
 import random
-from typing import Tuple
 
 from dialoguekit.core.domain import Domain
 from dialoguekit.participant.user_preferences import UserPreferences
 
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.user_modeling.preference_model import (
-    KEY_ITEM_ID,
-    PreferenceModel,
-)
+from usersimcrs.user_modeling.preference_model import KEY_ITEM_ID, PreferenceModel
 
 
 class SimplePreferenceModel(PreferenceModel):
