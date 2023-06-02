@@ -106,7 +106,7 @@ class PreferenceModel(ABC):
             item_id: Item ID.
 
         Returns:
-            Randomly chosen preference, which is generally in [-1,1].
+            Item preference, which is generally in [-1,1].
 
         Raises:
             NotImplementedError: If not implemented in derived class.
@@ -124,7 +124,7 @@ class PreferenceModel(ABC):
             value: Slot value.
 
         Returns:
-            Randomly chosen preference.
+            Slot-value preference.
 
         Raises:
             NotImplementedError: If not implemented in derived class.

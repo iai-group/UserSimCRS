@@ -1,4 +1,8 @@
-"""User preference modeling component based on PKG.
+"""User preference modeling component based on a PKG.
+
+A personal knowledge graph (PKG), in this particular application context, is a
+knowledge graph that is used to store the preferences of a single individual to
+support the delivery of services that are customized to that individual.
 
 The implementation of get_item_preference() and get_slot_value_preference()
 depends on the release of the PKG API.
