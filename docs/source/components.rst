@@ -14,7 +14,13 @@ The NLU is responsible for obtaining a structured representation of text utteran
 Response generation
 -------------------
 
-Response generation is currently developed with an agenda-based simulator [2]_ in mind, however, it could be replaced with other approaches in the future. Following Zhang and Balog [4]_ , response generation is based on an interaction model, which is responsible for initializing the agenda and updating it. Updates to the agenda can be summarized as follows: if the agent responds in an expected manner, the interaction model pulls the next action off the agenda; otherwise, it either repeats the same action as the previous turn or samples a new action. Additionally, motivated by recent work in [1]_ and [3]_, we also introduce a user satisfaction prediction component. In addition to deciding which action to take next, the generated response also includes a turn-level user satisfaction estimate. This may be utilized by the NLG component when generating the text of the user utterance.
+Response generation is currently developed with an agenda-based simulator [2]_ in mind, however, it could be replaced with other approaches in the future. 
+Following Zhang and Balog [4]_ , response generation is based on an interaction model, which is responsible for initializing the agenda and updating it. 
+Updates to the agenda can be summarized as follows: if the agent responds in an expected manner, the interaction model pulls the next action off the agenda; otherwise, it either repeats the same action as the previous turn or samples a new action. 
+More details on the agenda-based simulator can be found :doc:`here <agenda_based>`.
+Additionally, motivated by recent work in [1]_ and [3]_, we also introduce a user satisfaction prediction component. 
+In addition to deciding which action to take next, the generated response also includes a turn-level user satisfaction estimate. 
+This may be utilized by the NLG component when generating the text of the user utterance.
 
 User modeling
 -------------
