@@ -1,0 +1,25 @@
+:py:mod:`usersimcrs`
+====================
+
+.. py:module:: usersimcrs
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   items/index.rst
+   simulator/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   run_simulation/index.rst
+
+
