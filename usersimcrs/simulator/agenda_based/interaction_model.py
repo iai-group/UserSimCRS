@@ -90,7 +90,7 @@ class InteractionModel:
 
         Returns:
             Intent distributions:
-                {user of agent intent: {next_user_intent: occurrence}}
+                {user or agent intent: {next_user_intent: occurrence}}
 
         Raises:
             TypeError: if some utterances are not an instance of
