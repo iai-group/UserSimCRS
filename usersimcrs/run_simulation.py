@@ -113,7 +113,7 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
     nlg = ConditionalNLG(template)
 
     simulator = AgendaBasedSimulator(
-        "TEST03",
+        config["simulator_id"].get(),
         preference_model,
         interaction_model,
         nlu,
@@ -358,9 +358,9 @@ if __name__ == "__main__":
     # See usage example in README for more details.
     agent_uri = config["agent_uri"].get()
     try:
-        response = requests.get(agent_uri)
+        response = requests.get(agent_uri, timeout=60)
         assert response.status_code == 200
-        agent = MovieBotAgent(agent_id="MovieBotTester", uri=agent_uri)
+        agent = MovieBotAgent(agent_id=config["agent_id"].get(), uri=agent_uri)
     except requests.exceptions.RequestException:
         raise RuntimeError(
             f"Connection refused to {agent_uri}. Please check that "
