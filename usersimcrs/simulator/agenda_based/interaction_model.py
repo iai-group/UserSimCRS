@@ -144,32 +144,21 @@ class InteractionModel:
                 intent_dist[intent][next_user_intent] += 1
         return user_intent_dist, intent_dist
 
-    def initialize_agenda(self) -> List:
-        """Initializes user agenda.
-
-        Step1: Load all the dialogues with intents and generate a map:
-                intent_map = {
-                    current_intent:
-                        {next_intent1: n_1,
-                         next_intent_2: n_2}
-                }
-        Note: CIR6 only based on user intents while qrfa uses both
-            user and agent intents
-
-        Step2: populate the agenda.
-            starting_intent = "None_disclose"
-            self.agenda.append(starting_intent)
-            next_intent = self.next_intent(starting_intent)
-            agenda.append(next_intent)
-            while next_intent != "stop":
-                self..append(next_intent)
-                next_intent = self.next_intent(next_intent)
-            agenda.append(next_intent)
-
-        Step3: filter the agenda, e.g. too short or too long agenda will
-            trigger this function rerun
-        """
+    def initialize_agenda(self) -> List[Intent]:
+        """Initializes user agenda."""
         current_intent = self.INTENT_START  # type: ignore[attr-defined]
+        agenda = self._create_agenda(current_intent)
+        return agenda
+
+    def _create_agenda(self, current_intent: Intent) -> List[Intent]:
+        """Creates an agenda based on the current user intent.
+
+        Args:
+            current_intent: Current user intent.
+
+        Returns:
+            Agenda.
+        """
         agenda = list()
         agenda.append(current_intent)
         next_intent = self.next_intent(
@@ -333,3 +322,5 @@ class InteractionModel:
             self._current_intent = self.next_intent(
                 agent_intent, self._intent_distribution
             )
+            # Create a new agenda based on the new current intent.
+            self._agenda = self._create_agenda(self._current_intent)
