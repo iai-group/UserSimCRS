@@ -4,7 +4,6 @@ from typing import Any, Dict, List
 
 import pytest
 from dialoguekit.core.annotation import Annotation
-from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item_collection import ItemCollection
 
