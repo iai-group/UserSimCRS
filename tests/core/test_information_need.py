@@ -51,8 +51,13 @@ def test_generate_information_need(
         item_collection: Item collection.
     """
     information_need = generate_information_need(domain, item_collection)
-    assert information_need.constraints is not None
-    assert information_need.requested_slots is not None
+    assert all(information_need.constraints.values())
+    assert all(
+        [
+            slot in domain.get_requestable_slots()
+            for slot in information_need.requested_slots
+        ]
+    )
 
 
 @pytest.fixture
