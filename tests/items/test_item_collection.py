@@ -8,15 +8,6 @@ from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item_collection import ItemCollection
 
-DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
-ITEMS_CSV_FILE = "tests/data/items/movies_w_keywords.csv"
-
-
-@pytest.fixture
-def domain() -> Domain:
-    """Domain fixture."""
-    return Domain(DOMAIN_YAML_FILE)
-
 
 @pytest.fixture
 def movie() -> Dict[str, Any]:
@@ -32,29 +23,8 @@ def movie() -> Dict[str, Any]:
             "computer animation",
             "toys",
         ],
+        "YEAR": "1995",
     }
-
-
-@pytest.fixture
-def item_collection(domain: Domain) -> ItemCollection:
-    """Item collection fixture."""
-    item_collection = ItemCollection("tests/data/items.db", "test_collection")
-    mapping = {
-        "title": {"slot": "TITLE"},
-        "genres": {
-            "slot": "GENRE",
-            "multi-valued": True,
-            "delimiter": "|",
-        },
-    }
-
-    item_collection.load_items_csv(
-        ITEMS_CSV_FILE,
-        id_col="movieId",
-        domain=domain,
-        domain_mapping=mapping,
-    )
-    return item_collection
 
 
 def test_load_items_csv(
@@ -66,7 +36,7 @@ def test_load_items_csv(
 
     for property in ["TITLE", "GENRE"]:
         assert item.get_property(property) == movie[property]
-    assert item.get_property("KEYWORD") is None
+    assert item.get_property("YEAR") is None
 
 
 def test_get_possible_property_values(

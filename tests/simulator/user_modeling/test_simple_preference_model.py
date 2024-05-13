@@ -9,32 +9,14 @@ from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
 )
 
-DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
-DOMAIN_MAPPING = {
-    "title": {"slot": "TITLE"},
-    "genres": {
-        "slot": "GENRE",
-        "multi-valued": True,
-        "delimiter": "|",
-    },
-}
-ITEMS_CSV_FILE = "tests/data/items/movies.csv"
 RATINGS_CSV_FILE = "tests/data/items/ratings.csv"
 
 
 @pytest.fixture
-def preference_model() -> SimplePreferenceModel:
+def preference_model(
+    domain: Domain, item_collection: ItemCollection
+) -> SimplePreferenceModel:
     """Preference model fixture."""
-    domain = Domain(DOMAIN_YAML_FILE)
-    item_collection = ItemCollection(
-        "tests/data/items.db", "test_simple_preference"
-    )
-    item_collection.load_items_csv(
-        ITEMS_CSV_FILE,
-        id_col="movieId",
-        domain=domain,
-        domain_mapping=DOMAIN_MAPPING,
-    )
     ratings = Ratings()
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
     return SimplePreferenceModel(
@@ -61,7 +43,7 @@ def test_get_item_preference_nonexisting_item(
     preference_model: SimplePreferenceModel,
 ) -> None:
     with pytest.raises(ValueError):
-        preference_model.get_item_preference("1020")
+        preference_model.get_item_preference("23043")
 
 
 def test_get_slot_value_preference(

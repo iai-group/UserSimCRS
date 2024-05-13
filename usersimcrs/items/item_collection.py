@@ -33,6 +33,10 @@ class ItemCollection:
         self._cursor = self._conn.cursor()
         self._table_name = table_name
 
+    def close(self) -> None:
+        """Closes the connection to the SQLite database."""
+        self._conn.close()
+
     def _init_table(self, domain_mapping: MappingConfig) -> None:
         """Initializes the table in the SQLite database.
 
@@ -125,9 +129,9 @@ class ItemCollection:
         properties = dict()
         for key, value in item.properties.items():
             if isinstance(value, list):
-                properties[key] = (
-                    f"""'{SQL_DELIMITER.join(value).replace("'","''")}'"""
-                )
+                properties[
+                    key
+                ] = f"""'{SQL_DELIMITER.join(value).replace("'","''")}'"""
                 properties[f"{key}_multi_value"] = "True"
             else:
                 properties[key] = f"""'{str(value).replace("'","''")}'"""
