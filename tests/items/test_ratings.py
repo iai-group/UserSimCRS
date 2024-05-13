@@ -3,8 +3,8 @@
 from typing import Dict, List
 
 import pytest
-from dialoguekit.core.domain import Domain
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings, user_item_sampler
 
@@ -43,7 +43,7 @@ def simple_user_item_sampler(
 @pytest.fixture
 def ratings() -> Ratings:
     """Ratings fixture."""
-    domain = Domain(DOMAIN_YAML_FILE)
+    domain = SimulationDomain(DOMAIN_YAML_FILE)
     item_collection = ItemCollection()
     item_collection.load_items_csv(
         ITEMS_CSV_FILE,

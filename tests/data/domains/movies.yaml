@@ -1,6 +1,11 @@
+name: test_movies
 slot_names:
   TITLE:
   GENRE:
   ACTOR:
   KEYWORD:
   DIRECTOR:
+
+requestable_slots:
+  - plot
+  - rating

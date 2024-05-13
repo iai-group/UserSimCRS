@@ -11,7 +11,6 @@ import requests
 import yaml
 from dialoguekit.connector.dialogue_connector import DialogueConnector
 from dialoguekit.core.dialogue import Dialogue
-from dialoguekit.core.domain import Domain
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -30,12 +29,15 @@ from dialoguekit.platforms.platform import Platform
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from sample_agents.moviebot_agent import MovieBotAgent
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
 )
-from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.simulator.agenda_based.interaction_model import (
+    InteractionModel,
+)
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
@@ -68,7 +70,7 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
         raise TypeError(f"agent must be Agent, not {type(agent).__name__}")
 
     # Loads domain, item collection, and preference data
-    domain = Domain(config["domain"].get())
+    domain = SimulationDomain(config["domain"].get())
 
     item_collection = ItemCollection()
     item_collection.load_items_csv(
@@ -306,7 +308,8 @@ def load_cosine_classifier(
                 gt_intents.append(Intent(turn["intent"]))
                 utterances.append(
                     Utterance(
-                        turn["utterance"], participant=DialogueParticipant.AGENT
+                        turn["utterance"],
+                        participant=DialogueParticipant.AGENT,
                     )
                 )
     intent_classifier = IntentClassifierCosine(intents=gt_intents)

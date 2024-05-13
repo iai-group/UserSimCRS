@@ -23,9 +23,9 @@ has not seen a single action movie).
 
 import random
 
-from dialoguekit.core.domain import Domain
 from dialoguekit.participant.user_preferences import UserPreferences
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.user_modeling.preference_model import (
@@ -37,7 +37,7 @@ from usersimcrs.user_modeling.preference_model import (
 class SimplePreferenceModel(PreferenceModel):
     def __init__(
         self,
-        domain: Domain,
+        domain: SimulationDomain,
         item_collection: ItemCollection,
         historical_ratings: Ratings,
         historical_user_id: str = None,
@@ -74,7 +74,9 @@ class SimplePreferenceModel(PreferenceModel):
             ValueError: If the item does not exist in the collection.
         """
         self._assert_item_exists(item_id)
-        preference = self._item_preferences.get_preference(KEY_ITEM_ID, item_id)
+        preference = self._item_preferences.get_preference(
+            KEY_ITEM_ID, item_id
+        )
         if not preference:
             preference = random.choice([-1, 1])
             self._item_preferences.set_preference(
@@ -96,5 +98,7 @@ class SimplePreferenceModel(PreferenceModel):
         preference = self._slot_value_preferences.get_preference(slot, value)
         if not preference:
             preference = random.choice([-1, 1])
-            self._slot_value_preferences.set_preference(slot, value, preference)
+            self._slot_value_preferences.set_preference(
+                slot, value, preference
+            )
         return preference

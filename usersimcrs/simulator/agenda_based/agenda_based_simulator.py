@@ -5,16 +5,18 @@ from typing import List, Tuple
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
-from dialoguekit.core.domain import Domain
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlu.nlu import NLU
 from nltk.stem import WordNetLemmatizer
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.simulator.agenda_based.interaction_model import (
+    InteractionModel,
+)
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 
@@ -29,7 +31,7 @@ class AgendaBasedSimulator(UserSimulator):
         interaction_model: InteractionModel,
         nlu: NLU,
         nlg: ConditionalNLG,
-        domain: Domain,
+        domain: SimulationDomain,
         item_collection: ItemCollection,
         ratings: Ratings,
     ) -> None:
@@ -137,7 +139,9 @@ class AgendaBasedSimulator(UserSimulator):
 
         return self._interaction_model.INTENT_DONT_KNOW, None  # type: ignore[attr-defined] # noqa
 
-    def _generate_item_preference_response_intent(self, item_id: str) -> Intent:
+    def _generate_item_preference_response_intent(
+        self, item_id: str
+    ) -> Intent:
         """Generates response preference intent for a given item id.
 
         Args:
@@ -220,7 +224,9 @@ class AgendaBasedSimulator(UserSimulator):
             agent_intent
         ):
             possible_items = (
-                self._item_collection.get_items_by_properties(agent_annotations)
+                self._item_collection.get_items_by_properties(
+                    agent_annotations
+                )
                 if agent_annotations
                 else []
             )

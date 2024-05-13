@@ -32,7 +32,9 @@ def generate_information_need(
     constraints = {}
     nb_constraints = random.randint(1, len(slot_names))
     for s in random.sample(slot_names, nb_constraints):
-        value = random.choice(item_collection.get_possible_property_values(s))
+        value = random.choice(
+            list(item_collection.get_possible_property_values(s))
+        )
         constraints[s] = value
 
     requestable_slots = domain.get_requestable_slots()

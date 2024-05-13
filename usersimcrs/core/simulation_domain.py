@@ -25,4 +25,4 @@ class SimulationDomain(Domain):
 
     def get_requestable_slots(self) -> List[str]:
         """Returns the list of requestable slots."""
-        return list(self._config["requestable_slots"].keys())
+        return self._config["requestable_slots"]

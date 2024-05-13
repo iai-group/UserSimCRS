@@ -2,7 +2,7 @@
 
 from typing import Any, Dict
 
-from dialoguekit.core.domain import Domain
+from usersimcrs.core.simulation_domain import SimulationDomain
 
 
 class Item:
@@ -10,7 +10,7 @@ class Item:
         self,
         item_id: str,
         properties: Dict[str, Any] = None,
-        domain: Domain = None,
+        domain: SimulationDomain = None,
     ) -> None:
         """Creates an item.
 
