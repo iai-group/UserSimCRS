@@ -35,7 +35,9 @@ from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
     AgendaBasedSimulator,
 )
-from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.simulator.agenda_based.interaction_model import (
+    InteractionModel,
+)
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
@@ -70,13 +72,17 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
     # Loads domain, item collection, and preference data
     domain = Domain(config["domain"].get())
 
-    item_collection = ItemCollection()
-    item_collection.load_items_csv(
-        config["items"].get(),
-        domain=domain,
-        domain_mapping=config["domain_mapping"].get(),
-        id_col=config["id_col"].get(),
+    item_collection = ItemCollection(
+        config["collection_db_path"].get(), config["collection_name"].get()
     )
+    if config["items"].get():
+        # Load items if CSV file is provided
+        item_collection.load_items_csv(
+            config["items"].get(),
+            domain=domain,
+            domain_mapping=config["domain_mapping"].get(),
+            id_col=config["id_col"].get(),
+        )
 
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(file_path=config["ratings"].get())
@@ -306,7 +312,8 @@ def load_cosine_classifier(
                 gt_intents.append(Intent(turn["intent"]))
                 utterances.append(
                     Utterance(
-                        turn["utterance"], participant=DialogueParticipant.AGENT
+                        turn["utterance"],
+                        participant=DialogueParticipant.AGENT,
                     )
                 )
     intent_classifier = IntentClassifierCosine(intents=gt_intents)

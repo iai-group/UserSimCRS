@@ -26,7 +26,9 @@ RATINGS_CSV_FILE = "tests/data/items/ratings.csv"
 def preference_model() -> SimplePreferenceModel:
     """Preference model fixture."""
     domain = Domain(DOMAIN_YAML_FILE)
-    item_collection = ItemCollection()
+    item_collection = ItemCollection(
+        "tests/data/items.db", "test_simple_preference"
+    )
     item_collection.load_items_csv(
         ITEMS_CSV_FILE,
         id_col="movieId",

@@ -42,6 +42,11 @@ class Item:
         """Return the item id."""
         return self._item_id
 
+    @property
+    def properties(self) -> Dict[str, Any]:
+        """Returns the item properties."""
+        return self._properties
+
     def get_property(self, key: str) -> Any:
         """Returns a given item property.
 

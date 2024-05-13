@@ -14,7 +14,9 @@ from nltk.stem import WordNetLemmatizer
 
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.simulator.agenda_based.interaction_model import (
+    InteractionModel,
+)
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 
@@ -107,7 +109,8 @@ class AgendaBasedSimulator(UserSimulator):
         # See: https://github.com/iai-group/DialogueKit/issues/234
         elicited_value = (
             None
-            if _LEMMATIZER.lemmatize(value).lower()
+            if value
+            and _LEMMATIZER.lemmatize(value).lower()
             == _LEMMATIZER.lemmatize(elicited_slot).lower()
             else value
         )
@@ -137,7 +140,9 @@ class AgendaBasedSimulator(UserSimulator):
 
         return self._interaction_model.INTENT_DONT_KNOW, None  # type: ignore[attr-defined] # noqa
 
-    def _generate_item_preference_response_intent(self, item_id: str) -> Intent:
+    def _generate_item_preference_response_intent(
+        self, item_id: str
+    ) -> Intent:
         """Generates response preference intent for a given item id.
 
         Args:
@@ -220,7 +225,9 @@ class AgendaBasedSimulator(UserSimulator):
             agent_intent
         ):
             possible_items = (
-                self._item_collection.get_items_by_properties(agent_annotations)
+                self._item_collection.get_items_by_properties(
+                    agent_annotations
+                )
                 if agent_annotations
                 else []
             )

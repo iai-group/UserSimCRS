@@ -44,7 +44,7 @@ def simple_user_item_sampler(
 def ratings() -> Ratings:
     """Ratings fixture."""
     domain = Domain(DOMAIN_YAML_FILE)
-    item_collection = ItemCollection()
+    item_collection = ItemCollection("tests/data/items.db", "test_ratings")
     item_collection.load_items_csv(
         ITEMS_CSV_FILE,
         id_col="movieId",
