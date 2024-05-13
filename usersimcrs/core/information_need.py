@@ -2,7 +2,8 @@
 
 The information need is divided into two parts: constraints and requests. The
 constraints specify the slot-value pairs that the item of interest must satisfy,
-while the requests specify the slots for which the user wants information."""
+while the requests specify the slots for which the user wants information.
+"""
 
 from __future__ import annotations
 
@@ -57,7 +58,7 @@ class InformationNeed:
         """
         self.constraints = constraints
         self.requested_slots = defaultdict(
-            Any, {slot: None for slot in requests}
+            None, {slot: None for slot in requests}
         )
 
     def get_constraint_value(self, slot: str) -> Any:
