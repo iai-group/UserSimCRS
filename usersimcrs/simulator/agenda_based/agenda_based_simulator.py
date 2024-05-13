@@ -139,9 +139,7 @@ class AgendaBasedSimulator(UserSimulator):
 
         return self._interaction_model.INTENT_DONT_KNOW, None  # type: ignore[attr-defined] # noqa
 
-    def _generate_item_preference_response_intent(
-        self, item_id: str
-    ) -> Intent:
+    def _generate_item_preference_response_intent(self, item_id: str) -> Intent:
         """Generates response preference intent for a given item id.
 
         Args:
@@ -224,9 +222,7 @@ class AgendaBasedSimulator(UserSimulator):
             agent_intent
         ):
             possible_items = (
-                self._item_collection.get_items_by_properties(
-                    agent_annotations
-                )
+                self._item_collection.get_items_by_properties(agent_annotations)
                 if agent_annotations
                 else []
             )

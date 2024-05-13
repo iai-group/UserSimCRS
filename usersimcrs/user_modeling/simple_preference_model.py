@@ -74,9 +74,7 @@ class SimplePreferenceModel(PreferenceModel):
             ValueError: If the item does not exist in the collection.
         """
         self._assert_item_exists(item_id)
-        preference = self._item_preferences.get_preference(
-            KEY_ITEM_ID, item_id
-        )
+        preference = self._item_preferences.get_preference(KEY_ITEM_ID, item_id)
         if not preference:
             preference = random.choice([-1, 1])
             self._item_preferences.set_preference(
@@ -98,7 +96,5 @@ class SimplePreferenceModel(PreferenceModel):
         preference = self._slot_value_preferences.get_preference(slot, value)
         if not preference:
             preference = random.choice([-1, 1])
-            self._slot_value_preferences.set_preference(
-                slot, value, preference
-            )
+            self._slot_value_preferences.set_preference(slot, value, preference)
         return preference
