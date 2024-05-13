@@ -1,4 +1,5 @@
 agent_id: "IAI MovieBot"
+simulator_id: "User Simulator"
 output_name: "moviebot"
 # By default, the agent has an HTTP API.
 agent_uri: "http://127.0.0.1:5001"
