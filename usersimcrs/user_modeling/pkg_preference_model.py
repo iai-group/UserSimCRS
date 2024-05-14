@@ -8,6 +8,7 @@ The implementation of get_item_preference() and get_slot_value_preference()
 depends on the release of the PKG API.
 See: https://github.com/iai-group/UserSimCRS/issues/110
 """
+
 from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item_collection import ItemCollection

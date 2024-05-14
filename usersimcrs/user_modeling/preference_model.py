@@ -5,11 +5,15 @@ Preferences are stored for (1) items in the collection and (2) slot-value pairs
 in [-1,1], where zero corresponds to neutral.
 """
 
+from __future__ import annotations
+
+import os
 import random
 import string
 from abc import ABC, abstractmethod
 from typing import Tuple
 
+import joblib
 from dialoguekit.core.domain import Domain
 
 from usersimcrs.items.item_collection import ItemCollection
@@ -169,3 +173,29 @@ class PreferenceModel(ABC):
                 return None, 0
 
         return value, preference
+
+    @classmethod
+    def load_preference_model(cls, path: str) -> PreferenceModel:
+        """Loads preference model from a file.
+
+        Args:
+            path: Path to preference model.
+
+        Raises:
+            FileNotFoundError: If file does not exist.
+
+        Returns:
+            Preference model.
+        """
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"File '{path}' not found.")
+
+        return joblib.load(path)
+
+    def save_preference_model(self, path: str) -> None:
+        """Saves preference model to a file.
+
+        Args:
+            path: Path to save preference model.
+        """
+        joblib.dump(self, path)
