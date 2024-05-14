@@ -1,7 +1,8 @@
 """Script to format the ReDial dataset into DialogueKit format.
 
 In addition to formatting the dialogues, this script also process items and
-ratings information."""
+ratings information.
+"""
 
 import json
 import logging
@@ -213,8 +214,8 @@ if __name__ == "__main__":
 
     download_redial_dataset()
 
-    items = {}
-    ratings = []
+    items: Items = {}
+    ratings: List[Rating] = []
 
     train_data, items, ratings = load_data(
         os.path.join(DATASET_PATH, "train_data.jsonl"), items, ratings
@@ -236,19 +237,21 @@ if __name__ == "__main__":
         json.dump(train_data + test_data, f, indent=4)
 
     # Save items
-    items = pd.DataFrame(items).T.reset_index()
-    items.columns = ["item_id", "title", "year"]
-    items.drop_duplicates(subset=["item_id"], inplace=True)
-    logger.info(f"Collected {len(items)} items.")
-    items.to_csv(os.path.join(ITEM_COLLECTION_PATH, "movies.csv"), index=False)
+    items_df = pd.DataFrame(items).T.reset_index()
+    items_df.columns = ["item_id", "title", "year"]
+    items_df.drop_duplicates(subset=["item_id"], inplace=True)
+    logger.info(f"Collected {len(items_df)} items.")
+    items_df.to_csv(
+        os.path.join(ITEM_COLLECTION_PATH, "movies.csv"), index=False
+    )
 
     # Save ratings
-    ratings = pd.DataFrame(
+    ratings_df = pd.DataFrame(
         ratings,
         columns=["user_id", "item_id", "rating"],
     )
-    ratings.drop_duplicates(inplace=True)
-    logger.info(f"Collected {len(ratings)} ratings.")
-    ratings.to_csv(
+    ratings_df.drop_duplicates(inplace=True)
+    logger.info(f"Collected {len(ratings_df)} ratings.")
+    ratings_df.to_csv(
         os.path.join(ITEM_COLLECTION_PATH, "ratings.csv"), index=False
     )
