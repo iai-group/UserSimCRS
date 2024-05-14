@@ -7,7 +7,9 @@ mypy
 docformatter
 types-PyYAML
 types-requests
+botocore>=1.29.29
 dialoguekit==0.0.8
 confuse
 websockets<11.0
 nltk
+wget
