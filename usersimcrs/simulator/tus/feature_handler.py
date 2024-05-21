@@ -99,10 +99,14 @@ class FeatureHandler:
 
         # Whether or not a constraint or informable slot has been fulfilled
         v_ful = (
-            [0]
-            if not information_need.get_constraint_value(slot)
-            or not information_need.get_requestable_slots(slot)
-            else [1]
+            [1]
+            if (
+                state.get(slot) is not None
+                and state.get(slot)
+                == information_need.get_constraint_value(slot)
+            )
+            or information_need.requested_slots.get(slot)
+            else [0]
         )
 
         # Whether or not this is the first mention of the slot
@@ -129,13 +133,14 @@ class FeatureHandler:
         v_agent_action = {intent: [0] * 3 for intent in self._agent_actions}
         for dact in agent_dacts:
             if dact.intent in self._agent_actions:
-                for slot, value in dact.annotations:
-                    if slot and value:
+                if not dact.annotations:
+                    v_agent_action[dact.intent][0] = 1
+                for annotation in dact.annotations:
+                    if annotation.slot and annotation.value:
                         v_agent_action[dact.intent][2] = 1
-                    elif slot and value is None:
+                    elif annotation.slot and annotation.value is None:
                         v_agent_action[dact.intent][1] = 1
-            else:
-                v_agent_action[dact.intent][0] = 1
+        return sum(v_agent_action.values(), [])
 
     def get_slot_index_feature(self, slot: str) -> List[int]:
         """Builds feature vector for slot index.
@@ -181,8 +186,8 @@ class FeatureHandler:
             self.get_basic_information_feature(
                 slot, information_need, state, previous_state
             )
-            + v_user_action
             + self.get_agent_action_feature(agent_dacts)
+            + v_user_action
             + self.get_slot_index_feature(slot)
         )
 
