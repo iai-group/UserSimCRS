@@ -91,6 +91,7 @@ class SimulationPlatform(Platform):
                     }
                 }
             )
+            return
 
     def display_agent_utterance(self, user_id: str, utterance: str) -> None:
         """Displays an agent utterance.

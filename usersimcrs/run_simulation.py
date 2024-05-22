@@ -32,9 +32,11 @@ def main(config: confuse.Configuration) -> None:
         agent: Conversational agent.
     """
     agent_class, agent_config = utils.get_agent_information(config)
-    simulator_id, simulator_class, simulator_config = (
-        utils.get_simulator_information(config)
-    )
+    (
+        simulator_id,
+        simulator_class,
+        simulator_config,
+    ) = utils.get_simulator_information(config)
 
     platform = SimulationPlatform(agent_class, agent_config)
     platform.start()
