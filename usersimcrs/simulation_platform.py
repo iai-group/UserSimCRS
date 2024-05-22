@@ -6,6 +6,7 @@ from typing import Any, Dict, Type
 
 import requests
 from dialoguekit.connector import DialogueConnector
+from dialoguekit.core import Utterance
 from dialoguekit.participant import Agent
 from dialoguekit.platforms import Platform
 
@@ -93,7 +94,9 @@ class SimulationPlatform(Platform):
             )
             return
 
-    def display_agent_utterance(self, user_id: str, utterance: str) -> None:
+    def display_agent_utterance(
+        self, user_id: str, utterance: Utterance
+    ) -> None:
         """Displays an agent utterance.
 
         Args:
@@ -102,7 +105,9 @@ class SimulationPlatform(Platform):
         """
         logging.debug(f"Agent {user_id}: {utterance.text}")
 
-    def display_user_utterance(self, user_id: str, utterance: str) -> None:
+    def display_user_utterance(
+        self, user_id: str, utterance: Utterance
+    ) -> None:
         """Displays a user utterance.
 
         Args:
