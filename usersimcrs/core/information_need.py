@@ -14,13 +14,11 @@ from typing import Any, Dict, List
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 
-random.seed(42)
 
-
-def generate_information_need(
+def generate_random_information_need(
     domain: SimulationDomain, item_collection: ItemCollection
 ) -> InformationNeed:
-    """Generates an information need based on the domain.
+    """Generates a random information need based on the domain.
 
     Args:
         domain: Domain knowledge.

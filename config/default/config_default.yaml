@@ -29,3 +29,4 @@ intent_classifier: "cosine"
 # rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
 
 debug: False
+fix_random_seed: False

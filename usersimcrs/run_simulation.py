@@ -4,6 +4,7 @@ import argparse
 import json
 import logging
 import os
+import random
 from typing import Set
 
 import confuse
@@ -221,6 +222,12 @@ def parse_args() -> argparse.Namespace:
         const=True,
         help=("Debug mode. Defaults to False."),
     )
+    parser.add_argument(
+        "--fix_random_seed",
+        action="store_const",
+        const=True,
+        help=("Fix random seed. Defaults to False."),
+    )
     return parser.parse_args()
 
 
@@ -355,6 +362,9 @@ if __name__ == "__main__":
 
     if config["debug"].get():
         logger.setLevel(logging.DEBUG)
+
+    if config["fix_random_seed"].get():
+        random.seed(42)
 
     # Defines the agent for the simulation.
     # By default, a local moviebot is used.
