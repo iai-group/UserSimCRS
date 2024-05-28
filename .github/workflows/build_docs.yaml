@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feature/160-Bug-documentation-action
 
 # workflow_dispatch:        # Un comment line if you also want to trigger action manually
 
@@ -16,7 +15,7 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v3
         with:
-          ref: feature/160-Bug-documentation-action
+          ref: main
           fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v4
