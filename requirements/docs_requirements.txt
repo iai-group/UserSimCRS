@@ -3,6 +3,11 @@ scipy==1.7.2
 sphinx
 sphinx_rtd_theme
 sphinxcontrib-bibtex
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==2.0.0
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.5
 sphinxcontrib.applehelp==1.0.3
 nbsphinx
 recommonmark
