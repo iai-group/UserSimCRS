@@ -34,16 +34,19 @@ def generate_random_information_need(
     Returns:
         Information need.
     """
-    target_item = random.choice(item_collection._items.values())
+    target_item = random.choice(list(item_collection._items.values()))
 
-    slot_names = domain.get_slot_names()
     constraints = {}
-    nb_constraints = random.randint(1, len(slot_names))
-    for s in random.sample(slot_names, nb_constraints):
-        value = target_item.get_property(s)
-        constraints[s] = value
+    informable_slot = set(domain.get_informable_slots()).intersection(
+        target_item.properties.keys()
+    )
+    nb_constraints = random.randint(1, len(informable_slot))
+    for slot in random.sample(informable_slot, nb_constraints):
+        constraints[slot] = target_item.get_property(slot)
 
-    requestable_slots = domain.get_requestable_slots()
+    requestable_slots = set(
+        domain.get_requestable_slots()
+    ).symmetric_difference(constraints.keys())
     nb_requests = random.randint(1, len(requestable_slots))
     requests = random.sample(requestable_slots, nb_requests)
 
