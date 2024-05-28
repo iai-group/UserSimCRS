@@ -1,10 +1,10 @@
 """Interface to represent an information need.
 
-The information need comprises three elements: constraints, requests, and
-target items. The constraints specify the slot-value pairs that the item of
-interest must satisfy, while the requests specify the slots for which the user
-wants information. The target items represent the "ground truth" items that the
-user is interested in.
+The information need comprises three elements: constraints, requests, and target
+items. The constraints specify the slot-value pairs that the item of interest
+must satisfy, while the requests specify the slots for which the user wants
+information. The target items represent the "ground truth" items that the user
+is interested in.
 """
 
 from __future__ import annotations
