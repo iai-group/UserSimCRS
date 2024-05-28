@@ -1,15 +1,6 @@
-name: moviebot
 slot_names:
-  # TITLE:
+  TITLE:
   GENRE:
+  ACTOR:
   KEYWORD:
-
-inquire_slots:
-  - plot
-  - imdb_rating
-  - year
-  - duration
-  - more_info
-  - DIRECTOR
-  - ACTOR
-
+  DIRECTOR:
