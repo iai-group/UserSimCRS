@@ -1,8 +1,10 @@
 """Interface to represent an information need.
 
-The information need is divided into two parts: constraints and requests. The
-constraints specify the slot-value pairs that the item of interest must satisfy,
-while the requests specify the slots for which the user wants information.
+The information need comprises three elements: constraints, requests, and
+target items. The constraints specify the slot-value pairs that the item of
+interest must satisfy, while the requests specify the slots for which the user
+wants information. The target items represent the "ground truth" items that the
+user is interested in.
 """
 
 from __future__ import annotations
@@ -12,6 +14,7 @@ from collections import defaultdict
 from typing import Any, Dict, List
 
 from usersimcrs.core.simulation_domain import SimulationDomain
+from usersimcrs.items.item import Item
 from usersimcrs.items.item_collection import ItemCollection
 
 
@@ -20,6 +23,10 @@ def generate_random_information_need(
 ) -> InformationNeed:
     """Generates a random information need based on the domain.
 
+    It randomly selects one target item and sets constraints and requests slots.
+    The value of constraints are derived from the target's properties. The
+    number of constraints and requests are also randomly determined.
+
     Args:
         domain: Domain knowledge.
         item_collection: Collection of items.
@@ -27,33 +34,38 @@ def generate_random_information_need(
     Returns:
         Information need.
     """
+    target_item = random.choice(item_collection._items.values())
+
     slot_names = domain.get_slot_names()
     constraints = {}
     nb_constraints = random.randint(1, len(slot_names))
     for s in random.sample(slot_names, nb_constraints):
-        value = random.choice(
-            list(item_collection.get_possible_property_values(s))
-        )
+        value = target_item.get_property(s)
         constraints[s] = value
 
     requestable_slots = domain.get_requestable_slots()
     nb_requests = random.randint(1, len(requestable_slots))
     requests = random.sample(requestable_slots, nb_requests)
 
-    return InformationNeed(constraints, requests)
+    return InformationNeed([target_item], constraints, requests)
 
 
 class InformationNeed:
     def __init__(
-        self, constraints: Dict[str, Any], requests: List[str]
+        self,
+        target_items: List[Item],
+        constraints: Dict[str, Any],
+        requests: List[str],
     ) -> None:
         """Initializes an information need.
 
         Args:
+            target_items: Items that the user is interested in.
             constraints: Slot-value pairs representing constraints on the item
               of interest.
             requests: Slots representing the desired information.
         """
+        self.target_items = target_items
         self.constraints = constraints
         self.requested_slots = defaultdict(
             None, {slot: None for slot in requests}
