@@ -8,8 +8,8 @@ The implementation of get_item_preference() and get_slot_value_preference()
 depends on the release of the PKG API.
 See: https://github.com/iai-group/UserSimCRS/issues/110
 """
-from dialoguekit.core.domain import Domain
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.user_modeling.preference_model import PreferenceModel
@@ -18,7 +18,7 @@ from usersimcrs.user_modeling.preference_model import PreferenceModel
 class PKGPreferenceModel(PreferenceModel):
     def __init__(
         self,
-        domain: Domain,
+        domain: SimulationDomain,
         item_collection: ItemCollection,
         historical_ratings: Ratings,
         historical_user_id: str = None,

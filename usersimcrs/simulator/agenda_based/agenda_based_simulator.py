@@ -5,7 +5,6 @@ from typing import List, Tuple
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
-from dialoguekit.core.domain import Domain
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -13,6 +12,7 @@ from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
 from nltk.stem import WordNetLemmatizer
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.interaction_model import (
@@ -32,7 +32,7 @@ class AgendaBasedSimulator(UserSimulator):
         interaction_model: InteractionModel,
         nlu: NLU,
         nlg: ConditionalNLG,
-        domain: Domain,
+        domain: SimulationDomain,
         item_collection: ItemCollection,
         ratings: Ratings,
     ) -> None:

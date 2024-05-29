@@ -23,9 +23,9 @@ has not seen a single action movie).
 
 import random
 
-from dialoguekit.core.domain import Domain
 from dialoguekit.participant.user_preferences import UserPreferences
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.user_modeling.preference_model import (
@@ -37,7 +37,7 @@ from usersimcrs.user_modeling.preference_model import (
 class SimplePreferenceModel(PreferenceModel):
     def __init__(
         self,
-        domain: Domain,
+        domain: SimulationDomain,
         item_collection: ItemCollection,
         historical_ratings: Ratings,
         historical_user_id: str = None,

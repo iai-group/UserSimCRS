@@ -46,7 +46,7 @@ jobs:
   mypy:
     if: always()
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
         with:
@@ -84,7 +84,7 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements/requirements.txt
           pip install pytest-github-actions-annotate-failures
-      
+
       - name: PyTest with code coverage
         continue-on-error: true
         run: |
