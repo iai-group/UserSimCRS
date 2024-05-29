@@ -9,8 +9,8 @@ import csv
 from typing import Any, Dict, List, Set
 
 from dialoguekit.core.annotation import Annotation
-from dialoguekit.core.domain import Domain
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
 
 # Mapping configuration: for each csv field as key, it provides a dict with
@@ -64,7 +64,7 @@ class ItemCollection:
     def load_items_csv(
         self,
         file_path: str,
-        domain: Domain,
+        domain: SimulationDomain,
         domain_mapping: MappingConfig,
         id_col: str = "ID",
         delimiter: str = ",",
