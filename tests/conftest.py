@@ -3,8 +3,8 @@
 import os
 
 import pytest
-from dialoguekit.core.domain import Domain
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 
 DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
@@ -12,13 +12,13 @@ ITEMS_CSV_FILE = "tests/data/items/movies_w_keywords.csv"
 
 
 @pytest.fixture(scope="session")
-def domain() -> Domain:
+def domain() -> SimulationDomain:
     """Domain fixture."""
-    return Domain(DOMAIN_YAML_FILE)
+    return SimulationDomain(DOMAIN_YAML_FILE)
 
 
 @pytest.fixture(scope="session")
-def item_collection(domain: Domain):
+def item_collection(domain: SimulationDomain):
     """Item collection fixture."""
     item_collection = ItemCollection("tests/data/items.db", "test_collection")
     mapping = {

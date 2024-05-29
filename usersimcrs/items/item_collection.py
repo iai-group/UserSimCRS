@@ -96,6 +96,18 @@ class ItemCollection:
 
         return self._parse_item_row(row)
 
+    def get_random_item(self) -> Item:
+        """Returns a random item from the collection.
+
+        Returns:
+            Random item.
+        """
+        self._cursor.execute(
+            f"SELECT * FROM {self._table_name} ORDER BY RANDOM() LIMIT 1"
+        )
+        row = self._cursor.fetchone()
+        return self._parse_item_row(row)
+
     def exists(self, item_id: str) -> bool:
         """Checks if a given item exists in the item collection.
 
