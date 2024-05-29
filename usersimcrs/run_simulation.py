@@ -88,6 +88,16 @@ def parse_args() -> argparse.Namespace:
         "--domain", type=str, help="Path to domain config file."
     )
     parser.add_argument(
+        "--collection_db_path",
+        type=str,
+        help="Path to the item collection database.",
+    )
+    parser.add_argument(
+        "--collection_name",
+        type=str,
+        help="Name of the item collection.",
+    )
+    parser.add_argument(
         "--intents", type=str, help="Path to the intent schema file."
     )
     parser.add_argument("--items", type=str, help="Path to items file.")

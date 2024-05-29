@@ -116,13 +116,17 @@ def _get_agenda_based_simulator_config(
     # Loads domain, item collection, and preference data
     domain = Domain(config["domain"].get())
 
-    item_collection = ItemCollection()
-    item_collection.load_items_csv(
-        config["items"].get(),
-        domain=domain,
-        domain_mapping=config["domain_mapping"].get(),
-        id_col=config["id_col"].get(),
+    item_collection = ItemCollection(
+        config["collection_db_path"].get(), config["collection_name"].get()
     )
+    if config["items"].get() is not None:
+        # Load items if CSV file is provided
+        item_collection.load_items_csv(
+            config["items"].get(),
+            domain=domain,
+            domain_mapping=config["domain_mapping"].get(),
+            id_col=config["id_col"].get(),
+        )
 
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(file_path=config["ratings"].get())
