@@ -1,7 +1,7 @@
 """Representation of the dialogue state.
 
-The dialogue state includes the turn count, a list of dialogue acts per turn
-for both the agent and the user, and the belief state. The belief state is a
+The dialogue state includes the turn count, a list of dialogue acts per turn for
+both the agent and the user, and the belief state. The belief state is a
 dictionary that maps slot names to slot values.
 """
 
