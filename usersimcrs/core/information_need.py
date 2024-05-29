@@ -37,18 +37,18 @@ def generate_random_information_need(
     target_item = random.choice(list(item_collection._items.values()))
 
     constraints = {}
-    informable_slot = set(domain.get_informable_slots()).intersection(
+    informable_slots = set(domain.get_informable_slots()).intersection(
         target_item.properties.keys()
     )
-    nb_constraints = random.randint(1, len(informable_slot))
-    for slot in random.sample(informable_slot, nb_constraints):
+    num_constraints = random.randint(1, len(informable_slots))
+    for slot in random.sample(informable_slots, num_constraints):
         constraints[slot] = target_item.get_property(slot)
 
     requestable_slots = set(
         domain.get_requestable_slots()
     ).symmetric_difference(constraints.keys())
-    nb_requests = random.randint(1, len(requestable_slots))
-    requests = random.sample(requestable_slots, nb_requests)
+    num_requests = random.randint(1, len(requestable_slots))
+    requests = random.sample(requestable_slots, num_requests)
 
     return InformationNeed([target_item], constraints, requests)
 
