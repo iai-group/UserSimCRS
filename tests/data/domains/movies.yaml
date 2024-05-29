@@ -5,7 +5,23 @@ slot_names:
   ACTOR:
   KEYWORD:
   DIRECTOR:
+  PLOT:
+  RATING:
+  RELEASE_DATE:
 
 requestable_slots:
-  - plot
-  - rating
+  - PLOT
+  - RATING
+  - RELEASE_DATE
+  - TITLE
+  - GENRE
+  - ACTOR
+  - KEYWORD
+  - DIRECTOR
+
+informable_slots:
+  - TITLE
+  - GENRE
+  - ACTOR
+  - KEYWORD
+  - DIRECTOR

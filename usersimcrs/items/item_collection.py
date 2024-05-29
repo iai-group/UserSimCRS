@@ -1,11 +1,12 @@
 """Represents a collection of items.
 
 Items are characterized by a set of properties, which correspond to slots in a
-domain. Items and can be loaded from CSV by providing a mapping from CSV fields
-to properties (i.e., domain slots).
+domain. Items are stored in a SQLite database and can be populated from a CSV
+file.
 """
 
 import csv
+import sqlite3
 from typing import Any, Dict, List, Set
 
 from dialoguekit.core.annotation import Annotation
@@ -16,12 +17,66 @@ from usersimcrs.items.item import Item
 # Mapping configuration: for each csv field as key, it provides a dict with
 # mapping instructions. This inner dict has minimally a "slot" key.
 MappingConfig = Dict[str, Dict[str, Any]]
+SQL_DELIMITER = "|"
 
 
 class ItemCollection:
-    def __init__(self) -> None:
-        """Initializes an empty item collection."""
-        self._items: Dict[str, Item] = {}
+    def __init__(self, db_path: str, table_name: str) -> None:
+        """Initializes an item collection.
+
+        Args:
+            db_path: Path to the SQLite database.
+            table_name: Name of the table containing the items.
+        """
+        self._conn = sqlite3.connect(db_path)
+        self._conn.row_factory = sqlite3.Row
+        self._cursor = self._conn.cursor()
+        self._table_name = table_name
+
+    def close(self) -> None:
+        """Closes the connection to the SQLite database."""
+        self._conn.close()
+
+    def _init_table(self, domain_mapping: MappingConfig) -> None:
+        """Initializes the table in the SQLite database.
+
+        It is assumed that all the properties can be stored as TEXT.
+        Multi-valued properties as stored as a string with the delimiter '|'.
+
+        Args:
+            domain_mapping: Mapping configuration.
+        """
+        properties = [v["slot"] for v in domain_mapping.values()]
+        query = f"""CREATE TABLE IF NOT EXISTS {self._table_name}(
+            id TEXT PRIMARY KEY,
+            {', '.join([
+                f'{prop} TEXT, {prop}_multi_value BOOLEAN'
+                for prop in properties
+            ])}
+        )"""
+        self._cursor.execute(query)
+        self._conn.commit()
+
+    def _parse_item_row(self, row: sqlite3.Row) -> Item:
+        """Parses a row from the item table into an Item object.
+
+        Args:
+            row: Row from the item table.
+
+        Returns:
+            Item.
+        """
+        item_id = row["id"]
+        properties = {
+            key: (
+                row[key]
+                if not row[f"{key}_multi_value"]
+                else row[key].split(SQL_DELIMITER)
+            )
+            for key in row.keys()
+            if key != "id" and not key.endswith("_multi_value")
+        }
+        return Item(item_id, properties)
 
     def get_item(self, item_id: str) -> Item:
         """Returns an item from the collection based on its ID.
@@ -32,7 +87,26 @@ class ItemCollection:
         Returns:
             Item or None, if not found.
         """
-        return self._items.get(item_id)
+        self._cursor.execute(
+            f"SELECT * FROM {self._table_name} WHERE id = ?", (item_id,)
+        )
+        row = self._cursor.fetchone()
+        if row is None:
+            return None
+
+        return self._parse_item_row(row)
+
+    def get_random_item(self) -> Item:
+        """Returns a random item from the collection.
+
+        Returns:
+            Random item.
+        """
+        self._cursor.execute(
+            f"SELECT * FROM {self._table_name} ORDER BY RANDOM() LIMIT 1"
+        )
+        row = self._cursor.fetchone()
+        return self._parse_item_row(row)
 
     def exists(self, item_id: str) -> bool:
         """Checks if a given item exists in the item collection.
@@ -43,7 +117,11 @@ class ItemCollection:
         Returns:
             True if the item exists in the collection.
         """
-        return item_id in self._items
+        self._cursor.execute(
+            f"SELECT COUNT(*) FROM {self._table_name} WHERE id = {item_id}"
+        )
+        count = self._cursor.fetchone()[0]
+        return count > 0
 
     def num_items(self) -> int:
         """Returns the number of items in the collection.
@@ -51,7 +129,8 @@ class ItemCollection:
         Returns:
             Number of items.
         """
-        return len(self._items)
+        self._cursor.execute(f"SELECT COUNT(*) FROM {self._table_name}")
+        return self._cursor.fetchone()[0]
 
     def add_item(self, item: Item) -> None:
         """Adds an item to the collection.
@@ -59,7 +138,24 @@ class ItemCollection:
         Args:
             item: Item.
         """
-        self._items[item.id] = item
+        properties = dict()
+        for key, value in item.properties.items():
+            if isinstance(value, list):
+                properties[
+                    key
+                ] = f"""'{SQL_DELIMITER.join(value).replace("'","''")}'"""
+                properties[f"{key}_multi_value"] = "True"
+            else:
+                properties[key] = f"""'{str(value).replace("'","''")}'"""
+                properties[f"{key}_multi_value"] = "False"
+
+        query = f"""REPLACE INTO {self._table_name}(id,
+        {','.join(properties.keys())}) VALUES ('{item.id}',
+        {','.join(list(properties.values()))});
+        """
+
+        self._cursor.execute(query)
+        self._conn.commit()
 
     def load_items_csv(
         self,
@@ -76,13 +172,11 @@ class ItemCollection:
         Args:
             file_path: Path to CSV file.
             domain: Domain of the items.
-            domain_mapping: Field mapping to create item based on domain slots.
-            id_col: Name of the field containing item id. Defaults to 'ID'.
-            delimiter: Field separator, Defaults to ','.
-
-        Raises:
-            ValueError: if there is no id column.
+            domain_mapping: Mapping configuration.
+            id_col: Name of the column containing the item ID.
+            delimiter: CSV delimiter.
         """
+        self._init_table(domain_mapping)
         with open(file_path, "r", encoding="utf-8") as csvfile:
             csvreader = csv.DictReader(csvfile, delimiter=delimiter)
             for row in csvreader:
@@ -105,44 +199,60 @@ class ItemCollection:
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
 
-    def get_possible_property_values(self, property: str) -> Set[Any]:
-        """Returns the set of possible values for a given property.
+    def get_possible_property_values(self, property: str) -> Set[str]:
+        """Returns the possible values for a given property.
 
         Args:
             property: Property name.
 
         Returns:
-            List of possible values.
+            Set of possible values.
         """
-        values: Set[Any] = set()
-        for item in self._items.values():
-            value = item.get_property(property)
-            if value:
-                if isinstance(value, List):
-                    values.update(value)
-                else:
-                    values.add(value)
+        values: Set[str] = set()
+
+        columns = [
+            r["name"]
+            for r in self._cursor.execute(
+                f"PRAGMA table_info({self._table_name})"
+            ).fetchall()
+        ]
+        if property not in columns:
+            return values
+
+        self._cursor.execute(
+            f"SELECT DISTINCT {property}, {property}_multi_value "
+            f"FROM {self._table_name}"
+        )
+        for row in self._cursor.fetchall():
+            if row[1]:
+                values.update(row[0].split(SQL_DELIMITER))
+            else:
+                values.add(row[0])
         return values
 
     def get_items_by_properties(
         self, annotations: List[Annotation]
     ) -> List[Item]:
-        """Returns a list of items that match the given utterance annotations.
+        """Returns items that match the given annotations.
 
         Args:
-            annotations: List of annotation.
+            annotations: List of annotations.
 
         Returns:
             List of matching items.
         """
         matching_items: List[Item] = []
 
-        # TODO: Refactor to use a more efficient data structure.
-        # See: https://github.com/iai-group/UserSimCRS/issues/137
-        for item in self._items.values():
-            if all(
-                item.get_property(annotation.slot) == annotation.value
-                for annotation in annotations
-            ):
-                matching_items.append(item)
+        if not annotations:
+            return matching_items
+
+        query = f"""SELECT * FROM {self._table_name} WHERE
+        {' AND '.join([f"{a.slot} LIKE '%{a.value}%'" for a in annotations])}
+        """
+        print(query)
+        self._cursor.execute(query)
+
+        for row in self._cursor.fetchall():
+            matching_items.append(self._parse_item_row(row))
+
         return matching_items
