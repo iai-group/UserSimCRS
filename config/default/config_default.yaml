@@ -13,7 +13,7 @@ agent_uri: "http://127.0.0.1:5001"
 simulator_class_path: "usersimcrs.simulator.agenda_based.agenda_based_simulator.AgendaBasedSimulator"
 simulator_id: "User Simulator"
 
-domain: data/domains/movies.yaml
+domain: data/domains/moviebot.yaml
 intents: data/interaction_models/crs_v1.yaml
 
 collection_db_path: "data/item_collections.db"
