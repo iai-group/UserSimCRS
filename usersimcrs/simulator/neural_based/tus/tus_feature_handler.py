@@ -4,8 +4,9 @@ For a matter of simplicity, the feature handler supports only one domain unlike
 the original implementation.
 """
 
-from typing import Dict, List
+from typing import Dict, List, Set
 
+import torch
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.dialogue_act import DialogueAct
 
@@ -34,15 +35,11 @@ class TUSFeatureHandler(FeatureHandler):
         self._domain = domain
         self._user_actions = user_actions
         self._agent_actions = agent_actions
-        self.action_slots = set()
+        self.action_slots: Set[str] = set()
         self._create_slot_index()
 
-    def _create_slot_index(self) -> Dict[str, int]:
-        """Creates an index for slots.
-
-        Returns:
-            Slot index.
-        """
+    def _create_slot_index(self) -> None:
+        """Creates an index for slots."""
         slots = set(
             self._domain.get_slot_names() + self._domain.get_requestable_slots()
         )
@@ -177,8 +174,8 @@ class TUSFeatureHandler(FeatureHandler):
         state: DialogueState,
         information_need: InformationNeed,
         agent_dacts: List[DialogueAct],
-        user_action_vector: List[int] = None,
-    ) -> List[int]:
+        user_action_vector: torch.Tensor = None,
+    ) -> torch.Tensor:
         """Builds the feature vector for a slot.
 
         It concatenate the basic information, user action, agent action, and
@@ -196,19 +193,21 @@ class TUSFeatureHandler(FeatureHandler):
         Returns:
             Feature vector for the slot.
         """
-        v_user_action = user_action_vector if user_action_vector else [0] * 6
+        v_user_action = (
+            user_action_vector if user_action_vector else torch.tensor([0] * 6)
+        )
         agent_dacts = []
         for dact in agent_dacts:
             for annotation in dact.annotations:
                 if annotation.slot == slot or annotation.slot is None:
                     agent_dacts.append(dact)
 
-        return (
+        return torch.tensor(
             self.get_basic_information_feature(
                 slot, information_need, state, previous_state
             )
             + self.get_agent_action_feature(agent_dacts)
-            + v_user_action
+            + v_user_action.tolist()
             + self.get_slot_index_feature(slot)
         )
 
@@ -218,8 +217,8 @@ class TUSFeatureHandler(FeatureHandler):
         previous_state: DialogueState,
         state: DialogueState,
         information_need: InformationNeed,
-        user_action_vectors: Dict[str, List[int]] = {},
-    ) -> List[int]:
+        user_action_vectors: Dict[str, torch.Tensor] = {},
+    ) -> torch.Tensor:
         """Builds the feature vector for a turn.
 
         It comprises the feature vectors for all slots that in the
@@ -251,14 +250,17 @@ class TUSFeatureHandler(FeatureHandler):
             + list(information_need.constraints.keys())
             + list(information_need.requested_slots.keys())
         )
-        return [
-            self.get_slot_feature_vector(
-                slot,
-                previous_state,
-                state,
-                information_need,
-                agent_dacts,
-                user_action_vectors.get(slot, None),
-            )
-            for slot in self.action_slots
-        ]
+        return torch.cat(
+            [
+                self.get_slot_feature_vector(
+                    slot,
+                    previous_state,
+                    state,
+                    information_need,
+                    agent_dacts,
+                    user_action_vectors.get(slot, None),
+                )
+                for slot in self.action_slots
+            ],
+            dim=-1,
+        )

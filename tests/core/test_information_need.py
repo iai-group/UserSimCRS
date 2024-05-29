@@ -19,9 +19,7 @@ def test_generate_random_information_need(
         domain: Simulation domain.
         item_collection: Item collection.
     """
-    information_need = generate_random_information_need(
-        domain, item_collection
-    )
+    information_need = generate_random_information_need(domain, item_collection)
     assert all(information_need.constraints.values())
     assert all(
         [

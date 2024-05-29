@@ -12,7 +12,7 @@ https://gitlab.cs.uni-duesseldorf.de/general/dsml/tus_public
 import logging
 import random
 from collections import defaultdict
-from typing import Any, Dict, List, Set
+from typing import Any, DefaultDict, Dict, List, Set
 
 import torch
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
@@ -65,8 +65,10 @@ class TUS(UserSimulator):
         self._feature_handler = feature_handler
         self._user_policy_network = TransformerEncoderModel(**network_config)
         self._dialogue_state_tracker = dialogue_state_tracker
-        self._last_user_actions = defaultdict(list)
-        self._last_turn_input = None
+        self._last_user_actions: DefaultDict[str, torch.Tensor] = defaultdict(
+            lambda: torch.tensor([])
+        )
+        self._last_turn_input: torch.Tensor = None
 
     def initialize(self) -> None:
         """Initializes the user simulator."""
@@ -96,18 +98,26 @@ class TUS(UserSimulator):
 
         # 3. Extract features for the current turn.
         turn_feature = self._feature_handler.get_feature_vector(
-            annotated_utterance=annotated_utterance,
+            utterance=annotated_utterance,
             previous_state=previous_state,
             state=self._dialogue_state_tracker.get_current_state(),
             information_need=self.information_need,
-            user_action_vector=self._last_user_actions,
+            user_action_vectors=self._last_user_actions,
         )
 
         # 4. Concat features with the previous turn features. [1, 0] represents
         # the [CLS] token, and [0, 1] represents the [SEP] token.
-        v = [1, 0] + turn_feature + [0, 1]
+        v = torch.cat(
+            [
+                torch.tensor([1, 0]),
+                torch.flatten(turn_feature),
+                torch.tensor([0, 1]),
+            ]
+        )
         if self._last_turn_input:
-            v = v + self._last_turn_input + [0, 1]
+            v = torch.cat(
+                [v, torch.flatten(self._last_turn_input), torch.tensor([0, 1])]
+            )
 
         self._last_turn_input = turn_feature
 
@@ -159,7 +169,7 @@ class TUS(UserSimulator):
         return utt
 
     def predict_user_dacts(
-        self, features: List[int], action_slots: Set[str]
+        self, features: torch.Tensor, action_slots: Set[str]
     ) -> List[DialogueAct]:
         """Predicts user dialogue acts based on the features.
 
@@ -176,17 +186,21 @@ class TUS(UserSimulator):
 
         outputs = self._user_policy_network(features)
 
-        slot_outputs = {}
+        slot_outputs: Dict[str, int] = {}
         for index, slot_name in enumerate(action_slots):
-            o = torch.argmax(outputs[0, index + 1, :]).item()
+            o = int(torch.argmax(outputs[0, index + 1, :]).item())
+            assert o in range(6), f"Invalid output: {o}"
             slot_outputs[slot_name] = o
-        self._last_user_actions = slot_outputs
+            # One-hot encoding of user action for the slot
+            o_i = torch.zeros(6)
+            o_i[o] = 1
+            self._last_user_actions[slot_name] = o_i
 
         user_dacts = self._parse_policy_output(action_slots, slot_outputs)
         return user_dacts
 
     def _parse_policy_output(
-        self, action_slots: Set[str], slot_outputs: Dict[str, torch.Tensor]
+        self, action_slots: Set[str], slot_outputs: Dict[str, int]
     ) -> List[DialogueAct]:
         """Parses the policy output to dialogue acts.
 
