@@ -76,7 +76,7 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
     item_collection = ItemCollection(
         config["collection_db_path"].get(), config["collection_name"].get()
     )
-    if config["items"].get():
+    if config["items"].get() is not None:
         # Load items if CSV file is provided
         item_collection.load_items_csv(
             config["items"].get(),
