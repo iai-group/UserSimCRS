@@ -1,8 +1,8 @@
 """Tests for SimplePreferenceModel."""
 
 import pytest
-from dialoguekit.core.domain import Domain
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.user_modeling.simple_preference_model import (
@@ -14,7 +14,7 @@ RATINGS_CSV_FILE = "tests/data/items/ratings.csv"
 
 @pytest.fixture
 def preference_model(
-    domain: Domain, item_collection: ItemCollection
+    domain: SimulationDomain, item_collection: ItemCollection
 ) -> SimplePreferenceModel:
     """Preference model fixture."""
     ratings = Ratings()

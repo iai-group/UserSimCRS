@@ -4,6 +4,7 @@ import argparse
 import json
 import logging
 import os
+import random
 from typing import Set
 
 import confuse
@@ -11,7 +12,6 @@ import requests
 import yaml
 from dialoguekit.connector.dialogue_connector import DialogueConnector
 from dialoguekit.core.dialogue import Dialogue
-from dialoguekit.core.domain import Domain
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -30,6 +30,7 @@ from dialoguekit.platforms.platform import Platform
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from sample_agents.moviebot_agent import MovieBotAgent
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.agenda_based_simulator import (
@@ -70,7 +71,7 @@ def main(config: confuse.Configuration, agent: Agent) -> None:
         raise TypeError(f"agent must be Agent, not {type(agent).__name__}")
 
     # Loads domain, item collection, and preference data
-    domain = Domain(config["domain"].get())
+    domain = SimulationDomain(config["domain"].get())
 
     item_collection = ItemCollection(
         config["collection_db_path"].get(), config["collection_name"].get()
@@ -225,6 +226,12 @@ def parse_args() -> argparse.Namespace:
         const=True,
         help=("Debug mode. Defaults to False."),
     )
+    parser.add_argument(
+        "--fix_random_seed",
+        action="store_const",
+        const=True,
+        help=("Fix random seed. Defaults to False."),
+    )
     return parser.parse_args()
 
 
@@ -359,6 +366,9 @@ if __name__ == "__main__":
 
     if config["debug"].get():
         logger.setLevel(logging.DEBUG)
+
+    if config["fix_random_seed"].get():
+        random.seed(42)
 
     # Defines the agent for the simulation.
     # By default, a local moviebot is used.

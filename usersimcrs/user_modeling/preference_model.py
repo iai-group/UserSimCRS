@@ -10,8 +10,7 @@ import string
 from abc import ABC, abstractmethod
 from typing import Tuple
 
-from dialoguekit.core.domain import Domain
-
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 
@@ -30,7 +29,7 @@ class PreferenceModel(ABC):
 
     def __init__(
         self,
-        domain: Domain,
+        domain: SimulationDomain,
         item_collection: ItemCollection,
         historical_ratings: Ratings,
         historical_user_id: str = None,
