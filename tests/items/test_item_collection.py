@@ -1,20 +1,11 @@
 """Tests for ItemCollection."""
 
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 import pytest
+from dialoguekit.core.annotation import Annotation
 
-from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
-
-DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
-ITEMS_CSV_FILE = "tests/data/items/movies_w_keywords.csv"
-
-
-@pytest.fixture
-def domain() -> SimulationDomain:
-    """Domain fixture."""
-    return SimulationDomain(DOMAIN_YAML_FILE)
 
 
 @pytest.fixture
@@ -31,55 +22,26 @@ def movie() -> Dict[str, Any]:
             "computer animation",
             "toys",
         ],
+        "YEAR": "1995",
     }
 
 
 def test_load_items_csv(
-    domain: SimulationDomain, movie: Dict[str, Any]
+    item_collection: ItemCollection, movie: Dict[str, Any]
 ) -> None:
     """Tests items loading with a domain and mapping."""
-    item_collection = ItemCollection()
-    mapping = {
-        "title": {"slot": "TITLE"},
-        "genres": {
-            "slot": "GENRE",
-            "multi-valued": True,
-            "delimiter": "|",
-        },
-    }
-
-    item_collection.load_items_csv(
-        ITEMS_CSV_FILE,
-        id_col="movieId",
-        domain=domain,
-        domain_mapping=mapping,
-    )
 
     item = item_collection.get_item(movie["ID"])
 
     for property in ["TITLE", "GENRE"]:
         assert item.get_property(property) == movie[property]
-    assert item.get_property("KEYWORD") is None
+    assert item.get_property("YEAR") is None
 
 
-def test_get_possible_property_values(domain: SimulationDomain) -> None:
+def test_get_possible_property_values(
+    item_collection: ItemCollection,
+) -> None:
     """Tests using slot with different types (str, list) and unknown slot."""
-    item_collection = ItemCollection()
-    mapping = {
-        "title": {"slot": "TITLE"},
-        "genres": {
-            "slot": "GENRE",
-            "multi-valued": True,
-            "delimiter": "|",
-        },
-    }
-
-    item_collection.load_items_csv(
-        ITEMS_CSV_FILE,
-        id_col="movieId",
-        domain=domain,
-        domain_mapping=mapping,
-    )
 
     genres = item_collection.get_possible_property_values("GENRE")
     assert len(genres) == 20
@@ -99,3 +61,24 @@ def test_get_possible_property_values(domain: SimulationDomain) -> None:
 
     unknown_property = item_collection.get_possible_property_values("UNKNOWN")
     assert len(unknown_property) == 0
+
+
+@pytest.mark.parametrize(
+    "annotations, expected_num_matching_items",
+    [
+        ([], 0),
+        ([Annotation("GENRE", "Adventure")], 1507),
+        (
+            [Annotation("GENRE", "Adventure"), Annotation("GENRE", "Comedy")],
+            464,
+        ),
+    ],
+)
+def test_get_items_by_properties(
+    item_collection: ItemCollection,
+    annotations: List[Annotation],
+    expected_num_matching_items: int,
+) -> None:
+    """Tests getting items by properties."""
+    matching_items = item_collection.get_items_by_properties(annotations)
+    assert len(matching_items) == expected_num_matching_items

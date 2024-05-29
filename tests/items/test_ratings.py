@@ -4,7 +4,6 @@ from typing import Dict, List
 
 import pytest
 
-from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings, user_item_sampler
 
@@ -41,16 +40,8 @@ def simple_user_item_sampler(
 
 
 @pytest.fixture
-def ratings() -> Ratings:
+def ratings(item_collection: ItemCollection) -> Ratings:
     """Ratings fixture."""
-    domain = SimulationDomain(DOMAIN_YAML_FILE)
-    item_collection = ItemCollection()
-    item_collection.load_items_csv(
-        ITEMS_CSV_FILE,
-        id_col="movieId",
-        domain=domain,
-        domain_mapping=DOMAIN_MAPPING,
-    )
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
     return ratings
