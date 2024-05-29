@@ -38,6 +38,7 @@ class DialogueStateTracker:
             self._dialogue_state.agent_dacts.append(dialogue_acts)
 
         self.update_belief_state(dialogue_acts)
+        self._dialogue_state.turn_count += 1
 
     def update_belief_state(self, dialogue_acts: List[DialogueAct]) -> None:
         """Updates the belief state based on the dialogue acts.
