@@ -3,6 +3,7 @@
 from typing import List
 
 import pytest
+import torch
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
@@ -145,11 +146,11 @@ def test_get_slot_index_feature(feature_handler: TUSFeatureHandler) -> None:
     "user_action_vector",
     [
         None,
-        [0, 1, 0, 0, 0, 0],
+        torch.tensor([0, 1, 0, 0, 0, 0]),
     ],
 )
 def test_get_slot_feature_vector(
-    user_action_vector: List[int],
+    user_action_vector: torch.Tensor,
     feature_handler: TUSFeatureHandler,
     information_need: InformationNeed,
 ) -> None:
@@ -169,8 +170,12 @@ def test_get_slot_feature_vector(
         [DialogueAct("elicit", [Annotation("GENRE")])],
         user_action_vector,
     )
-    user_action_vector = user_action_vector if user_action_vector else [0] * 6
-    assert slot_feature_vector[21:27] == user_action_vector
+    user_action_vector = (
+        user_action_vector
+        if user_action_vector is not None
+        else torch.tensor([0] * 6)
+    )
+    assert torch.equal(slot_feature_vector[21:27], user_action_vector)
 
 
 @pytest.mark.parametrize(
@@ -208,7 +213,6 @@ def test_get_feature_vector(
         DialogueState(),
         DialogueState(),
         information_need,
-        {"GENRE": [0, 1, 0, 0, 0, 0]},
+        {"GENRE": torch.tensor([0, 1, 0, 0, 0, 0])},
     )
-    assert len(turn_vector) == expected_num_action_slots
-    assert len(turn_vector[0]) == len(turn_vector[1]) == 35
+    assert len(turn_vector) == expected_num_action_slots * 35

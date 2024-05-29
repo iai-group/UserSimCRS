@@ -194,7 +194,9 @@ class TUSFeatureHandler(FeatureHandler):
             Feature vector for the slot.
         """
         v_user_action = (
-            user_action_vector if user_action_vector else torch.tensor([0] * 6)
+            user_action_vector
+            if user_action_vector is not None
+            else torch.tensor([0] * 6)
         )
         agent_dacts = []
         for dact in agent_dacts:
@@ -262,5 +264,4 @@ class TUSFeatureHandler(FeatureHandler):
                 )
                 for slot in self.action_slots
             ],
-            dim=-1,
         )
