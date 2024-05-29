@@ -44,8 +44,7 @@ class TUSFeatureHandler(FeatureHandler):
             Slot index.
         """
         slots = set(
-            self._domain.get_slot_names()
-            + self._domain.get_requestable_slots()
+            self._domain.get_slot_names() + self._domain.get_requestable_slots()
         )
         self.slot_index = {slot: index for index, slot in enumerate(slots)}
 
@@ -241,9 +240,7 @@ class TUSFeatureHandler(FeatureHandler):
         try:
             agent_dacts = utterance.dialogue_acts
         except AttributeError:
-            agent_dacts = [
-                DialogueAct(utterance.intent, utterance.annotations)
-            ]
+            agent_dacts = [DialogueAct(utterance.intent, utterance.annotations)]
 
         self.action_slots.update(
             [
