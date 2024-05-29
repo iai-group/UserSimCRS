@@ -5,6 +5,7 @@ from typing import Any, Dict, List
 import pytest
 from dialoguekit.core.annotation import Annotation
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 
 
