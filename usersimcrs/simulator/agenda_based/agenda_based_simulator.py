@@ -109,7 +109,8 @@ class AgendaBasedSimulator(UserSimulator):
         # See: https://github.com/iai-group/DialogueKit/issues/234
         elicited_value = (
             None
-            if _LEMMATIZER.lemmatize(value).lower()
+            if value
+            and _LEMMATIZER.lemmatize(value).lower()
             == _LEMMATIZER.lemmatize(elicited_slot).lower()
             else value
         )

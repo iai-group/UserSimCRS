@@ -34,7 +34,7 @@ def generate_random_information_need(
     Returns:
         Information need.
     """
-    target_item = random.choice(list(item_collection._items.values()))
+    target_item = item_collection.get_random_item()
 
     constraints = {}
     informable_slots = set(domain.get_informable_slots()).intersection(
