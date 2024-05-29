@@ -20,7 +20,9 @@ def test_generate_random_information_need(
         domain: Simulation domain.
         item_collection: Item collection.
     """
-    information_need = generate_random_information_need(domain, item_collection)
+    information_need = generate_random_information_need(
+        domain, item_collection
+    )
     assert all(information_need.constraints.values())
     assert all(
         [
@@ -29,25 +31,6 @@ def test_generate_random_information_need(
         ]
     )
     assert len(information_need.target_items) == 1
-
-
-@pytest.fixture
-def information_need() -> InformationNeed:
-    """Information need fixture."""
-    constraints = {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"}
-    requests = ["PLOT", "RATING"]
-    target_items = [
-        Item(
-            "1",
-            {
-                "GENRE": "Comedy",
-                "DIRECTOR": "Steven Spielberg",
-                "RATING": 4.5,
-                "PLOT": "A movie plot",
-            },
-        )
-    ]
-    return InformationNeed(target_items, constraints, requests)
 
 
 @pytest.mark.parametrize(

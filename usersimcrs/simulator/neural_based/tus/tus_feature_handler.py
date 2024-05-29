@@ -4,31 +4,37 @@ For a matter of simplicity, the feature handler supports only one domain unlike
 the original implementation.
 """
 
-from typing import Any, Dict, List
+from typing import Dict, List
 
+from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.dialogue_act import DialogueAct
 
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
+from usersimcrs.dialogue_management.dialogue_state import DialogueState
+from usersimcrs.simulator.neural_based.core.feature_handler import (
+    FeatureHandler,
+)
 
 
-class FeatureHandler:
+class TUSFeatureHandler(FeatureHandler):
     def __init__(
         self,
         domain: SimulationDomain,
-        user_actions: List[str],
         agent_actions: List[str],
+        user_actions: List[str] = ["inform", "request"],
     ) -> None:
         """Initializes the feature handler.
 
         Args:
             domain: Domain knowledge.
-            user_actions: User actions.
             agent_actions: Agent actions.
+            user_actions: User actions. Defaults to ["inform", "request"].
         """
         self._domain = domain
         self._user_actions = user_actions
         self._agent_actions = agent_actions
+        self.action_slots = set()
         self._create_slot_index()
 
     def _create_slot_index(self) -> Dict[str, int]:
@@ -47,8 +53,8 @@ class FeatureHandler:
         self,
         slot: str,
         information_need: InformationNeed,
-        state: Dict[str, Any],
-        previous_state: Dict[str, Any],
+        state: DialogueState,
+        previous_state: DialogueState,
     ) -> List[int]:
         """Builds feature vector for basic information.
 
@@ -68,11 +74,14 @@ class FeatureHandler:
         # It is a 4-dimensional vector, where each dimension corresponds to the
         # following values: "none", "?", "don't care", and "other values".
         v_user_value = [0] * 4
-        if slot not in information_need.constraints.keys():
+        if (
+            slot not in information_need.constraints.keys()
+            and slot not in information_need.requested_slots.keys()
+        ):
             v_user_value[0] = 1
         elif (
             slot in information_need.requested_slots.keys()
-            and not information_need.requested_slots.get(slot)
+            and information_need.requested_slots.get(slot) is None
         ):
             v_user_value[1] = 1
         elif information_need.get_constraint_value(slot) == "dontcare":
@@ -81,11 +90,14 @@ class FeatureHandler:
             v_user_value[3] = 1
 
         v_agent_value = [0] * 4
-        if slot not in state.keys():
+        if slot not in state.belief_state.keys():
             v_agent_value[0] = 1
-        elif slot in state.keys() and not state.get(slot):
+        elif (
+            slot in state.belief_state.keys()
+            and state.belief_state.get(slot) is None
+        ):
             v_agent_value[1] = 1
-        elif state.get(slot) == "dontcare":
+        elif state.belief_state.get(slot) == "dontcare":
             v_agent_value[2] = 1
         else:
             v_agent_value[3] = 1
@@ -101,8 +113,8 @@ class FeatureHandler:
         v_ful = (
             [1]
             if (
-                state.get(slot) is not None
-                and state.get(slot)
+                state.belief_state.get(slot) is not None
+                and state.belief_state.get(slot)
                 == information_need.get_constraint_value(slot)
             )
             or information_need.requested_slots.get(slot)
@@ -111,7 +123,10 @@ class FeatureHandler:
 
         # Whether or not this is the first mention of the slot
         v_first = [0]
-        if slot not in previous_state.keys() and slot in state.keys():
+        if (
+            slot not in previous_state.belief_state.keys()
+            and slot in state.belief_state.keys()
+        ):
             v_first = [1]
 
         return v_user_value + v_agent_value + v_type + v_ful + v_first
@@ -122,24 +137,25 @@ class FeatureHandler:
         """Builds feature vector for agent action.
 
         It concatenates action vectors represented as 3-dimensional vectors that
-        describe whether the value is "none", "?", or "other values".
+        describe whether the slot and value are absent, only slot is present, or
+        both slot and value are present.
 
         Args:
-            agent_utterance: Agent utterance.
+            agent_dacts: Agent dialogue acts.
 
         Returns:
             Feature vector for agent action.
         """
         v_agent_action = {intent: [0] * 3 for intent in self._agent_actions}
-        for dact in agent_dacts:
-            if dact.intent in self._agent_actions:
-                if not dact.annotations:
-                    v_agent_action[dact.intent][0] = 1
-                for annotation in dact.annotations:
+        for agent_dact in agent_dacts:
+            if agent_dact.intent in self._agent_actions:
+                if not agent_dact.annotations:
+                    v_agent_action[agent_dact.intent][0] = 1
+                for annotation in agent_dact.annotations:
                     if annotation.slot and annotation.value:
-                        v_agent_action[dact.intent][2] = 1
+                        v_agent_action[agent_dact.intent][2] = 1
                     elif annotation.slot and annotation.value is None:
-                        v_agent_action[dact.intent][1] = 1
+                        v_agent_action[agent_dact.intent][1] = 1
         return sum(v_agent_action.values(), [])
 
     def get_slot_index_feature(self, slot: str) -> List[int]:
@@ -158,8 +174,8 @@ class FeatureHandler:
     def get_slot_feature_vector(
         self,
         slot: str,
-        previous_state: Dict[str, Any],
-        state: Dict[str, Any],
+        previous_state: DialogueState,
+        state: DialogueState,
         information_need: InformationNeed,
         agent_dacts: List[DialogueAct],
         user_action_vector: List[int] = None,
@@ -174,7 +190,7 @@ class FeatureHandler:
             previous_state: Previous state.
             state: Current state.
             information_need: Information need.
-            agent_dacts: Agent dialogue acts.
+            agent_dact: Agent dialogue acts.
             user_action_vector: User action feature vector (output vector for
               previous turn). Defaults to None.
 
@@ -182,6 +198,12 @@ class FeatureHandler:
             Feature vector for the slot.
         """
         v_user_action = user_action_vector if user_action_vector else [0] * 6
+        agent_dacts = []
+        for dact in agent_dacts:
+            for annotation in dact.annotations:
+                if annotation.slot == slot or annotation.slot is None:
+                    agent_dacts.append(dact)
+
         return (
             self.get_basic_information_feature(
                 slot, information_need, state, previous_state
@@ -191,30 +213,47 @@ class FeatureHandler:
             + self.get_slot_index_feature(slot)
         )
 
-    def get_turn_feature_vector(
+    def get_feature_vector(
         self,
-        slots: List[str],
-        previous_state: Dict[str, Any],
-        state: Dict[str, Any],
+        utterance: AnnotatedUtterance,
+        previous_state: DialogueState,
+        state: DialogueState,
         information_need: InformationNeed,
-        agent_dacts: List[DialogueAct],
-        user_action_vectors: List[List[int]] = None,
+        user_action_vectors: Dict[str, List[int]] = {},
     ) -> List[int]:
         """Builds the feature vector for a turn.
 
-        It comprises the feature vectors for all slots.
+        It comprises the feature vectors for all slots that in the
+        information need and mentioned during the conversation.
 
         Args:
+            utterance: Agent utterance with annotations.
             slots: Slots.
             previous_state: Previous state.
             state: Current state.
             information_need: Information need.
-            agent_dacts: Agent dialogue acts.
-            user_action_vectors: User action feature vectors. Defaults to None.
+            user_action_vectors: User action feature vectors per slot. Defaults
+              to an empty dictionary.
 
         Returns:
             Feature vector for the turn.
         """
+        try:
+            agent_dacts = utterance.dialogue_acts
+        except AttributeError:
+            agent_dacts = [
+                DialogueAct(utterance.intent, utterance.annotations)
+            ]
+
+        self.action_slots.update(
+            [
+                annotation.slot
+                for dact in agent_dacts
+                for annotation in dact.annotations
+            ]
+            + list(information_need.constraints.keys())
+            + list(information_need.requested_slots.keys())
+        )
         return [
             self.get_slot_feature_vector(
                 slot,
@@ -222,7 +261,7 @@ class FeatureHandler:
                 state,
                 information_need,
                 agent_dacts,
-                user_action_vector=user_action_vector,
+                user_action_vectors.get(slot, None),
             )
-            for slot, user_action_vector in zip(slots, user_action_vectors)
+            for slot in self.action_slots
         ]
