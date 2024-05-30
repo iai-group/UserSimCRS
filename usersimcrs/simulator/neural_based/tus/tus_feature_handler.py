@@ -38,6 +38,10 @@ class TUSFeatureHandler(FeatureHandler):
         self.action_slots: Set[str] = set()
         self._create_slot_index()
 
+    def reset(self) -> None:
+        """Resets the feature handler."""
+        self.action_slots = set()
+
     def _create_slot_index(self) -> None:
         """Creates an index for slots."""
         slots = set(
@@ -265,3 +269,92 @@ class TUSFeatureHandler(FeatureHandler):
                 for slot in self.action_slots
             ],
         )
+
+    def get_label_vector(
+        self,
+        user_utterance: AnnotatedUtterance,
+        current_state: DialogueState,
+        information_need: InformationNeed,
+    ) -> torch.Tensor:
+        """Builds the label vector for a turn.
+
+        It comprises a one-hot encoded vector that determines the value of each
+        slot.
+
+        Args:
+            user_utterance: User utterance with annotations.
+            current_state: Current state.
+            information_need: Information need.
+
+        Returns:
+            Label vector for the turn.
+        """
+        try:
+            user_dacts = user_utterance.dialogue_acts
+        except AttributeError:
+            user_dacts = [
+                DialogueAct(user_utterance.intent, user_utterance.annotations)
+            ]
+
+        output = []
+        for slot in self.action_slots:
+            o = self._get_label_vector_slot(
+                user_dacts, slot, current_state, information_need
+            )
+            output.append(o)
+
+        return torch.tensor(output)
+
+    def _get_label_vector_slot(
+        self,
+        user_dacts: List[DialogueAct],
+        slot: str,
+        current_state: DialogueState,
+        information_need: InformationNeed,
+    ):
+        """Builds the label vector for a slot.
+
+        It is a 6-dimensional vector, where each dimension corresponds to the
+        following values: "none", "don't care", "?", "from information need",
+        "from belief state", and "random".
+
+        Args:
+            user_dacts: User dialogue acts.
+            slot: Slot.
+            current_state: Current state.
+            information_need: Information need.
+
+        Returns:
+            Label vector for the slot.
+        """
+        o = [0] * 6
+        for dact in user_dacts:
+            for annotation in dact.annotations:
+                if annotation.slot == slot:
+                    if annotation.value == "dontcare":
+                        o[1] = 1
+                    elif annotation.value is None:
+                        # The value is requested by the user
+                        o[2] = 1
+                    elif (
+                        annotation.value
+                        == information_need.get_constraint_value(slot)
+                        or annotation.value
+                        == information_need.requested_slots.get(slot)
+                    ):
+                        # The value is taken from the information need
+                        o[3] = 1
+                    elif annotation.value == current_state.belief_state.get(
+                        slot
+                    ):
+                        # The value was previously mentioned and is
+                        # retrieved from the belief state
+                        o[4] = 1
+                    else:
+                        # The slot's value is randomly chosen
+                        o[5] = 1
+
+        if o == [0] * 6:
+            # The slot is not mentioned in the user utterance
+            o[0] = 1
+        return o
