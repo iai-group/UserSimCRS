@@ -4,8 +4,9 @@ For a matter of simplicity, the feature handler supports only one domain unlike
 the original implementation.
 """
 
-from typing import Dict, List
+from typing import Dict, List, Set
 
+import torch
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.dialogue_act import DialogueAct
 
@@ -34,18 +35,16 @@ class TUSFeatureHandler(FeatureHandler):
         self._domain = domain
         self._user_actions = user_actions
         self._agent_actions = agent_actions
-        self.action_slots = set()
+        self.action_slots: Set[str] = set()
         self._create_slot_index()
 
-    def _create_slot_index(self) -> Dict[str, int]:
-        """Creates an index for slots.
+    def reset(self) -> None:
+        """Resets the feature handler."""
+        self.action_slots = set()
 
-        Returns:
-            Slot index.
-        """
-        slots = set(
-            self._domain.get_slot_names() + self._domain.get_requestable_slots()
-        )
+    def _create_slot_index(self) -> None:
+        """Creates an index for slots."""
+        slots = self._domain.get_slot_names()
         self.slot_index = {slot: index for index, slot in enumerate(slots)}
 
     def get_basic_information_feature(
@@ -147,14 +146,15 @@ class TUSFeatureHandler(FeatureHandler):
         """
         v_agent_action = {intent: [0] * 3 for intent in self._agent_actions}
         for agent_dact in agent_dacts:
-            if agent_dact.intent in self._agent_actions:
+            intent_label = agent_dact.intent.label
+            if intent_label in self._agent_actions:
                 if not agent_dact.annotations:
-                    v_agent_action[agent_dact.intent][0] = 1
+                    v_agent_action[intent_label][0] = 1
                 for annotation in agent_dact.annotations:
                     if annotation.slot and annotation.value:
-                        v_agent_action[agent_dact.intent][2] = 1
+                        v_agent_action[intent_label][2] = 1
                     elif annotation.slot and annotation.value is None:
-                        v_agent_action[agent_dact.intent][1] = 1
+                        v_agent_action[intent_label][1] = 1
         return sum(v_agent_action.values(), [])
 
     def get_slot_index_feature(self, slot: str) -> List[int]:
@@ -177,8 +177,8 @@ class TUSFeatureHandler(FeatureHandler):
         state: DialogueState,
         information_need: InformationNeed,
         agent_dacts: List[DialogueAct],
-        user_action_vector: List[int] = None,
-    ) -> List[int]:
+        user_action_vector: torch.Tensor = None,
+    ) -> torch.Tensor:
         """Builds the feature vector for a slot.
 
         It concatenate the basic information, user action, agent action, and
@@ -196,19 +196,23 @@ class TUSFeatureHandler(FeatureHandler):
         Returns:
             Feature vector for the slot.
         """
-        v_user_action = user_action_vector if user_action_vector else [0] * 6
+        v_user_action = (
+            user_action_vector
+            if user_action_vector is not None
+            else torch.tensor([0] * 6)
+        )
         agent_dacts = []
         for dact in agent_dacts:
             for annotation in dact.annotations:
                 if annotation.slot == slot or annotation.slot is None:
                     agent_dacts.append(dact)
 
-        return (
+        return torch.tensor(
             self.get_basic_information_feature(
                 slot, information_need, state, previous_state
             )
             + self.get_agent_action_feature(agent_dacts)
-            + v_user_action
+            + v_user_action.tolist()
             + self.get_slot_index_feature(slot)
         )
 
@@ -218,8 +222,8 @@ class TUSFeatureHandler(FeatureHandler):
         previous_state: DialogueState,
         state: DialogueState,
         information_need: InformationNeed,
-        user_action_vectors: Dict[str, List[int]] = {},
-    ) -> List[int]:
+        user_action_vectors: Dict[str, torch.Tensor] = {},
+    ) -> torch.Tensor:
         """Builds the feature vector for a turn.
 
         It comprises the feature vectors for all slots that in the
@@ -251,14 +255,106 @@ class TUSFeatureHandler(FeatureHandler):
             + list(information_need.constraints.keys())
             + list(information_need.requested_slots.keys())
         )
-        return [
-            self.get_slot_feature_vector(
-                slot,
-                previous_state,
-                state,
-                information_need,
-                agent_dacts,
-                user_action_vectors.get(slot, None),
+        return torch.cat(
+            [
+                self.get_slot_feature_vector(
+                    slot,
+                    previous_state,
+                    state,
+                    information_need,
+                    agent_dacts,
+                    user_action_vectors.get(slot, None),
+                )
+                for slot in self.action_slots
+            ],
+        )
+
+    def get_label_vector(
+        self,
+        user_utterance: AnnotatedUtterance,
+        current_state: DialogueState,
+        information_need: InformationNeed,
+    ) -> torch.Tensor:
+        """Builds the label vector for a turn.
+
+        It comprises a one-hot encoded vector that determines the value of each
+        slot.
+
+        Args:
+            user_utterance: User utterance with annotations.
+            current_state: Current state.
+            information_need: Information need.
+
+        Returns:
+            Label vector for the turn.
+        """
+        try:
+            user_dacts = user_utterance.dialogue_acts
+        except AttributeError:
+            user_dacts = [
+                DialogueAct(user_utterance.intent, user_utterance.annotations)
+            ]
+
+        output = []
+        for slot in self.action_slots:
+            o = self._get_label_vector_slot(
+                user_dacts, slot, current_state, information_need
             )
-            for slot in self.action_slots
-        ]
+            output.append(o)
+
+        return torch.tensor(output)
+
+    def _get_label_vector_slot(
+        self,
+        user_dacts: List[DialogueAct],
+        slot: str,
+        current_state: DialogueState,
+        information_need: InformationNeed,
+    ):
+        """Builds the label vector for a slot.
+
+        It is a 6-dimensional vector, where each dimension corresponds to the
+        following values: "none", "don't care", "?", "from information need",
+        "from belief state", and "random".
+
+        Args:
+            user_dacts: User dialogue acts.
+            slot: Slot.
+            current_state: Current state.
+            information_need: Information need.
+
+        Returns:
+            Label vector for the slot.
+        """
+        o = [0] * 6
+        for dact in user_dacts:
+            for annotation in dact.annotations:
+                if annotation.slot == slot:
+                    if annotation.value == "dontcare":
+                        o[1] = 1
+                    elif annotation.value is None:
+                        # The value is requested by the user
+                        o[2] = 1
+                    elif (
+                        annotation.value
+                        == information_need.get_constraint_value(slot)
+                        or annotation.value
+                        == information_need.requested_slots.get(slot)
+                    ):
+                        # The value is taken from the information need
+                        o[3] = 1
+                        continue
+                    elif annotation.value == current_state.belief_state.get(
+                        slot
+                    ):
+                        # The value was previously mentioned and is
+                        # retrieved from the belief state
+                        o[4] = 1
+                    else:
+                        # The slot's value is randomly chosen
+                        o[5] = 1
+
+        if o == [0] * 6:
+            # The slot is not mentioned in the user utterance
+            o[0] = 1
+        return o

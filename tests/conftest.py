@@ -50,13 +50,13 @@ def item_collection(domain: SimulationDomain):
 @pytest.fixture(scope="module")
 def information_need() -> InformationNeed:
     """Information need fixture."""
-    constraints = {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"}
+    constraints = {"GENRE": "comedy", "DIRECTOR": "Steven Spielberg"}
     requests = ["PLOT", "RATING"]
     target_items = [
         Item(
             "1",
             {
-                "GENRE": "Comedy",
+                "GENRE": "comedy",
                 "DIRECTOR": "Steven Spielberg",
                 "RATING": 4.5,
                 "PLOT": "A movie plot",
