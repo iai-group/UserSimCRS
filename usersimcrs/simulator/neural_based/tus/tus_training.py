@@ -8,9 +8,11 @@ from typing import Dict, List
 
 import pandas as pd
 import torch
+import yaml
 from torch.utils.tensorboard import SummaryWriter
 from torcheval.metrics import MulticlassConfusionMatrix
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.simulator.neural_based.core.transformer import (
     TransformerEncoderModel,
 )
@@ -236,6 +238,16 @@ def parse_args() -> argparse.Namespace:
         help="Path to the data file.",
     )
     parser.add_argument(
+        "--domain",
+        type=str,
+        help="Path to the domain configuration file.",
+    )
+    parser.add_argument(
+        "--agent_actions_path",
+        type=str,
+        help="Path to the agent actions file.",
+    )
+    parser.add_argument(
         "--seed",
         type=int,
         default=42,
@@ -264,6 +276,7 @@ def parse_args() -> argparse.Namespace:
         type=str,
         default="data/models",
         help="Output directory.",
+        default="data/models",
     )
     parser.add_argument(
         "--logs", action="store_true", help="Enable Tensorboard logs."
@@ -285,7 +298,10 @@ if __name__ == "__main__":
         writer = SummaryWriter(f"logs/tus_training_{timestamp}")
 
     # Initialize feature handler
-    feature_handler = None
+    domain = SimulationDomain(args.domain)
+    with open(args.agent_actions_path, "r") as f:
+        agent_actions = yaml.safe_load(f)
+    feature_handler = TUSFeatureHandler(domain, agent_actions)
     feature_handler_path = os.path.join(
         args.output_dir, "feature_handler.joblib"
     )
