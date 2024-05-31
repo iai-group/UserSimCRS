@@ -32,7 +32,7 @@ from usersimcrs.user_modeling.simple_preference_model import (
 )
 
 
-def map_class(cls_path: str) -> Type:
+def map_path_to_class(cls_path: str) -> Type:
     """Maps a class path to a class.
 
     Args:
@@ -62,7 +62,7 @@ def get_agent_information(
     Returns:
         Agent class and agent configuration.
     """
-    agent_class = map_class(config["agent_class_path"].get())
+    agent_class = map_path_to_class(config["agent_class_path"].get())
     agent_config = {
         "agent_id": config["agent_id"].get(),
         "uri": config["agent_uri"].get(),
@@ -92,13 +92,15 @@ def get_simulator_information(
         Simulator ID, simulator class, and configuration.
     """
     simulator_id = config["simulator_id"].get()
-    simulator_class = map_class(config["simulator_class_path"].get())
+    simulator_class = map_path_to_class(config["simulator_class_path"].get())
     simulator_config = {}
 
     if simulator_class.__name__ == "AgendaBasedSimulator":
         simulator_config.update(_get_agenda_based_simulator_config(config))
     else:
-        raise ValueError(f"Simulator class {simulator_class} is not supported.")
+        raise ValueError(
+            f"Simulator class {simulator_class} is not supported."
+        )
     return simulator_id, simulator_class, simulator_config
 
 
@@ -193,9 +195,9 @@ def get_NLU(config: confuse.Configuration) -> IntentClassifier:
     intent_classifier = config["intent_classifier"].get()
     if intent_classifier == "cosine":
         # NLU without slot annotators
-        return NLU(load_cosine_classifier(config), slot_annotators=[])
+        return NLU(train_cosine_classifier(config), slot_annotators=[])
     elif intent_classifier == "diet":
-        classifier = load_rasa_diet_classifier(config)
+        classifier = train_rasa_diet_classifier(config)
         return NLU(classifier, [classifier])
     elif intent_classifier:
         raise ValueError(
@@ -204,7 +206,7 @@ def get_NLU(config: confuse.Configuration) -> IntentClassifier:
         )
 
 
-def load_cosine_classifier(
+def train_cosine_classifier(
     config: confuse.Configuration,
 ) -> IntentClassifierCosine:
     """Trains a cosine classifier on annotated dialogues for NLU module.
@@ -237,7 +239,7 @@ def load_cosine_classifier(
     return intent_classifier
 
 
-def load_rasa_diet_classifier(
+def train_rasa_diet_classifier(
     config: confuse.Configuration,
 ) -> IntentClassifierCosine:
     """Trains a DIET classifier on Rasa annotated dialogues for NLU module.

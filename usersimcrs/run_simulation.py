@@ -30,7 +30,6 @@ def main(config: confuse.Configuration) -> None:
 
     Args:
         config: Configuration generated from YAML configuration file.
-        agent: Conversational agent.
     """
     agent_class, agent_config = utils.get_agent_information(config)
     (

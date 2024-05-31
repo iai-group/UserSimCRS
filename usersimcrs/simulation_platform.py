@@ -31,7 +31,7 @@ class SimulationPlatform(Platform):
     def start(self) -> None:
         """Starts the simulation platform.
 
-        It creates the agent and user simulator.
+        It creates the agent.
 
         Raises:
             RuntimeError: If the connection to the agent is refused.
@@ -95,15 +95,15 @@ class SimulationPlatform(Platform):
             return
 
     def display_agent_utterance(
-        self, user_id: str, utterance: Utterance
+        self, agent_id: str, utterance: Utterance
     ) -> None:
         """Displays an agent utterance.
 
         Args:
-            user_id: Agent ID.
+            agent_id: Agent ID.
             utterance: An instance of Utterance.
         """
-        logging.debug(f"Agent {user_id}: {utterance.text}")
+        logging.debug(f"Agent {agent_id}: {utterance.text}")
 
     def display_user_utterance(
         self, user_id: str, utterance: Utterance
