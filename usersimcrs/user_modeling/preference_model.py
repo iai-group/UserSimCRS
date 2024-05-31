@@ -190,7 +190,9 @@ class PreferenceModel(ABC):
         if not os.path.exists(path):
             raise FileNotFoundError(f"File '{path}' not found.")
 
-        return joblib.load(path)
+        preference_model = joblib.load(path)
+        preference_model._item_collection.connect()
+        return preference_model
 
     def save_preference_model(self, path: str) -> None:
         """Saves preference model to a file.
@@ -198,4 +200,5 @@ class PreferenceModel(ABC):
         Args:
             path: Path to save preference model.
         """
+        self._item_collection.close()
         joblib.dump(self, path)

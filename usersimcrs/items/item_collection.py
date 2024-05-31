@@ -28,14 +28,24 @@ class ItemCollection:
             db_path: Path to the SQLite database.
             table_name: Name of the table containing the items.
         """
-        self._conn = sqlite3.connect(db_path)
+        self._db_path = db_path
+        self._table_name = table_name
+        self.connect()
+
+    def connect(self) -> None:
+        """Connects to the SQLite database."""
+        self._conn = sqlite3.connect(self._db_path)
         self._conn.row_factory = sqlite3.Row
         self._cursor = self._conn.cursor()
-        self._table_name = table_name
 
     def close(self) -> None:
-        """Closes the connection to the SQLite database."""
+        """Closes the connection to the SQLite database.
+
+        Connection and cursor are set to None to allow pickling.
+        """
         self._conn.close()
+        self._conn = None
+        self._cursor = None
 
     def _init_table(self, domain_mapping: MappingConfig) -> None:
         """Initializes the table in the SQLite database.
