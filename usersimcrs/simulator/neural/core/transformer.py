@@ -1,4 +1,4 @@
-"""Encoder-only transformer model for neural-based simulator."""
+"""Encoder-only transformer model for neural user simulator."""
 
 import math
 
