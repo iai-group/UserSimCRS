@@ -1,6 +1,6 @@
 [
     {
-        "conversation ID": "1",
+        "conversation_id": "1",
         "conversation": [
             {
                 "participant": "USER",
@@ -37,10 +37,18 @@
                 "intent": "Intent-C",
                 "utterance": "Utterance 7"
             }
-        ]
+        ],
+        "agent": {
+            "id": "Agent",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "2",
+        "conversation_id": "2",
         "conversation": [
             {
                 "participant": "USER",
@@ -77,10 +85,18 @@
                 "intent": "Intent-C",
                 "utterance": "Utterance 7"
             }
-        ]
+        ],
+        "agent": {
+            "id": "Agent",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "3",
+        "conversation_id": "3",
         "conversation": [
             {
                 "participant": "USER",
@@ -117,6 +133,14 @@
                 "intent": "Intent-C",
                 "utterance": "Utterance 7"
             }
-        ]
+        ],
+        "agent": {
+            "id": "Agent",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     }
 ]

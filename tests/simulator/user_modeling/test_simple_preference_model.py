@@ -1,5 +1,7 @@
 """Tests for SimplePreferenceModel."""
 
+import os
+
 import pytest
 
 from usersimcrs.core.simulation_domain import SimulationDomain
@@ -78,3 +80,36 @@ def test_get_slot_preference_nonexisting_slot(
 ) -> None:
     with pytest.raises(ValueError):
         preference_model.get_slot_preference("YEAR")
+
+
+def test_load_preferences_error(
+    preference_model: SimplePreferenceModel,
+) -> None:
+    with pytest.raises(FileNotFoundError):
+        preference_model.load_preference_model("path")
+
+
+def test_save_preference_model(
+    preference_model: SimplePreferenceModel,
+) -> None:
+    preference_model._slot_value_preferences.set_preference(
+        "GENRE", "Action", 1
+    )
+    preference_model._item_preferences.set_preference("ID", "527", -1)
+    preference_model.save_preference_model("tests/data/preference_model.joblib")
+
+    loaded_model = SimplePreferenceModel.load_preference_model(
+        "tests/data/preference_model.joblib"
+    )
+
+    assert loaded_model._user_id == preference_model._user_id
+    assert (
+        loaded_model._item_preferences._preferences
+        == preference_model._item_preferences._preferences
+    )
+    assert (
+        loaded_model._slot_value_preferences._preferences
+        == preference_model._slot_value_preferences._preferences
+    )
+
+    os.remove("tests/data/preference_model.joblib")
