@@ -98,9 +98,7 @@ def get_simulator_information(
     if simulator_class.__name__ == "AgendaBasedSimulator":
         simulator_config.update(_get_agenda_based_simulator_config(config))
     else:
-        raise ValueError(
-            f"Simulator class {simulator_class} is not supported."
-        )
+        raise ValueError(f"Simulator class {simulator_class} is not supported.")
     return simulator_id, simulator_class, simulator_config
 
 
