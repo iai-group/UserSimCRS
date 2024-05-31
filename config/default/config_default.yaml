@@ -1,12 +1,23 @@
-agent_id: "IAI MovieBot"
-simulator_id: "User Simulator"
 output_name: "moviebot"
+debug: False
+fix_random_seed: False
+num_simulated_dialogues: 100
+
+### AGENT CONFIGURATION ###
+agent_class_path: "sample_agents.moviebot_agent.MovieBotAgent"
+agent_id: "IAI MovieBot"
 # By default, the agent has an HTTP API.
 agent_uri: "http://127.0.0.1:5001"
 
-domain: data/domains/movies.yaml
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.agenda_based.agenda_based_simulator.AgendaBasedSimulator"
+simulator_id: "User Simulator"
+
+domain: data/domains/moviebot.yaml
 intents: data/interaction_models/crs_v1.yaml
 
+collection_db_path: "data/item_collections.db"
+collection_name: "movies_w_keywords"
 items: data/movielens-25m-sample/movies_w_keywords.csv
 id_col: movieId
 domain_mapping:
@@ -28,4 +39,3 @@ intent_classifier: "cosine"
 # If using the DIET classifier the following file needs to be provided. 
 # rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
 
-debug: False

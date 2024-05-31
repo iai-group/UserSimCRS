@@ -4,10 +4,14 @@ import pytest
 from dialoguekit.core.intent import Intent
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
-from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.simulator.agenda_based.interaction_model import (
+    InteractionModel,
+)
 
 ANNOTATED_CONVERSATIONS = json_to_dialogues(
-    "tests/data/annotated_dialogues.json", agent_id="AGENT", user_id="USER"
+    "tests/data/annotated_dialogues.json",
+    agent_ids=["Agent"],
+    user_ids=["User"],
 )
 
 _INTENT_INQUIRE = Intent("INQUIRE")

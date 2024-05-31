@@ -5,16 +5,19 @@ from typing import List, Tuple
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
-from dialoguekit.core.domain import Domain
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlu.nlu import NLU
+from dialoguekit.participant.participant import DialogueParticipant
 from nltk.stem import WordNetLemmatizer
 
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.simulator.agenda_based.interaction_model import (
+    InteractionModel,
+)
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 
@@ -29,7 +32,7 @@ class AgendaBasedSimulator(UserSimulator):
         interaction_model: InteractionModel,
         nlu: NLU,
         nlg: ConditionalNLG,
-        domain: Domain,
+        domain: SimulationDomain,
         item_collection: ItemCollection,
         ratings: Ratings,
     ) -> None:
@@ -107,7 +110,8 @@ class AgendaBasedSimulator(UserSimulator):
         # See: https://github.com/iai-group/DialogueKit/issues/234
         elicited_value = (
             None
-            if _LEMMATIZER.lemmatize(value).lower()
+            if value
+            and _LEMMATIZER.lemmatize(value).lower()
             == _LEMMATIZER.lemmatize(elicited_slot).lower()
             else value
         )
@@ -236,5 +240,7 @@ class AgendaBasedSimulator(UserSimulator):
         response = self._nlg.generate_utterance_text(
             response_intent, response_slot_values
         )
+
+        response.participant = DialogueParticipant.USER
 
         return response
