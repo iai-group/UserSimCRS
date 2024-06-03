@@ -33,9 +33,9 @@ class DialogueStateTracker:
             participant: Dialogue participant.
         """
         if participant == DialogueParticipant.USER:
-            self._dialogue_state.user_dacts.append(dialogue_acts)
+            self._dialogue_state.user_dialogue_acts.append(dialogue_acts)
         else:
-            self._dialogue_state.agent_dacts.append(dialogue_acts)
+            self._dialogue_state.agent_dialogue_acts.append(dialogue_acts)
 
         self.update_belief_state(dialogue_acts)
         self._dialogue_state.turn_count += 1
@@ -48,9 +48,12 @@ class DialogueStateTracker:
         """
         for dialogue_act in dialogue_acts:
             for annotation in dialogue_act.annotations:
-                self._dialogue_state.belief_state[
-                    annotation.slot
-                ] = annotation.value
+                if annotation.value:
+                    self._dialogue_state.belief_state[annotation.slot].append(
+                        annotation.value
+                    )
+                else:
+                    self._dialogue_state.belief_state[annotation.slot] = []
 
     def reset_state(self) -> None:
         """Resets the dialogue state."""
