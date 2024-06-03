@@ -17,7 +17,7 @@ def dialogue_state_tracker() -> DialogueStateTracker:
     dst = DialogueStateTracker()
 
     initial_state = dst.get_current_state()
-    assert initial_state.turn_count == 0
+    assert initial_state.utterance_count == 0
     assert initial_state.agent_dialogue_acts == []
     assert initial_state.user_dialogue_acts == []
     assert initial_state.belief_state == {}
@@ -38,7 +38,7 @@ def test_update_state_agent(
     )
 
     current_state = dialogue_state_tracker.get_current_state()
-    assert current_state.turn_count == 1
+    assert current_state.utterance_count == 1
     assert current_state.agent_dialogue_acts == [dialogue_acts]
     assert current_state.user_dialogue_acts == []
     print(current_state.belief_state)
@@ -56,10 +56,12 @@ def test_update_state_user(
         DialogueAct(Intent("request"), annotations=[Annotation("YEAR")]),
     ]
 
-    dialogue_state_tracker.update_state(dialogue_acts, DialogueParticipant.USER)
+    dialogue_state_tracker.update_state(
+        dialogue_acts, DialogueParticipant.USER
+    )
 
     current_state = dialogue_state_tracker.get_current_state()
-    assert current_state.turn_count == 2
+    assert current_state.utterance_count == 2
     assert len(current_state.agent_dialogue_acts) == 1
     assert current_state.user_dialogue_acts == [dialogue_acts]
     assert current_state.belief_state == {"GENRE": ["comedy"], "YEAR": []}
