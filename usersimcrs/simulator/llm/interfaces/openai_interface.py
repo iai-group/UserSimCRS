@@ -88,7 +88,7 @@ class OpenAILLMInterface(LLMInterface):
         ]
         response = (
             self.client.chat.completions.create(
-                self.model, messages, **self._llm_options
+                messages=messages, model=self.model, **self._llm_options
             )
             .choices[0]
             .message.content
@@ -125,7 +125,7 @@ class OpenAILLMInterface(LLMInterface):
         """
         response = (
             self.client.completions.create(
-                self.model, prompt, **self._llm_options
+                model=self.model, prompt=prompt, **self._llm_options
             )
             .choices[0]
             .text
