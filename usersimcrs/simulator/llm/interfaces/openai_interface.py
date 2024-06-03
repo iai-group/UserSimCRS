@@ -56,7 +56,7 @@ class OpenAILLMInterface(LLMInterface):
         self.model = self._llm_configuration.get("model")
         self._llm_options = self._llm_configuration.get("options", {})
 
-        self.client = OpenAI(self._llm_configuration.get("api_key"))
+        self.client = OpenAI(api_key=self._llm_configuration.get("api_key"))
         self.chat_api = chat_api
 
     def generate_response(self, prompt: Prompt) -> Utterance:

@@ -15,10 +15,11 @@ from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.user_modeling.persona import Persona
 
-DEFAULT_TASK_DEFINITION = """Complete the conversation as a CUSTOMER
- discussing with an ASSISTANT. The conversation is about getting a
- recommendation according to the REQUIREMENTS. You must fulfill all
- REQUIREMENTS."""
+DEFAULT_TASK_DEFINITION = (
+    "Complete the conversation as a CUSTOMER discussing with an ASSISTANT. The "
+    "conversation is about getting a recommendation according to the "
+    "REQUIREMENTS. You must fulfill all REQUIREMENTS."
+)
 
 
 class Prompt:
@@ -60,7 +61,7 @@ class Prompt:
 
         if self.persona:
             initial_prompt += (
-                "Adapt your responses considering the your PERSONA.\n"
+                " Adapt your responses considering your PERSONA.\n"
             )
             stringified_characteristics = ", ".join(
                 [
@@ -80,12 +81,13 @@ class Prompt:
                 for key, value in self.requirements.constraints.items()
             ]
         )
+        requestable_slot = ", ".join(self.requirements.requested_slots.keys())
         initial_prompt += (
-            f"REQUIREMENTS: You are looking for a {self.item_type} "
+            f"REQUIREMENTS: You are looking for a {self.item_type} with the "
+            f"following characteristics: {stringified_constraints}. Once you "
+            f"find a suitable {self.item_type}, make sure to get the following "
+            f"information: {requestable_slot}.\n"
         )
-        f"with the following characteristics: {stringified_constraints}. Once "
-        f"you find a suitable {self.item_type}, make sure to get the following "
-        f"information: {', '.join(self.requirements.requests.keys())}.\n"
         return initial_prompt
 
     def update_prompt_context(
@@ -101,6 +103,6 @@ class Prompt:
             "ASSISTANT" if participant == DialogueParticipant.AGENT else "USER"
         )
 
-        self._prompt_context += f" {role}: {utterance.text}\n"
+        self._prompt_context += f"{role}: {utterance.text}\n"
         if participant == DialogueParticipant.AGENT:
             self._prompt_context += "USER: "
