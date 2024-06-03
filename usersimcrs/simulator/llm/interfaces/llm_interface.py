@@ -1,9 +1,10 @@
 """Interface for the LLM model."""
 
 from abc import ABC, abstractmethod
-from typing import Any
 
 from dialoguekit.core import Utterance
+
+from usersimcrs.simulator.llm.prompt import Prompt
 
 
 class LLMInterface(ABC):
@@ -17,7 +18,7 @@ class LLMInterface(ABC):
         self.default_response = default_response
 
     @abstractmethod
-    def generate_response(self, prompt: Any) -> Utterance:
+    def generate_response(self, prompt: Prompt) -> Utterance:
         """Generates an utterance given a prompt.
 
         Args:

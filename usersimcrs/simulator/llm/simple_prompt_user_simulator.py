@@ -1,16 +1,16 @@
 """User simulator leveraging a large language model to generate responses.
 
 The responses are generated via a single prompt template with a large language
-model. The prompt is inspired by the work of Terragni et al.
-
-Reference: Terragni, S., et al. (2023). "In-Context Learning User Simulators
-for Task-Oriented Dialog Systems", arXiv 2306.00774.
+model.
 """
 
 from dialoguekit.core.utterance import Utterance
+from dialoguekit.participant import DialogueParticipant
 
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
+from usersimcrs.simulator.llm.prompt import DEFAULT_TASK_DEFINITION, Prompt
 from usersimcrs.simulator.user_simulator import UserSimulator
+from usersimcrs.user_modeling.persona import Persona
 
 
 class SinglePromptUserSimulator(UserSimulator):
@@ -18,20 +18,25 @@ class SinglePromptUserSimulator(UserSimulator):
         self,
         id: str,
         llm_interface: LLMInterface,
-        initial_prompt: str,
+        item_type: str,
+        task_definition: str = DEFAULT_TASK_DEFINITION,
+        persona: Persona = None,
     ) -> None:
         """Initializes the user simulator.
 
         Args:
             id: User simulator ID.
             llm_interface: Interface to the large language model.
-            initial_prompt: Initial prompt to be used for generating responses.
-            default_response: Default response to be used if the LLM fails to
-              generate a response.
+            item_type: Type of the item to be recommended. Defaults to None.
+            task_definition: Definition of the task to be performed.
+              Defaults to DEFAULT_TASK_DEFINITION.
+            persona: Persona of the user. Defaults to None.
         """
         super().__init__(id)
         self.llm_interface = llm_interface
-        self.prompt = initial_prompt
+        self.prompt = Prompt(
+            self.information_need, item_type, task_definition, persona
+        )
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
         """Generates response to the agent utterance.
@@ -42,24 +47,11 @@ class SinglePromptUserSimulator(UserSimulator):
         Returns:
             User utterance.
         """
-        self.update_prompt_context(agent_utterance, role="Agent")
+        self.prompt.update_prompt_context(
+            agent_utterance, DialogueParticipant.AGENT
+        )
         user_utterance = self.llm_interface.generate_response(self.prompt)
-        self.update_prompt_context(user_utterance, role="User")
+        self.prompt.update_prompt_context(
+            user_utterance, DialogueParticipant.USER
+        )
         return user_utterance
-
-    def update_prompt_context(self, utterance: Utterance, role: str) -> None:
-        """Updates the context provided in the prompt.
-
-        Args:
-            utterance: Utterance to be added to the prompt.
-            role: Role of the participant, either "Agent" or "User".
-
-        Raises:
-            ValueError: If the role is not valid.
-        """
-        if role not in ["Agent", "User"]:
-            raise ValueError(f"Invalid role: {role}")
-
-        self.prompt += f" {role}: {utterance.text}\n"
-        if role == "Agent":
-            self.prompt += "User:"

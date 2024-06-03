@@ -8,6 +8,7 @@ from dialoguekit.participant import DialogueParticipant
 from ollama import Client, Options
 
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
+from usersimcrs.simulator.llm.prompt import Prompt
 
 
 class OllamaLLMInterface(LLMInterface):
@@ -48,7 +49,7 @@ class OllamaLLMInterface(LLMInterface):
         self._stream = self._llm_configuration.get("stream", False)
         self._llm_options = Options(self._llm_configuration.get("options", {}))
 
-    def generate_response(self, prompt: str) -> Utterance:
+    def generate_response(self, prompt: Prompt) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:
@@ -59,7 +60,7 @@ class OllamaLLMInterface(LLMInterface):
         """
         ollama_response = self.client.generate(
             self.model,
-            prompt,
+            prompt.prompt_text,
             options=self._llm_options,
             stream=self._stream,
         )

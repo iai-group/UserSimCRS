@@ -1,12 +1,15 @@
 """Interface to use a LLM served by OpenAI."""
 
 import os
+import re
+from typing import Dict, List
 
 import yaml
 from dialoguekit.core import Utterance
 from openai import OpenAI
 
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
+from usersimcrs.simulator.llm.prompt import Prompt
 
 
 class OpenAILLMInterface(LLMInterface):
@@ -27,7 +30,6 @@ class OpenAILLMInterface(LLMInterface):
 
         Raises:
             FileNotFoundError: If the configuration file is not found.
-
         """
         super().__init__(default_response)
 
@@ -57,7 +59,7 @@ class OpenAILLMInterface(LLMInterface):
         self.client = OpenAI(self._llm_configuration.get("api_key"))
         self.chat_api = chat_api
 
-    def generate_response(self, prompt: str) -> Utterance:
+    def generate_response(self, prompt: Prompt) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:
@@ -69,9 +71,9 @@ class OpenAILLMInterface(LLMInterface):
         if self.chat_api:
             return self._generate_chat_response(prompt)
 
-        return self._generate_completion_response(prompt)
+        return self._generate_completion_response(prompt.prompt_text)
 
-    def _generate_chat_response(self, prompt: str) -> Utterance:
+    def _generate_chat_response(self, prompt: Prompt) -> Utterance:
         """Generates a user utterance using the chat API.
 
         Args:
@@ -80,8 +82,10 @@ class OpenAILLMInterface(LLMInterface):
         Returns:
             Utterance.
         """
-        # TODO: parse the prompt as list of messages
-        messages = []
+        messages = [
+            {"role": "system", "content": prompt.build_new_prompt()},
+            *self._parse_prompt_context(prompt.prompt_text),
+        ]
         response = (
             self.client.chat.completions.create(
                 self.model, messages, **self._llm_options
@@ -90,6 +94,25 @@ class OpenAILLMInterface(LLMInterface):
             .message.content
         )
         return Utterance(response)
+
+    def _parse_prompt_context(
+        self, prompt_context: str
+    ) -> List[Dict[str, str]]:
+        """Parses the prompt context to a list of messages.
+
+        Args:
+            prompt_context: Prompt context.
+        """
+        messages = []
+        utterances = prompt_context.split("\n")
+        role_pattern = re.compile(r"^\[(USER|ASSISTANT)\]: (.+)$")
+        for utterance in utterances:
+            match = role_pattern.match(utterance)
+            if match:
+                role = match.group(1)
+                text = match.group(2)
+                messages.append({"role": role.lower(), "content": text})
+        return messages
 
     def _generate_completion_response(self, prompt: str) -> Utterance:
         """Generates a user utterance using the completion API.
