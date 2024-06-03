@@ -35,9 +35,7 @@ def test_build_new_prompt(prompt: Prompt) -> None:
     )
 
     assert prompt.build_new_prompt() == (
-        DEFAULT_TASK_DEFINITION
-        + stringified_persona
-        + stringified_requirements
+        DEFAULT_TASK_DEFINITION + stringified_persona + stringified_requirements
     )
 
 
