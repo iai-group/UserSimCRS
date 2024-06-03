@@ -7,6 +7,8 @@ model.
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant import DialogueParticipant
 
+from usersimcrs.core.simulation_domain import SimulationDomain
+from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
 from usersimcrs.simulator.llm.prompt import DEFAULT_TASK_DEFINITION, Prompt
 from usersimcrs.simulator.user_simulator import UserSimulator
@@ -17,6 +19,8 @@ class SinglePromptUserSimulator(UserSimulator):
     def __init__(
         self,
         id: str,
+        domain: SimulationDomain,
+        item_collection: ItemCollection,
         llm_interface: LLMInterface,
         item_type: str,
         task_definition: str = DEFAULT_TASK_DEFINITION,
@@ -32,7 +36,7 @@ class SinglePromptUserSimulator(UserSimulator):
               Defaults to DEFAULT_TASK_DEFINITION.
             persona: Persona of the user. Defaults to None.
         """
-        super().__init__(id)
+        super().__init__(id, domain, item_collection)
         self.llm_interface = llm_interface
         self.prompt = Prompt(
             self.information_need, item_type, task_definition, persona
