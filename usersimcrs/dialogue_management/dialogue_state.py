@@ -1,8 +1,9 @@
 """Representation of the dialogue state.
 
-The dialogue state includes the number of utterance, a list of dialogue acts per utterance for both
-the agent and the user, and the belief state. The belief state is a dictionary
-that holds for each slot (key) the values provided by the user.
+The dialogue state includes the number of utterances, a list of dialogue acts
+per utterance for both the agent and the user, and the belief state. The belief
+state is a dictionary that holds for each slot (key) the values provided by the
+user.
 """
 
 from collections import defaultdict
