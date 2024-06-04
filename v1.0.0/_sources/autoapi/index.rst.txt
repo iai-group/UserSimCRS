@@ -1,0 +1,19 @@
+API Reference
+=============
+
+This page contains auto-generated API reference documentation [#f1]_.
+
+.. toctree::
+   :titlesonly:
+
+   /autoapi/persona/index
+   /autoapi/usersimcrs/index
+   /autoapi/context_model/index
+   /autoapi/preference_model/index
+   /autoapi/interaction_model/index
+   /autoapi/pkg_preference_model/index
+   /autoapi/agenda_based_simulator/index
+   /autoapi/simple_preference_model/index
+   /autoapi/annotation_converter_rasa/index
+
+.. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

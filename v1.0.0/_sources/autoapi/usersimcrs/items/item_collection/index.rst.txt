@@ -1,0 +1,113 @@
+usersimcrs.items.item_collection
+================================
+
+.. py:module:: usersimcrs.items.item_collection
+
+.. autoapi-nested-parse::
+
+   Represents a collection of items.
+
+   Items are characterized by a set of properties, which correspond to slots in a
+   domain. Items and can be loaded from CSV by providing a mapping from CSV fields
+   to properties (i.e., domain slots).
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   usersimcrs.items.item_collection.MappingConfig
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.items.item_collection.ItemCollection
+
+
+Module Contents
+---------------
+
+.. py:data:: MappingConfig
+
+.. py:class:: ItemCollection
+
+   Initializes an empty item collection.
+
+
+   .. py:method:: get_item(item_id: str) -> usersimcrs.items.item.Item
+
+      Returns an item from the collection based on its ID.
+
+      :param item_id: Item ID.
+
+      :returns: Item or None, if not found.
+
+
+
+   .. py:method:: exists(item_id: str) -> bool
+
+      Checks if a given item exists in the item collection.
+
+      :param item_id: Item ID.
+
+      :returns: True if the item exists in the collection.
+
+
+
+   .. py:method:: num_items() -> int
+
+      Returns the number of items in the collection.
+
+      :returns: Number of items.
+
+
+
+   .. py:method:: add_item(item: usersimcrs.items.item.Item) -> None
+
+      Adds an item to the collection.
+
+      :param item: Item.
+
+
+
+   .. py:method:: load_items_csv(file_path: str, domain: dialoguekit.core.domain.Domain, domain_mapping: MappingConfig, id_col: str = 'ID', delimiter: str = ',') -> None
+
+      Loads an item collection from a CSV file.
+
+      If items are connected to a Domain, only domain properties will be kept.
+
+      :param file_path: Path to CSV file.
+      :param domain: Domain of the items.
+      :param domain_mapping: Field mapping to create item based on domain slots.
+      :param id_col: Name of the field containing item id. Defaults to 'ID'.
+      :param delimiter: Field separator, Defaults to ','.
+
+      :raises ValueError: if there is no id column.
+
+
+
+   .. py:method:: get_possible_property_values(property: str) -> Set[Any]
+
+      Returns the set of possible values for a given property.
+
+      :param property: Property name.
+
+      :returns: List of possible values.
+
+
+
+   .. py:method:: get_items_by_properties(annotations: List[dialoguekit.core.annotation.Annotation]) -> List[usersimcrs.items.item.Item]
+
+      Returns a list of items that match the given utterance annotations.
+
+      :param annotations: List of annotation.
+
+      :returns: List of matching items.
+
+
+
