@@ -4,7 +4,6 @@ import argparse
 import logging
 import os
 from datetime import datetime
-from typing import Dict, List
 
 import pandas as pd
 import torch
@@ -13,11 +12,11 @@ from torch.utils.tensorboard import SummaryWriter
 from torcheval.metrics import MulticlassConfusionMatrix
 
 from usersimcrs.core.simulation_domain import SimulationDomain
-from usersimcrs.simulator.neural_based.core.transformer import (
+from usersimcrs.simulator.neural.core.transformer import (
     TransformerEncoderModel,
 )
-from usersimcrs.simulator.neural_based.tus.tus_dataset import TUSDataset
-from usersimcrs.simulator.neural_based.tus.tus_feature_handler import (
+from usersimcrs.simulator.neural.tus.tus_dataset import TUSDataset
+from usersimcrs.simulator.neural.tus.tus_feature_handler import (
     TUSFeatureHandler,
 )
 

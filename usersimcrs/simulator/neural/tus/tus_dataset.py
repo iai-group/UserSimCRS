@@ -1,7 +1,8 @@
 """Dataset class to encapsulate processing of data for training TUS.
 
 The data is expected to follow DialogueKit's format in addition to an
-information need per dialogue."""
+information need per dialogue.
+"""
 
 import os
 from typing import Any, Dict, List
@@ -14,7 +15,7 @@ from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
 )
-from usersimcrs.simulator.neural_based.tus.tus_feature_handler import (
+from usersimcrs.simulator.neural.tus.tus_feature_handler import (
     TUSFeatureHandler,
 )
 
@@ -100,7 +101,7 @@ class TUSDataset(torch.utils.data.Dataset):
                 )
                 continue
 
-            feature_vector = self.feature_handler.get_feature_vector(
+            feature_vector = self.feature_handler.build_input_vector(
                 utterance,
                 previous_state,
                 dst.get_current_state(),

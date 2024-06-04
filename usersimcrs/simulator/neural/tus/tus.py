@@ -27,10 +27,10 @@ from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
 )
 from usersimcrs.items.item_collection import ItemCollection
-from usersimcrs.simulator.neural_based.core.transformer import (
+from usersimcrs.simulator.neural.core.transformer import (
     TransformerEncoderModel,
 )
-from usersimcrs.simulator.neural_based.tus.tus_feature_handler import (
+from usersimcrs.simulator.neural.tus.tus_feature_handler import (
     TUSFeatureHandler,
 )
 from usersimcrs.simulator.user_simulator import UserSimulator
@@ -97,7 +97,7 @@ class TUS(UserSimulator):
         )
 
         # 3. Extract features for the current turn.
-        turn_feature = self._feature_handler.get_feature_vector(
+        turn_feature = self._feature_handler.build_input_vector(
             utterance=annotated_utterance,
             previous_state=previous_state,
             state=self._dialogue_state_tracker.get_current_state(),
