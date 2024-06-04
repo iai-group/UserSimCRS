@@ -9,6 +9,7 @@ from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlu.nlu import NLU
+from dialoguekit.participant.participant import DialogueParticipant
 from nltk.stem import WordNetLemmatizer
 
 from usersimcrs.core.simulation_domain import SimulationDomain
@@ -239,5 +240,7 @@ class AgendaBasedSimulator(UserSimulator):
         response = self._nlg.generate_utterance_text(
             response_intent, response_slot_values
         )
+
+        response.participant = DialogueParticipant.USER
 
         return response

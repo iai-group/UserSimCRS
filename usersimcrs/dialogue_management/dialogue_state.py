@@ -1,8 +1,9 @@
 """Representation of the dialogue state.
 
-The dialogue state includes the turn count, a list of dialogue acts per turn for
-both the agent and the user, and the belief state. The belief state is a
-dictionary that maps slot names to slot values.
+The dialogue state includes the number of utterances, a list of dialogue acts
+per utterance for both the agent and the user, and the belief state. The belief
+state is a dictionary that holds for each slot (key) the values provided by the
+user.
 """
 
 from collections import defaultdict
@@ -17,15 +18,15 @@ class DialogueState:
     """Dialogue state.
 
     Attributes:
-        turn_count: Turn count.
-        agent_dacts: List of dialogue acts per turn for the agent.
-        user_dacts: List of dialogue acts per turn for the user.
+        utterance_count: Utterance count.
+        agent_dialogue_acts: List of dialogue acts per turn for the agent.
+        user_dialogue_acts: List of dialogue acts per turn for the user.
         belief_state: Belief state.
     """
 
-    turn_count: int = 0
-    agent_dacts: List[List[DialogueAct]] = field(default_factory=list)
-    user_dacts: List[List[DialogueAct]] = field(default_factory=list)
-    belief_state: DefaultDict[str, str] = field(
-        default_factory=lambda: defaultdict(str)
+    utterance_count: int = 0
+    agent_dialogue_acts: List[List[DialogueAct]] = field(default_factory=list)
+    user_dialogue_acts: List[List[DialogueAct]] = field(default_factory=list)
+    belief_state: DefaultDict[str, List[str]] = field(
+        default_factory=lambda: defaultdict(list)
     )

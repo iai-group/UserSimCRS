@@ -43,7 +43,6 @@ def item_collection(domain: SimulationDomain):
         domain_mapping=mapping,
     )
     yield item_collection
-    item_collection.close()
     os.remove("tests/data/items.db")
 
 
