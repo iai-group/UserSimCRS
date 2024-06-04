@@ -7,7 +7,6 @@ from usersimcrs.core.information_need import (
     generate_random_information_need,
 )
 from usersimcrs.core.simulation_domain import SimulationDomain
-from usersimcrs.items.item import Item
 from usersimcrs.items.item_collection import ItemCollection
 
 
@@ -29,25 +28,6 @@ def test_generate_random_information_need(
         ]
     )
     assert len(information_need.target_items) == 1
-
-
-@pytest.fixture
-def information_need() -> InformationNeed:
-    """Information need fixture."""
-    constraints = {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"}
-    requests = ["PLOT", "RATING"]
-    target_items = [
-        Item(
-            "1",
-            {
-                "GENRE": "Comedy",
-                "DIRECTOR": "Steven Spielberg",
-                "RATING": 4.5,
-                "PLOT": "A movie plot",
-            },
-        )
-    ]
-    return InformationNeed(target_items, constraints, requests)
 
 
 @pytest.mark.parametrize(

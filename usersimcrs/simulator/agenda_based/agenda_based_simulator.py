@@ -47,14 +47,12 @@ class AgendaBasedSimulator(UserSimulator):
             item_collection: Item collection.
             ratings: Historical ratings.
         """
-        super().__init__(id=id)
+        super().__init__(id=id, domain=domain, item_collection=item_collection)
         self._preference_model = preference_model
         self._interaction_model = interaction_model
         self._interaction_model.initialize_agenda()
         self._nlu = nlu
         self._nlg = nlg
-        self._domain = domain
-        self._item_collection = item_collection
         self._ratings = ratings
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
