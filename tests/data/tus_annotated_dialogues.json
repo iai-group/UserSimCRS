@@ -1,0 +1,165 @@
+[
+  {
+    "conversation_id": "1",
+    "conversation": [
+      {
+        "participant": "USER",
+        "utterance": "Hello, recommend me an action movie.",
+        "dialogue_acts": [
+          {
+            "intent": "DISCLOSE",
+            "slot_values": [["GENRE", "action"]]
+          }
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Sure, how about Mission Impossible?",
+        "dialogue_acts": [
+          {
+            "intent": "RECOMMEND",
+            "slot_values": [["TITLE", "Mission Impossible"]]
+          }
+        ]
+      },
+      {
+        "participant": "USER",
+        "utterance": "Sounds good. What's it about?",
+        "dialogue_acts": [
+          {
+            "intent": "INQUIRE",
+            "slot_values": [["PLOT", null]]
+          }
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "A secret agent is sent on a mission to save the world.",
+        "dialogue_acts": [
+          {
+            "intent": "INFORM",
+            "slot_values": [
+              ["PLOT", "A secret agent is sent on a mission to save the world."]
+            ]
+          }
+        ]
+      }
+    ],
+    "agent": {
+      "id": "Agent",
+      "type": "AGENT"
+    },
+    "user": {
+      "id": "User",
+      "type": "USER"
+    },
+    "metadata": {
+      "information_need": {
+        "constraints": {
+          "GENRE": "action",
+          "ACTOR": "Tom Cruise"
+        },
+        "requests": ["PLOT"],
+        "target_items": [
+          {
+            "item_id": "1",
+            "properties": {
+              "GENRE": "action",
+              "ACTOR": "Tom Cruise",
+              "PLOT": "A secret agent is sent on a mission to save the world."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "conversation_id": "2",
+    "conversation": [
+      {
+        "participant": "USER",
+        "utterance": "I want to watch a comedy movie.",
+        "dialogue_acts": [
+          {
+            "intent": "DISCLOSE",
+            "slot_values": [["GENRE", "comedy"]]
+          }
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "Do you have a favorite director?",
+        "dialogue_acts": [
+          {
+            "intent": "ELICIT",
+            "slot_values": [["DIRECTOR", null]]
+          }
+        ]
+      },
+      {
+        "participant": "USER",
+        "utterance": "I love Steven Spielberg",
+        "dialogue_acts": [
+          {
+            "intent": "DISCLOSE",
+            "slot_values": [["DIRECTOR", "Steven Spielberg"]]
+          }
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "How about The Terminal?",
+        "dialogue_acts": [
+          {
+            "intent": "RECOMMEND",
+            "slot_values": [["TITLE", "The Terminal"]]
+          }
+        ]
+      },
+      {
+        "participant": "USER",
+        "utterance": "What's the rating?",
+        "dialogue_acts": [
+          {
+            "intent": "INQUIRE",
+            "slot_values": [["RATING", null]]
+          }
+        ]
+      },
+      {
+        "participant": "AGENT",
+        "utterance": "The Terminal has a rating of 4.5.",
+        "dialogue_acts": [
+          {
+            "intent": "INFORM",
+            "slot_values": [["RATING", "4.5"]]
+          }
+        ]
+      }
+    ],
+    "agent": {
+      "id": "Agent",
+      "type": "AGENT"
+    },
+    "user": {
+      "id": "User",
+      "type": "USER"
+    },
+    "metadata": {
+      "information_need": {
+        "constraints": { "GENRE": "Comedy", "DIRECTOR": "Steven Spielberg" },
+        "requests": ["RATING"],
+        "target_items": [
+          {
+            "item_id": "1",
+            "properties": {
+              "GENRE": "Comedy",
+              "DIRECTOR": "Steven Spielberg",
+              "RATING": 4.5
+            }
+          }
+        ]
+      }
+    }
+  }
+]

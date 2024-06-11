@@ -92,3 +92,24 @@ class InformationNeed:
             for slot in self.requested_slots
             if not self.requested_slots[slot]
         ]
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> InformationNeed:
+        """Creates information need from a dictionary."""
+        target_items = [Item(**item) for item in data["target_items"]]
+        return cls(
+            target_items=target_items,
+            constraints=data["constraints"],
+            requests=data["requests"],
+        )
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Returns information need as a dictionary."""
+        return {
+            "target_items": [
+                {"item_id": item.id, "properties": item.properties}
+                for item in self.target_items
+            ],
+            "constraints": self.constraints,
+            "requests": list(self.requested_slots.keys()),
+        }

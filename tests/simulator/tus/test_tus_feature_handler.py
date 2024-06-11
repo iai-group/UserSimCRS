@@ -11,32 +11,10 @@ from dialoguekit.core.intent import Intent
 from dialoguekit.participant import DialogueParticipant
 
 from usersimcrs.core.information_need import InformationNeed
-from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state import DialogueState
 from usersimcrs.simulator.neural.tus.tus_feature_handler import (
     TUSFeatureHandler,
 )
-
-
-@pytest.fixture
-def feature_handler() -> TUSFeatureHandler:
-    """Returns the feature handler."""
-    _feature_handler = TUSFeatureHandler(
-        domain=SimulationDomain("tests/data/domains/movies.yaml"),
-        max_turn_feature_length=40,
-        context_depth=2,
-        user_actions=["inform", "request"],
-        agent_actions=["elicit", "recommend", "bye"],
-    )
-
-    assert _feature_handler._user_actions == ["inform", "request"]
-    assert _feature_handler._agent_actions == [
-        "elicit",
-        "recommend",
-        "bye",
-    ]
-
-    return _feature_handler
 
 
 def test__create_slot_index(feature_handler: TUSFeatureHandler) -> None:
@@ -186,30 +164,32 @@ def test_get_slot_feature_vector(
 
 
 @pytest.mark.parametrize(
-    "utterance",
+    "agent_utterance",
     [
         AnnotatedUtterance(
             "What genre are you interested in?",
             participant=DialogueParticipant.AGENT,
-            intent=Intent("elicit"),
-            annotations=[Annotation("GENRE")],
+            dialogue_acts=[
+                DialogueAct(Intent("elicit"), annotations=[Annotation("GENRE")])
+            ],
         ),
         AnnotatedUtterance(
             "Who should be the main actor?",
             participant=DialogueParticipant.AGENT,
-            intent=Intent("elicit"),
-            annotations=[Annotation("ACTOR")],
+            dialogue_acts=[
+                DialogueAct(Intent("elicit"), annotations=[Annotation("ACTOR")])
+            ],
         ),
     ],
 )
 def test_build_input_vector(
-    utterance: AnnotatedUtterance,
+    agent_utterance: AnnotatedUtterance,
     feature_handler: TUSFeatureHandler,
     information_need: InformationNeed,
 ) -> None:
     """Tests the turn feature vector."""
     turn_vector, mask = feature_handler.build_input_vector(
-        utterance,
+        agent_utterance.dialogue_acts,
         DialogueState(),
         DialogueState(),
         information_need,

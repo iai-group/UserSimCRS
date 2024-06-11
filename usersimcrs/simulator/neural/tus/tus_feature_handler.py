@@ -8,6 +8,7 @@ from typing import Dict, Iterable, List, Tuple
 
 import torch
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
+from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
 
 from usersimcrs.core.information_need import InformationNeed
@@ -226,25 +227,26 @@ class TUSFeatureHandler(FeatureHandler):
             if user_action_vector is not None
             else torch.tensor([0] * 6)
         )
-        agent_dialogue_acts = []
+        _agent_dialogue_acts = []
+        # Filter agent dialogue acts by slot
         for dialogue_act in agent_dialogue_acts:
             for annotation in dialogue_act.annotations:
                 if annotation.slot == slot or annotation.slot is None:
-                    agent_dialogue_acts.append(dialogue_act)
+                    _agent_dialogue_acts.append(dialogue_act)
 
         return torch.tensor(
             [0, 0]  # No special token
             + self.get_basic_information_feature(
                 slot, information_need, state, previous_state
             )
-            + self.get_agent_action_feature(agent_dialogue_acts)
+            + self.get_agent_action_feature(_agent_dialogue_acts)
             + v_user_action.tolist()
             + self.get_slot_index_feature(slot)
         )
 
     def get_feature_vector(
         self,
-        utterance: AnnotatedUtterance,
+        agent_dialogue_acts: List[DialogueAct],
         previous_state: DialogueState,
         state: DialogueState,
         information_need: InformationNeed,
@@ -256,7 +258,7 @@ class TUSFeatureHandler(FeatureHandler):
         information need and mentioned during the conversation.
 
         Args:
-
+            agent_dialogue_acts: Agent dialogue acts.
             previous_state: Previous state.
             state: Current state.
             information_need: Information need.
@@ -266,12 +268,6 @@ class TUSFeatureHandler(FeatureHandler):
         Returns:
             Feature vector for the turn.
         """
-        try:
-            agent_dialogue_acts = utterance.dialogue_acts
-        except AttributeError:
-            agent_dialogue_acts = [
-                DialogueAct(utterance.intent, utterance.annotations)
-            ]
 
         # Update the action slots with constraints, requested, and mentioned
         # slots
@@ -328,7 +324,7 @@ class TUSFeatureHandler(FeatureHandler):
 
     def build_input_vector(
         self,
-        utterance: AnnotatedUtterance,
+        agent_dialogue_acts: List[DialogueAct],
         previous_state: DialogueState,
         state: DialogueState,
         information_need: InformationNeed,
@@ -343,22 +339,24 @@ class TUSFeatureHandler(FeatureHandler):
         [CLS] $V^t$ [SEP] $V^{t-1}$ [SEP] ... [SEP] $V^{t-n}$ [SEP] [PAD]
 
         Args:
-            turn_feature_vectors: Turn feature vectors ordered from the last to
-              the oldest turn.
-            max_turn_feature_length: Maximum length of the turn feature vectors.
+            agent_dialogue_acts: Agent dialogue acts.
+            previous_state: Previous state.
+            state: Current state.
+            information_need: Information need.
+            user_action_vectors: User action feature vectors per slot. Defaults
+              to an empty dictionary.
 
         Returns:
             Input vector.
         """
         current_turn_feature_vector = self.get_feature_vector(
-            utterance,
+            agent_dialogue_acts,
             previous_state,
             state,
             information_need,
             user_action_vectors,
         )
         self.user_feature_history.append(current_turn_feature_vector)
-        feature_dimension = self.user_feature_history[0].size(0)
 
         v_cls = self._get_special_token_feature_vector("[CLS]")
         v_sep = self._get_special_token_feature_vector("[SEP]")
@@ -373,14 +371,12 @@ class TUSFeatureHandler(FeatureHandler):
         # Pad the input vector and create mask
         max_length = self.max_turn_feature_length * self.context_depth
         if input_vector.size(0) < max_length:
-            mask = torch.cat(
-                [False] * input_vector.size(0),
-                [True] * (max_length - input_vector.size(0)),
+            mask = torch.tensor(
+                [False] * input_vector.size(0)
+                + [True] * (max_length - input_vector.size(0))
             )
-            padding = [[0] * feature_dimension] * (
-                max_length - input_vector.size(0)
-            )
-            input_vector = torch.cat(input_vector, torch.tensor(padding))
+            padding = torch.tensor([-1] * (max_length - input_vector.size(0)))
+            input_vector = torch.cat((input_vector, padding))
         else:
             mask = torch.tensor([False] * max_length)
         return input_vector[:max_length], mask[:max_length]
@@ -393,9 +389,6 @@ class TUSFeatureHandler(FeatureHandler):
     ) -> torch.Tensor:
         """Builds the label vector for a turn.
 
-        It comprises a one-hot encoded vector that determines the value of each
-        slot.
-
         Args:
             user_utterance: User utterance with annotations.
             current_state: Current state.
@@ -404,72 +397,82 @@ class TUSFeatureHandler(FeatureHandler):
         Returns:
             Label vector for the turn.
         """
-        try:
-            user_dialogue_acts = user_utterance.dialogue_acts
-        except AttributeError:
-            user_dialogue_acts = [
-                DialogueAct(user_utterance.intent, user_utterance.annotations)
-            ]
+        user_dialogue_acts = user_utterance.dialogue_acts
+        output = [-1] * self.max_turn_feature_length
+        for dialogue_act in user_dialogue_acts:
+            for annotation in dialogue_act.annotations:
+                if annotation.slot not in self.action_slots:
+                    continue
+                slot_index = self.action_slots.index(annotation.slot)
+                if slot_index >= self.max_turn_feature_length:
+                    continue
+                label = self._get_label(
+                    annotation, current_state, information_need
+                )
+                output[slot_index] = label
 
-        output = []
-        for slot in self.action_slots:
-            o = self._get_label_vector_slot(
-                user_dialogue_acts, slot, current_state, information_need
-            )
-            output.append(o)
+        for i in range(len(self.action_slots)):
+            if i < self.max_turn_feature_length and output[i] == -1:
+                # The slot is not mentioned in the user utterance
+                output[i] = 0
 
         return torch.tensor(output)
 
-    def _get_label_vector_slot(
+    def _get_label(
         self,
-        user_dialogue_acts: List[DialogueAct],
-        slot: str,
+        annotation: Annotation,
         current_state: DialogueState,
         information_need: InformationNeed,
-    ):
-        """Builds the label vector for a slot.
+    ) -> int:
+        """Gets the label for a slot.
 
-        It is a 6-dimensional vector, where each dimension corresponds to the
-        following values: "none", "don't care", "?", "from information need",
-        "from belief state", and "random".
+        The label is a number in [0,5] which represents the following values:
+        0: The slot's value is not mentioned in the user utterance.
+        1: The slot's value is set to "dontcare".
+        2: The slot's value is requested by the user.
+        3: The slot's value is taken from the information need.
+        4: The slot's value was previously mentioned and is retrieved from the
+          belief state.
+        5: The slot's value is randomly chosen.
 
         Args:
-            user_dialogue_acts: User dialogue acts.
-            slot: Slot.
+            annotation: Annotation.
             current_state: Current state.
             information_need: Information need.
 
         Returns:
-            Label vector for the slot.
+            Label.
         """
-        o = [0] * 6
-        for dialogue_act in user_dialogue_acts:
-            for annotation in dialogue_act.annotations:
-                if annotation.slot == slot:
-                    if annotation.value == "dontcare":
-                        o[1] = 1
-                    elif annotation.value is None:
-                        # The value is requested by the user
-                        o[2] = 1
-                    elif (
-                        annotation.value
-                        == information_need.get_constraint_value(slot)
-                        or annotation.value
-                        == information_need.requested_slots.get(slot)
-                    ):
-                        # The value is taken from the information need
-                        o[3] = 1
-                    elif annotation.value == current_state.belief_state.get(
-                        slot
-                    ):
-                        # The value was previously mentioned and is
-                        # retrieved from the belief state
-                        o[4] = 1
-                    else:
-                        # The slot's value is randomly chosen
-                        o[5] = 1
-
-        if o == [0] * 6:
-            # The slot is not mentioned in the user utterance
-            o[0] = 1
-        return o
+        if annotation.value == "dontcare":
+            return 1
+        elif annotation.value is None:
+            # The value is requested by the user
+            return 2
+        elif annotation.value == information_need.get_constraint_value(
+            annotation.slot
+        ) or annotation.value == information_need.requested_slots.get(
+            annotation.slot
+        ):
+            # The value is taken from the information need
+            return 3
+        elif annotation.value == current_state.belief_state.get(
+            annotation.slot
+        ):
+            # The value was previously mentioned and is
+            # retrieved from the belief state
+            return 4
+        elif (
+            annotation.slot
+            in [
+                information_need.constraints.keys(),
+                information_need.requested_slots.keys(),
+                current_state.belief_state.keys(),
+            ]
+        ) and annotation.value not in [
+            information_need.get_constraint_value(annotation.slot),
+            information_need.requested_slots.get(annotation.slot),
+            current_state.belief_state.get(annotation.slot),
+        ]:
+            # The slot's value is randomly chosen
+            return 5
+        return 0

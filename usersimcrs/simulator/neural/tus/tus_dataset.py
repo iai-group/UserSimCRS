@@ -12,6 +12,7 @@ from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
+from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
 )
@@ -79,6 +80,10 @@ class TUSDataset(torch.utils.data.Dataset):
         Args:
             dialogue: Dialogue to process.
 
+        Raises:
+            ValueError: If information need is not found in the dialogue
+              metadata.
+
         Returns:
             Input representation for each user utterance in the dialogue.
         """
@@ -86,23 +91,32 @@ class TUSDataset(torch.utils.data.Dataset):
             "input": [],
             "mask": [],
             "label": [],
-            "dialogue_id": dialogue.conversation_id,
         }
 
         self.feature_handler.reset()
         dst = DialogueStateTracker()
         previous_state = dst.get_current_state()
-        information_need = dialogue.information_need
+        information_need = dialogue.metadata.get("information_need", None)
+        if information_need is None:
+            raise ValueError("Information need not found in dialogue metadata.")
+        information_need: InformationNeed = InformationNeed.from_dict(
+            information_need
+        )
+
         last_user_actions = {}
-        for utterance in dialogue.utterances:
-            if utterance.participant == DialogueParticipant.AGENT:
+        utterances = dialogue.utterances
+        for i, utterance in enumerate(utterances):
+            if utterance.participant == DialogueParticipant.AGENT.name:
                 dst.update_state(
                     utterance.dialogue_acts, DialogueParticipant.AGENT
                 )
                 continue
 
-            feature_vector = self.feature_handler.build_input_vector(
-                utterance,
+            agent_dialogue_acts = (
+                utterances[i - 1].dialogue_acts if i > 0 else []
+            )
+            feature_vector, mask = self.feature_handler.build_input_vector(
+                agent_dialogue_acts,
                 previous_state,
                 dst.get_current_state(),
                 information_need,
@@ -112,15 +126,15 @@ class TUSDataset(torch.utils.data.Dataset):
                 utterance, dst.get_current_state(), information_need
             )
             input_representations["input"].append(feature_vector)
-            # TODO
-            # input_representations["mask"].append()
+            input_representations["mask"].append(mask)
             input_representations["label"].append(label)
 
             dst.update_state(utterance.dialogue_acts, DialogueParticipant.USER)
             previous_state = dst.get_current_state()
 
         for key in input_representations:
-            input_representations[key] = torch.cat(input_representations[key])
+            input_representations[key] = torch.stack(input_representations[key])
+        input_representations["dialogue_id"] = dialogue.conversation_id
 
         return input_representations
 
@@ -137,6 +151,7 @@ class TUSDataset(torch.utils.data.Dataset):
             "dialogue_id": [],
         }
         for dialogue in self.raw_data:
+            self.feature_handler.reset_user_feature_history()
             processed_dialogue = self.process_dialogue(dialogue)
             for key, value in processed_dialogue.items():
                 processed_data[key].append(value)
