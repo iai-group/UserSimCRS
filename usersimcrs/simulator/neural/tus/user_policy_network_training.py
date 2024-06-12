@@ -31,6 +31,7 @@ class Trainer:
         model: TransformerEncoderModel,
         loss_function: torch.nn.Module,
         optimizer: torch.optim.Optimizer,
+        max_turn_feature_length: int,
     ) -> None:
         """Initializes the trainer.
 
@@ -38,10 +39,31 @@ class Trainer:
             model: User policy network.
             loss_function: Loss function.
             optimizer: Optimizer.
+            max_turn_feature_length: Maximum length of the input features.
         """
         self.model = model
         self.loss_function = loss_function
         self.optimizer = optimizer
+        self.max_turn_feature_length = max_turn_feature_length
+
+    def parse_output(self, output: torch.Tensor) -> torch.Tensor:
+        """Parses the model output.
+
+        Args:
+            output: Model output.
+
+        Returns:
+            Parsed output.
+        """
+        _output = output[:, 1 : self.max_turn_feature_length + 1, :]
+        _output = torch.reshape(
+            _output,
+            (
+                _output.shape[0] * _output.shape[1],
+                _output.shape[-1],
+            ),
+        )
+        return _output
 
     def get_loss(
         self, prediction: torch.Tensor, target: torch.Tensor
@@ -55,14 +77,7 @@ class Trainer:
         Returns:
             Loss value.
         """
-        _prediction = prediction[:, 1 : self.num_token + 1, :]
-        _prediction = torch.reshape(
-            _prediction,
-            (
-                _prediction.shape[0] * _prediction.shape[1],
-                _prediction.shape[-1],
-            ),
-        )
+        _prediction = self.parse_output(prediction)
         return self.loss_function(_prediction, target.view(-1))
 
     def train_one_epoch(
@@ -111,10 +126,14 @@ class Trainer:
         """
         best_loss = float("inf")
         for epoch in range(num_epochs):
-            logger.info(f"Epoch {epoch + 1}/{num_epochs}")
             train_loss = self.train_one_epoch(training_data)
             # Compute validation loss
             valid_loss = self.get_validation_loss(validation_data)
+            logger.info(
+                f"Epoch {epoch + 1}/{num_epochs} -- "
+                f"Train Loss: {train_loss:.4f} / "
+                f"Validation Loss: {valid_loss:.4f}"
+            )
 
             if tb_writer is not None:
                 # Log losses to tensorboard
@@ -163,7 +182,8 @@ class Trainer:
             tb_writer: Tensorboard writer. Defaults to None.
 
         Returns:
-            Dataframe with accuracy, precision, recall, and F1 score for each class (i.e., possible values for a slot).
+            Dataframe with accuracy, precision, recall, and F1 score for each
+              class (i.e., possible values for a slot).
         """
         confusion_matrix = MulticlassConfusionMatrix(num_classes=6)
         self.model.eval()
@@ -177,8 +197,8 @@ class Trainer:
 
                 loss = self.get_loss(output, label)
 
-                predictions = torch.argmax(output, dim=-1)
-                targets = torch.argmax(label, dim=-1)
+                predictions = self.parse_output(output)
+                targets = label.view(-1)
                 confusion_matrix.update(predictions, targets)
 
                 if tb_writer is not None:
@@ -199,12 +219,14 @@ class Trainer:
             Metrics.
         """
         matrix = confusion_matrix.compute()
-        metrics = dict.fromkeys(["accuracy", "precision", "recall", "f1"], [])
-        for i in range(matrix.shape[0]):
-            tp = matrix[i, i]
-            fp = sum(matrix[:, i]) - tp
-            fn = sum(matrix[i, :]) - tp
-            tn = sum(sum(matrix)) - tp - fp - fn
+        num_classes = matrix.shape[0]
+        metrics = dict()
+
+        for i in range(num_classes):
+            tp = matrix[i, i].item()
+            fp = sum(matrix[:, i]).item() - tp
+            fn = sum(matrix[i, :]).item() - tp
+            tn = sum(sum(matrix)).item() - tp - fp - fn
 
             accuracy = (
                 (tp + tn) / (tp + tn + fp + fn) if tp + tn + fp + fn > 0 else 0
@@ -216,12 +238,24 @@ class Trainer:
                 if precision + recall > 0
                 else 0
             )
-            metrics["accuracy"].append(accuracy)
-            metrics["precision"].append(precision)
-            metrics["recall"].append(recall)
-            metrics["f1"].append(f1)
+            metrics[i] = {
+                "precision": precision,
+                "recall": recall,
+                "f1": f1,
+                "accuracy": accuracy,
+            }
 
-        return pd.DataFrame(metrics)
+        metrics["macro avg"] = {
+            "precision": sum([v["precision"] for v in metrics.values()])
+            / num_classes,
+            "recall": sum([v["recall"] for v in metrics.values()])
+            / num_classes,
+            "f1": sum([v["f1"] for v in metrics.values()]) / num_classes,
+            "accuracy": sum([v["accuracy"] for v in metrics.values()])
+            / num_classes,
+        }
+
+        return pd.DataFrame(metrics).T
 
 
 def parse_args() -> argparse.Namespace:
@@ -245,6 +279,18 @@ def parse_args() -> argparse.Namespace:
         "--agent_actions_path",
         type=str,
         help="Path to the agent actions file.",
+    )
+    parser.add_argument(
+        "--max_turn_feature_length",
+        type=int,
+        default=75,
+        help="Maximum length of the input features.",
+    )
+    parser.add_argument(
+        "--context_depth",
+        type=int,
+        default=2,
+        help="Number of turns used to build input representations.",
     )
     parser.add_argument(
         "--seed",
@@ -275,7 +321,6 @@ def parse_args() -> argparse.Namespace:
         type=str,
         default="data/models",
         help="Output directory.",
-        default="data/models",
     )
     parser.add_argument(
         "--logs", action="store_true", help="Enable Tensorboard logs."
@@ -300,7 +345,9 @@ if __name__ == "__main__":
     domain = SimulationDomain(args.domain)
     with open(args.agent_actions_path, "r") as f:
         agent_actions = yaml.safe_load(f)
-    feature_handler = TUSFeatureHandler(domain, agent_actions)
+    feature_handler = TUSFeatureHandler(
+        domain, args.max_turn_feature_length, args.context_depth, agent_actions
+    )
     feature_handler_path = os.path.join(
         args.output_dir, "feature_handler.joblib"
     )
@@ -317,21 +364,28 @@ if __name__ == "__main__":
 
     train_data_loader = torch.utils.data.DataLoader(
         train_dataset, batch_size=args.batch_size, shuffle=True
-    ).to(device)
+    )
     valid_data_loader = torch.utils.data.DataLoader(
         valid_dataset, batch_size=args.batch_size, shuffle=True
-    ).to(device)
+    )
     test_data_loader = torch.utils.data.DataLoader(
         test_dataset, batch_size=args.batch_size, shuffle=True
-    ).to(device)
+    )
 
     # Define user policy network
-    config = {}
+    # TODO: Make config an argument
+    config = {
+        "input_dim": 37,
+        "output_dim": 6,
+        "num_encoder_layers": 2,
+        "nhead": 4,
+        "hidden_dim": 200,
+    }
     user_policy_network = TransformerEncoderModel(**config)
     user_policy_network.to(device)
 
     # Define loss function
-    loss_function = torch.nn.CrossEntropyLoss()
+    loss_function = torch.nn.CrossEntropyLoss(ignore_index=-1)
 
     # Define optimizer
     optimizer = torch.optim.Adam(
@@ -339,7 +393,12 @@ if __name__ == "__main__":
     )
 
     # Initialize trainer
-    trainer = Trainer(user_policy_network, loss_function, optimizer)
+    trainer = Trainer(
+        user_policy_network,
+        loss_function,
+        optimizer,
+        args.max_turn_feature_length,
+    )
     model_path = os.path.join(args.output_dir, "user_policy_network.pt")
     trainer.train(
         train_data_loader,
@@ -355,4 +414,5 @@ if __name__ == "__main__":
     logger.info(f"Metrics:\n{metrics}")
     logger.info("====")
 
-    writer.close()
+    if writer is not None:
+        writer.close()

@@ -4,8 +4,13 @@ For a matter of simplicity, the feature handler supports only one domain unlike
 the original implementation.
 """
 
+from __future__ import annotations
+
+import logging
+import os
 from typing import Dict, Iterable, List, Tuple
 
+import joblib
 import torch
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
@@ -204,7 +209,7 @@ class TUSFeatureHandler(FeatureHandler):
         information_need: InformationNeed,
         agent_dialogue_acts: List[DialogueAct],
         user_action_vector: torch.Tensor = None,
-    ) -> torch.Tensor:
+    ) -> List[int]:
         """Builds the feature vector for a slot.
 
         It concatenate the basic information, user action, agent action, and
@@ -234,7 +239,7 @@ class TUSFeatureHandler(FeatureHandler):
                 if annotation.slot == slot or annotation.slot is None:
                     _agent_dialogue_acts.append(dialogue_act)
 
-        return torch.tensor(
+        return (
             [0, 0]  # No special token
             + self.get_basic_information_feature(
                 slot, information_need, state, previous_state
@@ -251,7 +256,7 @@ class TUSFeatureHandler(FeatureHandler):
         state: DialogueState,
         information_need: InformationNeed,
         user_action_vectors: Dict[str, torch.Tensor] = {},
-    ) -> torch.Tensor:
+    ) -> List[List[int]]:
         """Builds the feature vector for a turn.
 
         It comprises the feature vectors for all slots that in the
@@ -280,22 +285,19 @@ class TUSFeatureHandler(FeatureHandler):
                 for annotation in dialogue_act.annotations
             ]
         )
+        return [
+            self.get_slot_feature_vector(
+                slot,
+                previous_state,
+                state,
+                information_need,
+                agent_dialogue_acts,
+                user_action_vectors.get(slot, None),
+            )
+            for slot in self.action_slots
+        ]
 
-        return torch.cat(
-            [
-                self.get_slot_feature_vector(
-                    slot,
-                    previous_state,
-                    state,
-                    information_need,
-                    agent_dialogue_acts,
-                    user_action_vectors.get(slot, None),
-                )
-                for slot in self.action_slots
-            ]
-        )
-
-    def _get_special_token_feature_vector(self, token: str) -> torch.Tensor:
+    def _get_special_token_feature_vector(self, token: str) -> List[int]:
         """Builds the feature vector for a special token.
 
         Args:
@@ -320,7 +322,7 @@ class TUSFeatureHandler(FeatureHandler):
             [0] * 3 * len(self._agent_actions)
         )  # Dimension of agent action feature
         vector += [0] * 6  # Dimension of user action feature
-        return torch.tensor(vector)
+        return vector
 
     def build_input_vector(
         self,
@@ -329,7 +331,7 @@ class TUSFeatureHandler(FeatureHandler):
         state: DialogueState,
         information_need: InformationNeed,
         user_action_vectors: Dict[str, torch.Tensor] = {},
-    ) -> Tuple[torch.Tensor, torch.Tensor]:
+    ) -> Tuple[List[List[int]], List[List[int]]]:
         """Builds the input vector $V_{input}$ for a turn.
 
         It concatenates the feature vectors for the last n turns separated by
@@ -360,25 +362,27 @@ class TUSFeatureHandler(FeatureHandler):
 
         v_cls = self._get_special_token_feature_vector("[CLS]")
         v_sep = self._get_special_token_feature_vector("[SEP]")
-        input_vector: List[torch.Tensor] = [v_cls]
+        input_vector: List[List[int]] = [v_cls]
+        feature_dimension = len(v_cls)
         for turn_feature_vector in reversed(
             self.user_feature_history[-self.context_depth :]
         ):
-            input_vector.append(turn_feature_vector)
+            input_vector.extend(turn_feature_vector)
             input_vector.append(v_sep)
-        input_vector: torch.Tensor = torch.cat(input_vector)
+        # input_vector: torch.Tensor = torch.cat(input_vector)
 
         # Pad the input vector and create mask
         max_length = self.max_turn_feature_length * self.context_depth
-        if input_vector.size(0) < max_length:
-            mask = torch.tensor(
-                [False] * input_vector.size(0)
-                + [True] * (max_length - input_vector.size(0))
+        if len(input_vector) < max_length:
+            padding = [[0] * feature_dimension] * (
+                max_length - len(input_vector)
             )
-            padding = torch.tensor([-1] * (max_length - input_vector.size(0)))
-            input_vector = torch.cat((input_vector, padding))
+            input_vector += padding
+            mask = [False] * len(input_vector) + [True] * (
+                max_length - len(input_vector)
+            )
         else:
-            mask = torch.tensor([False] * max_length)
+            mask = [False] * max_length
         return input_vector[:max_length], mask[:max_length]
 
     def get_label_vector(
@@ -386,7 +390,7 @@ class TUSFeatureHandler(FeatureHandler):
         user_utterance: AnnotatedUtterance,
         current_state: DialogueState,
         information_need: InformationNeed,
-    ) -> torch.Tensor:
+    ) -> List[int]:
         """Builds the label vector for a turn.
 
         Args:
@@ -416,7 +420,7 @@ class TUSFeatureHandler(FeatureHandler):
                 # The slot is not mentioned in the user utterance
                 output[i] = 0
 
-        return torch.tensor(output)
+        return output
 
     def _get_label(
         self,
@@ -476,3 +480,33 @@ class TUSFeatureHandler(FeatureHandler):
             # The slot's value is randomly chosen
             return 5
         return 0
+
+    def save_handler(self, path: str) -> None:
+        """Saves the feature handler.
+
+        Args:
+            path: Path to the output file.
+        """
+        if not os.path.exists(os.path.dirname(path)):
+            logging.info(f"Creating directory: {os.path.dirname(path)}")
+            os.makedirs(os.path.dirname(path))
+
+        joblib.dump(self, path)
+
+    @classmethod
+    def load_handler(cls, path: str) -> TUSFeatureHandler:
+        """Loads a feature handler from a given path.
+
+        Args:
+            path: Path to load the feature handler from.
+
+        Raises:
+            FileNotFoundError: If the file is not found.
+
+        Returns:
+            Feature handler.
+        """
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"File '{path}' not found.")
+
+        return joblib.load(path)

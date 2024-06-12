@@ -91,6 +91,7 @@ class TUSDataset(torch.utils.data.Dataset):
             "input": [],
             "mask": [],
             "label": [],
+            "dialogue_id": dialogue.conversation_id,
         }
 
         self.feature_handler.reset()
@@ -132,10 +133,6 @@ class TUSDataset(torch.utils.data.Dataset):
             dst.update_state(utterance.dialogue_acts, DialogueParticipant.USER)
             previous_state = dst.get_current_state()
 
-        for key in input_representations:
-            input_representations[key] = torch.stack(input_representations[key])
-        input_representations["dialogue_id"] = dialogue.conversation_id
-
         return input_representations
 
     def process_dialogues(self) -> Dict[str, Any]:
@@ -154,6 +151,19 @@ class TUSDataset(torch.utils.data.Dataset):
             self.feature_handler.reset_user_feature_history()
             processed_dialogue = self.process_dialogue(dialogue)
             for key, value in processed_dialogue.items():
-                processed_data[key].append(value)
+                processed_data[key].extend(value)
+
+        processed_data["input"] = torch.tensor(
+            processed_data["input"], dtype=torch.float32
+        )
+        processed_data["mask"] = torch.tensor(
+            processed_data["mask"], dtype=torch.float32
+        )
+        processed_data["label"] = torch.tensor(
+            processed_data["label"], dtype=torch.long
+        )
+        processed_data["mask"] = torch.tensor(
+            processed_data["mask"], dtype=torch.bool
+        )
 
         return processed_data
