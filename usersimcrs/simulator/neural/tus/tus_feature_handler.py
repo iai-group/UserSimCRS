@@ -369,7 +369,7 @@ class TUSFeatureHandler(FeatureHandler):
         input_vector: List[FeatureVector] = [v_cls]
         feature_dimension = len(v_cls)
         for turn_feature_vector in reversed(
-            self.user_feature_history[-self.context_depth :]
+            self.user_feature_history[-self.context_depth :]  # noqa: E203
         ):
             input_vector.extend(turn_feature_vector)
             input_vector.append(v_sep)

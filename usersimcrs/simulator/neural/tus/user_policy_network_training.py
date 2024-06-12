@@ -55,7 +55,9 @@ class Trainer:
         Returns:
             Parsed output.
         """
-        _output = output[:, 1 : self.max_turn_feature_length + 1, :]
+        _output = output[
+            :, 1 : self.max_turn_feature_length + 1, :  # noqa: E203
+        ]
         _output = torch.reshape(
             _output,
             (

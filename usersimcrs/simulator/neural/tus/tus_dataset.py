@@ -130,6 +130,10 @@ class TUSDataset(torch.utils.data.Dataset):
 
             dst.update_state(utterance.dialogue_acts, DialogueParticipant.USER)
             previous_state = dst.get_current_state()
+            for slot, label in zip(self.feature_handler.action_slots, label):
+                action = torch.zeros(6)
+                action[label] = 1
+                last_user_actions[slot] = action
 
         return input_representations
 

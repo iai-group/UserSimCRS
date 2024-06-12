@@ -12,7 +12,7 @@ https://gitlab.cs.uni-duesseldorf.de/general/dsml/tus_public
 import logging
 import random
 from collections import defaultdict
-from typing import Any, DefaultDict, Dict, List, Set
+from typing import Any, DefaultDict, Dict, List
 
 import torch
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
@@ -27,6 +27,10 @@ from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
 )
 from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.simulator.neural.core.feature_handler import (
+    FeatureMask,
+    FeatureVector,
+)
 from usersimcrs.simulator.neural.core.transformer import (
     TransformerEncoderModel,
 )
@@ -88,48 +92,35 @@ class TUS(UserSimulator):
         previous_state = self._dialogue_state_tracker.get_current_state()
         # 1. Perform NLU on the agent utterance, i.e., extract dialogue acts or
         # intent and annotations.
-        annotated_utterance = self._annotate_agent_utterance(agent_utterance)
-        agent_dacts = annotated_utterance.dialogue_acts
+        annotated_agent_utterance = self._annotate_agent_utterance(
+            agent_utterance
+        )
 
         # 2. Update dialogue state based on the agent utterance.
         self._dialogue_state_tracker.update_state(
-            dialogue_acts=agent_dacts, participant=DialogueParticipant.AGENT
+            dialogue_acts=annotated_agent_utterance.dialogue_acts,
+            participant=DialogueParticipant.AGENT,
         )
 
         # 3. Extract features for the current turn.
-        turn_feature = self._feature_handler.build_input_vector(
-            utterance=annotated_utterance,
+        turn_feature, mask = self._feature_handler.build_input_vector(
+            agent_dialogue_acts=annotated_agent_utterance.dialogue_acts,
             previous_state=previous_state,
             state=self._dialogue_state_tracker.get_current_state(),
             information_need=self.information_need,
             user_action_vectors=self._last_user_actions,
         )
 
-        # 4. Concat features with the previous turn features. [1, 0] represents
-        # the [CLS] token, and [0, 1] represents the [SEP] token.
-        v = torch.cat(
-            [
-                torch.tensor([1, 0]),
-                torch.flatten(turn_feature),
-                torch.tensor([0, 1]),
-            ]
-        )
-        if self._last_turn_input:
-            v = torch.cat(
-                [v, torch.flatten(self._last_turn_input), torch.tensor([0, 1])]
-            )
-
-        self._last_turn_input = turn_feature
-
         # 5. Predict user dialogue acts based on the features.
-        user_dacts = self.predict_user_dacts(
-            v, self._feature_handler.action_slots
+        user_dialogue_acts = self.predict_user_dialogue_acts(
+            turn_feature, mask, self._feature_handler.action_slots
         )
 
         # 6. Generate user utterance based on the predicted actions.
-        # For now, we only consider the first predicted dialogue act.
-        response_intent = user_dacts[0].intent
-        response_annotations = user_dacts[0].annotations
+        # For now, we only consider the first predicted dialogue act due to
+        # constraints related to supported NLG in DialogueKit.
+        response_intent = user_dialogue_acts[0].intent
+        response_annotations = user_dialogue_acts[0].annotations
         response = self._nlg.generate_utterance_text(
             intent=response_intent, annotations=response_annotations
         )
@@ -137,7 +128,8 @@ class TUS(UserSimulator):
 
         # 7. Update dialogue state based on the user utterance.
         self._dialogue_state_tracker.update_state(
-            dialogue_acts=user_dacts, participant=DialogueParticipant.USER
+            dialogue_acts=user_dialogue_acts,
+            participant=DialogueParticipant.USER,
         )
 
         return response
@@ -147,6 +139,10 @@ class TUS(UserSimulator):
     ) -> AnnotatedUtterance:
         """Annotates the agent utterance.
 
+        As of now, DialogueKit does not support NLU that can annotate dialogue
+        acts. So, only one dialogue act is created with the intent and
+        annotations extracted from the agent utterance.
+
         Args:
             agent_utterance: Agent utterance.
 
@@ -155,40 +151,42 @@ class TUS(UserSimulator):
         """
         agent_intent = self._nlu.classify_intent(agent_utterance)
         agent_annotations = self._nlu.annotate_slot_values(agent_utterance)
+        dialogue_acts = [
+            DialogueAct(intent=agent_intent, annotations=agent_annotations)
+        ]
         utt = AnnotatedUtterance(
             text=agent_utterance.text,
             participant=DialogueParticipant.AGENT,
-            intent=agent_intent,
-            annotations=agent_annotations,
-        )
-        setattr(
-            utt,
-            "dialogue_acts",
-            [DialogueAct(intent=agent_intent, annotations=agent_annotations)],
+            dialogue_acts=dialogue_acts,
         )
         return utt
 
-    def predict_user_dacts(
-        self, features: torch.Tensor, action_slots: Set[str]
+    def predict_user_dialogue_acts(
+        self,
+        features: List[FeatureVector],
+        mask: FeatureMask,
+        action_slots: List[str],
     ) -> List[DialogueAct]:
         """Predicts user dialogue acts based on the features.
 
         Args:
             features: Feature vector.
+            mask: Mask vector.
             action_slots: Action slots used to predict the user action per slot.
-
-        Raises:
-            ValueError: If an invalid prediction mode is provided.
 
         Returns:
             Predicted user dialogue acts.
         """
-
-        outputs = self._user_policy_network(features)
+        output = self._user_policy_network(features, mask)
+        # fmt: off
+        output = output[
+            :, 1 : self._feature_handler.max_turn_feature_length + 1, :  # noqa: E203, E501
+        ]
+        # fmt: on
 
         slot_outputs: Dict[str, int] = {}
         for index, slot_name in enumerate(action_slots):
-            o = int(torch.argmax(outputs[0, index + 1, :]).item())
+            o = int(torch.argmax(output[0, index + 1, :]).item())
             assert o in range(6), f"Invalid output: {o}"
             slot_outputs[slot_name] = o
             # One-hot encoding of user action for the slot
@@ -196,11 +194,13 @@ class TUS(UserSimulator):
             o_i[o] = 1
             self._last_user_actions[slot_name] = o_i
 
-        user_dacts = self._parse_policy_output(action_slots, slot_outputs)
-        return user_dacts
+        user_dialogue_acts = self._parse_policy_output(
+            action_slots, slot_outputs
+        )
+        return user_dialogue_acts
 
     def _parse_policy_output(
-        self, action_slots: Set[str], slot_outputs: Dict[str, int]
+        self, action_slots: List[str], slot_outputs: Dict[str, int]
     ) -> List[DialogueAct]:
         """Parses the policy output to dialogue acts.
 
