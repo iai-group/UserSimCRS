@@ -5,7 +5,7 @@ information need per dialogue.
 """
 
 import os
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 import torch
 from dialoguekit.core.dialogue import Dialogue
@@ -100,11 +100,9 @@ class TUSDataset(torch.utils.data.Dataset):
         information_need = dialogue.metadata.get("information_need", None)
         if information_need is None:
             raise ValueError("Information need not found in dialogue metadata.")
-        information_need: InformationNeed = InformationNeed.from_dict(
-            information_need
-        )
+        information_need = InformationNeed.from_dict(information_need)
 
-        last_user_actions = {}
+        last_user_actions: Dict[str, torch.Tensor] = {}
         utterances = dialogue.utterances
         for i, utterance in enumerate(utterances):
             if utterance.participant == DialogueParticipant.AGENT.name:
@@ -135,13 +133,13 @@ class TUSDataset(torch.utils.data.Dataset):
 
         return input_representations
 
-    def process_dialogues(self) -> Dict[str, Any]:
+    def process_dialogues(self) -> Dict[str, Union[torch.Tensor, List[str]]]:
         """Processes dialogues to create input representations.
 
         Returns:
             Processed dialogues.
         """
-        processed_data = {
+        processed_data: Dict[str, List[Any]] = {
             "input": [],
             "mask": [],
             "label": [],
@@ -153,17 +151,9 @@ class TUSDataset(torch.utils.data.Dataset):
             for key, value in processed_dialogue.items():
                 processed_data[key].extend(value)
 
-        processed_data["input"] = torch.tensor(
-            processed_data["input"], dtype=torch.float32
-        )
-        processed_data["mask"] = torch.tensor(
-            processed_data["mask"], dtype=torch.float32
-        )
-        processed_data["label"] = torch.tensor(
-            processed_data["label"], dtype=torch.long
-        )
-        processed_data["mask"] = torch.tensor(
-            processed_data["mask"], dtype=torch.bool
-        )
-
-        return processed_data
+        return {
+            "input": torch.tensor(processed_data["input"], dtype=torch.float32),
+            "mask": torch.tensor(processed_data["mask"], dtype=torch.bool),
+            "label": torch.tensor(processed_data["label"], dtype=torch.long),
+            "dialogue_id": processed_data["dialogue_id"],
+        }

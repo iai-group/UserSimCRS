@@ -223,39 +223,34 @@ class Trainer:
         metrics = dict()
 
         for i in range(num_classes):
-            tp = matrix[i, i].item()
-            fp = sum(matrix[:, i]).item() - tp
-            fn = sum(matrix[i, :]).item() - tp
-            tn = sum(sum(matrix)).item() - tp - fp - fn
+            tp = matrix[i, i]
+            fp = sum(matrix[:, i]) - tp
+            fn = sum(matrix[i, :]) - tp
+            tn = sum(sum(matrix)) - tp - fp - fn
 
             accuracy = (
-                (tp + tn) / (tp + tn + fp + fn) if tp + tn + fp + fn > 0 else 0
+                (tp + tn) / (tp + tn + fp + fn)
+                if tp + tn + fp + fn > 0
+                else torch.tensor(0)
             )
-            precision = tp / (tp + fp) if tp + fp > 0 else 0
-            recall = tp / (tp + fn) if tp + fn > 0 else 0
+            precision = tp / (tp + fp) if tp + fp > 0 else torch.tensor(0)
+            recall = tp / (tp + fn) if tp + fn > 0 else torch.tensor(0)
             f1 = (
                 2 * precision * recall / (precision + recall)
                 if precision + recall > 0
-                else 0
+                else torch.tensor(0)
             )
             metrics[i] = {
-                "precision": precision,
-                "recall": recall,
-                "f1": f1,
-                "accuracy": accuracy,
+                "precision": precision.item(),
+                "recall": recall.item(),
+                "f1": f1.item(),
+                "accuracy": accuracy.item(),
             }
 
-        metrics["macro avg"] = {
-            "precision": sum([v["precision"] for v in metrics.values()])
-            / num_classes,
-            "recall": sum([v["recall"] for v in metrics.values()])
-            / num_classes,
-            "f1": sum([v["f1"] for v in metrics.values()]) / num_classes,
-            "accuracy": sum([v["accuracy"] for v in metrics.values()])
-            / num_classes,
-        }
+        df = pd.DataFrame(metrics).T
+        df["macro avg"] = df.mean(1)
 
-        return pd.DataFrame(metrics).T
+        return df
 
 
 def parse_args() -> argparse.Namespace:
@@ -264,7 +259,7 @@ def parse_args() -> argparse.Namespace:
     Returns:
         Namespace object containing the arguments.
     """
-    parser = argparse.ArgumentParser(prog="tus_training.py")
+    parser = argparse.ArgumentParser(prog="user_policy_network_training.py")
     parser.add_argument(
         "--data_path",
         type=str,

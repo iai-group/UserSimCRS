@@ -19,7 +19,11 @@ from dialoguekit.core.dialogue_act import DialogueAct
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state import DialogueState
-from usersimcrs.simulator.neural.core.feature_handler import FeatureHandler
+from usersimcrs.simulator.neural.core.feature_handler import (
+    FeatureHandler,
+    FeatureMask,
+    FeatureVector,
+)
 
 
 class TUSFeatureHandler(FeatureHandler):
@@ -49,7 +53,7 @@ class TUSFeatureHandler(FeatureHandler):
         self.action_slots: List[str] = list()
         self._create_slot_index()
         # Store user feature vectors for each turn
-        self.user_feature_history: List[torch.Tensor] = list()
+        self.user_feature_history: List[List[FeatureVector]] = list()
 
     def reset(self) -> None:
         """Resets the feature handler."""
@@ -84,7 +88,7 @@ class TUSFeatureHandler(FeatureHandler):
         information_need: InformationNeed,
         state: DialogueState,
         previous_state: DialogueState,
-    ) -> List[int]:
+    ) -> FeatureVector:
         """Builds feature vector for basic information.
 
         It concatenates the value in agent state, user state, slot type,
@@ -162,7 +166,7 @@ class TUSFeatureHandler(FeatureHandler):
 
     def get_agent_action_feature(
         self, agent_dialogue_acts: List[DialogueAct]
-    ) -> List[int]:
+    ) -> FeatureVector:
         """Builds feature vector for agent action.
 
         It concatenates action vectors represented as 3-dimensional vectors that
@@ -188,7 +192,7 @@ class TUSFeatureHandler(FeatureHandler):
                         v_agent_action[intent_label][1] = 1
         return sum(v_agent_action.values(), [])
 
-    def get_slot_index_feature(self, slot: str) -> List[int]:
+    def get_slot_index_feature(self, slot: str) -> FeatureVector:
         """Builds feature vector for slot index.
 
         Args:
@@ -209,7 +213,7 @@ class TUSFeatureHandler(FeatureHandler):
         information_need: InformationNeed,
         agent_dialogue_acts: List[DialogueAct],
         user_action_vector: torch.Tensor = None,
-    ) -> List[int]:
+    ) -> FeatureVector:
         """Builds the feature vector for a slot.
 
         It concatenate the basic information, user action, agent action, and
@@ -256,7 +260,7 @@ class TUSFeatureHandler(FeatureHandler):
         state: DialogueState,
         information_need: InformationNeed,
         user_action_vectors: Dict[str, torch.Tensor] = {},
-    ) -> List[List[int]]:
+    ) -> List[FeatureVector]:
         """Builds the feature vector for a turn.
 
         It comprises the feature vectors for all slots that in the
@@ -297,7 +301,7 @@ class TUSFeatureHandler(FeatureHandler):
             for slot in self.action_slots
         ]
 
-    def _get_special_token_feature_vector(self, token: str) -> List[int]:
+    def _get_special_token_feature_vector(self, token: str) -> FeatureVector:
         """Builds the feature vector for a special token.
 
         Args:
@@ -331,7 +335,7 @@ class TUSFeatureHandler(FeatureHandler):
         state: DialogueState,
         information_need: InformationNeed,
         user_action_vectors: Dict[str, torch.Tensor] = {},
-    ) -> Tuple[List[List[int]], List[List[int]]]:
+    ) -> Tuple[List[FeatureVector], FeatureMask]:
         """Builds the input vector $V_{input}$ for a turn.
 
         It concatenates the feature vectors for the last n turns separated by
@@ -362,7 +366,7 @@ class TUSFeatureHandler(FeatureHandler):
 
         v_cls = self._get_special_token_feature_vector("[CLS]")
         v_sep = self._get_special_token_feature_vector("[SEP]")
-        input_vector: List[List[int]] = [v_cls]
+        input_vector: List[FeatureVector] = [v_cls]
         feature_dimension = len(v_cls)
         for turn_feature_vector in reversed(
             self.user_feature_history[-self.context_depth :]
@@ -390,7 +394,7 @@ class TUSFeatureHandler(FeatureHandler):
         user_utterance: AnnotatedUtterance,
         current_state: DialogueState,
         information_need: InformationNeed,
-    ) -> List[int]:
+    ) -> FeatureVector:
         """Builds the label vector for a turn.
 
         Args:
