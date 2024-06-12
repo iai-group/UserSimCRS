@@ -60,11 +60,18 @@ def test_process_dialogue(
 
     assert input_features.get("dialogue_id") == dialogue.conversation_id
     assert (
-        input_features.get("input").shape
-        == input_features.get("mask").shape
-        == (len(dialogue.utterances) // 2, 80)
+        len(input_features.get("input"))
+        == len(input_features.get("mask"))
+        == len(input_features.get("label"))
+        == len(dialogue.utterances) // 2
     )
-    assert input_features.get("label").shape == (
-        len(dialogue.utterances) // 2,
-        40,
+    assert all(
+        len(input_features.get("input")[i])
+        == len(input_features.get("mask")[i])
+        == 80
+        for i in range(len(input_features.get("input")))
+    )
+    assert all(
+        len(input_features.get("label")[i]) == 40
+        for i in range(len(input_features.get("label")))
     )

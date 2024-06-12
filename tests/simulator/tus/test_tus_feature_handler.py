@@ -160,7 +160,9 @@ def test_get_slot_feature_vector(
         if user_action_vector is not None
         else torch.tensor([0] * 6)
     )
-    assert torch.equal(slot_feature_vector[23:29], user_action_vector)
+    assert torch.equal(
+        torch.tensor(slot_feature_vector[23:29]), user_action_vector
+    )
 
 
 @pytest.mark.parametrize(
@@ -196,4 +198,4 @@ def test_build_input_vector(
         {"GENRE": torch.tensor([0, 1, 0, 0, 0, 0])},
     )
     assert len(turn_vector) == len(mask) == 40 * 2
-    assert torch.equal(mask, torch.tensor([False] * 80))
+    assert torch.equal(torch.tensor(mask), torch.tensor([False] * 80))
