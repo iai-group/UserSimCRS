@@ -172,18 +172,14 @@ def test_get_slot_feature_vector(
             "What genre are you interested in?",
             participant=DialogueParticipant.AGENT,
             dialogue_acts=[
-                DialogueAct(
-                    Intent("elicit"), annotations=[Annotation("GENRE")]
-                )
+                DialogueAct(Intent("elicit"), annotations=[Annotation("GENRE")])
             ],
         ),
         AnnotatedUtterance(
             "Who should be the main actor?",
             participant=DialogueParticipant.AGENT,
             dialogue_acts=[
-                DialogueAct(
-                    Intent("elicit"), annotations=[Annotation("ACTOR")]
-                )
+                DialogueAct(Intent("elicit"), annotations=[Annotation("ACTOR")])
             ],
         ),
     ],
