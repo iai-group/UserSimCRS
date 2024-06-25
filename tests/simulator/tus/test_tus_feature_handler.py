@@ -7,33 +7,14 @@ import torch
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
+from dialoguekit.core.intent import Intent
 from dialoguekit.participant import DialogueParticipant
 
 from usersimcrs.core.information_need import InformationNeed
-from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state import DialogueState
 from usersimcrs.simulator.neural.tus.tus_feature_handler import (
     TUSFeatureHandler,
 )
-
-
-@pytest.fixture
-def feature_handler() -> TUSFeatureHandler:
-    """Returns the feature handler."""
-    _feature_handler = TUSFeatureHandler(
-        domain=SimulationDomain("tests/data/domains/movies.yaml"),
-        user_actions=["inform", "request"],
-        agent_actions=["elicit", "recommend", "bye"],
-    )
-
-    assert _feature_handler._user_actions == ["inform", "request"]
-    assert _feature_handler._agent_actions == [
-        "elicit",
-        "recommend",
-        "bye",
-    ]
-
-    return _feature_handler
 
 
 def test__create_slot_index(feature_handler: TUSFeatureHandler) -> None:
@@ -67,7 +48,8 @@ def test__create_slot_index(feature_handler: TUSFeatureHandler) -> None:
             DialogueState(
                 user_dialogue_acts=[
                     DialogueAct(
-                        "inform", [Annotation("DIRECTOR", "Steven Spielberg")]
+                        Intent("inform"),
+                        [Annotation("DIRECTOR", "Steven Spielberg")],
                     )
                 ],
                 belief_state={"DIRECTOR": "Steven Spielberg"},
@@ -79,7 +61,7 @@ def test__create_slot_index(feature_handler: TUSFeatureHandler) -> None:
             DialogueState(),
             DialogueState(
                 agent_dialogue_acts=[
-                    DialogueAct("elicit", [Annotation("KEYWORD")])
+                    DialogueAct(Intent("elicit"), [Annotation("KEYWORD")])
                 ],
                 belief_state={"KEYWORD": None},
             ),
@@ -109,15 +91,15 @@ def test_get_basic_information_feature(
     [
         ([], [0, 0, 0, 0, 0, 0, 0, 0, 0]),
         (
-            [DialogueAct("elicit", [Annotation("GENRE")])],
+            [DialogueAct(Intent("elicit"), [Annotation("GENRE")])],
             [0, 1, 0, 0, 0, 0, 0, 0, 0],
         ),
         (
             [
                 DialogueAct(
-                    "recommend", [Annotation("TITLE", "The Godfather")]
+                    Intent("recommend"), [Annotation("TITLE", "The Godfather")]
                 ),
-                DialogueAct("bye"),
+                DialogueAct(Intent("bye")),
             ],
             [0, 0, 0, 0, 0, 1, 1, 0, 0],
         ),
@@ -163,13 +145,14 @@ def test_get_slot_feature_vector(
         DialogueState(
             user_dialogue_acts=[
                 DialogueAct(
-                    "inform", [Annotation("DIRECTOR", "Steven Spielberg")]
+                    Intent("inform"),
+                    [Annotation("DIRECTOR", "Steven Spielberg")],
                 )
             ],
             belief_state={"DIRECTOR": "Steven Spielberg"},
         ),
         information_need,
-        [DialogueAct("elicit", [Annotation("GENRE")])],
+        [DialogueAct(Intent("elicit"), [Annotation("GENRE")])],
         user_action_vector,
     )
     user_action_vector = (
@@ -177,44 +160,46 @@ def test_get_slot_feature_vector(
         if user_action_vector is not None
         else torch.tensor([0] * 6)
     )
-    assert torch.equal(slot_feature_vector[21:27], user_action_vector)
+    assert torch.equal(
+        torch.tensor(slot_feature_vector[23:29]), user_action_vector
+    )
 
 
 @pytest.mark.parametrize(
-    "utterance, expected_num_action_slots",
+    "agent_utterance",
     [
-        (
-            AnnotatedUtterance(
-                "What genre are you interested in?",
-                participant=DialogueParticipant.AGENT,
-                intent="elicit",
-                annotations=[Annotation("GENRE")],
-            ),
-            4,
+        AnnotatedUtterance(
+            "What genre are you interested in?",
+            participant=DialogueParticipant.AGENT,
+            dialogue_acts=[
+                DialogueAct(
+                    Intent("elicit"), annotations=[Annotation("GENRE")]
+                )
+            ],
         ),
-        (
-            AnnotatedUtterance(
-                "Who should be the main actor?",
-                participant=DialogueParticipant.AGENT,
-                intent="elicit",
-                annotations=[Annotation("ACTOR")],
-            ),
-            5,
+        AnnotatedUtterance(
+            "Who should be the main actor?",
+            participant=DialogueParticipant.AGENT,
+            dialogue_acts=[
+                DialogueAct(
+                    Intent("elicit"), annotations=[Annotation("ACTOR")]
+                )
+            ],
         ),
     ],
 )
-def test_get_feature_vector(
-    utterance: AnnotatedUtterance,
-    expected_num_action_slots: int,
+def test_build_input_vector(
+    agent_utterance: AnnotatedUtterance,
     feature_handler: TUSFeatureHandler,
     information_need: InformationNeed,
 ) -> None:
     """Tests the turn feature vector."""
-    turn_vector = feature_handler.get_feature_vector(
-        utterance,
+    turn_vector, mask = feature_handler.build_input_vector(
+        agent_utterance.dialogue_acts,
         DialogueState(),
         DialogueState(),
         information_need,
         {"GENRE": torch.tensor([0, 1, 0, 0, 0, 0])},
     )
-    assert len(turn_vector) == expected_num_action_slots * 35
+    assert len(turn_vector) == len(mask) == 40 * 2
+    assert torch.equal(torch.tensor(mask), torch.tensor([False] * 80))
