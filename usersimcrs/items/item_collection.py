@@ -9,7 +9,7 @@ import csv
 import sqlite3
 from typing import Any, Dict, List, Set
 
-from dialoguekit.core.annotation import Annotation
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
@@ -151,9 +151,9 @@ class ItemCollection:
         properties = dict()
         for key, value in item.properties.items():
             if isinstance(value, list):
-                properties[
-                    key
-                ] = f"""'{SQL_DELIMITER.join(value).replace("'","''")}'"""
+                properties[key] = (
+                    f"""'{SQL_DELIMITER.join(value).replace("'","''")}'"""
+                )
                 properties[f"{key}_multi_value"] = "True"
             else:
                 properties[key] = f"""'{str(value).replace("'","''")}'"""
@@ -241,12 +241,12 @@ class ItemCollection:
         return values
 
     def get_items_by_properties(
-        self, annotations: List[Annotation]
+        self, annotations: List[SlotValueAnnotation]
     ) -> List[Item]:
-        """Returns items that match the given annotations.
+        """Returns items that match the given slot-value annotations.
 
         Args:
-            annotations: List of annotations.
+            annotations: List of slot-value pair annotations.
 
         Returns:
             List of matching items.
