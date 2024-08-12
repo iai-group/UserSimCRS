@@ -10,7 +10,6 @@ import sqlite3
 from typing import Any, Dict, List, Set
 
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
-
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
 
@@ -151,9 +150,9 @@ class ItemCollection:
         properties = dict()
         for key, value in item.properties.items():
             if isinstance(value, list):
-                properties[key] = (
-                    f"""'{SQL_DELIMITER.join(value).replace("'","''")}'"""
-                )
+                properties[
+                    key
+                ] = f"""'{SQL_DELIMITER.join(value).replace("'","''")}'"""
                 properties[f"{key}_multi_value"] = "True"
             else:
                 properties[key] = f"""'{str(value).replace("'","''")}'"""

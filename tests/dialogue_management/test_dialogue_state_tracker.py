@@ -61,9 +61,7 @@ def test_update_state_user(
         ),
     ]
 
-    dialogue_state_tracker.update_state(
-        dialogue_acts, DialogueParticipant.USER
-    )
+    dialogue_state_tracker.update_state(dialogue_acts, DialogueParticipant.USER)
 
     current_state = dialogue_state_tracker.get_current_state()
     assert current_state.utterance_count == 2

@@ -5,7 +5,7 @@ from typing import Any, Dict, Set, Tuple, Type
 
 import confuse
 import yaml
-from dialoguekit.core.domain import Domain
+
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -13,6 +13,9 @@ from dialoguekit.nlg.template_from_training_data import (
     extract_utterance_template,
 )
 from dialoguekit.nlu import NLU
+from dialoguekit.nlu.disjoint_dialogue_act_extractor import (
+    DisjointDialogueActExtractor,
+)
 from dialoguekit.nlu.intent_classifier import IntentClassifier
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
 from dialoguekit.nlu.models.intent_classifier_cosine import (
@@ -21,7 +24,7 @@ from dialoguekit.nlu.models.intent_classifier_cosine import (
 from dialoguekit.participant import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
-
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.interaction_model import (
@@ -98,7 +101,9 @@ def get_simulator_information(
     if simulator_class.__name__ == "AgendaBasedSimulator":
         simulator_config.update(_get_agenda_based_simulator_config(config))
     else:
-        raise ValueError(f"Simulator class {simulator_class} is not supported.")
+        raise ValueError(
+            f"Simulator class {simulator_class} is not supported."
+        )
     return simulator_id, simulator_class, simulator_config
 
 
@@ -114,7 +119,7 @@ def _get_agenda_based_simulator_config(
         Configuration of the agenda-based simulator.
     """
     # Loads domain, item collection, and preference data
-    domain = Domain(config["domain"].get())
+    domain = SimulationDomain(config["domain"].get())
 
     item_collection = ItemCollection(
         config["collection_db_path"].get(), config["collection_name"].get()
@@ -152,6 +157,7 @@ def _get_agenda_based_simulator_config(
     # Loads interaction model
     interaction_model = InteractionModel(
         config_file=config["intents"].get(),
+        domain=domain,
         annotated_conversations=annotated_conversations,
     )
 
@@ -193,10 +199,13 @@ def get_NLU(config: confuse.Configuration) -> IntentClassifier:
     intent_classifier = config["intent_classifier"].get()
     if intent_classifier == "cosine":
         # NLU without slot annotators
-        return NLU(train_cosine_classifier(config), slot_annotators=[])
+        classifier = train_cosine_classifier(config)
+        return NLU(
+            DisjointDialogueActExtractor(classifier, slot_value_annotators=[])
+        )
     elif intent_classifier == "diet":
         classifier = train_rasa_diet_classifier(config)
-        return NLU(classifier, [classifier])
+        return NLU(DisjointDialogueActExtractor(classifier, [classifier]))
     elif intent_classifier:
         raise ValueError(
             "Unsupported intent classifier. Check DialogueKit intent"
@@ -225,7 +234,9 @@ def train_cosine_classifier(
     for conversation in dialogues:
         for turn in conversation["conversation"]:
             if turn["participant"] == "AGENT":
-                gt_intents.append(Intent(turn["intent"]))
+                gt_intents.extend(
+                    [Intent(da["intent"]) for da in turn["dialogue_acts"]]
+                )
                 utterances.append(
                     Utterance(
                         turn["utterance"],
