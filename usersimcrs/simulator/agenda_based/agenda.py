@@ -7,7 +7,7 @@ Schatzmann et al., 2007.
 """
 
 from collections import deque
-from typing import List
+from typing import Deque, List
 
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
@@ -33,7 +33,7 @@ class Agenda:
             stop_intent: Stop intent.
             start_intent: Start intent. Defaults to None.
         """
-        self._dialogue_acts_stack = deque()
+        self._dialogue_acts_stack: Deque[DialogueAct] = deque()
         self.inform_intent = inform_intent
         self.request_intent = request_intent
 
@@ -60,7 +60,7 @@ class Agenda:
         self._dialogue_acts_stack.append(DialogueAct(stop_intent))
 
     @property
-    def stack(self) -> List[DialogueAct]:
+    def stack(self) -> Deque[DialogueAct]:
         """Returns the dialogue acts stack."""
         return self._dialogue_acts_stack
 
@@ -101,7 +101,7 @@ class Agenda:
         Args:
             information_need: Information need.
         """
-        new_stack = deque()
+        new_stack: Deque[DialogueAct] = deque()
         informed_slots = information_need.get_requestable_slots()
         for dialogue_act in self._dialogue_acts_stack:
             if dialogue_act is None:

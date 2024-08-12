@@ -1,7 +1,5 @@
 """Agenda-based user simulator from [Zhang and Balog, KDD'20]."""
 
-import time
-
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -98,13 +96,10 @@ class AgendaBasedSimulator(UserSimulator):
             self._preference_model,
             self._item_collection,
         )
-        print(f"DEBUG: updated agenda: {self._interaction_model.agenda.stack}")
-        time.sleep(5)
         # Get next user dialogue acts based on the current agenda.
         response_dialogue_acts = (
             self._interaction_model.get_next_dialogue_acts()
         )
-        print(f"DEBUG: response_dialogue_acts: {response_dialogue_acts}")
 
         # Generating natural language response through NLG.
         response = self._nlg.generate_utterance_text(response_dialogue_acts)
@@ -116,5 +111,4 @@ class AgendaBasedSimulator(UserSimulator):
             response_dialogue_acts, DialogueParticipant.USER
         )
 
-        print(f"DEBUG: response: {response}")
         return response

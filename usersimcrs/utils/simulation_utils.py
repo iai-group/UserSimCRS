@@ -101,9 +101,7 @@ def get_simulator_information(
     if simulator_class.__name__ == "AgendaBasedSimulator":
         simulator_config.update(_get_agenda_based_simulator_config(config))
     else:
-        raise ValueError(
-            f"Simulator class {simulator_class} is not supported."
-        )
+        raise ValueError(f"Simulator class {simulator_class} is not supported.")
     return simulator_id, simulator_class, simulator_config
 
 
@@ -181,10 +179,10 @@ def _get_agenda_based_simulator_config(
     }
 
 
-def get_NLU(config: confuse.Configuration) -> IntentClassifier:
+def get_NLU(config: confuse.Configuration) -> NLU:
     """Returns an NLU component.
 
-    Only supports DialogueKit intent classifiers.
+    Only support disjoint dialogue act extractors for now.
 
     Args:
         config: Configuration for the simulation.
@@ -197,6 +195,7 @@ def get_NLU(config: confuse.Configuration) -> IntentClassifier:
     """
 
     intent_classifier = config["intent_classifier"].get()
+    classifier: IntentClassifier = None
     if intent_classifier == "cosine":
         # NLU without slot annotators
         classifier = train_cosine_classifier(config)
@@ -206,11 +205,10 @@ def get_NLU(config: confuse.Configuration) -> IntentClassifier:
     elif intent_classifier == "diet":
         classifier = train_rasa_diet_classifier(config)
         return NLU(DisjointDialogueActExtractor(classifier, [classifier]))
-    elif intent_classifier:
-        raise ValueError(
-            "Unsupported intent classifier. Check DialogueKit intent"
-            " classifiers."
-        )
+    raise ValueError(
+        "Unsupported intent classifier. Check DialogueKit intent"
+        " classifiers."
+    )
 
 
 def train_cosine_classifier(
@@ -250,7 +248,7 @@ def train_cosine_classifier(
 
 def train_rasa_diet_classifier(
     config: confuse.Configuration,
-) -> IntentClassifierCosine:
+) -> IntentClassifierRasa:
     """Trains a DIET classifier on Rasa annotated dialogues for NLU module.
 
     Args:

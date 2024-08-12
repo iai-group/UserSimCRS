@@ -77,7 +77,7 @@ class InteractionModel:
         self.dialogue_state_tracker = DialogueStateTracker()
 
         # Keep track of the current dialogue acts.
-        self._current_dialogue_acts = None
+        self._current_dialogue_acts: List[DialogueAct] = []
 
     def _initialize_required_intents(self) -> None:
         """Initializes required intents.
@@ -122,6 +122,7 @@ class InteractionModel:
         transition_matrix_compound = pd.DataFrame()
 
         # TODO: Implement transition matrices creation
+        # See: https://github.com/iai-group/UserSimCRS/issues/173
         return transition_matrix_single, transition_matrix_compound
 
     def initialize_agenda(self, information_need: InformationNeed):
@@ -394,7 +395,7 @@ class InteractionModel:
         )
         if not possible_items:
             # The recommended item was not found in the item collection.
-            return [DialogueAct(self.INTENT_DONT_KNOW)]
+            return [DialogueAct(self.INTENT_DONT_KNOW)]  # type: ignore[attr-defined] # noqa
 
         # Considering a compliant user, we assume that a feedback is given for
         # all recommendations.
@@ -407,7 +408,7 @@ class InteractionModel:
                 # question by the agent whether they've liked it, that
                 # should end up in the other branch of the fork.
                 user_dialogue_acts.append(
-                    DialogueAct(self.INTENT_ITEM_CONSUMED)
+                    DialogueAct(self.INTENT_ITEM_CONSUMED)  # type: ignore[attr-defined] # noqa
                 )
 
             # Get a response based on the recommendation. Currently, the
@@ -440,18 +441,20 @@ class InteractionModel:
         user_dialogue_acts = []
         if agent_dialogue_act.annotations:
             # The agent inquires about a particular slot.
-            for _, slot, value, _, _ in agent_dialogue_act.annotations:
-                if value is None:
+            for slot_value_annotation in agent_dialogue_act.annotations:
+                slot = slot_value_annotation.slot
+                if slot_value_annotation.value is None:
                     if slot in information_need.get_requestable_slots():
                         user_dialogue_acts.append(
                             DialogueAct(
-                                self.INTENT_YES, [SlotValueAnnotation(slot)]
+                                self.INTENT_YES, [SlotValueAnnotation(slot)]  # type: ignore[attr-defined] # noqa
                             )
                         )
                     else:
                         user_dialogue_acts.append(
-                            DialogueAct(self.INTENT_NO),
-                            [SlotValueAnnotation(slot)],
+                            DialogueAct(
+                                self.INTENT_NO, [SlotValueAnnotation(slot)]  # type: ignore[attr-defined] # noqa
+                            ),
                         )
 
         if len(user_dialogue_acts) == 0:
@@ -463,7 +466,7 @@ class InteractionModel:
             else:
                 slot = random.choice(self._domain.get_requestable_slots())
             user_dialogue_acts.append(
-                DialogueAct(self.INQUIRE, [SlotValueAnnotation(slot)])
+                DialogueAct(self.INQUIRE, [SlotValueAnnotation(slot)])  # type: ignore[attr-defined] # noqa
             )
 
         return user_dialogue_acts
