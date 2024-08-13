@@ -5,9 +5,10 @@ import re
 from typing import Dict, List
 
 import yaml
-from dialoguekit.core import Utterance
 from openai import OpenAI
 
+from dialoguekit.core import Utterance
+from dialoguekit.participant.participant import DialogueParticipant
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
 from usersimcrs.simulator.llm.prompt import Prompt
 
@@ -88,12 +89,12 @@ class OpenAILLMInterface(LLMInterface):
         ]
         response = (
             self.client.chat.completions.create(
-                messages=messages, model=self.model, **self._llm_options
+                messages=messages, model=self.model, **self._llm_options  # type: ignore[arg-type] # noqa
             )
             .choices[0]
             .message.content
         )
-        return Utterance(response)
+        return Utterance(response, DialogueParticipant.USER)
 
     def _parse_prompt_context(
         self, prompt_context: str
@@ -130,4 +131,4 @@ class OpenAILLMInterface(LLMInterface):
             .choices[0]
             .text
         )
-        return Utterance(response)
+        return Utterance(response, DialogueParticipant.USER)
