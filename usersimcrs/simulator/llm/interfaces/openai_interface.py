@@ -17,14 +17,14 @@ class OpenAILLMInterface(LLMInterface):
     def __init__(
         self,
         configuration_path: str,
-        chat_api: bool = False,
+        use_chat_api: bool = False,
         default_response: str = None,
     ) -> None:
         """Initializes interface for OpenAI served LLM.
 
         Args:
             configuration_path: Path to the configuration file.
-            chat_api: Whether to use the chat or completion API. Defaults to
+            use_chat_api: Whether to use the chat or completion API. Defaults to
               False (i.e., completion API).
             default_response: Default response to be used if the LLM fails to
               generate a response.
@@ -58,7 +58,7 @@ class OpenAILLMInterface(LLMInterface):
         self._llm_options = self._llm_configuration.get("options", {})
 
         self.client = OpenAI(api_key=self._llm_configuration.get("api_key"))
-        self.chat_api = chat_api
+        self.use_chat_api = use_chat_api
 
     def generate_response(self, prompt: Prompt) -> Utterance:
         """Generates a user utterance given a prompt.
@@ -69,7 +69,7 @@ class OpenAILLMInterface(LLMInterface):
         Returns:
             Utterance.
         """
-        if self.chat_api:
+        if self.use_chat_api:
             return self._generate_chat_response(prompt)
 
         return self._generate_completion_response(prompt.prompt_text)

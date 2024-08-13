@@ -9,10 +9,6 @@ from usersimcrs.core.information_need import generate_random_information_need
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 
-from usersimcrs.core.information_need import generate_random_information_need
-from usersimcrs.core.simulation_domain import SimulationDomain
-from usersimcrs.items.item_collection import ItemCollection
-
 
 class UserSimulator(User, ABC):
     def __init__(
