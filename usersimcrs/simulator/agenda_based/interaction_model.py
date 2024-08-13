@@ -1,4 +1,8 @@
-"""Interaction model."""
+"""Interaction model.
+
+The interaction model is responsible for defining the allowed transitions
+between dialogue acts based on their intents and updating the agenda.
+"""
 
 import logging
 import os
@@ -103,14 +107,14 @@ class InteractionModel:
 
         We consider two transition matrices. The first one uses single intents
         as states, while the second one uses compound intents. For example:
-        Dialogue acts in utt. 1: [GREETING(), REQUEST(GENRE), REQUEST(YEAR)]
-        Dialogue acts in utt. 2: [INFORM(GENRE, action), INFORM(YEAR, 2024)]
+        Dialogue acts in utt. 1: [GREETING(), REQUEST(genre=?, year=?)]
+        Dialogue acts in utt. 2: [INFORM(genre=action, year=2024)]
 
         The single intent transition matrix will be:
-        GREETING -> INFORM : 2
-        REQUEST -> INFORM : 4
+        GREETING -> INFORM : 1
+        REQUEST -> INFORM : 1
         The compound intent transition matrix will be:
-        {GREETING, REQUEST} -> INFORM : 2
+        {GREETING, REQUEST} -> INFORM : 1
 
         Args:
             annotated_conversations: Annotated conversations.
@@ -195,11 +199,10 @@ class InteractionModel:
                 .get("expected_agent_intents", [])
             )
 
-        for agent_dialogue_act in agent_dialogue_acts:
-            if agent_dialogue_act.intent.label in expected_agent_intents:
-                return True
-
-        return False
+        return any(
+            agent_dialogue_act.intent.label in expected_agent_intents
+            for agent_dialogue_act in agent_dialogue_acts
+        )
 
     def get_next_dialogue_acts(self, n: int = 1) -> List[DialogueAct]:
         """Returns the next n dialogue acts from the stack.

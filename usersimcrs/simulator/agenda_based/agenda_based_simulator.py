@@ -38,7 +38,7 @@ class AgendaBasedSimulator(UserSimulator):
             item_collection: Item collection.
             preference_model: Preference model.
             interaction_model: Interaction model.
-            nlu: NLU module performing dialogue acts extraction.
+            nlu: NLU module performing dialogue act extraction.
             nlg: NLG module generating textual responses.
             ratings: Historical ratings.
         """
@@ -84,9 +84,10 @@ class AgendaBasedSimulator(UserSimulator):
         # handled by the dialogue connector. However, since intent annotations
         # for the agent's utterance are not available when the response is
         # received by the dialogue connector, an extra check is needed here.
-        if self._dialogue_connector._agent.stop_intent in [
-            da.intent for da in agent_dialogue_acts
-        ]:
+        if any(
+            da.intent == self._dialogue_connector._agent.stop_intent
+            for da in agent_dialogue_acts
+        ):
             self._dialogue_connector.close()
             quit()
 

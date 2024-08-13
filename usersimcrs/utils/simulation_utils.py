@@ -182,7 +182,7 @@ def _get_agenda_based_simulator_config(
 def get_NLU(config: confuse.Configuration) -> NLU:
     """Returns an NLU component.
 
-    Only support disjoint dialogue act extractors for now.
+    Only supports disjoint dialogue act extractors for now.
 
     Args:
         config: Configuration for the simulation.
