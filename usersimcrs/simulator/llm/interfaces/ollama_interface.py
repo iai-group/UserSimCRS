@@ -3,10 +3,10 @@
 import os
 
 import yaml
-from dialoguekit.core import Utterance
-from dialoguekit.participant import DialogueParticipant
 from ollama import Client, Options
 
+from dialoguekit.core import Utterance
+from dialoguekit.participant import DialogueParticipant
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
 from usersimcrs.simulator.llm.prompt import Prompt
 
@@ -47,7 +47,9 @@ class OllamaLLMInterface(LLMInterface):
         self.client = Client(host=self._llm_configuration.get("host"))
         self.model = self._llm_configuration.get("model")
         self._stream = self._llm_configuration.get("stream", False)
-        self._llm_options = Options(self._llm_configuration.get("options", {}))
+        self._llm_options = Options(
+            **self._llm_configuration.get("options", {})
+        )
 
     def generate_response(self, prompt: Prompt) -> Utterance:
         """Generates a user utterance given a prompt.
