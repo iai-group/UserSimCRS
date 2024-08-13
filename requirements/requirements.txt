@@ -11,6 +11,8 @@ confuse
 websockets<11.0
 nltk
 joblib
+openai
+ollama
 pandas==2.2.2
 git+https://github.com/iai-group/DialogueKit.git
 botocore>=1.29.29
