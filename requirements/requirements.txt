@@ -14,3 +14,4 @@ joblib
 pandas==2.2.2
 git+https://github.com/iai-group/DialogueKit.git
 botocore>=1.29.29
+setuptools<=70.0.0
