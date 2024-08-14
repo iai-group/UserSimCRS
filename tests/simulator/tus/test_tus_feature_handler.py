@@ -6,7 +6,6 @@ import pytest
 import torch
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
-from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
