@@ -1,19 +1,33 @@
-"""Interaction model."""
+"""Interaction model.
 
-import functools
+The interaction model is responsible for defining the allowed transitions
+between dialogue acts based on their intents and updating the agenda.
+"""
+
 import logging
 import os
 import random
-from collections import defaultdict
-from typing import Any, DefaultDict, List, Tuple
+from typing import List, Tuple
 
+import pandas as pd
 import yaml
-from dialoguekit.core.annotated_utterance import AnnotatedUtterance
-from dialoguekit.core.dialogue import Dialogue
-from dialoguekit.core.intent import Intent
-from dialoguekit.participant import DialogueParticipant
+from nltk.stem import WordNetLemmatizer
 
-IntentDistribution = DefaultDict[Intent, DefaultDict[Intent, Any]]
+from dialoguekit.core.dialogue import Dialogue
+from dialoguekit.core.dialogue_act import DialogueAct
+from dialoguekit.core.intent import Intent
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
+from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.core.simulation_domain import SimulationDomain
+from usersimcrs.dialogue_management.dialogue_state_tracker import (
+    DialogueStateTracker,
+)
+from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.simulator.agenda_based.agenda import Agenda
+from usersimcrs.user_modeling.preference_model import PreferenceModel
+
+_LEMMATIZER = WordNetLemmatizer()
+
 logger = logging.getLogger(__name__)
 
 
@@ -30,17 +44,24 @@ class InteractionModel:
         "INTENT_DISLIKE",
         "INTENT_NEUTRAL",
         "INTENT_DISCLOSE",
+        "INTENT_INQUIRE",
+        "INTENT_YES",
+        "INTENT_NO",
         "INTENT_DONT_KNOW",
     }
 
     def __init__(
-        self, config_file: str, annotated_conversations: List[Dialogue]
+        self,
+        config_file: str,
+        domain: SimulationDomain,
+        annotated_conversations: List[Dialogue],
     ) -> None:
         """Initializes the interaction model.
 
         Args:
             config_file: Path to configuration file.
-            annotated_conversations: List of annotated conversations.
+            domain: Simulation domain.
+            annotated_conversations: Annotated conversations.
         """
         # Load interaction model.
         if not os.path.isfile(config_file):
@@ -50,18 +71,17 @@ class InteractionModel:
             self._config = yaml.load(yaml_file, Loader=yaml.FullLoader)
 
         self._initialize_required_intents()
-
-        self._initialize_preference_intent_config()
+        self._domain = domain
         (
-            self._user_intent_distribution,
-            self._intent_distribution,
-        ) = self.intent_distribution(annotated_conversations)
+            self.transition_matrix_single,
+            self.transition_matrix_compound,
+        ) = self.initialize_transition_matrices(annotated_conversations)
 
-        # Initialize agenda.
-        self._agenda = self.initialize_agenda()
+        # Keep track of the dialogue state.
+        self.dialogue_state_tracker = DialogueStateTracker()
 
-        # Keep track of the current user intent.
-        self._current_intent = self._agenda.pop()
+        # Keep track of the current dialogue acts.
+        self._current_dialogue_acts: List[DialogueAct] = []
 
     def _initialize_required_intents(self) -> None:
         """Initializes required intents.
@@ -80,146 +100,48 @@ class InteractionModel:
         for k, v in required_intents.items():
             setattr(self, k, Intent(v))
 
-    def intent_distribution(
+    def initialize_transition_matrices(
         self, annotated_conversations: List[Dialogue]
-    ) -> Tuple[IntentDistribution, IntentDistribution]:
-        """Distills user intent distributions based on conversations.
+    ) -> Tuple[pd.DataFrame, pd.DataFrame]:
+        """Initializes transition matrices from annotated conversations.
 
-        Arg:
-            annotated_conversations: List of annotated conversations.
+        We consider two transition matrices. The first one uses single intents
+        as states, while the second one uses compound intents. For example:
+        Dialogue acts in utt. 1: [GREETING(), REQUEST(genre=?, year=?)]
+        Dialogue acts in utt. 2: [INFORM(genre=action, year=2024)]
+
+        The single intent transition matrix will be:
+        GREETING -> INFORM : 1
+        REQUEST -> INFORM : 1
+        The compound intent transition matrix will be:
+        {GREETING, REQUEST} -> INFORM : 1
+
+        Args:
+            annotated_conversations: Annotated conversations.
 
         Returns:
-            Intent distributions:
-                {user of agent intent: {next_user_intent: occurrence}}
-
-        Raises:
-            TypeError: if some utterances are not an instance of
-              AnnotatedUtterance.
+            Transition matrices.
         """
-        # Check if all the utterances are annotated utterances.
-        if not all(
-            isinstance(utterance, AnnotatedUtterance)
-            for dialogue in annotated_conversations
-            for utterance in dialogue.utterances
-        ):
-            raise TypeError(
-                "Some utterances are not an instance of 'AnnotatedUtterance'."
-            )
+        transition_matrix_single = pd.DataFrame()
+        transition_matrix_compound = pd.DataFrame()
 
-        user_intent_dist: DefaultDict[
-            Intent, DefaultDict[Intent, Any]
-        ] = defaultdict(functools.partial(defaultdict, int))
-        intent_dist: DefaultDict[
-            Intent, DefaultDict[Intent, Any]
-        ] = defaultdict(functools.partial(defaultdict, int))
-        for annotated_conversation in annotated_conversations:
-            # Extracts conjoint user intent pairs from conversations.
-            user_agenda = [
-                u.intent
-                for u in annotated_conversation.utterances
-                if u.participant == DialogueParticipant.USER.name
-            ]
-            for i, user_intent in enumerate(user_agenda):
-                next_user_intent = (
-                    user_agenda[i + 1]
-                    if i < len(user_agenda) - 1
-                    else self.INTENT_STOP  # type: ignore[attr-defined]
-                )
-                user_intent_dist[user_intent][next_user_intent] += 1
+        # TODO: Implement transition matrices creation
+        # See: https://github.com/iai-group/UserSimCRS/issues/173
+        return transition_matrix_single, transition_matrix_compound
 
-            # Extracts conjoint agent intent and user intent pairs
-            # from conversations.
-            for j, utterance in enumerate(annotated_conversation.utterances):
-                # Only consider agent intent as keys
-                if utterance.participant != DialogueParticipant.AGENT.name:
-                    continue
-                intent = utterance.intent
-                # TODO: consider the case when the next intent is not
-                # user intent.
-                next_user_intent = (
-                    annotated_conversation.utterances[j + 1].intent
-                    if j < len(annotated_conversation.utterances) - 1
-                    else self.INTENT_START  # type: ignore[attr-defined]
-                )
-                intent_dist[intent][next_user_intent] += 1
-        return user_intent_dist, intent_dist
-
-    def initialize_agenda(self) -> List:
+    def initialize_agenda(self, information_need: InformationNeed):
         """Initializes user agenda.
 
-        Step1: Load all the dialogues with intents and generate a map:
-                intent_map = {
-                    current_intent:
-                        {next_intent1: n_1,
-                         next_intent_2: n_2}
-                }
-        Note: CIR6 only based on user intents while qrfa uses both
-            user and agent intents
-
-        Step2: populate the agenda.
-            starting_intent = "None_disclose"
-            self.agenda.append(starting_intent)
-            next_intent = self.next_intent(starting_intent)
-            agenda.append(next_intent)
-            while next_intent != "stop":
-                self..append(next_intent)
-                next_intent = self.next_intent(next_intent)
-            agenda.append(next_intent)
-
-        Step3: filter the agenda, e.g. too short or too long agenda will
-            trigger this function rerun
+        Args:
+            information_need: Information need.
         """
-        current_intent = self.INTENT_START  # type: ignore[attr-defined]
-        agenda = list()
-        agenda.append(current_intent)
-        next_intent = self.next_intent(
-            current_intent, self._user_intent_distribution
+        self.agenda = Agenda(
+            information_need,
+            self.INTENT_DISCLOSE,  # type: ignore[attr-defined]
+            self.INTENT_INQUIRE,  # type: ignore[attr-defined]
+            self.INTENT_STOP,  # type: ignore[attr-defined]
+            self.INTENT_START,  # type: ignore[attr-defined]
         )
-        while next_intent != self.INTENT_STOP:  # type: ignore[attr-defined]
-            current_intent = next_intent
-            agenda.append(current_intent)
-            next_intent = self.next_intent(
-                current_intent, self._user_intent_distribution
-            )
-        agenda.reverse()
-        self._agenda = agenda
-        return agenda
-
-    def _initialize_preference_intent_config(self):
-        sub_to_main_intent = dict()
-        self._config["user_preference_intents"] = dict()
-        for intent_label, properties in self._config["user_intents"].items():
-            if "preference_contingent" in properties:
-                if (
-                    not self._get_main_intent_from_sub_intent_label(
-                        intent_label
-                    )
-                    in self._config["user_preference_intents"]
-                ):
-                    self._config["user_preference_intents"][
-                        self._get_main_intent_from_sub_intent_label(
-                            intent_label
-                        )
-                    ] = {}
-                self._config["user_preference_intents"][
-                    self._get_main_intent_from_sub_intent_label(intent_label)
-                ][properties["preference_contingent"]] = intent_label
-                sub_to_main_intent[
-                    intent_label
-                ] = self._get_main_intent_from_sub_intent_label(intent_label)
-        self._config["user_preference_intents_reverse"] = sub_to_main_intent
-
-    @staticmethod
-    def _get_main_intent_from_sub_intent_label(sub_intent: str) -> str:
-        return sub_intent.split(".")[0]
-
-    @property
-    def agenda(self):
-        return self._agenda
-
-    @property
-    def current_intent(self) -> Intent:
-        return self._current_intent
 
     def is_agent_intent_elicit(self, agent_intent: Intent) -> bool:
         """Checks if the given agent intent is elicitation.
@@ -243,93 +165,331 @@ class InteractionModel:
         """
         return agent_intent.label in self._config["agent_set_retrieval"]
 
-    def next_intent(
-        self, intent: Intent, intent_dist: IntentDistribution
-    ) -> Intent:
-        """Predicts the next user intent.
-
-        Given current_intent, we determine the next intent
-            (either next_intent1 or next_intent2) by probabilities.
+    def is_agent_intent_inquire(self, agent_intent: Intent) -> bool:
+        """Checks if the given agent intent is inquiry.
 
         Args:
-            Intent: current intent.
-            Intent_dist: intent distributions.
+            agent_intent: Agent's intent.
 
         Returns:
-            Next user intent based on probability distribution.
+            True if it is an inquiry intent.
         """
-        # Get the distribution of next intent for the current user intent.
-        intent_map = intent_dist.get(intent)
-        assert isinstance(intent_map, dict)
+        return agent_intent.label in self._config["agent_inquire_intents"]
 
-        # Randomly generates a probability from 0~1.
-        p_random = random.uniform(0, 1)
+    def _is_transition_allowed(
+        self, agent_dialogue_acts: List[DialogueAct]
+    ) -> bool:
+        """Checks if the transition to the next dialogue act is allowed.
 
-        # Get the sum of the next intent occurrences.
-        next_intent_occurrences_sum = sum(intent_map.values())
-
-        # Get normalized next intent distribution occurrences and next intent
-        # list.
-        d, next_intents = [], []
-        for next_intent, next_intent_occurrence in intent_map.items():
-            d.append(next_intent_occurrence / next_intent_occurrences_sum)
-            next_intents.append(next_intent)
-        return self._sample_random_intent(p_random, d, next_intents)
-
-    @staticmethod
-    def _sample_random_intent(
-        p: float, d: List[float], items: List[Intent]
-    ) -> Intent:
-        """Determines the next item based on a randomly generated probability.
+        As utterances can have multiple dialogue acts, we consider that if one
+        transition out of all possible transitions is allowed, then the
+        transition is allowed.
 
         Args:
-            p: a randomly generated uniform probability.
-            d: list of probabilities of items.
-            items: items to be sampled from.
+            agent_dialogue_acts: Agent's dialogue acts.
 
-        Return:
-            The sampled item.
+        Returns:
+            True if the transition is allowed.
         """
-        p_start = 0.0
-        for i, p_item in enumerate(d):
-            p_start += p_item
-            if p < p_start:
-                return items[i]
-        return items[-1]
-
-    def update_agenda(self, agent_intent: Intent) -> None:
-        """Updates the agenda and determines the next user intent based on agent
-        intent.
-
-        If agent replies with an expected intent in response to the last user
-        intent (based on the expected_responses mapping in the config file),
-        then
-            pops up the next user intent from the agenda;
-            update the current intent;
-        Otherwise:
-            pushes a new intent (select a replacement intent);
-            updates the current intent.
-
-        Args:
-            Agent_intent: Agent's intent.
-        """
-        expected_agent_intents = (
-            self._config["user_intents"]
-            .get(self._current_intent.label)
-            .get("expected_agent_intents")
-        ) or []
-
-        logger.debug(f"Agent intent: {agent_intent}\n")
-
-        if not self._agenda:
-            self._current_intent = self.INTENT_STOP  # type: ignore[attr-defined] # noqa
-            return
-
-        # If agent replies in an expected intent, then pop the next intent from
-        # agenda.
-        if agent_intent.label in expected_agent_intents:
-            self._current_intent = self._agenda.pop()
-        else:  # Find a replacement based on last agent intent
-            self._current_intent = self.next_intent(
-                agent_intent, self._intent_distribution
+        expected_agent_intents = []
+        for user_dialogue_act in self._current_dialogue_acts:
+            expected_agent_intents.extend(
+                self._config["user_intents"]
+                .get(user_dialogue_act.intent.label, {})
+                .get("expected_agent_intents", [])
             )
+
+        return any(
+            agent_dialogue_act.intent.label in expected_agent_intents
+            for agent_dialogue_act in agent_dialogue_acts
+        )
+
+    def get_next_dialogue_acts(self, n: int = 1) -> List[DialogueAct]:
+        """Returns the next n dialogue acts from the stack.
+
+        Args:
+            n: Number of dialogue acts to return. Defaults to 1.
+
+        Returns:
+            List of dialogue acts.
+        """
+        dialogue_acts = self.agenda.get_next_dialogue_acts(n)
+        self._current_dialogue_acts = dialogue_acts
+
+        return dialogue_acts
+
+    def update_agenda(
+        self,
+        information_need: InformationNeed,
+        preference_model: PreferenceModel,
+        item_collection: ItemCollection,
+    ) -> None:
+        """Updates the agenda based on the last agent dialogue acts and state.
+
+        Each agent dialogue act results in a push operation on the stack. We
+        consider four cases: the agent elicits, recommends, inquires, or
+        neither. Once the push operations are done, we clean the stack.
+
+        Args:
+            information_need: Information need.
+        """
+        current_state = self.dialogue_state_tracker.get_current_state()
+        agent_dialogue_acts = current_state.agent_dialogue_acts[-1]
+        user_dialogue_acts = []
+        for dialogue_act in agent_dialogue_acts:
+            if self.is_agent_intent_elicit(dialogue_act.intent):
+                # The agent is eliciting information from the user.
+                user_dialogue_acts = (
+                    self._generate_elicit_response_dialogue_acts(
+                        dialogue_act, information_need, preference_model
+                    )
+                )
+            elif self.is_agent_intent_set_retrieval(dialogue_act.intent):
+                # The agent is recommending an item.
+                user_dialogue_acts = (
+                    self._generate_item_preference_response_dialogue_acts(
+                        dialogue_act, preference_model, item_collection
+                    )
+                )
+            elif self.is_agent_intent_inquire(dialogue_act.intent):
+                # The agent is inquiring if the user wants to know more about
+                # a particular item. The user either inquire a requestable slot
+                # or a random slot.
+                user_dialogue_acts = (
+                    self._generate_inquire_response_dialogue_acts(
+                        dialogue_act, information_need
+                    )
+                )
+
+        if not user_dialogue_acts and not self._is_transition_allowed(
+            agent_dialogue_acts
+        ):
+            # The agent is neither eliciting, inquiring, nor recommending.
+            # The next dialogue act in the stack is not allowed by the
+            # interaction model, so a new dialogue act is generated based on
+            # probability distribution.
+            user_dialogue_acts = self._sample_next_user_dialogue_acts(
+                information_need, agent_dialogue_acts
+            )
+
+        self.agenda.push_dialogue_acts(user_dialogue_acts)
+        self.agenda.clean_agenda(information_need)
+
+    def _get_preference_intent(
+        self, preference: float, preference_model: PreferenceModel
+    ) -> Intent:
+        """Returns the preference intent based on the preference value.
+
+        Args:
+            preference: Preference value.
+
+        Returns:
+            Intent.
+        """
+        if preference > preference_model.PREFERENCE_THRESHOLD:
+            return self.INTENT_LIKE  # type: ignore[attr-defined]
+
+        if preference < -preference_model.PREFERENCE_THRESHOLD:
+            return self.INTENT_DISLIKE  # type: ignore[attr-defined]
+
+        return self.INTENT_NEUTRAL  # type: ignore[attr-defined]
+
+    def _generate_elicit_response_dialogue_acts(
+        self,
+        agent_dialogue_act: DialogueAct,
+        information_need: InformationNeed,
+        preference_model: PreferenceModel,
+    ) -> List[DialogueAct]:
+        """Generates dialogue acts for eliciting preferences.
+
+        Args:
+            agent_dialogue_act: Agent's dialogue act.
+            information_need: Information need.
+            preference_model: Preference model.
+
+        Returns:
+            List of dialogue acts.
+        """
+        user_dialogue_acts = []
+        elicited_slot_values = [
+            (a.slot, a.value) for a in agent_dialogue_act.annotations if a.slot
+        ]
+        # Considering a compliant user, we assume that all the slots are filled.
+        # TODO: Include user model to vary the user's compliance.
+        for elicited_slot, elicited_value in elicited_slot_values:
+            # During training of the slot annotator, a slot's name and value
+            # can be the almost the same, e.g., (GENRE, genres). In that case,
+            # value does not represent an entity.
+            # TODO: Revise annotator to avoid this behavior.
+            # See: https://github.com/iai-group/DialogueKit/issues/234
+            elicited_value = (
+                None
+                if elicited_value
+                and _LEMMATIZER.lemmatize(elicited_value).lower()
+                == _LEMMATIZER.lemmatize(elicited_slot).lower()
+                else elicited_value
+            )
+
+            # Agent is asking about a particular slot-value pair, e.g.,
+            # "Do you like action movies?"
+            if elicited_value:
+                preference = preference_model.get_slot_value_preference(
+                    elicited_slot, elicited_value
+                )
+                user_dialogue_acts.append(
+                    DialogueAct(
+                        self._get_preference_intent(
+                            preference, preference_model
+                        ),
+                        [SlotValueAnnotation(elicited_slot, elicited_value)],
+                    )
+                )
+            else:
+                # Agent is asking about value preferences on a given slot, e.g.,
+                # "What movie genre would you prefer?" The value is taken either
+                # from the information need or the preference model.
+                value = None
+                if elicited_slot in information_need.constraints:
+                    value = information_need.get_constraint_value(elicited_slot)
+                else:
+                    value, _ = preference_model.get_slot_preference(
+                        elicited_slot
+                    )
+
+                if value:
+                    if isinstance(value, list):
+                        annotations = [
+                            SlotValueAnnotation(elicited_slot, v) for v in value
+                        ]
+                    else:
+                        annotations = [
+                            SlotValueAnnotation(elicited_slot, value)
+                        ]
+                    user_dialogue_acts.append(
+                        DialogueAct(
+                            self.INTENT_DISCLOSE,  # type: ignore[attr-defined]
+                            annotations,
+                        )
+                    )
+                else:
+                    user_dialogue_acts.append(DialogueAct(self.INTENT_DONT_KNOW))  # type: ignore[attr-defined] # noqa
+
+        return user_dialogue_acts
+
+    def _generate_item_preference_response_dialogue_acts(
+        self,
+        agent_dialogue_act: DialogueAct,
+        preference_model: PreferenceModel,
+        item_collection: ItemCollection,
+    ) -> List[DialogueAct]:
+        """Generates dialogue acts for item preference response.
+
+        Args:
+            agent_dialogue_act: Agent's dialogue act.
+            preference_model: Preference model.
+            item_collection: Item collection.
+
+        Returns:
+            List of dialogue acts.
+        """
+        user_dialogue_acts = []
+        possible_items = item_collection.get_items_by_properties(
+            agent_dialogue_act.annotations
+        )
+        if not possible_items:
+            # The recommended item was not found in the item collection.
+            return [DialogueAct(self.INTENT_DONT_KNOW)]  # type: ignore[attr-defined] # noqa
+
+        # Considering a compliant user, we assume that a feedback is given for
+        # all recommendations.
+        # TODO: Include user model to vary the user's compliance.
+        for item in possible_items:
+            # Check if the user has already consumed the item.
+            if preference_model.is_item_consumed(item.id):
+                # Currently, the user only responds by saying that they
+                # already consumed the item. If there is a follow-up
+                # question by the agent whether they've liked it, that
+                # should end up in the other branch of the fork.
+                user_dialogue_acts.append(
+                    DialogueAct(self.INTENT_ITEM_CONSUMED)  # type: ignore[attr-defined] # noqa
+                )
+
+            # Get a response based on the recommendation. Currently, the
+            # user responds immediately with a like/dislike, but it
+            # could ask questions about the item before deciding. This may be
+            # based on a user model.
+            preference = preference_model.get_item_preference(item.id)
+            user_dialogue_acts.append(
+                DialogueAct(
+                    self._get_preference_intent(preference, preference_model),
+                )
+            )
+
+        return user_dialogue_acts
+
+    def _generate_inquire_response_dialogue_acts(
+        self,
+        agent_dialogue_act: DialogueAct,
+        information_need: InformationNeed,
+    ) -> List[DialogueAct]:
+        """Generates dialogue acts for inquiry response.
+
+        Args:
+            agent_dialogue_act: Agent's dialogue act.
+            information_need: Information need.
+
+        Returns:
+            List of dialogue acts.
+        """
+        user_dialogue_acts = []
+        if agent_dialogue_act.annotations:
+            # The agent inquires about a particular slot.
+            for slot_value_annotation in agent_dialogue_act.annotations:
+                slot = slot_value_annotation.slot
+                if slot_value_annotation.value is None:
+                    if slot in information_need.get_requestable_slots():
+                        user_dialogue_acts.append(
+                            DialogueAct(
+                                self.INTENT_YES, [SlotValueAnnotation(slot)]  # type: ignore[attr-defined] # noqa
+                            )
+                        )
+                    else:
+                        user_dialogue_acts.append(
+                            DialogueAct(
+                                self.INTENT_NO, [SlotValueAnnotation(slot)]  # type: ignore[attr-defined] # noqa
+                            ),
+                        )
+
+        if len(user_dialogue_acts) == 0:
+            # The agent does not inquire about a particular slot. The user
+            # chooses one from the requestable slots or a random slot.
+            requestable_slots = information_need.get_requestable_slots()
+            if requestable_slots:
+                slot = random.choice(requestable_slots)
+            else:
+                slot = random.choice(self._domain.get_requestable_slots())
+            user_dialogue_acts.append(
+                DialogueAct(self.INQUIRE, [SlotValueAnnotation(slot)])  # type: ignore[attr-defined] # noqa
+            )
+
+        return user_dialogue_acts
+
+    def _sample_next_user_dialogue_acts(
+        self,
+        information_need: InformationNeed,
+        agent_dialogue_acts: List[DialogueAct],
+    ):
+        """Samples next user dialogue acts based on a probability distribution.
+
+        Args:
+            information_need: Information need.
+            agent_dialogue_acts: Agent's dialogue acts.
+
+        Returns:
+            List of dialogue acts.
+        """
+        # Check if the agent's dialogue acts are in the compound transition
+        # matrix. If not, we consider the single transition matrix.
+
+        # TODO: Implement this method
+        pass
