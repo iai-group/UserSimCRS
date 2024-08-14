@@ -15,13 +15,13 @@ from collections import defaultdict
 from typing import Any, DefaultDict, Dict, List
 
 import torch
-from dialoguekit.core.annotated_utterance import AnnotatedUtterance
-from dialoguekit.core.annotation import Annotation
+
 from dialoguekit.core.dialogue_act import DialogueAct
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.core.utterance import Utterance
+from dialoguekit.nlg.nlg_conditional import ConditionalNLG
 from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant import DialogueParticipant
-
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
@@ -52,6 +52,7 @@ class TUS(UserSimulator):
         feature_handler: TUSFeatureHandler,
         dialogue_state_tracker: DialogueStateTracker,
         network_config: Dict[str, Any],
+        nlg: ConditionalNLG,
     ) -> None:
         """Initializes the Transformer-based User Simulator (TUS).
 
@@ -63,10 +64,12 @@ class TUS(UserSimulator):
             feature_handler: Feature handler.
             dialogue_state_tracker: Dialogue state tracker.
             network_config: Network configuration.
+            nlg: NLG module generating textual responses.
         """
         super().__init__(id=id, domain=domain, item_collection=item_collection)
         self._nlu = nlu
-        self._feature_handler = feature_handler
+        self._nlg = nlg
+        self._tus_feature_handler = feature_handler
         self._user_policy_network = TransformerEncoderModel(**network_config)
         self._dialogue_state_tracker = dialogue_state_tracker
         self._last_user_actions: DefaultDict[str, torch.Tensor] = defaultdict(
@@ -90,21 +93,18 @@ class TUS(UserSimulator):
             User utterance.
         """
         previous_state = self._dialogue_state_tracker.get_current_state()
-        # 1. Perform NLU on the agent utterance, i.e., extract dialogue acts or
-        # intent and annotations.
-        annotated_agent_utterance = self._annotate_agent_utterance(
-            agent_utterance
-        )
+        # 1. Perform NLU on the agent utterance, i.e., extract dialogue acts.
+        agent_dialogue_acts = self._nlu.extract_dialogue_acts(agent_utterance)
 
-        # 2. Update dialogue state based on the agent utterance.
+        # 2. Update dialogue state based on the agent dialogue acts.
         self._dialogue_state_tracker.update_state(
-            dialogue_acts=annotated_agent_utterance.dialogue_acts,
+            dialogue_acts=agent_dialogue_acts,
             participant=DialogueParticipant.AGENT,
         )
 
         # 3. Extract features for the current turn.
-        turn_feature, mask = self._feature_handler.build_input_vector(
-            agent_dialogue_acts=annotated_agent_utterance.dialogue_acts,
+        turn_feature, mask = self._tus_feature_handler.build_input_vector(
+            agent_dialogue_acts=agent_dialogue_acts,
             previous_state=previous_state,
             state=self._dialogue_state_tracker.get_current_state(),
             information_need=self.information_need,
@@ -113,53 +113,20 @@ class TUS(UserSimulator):
 
         # 5. Predict user dialogue acts based on the features.
         user_dialogue_acts = self.predict_user_dialogue_acts(
-            turn_feature, mask, self._feature_handler.action_slots
+            turn_feature, mask, self._tus_feature_handler.action_slots
         )
 
-        # 6. Generate user utterance based on the predicted actions.
-        # For now, we only consider the first predicted dialogue act due to
-        # constraints related to supported NLG in DialogueKit.
-        response_intent = user_dialogue_acts[0].intent
-        response_annotations = user_dialogue_acts[0].annotations
-        response = self._nlg.generate_utterance_text(
-            intent=response_intent, annotations=response_annotations
-        )
+        # 6. Generate user utterance based on the predicted dialogue acts.
+        response = self._nlg.generate_utterance_text(user_dialogue_acts)
         response.participant = DialogueParticipant.USER
 
-        # 7. Update dialogue state based on the user utterance.
+        # 7. Update dialogue state based on the user dialogue acts.
         self._dialogue_state_tracker.update_state(
-            dialogue_acts=user_dialogue_acts,
+            dialogue_acts=response.dialogue_acts,
             participant=DialogueParticipant.USER,
         )
 
         return response
-
-    def _annotate_agent_utterance(
-        self, agent_utterance: Utterance
-    ) -> AnnotatedUtterance:
-        """Annotates the agent utterance.
-
-        As of now, DialogueKit does not support NLU that can annotate dialogue
-        acts. So, only one dialogue act is created with the intent and
-        annotations extracted from the agent utterance.
-
-        Args:
-            agent_utterance: Agent utterance.
-
-        Returns:
-            Annotated utterance.
-        """
-        agent_intent = self._nlu.classify_intent(agent_utterance)
-        agent_annotations = self._nlu.annotate_slot_values(agent_utterance)
-        dialogue_acts = [
-            DialogueAct(intent=agent_intent, annotations=agent_annotations)
-        ]
-        utt = AnnotatedUtterance(
-            text=agent_utterance.text,
-            participant=DialogueParticipant.AGENT,
-            dialogue_acts=dialogue_acts,
-        )
-        return utt
 
     def predict_user_dialogue_acts(
         self,
@@ -180,7 +147,7 @@ class TUS(UserSimulator):
         output = self._user_policy_network(features, mask)
         # fmt: off
         output = output[
-            :, 1 : self._feature_handler.max_turn_feature_length + 1, :  # noqa: E203, E501
+            :, 1 : self._tus_feature_handler.max_turn_feature_length + 1, :  # noqa: E203, E501
         ]
         # fmt: on
 
@@ -227,15 +194,17 @@ class TUS(UserSimulator):
             if o == 1:
                 # The slot's value is requested by the user
                 dialogue_act.intent = "request"
-                dialogue_act.annotations.append(Annotation(slot))
+                dialogue_act.annotations.append(SlotValueAnnotation(slot))
             elif o == 2:
                 # The slot's value is set to "dontcare"
-                dialogue_act.annotations.append(Annotation(slot, "dontcare"))
+                dialogue_act.annotations.append(
+                    SlotValueAnnotation(slot, "dontcare")
+                )
             elif o == 3:
                 # The slot's value is taken from the information need
                 if slot in self.information_need.constraints.keys():
                     dialogue_act.annotations.append(
-                        Annotation(
+                        SlotValueAnnotation(
                             slot, self.information_need.constraints[slot]
                         )
                     )
@@ -244,7 +213,7 @@ class TUS(UserSimulator):
                 # from the belief state
                 if slot in belief_state.keys():
                     dialogue_act.annotations.append(
-                        Annotation(slot, belief_state[slot])
+                        SlotValueAnnotation(slot, belief_state[slot])
                     )
             elif o == 5:
                 # The slot's value in the information need is randomly modified
@@ -254,7 +223,9 @@ class TUS(UserSimulator):
                     )
                 )
                 self.information_need.constraints[slot] = value
-                dialogue_act.annotations.append(Annotation(slot, value))
+                dialogue_act.annotations.append(
+                    SlotValueAnnotation(slot, value)
+                )
             else:
                 logger.warning(f"{slot} is not mentioned in this turn.")
                 continue
