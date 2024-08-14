@@ -1,6 +1,6 @@
 [
     {
-        "conversation ID": "\"39GHHAVOMGCMCWD43ZNZ2ARD9RF4JH\"",
+        "conversation_id": "\"39GHHAVOMGCMCWD43ZNZ2ARD9RF4JH\"",
         "conversation": [
             {
                 "participant": "AGENT",
@@ -199,10 +199,18 @@
                 "utterance": "You are exiting. I hope you found a movie. Bye.\",\n",
                 "intent": "END"
             }
-        ]
+        ],
+        "agent": {
+            "id": "IAI MovieBot",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "\"3WOKGM4L721JEJM00BS2Y3IMR910O8\"",
+        "conversation_id": "\"3WOKGM4L721JEJM00BS2Y3IMR910O8\"",
         "conversation": [
             {
                 "participant": "AGENT",
@@ -649,10 +657,18 @@
                 "utterance": "Hope to see you soon. Bye.\n",
                 "intent": "END"
             }
-        ]
+        ],
+        "agent": {
+            "id": "IAI MovieBot",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "\"3IXEICO7934U5MDNYHUI1EY03KLT65\"",
+        "conversation_id": "\"3IXEICO7934U5MDNYHUI1EY03KLT65\"",
         "conversation": [
             {
                 "participant": "AGENT",
@@ -849,10 +865,18 @@
                 "utterance": "Hope to see you soon. Bye.\n",
                 "intent": "END"
             }
-        ]
+        ],
+        "agent": {
+            "id": "IAI MovieBot",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "\"39GHHAVOMGCMCWD43ZNZ2ARD9RF4LW\"",
+        "conversation_id": "\"39GHHAVOMGCMCWD43ZNZ2ARD9RF4LW\"",
         "conversation": [
             {
                 "participant": "AGENT",
@@ -979,10 +1003,18 @@
                 "utterance": "Hope to see you soon. Bye.\n",
                 "intent": "END"
             }
-        ]
+        ],
+        "agent": {
+            "id": "IAI MovieBot",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "1654598414",
+        "conversation_id": "1654598414",
         "conversation": [
             {
                 "participant": "AGENT",
@@ -1215,10 +1247,18 @@
                 "utterance": "Hope to see you soon. Bye.",
                 "intent": "END"
             }
-        ]
+        ],
+        "agent": {
+            "id": "IAI MovieBot",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "1654596876",
+        "conversation_id": "1654596876",
         "conversation": [
             {
                 "participant": "AGENT",
@@ -1355,10 +1395,18 @@
                 "utterance": "Hope to see you soon. Bye.",
                 "intent": "END"
             }
-        ]
+        ],
+        "agent": {
+            "id": "IAI MovieBot",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "1654596772",
+        "conversation_id": "1654596772",
         "conversation": [
             {
                 "participant": "AGENT",
@@ -1503,10 +1551,18 @@
                 "utterance": "Hope to see you soon. Bye.",
                 "intent": "END"
             }
-        ]
+        ],
+        "agent": {
+            "id": "IAI MovieBot",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     },
     {
-        "conversation ID": "1654596993",
+        "conversation_id": "1654596993",
         "conversation": [
             {
                 "participant": "AGENT",
@@ -1735,6 +1791,14 @@
                 "utterance": "I hope you had a good experience. Bye.",
                 "intent": "END"
             }
-        ]
+        ],
+        "agent": {
+            "id": "IAI MovieBot",
+            "type": "AGENT"
+        },
+        "user": {
+            "id": "User",
+            "type": "USER"
+        }
     }
 ]

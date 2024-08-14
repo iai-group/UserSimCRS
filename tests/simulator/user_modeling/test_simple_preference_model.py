@@ -1,38 +1,24 @@
 """Tests for SimplePreferenceModel."""
 
-import pytest
-from dialoguekit.core.domain import Domain
+import os
 
+import pytest
+
+from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
 )
 
-DOMAIN_YAML_FILE = "tests/data/domains/movies.yaml"
-DOMAIN_MAPPING = {
-    "title": {"slot": "TITLE"},
-    "genres": {
-        "slot": "GENRE",
-        "multi-valued": True,
-        "delimiter": "|",
-    },
-}
-ITEMS_CSV_FILE = "tests/data/items/movies.csv"
 RATINGS_CSV_FILE = "tests/data/items/ratings.csv"
 
 
 @pytest.fixture
-def preference_model() -> SimplePreferenceModel:
+def preference_model(
+    domain: SimulationDomain, item_collection: ItemCollection
+) -> SimplePreferenceModel:
     """Preference model fixture."""
-    domain = Domain(DOMAIN_YAML_FILE)
-    item_collection = ItemCollection()
-    item_collection.load_items_csv(
-        ITEMS_CSV_FILE,
-        id_col="movieId",
-        domain=domain,
-        domain_mapping=DOMAIN_MAPPING,
-    )
     ratings = Ratings()
     ratings.load_ratings_csv(RATINGS_CSV_FILE)
     return SimplePreferenceModel(
@@ -59,7 +45,7 @@ def test_get_item_preference_nonexisting_item(
     preference_model: SimplePreferenceModel,
 ) -> None:
     with pytest.raises(ValueError):
-        preference_model.get_item_preference("1020")
+        preference_model.get_item_preference("23043")
 
 
 def test_get_slot_value_preference(
@@ -94,3 +80,36 @@ def test_get_slot_preference_nonexisting_slot(
 ) -> None:
     with pytest.raises(ValueError):
         preference_model.get_slot_preference("YEAR")
+
+
+def test_load_preferences_error(
+    preference_model: SimplePreferenceModel,
+) -> None:
+    with pytest.raises(FileNotFoundError):
+        preference_model.load_preference_model("path")
+
+
+def test_save_preference_model(
+    preference_model: SimplePreferenceModel,
+) -> None:
+    preference_model._slot_value_preferences.set_preference(
+        "GENRE", "Action", 1
+    )
+    preference_model._item_preferences.set_preference("ID", "527", -1)
+    preference_model.save_preference_model("tests/data/preference_model.joblib")
+
+    loaded_model = SimplePreferenceModel.load_preference_model(
+        "tests/data/preference_model.joblib"
+    )
+
+    assert loaded_model._user_id == preference_model._user_id
+    assert (
+        loaded_model._item_preferences._preferences
+        == preference_model._item_preferences._preferences
+    )
+    assert (
+        loaded_model._slot_value_preferences._preferences
+        == preference_model._slot_value_preferences._preferences
+    )
+
+    os.remove("tests/data/preference_model.joblib")
