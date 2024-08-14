@@ -3,7 +3,7 @@
 from typing import Any, Dict, List
 
 import pytest
-from dialoguekit.core.annotation import Annotation
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 
 from usersimcrs.items.item_collection import ItemCollection
 
@@ -67,16 +67,19 @@ def test_get_possible_property_values(
     "annotations, expected_num_matching_items",
     [
         ([], 0),
-        ([Annotation("GENRE", "Adventure")], 1507),
+        ([SlotValueAnnotation("GENRE", "Adventure")], 1507),
         (
-            [Annotation("GENRE", "Adventure"), Annotation("GENRE", "Comedy")],
+            [
+                SlotValueAnnotation("GENRE", "Adventure"),
+                SlotValueAnnotation("GENRE", "Comedy"),
+            ],
             464,
         ),
     ],
 )
 def test_get_items_by_properties(
     item_collection: ItemCollection,
-    annotations: List[Annotation],
+    annotations: List[SlotValueAnnotation],
     expected_num_matching_items: int,
 ) -> None:
     """Tests getting items by properties."""
