@@ -11,6 +11,7 @@ confuse
 websockets<11.0
 nltk
 joblib
+torch
 openai
 ollama
 pandas==2.2.2
