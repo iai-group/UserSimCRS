@@ -71,7 +71,7 @@ def item_collection(domain: SimulationDomain):
 @pytest.fixture(scope="module")
 def feature_handler(domain: SimulationDomain) -> TUSFeatureHandler:
     """Returns the feature handler."""
-    _feature_handler = TUSFeatureHandler(
+    tus_feature_handler = TUSFeatureHandler(
         domain=domain,
         max_turn_feature_length=40,
         context_depth=2,
@@ -79,11 +79,11 @@ def feature_handler(domain: SimulationDomain) -> TUSFeatureHandler:
         agent_actions=["elicit", "recommend", "bye"],
     )
 
-    assert _feature_handler._user_actions == ["inform", "request"]
-    assert _feature_handler._agent_actions == [
+    assert tus_feature_handler._user_actions == ["inform", "request"]
+    assert tus_feature_handler._agent_actions == [
         "elicit",
         "recommend",
         "bye",
     ]
 
-    return _feature_handler
+    return tus_feature_handler

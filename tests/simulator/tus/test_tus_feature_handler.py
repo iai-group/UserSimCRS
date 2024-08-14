@@ -17,7 +17,7 @@ from usersimcrs.simulator.neural.tus.tus_feature_handler import (
 )
 
 
-def test__create_slot_index(feature_handler: TUSFeatureHandler) -> None:
+def test_create_slot_index(feature_handler: TUSFeatureHandler) -> None:
     """Tests the creation of the slot index."""
     assert all(
         slot in feature_handler.slot_index.keys()
