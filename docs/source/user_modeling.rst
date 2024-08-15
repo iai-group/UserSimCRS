@@ -4,7 +4,7 @@ User modeling
 Preference model
 ----------------
 
-Preference modeling refers to modeling users' individual tastes and allows for a personalized experience. We model preferences as a Personal Knowledge Graph (PGK), where nodes can be either items or attributes. The preference model assumes a temporal ordering of the preference data and is built such that it remains consistent across simulations and assumes a temporal ordering.
+Preference modeling refers to modeling users' individual tastes and allows for a personalized experience. We model preferences as a Personal Knowledge Graph (PKG), where nodes can be either items or attributes. The preference model assumes a temporal ordering of the preference data and is built such that it remains consistent across simulations and assumes a temporal ordering.
 
 Context model
 -------------
