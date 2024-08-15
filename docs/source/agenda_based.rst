@@ -1,28 +1,48 @@
 Agenda-based simulator
 ======================
 
-In the agenda-based simulator, the dialogues are simulated by following the principle of Markov Decision Processes. That is, dialogues are seen as sequences of state transitions enabled by intents (or dialogue actions) and states are only dependent on the previous state. 
-However, as the agenda-based simulator depends on past observations (i.e., annotated dialogues), it is technically described by a *partially observable markov decision process* (POMDP).
+The agenda-based simulator is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions. At each turn, it determines the next action to execute based on the current state of this agenda. The simulated user's decision-making is modeled as a Markov Decision Process.
 
-Specifically, the simulator's next action is decided by the agent response.
-If the agent responds expectedly, the next action is the top action in the agenda, otherwise the simulator estimates the next action based on the agent intent distribution.
+Specifically, the simulator's next action is determined by the agent response. 
+If the agent responds expectedly, the next user action is pulled from the top of the agenda; otherwise, the simulator samples the next user action based on transition probabilities from responses in historical dialogues.
 
 Agenda initialization
 ---------------------
 
-Before the initialization of the agenda, the simulator needs to know the distribution of intents in the annotated dialogues.
-An intent distribution for each participant (i.e., user and agent) is created.
-The user intent distribution considers successive user intent pairs, i.e., the intent of the first user utterance and the one from the next user utterance.
-The agent intent distribution considers successive agent and user intent pairs, i.e., the intent of the first agent utterance and the intent of the next user utterance.
+The agenda (:py:class:`usersimcrs.simulator.agenda_based.agenda.Agenda`) is initialized based on the :doc:`information need <information_need>` of the simulated user. Specifically, the agenda is initialized with the following steps:
 
-The agenda is initialized by the following steps:
+1. (optional) Add the start intent
+2. Add dialogue acts with the *INFORM* intent for each constraint in the information need
+3. Add dialogue acts with the *REQUEST* intent for each request in the information need
+4. Add the stop intent
 
-* Add start intent
-* Add next intent based on **user intent distribution** until the next intent is the stopping intent
+Example
+^^^^^^^
+
+For example, the following information need:
+
+.. code-block:: json
+    
+    {
+        "constraints": {
+            "genre": "comedy"
+        },
+        "requests": ["plot"],
+        "target_items": ["Jump Street", "The Hangover"]
+    }
+
+will result in the following agenda:
+
+.. code-block:: json
+
+    [
+        START_INTENT(),
+        INFORM("genre", "comedy"),
+        REQUEST("plot"),
+        STOP_INTENT()
+    ]
 
 Agenda update
 -------------
 
-The agenda is updated at each user utterance if the agent's intent is expected. In that case, the intent at the top of the agenda is removed.
-For example, the initial agenda is ``[start, intent1, intent2, stop]``, after consuming ``start`` and ``intent1`` the agent responds as expected to ``intent1`` then the next user intent is ``intent2`` and the agenda is ``[stop]``.
-
+The agenda is updated after each agent utterance by the interaction model. The interaction model determines if new actions should be created or sampled and added to the agenda. For example, if the agent recommends an item, the interaction model may decide to create an action to express a preference regarding the recommended item. More details on the interaction model are provided :doc:`here <interaction_model>`.
