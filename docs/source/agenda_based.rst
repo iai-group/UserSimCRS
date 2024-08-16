@@ -1,7 +1,7 @@
 Agenda-based simulator
 ======================
 
-The agenda-based simulator is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions. At each turn, it determines the next action to execute based on the current state of this agenda. The simulated user's decision-making is modeled as a Markov Decision Process.
+The agenda-based simulator [1]_ is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions. The simulated user's decision-making is modeled as a Markov Decision Process. At each turn, it determines the next action to execute based on the current state of this agenda.
 
 Specifically, the simulator's next action is determined by the agent response. 
 If the agent responds expectedly, the next user action is pulled from the top of the agenda; otherwise, the simulator samples the next user action based on transition probabilities from responses in historical dialogues.
@@ -36,13 +36,17 @@ will result in the following agenda:
 .. code-block:: json
 
     [
-        START_INTENT(),
+        START(),
         INFORM("genre", "comedy"),
         REQUEST("plot"),
-        STOP_INTENT()
+        STOP()
     ]
 
 Agenda update
 -------------
 
-The agenda is updated after each agent utterance by the interaction model. The interaction model determines if new actions should be created or sampled and added to the agenda. For example, if the agent recommends an item, the interaction model may decide to create an action to express a preference regarding the recommended item. More details on the interaction model are provided :doc:`here <interaction_model>`.
+The agenda is updated after each agent utterance by the :doc:`interaction model <interaction_model>`. The interaction model determines if new actions should be created or sampled and added to the agenda. For example, if the agent recommends an item, the interaction model may decide to create an action to express a preference regarding the recommended item.
+
+**Footnotes**
+
+.. [1] Jost Schatzmann and Steve Young. 2009. The Hidden Agenda User Simulation Model. In IEEE transactions on audio, speech, and language processing, 17(4), 733--747.

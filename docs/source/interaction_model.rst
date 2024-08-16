@@ -1,7 +1,7 @@
 Interaction model
 ================= 
 
-The interaction model has two main responsibilities: (1) defining the allowed transitions between dialogue acts based on their intents and (2) updating the agenda based on a predefined dialogue strategy.
+The interaction model is based on (Zhang & Balog, 2020) [1]_ and defines the allowed transitions between dialogue acts based on their intents. In our implementation, the interaction model is also responsible for the updating of the agenda based on a predefined dialogue strategy.
 
 Define allowed transitions
 --------------------------
@@ -14,12 +14,12 @@ Format
 Below, we specify the YAML format that is used for defining an interaction model.
 
 * **required_intents**: List of minimum required intents for the user.
-* **user_intents**:  List of all user intent where each should contain at least **expected_agent_intents**.
+* **user_intents**:  List of all user intents; each should minimally specify **expected_agent_intents**.
 
   - Additionally, if a user intent is dependent on the preference model, this should be indicated via another key, i.e., **preference_contingent**.
   - Similarly, intents that are used to remove preferences should be indicated in another key, **remove_user_preference**.
 
-* **sub_intents**: Intents that are a variation of another intent can be listed as **sub_intents** of the main intent. We separate them with a **"."**, where the former part indicates the main intent, and the latter the sub-intent. For example, REVEAL.EXPAND is a sub-intent of REVEAL (main intent).
+* **sub_intents**: Intents that are a variation of another intent can be listed as **sub_intents** of the same main intent. We separate them with a **"."**, where the former part indicates the main intent, and the latter the sub-intent. For example, REVEAL.EXPAND is a sub-intent of REVEAL (main intent).
 * **agent_elicit_intents**: List of intents that the agent can use to elicit preferences/need from the user. 
 * **agent_set_retrieval**: List of intents that the agent can use to reveal information to the user.
 * **agent_inquire_intents**: List of intents that the agent can use to ask the user if they want to know more.
@@ -46,8 +46,8 @@ Transition probabilities matrices
 
 The interaction model uses transition probabilities matrices to sample new dialogue acts. These matrices are built from historical dialogues when the model is initialized. The transition probabilities are calculated based on the frequency of transitions between intents in the historical dialogues. We consider two matrices:
 
-* *Single intent*: The sequence of intents from an utterance is considered individually. That is, the transition probabilities are calculated based on the frequency of each intent following another intent.
-* *Compound intent*: The sequence of intents from an utterance is considered as a whole, i.e., the sequence of intents is considered as a single entity. That is, the transition probabilities are calculated based on the frequency of each sequence of intents following another sequence of intents.
+* *Single intent*: The set of intents from an utterance is considered individually. That is, the transition probabilities are calculated based on the frequency of each intent following another intent.
+* *Compound intent*: The set of intents from an utterance is considered as a whole, i.e., the sequence of intents is considered as a single entity. That is, the transition probabilities are calculated based on the frequency of each sequence of intents following another sequence of intents.
 
 For example the following consecutive sequence of dialogue acts:
 
@@ -58,18 +58,22 @@ will result in the following transition probabilities matrices:
 
 *Single intent*:
 
-+-----------+-----------+--------+
-|           | GREETINGS | ELICIT |
-+-----------+-----------+--------+
-| GREETINGS | 0.5       | 0.5    |
-+-----------+-----------+--------+
-| DISCLOSE  | 0.5       | 0.5    |
-+-----------+-----------+--------+
++-----------+-----------+----------+
+|           | GREETINGS | DISCLOSE |
++-----------+-----------+----------+
+| GREETINGS | 0.5       | 0.5      |
++-----------+-----------+----------+
+| ELICIT    | 0.5       | 0.5      |
++-----------+-----------+----------+
 
 *Compound intent*:
 
-+---------------------+------------------+
-|                     | GREETINGS_ELICIT |
-+---------------------+------------------+
-| GREETINGS_ DISCLOSE | 1                |
-+---------------------+------------------+
++-------------------+--------------------+
+|                   | GREETINGS_DISCLOSE |
++-------------------+--------------------+
+| GREETINGS_ELICIT  | 1                  |
++-------------------+--------------------+
+
+**Footnotes**
+
+.. [1] Shuo Zhang and Krisztian Balog. 2020. Evaluating Conversational Recommender Systems via User Simulation. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD '20). 1512--1520.
