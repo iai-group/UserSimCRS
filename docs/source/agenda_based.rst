@@ -1,23 +1,52 @@
 Agenda-based simulator
 ======================
 
-In the agenda-based simulator, the dialogues are simulated by following the principle of Markov Decision Processes. That is, dialogues are seen as sequences of state transitions enabled by intents (or dialogue actions) and states are only dependent on the previous state. 
-However, as the agenda-based simulator depends on past observations (i.e., annotated dialogues), it is technically described by a *partially observable markov decision process* (POMDP).
+The agenda-based simulator [1]_ is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions. The simulated user's decision-making is modeled as a Markov Decision Process. At each turn, it determines the next action to execute based on the current state of this agenda.
 
-Specifically, the simulator's next action is decided by the agent response: if the agend responds expectedly, the next action would the the top action in the agenda, otherwise the simulator will repeat itself.
+Specifically, the simulator's next action is determined by the agent response. 
+If the agent responds expectedly, the next user action is pulled from the top of the agenda; otherwise, the simulator samples the next user action based on transition probabilities from responses in historical dialogues.
 
-Response generation
--------------------
+Agenda initialization
+---------------------
 
-The response generation module consists of three main steps:
+The agenda (:py:class:`usersimcrs.simulator.agenda_based.agenda.Agenda`) is initialized based on the :doc:`information need <information_need>` of the simulated user. Specifically, the agenda is initialized with the following steps:
 
-#. Natural language understanding
+1. (optional) Add the start intent
+2. Add dialogue acts with the *INFORM* intent for each constraint in the information need
+3. Add dialogue acts with the *REQUEST* intent for each request in the information need
+4. Add the stop intent
 
-  * Intent and entity classification
+Example
+^^^^^^^
 
-#. Generating response
+For example, the following information need:
 
-  * Response intent
-  * Response annotations
+.. code-block:: json
+    
+    {
+        "constraints": {
+            "genre": "comedy"
+        },
+        "requests": ["plot"],
+        "target_items": ["Jump Street", "The Hangover"]
+    }
 
-#. Natural language generation
+will result in the following agenda:
+
+.. code-block:: json
+
+    [
+        START(),
+        INFORM("genre", "comedy"),
+        REQUEST("plot"),
+        STOP()
+    ]
+
+Agenda update
+-------------
+
+The agenda is updated after each agent utterance by the :doc:`interaction model <interaction_model>`. The interaction model determines if new actions should be created or sampled and added to the agenda. For example, if the agent recommends an item, the interaction model may decide to create an action to express a preference regarding the recommended item.
+
+**Footnotes**
+
+.. [1] Jost Schatzmann and Steve Young. 2009. The Hidden Agenda User Simulation Model. In IEEE transactions on audio, speech, and language processing, 17(4), 733--747.
