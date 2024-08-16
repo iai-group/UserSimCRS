@@ -1,7 +1,7 @@
 Interaction model
 ================= 
 
-The interaction model is based on (Zhang & Balog, 2020) [1]_ and defines the allowed transitions between dialogue acts based on their intents. In our implementation, the interaction model is also responsible for the updating of the agenda based on a predefined dialogue strategy.
+The interaction model is based on `[Zhang & Balog, 2020] <https://arxiv.org/abs/2006.08732>`_ and defines the allowed transitions between dialogue acts based on their intents. In our implementation, the interaction model is also responsible for the updating of the agenda based on a predefined dialogue strategy.
 
 Define allowed transitions
 --------------------------
@@ -74,6 +74,6 @@ will result in the following transition probabilities matrices:
 | GREETINGS_ELICIT  | 1                  |
 +-------------------+--------------------+
 
-**Footnotes**
+**Reference**
 
-.. [1] Shuo Zhang and Krisztian Balog. 2020. Evaluating Conversational Recommender Systems via User Simulation. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD '20). 1512--1520.
+Shuo Zhang and Krisztian Balog. 2020. Evaluating Conversational Recommender Systems via User Simulation. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD '20). 1512--1520.
