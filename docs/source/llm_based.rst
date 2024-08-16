@@ -1,14 +1,14 @@
 LLM-based simulator
 ===================
 
-This simulator relies on a large language model (LLM) to generate utterances. Currently, a single zero-shot prompt is supported for the response generation. The interactions with the LLM are managed by the LLM interface.
+This simulator relies on a large language model (LLM) to generate utterances. Currently, only single zero-shot prompts are supported for generating responses. The interactions with the LLM are managed by the LLM interface.
 
 Prompt
 ------
 
 :py:class:`usersimcrs.simulator.llm.prompt.Prompt`
 
-The prompt is inspired by the work of Terragni et al. [1]_ It includes the following information: task description, information need, optionally the simulated user persona, and conversational context. The prompt is built as follows:
+The prompt is inspired by `[Terragni et al., 2023] <https://arxiv.org/abs/2306.00774>`_ It includes the following information: task description, information need, conversational context, and optionally the simulated user persona. The prompt is built as follows:
 
 | {task_description} PERSONA: {persona} REQUIREMENTS: You are looking for a {item_type} with the following characteristics: {constraints}. Once you find a suitable {item_type}, make sure to get the following information: {requests}.
 | {conversational_context}
@@ -65,6 +65,6 @@ This interface is configured with a YAML file that includes: the model name, the
       ...
 
 
-**Footnotes**
+**Reference**
 
-.. [1] Silvia Terragni, Modestas Filipavicius, Nghia Khau, Bruna Guedes, André Manso, and Roland Mathis. 2023. In-Context Learning User Simulators for Task-Oriented Dialog Systems. arXiv:2306.00774 [cs.CL].
+Silvia Terragni, Modestas Filipavicius, Nghia Khau, Bruna Guedes, André Manso, and Roland Mathis. 2023. In-Context Learning User Simulators for Task-Oriented Dialog Systems. arXiv:2306.00774 [cs.CL].

@@ -1,7 +1,7 @@
 Agenda-based simulator
 ======================
 
-The agenda-based simulator [1]_ is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions. The simulated user's decision-making is modeled as a Markov Decision Process. At each turn, it determines the next action to execute based on the current state of this agenda.
+The agenda-based simulator `[Schatzmann et al., 2007] <https://aclanthology.org/N07-2038/>`_ is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions. The simulated user's decision-making is modeled as a Markov Decision Process. At each turn, it determines the next action to execute based on the current state of this agenda.
 
 Specifically, the simulator's next action is determined by the agent response. 
 If the agent responds expectedly, the next user action is pulled from the top of the agenda; otherwise, the simulator samples the next user action based on transition probabilities from responses in historical dialogues.
@@ -47,6 +47,6 @@ Agenda update
 
 The agenda is updated after each agent utterance by the :doc:`interaction model <interaction_model>`. The interaction model determines if new actions should be created or sampled and added to the agenda. For example, if the agent recommends an item, the interaction model may decide to create an action to express a preference regarding the recommended item.
 
-**Footnotes**
+**Reference**
 
-.. [1] Jost Schatzmann and Steve Young. 2009. The Hidden Agenda User Simulation Model. In IEEE transactions on audio, speech, and language processing, 17(4), 733--747.
+Jost Schatzmann, Blaise Thomson, Karl Weilhammer, Hui Ye, and Steve Young. 2007. Agenda-Based User Simulation for Bootstrapping a POMDP Dialogue System. In Human Language Technologies 2007: The Conference of the North American Chapter of the Association for Computational Linguistics; Companion Volume, Short Papers (NAACL '07).
