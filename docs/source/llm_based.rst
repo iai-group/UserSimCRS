@@ -19,14 +19,14 @@ The persona section is included if the simulated user persona is provided. The p
 LLM interface
 -------------
 
-:py:mod:`usersimcrs.simulator.llm.interface`
+:py:mod:`usersimcrs.simulator.llm.interfaces`
 
 The LLM interface is responsible for interacting with the large language model to generate responses. Currently, two LLM interfaces are supported: Ollama and OpenAI. 
 
 Ollama
 ^^^^^^
 
-:py:class:`usersimcrs.simulator.llm.interface.ollama_interface.OllamaLLMInterface`
+:py:class:`usersimcrs.simulator.llm.interfaces.ollama_interface.OllamaLLMInterface`
 
 This interface is used to interact with a LLM that is hosted on the `Ollama platform <https://ollama.com>`_. The interface sends requests to the `Ollama API <https://github.com/ollama/ollama/blob/main/docs/api.md>`_ to generate the responses. 
 
@@ -48,7 +48,7 @@ This interface is configured with a YAML file that includes: the model name, the
 OpenAI
 ^^^^^^
 
-:py:class:`usersimcrs.simulator.llm.interface.openai_interface.OpenAILLMInterface`
+:py:class:`usersimcrs.simulator.llm.interfaces.openai_interface.OpenAILLMInterface`
 
 This interface interacts with models hosted on the OpenAI platform using their `API <https://openai.com/api/>`_. The interface sends requests to the OpenAI API to generate the responses.
 
