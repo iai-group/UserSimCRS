@@ -350,9 +350,7 @@ class InteractionModel:
                 # from the information need or the preference model.
                 value = None
                 if elicited_slot in information_need.constraints:
-                    value = information_need.get_constraint_value(
-                        elicited_slot
-                    )
+                    value = information_need.get_constraint_value(elicited_slot)
                 else:
                     value, _ = preference_model.get_slot_preference(
                         elicited_slot
@@ -361,8 +359,7 @@ class InteractionModel:
                 if value:
                     if isinstance(value, list):
                         annotations = [
-                            SlotValueAnnotation(elicited_slot, v)
-                            for v in value
+                            SlotValueAnnotation(elicited_slot, v) for v in value
                         ]
                     else:
                         annotations = [
