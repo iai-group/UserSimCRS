@@ -568,39 +568,7 @@ class InteractionModel:
         Returns:
             List of dialogue acts.
         """
-        # Check if the agent's dialogue acts are in the compound transition
-        # matrix. If not, we consider the single transition matrix.
-        compound_agent_intent = "_".join(
-            sorted({da.intent.label for da in agent_dialogue_acts})
-        )
-
-        sampled_user_intents = []
-
-        if compound_agent_intent in self.transition_matrix_compound.index:
-            # Sample from the row of the compound transition matrix.
-            user_intents = self.transition_matrix_compound.loc[
-                compound_agent_intent
-            ]
-            sampled_user_intents.extend(
-                [
-                    Intent(intent)
-                    for intent in user_intents.sample(n=1, weights=user_intents)
-                    .index[0]
-                    .split("_")
-                ]
-            )
-        else:
-            # For each agent's dialogue act, we sample from the row of the
-            # single intent transition matrix.
-            for agent_dialogue_act in agent_dialogue_acts:
-                user_intents = self.transition_matrix_single.loc[
-                    agent_dialogue_act.intent.label
-                ]
-                sampled_user_intents.append(
-                    Intent(
-                        user_intents.sample(n=1, weights=user_intents).index[0]
-                    )
-                )
+        sampled_user_intents = self._sample_user_intents(agent_dialogue_acts)
 
         # Generate dialogue acts based on the sampled intents, the annotations
         # are generated based on the information need and belief state. Note
@@ -643,3 +611,56 @@ class InteractionModel:
                 user_dialogue_acts.append(DialogueAct(sampled_intent))
 
         return user_dialogue_acts
+
+    def _sample_user_intents(self, agent_dialogue_acts: List[DialogueAct]):
+        """Samples user intents based on the agent's dialogue acts.
+
+        Checks if the agent's dialogue acts are in the compound transition
+        matrix. If not, we consider the single transition matrix.
+
+        Args:
+            agent_dialogue_acts: Agent's dialogue acts.
+
+        Returns:
+            List of sampled user intents.
+        """
+        compound_agent_intent = "_".join(
+            sorted({da.intent.label for da in agent_dialogue_acts})
+        )
+        sampled_user_intents = []
+
+        if compound_agent_intent in self.transition_matrix_compound.index:
+            # Sample from the row of the compound transition matrix.
+            user_intents = self.transition_matrix_compound.loc[
+                compound_agent_intent
+            ]
+            sampled_user_intents.extend(
+                [
+                    Intent(intent)
+                    for intent in user_intents.sample(n=1, weights=user_intents)
+                    .index[0]
+                    .split("_")
+                ]
+            )
+        else:
+            # For each agent's dialogue act, we sample from the row of the
+            # single intent transition matrix.
+            for agent_dialogue_act in agent_dialogue_acts:
+                try:
+                    user_intents = self.transition_matrix_single.loc[
+                        agent_dialogue_act.intent.label
+                    ]
+                    sampled_user_intents.append(
+                        Intent(
+                            user_intents.sample(
+                                n=1, weights=user_intents
+                            ).index[0]
+                        )
+                    )
+                except KeyError:
+                    logger.warning(
+                        f"Transition matrix does not contain agent intent: "
+                        f"{agent_dialogue_act.intent.label}"
+                    )
+                    continue
+        return sampled_user_intents
