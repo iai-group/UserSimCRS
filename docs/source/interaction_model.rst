@@ -1,95 +1,79 @@
 Interaction model
-================
+================= 
 
-The interaction model defines the user-agent interactions that can take place in a conversation. We define it in terms a set of *user intents*, a set of *agent intents*, and *expected agent responses* to each user intent.
-Below, we specify the YAML format that is used for defining an interaction model and then discuss a specific interaction model (CIR6) that is shipped with the toolkit.
+The interaction model is based on `[Zhang & Balog, 2020] <https://arxiv.org/abs/2006.08732>`_ and defines the allowed transitions between dialogue acts based on their intents. In our implementation, the interaction model is also responsible for the updating of the agenda based on a predefined dialogue strategy.
+
+Define allowed transitions
+--------------------------
+
+The interaction model defines the user-agent interactions in terms of *intents* from their respective dialogue acts. The model specifies a set of *user intents* including required ones, a set of *agent intents*, and *expected agent responses* to each user intent. 
 
 Format
-------
+^^^^^^
 
-* **user_intents**:  List of all user intent where each should contain at least **expected_agent_intents**.
+Below, we specify the YAML format that is used for defining an interaction model.
+
+* **required_intents**: List of minimum required intents for the user.
+* **user_intents**:  List of all user intents; each should minimally specify **expected_agent_intents**.
 
   - Additionally, if a user intent is dependent on the preference model, this should be indicated via another key, i.e., **preference_contingent**.
   - Similarly, intents that are used to remove preferences should be indicated in another key, **remove_user_preference**.
 
-* **sub_intents**: Intents that are a variation of an other intent can be listed as **sub_intents** of the main intent. We separate them with a **"."**, where the former part indicates the main intent, and the latter the sub intent. For example, REVEAL.EXPAND is a sub intent of REVEAL (main intent).
+* **sub_intents**: Intents that are a variation of another intent can be listed as **sub_intents** of the same main intent. We separate them with a **"."**, where the former part indicates the main intent, and the latter the sub-intent. For example, REVEAL.EXPAND is a sub-intent of REVEAL (main intent).
+* **agent_elicit_intents**: List of intents that the agent can use to elicit preferences/need from the user. 
+* **agent_set_retrieval**: List of intents that the agent can use to reveal information to the user.
+* **agent_inquire_intents**: List of intents that the agent can use to ask the user if they want to know more.
 * **REWARD**: The reward settings for automatic assessment of simulated dialogues.
 
-Example
-^^^^^^^
+An example of interaction model is available at: `data/interaction_models/crs_v1.yaml`.
 
-.. code-block:: yaml
-  
-  user_intents:
-    NOTE.YES:
-      expected_agent_intents:
-        - INQUIRE.ELICIT
-        - REVEAL
-        - REVEAL.SIMILAR
-      preference_contingent: CONSUMED
-    REVEAL.REVISE:
-      expected_agent_intents:
-        - ...
-      remove_user_preference: true
+New interaction models can be added by providing a YAML file with the same format as the example above. The path to this file can be provided either in the configuration file or the command line, see :ref:`Configuration`.
 
-  REWARD:
-    full_set_points: 20
-    missing_intent_penalties:
-      - INQUIRE: 4
-      - ...
-    repeat_penalty: 1
-    cost: 1
+Agenda update
+-------------
 
-Adding a new interaction model
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The agenda is updated based on the last agent dialogue acts and the current state of the conversation. For each agent dialogue act, the interaction model performs a push operation on the agenda stack. We consider four cases:
 
-In order to add a new interaction model, a YAML file with the same format as the example above must be provided. The path to this file can be provided either in the configuration file or the command line, see :ref:`Configuration`.
+1. **Agent elicits**: In case the agent elicits information from the user, the interaction model may push a new dialogue act to disclose the information elicited.
+2. **Agent recommends**: In case the agent recommends an item, the interaction model may push a new dialogue act to express a preference regarding the recommended item (e.g., like, dislike, already consumed).
+3. **Agent inquires**: In case the agent inquires if the user wants to know more about a specific item, the interaction model may push a new dialogue act to request a slot in the information need or a random one.
+4. **None of the above**: In case none of the above cases apply, the interaction model checks if it is coherent to continue with the current agenda or if a new dialogue act should be sampled to keep the conversation going. In the latter case, the new dialogue act is sampled based on the transition probabilities from historical dialogues.
 
-Intents
--------
+Once all the push operations are done, the agenda is cleaned to discard unnecessary dialogue acts, e.g., duplicates.
 
-.. todo:: Update DKs intent link page once it is available
-Intents are dialogue actions that can be performed by the participants in a dialogue. UserSimCRS uses DialogueKit's `implementation <https://github.com/iai-group/dialoguekit/tree/main/docs>`_ for intents.
+Transition probabilities matrices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The interaction model uses transition probabilities matrices to sample new dialogue acts. These matrices are built from historical dialogues when the model is initialized. The transition probabilities are calculated based on the frequency of transitions between intents in the historical dialogues. We consider two matrices:
 
-CIR6  
-^^^^
-UserSimCRS by default implements the :ref:`CIR6 intent schema <Intent Schema>` which includes intents shown below.
+* *Single intent*: The set of intents from an utterance is considered individually. That is, the transition probabilities are calculated based on the frequency of each intent following another intent.
+* *Compound intent*: The set of intents from an utterance is considered as a whole, i.e., the sequence of intents is considered as a single entity. That is, the transition probabilities are calculated based on the frequency of each sequence of intents following another sequence of intents.
 
-User intents
-""""""""""""
+For example the following consecutive sequence of dialogue acts:
 
-+-----------+------------------------------------------------------------------------------------------------------------+
-| Intent    | Description                                                                                                |
-+===========+============================================================================================================+
-| COMPLETE  | Indicate the end of the conversation                                                                       |
-+-----------+------------------------------------------------------------------------------------------------------------+
-| DISCLOSE  | Information need expressed either actively or in response to the agent's question                          |
-+-----------+------------------------------------------------------------------------------------------------------------+
-| REVEAL    | Revising, refining, or expanding constraints and requirements                                              |
-+-----------+------------------------------------------------------------------------------------------------------------+
-| INQUIRE   | Ask for related items or similar options                                                                   |
-+-----------+------------------------------------------------------------------------------------------------------------+
-| NAVIGATE  | Actions around navigating a list of recommendations as well as questions about a certain recommended item  |
-+-----------+------------------------------------------------------------------------------------------------------------+
-| NOTE      | Mark or save specific items                                                                                |
-+-----------+------------------------------------------------------------------------------------------------------------+
+| > Agent: [GREETINGS(), ELICIT(genre=?)]  
+| > User: [GREETINGS(), DISCLOSE(genre=action)]
 
+will result in the following transition probabilities matrices:
 
-Agent intents
-"""""""""""""
+*Single intent*:
 
-+-----------+----------------------------------------------------------+
-| Intent    | Description                                              |
-+===========+==========================================================+
-| END       | Indicate the end of the conversation                     |
-+-----------+----------------------------------------------------------+
-| INQUIRE   | Ask for user preferences                                 |
-+-----------+----------------------------------------------------------+
-| REVEAL    | Display the recommendations fully, partially or further  |
-+-----------+----------------------------------------------------------+
-| TRAVERSE  | Actions in response to user navigate actions             |
-+-----------+----------------------------------------------------------+
-| RECORD    | Record the rated items                                   |
-+-----------+----------------------------------------------------------+
++-----------+-----------+----------+
+|           | GREETINGS | DISCLOSE |
++-----------+-----------+----------+
+| GREETINGS | 0.5       | 0.5      |
++-----------+-----------+----------+
+| ELICIT    | 0.5       | 0.5      |
++-----------+-----------+----------+
 
+*Compound intent*:
+
++-------------------+--------------------+
+|                   | GREETINGS_DISCLOSE |
++-------------------+--------------------+
+| GREETINGS_ELICIT  | 1                  |
++-------------------+--------------------+
+
+**Reference**
+
+Shuo Zhang and Krisztian Balog. 2020. Evaluating Conversational Recommender Systems via User Simulation. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD '20). 1512--1520.

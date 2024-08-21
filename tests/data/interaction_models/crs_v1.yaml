@@ -107,6 +107,10 @@ agent_set_retrieval:
   - REVEAL.SIMILAR
   - REVEAL.NONE
 
+# List of agent intents (including sub-intents) that are for inquiries.
+agent_inquire_intents:
+  - INQUIRE
+
 # Reward settings
 REWARD:
   full_set_points: 20
