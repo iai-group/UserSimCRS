@@ -14,8 +14,8 @@ import joblib
 import torch
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
-from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state import DialogueState
@@ -429,7 +429,7 @@ class TUSFeatureHandler(FeatureHandler):
 
     def _get_label(
         self,
-        annotation: Annotation,
+        slot_value_annotation: SlotValueAnnotation,
         current_state: DialogueState,
         information_need: InformationNeed,
     ) -> int:
@@ -445,42 +445,43 @@ class TUSFeatureHandler(FeatureHandler):
         5: The slot's value is randomly chosen.
 
         Args:
-            annotation: Annotation.
+            slot_value_annotation: Slot value pair annotation.
             current_state: Current state.
             information_need: Information need.
 
         Returns:
             Label.
         """
-        if annotation.value == "dontcare":
+        if slot_value_annotation.value == "dontcare":
             return 1
-        elif annotation.value is None:
+        elif slot_value_annotation.value is None:
             # The value is requested by the user
             return 2
-        elif annotation.value == information_need.get_constraint_value(
-            annotation.slot
-        ) or annotation.value == information_need.requested_slots.get(
-            annotation.slot
+        elif (
+            slot_value_annotation.value
+            == information_need.get_constraint_value(slot_value_annotation.slot)
+            or slot_value_annotation.value
+            == information_need.requested_slots.get(slot_value_annotation.slot)
         ):
             # The value is taken from the information need
             return 3
-        elif annotation.value == current_state.belief_state.get(
-            annotation.slot
+        elif slot_value_annotation.value == current_state.belief_state.get(
+            slot_value_annotation.slot
         ):
             # The value was previously mentioned and is
             # retrieved from the belief state
             return 4
         elif (
-            annotation.slot
+            slot_value_annotation.slot
             in [
                 information_need.constraints.keys(),
                 information_need.requested_slots.keys(),
                 current_state.belief_state.keys(),
             ]
-        ) and annotation.value not in [
-            information_need.get_constraint_value(annotation.slot),
-            information_need.requested_slots.get(annotation.slot),
-            current_state.belief_state.get(annotation.slot),
+        ) and slot_value_annotation.value not in [
+            information_need.get_constraint_value(slot_value_annotation.slot),
+            information_need.requested_slots.get(slot_value_annotation.slot),
+            current_state.belief_state.get(slot_value_annotation.slot),
         ]:
             # The slot's value is randomly chosen
             return 5
