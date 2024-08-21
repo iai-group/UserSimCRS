@@ -7,16 +7,19 @@ between dialogue acts based on their intents and updating the agenda.
 import logging
 import os
 import random
-from typing import List, Tuple
+from collections import defaultdict
+from typing import DefaultDict, List, Tuple
 
 import pandas as pd
 import yaml
 from nltk.stem import WordNetLemmatizer
 
+from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
+from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
@@ -114,7 +117,10 @@ class InteractionModel:
         GREETING -> INFORM : 1
         REQUEST -> INFORM : 1
         The compound intent transition matrix will be:
-        {GREETING, REQUEST} -> INFORM : 1
+        GREETING_REQUEST -> INFORM : 1
+
+        Note that the compound intent may also include single intents, in case
+        an utterance has a single dialogue act.
 
         Args:
             annotated_conversations: Annotated conversations.
@@ -122,12 +128,86 @@ class InteractionModel:
         Returns:
             Transition matrices.
         """
-        transition_matrix_single = pd.DataFrame()
-        transition_matrix_compound = pd.DataFrame()
+        single_intent_distribution: DefaultDict[
+            str, DefaultDict[str, int]
+        ] = defaultdict(lambda: defaultdict(int))
+        compound_intent_distribution: DefaultDict[
+            str, DefaultDict[str, int]
+        ] = defaultdict(lambda: defaultdict(int))
 
-        # TODO: Implement transition matrices creation
-        # See: https://github.com/iai-group/UserSimCRS/issues/173
+        agent_user_interactions = self._get_agent_user_interactions(
+            annotated_conversations
+        )
+        for agent_dialogue_acts, user_dialogue_acts in agent_user_interactions:
+            compound_agent_intent = self._get_compound_intent_label(
+                agent_dialogue_acts
+            )
+            compound_user_intent = self._get_compound_intent_label(
+                user_dialogue_acts
+            )
+            compound_intent_distribution[compound_agent_intent][
+                compound_user_intent
+            ] += 1
+            for agent_dialogue_act in agent_dialogue_acts:
+                agent_intent = agent_dialogue_act.intent.label
+                for user_dialogue_act in user_dialogue_acts:
+                    user_intent = user_dialogue_act.intent.label
+                    single_intent_distribution[agent_intent][user_intent] += 1
+
+        transition_matrix_single = pd.DataFrame.from_dict(
+            single_intent_distribution, orient="index"
+        ).fillna(0)
+        transition_matrix_compound = pd.DataFrame.from_dict(
+            compound_intent_distribution, orient="index"
+        ).fillna(0)
+        # Normalize the transition matrices.
+        transition_matrix_single = transition_matrix_single.div(
+            transition_matrix_single.sum(axis=1), axis=0
+        )
+        transition_matrix_compound = transition_matrix_compound.div(
+            transition_matrix_compound.sum(axis=1), axis=0
+        )
+
         return transition_matrix_single, transition_matrix_compound
+
+    def _get_agent_user_interactions(
+        self, annotated_conversations: List[Dialogue]
+    ) -> List[Tuple[List[DialogueAct], List[DialogueAct]]]:
+        """Returns agent-user interactions from annotated conversations.
+
+        Args:
+            annotated_conversations: Annotated conversations.
+
+        Returns:
+            Agent-user interactions.
+        """
+        agent_user_interactions = []
+        for conversation in annotated_conversations:
+            agent_dialogue_acts = []
+            user_dialogue_acts = []
+            for utterance in conversation.utterances:
+                assert isinstance(utterance, AnnotatedUtterance), TypeError(
+                    "AnnotatedUtterance expected, but found "
+                    f"{type(utterance)}"
+                )
+                if utterance.participant == DialogueParticipant.AGENT:
+                    agent_dialogue_acts.extend(utterance.dialogue_acts)
+                elif (
+                    not agent_dialogue_acts
+                    and utterance.participant == DialogueParticipant.USER
+                ):
+                    # Skip user utterances that come before the agent's first
+                    # utterance.
+                    continue
+                else:
+                    user_dialogue_acts.extend(utterance.dialogue_acts)
+                if agent_dialogue_acts and user_dialogue_acts:
+                    agent_user_interactions.append(
+                        (agent_dialogue_acts, user_dialogue_acts)
+                    )
+                    agent_dialogue_acts = []
+                    user_dialogue_acts = []
+        return agent_user_interactions
 
     def initialize_agenda(self, information_need: InformationNeed):
         """Initializes user agenda.
@@ -478,7 +558,7 @@ class InteractionModel:
         self,
         information_need: InformationNeed,
         agent_dialogue_acts: List[DialogueAct],
-    ):
+    ) -> List[DialogueAct]:
         """Samples next user dialogue acts based on a probability distribution.
 
         Args:
@@ -488,8 +568,115 @@ class InteractionModel:
         Returns:
             List of dialogue acts.
         """
-        # Check if the agent's dialogue acts are in the compound transition
-        # matrix. If not, we consider the single transition matrix.
+        sampled_user_intents = self._sample_user_intents(agent_dialogue_acts)
 
-        # TODO: Implement this method
-        pass
+        # Generate dialogue acts based on the sampled intents, the annotations
+        # are generated based on the information need and belief state. Note
+        # that only simple cases (disclose and inquire) are considered here.
+        user_dialogue_acts = []
+        current_belief_state = (
+            self.dialogue_state_tracker.get_current_state().belief_state
+        )
+        for sampled_intent in sampled_user_intents:
+            if sampled_intent == self.INTENT_DISCLOSE:  # type: ignore[attr-defined] # noqa
+                # Check if there is a slot from the information need that is
+                # not fulfilled in the belief state, else choose a random slot
+                # value from the constraints.
+                slot = None
+                value = None
+                for belief_state_slot in current_belief_state.keys():
+                    if belief_state_slot not in information_need.constraints:
+                        slot = belief_state_slot
+                        value = information_need.get_constraint_value(slot)
+                        break
+
+                if slot is None:
+                    slot, value = random.choice(
+                        list(information_need.constraints.items())
+                    )
+
+                user_dialogue_acts.append(
+                    DialogueAct(
+                        sampled_intent, [SlotValueAnnotation(slot, value)]
+                    )
+                )
+            elif sampled_intent == self.INTENT_INQUIRE:  # type: ignore[attr-defined] # noqa
+                slot = random.choice(information_need.get_requestable_slots())
+                if not slot:
+                    slot = random.choice(self._domain.get_requestable_slots())
+                user_dialogue_acts.append(
+                    DialogueAct(sampled_intent, [SlotValueAnnotation(slot)])
+                )
+            else:
+                user_dialogue_acts.append(DialogueAct(sampled_intent))
+
+        return user_dialogue_acts
+
+    def _get_compound_intent_label(
+        self, dialogue_acts: List[DialogueAct]
+    ) -> str:
+        """Returns the compound intent label.
+
+        The compound intent label is formed by concatenating alphabetically
+        sorted single intent labels with underscore as separator.
+
+        Args:
+            dialogue_acts: Dialogue acts.
+
+        Returns:
+            Compound intent label.
+        """
+        return "_".join(sorted({da.intent.label for da in dialogue_acts}))
+
+    def _sample_user_intents(self, agent_dialogue_acts: List[DialogueAct]):
+        """Samples user intents based on the agent's dialogue acts.
+
+        Checks if the agent's dialogue acts are in the compound transition
+        matrix. If not, we consider the single transition matrix.
+
+        Args:
+            agent_dialogue_acts: Agent's dialogue acts.
+
+        Returns:
+            List of sampled user intents.
+        """
+        compound_agent_intent = self._get_compound_intent_label(
+            agent_dialogue_acts
+        )
+        sampled_user_intents = []
+
+        if compound_agent_intent in self.transition_matrix_compound.index:
+            # Sample from the row of the compound transition matrix.
+            user_intents = self.transition_matrix_compound.loc[
+                compound_agent_intent
+            ]
+            sampled_user_intents.extend(
+                [
+                    Intent(intent)
+                    for intent in user_intents.sample(n=1, weights=user_intents)
+                    .index[0]
+                    .split("_")
+                ]
+            )
+        else:
+            # For each agent's dialogue act, we sample from the row of the
+            # single intent transition matrix.
+            for agent_dialogue_act in agent_dialogue_acts:
+                try:
+                    user_intents = self.transition_matrix_single.loc[
+                        agent_dialogue_act.intent.label
+                    ]
+                    sampled_user_intents.append(
+                        Intent(
+                            user_intents.sample(
+                                n=1, weights=user_intents
+                            ).index[0]
+                        )
+                    )
+                except KeyError:
+                    logger.warning(
+                        f"Transition matrix does not contain agent intent: "
+                        f"{agent_dialogue_act.intent.label}"
+                    )
+                    continue
+        return sampled_user_intents
