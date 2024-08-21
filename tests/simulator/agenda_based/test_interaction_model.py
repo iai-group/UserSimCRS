@@ -122,6 +122,8 @@ def test_sample_next_user_dialogue_acts(
     user_dialogue_acts = im_crsv1._sample_next_user_dialogue_acts(
         information_need, agent_dialogue_acts
     )
+    # The sampling is non-deterministic, so different outcomes are possible.
+    # Here we check for the two possible outcomes.
     assert user_dialogue_acts == [
         DialogueAct(Intent("Intent-A")),
         DialogueAct(Intent("Intent-B")),

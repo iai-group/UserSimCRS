@@ -117,7 +117,7 @@ class InteractionModel:
         GREETING -> INFORM : 1
         REQUEST -> INFORM : 1
         The compound intent transition matrix will be:
-        {GREETING, REQUEST} -> INFORM : 1
+        GREETING_REQUEST -> INFORM : 1
 
         Note that the compound intent may also include single intents, in case
         an utterance has a single dialogue act.
@@ -139,11 +139,11 @@ class InteractionModel:
             annotated_conversations
         )
         for agent_dialogue_acts, user_dialogue_acts in agent_user_interactions:
-            compound_agent_intent = "_".join(
-                sorted({da.intent.label for da in agent_dialogue_acts})
+            compound_agent_intent = self._get_compound_intent_label(
+                agent_dialogue_acts
             )
-            compound_user_intent = "_".join(
-                sorted({da.intent.label for da in user_dialogue_acts})
+            compound_user_intent = self._get_compound_intent_label(
+                user_dialogue_acts
             )
             compound_intent_distribution[compound_agent_intent][
                 compound_user_intent
@@ -612,6 +612,22 @@ class InteractionModel:
 
         return user_dialogue_acts
 
+    def _get_compound_intent_label(
+        self, dialogue_acts: List[DialogueAct]
+    ) -> str:
+        """Returns the compound intent label.
+
+        The compound intent label is formed by concatenating alphabetically
+        sorted single intent labels with underscore as separator.
+
+        Args:
+            dialogue_acts: Dialogue acts.
+
+        Returns:
+            Compound intent label.
+        """
+        return "_".join(sorted({da.intent.label for da in dialogue_acts}))
+
     def _sample_user_intents(self, agent_dialogue_acts: List[DialogueAct]):
         """Samples user intents based on the agent's dialogue acts.
 
@@ -624,8 +640,8 @@ class InteractionModel:
         Returns:
             List of sampled user intents.
         """
-        compound_agent_intent = "_".join(
-            sorted({da.intent.label for da in agent_dialogue_acts})
+        compound_agent_intent = self._get_compound_intent_label(
+            agent_dialogue_acts
         )
         sampled_user_intents = []
 

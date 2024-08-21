@@ -93,8 +93,7 @@
                 "participant": "USER",
                 "dialogue_acts": [
                     {
-                        "intent": "DISCLOSE.NON-DISCLOSE",
-                        "slot_values": []
+                        "intent": "DISCLOSE.NON-DISCLOSE"
                     }
                 ],
                 "utterance": "Utterance 1"
@@ -113,12 +112,10 @@
                 "participant": "USER",
                 "dialogue_acts": [
                     {
-                        "intent": "Intent-B",
-                        "slot_values": []
+                        "intent": "Intent-B"
                     },
                     {
-                        "intent": "Intent-A",
-                        "slot_values": []
+                        "intent": "Intent-A"
                     }
                 ],
                 "utterance": "Utterance 3"
@@ -127,8 +124,7 @@
                 "participant": "AGENT",
                 "dialogue_acts": [
                     {
-                        "intent": "INQUIRE",
-                        "slot_values": []
+                        "intent": "INQUIRE"
                     }
                 ],
                 "utterance": "Utterance 4"
@@ -137,8 +133,7 @@
                 "participant": "USER",
                 "dialogue_acts": [
                     {
-                        "intent": "Intent-A",
-                        "slot_values": []
+                        "intent": "Intent-A"
                     }
                 ],
                 "utterance": "Utterance 5"
@@ -147,8 +142,7 @@
                 "participant": "AGENT",
                 "dialogue_acts": [
                     {
-                        "intent": "INQUIRE",
-                        "slot_values": []
+                        "intent": "INQUIRE"
                     }
                 ],
                 "utterance": "Utterance 6"
@@ -157,8 +151,7 @@
                 "participant": "USER",
                 "dialogue_acts": [
                     {
-                        "intent": "Intent-C",
-                        "slot_values": []
+                        "intent": "Intent-C"
                     }
                 ],
                 "utterance": "Utterance 7"
@@ -180,8 +173,7 @@
                 "participant": "USER",
                 "dialogue_acts": [
                     {
-                        "intent": "DISCLOSE.NON-DISCLOSE",
-                        "slot_values": []
+                        "intent": "DISCLOSE.NON-DISCLOSE"
                     }
                 ],
                 "utterance": "Utterance 1"
@@ -190,8 +182,7 @@
                 "participant": "AGENT",
                 "dialogue_acts": [
                     {
-                        "intent": "INQUIRE",
-                        "slot_values": []
+                        "intent": "INQUIRE"
                     }
                 ],
                 "utterance": "Utterance 2"
@@ -200,8 +191,7 @@
                 "participant": "USER",
                 "dialogue_acts": [
                     {
-                        "intent": "Intent-A",
-                        "slot_values": []
+                        "intent": "Intent-A"
                     }
                 ],
                 "utterance": "Utterance 3"
@@ -210,8 +200,7 @@
                 "participant": "AGENT",
                 "dialogue_acts": [
                     {
-                        "intent": "INQUIRE",
-                        "slot_values": []
+                        "intent": "INQUIRE"
                     }
                 ],
                 "utterance": "Utterance 4"
@@ -220,8 +209,7 @@
                 "participant": "USER",
                 "dialogue_acts": [
                     {
-                        "intent": "Intent-C",
-                        "slot_values": []
+                        "intent": "Intent-C"
                     }
                 ],
                 "utterance": "Utterance 5"
@@ -230,8 +218,7 @@
                 "participant": "AGENT",
                 "dialogue_acts": [
                     {
-                        "intent": "INQUIRE",
-                        "slot_values": []
+                        "intent": "INQUIRE"
                     }
                 ],
                 "utterance": "Utterance 6"
@@ -240,8 +227,7 @@
                 "participant": "USER",
                 "dialogue_acts": [
                     {
-                        "intent": "Intent-C",
-                        "slot_values": []
+                        "intent": "Intent-C"
                     }
                 ],
                 "utterance": "Utterance 7"
