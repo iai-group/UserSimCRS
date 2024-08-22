@@ -1,9 +1,9 @@
 """Tests for the dialogue state tracker module."""
 
 import pytest
-from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.participant import DialogueParticipant
 
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
@@ -30,7 +30,9 @@ def test_update_state_agent(
     """Tests dialogue state update with agent dialogue acts."""
     dialogue_acts = [
         DialogueAct(Intent("greet")),
-        DialogueAct(Intent("elicit"), annotations=[Annotation("GENRE")]),
+        DialogueAct(
+            Intent("elicit"), annotations=[SlotValueAnnotation("GENRE")]
+        ),
     ]
 
     dialogue_state_tracker.update_state(
@@ -51,9 +53,12 @@ def test_update_state_user(
     """Tests dialogue state update with user dialogue acts."""
     dialogue_acts = [
         DialogueAct(
-            Intent("inform"), annotations=[Annotation("GENRE", "comedy")]
+            Intent("inform"),
+            annotations=[SlotValueAnnotation("GENRE", "comedy")],
         ),
-        DialogueAct(Intent("request"), annotations=[Annotation("YEAR")]),
+        DialogueAct(
+            Intent("request"), annotations=[SlotValueAnnotation("YEAR")]
+        ),
     ]
 
     dialogue_state_tracker.update_state(dialogue_acts, DialogueParticipant.USER)

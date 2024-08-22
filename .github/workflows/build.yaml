@@ -146,7 +146,7 @@ jobs:
           echo "COLOR=$COLOR" >> $GITHUB_ENV
 
       - name: Create the Badge
-        uses: schneegans/dynamic-badges-action@v1.6.0
+        uses: schneegans/dynamic-badges-action@v1.7.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: cd558f4b76df656b67277f8ae214b7e0
