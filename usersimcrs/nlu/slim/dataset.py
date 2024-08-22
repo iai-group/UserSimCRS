@@ -89,7 +89,7 @@ def parse_utterance(
     slot_bio = ["O"] * len(words)
     for dialogue_act in utterance.get("dialogue_acts", []):
         intent = dialogue_act.get("intent", "UNK")
-        for slot, value in dialogue_act.get("slot_values", []):
+        for slot, value, _, _ in dialogue_act.get("slot_values", []):
             if slot is None:
                 continue
 
@@ -305,7 +305,8 @@ class SLIMDataset(Dataset):
 
         # Slot-intent mapping
         tag_intent_label_ids = [
-            self.intent_labels_map[label] for label in example.tag_intent_labels
+            self.intent_labels_map[label]
+            for label in example.tag_intent_labels
         ]
 
         return {
