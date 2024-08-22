@@ -1,21 +1,17 @@
 """Training script for SLIM model."""
 
 import argparse
-import json
 import logging
 import os
 from datetime import datetime
-from typing import Any, Dict, List, Tuple
+from typing import Dict, Tuple
 
 import confuse
-import numpy as np
 import torch
 import torch.utils
 import torch.utils.data
 import yaml
-from seqeval.metrics import classification_report
 from torch.utils.tensorboard import SummaryWriter
-from torcheval.metrics import MultilabelAccuracy
 from transformers import get_linear_schedule_with_warmup
 
 from usersimcrs.nlu.slim.dataset import Participant, SLIMDataset
