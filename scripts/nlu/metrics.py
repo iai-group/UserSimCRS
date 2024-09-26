@@ -18,7 +18,7 @@ def _get_slot_value_pairs(
 ) -> List[Tuple[str, str]]:
     """Gets the slot-value pairs from given dialogue acts."""
     return [
-        (da.intent.label, annotation.slot, annotation.value)
+        (annotation.slot, annotation.value)
         for da in dialogue_acts
         for annotation in da.annotations
     ]

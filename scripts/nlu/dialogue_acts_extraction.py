@@ -103,7 +103,7 @@ if __name__ == "__main__":
         f"{args.annotated_dialogues}"
     )
 
-    scores = dict.fromkeys(
+    scores: Dict[str, Dict[str, List[float]]] = dict.fromkeys(
         ["Global", "User", "Agent"],
         {"SER": [], "IER": [], "DAR": [], "DAP": [], "DAF1": []},
     )
