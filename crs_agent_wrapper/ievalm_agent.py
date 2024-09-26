@@ -4,7 +4,7 @@ The models are served via Flask API, the wrapper is responsible for sending
 and receiving messages from an agent via the API.
 
 The code for the agents is available at:
-https://github.com/NoB0/iEvaLM-CRS
+https://github.com/iai-group/iEvaLM-CRS
 """
 
 from typing import Optional
@@ -17,6 +17,7 @@ from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant import Agent
 from dialoguekit.participant.agent import AgentType
+from dialoguekit.participant.participant import DialogueParticipant
 
 DEFAULT_IEVALM_URI = "http://127.0.0.1:5005/"
 
@@ -75,12 +76,15 @@ class iEvaLMAgent(Agent):
         context = []
         # Models expect the first utterance to be from the user. The agent
         # utterances before the user utterance are skipped.
-        skip_agent_utterance = True
+        skipped_first_agent_utterance = False
         for utterance in self._dialogue_connector.dialogue_history.utterances:
             speaker = utterance.participant
-            if skip_agent_utterance and speaker == self._type:
+            if (
+                not skipped_first_agent_utterance
+                and speaker == DialogueParticipant.AGENT
+            ):
+                skipped_first_agent_utterance = True
                 continue
-            skip_agent_utterance = False
             context.append(utterance.text)
 
         r = requests.post(
