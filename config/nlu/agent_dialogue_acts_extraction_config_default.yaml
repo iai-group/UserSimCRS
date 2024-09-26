@@ -1,0 +1,29 @@
+extraction_prompt: data/iard/agent_dialogue_acts_extraction_prompt.txt
+
+intent_labels:
+  - REQ
+  - CLA
+  - RES
+  - ANS
+  - REC-S
+  - REC-E
+  - EXP-I
+  - EXP-P
+  - EXP-S
+  - OTH
+
+slot_labels:
+  - GENRE
+  - TITLE
+  - PLOT
+  - ACTOR
+  - DIRECTOR
+  - RATING
+  - KEYWORDS
+  - YEAR
+  - OTHER
+
+ollama_host: "https://ollama.ux.uis.no"
+ollama_model: "mistral-nemo:latest"
+ollama_options:
+  temperature: 0

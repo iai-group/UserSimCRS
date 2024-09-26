@@ -1,4 +1,4 @@
-"""Define the evaluation metric for the DSpy NLU module.
+"""Define the evaluation metric for the dialogue act extraction.
 
 We define 5 metrics:
 1. Slot Error Rate (SER)
@@ -10,10 +10,7 @@ We define 5 metrics:
 
 from typing import List, Tuple
 
-import dspy
-
 from dialoguekit.core.dialogue_act import DialogueAct
-from usersimcrs.nlu.lm.lm_nlu import DialogueActsSignature, ExtractionModule
 
 
 def _get_slot_value_pairs(
@@ -146,31 +143,3 @@ def dialogue_acts_f1_score(
     if precision + recall == 0.0:
         return 0.0
     return 2 * (precision * recall) / (precision + recall)
-
-
-def validate_answer(
-    example: dspy.Example,
-    prediction: DialogueActsSignature,
-    trace: object = None,
-) -> float:
-    """Calculates the Dialogue Acts F1 Score (DAF1).
-
-    Args:
-        example: Example with gold dialogue acts.
-        prediction: Module's prediction.
-        trace: Unused, kept for compatibility.
-
-    Returns:
-        Dialogue Acts F1 Score (DAF1).
-    """
-    target_dialogue_acts = ExtractionModule.parse_dialogue_acts(
-        example.dialogue_acts
-    )
-
-    predicted_dialogue_acts = ExtractionModule.parse_dialogue_acts(
-        prediction.dialogue_acts
-    )
-
-    return dialogue_acts_f1_score(
-        predicted_dialogue_acts, target_dialogue_acts
-    )
