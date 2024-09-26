@@ -4,12 +4,12 @@ from typing import List
 
 import pytest
 import torch
+
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
-from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.participant import DialogueParticipant
-
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.dialogue_management.dialogue_state import DialogueState
 from usersimcrs.simulator.neural.tus.tus_feature_handler import (
@@ -17,7 +17,7 @@ from usersimcrs.simulator.neural.tus.tus_feature_handler import (
 )
 
 
-def test__create_slot_index(feature_handler: TUSFeatureHandler) -> None:
+def test_create_slot_index(feature_handler: TUSFeatureHandler) -> None:
     """Tests the creation of the slot index."""
     assert all(
         slot in feature_handler.slot_index.keys()
@@ -49,7 +49,7 @@ def test__create_slot_index(feature_handler: TUSFeatureHandler) -> None:
                 user_dialogue_acts=[
                     DialogueAct(
                         Intent("inform"),
-                        [Annotation("DIRECTOR", "Steven Spielberg")],
+                        [SlotValueAnnotation("DIRECTOR", "Steven Spielberg")],
                     )
                 ],
                 belief_state={"DIRECTOR": "Steven Spielberg"},
@@ -61,7 +61,9 @@ def test__create_slot_index(feature_handler: TUSFeatureHandler) -> None:
             DialogueState(),
             DialogueState(
                 agent_dialogue_acts=[
-                    DialogueAct(Intent("elicit"), [Annotation("KEYWORD")])
+                    DialogueAct(
+                        Intent("elicit"), [SlotValueAnnotation("KEYWORD")]
+                    )
                 ],
                 belief_state={"KEYWORD": None},
             ),
@@ -91,13 +93,14 @@ def test_get_basic_information_feature(
     [
         ([], [0, 0, 0, 0, 0, 0, 0, 0, 0]),
         (
-            [DialogueAct(Intent("elicit"), [Annotation("GENRE")])],
+            [DialogueAct(Intent("elicit"), [SlotValueAnnotation("GENRE")])],
             [0, 1, 0, 0, 0, 0, 0, 0, 0],
         ),
         (
             [
                 DialogueAct(
-                    Intent("recommend"), [Annotation("TITLE", "The Godfather")]
+                    Intent("recommend"),
+                    [SlotValueAnnotation("TITLE", "The Godfather")],
                 ),
                 DialogueAct(Intent("bye")),
             ],
@@ -146,13 +149,13 @@ def test_get_slot_feature_vector(
             user_dialogue_acts=[
                 DialogueAct(
                     Intent("inform"),
-                    [Annotation("DIRECTOR", "Steven Spielberg")],
+                    [SlotValueAnnotation("DIRECTOR", "Steven Spielberg")],
                 )
             ],
             belief_state={"DIRECTOR": "Steven Spielberg"},
         ),
         information_need,
-        [DialogueAct(Intent("elicit"), [Annotation("GENRE")])],
+        [DialogueAct(Intent("elicit"), [SlotValueAnnotation("GENRE")])],
         user_action_vector,
     )
     user_action_vector = (
@@ -172,14 +175,20 @@ def test_get_slot_feature_vector(
             "What genre are you interested in?",
             participant=DialogueParticipant.AGENT,
             dialogue_acts=[
-                DialogueAct(Intent("elicit"), annotations=[Annotation("GENRE")])
+                DialogueAct(
+                    Intent("elicit"),
+                    annotations=[SlotValueAnnotation("GENRE")],
+                )
             ],
         ),
         AnnotatedUtterance(
             "Who should be the main actor?",
             participant=DialogueParticipant.AGENT,
             dialogue_acts=[
-                DialogueAct(Intent("elicit"), annotations=[Annotation("ACTOR")])
+                DialogueAct(
+                    Intent("elicit"),
+                    annotations=[SlotValueAnnotation("ACTOR")],
+                )
             ],
         ),
     ],

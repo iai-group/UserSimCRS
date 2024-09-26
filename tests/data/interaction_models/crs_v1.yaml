@@ -10,7 +10,10 @@ required_intents:
   INTENT_DISLIKE: NOTE.DISLIKE
   INTENT_NEUTRAL: NOTE.NEUTRAL
   INTENT_DISCLOSE: DISCLOSE
+  INTENT_INQUIRE: INQUIRE
   INTENT_DONT_KNOW: DONT-KNOW
+  INTENT_YES: YES
+  INTENT_NO: NO
 
 # Possible user intents with optional description.
 user_intents:
@@ -103,6 +106,10 @@ agent_set_retrieval:
   - REVEAL
   - REVEAL.SIMILAR
   - REVEAL.NONE
+
+# List of agent intents (including sub-intents) that are for inquiries.
+agent_inquire_intents:
+  - INQUIRE
 
 # Reward settings
 REWARD:

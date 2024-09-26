@@ -1,7 +1,7 @@
 """Feature handler for the TUS simulator.
 
-For a matter of simplicity, the feature handler supports only one domain unlike
-the original implementation.
+For simplicity, the feature handler supports a single domain unlike the original
+implementation.
 """
 
 from __future__ import annotations
@@ -12,10 +12,10 @@ from typing import Dict, Iterable, List, Tuple
 
 import joblib
 import torch
+
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
-
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state import DialogueState
@@ -216,7 +216,7 @@ class TUSFeatureHandler(FeatureHandler):
     ) -> FeatureVector:
         """Builds the feature vector for a slot.
 
-        It concatenate the basic information, user action, agent action, and
+        It concatenates the basic information, user action, agent action, and
         slot index feature vectors.
 
         Args:
@@ -253,7 +253,7 @@ class TUSFeatureHandler(FeatureHandler):
             + self.get_slot_index_feature(slot)
         )
 
-    def get_feature_vector(
+    def get_turn_feature_vectors(
         self,
         agent_dialogue_acts: List[DialogueAct],
         previous_state: DialogueState,
@@ -261,7 +261,7 @@ class TUSFeatureHandler(FeatureHandler):
         information_need: InformationNeed,
         user_action_vectors: Dict[str, torch.Tensor] = {},
     ) -> List[FeatureVector]:
-        """Builds the feature vector for a turn.
+        """Builds the feature vectors for a turn.
 
         It comprises the feature vectors for all slots that in the
         information need and mentioned during the conversation.
@@ -275,7 +275,7 @@ class TUSFeatureHandler(FeatureHandler):
               to an empty dictionary.
 
         Returns:
-            Feature vector for the turn.
+            Feature vectors for the turn.
         """
 
         # Update the action slots with constraints, requested, and mentioned
@@ -342,7 +342,8 @@ class TUSFeatureHandler(FeatureHandler):
         a special token. Note that is inferred from the list of feature vectors
         provided.
         The input vector is structured as follows:
-        [CLS] $V^t$ [SEP] $V^{t-1}$ [SEP] ... [SEP] $V^{t-n}$ [SEP] [PAD]
+        [CLS] $V^t$ [SEP] $V^{t-1}$ [SEP] ... [SEP] $V^{t-n}$ [SEP] {padding},
+        where {padding} indicates the padding to reach the maximum length.
 
         Args:
             agent_dialogue_acts: Agent dialogue acts.
@@ -355,14 +356,14 @@ class TUSFeatureHandler(FeatureHandler):
         Returns:
             Input vector.
         """
-        current_turn_feature_vector = self.get_feature_vector(
+        current_turn_feature_vectors = self.get_turn_feature_vectors(
             agent_dialogue_acts,
             previous_state,
             state,
             information_need,
             user_action_vectors,
         )
-        self.user_feature_history.append(current_turn_feature_vector)
+        self.user_feature_history.append(current_turn_feature_vectors)
 
         v_cls = self._get_special_token_feature_vector("[CLS]")
         v_sep = self._get_special_token_feature_vector("[SEP]")
