@@ -3,9 +3,9 @@
 from typing import List
 
 import pytest
+
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
-
 from usersimcrs.simulator.neural.tus.tus_dataset import TUSDataset
 from usersimcrs.simulator.neural.tus.tus_feature_handler import (
     TUSFeatureHandler,

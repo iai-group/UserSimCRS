@@ -8,10 +8,10 @@ import os
 from typing import Any, Dict, List, Union
 
 import torch
+
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
-
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
@@ -105,7 +105,7 @@ class TUSDataset(torch.utils.data.Dataset):
         last_user_actions: Dict[str, torch.Tensor] = {}
         utterances = dialogue.utterances
         for i, utterance in enumerate(utterances):
-            if utterance.participant == DialogueParticipant.AGENT.name:
+            if utterance.participant == DialogueParticipant.AGENT:
                 dst.update_state(
                     utterance.dialogue_acts, DialogueParticipant.AGENT
                 )

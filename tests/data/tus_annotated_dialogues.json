@@ -8,7 +8,14 @@
         "dialogue_acts": [
           {
             "intent": "DISCLOSE",
-            "slot_values": [["GENRE", "action"]]
+            "slot_values": [
+              [
+                "GENRE",
+                "action",
+                null,
+                null
+              ]
+            ]
           }
         ]
       },
@@ -18,7 +25,14 @@
         "dialogue_acts": [
           {
             "intent": "RECOMMEND",
-            "slot_values": [["TITLE", "Mission Impossible"]]
+            "slot_values": [
+              [
+                "TITLE",
+                "Mission Impossible",
+                null,
+                null
+              ]
+            ]
           }
         ]
       },
@@ -28,7 +42,14 @@
         "dialogue_acts": [
           {
             "intent": "INQUIRE",
-            "slot_values": [["PLOT", null]]
+            "slot_values": [
+              [
+                "PLOT",
+                null,
+                null,
+                null
+              ]
+            ]
           }
         ]
       },
@@ -39,7 +60,12 @@
           {
             "intent": "INFORM",
             "slot_values": [
-              ["PLOT", "A secret agent is sent on a mission to save the world."]
+              [
+                "PLOT",
+                "A secret agent is sent on a mission to save the world.",
+                null,
+                null
+              ]
             ]
           }
         ]
@@ -59,7 +85,9 @@
           "GENRE": "action",
           "ACTOR": "Tom Cruise"
         },
-        "requests": ["PLOT"],
+        "requests": [
+          "PLOT"
+        ],
         "target_items": [
           {
             "item_id": "1",
@@ -82,7 +110,14 @@
         "dialogue_acts": [
           {
             "intent": "DISCLOSE",
-            "slot_values": [["GENRE", "comedy"]]
+            "slot_values": [
+              [
+                "GENRE",
+                "comedy",
+                null,
+                null
+              ]
+            ]
           }
         ]
       },
@@ -92,7 +127,14 @@
         "dialogue_acts": [
           {
             "intent": "ELICIT",
-            "slot_values": [["DIRECTOR", null]]
+            "slot_values": [
+              [
+                "DIRECTOR",
+                null,
+                null,
+                null
+              ]
+            ]
           }
         ]
       },
@@ -102,7 +144,14 @@
         "dialogue_acts": [
           {
             "intent": "DISCLOSE",
-            "slot_values": [["DIRECTOR", "Steven Spielberg"]]
+            "slot_values": [
+              [
+                "DIRECTOR",
+                "Steven Spielberg",
+                null,
+                null
+              ]
+            ]
           }
         ]
       },
@@ -112,7 +161,14 @@
         "dialogue_acts": [
           {
             "intent": "RECOMMEND",
-            "slot_values": [["TITLE", "The Terminal"]]
+            "slot_values": [
+              [
+                "TITLE",
+                "The Terminal",
+                null,
+                null
+              ]
+            ]
           }
         ]
       },
@@ -122,7 +178,14 @@
         "dialogue_acts": [
           {
             "intent": "INQUIRE",
-            "slot_values": [["RATING", null]]
+            "slot_values": [
+              [
+                "RATING",
+                null,
+                null,
+                null
+              ]
+            ]
           }
         ]
       },
@@ -132,7 +195,14 @@
         "dialogue_acts": [
           {
             "intent": "INFORM",
-            "slot_values": [["RATING", "4.5"]]
+            "slot_values": [
+              [
+                "RATING",
+                "4.5",
+                null,
+                null
+              ]
+            ]
           }
         ]
       }
@@ -147,8 +217,13 @@
     },
     "metadata": {
       "information_need": {
-        "constraints": { "GENRE": "Comedy", "DIRECTOR": "Steven Spielberg" },
-        "requests": ["RATING"],
+        "constraints": {
+          "GENRE": "Comedy",
+          "DIRECTOR": "Steven Spielberg"
+        },
+        "requests": [
+          "RATING"
+        ],
         "target_items": [
           {
             "item_id": "1",
