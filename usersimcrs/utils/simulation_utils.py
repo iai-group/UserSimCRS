@@ -67,7 +67,7 @@ def get_agent_information(
     """
     agent_class = map_path_to_class(config["agent_class_path"].get())
     agent_config = {
-        "agent_id": config["agent_id"].get(),
+        "id": config["agent_id"].get(),
         "uri": config["agent_uri"].get(),
     }
 
@@ -100,8 +100,14 @@ def get_simulator_information(
 
     if simulator_class.__name__ == "AgendaBasedSimulator":
         simulator_config.update(_get_agenda_based_simulator_config(config))
+    elif simulator_class.__name__ == "SinglePromptUserSimulator":
+        simulator_config.update(
+            _get_single_prompt_user_simulator_config(config)
+        )
     else:
-        raise ValueError(f"Simulator class {simulator_class} is not supported.")
+        raise ValueError(
+            f"Simulator class {simulator_class} is not supported."
+        )
     return simulator_id, simulator_class, simulator_config
 
 
@@ -276,3 +282,51 @@ def train_rasa_diet_classifier(
     )
     intent_classifier.train_model()
     return intent_classifier
+
+
+def _get_single_prompt_user_simulator_config(
+    config: confuse.Configuration,
+) -> Dict[str, Any]:
+    """Gets the configuration of the single prompt user simulator.
+
+    Args:
+        config: Configuration of the run.
+
+    Returns:
+        Configuration of the single prompt user simulator.
+    """
+    domain = SimulationDomain(config["domain"].get())
+    item_type = config["item_type"].get()
+
+    item_collection = ItemCollection(
+        config["collection_db_path"].get(), config["collection_name"].get()
+    )
+    if config["items"].get() is not None:
+        # Load items if CSV file is provided
+        item_collection.load_items_csv(
+            config["items"].get(),
+            domain=domain,
+            domain_mapping=config["domain_mapping"].get(),
+            id_col=config["id_col"].get(),
+        )
+
+    llm_interface_class = map_path_to_class(
+        config["llm_interface_class_path"].get()
+    )
+    llm_interface_args = config["llm_interface_args"].get()
+    llm_interface = llm_interface_class(**llm_interface_args)
+
+    task_definition = config["task_definition"].get()
+
+    persona = None
+    # if "persona" in config:
+    #     persona = Persona(config["persona"].get())
+
+    return {
+        "domain": domain,
+        "item_collection": item_collection,
+        "llm_interface": llm_interface,
+        "item_type": item_type,
+        "task_definition": task_definition,
+        "persona": persona,
+    }
