@@ -6,7 +6,6 @@ model.
 
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant import DialogueParticipant
-
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface

@@ -131,4 +131,5 @@ class OpenAILLMInterface(LLMInterface):
             .choices[0]
             .text
         )
+        response = response.replace("USER: ", "")
         return Utterance(response, DialogueParticipant.USER)

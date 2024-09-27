@@ -67,4 +67,5 @@ class OllamaLLMInterface(LLMInterface):
             stream=self._stream,
         )
         response = ollama_response.get("response", self.default_response)
+        response = response.replace("USER: ", "")
         return Utterance(response, participant=DialogueParticipant.USER)

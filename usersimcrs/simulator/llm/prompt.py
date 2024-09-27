@@ -11,14 +11,15 @@ for Task-Oriented Dialog Systems", arXiv 2306.00774.
 
 from dialoguekit.core import Utterance
 from dialoguekit.participant import DialogueParticipant
-
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.user_modeling.persona import Persona
 
 DEFAULT_TASK_DEFINITION = (
-    "Complete the conversation as a CUSTOMER discussing with an ASSISTANT. The "
-    "conversation is about getting a recommendation according to the "
-    "REQUIREMENTS. You must fulfill all REQUIREMENTS."
+    "You are a USER discussing with an ASSISTANT. Given the conversation "
+    "history, you need to generate the next USER message in the most natural "
+    "way possible. The conversation is about getting a recommendation "
+    "according to the REQUIREMENTS. You must fulfill all REQUIREMENTS as the "
+    "conversation progresses (you don't need to fulfill them all at once). "
 )
 
 
@@ -77,16 +78,18 @@ class Prompt:
 
         stringified_constraints = ", ".join(
             [
-                f"{key}={value}"
+                f"{key.lower()}={value}"
                 for key, value in self.requirements.constraints.items()
             ]
         )
-        requestable_slot = ", ".join(self.requirements.requested_slots.keys())
+        requestable_slot = ", ".join(
+            [k.lower() for k in self.requirements.requested_slots.keys()]
+        )
         initial_prompt += (
-            f"REQUIREMENTS: You are looking for a {self.item_type} with the "
+            f"\nREQUIREMENTS: You are looking for a {self.item_type} with the "
             f"following characteristics: {stringified_constraints}. Once you "
             f"find a suitable {self.item_type}, make sure to get the following "
-            f"information: {requestable_slot}.\n"
+            f"information: {requestable_slot}.\nHISTORY:\n"
         )
         return initial_prompt
 

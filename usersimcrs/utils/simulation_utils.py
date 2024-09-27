@@ -105,9 +105,7 @@ def get_simulator_information(
             _get_single_prompt_user_simulator_config(config)
         )
     else:
-        raise ValueError(
-            f"Simulator class {simulator_class} is not supported."
-        )
+        raise ValueError(f"Simulator class {simulator_class} is not supported.")
     return simulator_id, simulator_class, simulator_config
 
 
