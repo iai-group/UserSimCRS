@@ -15,13 +15,14 @@ from collections import defaultdict
 from typing import Any, DefaultDict, Dict, List
 
 import torch
+
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
-from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
+from dialoguekit.core.intent import Intent
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant import DialogueParticipant
-
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
@@ -139,21 +140,13 @@ class TUS(UserSimulator):
     ) -> AnnotatedUtterance:
         """Annotates the agent utterance.
 
-        As of now, DialogueKit does not support NLU that can annotate dialogue
-        acts. So, only one dialogue act is created with the intent and
-        annotations extracted from the agent utterance.
-
         Args:
             agent_utterance: Agent utterance.
 
         Returns:
             Annotated utterance.
         """
-        agent_intent = self._nlu.classify_intent(agent_utterance)
-        agent_annotations = self._nlu.annotate_slot_values(agent_utterance)
-        dialogue_acts = [
-            DialogueAct(intent=agent_intent, annotations=agent_annotations)
-        ]
+        dialogue_acts = self._nlu.extract_dialogue_acts(agent_utterance.text)
         utt = AnnotatedUtterance(
             text=agent_utterance.text,
             participant=DialogueParticipant.AGENT,
@@ -221,21 +214,23 @@ class TUS(UserSimulator):
             dialogue_act = DialogueAct()
 
             # Default intent is "inform"
-            dialogue_act.intent = "inform"
+            dialogue_act.intent = Intent("inform")
 
             # Determine the value of the slot
             if o == 1:
                 # The slot's value is requested by the user
-                dialogue_act.intent = "request"
-                dialogue_act.annotations.append(Annotation(slot))
+                dialogue_act.intent = Intent("request")
+                dialogue_act.annotations.append(SlotValueAnnotation(slot))
             elif o == 2:
                 # The slot's value is set to "dontcare"
-                dialogue_act.annotations.append(Annotation(slot, "dontcare"))
+                dialogue_act.annotations.append(
+                    SlotValueAnnotation(slot, "dontcare")
+                )
             elif o == 3:
                 # The slot's value is taken from the information need
                 if slot in self.information_need.constraints.keys():
                     dialogue_act.annotations.append(
-                        Annotation(
+                        SlotValueAnnotation(
                             slot, self.information_need.constraints[slot]
                         )
                     )
@@ -244,7 +239,7 @@ class TUS(UserSimulator):
                 # from the belief state
                 if slot in belief_state.keys():
                     dialogue_act.annotations.append(
-                        Annotation(slot, belief_state[slot])
+                        SlotValueAnnotation(slot, ",".join(belief_state[slot]))
                     )
             elif o == 5:
                 # The slot's value in the information need is randomly modified
@@ -254,7 +249,9 @@ class TUS(UserSimulator):
                     )
                 )
                 self.information_need.constraints[slot] = value
-                dialogue_act.annotations.append(Annotation(slot, value))
+                dialogue_act.annotations.append(
+                    SlotValueAnnotation(slot, value)
+                )
             else:
                 logger.warning(f"{slot} is not mentioned in this turn.")
                 continue

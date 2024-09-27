@@ -87,7 +87,7 @@ class TUSDataset(torch.utils.data.Dataset):
         Returns:
             Input representation for each user utterance in the dialogue.
         """
-        input_representations = {
+        input_representations: Dict[str, Any] = {
             "input": [],
             "mask": [],
             "label": [],

@@ -14,8 +14,8 @@ import joblib
 import torch
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
-from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state import DialogueState
@@ -429,7 +429,7 @@ class TUSFeatureHandler(FeatureHandler):
 
     def _get_label(
         self,
-        annotation: Annotation,
+        annotation: SlotValueAnnotation,
         current_state: DialogueState,
         information_need: InformationNeed,
     ) -> int:
