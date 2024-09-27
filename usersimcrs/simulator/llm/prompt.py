@@ -20,6 +20,10 @@ DEFAULT_TASK_DEFINITION = (
     "way possible. The conversation is about getting a recommendation "
     "according to the REQUIREMENTS. You must fulfill all REQUIREMENTS as the "
     "conversation progresses (you don't need to fulfill them all at once). "
+    "After getting all the necessary information, you can terminate the "
+    "conversation by sending '\\end'. You may also terminate the conversation "
+    "is not going anywhere or the ASSISTANT is not helpful by sending "
+    "'\\giveup'. "
 )
 
 

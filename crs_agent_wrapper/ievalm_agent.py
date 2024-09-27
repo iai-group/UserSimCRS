@@ -73,6 +73,10 @@ class iEvaLMAgent(Agent):
         Args:
             utterance: The other participant's utterance.
         """
+        if "\\end" in utterance.text or "\\giveup" in utterance.text:
+            self.goodbye()
+            return
+
         context = []
         # Models expect the first utterance to be from the user. The agent
         # utterances before the user utterance are skipped.
@@ -90,8 +94,9 @@ class iEvaLMAgent(Agent):
         r = requests.post(
             self._uri, json={"context": context, "message": utterance.text}
         )
+        response = r.json().get("response", "")
         response = AnnotatedUtterance(
-            text=r.text,
+            text=response,
             participant=self._type,
         )
         self._dialogue_connector.register_agent_utterance(response)
