@@ -128,9 +128,7 @@ if __name__ == "__main__":
                 scores["Agent"]["ER_slot"].append(slot_error_rate_score)
                 scores["Agent"]["ER_intent"].append(intent_error_rate_score)
                 scores["Agent"]["Recall_DA"].append(dialogue_acts_recall_score)
-                scores["Agent"]["Prec_DA"].append(
-                    dialogue_acts_precision_score
-                )
+                scores["Agent"]["Prec_DA"].append(dialogue_acts_precision_score)
                 scores["Agent"]["F1_DA"].append(dialogue_acts_f1_score_score)
 
     evaluation_results = pd.DataFrame(
