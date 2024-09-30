@@ -1,0 +1,21 @@
+name: movies
+slot_names:
+  TITLE:
+  GENRE:
+  ACTOR:
+  KEYWORD:
+  DIRECTOR:
+  OTHER:
+  YEAR:
+
+requestable_slots:
+  - PLOT
+  - RATING
+  - ACTOR
+  - DIRECTOR
+
+informable_slots:
+  - GENRE
+  - ACTOR
+  - KEYWORD
+  - DIRECTOR

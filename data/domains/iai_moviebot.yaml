@@ -1,0 +1,17 @@
+name: iai_moviebot
+slot_names:
+  TITLE:
+  GENRE:
+  ACTOR:
+  KEYWORD:
+  DIRECTOR:
+
+requestable_slots:
+  - plot
+  - rating
+
+informable_slots:
+  - GENRE
+  - ACTOR
+  - KEYWORD
+  - DIRECTOR

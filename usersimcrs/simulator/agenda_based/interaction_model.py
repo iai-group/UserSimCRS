@@ -101,7 +101,10 @@ class InteractionModel:
             )
 
         for k, v in required_intents.items():
-            setattr(self, k, Intent(v))
+            if v is not None:
+                setattr(self, k, Intent(v))
+            else:
+                setattr(self, k, None)
 
     def initialize_transition_matrices(
         self, annotated_conversations: List[Dialogue]
@@ -232,7 +235,9 @@ class InteractionModel:
         Returns:
             True if it is an elicitation intent.
         """
-        return agent_intent.label in self._config["agent_elicit_intents"]
+        return agent_intent.label in self._config.get(
+            "agent_elicit_intents", []
+        )
 
     def is_agent_intent_set_retrieval(self, agent_intent: Intent) -> bool:
         """Checks if the given agent intent is set retrieval.
@@ -243,7 +248,7 @@ class InteractionModel:
         Returns:
             True if it is a set retrieval intent.
         """
-        return agent_intent.label in self._config["agent_set_retrieval"]
+        return agent_intent.label in self._config.get("agent_set_retrieval", [])
 
     def is_agent_intent_inquire(self, agent_intent: Intent) -> bool:
         """Checks if the given agent intent is inquiry.
@@ -254,7 +259,9 @@ class InteractionModel:
         Returns:
             True if it is an inquiry intent.
         """
-        return agent_intent.label in self._config["agent_inquire_intents"]
+        return agent_intent.label in self._config.get(
+            "agent_inquire_intents", []
+        )
 
     def _is_transition_allowed(
         self, agent_dialogue_acts: List[DialogueAct]

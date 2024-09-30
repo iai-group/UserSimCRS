@@ -27,6 +27,7 @@ from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
+from usersimcrs.nlu.lm.lm_dialogue_act_extractor import LMDialogueActsExtractor
 from usersimcrs.simulator.agenda_based.interaction_model import (
     InteractionModel,
 )
@@ -209,6 +210,8 @@ def get_NLU(config: confuse.Configuration) -> NLU:
     elif intent_classifier == "diet":
         classifier = train_rasa_diet_classifier(config)
         return NLU(DisjointDialogueActExtractor(classifier, [classifier]))
+    elif intent_classifier == "lm":
+        return LMDialogueActsExtractor(config["intent_classifier_config"].get())
     raise ValueError(
         "Unsupported intent classifier. Check DialogueKit intent"
         " classifiers."

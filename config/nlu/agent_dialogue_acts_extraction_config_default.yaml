@@ -1,4 +1,4 @@
-extraction_prompt: data/iard/agent_dialogue_acts_extraction_prompt.txt
+extraction_prompt: data/datasets/iard/agent_dialogue_acts_extraction_prompt.txt
 
 intent_labels:
   - REQ

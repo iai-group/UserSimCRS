@@ -1,0 +1,40 @@
+output_name: "kbrd_abus"
+debug: False
+fix_random_seed: False
+num_simulated_dialogues: 10
+
+### AGENT CONFIGURATION ###
+agent_class_path: "crs_agent_wrapper.ievalm_agent.iEvaLMAgent"
+agent_id: "KBRD"
+# By default, the agent has an HTTP API.
+agent_uri: "http://127.0.0.1:5005"
+
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.agenda_based.agenda_based_simulator.AgendaBasedSimulator"
+simulator_id: "ABUS"
+
+domain: data/domains/movies.yaml
+intents: data/interaction_models/iard_v1.yaml
+
+collection_db_path: "data/item_collections.db"
+collection_name: "movies_w_keywords"
+items: data/movielens-25m-sample/movies_w_keywords.csv
+id_col: movieId
+domain_mapping:
+  title:
+    slot: TITLE
+  genres:
+    slot: GENRE
+    multi-valued: True
+    delimiter: "|"
+  keywords:
+    slot: KEYWORD
+    multi-valued: True
+    delimiter: "|"
+ratings: data/movielens-25m-sample/ratings.csv
+historical_ratings_ratio: 0.8
+
+dialogues: data/datasets/iard/formatted_IARD_annotated_gold.json
+intent_classifier: "lm"
+intent_classifier_config: config/nlu/agent_dialogue_acts_extraction_config_default.yaml
+
