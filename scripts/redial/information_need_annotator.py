@@ -2,7 +2,8 @@
 
 This annotator uses the annotated dialogue to identify a possible information
 need that the user had during the conversation. The information need comprises
-constraints and requests that user expressed during the conversation."""
+constraints and requests that user expressed during the conversation.
+"""
 
 import json
 import logging

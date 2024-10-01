@@ -1,11 +1,11 @@
 """Augment the formatted ReDial dataset with additional information.
 
-The augmentation is artificial and done to create training data for neural
-user simulators.
-Each dialogue is augmented with an information need and each utterance is
-augmented with dialogue acts. The information need is inferred from the
-dialogue acts, e.g., the annotations of a inquire dialogue
-act can serve as requests."""
+The augmentation is artificial and done to create training data for neural user
+simulators. Each dialogue is augmented with an information need and each
+utterance is augmented with dialogue acts. The information need is inferred from
+the dialogue acts, e.g., the annotations of a inquire dialogue act can serve as
+requests.
+"""
 
 import argparse
 import json
