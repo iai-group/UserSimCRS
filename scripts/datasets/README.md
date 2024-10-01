@@ -7,7 +7,7 @@ This folder contains scripts to add new datasets for the simulators.
 To download and format the dialogues to DialogueKit format, use the following command:
 
 ```bash
-python scripts/datasets/redial/format_redial.py
+python scripts/datasets/redial/redial_to_dialoguekit.py
 ```
 
 This will create a folder in `data/datasets/` containing the formatted dialogues.

@@ -1,6 +1,9 @@
 """Script to format the ReDial dataset into DialogueKit format.
 
-In addition to formatting the dialogues, this script also process items and
+This script downloads the ReDial dataset and formats the dialogues following
+DialogueKit's format. Formatting includes merging consecutive utterances from
+the same participant and replacing movie mentions with their titles and years.
+In addition to formatting the dialogues, this script also processes items and
 ratings information.
 """
 

@@ -8,7 +8,7 @@ The generation of these files can be done with this command:
   python -m annotation_converter_rasa -source PathToAnnotatedDialoguesFile -destination PathToDestinationFolder
 ```
 
-It will generate the following files:
+It creates the following files:
 
   - `<originalname>_reformat.yaml`: The original file saved as a yaml file
   - `<originalname>_types_w_examples.yaml`: Slots and example values extracted from the dialogues

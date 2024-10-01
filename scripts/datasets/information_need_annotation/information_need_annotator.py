@@ -15,31 +15,31 @@ from ollama import Client, Options
 from dialoguekit.core.dialogue import Dialogue
 from usersimcrs.core.information_need import InformationNeed
 
-DEFAULT_INITIAL_PROMPT_FILE = "scripts/datasets/information_need_annotation/information_need_prompt_default.txt"  # noqa: E501
+DEFAULT_INITIAL_PROMPT_MOVIES_FILE = "scripts/datasets/information_need_annotation/information_need_prompt_movies_default.txt"  # noqa: E501
 
 
 class InformationNeedAnnotator:
     def __init__(
         self,
-        configuration_file: str,
-        prompt_file: str = DEFAULT_INITIAL_PROMPT_FILE,
+        ollama_config_file: str,
+        prompt_file: str = DEFAULT_INITIAL_PROMPT_MOVIES_FILE,
     ) -> None:
         """Initializes the annotator.
 
         Args:
-            configuration_file: Configuration file for Ollama.
+            ollama_config_file: Configuration file for Ollama.
             prompt_file: File containing prompt, it should have a placeholder
-              for the dialogue. Defaults to DEFAULT_INITIAL_PROMPT_FILE.
+              for the dialogue. Defaults to DEFAULT_INITIAL_PROMPT_MOVIES_FILE.
 
         Raises:
             FileNotFoundError: If the configuration file is not found.
         """
-        if not os.path.exists(configuration_file):
+        if not os.path.exists(ollama_config_file):
             raise FileNotFoundError(
-                f"No configuration file: {configuration_file}"
+                f"No configuration file: {ollama_config_file}"
             )
 
-        configuration = yaml.safe_load(open(configuration_file))
+        configuration = yaml.safe_load(open(ollama_config_file))
 
         # Ollama
         self.client = Client(host=configuration.get("host"))

@@ -105,7 +105,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--information_need_prompt",
         type=str,
-        default="scripts/datasets/information_need_annotation/information_need_prompt_default.txt",  # noqa: E501
+        default="scripts/datasets/information_need_annotation/information_need_prompt_movies_default.txt",  # noqa: E501
         help="File containing the prompt for information need annotation.",
     )
     parser.add_argument(
