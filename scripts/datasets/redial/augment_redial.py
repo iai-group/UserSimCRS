@@ -16,7 +16,9 @@ from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
-from scripts.redial.information_need_annotator import InformationNeedAnnotator
+from scripts.datasets.information_need_annotation.information_need_annotator import (  # noqa: E501
+    InformationNeedAnnotator,
+)
 from usersimcrs.nlu.lm.lm_dialogue_act_extractor import LMDialogueActsExtractor
 
 
@@ -103,7 +105,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--information_need_prompt",
         type=str,
-        default="scripts/redial/information_need_prompt_default.txt",
+        default="scripts/datasets/information_need_annotation/information_need_prompt_default.txt",  # noqa: E501
         help="File containing the prompt for information need annotation.",
     )
     parser.add_argument(
@@ -130,7 +132,7 @@ if __name__ == "__main__":
         augment_dialogue(
             user_nlu, agent_nlu, information_need_annotator, dialogue
         )
-        for dialogue in tqdm(dialogues)
+        for dialogue in tqdm(dialogues[:3])
     ]
 
     with open(args.output_path, "w") as output_file:

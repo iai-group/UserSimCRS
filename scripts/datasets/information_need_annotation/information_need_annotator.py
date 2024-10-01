@@ -15,9 +15,7 @@ from ollama import Client, Options
 from dialoguekit.core.dialogue import Dialogue
 from usersimcrs.core.information_need import InformationNeed
 
-DEFAULT_INITIAL_PROMPT_FILE = (
-    "scripts/redial/information_need_prompt_default.txt"
-)
+DEFAULT_INITIAL_PROMPT_FILE = "scripts/datasets/information_need_annotation/information_need_prompt_default.txt"  # noqa: E501
 
 
 class InformationNeedAnnotator:
