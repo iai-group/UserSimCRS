@@ -7,6 +7,8 @@ mypy==1.11.1
 docformatter
 types-PyYAML
 types-requests
+botocore>=1.29.29
+wget
 confuse
 websockets<11.0
 nltk
@@ -16,5 +18,4 @@ openai
 ollama
 pandas==2.2.2
 git+https://github.com/iai-group/DialogueKit.git
-botocore>=1.29.29
 setuptools<=70.0.0
