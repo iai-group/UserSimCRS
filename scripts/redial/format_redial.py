@@ -105,9 +105,6 @@ def format_dialogue(
         dialogue, dialogue["initiatorWorkerId"], items
     )
     formatted_dialogue["conversation"] = utterances
-    # formatted_dialogue["metadata"] = {
-    #     "movie_mentions": dialogue["movieMentions"],
-    # }
     return formatted_dialogue, items, ratings
 
 
@@ -138,7 +135,6 @@ def parse_utterances(
         pattern = r"(@\d+)"
         matches = re.findall(pattern, text)
         if matches:
-            # utterance["raw_utterance"] = text
             for m in matches:
                 movie_id = m[1:]
                 movie_title = items.get(movie_id, {}).get("title", None)
