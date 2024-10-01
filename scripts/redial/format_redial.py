@@ -105,6 +105,9 @@ def format_dialogue(
         dialogue, dialogue["initiatorWorkerId"], items
     )
     formatted_dialogue["conversation"] = utterances
+    # formatted_dialogue["metadata"] = {
+    #     "movie_mentions": dialogue["movieMentions"],
+    # }
     return formatted_dialogue, items, ratings
 
 
@@ -127,28 +130,55 @@ def parse_utterances(
             "USER" if message["senderWorkerId"] == user_id else "AGENT"
         )
         text = message["text"]
-        slot_values = []
         utterance = {
             "participant": participant,
             "timeOffset": message["timeOffset"],
-            "utterance": text,
         }
 
         pattern = r"(@\d+)"
         matches = re.findall(pattern, text)
         if matches:
+            # utterance["raw_utterance"] = text
             for m in matches:
                 movie_id = m[1:]
                 movie_title = items.get(movie_id, {}).get("title", None)
                 if movie_title:
-                    slot_values.append(["title", movie_title])
-                    text = text.replace(m, movie_title)
+                    movie_year = items.get(movie_id, {}).get("year", None)
+                    movie = (
+                        f"{movie_title} ({movie_year})"
+                        if movie_year
+                        else movie_title
+                    )
+                    text = text.replace(m, movie)
 
-            utterance["processed_utterance"] = text
-            utterance["slot_values"] = slot_values
+        utterance["utterance"] = text
         utterances.append(utterance)
 
+    utterances = _merge_consecutive_utterances(utterances)
     return utterances
+
+
+def _merge_consecutive_utterances(
+    utterances: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+    """Merges consecutive utterances from the same participant.
+
+    Args:
+        utterances: List of utterances to merge.
+
+    Returns:
+        List of merged utterances.
+    """
+    merged_utterances = []
+    for utterance in utterances:
+        if (
+            not merged_utterances
+            or utterance["participant"] != merged_utterances[-1]["participant"]
+        ):
+            merged_utterances.append(utterance)
+        else:
+            merged_utterances[-1]["utterance"] += "\n" + utterance["utterance"]
+    return merged_utterances
 
 
 def get_items(dialogue: Dict[str, Any]) -> Items:
@@ -210,7 +240,7 @@ def get_ratings(dialogue: Dict[str, Any], user_id: str) -> List[Rating]:
 if __name__ == "__main__":
     for p in [DATASET_PATH, ITEM_COLLECTION_PATH]:
         if not os.path.exists(p):
-            os.makedirs(DATASET_PATH)
+            os.makedirs(DATASET_PATH, exist_ok=True)
 
     download_redial_dataset()
 

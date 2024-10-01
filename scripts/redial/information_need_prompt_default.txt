@@ -1,0 +1,18 @@
+Given the annotated dialogue below, your task is to identify the information need of the user. The information need corresponds to what the user is looking for in the dialogue. The information need comprises constraints and requests. Constraints are conditions that the recommended movie must satisfy. Requests are properties of the movie that the user inquires about in the dialogue.
+
+Your should be formatted as a JSON object with two fields: constraints and requests. Strictly consider the content of the dialogue to identify the information need. Do not make assumptions beyond what is stated in the dialogue.
+Constraints are represented as a dictionary where the keys are the slots, and the values are the values that the movie must have for that slot. The possible slots are:
+- GENRE: Movie genre
+- ACTOR: Actor starring in the movie
+- KEYWORD: Keyword associated with the movie
+- DIRECTOR: Director of the movie
+Requests are represented as a list of slots. The possible slots are:
+- PLOT: Movie plot
+- RATING: Movie rating as a number
+- ACTOR: Actor starring in the movie
+- DIRECTOR: Director of the movie
+
+Annotated dialogue:
+  {dialogue}
+
+Information need:
