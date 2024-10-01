@@ -98,9 +98,7 @@ class LMGenerativeNLG(AbstractNLG):
             annotations=annotations,
         )
 
-    def _stringify_dialogue_acts(
-        self, dialogue_acts: List[DialogueAct]
-    ) -> str:
+    def _stringify_dialogue_acts(self, dialogue_acts: List[DialogueAct]) -> str:
         """Stringifies dialogue acts.
 
         The stringified dialogue acts are in the format:
