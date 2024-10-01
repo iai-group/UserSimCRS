@@ -165,7 +165,7 @@ def _merge_consecutive_utterances(
     Returns:
         List of merged utterances.
     """
-    merged_utterances = []
+    merged_utterances: List[Dict[str, Any]] = []
     for utterance in utterances:
         if (
             not merged_utterances
