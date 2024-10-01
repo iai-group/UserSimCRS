@@ -132,7 +132,7 @@ if __name__ == "__main__":
         augment_dialogue(
             user_nlu, agent_nlu, information_need_annotator, dialogue
         )
-        for dialogue in tqdm(dialogues[:3])
+        for dialogue in tqdm(dialogues)
     ]
 
     with open(args.output_path, "w") as output_file:
