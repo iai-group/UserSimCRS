@@ -2,7 +2,7 @@
 
 from typing import Any, Dict
 
-from dialoguekit.core.domain import Domain
+from usersimcrs.core.simulation_domain import SimulationDomain
 
 
 class Item:
@@ -10,7 +10,7 @@ class Item:
         self,
         item_id: str,
         properties: Dict[str, Any] = None,
-        domain: Domain = None,
+        domain: SimulationDomain = None,
     ) -> None:
         """Creates an item.
 
@@ -41,6 +41,11 @@ class Item:
     def id(self) -> str:
         """Return the item id."""
         return self._item_id
+
+    @property
+    def properties(self) -> Dict[str, Any]:
+        """Returns the item properties."""
+        return self._properties
 
     def get_property(self, key: str) -> Any:
         """Returns a given item property.
