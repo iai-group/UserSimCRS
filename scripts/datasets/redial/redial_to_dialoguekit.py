@@ -239,7 +239,7 @@ def get_ratings(dialogue: Dict[str, Any], user_id: str) -> List[Rating]:
 if __name__ == "__main__":
     for p in [DATASET_PATH, ITEM_COLLECTION_PATH]:
         if not os.path.exists(p):
-            os.makedirs(DATASET_PATH, exist_ok=True)
+            os.makedirs(p, exist_ok=True)
 
     download_redial_dataset()
 
