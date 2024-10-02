@@ -1,4 +1,8 @@
-"""Script to experiment with LMGenerativeNLG."""
+"""Script to experiment with LMGenerativeNLG.
+
+To run this script, you need to install the additional requirements in
+`requirements/experimentation_requirements.txt`.
+"""
 
 import argparse
 from typing import List
