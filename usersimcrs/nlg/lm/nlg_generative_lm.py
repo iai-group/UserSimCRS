@@ -70,16 +70,16 @@ class LMGenerativeNLG(AbstractNLG):
             Natural language utterance.
         """
         try:
-            str_dialogue_acts = self._stringify_dialogue_acts(dialogue_acts)
+            dialogue_acts_str = self._stringify_dialogue_acts(dialogue_acts)
 
             if annotations:
-                str_annotations = self._stringify_annotations(annotations)
+                annonations_str = self._stringify_annotations(annotations)
                 prompt = self.prompt.format(
-                    dialogue_acts=str_dialogue_acts,
-                    annotations=str_annotations,
+                    dialogue_acts=dialogue_acts_str,
+                    annotations=annonations_str,
                 )
             else:
-                prompt = self.prompt.format(dialogue_acts=str_dialogue_acts)
+                prompt = self.prompt.format(dialogue_acts=dialogue_acts_str)
 
             response = self.client.generate(
                 prompt=prompt,
