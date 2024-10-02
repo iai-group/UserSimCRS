@@ -14,8 +14,8 @@ import joblib
 import torch
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
-from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state import DialogueState
@@ -202,7 +202,10 @@ class TUSFeatureHandler(FeatureHandler):
             Feature vector for slot index.
         """
         v_slot_index = [0] * len(self.slot_index)
-        v_slot_index[self.slot_index[slot]] = 1
+        try:
+            v_slot_index[self.slot_index[slot]] = 1
+        except KeyError:
+            logging.warning(f"Slot '{slot}' not found in the slot index.")
         return v_slot_index
 
     def get_slot_feature_vector(
@@ -429,7 +432,7 @@ class TUSFeatureHandler(FeatureHandler):
 
     def _get_label(
         self,
-        annotation: Annotation,
+        annotation: SlotValueAnnotation,
         current_state: DialogueState,
         information_need: InformationNeed,
     ) -> int:
