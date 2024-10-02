@@ -316,7 +316,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="data/models",
+        default="data/models/tus_policy_network",
         help="Output directory.",
     )
     parser.add_argument(
@@ -372,7 +372,7 @@ if __name__ == "__main__":
     # Define user policy network
     # TODO: Make config an argument
     config = {
-        "input_dim": 37,
+        "input_dim": 59,
         "output_dim": 6,
         "num_encoder_layers": 2,
         "nhead": 4,

@@ -202,7 +202,10 @@ class TUSFeatureHandler(FeatureHandler):
             Feature vector for slot index.
         """
         v_slot_index = [0] * len(self.slot_index)
-        v_slot_index[self.slot_index[slot]] = 1
+        try:
+            v_slot_index[self.slot_index[slot]] = 1
+        except KeyError:
+            logging.warning(f"Slot '{slot}' not found in the slot index.")
         return v_slot_index
 
     def get_slot_feature_vector(
