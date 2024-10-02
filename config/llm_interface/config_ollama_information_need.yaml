@@ -1,0 +1,6 @@
+host: "https://ollama.ux.uis.no"
+model: "mistral-nemo:latest"
+stream: False
+format: "json"
+options:
+  temperature: 0

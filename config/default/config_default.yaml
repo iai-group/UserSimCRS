@@ -18,7 +18,7 @@ intents: data/interaction_models/crs_v1.yaml
 
 collection_db_path: "data/item_collections.db"
 collection_name: "movies_w_keywords"
-items: data/movielens-25m-sample/movies_w_keywords.csv
+items: data/item_collections/movielens-25m-sample/movies_w_keywords.csv
 id_col: movieId
 domain_mapping:
   title:
@@ -31,10 +31,10 @@ domain_mapping:
     slot: KEYWORD
     multi-valued: True
     delimiter: "|"
-ratings: data/movielens-25m-sample/ratings.csv
+ratings: data/item_collections/movielens-25m-sample/ratings.csv
 historical_ratings_ratio: 0.8
 
-dialogues: data/agents/moviebot/annotated_dialogues.json
+dialogues: data/datasets/moviebot/annotated_dialogues.json
 intent_classifier: "cosine"
 # If using the DIET classifier the following file needs to be provided. 
 # rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
