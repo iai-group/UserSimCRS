@@ -33,10 +33,10 @@ def test_build_new_prompt(prompt: UtteranceGenerationPrompt) -> None:
         "curiosity=high, education=MSc\n"
     )
     stringified_requirements = (
-        "REQUIREMENTS: You are looking for a item with the following "
-        "characteristics: GENRE=Comedy, DIRECTOR=Steven Spielberg. Once you "
+        "\nREQUIREMENTS: You are looking for a item with the following "
+        "characteristics: genre=Comedy, director=Steven Spielberg. Once you "
         "find a suitable item, make sure to get the following information: "
-        "PLOT, RATING.\n"
+        "plot, rating.\nHISTORY:\n"
     )
 
     assert prompt.build_new_prompt() == (
