@@ -134,9 +134,7 @@ def dialogue_acts_f1_score(
     Returns:
         Dialogue Acts F1 Score.
     """
-    recall = dialogue_acts_recall(
-        predicted_dialogue_acts, target_dialogue_acts
-    )
+    recall = dialogue_acts_recall(predicted_dialogue_acts, target_dialogue_acts)
     precision = dialogue_acts_precision(
         predicted_dialogue_acts, target_dialogue_acts
     )

@@ -5,11 +5,11 @@ import sys
 from typing import Any, Dict, Type
 
 import requests
+
 from dialoguekit.connector import DialogueConnector
 from dialoguekit.core import Utterance
 from dialoguekit.participant import Agent
 from dialoguekit.platforms import Platform
-
 from usersimcrs.simulator.user_simulator import UserSimulator
 
 

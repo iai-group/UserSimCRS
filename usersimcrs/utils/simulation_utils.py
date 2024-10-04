@@ -105,6 +105,8 @@ def get_simulator_information(
         simulator_config.update(
             _get_single_prompt_user_simulator_config(config)
         )
+    elif simulator_class.__name__ == "DualPromptUserSimulator":
+        simulator_config.update(_get_dual_prompt_user_simulator_config(config))
     else:
         raise ValueError(f"Simulator class {simulator_class} is not supported.")
     return simulator_id, simulator_class, simulator_config
@@ -331,3 +333,19 @@ def _get_single_prompt_user_simulator_config(
         "task_definition": task_definition,
         "persona": persona,
     }
+
+
+def _get_dual_prompt_user_simulator_config(
+    config: confuse.Configuration,
+) -> Dict[str, Any]:
+    """Gets the configuration of the dual prompt user simulator.
+
+    Args:
+        config: Configuration of the run.
+
+    Returns:
+        Configuration of the dual prompt user simulator.
+    """
+    simulator_config = _get_single_prompt_user_simulator_config(config)
+    simulator_config["stop_definition"] = config["stop_definition"].get()
+    return simulator_config
