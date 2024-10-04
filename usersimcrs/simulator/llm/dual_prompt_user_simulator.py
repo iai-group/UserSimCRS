@@ -75,7 +75,6 @@ class DualPromptUserSimulator(UserSimulator):
         b_continue = self.llm_interface.get_llm_response(
             self.stop_prompt.prompt_text
         )
-        print(f"Continue conversation: {b_continue}")
         if b_continue.strip().lower() == "false":
             user_utterance = Utterance("\\end", DialogueParticipant.USER)
         else:
