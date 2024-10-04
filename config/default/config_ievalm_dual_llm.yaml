@@ -10,8 +10,8 @@ agent_id: "KBRD"
 agent_uri: "http://127.0.0.1:5005/"
 
 ### SIMULATOR CONFIGURATION ###
-simulator_class_path: "usersimcrs.simulator.llm.simple_prompt_user_simulator.SinglePromptUserSimulator"
-simulator_id: "LLM US nemo"
+simulator_class_path: "usersimcrs.simulator.llm.dual_prompt_user_simulator.DualPromptUserSimulator"
+simulator_id: "Dual LLMs US nemo"
 
 domain: data/domains/movies.yaml
 item_type: "movie"
@@ -34,6 +34,8 @@ historical_ratings_ratio: 0.8
 
 task_definition: "You are a USER discussing with an ASSISTANT. Given the conversation history, you need to generate the next USER message in the most natural way possible. The conversation is about getting a recommendation according to the REQUIREMENTS. You must fulfill all REQUIREMENTS as the conversation progresses (you don't need to fulfill them all at once). After getting all the necessary information, you can terminate the conversation by sending '\\end'. You may also terminate the conversation is stuck in a loop or the ASSISTANT is not helpful by sending '\\giveup'. "
 
+stop_definition: "You are a USER discussing with an ASSISTANT to get a recommendation meeting your REQUIREMENTS. Given the conversation history, you need to decide whether to continue the conversation or not. Detect if the conversation is stuck in a loop. In such cases, you should terminate the conversation. Your response should only be TRUE or FALSE with TRUE indicating that you want to continue the conversation and FALSE indicating that you want to terminate the conversation. Do not provide any other information in your response. "
+
 llm_interface_class_path: "usersimcrs.simulator.llm.interfaces.ollama_interface.OllamaLLMInterface"
 llm_interface_args:
-  configuration_path: config/llm/ollama_config_mistral_nemo.yaml
+  configuration_path: config/llm_interface/ollama_config_mistral_nemo.yaml

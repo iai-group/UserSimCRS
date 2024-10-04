@@ -1,6 +1,0 @@
-model: "mistral-nemo:latest"
-host: "https://ollama.ux.uis.no"
-stream: false
-options:
-  temperature: 0.5
-  

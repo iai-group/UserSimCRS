@@ -1,0 +1,39 @@
+output_name: "kbrd_nemo"
+debug: False
+fix_random_seed: False
+num_simulated_dialogues: 10
+
+### AGENT CONFIGURATION ###
+agent_class_path: "crs_agent_wrapper.ievalm_agent.iEvaLMAgent"
+agent_id: "KBRD"
+# By default, the agent has an HTTP API.
+agent_uri: "http://127.0.0.1:5005/"
+
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.llm.simple_prompt_user_simulator.SinglePromptUserSimulator"
+simulator_id: "LLM US nemo"
+
+domain: data/domains/movies.yaml
+item_type: "movie"
+
+items: data/movielens-25m-sample/movies_w_keywords.csv
+id_col: movieId
+domain_mapping:
+  title:
+    slot: TITLE
+  genres:
+    slot: GENRE
+    multi-valued: True
+    delimiter: "|"
+  keywords:
+    slot: KEYWORD
+    multi-valued: True
+    delimiter: "|"
+ratings: data/movielens-25m-sample/ratings.csv
+historical_ratings_ratio: 0.8
+
+task_definition: "You are a USER discussing with an ASSISTANT. Given the conversation history, you need to generate the next USER message in the most natural way possible. The conversation is about getting a recommendation according to the REQUIREMENTS. You must fulfill all REQUIREMENTS as the conversation progresses (you don't need to fulfill them all at once). After getting all the necessary information, you can terminate the conversation by sending '\\end'. You may also terminate the conversation is stuck in a loop or the ASSISTANT is not helpful by sending '\\giveup'. "
+
+llm_interface_class_path: "usersimcrs.simulator.llm.interfaces.ollama_interface.OllamaLLMInterface"
+llm_interface_args:
+  configuration_path: config/llm_interface/ollama_config_mistral_nemo.yaml
