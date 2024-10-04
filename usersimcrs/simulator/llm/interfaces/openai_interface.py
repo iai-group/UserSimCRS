@@ -71,7 +71,9 @@ class OpenAILLMInterface(LLMInterface):
         Returns:
             Utterance.
         """
-        response = self.get_llm_response(prompt)
+        response = self.get_llm_response(
+            prompt.prompt_text, initial_prompt=prompt.build_new_prompt()
+        )
         response = response.replace("USER: ", "")
         return Utterance(response, DialogueParticipant.USER)
 
@@ -94,19 +96,20 @@ class OpenAILLMInterface(LLMInterface):
                 messages.append({"role": role.lower(), "content": text})
         return messages
 
-    def get_llm_response(self, prompt: str) -> str:
+    def get_llm_response(self, prompt: str, initial_prompt: str = None) -> str:
         """Generates a response given a prompt.
 
         Args:
             prompt: Prompt for generating the response.
+            initial_prompt: Initial prompt to be used in the chat API.
 
         Returns:
             Response.
         """
         if self.use_chat_api:
             messages = [
-                {"role": "system", "content": prompt.build_new_prompt()},
-                *self._parse_prompt_context(prompt.prompt_text),
+                {"role": "system", "content": initial_prompt},
+                *self._parse_prompt_context(prompt),
             ]
             response = (
                 self.client.chat.completions.create(

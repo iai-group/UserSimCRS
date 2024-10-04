@@ -34,7 +34,7 @@ class LLMInterface(ABC):
         raise NotImplementedError()
 
     @abstractmethod
-    def get_llm_response(self, prompt: str) -> str:
+    def get_llm_response(self, prompt: str, **kwargs) -> str:
         """Generates a response given a prompt.
 
         Args:
