@@ -8,7 +8,9 @@ from ollama import Client, Options
 from dialoguekit.core import Utterance
 from dialoguekit.participant import DialogueParticipant
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
-from usersimcrs.simulator.llm.prompt import Prompt
+from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
+    UtteranceGenerationPrompt,
+)
 
 
 class OllamaLLMInterface(LLMInterface):
@@ -51,7 +53,9 @@ class OllamaLLMInterface(LLMInterface):
             **self._llm_configuration.get("options", {})
         )
 
-    def generate_response(self, prompt: Prompt) -> Utterance:
+    def generate_response(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:
@@ -60,12 +64,25 @@ class OllamaLLMInterface(LLMInterface):
         Returns:
             Utterance.
         """
+        response = self.get_llm_response(prompt.prompt_text)
+        if response == "":
+            response = self.default_response
+        response = response.replace("USER: ", "")
+        return Utterance(response, participant=DialogueParticipant.USER)
+
+    def get_llm_response(self, prompt: str) -> str:
+        """Generates a response given a prompt.
+
+        Args:
+            prompt: Prompt for generating the response.
+
+        Returns:
+            Response.
+        """
         ollama_response = self.client.generate(
             self.model,
-            prompt.prompt_text,
+            prompt,
             options=self._llm_options,
             stream=self._stream,
         )
-        response = ollama_response.get("response", self.default_response)
-        response = response.replace("USER: ", "")
-        return Utterance(response, participant=DialogueParticipant.USER)
+        return ollama_response.get("response", "")

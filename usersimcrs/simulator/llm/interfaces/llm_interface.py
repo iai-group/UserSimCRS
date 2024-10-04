@@ -3,8 +3,9 @@
 from abc import ABC, abstractmethod
 
 from dialoguekit.core import Utterance
-
-from usersimcrs.simulator.llm.prompt import Prompt
+from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
+    UtteranceGenerationPrompt,
+)
 
 
 class LLMInterface(ABC):
@@ -18,7 +19,9 @@ class LLMInterface(ABC):
         self.default_response = default_response
 
     @abstractmethod
-    def generate_response(self, prompt: Prompt) -> Utterance:
+    def generate_response(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates an utterance given a prompt.
 
         Args:
@@ -29,5 +32,20 @@ class LLMInterface(ABC):
 
         Returns:
             Utterance.
+        """
+        raise NotImplementedError()
+
+    @abstractmethod
+    def get_llm_response(self, prompt: str) -> str:
+        """Generates a response given a prompt.
+
+        Args:
+            prompt: Prompt for generating the response.
+
+        Raises:
+            NotImplementedError: If the method is not implemented in subclass.
+
+        Returns:
+            Response.
         """
         raise NotImplementedError()
