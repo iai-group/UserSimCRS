@@ -5,6 +5,7 @@ DialogueKit's satisfaction classifier, which assigns a score between 1 and 5.
 """
 
 import argparse
+from collections import defaultdict
 from statistics import mean, stdev
 from typing import Dict
 
