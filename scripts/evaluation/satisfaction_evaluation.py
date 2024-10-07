@@ -41,17 +41,22 @@ if __name__ == "__main__":
     satisfaction_classifier = SatisfactionClassifierSVM()
 
     # Evaluate dialogues
-    scores: Dict[str, float] = {}
+    scores: Dict[str, Dict[str, float]] = defaultdict(dict)
+
     for i, dialogue in enumerate(dialogues):
-        scores[i] = satisfaction_classifier.classify_last_n_dialogue(
-            dialogue, last_n=None
+        scores[dialogue.agent_id][i] = (
+            satisfaction_classifier.classify_last_n_dialogue(
+                dialogue, last_n=None
+            )
         )
 
     # Summary
-    avg_score = mean(scores.values())
-    stdev_score = stdev(scores.values())
-    max_score = max(scores.values())
-    min_score = min(scores.values())
-    print(f"Min score: {min_score}")
-    print(f"Max score: {max_score}")
-    print(f"Average score: {avg_score:.3f} (stdev: {stdev_score:.3f})")
+    for agent, agent_scores in scores.items():
+        avg_score = mean(agent_scores.values())
+        stdev_score = stdev(agent_scores.values())
+        max_score = max(agent_scores.values())
+        min_score = min(agent_scores.values())
+        print(f"Agent: {agent} / Num. dialogues: {len(agent_scores)}")
+        print(f"Min score: {min_score}")
+        print(f"Max score: {max_score}")
+        print(f"Average score: {avg_score:.3f} (stdev: {stdev_score:.3f})")
