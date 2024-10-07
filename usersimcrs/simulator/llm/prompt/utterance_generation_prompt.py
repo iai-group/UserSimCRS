@@ -23,7 +23,7 @@ DEFAULT_TASK_DEFINITION = (
     "conversation progresses (you don't need to fulfill them all at once). "
     "After getting all the necessary information, you can terminate the "
     "conversation by sending '\\end'. You may also terminate the conversation "
-    "is not going anywhere or the ASSISTANT is not helpful by sending "
+    "if it is not going anywhere or the ASSISTANT is not helpful by sending "
     "'\\giveup'. "
 )
 
