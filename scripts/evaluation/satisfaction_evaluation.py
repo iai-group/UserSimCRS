@@ -45,10 +45,10 @@ if __name__ == "__main__":
     scores: Dict[str, Dict[str, float]] = defaultdict(dict)
 
     for i, dialogue in enumerate(dialogues):
-        scores[dialogue.agent_id][i] = (
-            satisfaction_classifier.classify_last_n_dialogue(
-                dialogue, last_n=None
-            )
+        scores[dialogue.agent_id][
+            i
+        ] = satisfaction_classifier.classify_last_n_dialogue(
+            dialogue, last_n=None
         )
 
     # Summary
