@@ -41,7 +41,7 @@ if __name__ == "__main__":
     satisfaction_classifier = SatisfactionClassifierSVM()
 
     # Evaluate dialogues
-    scores: Dict[str, float] = {}
+    scores: Dict[int, float] = {}
     for i, dialogue in enumerate(dialogues):
         scores[i] = satisfaction_classifier.classify_last_n_dialogue(
             dialogue, last_n=None
