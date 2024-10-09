@@ -1,0 +1,149 @@
+usersimcrs.items.ratings
+========================
+
+.. py:module:: usersimcrs.items.ratings
+
+.. autoapi-nested-parse::
+
+   Represents item ratings and provides access either based on items or users.
+
+   Ratings are normalized in the [-1,1] range, where -1 corresponds to (strong)
+   dislike, 0 is neutral, and 1 is (strong) like.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   usersimcrs.items.ratings.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.items.ratings.Ratings
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   usersimcrs.items.ratings.user_item_sampler
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:function:: user_item_sampler(item_ratings: Dict[str, float], historical_ratio: float) -> List[str]
+
+   Creates a random sample of items for a given user.
+
+   :param item_ratings: Item ratings to sample.
+   :param historical_ratio: Ratio of items ratings to be used as historical
+                            data.
+
+   :returns: List of sampled item ids.
+
+
+.. py:class:: Ratings(item_collection: usersimcrs.items.item_collection.ItemCollection = None)
+
+   Initializes a ratings instance.
+
+   :param item_collection: If provided, only ratings on items in
+                           ItemCollection are accepted.
+   :type item_collection: optional
+
+
+   .. py:method:: load_ratings_csv(file_path: str, delimiter: str = ',', min_rating: float = 0.5, max_rating: float = 5.0) -> None
+
+      Loads ratings from a csv file.
+
+      The file is assumed to have userID, itemID, and rating columns
+      (following the MovieLens format). Additional columns that may be present
+      are ignored. UserID and itemID are strings, rating is a float.
+
+      Ratings are assumed to be given in the [min_rating, max_rating] range,
+      which gets normalized into the [-1,1] range. (Default min/max rating
+      values are based on the MovieLens collection.)
+
+      If an ItemCollection is provided in the constructor, then ratings are
+      filtered to items that are present in the collection.
+
+      :param file_path: Path to CSV file.
+      :param delimiter: Field separator (default: comma).
+      :param min_rating: Minimum rating (default: 0.5).
+      :param max_rating: Maximum rating (default: 5.0).
+
+
+
+   .. py:method:: get_user_ratings(user_id: str) -> Dict[str, float]
+
+      Returns all ratings of a given user.
+
+      :param user_id: User ID.
+
+      :returns: Dictionary with item IDs as keys and ratings as values.
+
+
+
+   .. py:method:: get_item_ratings(item_id: str) -> Dict[str, float]
+
+      Returns all ratings given to a specific item.
+
+      :param item_id: Item ID.
+
+      :returns: Dictionary with user IDs as keys and ratings as values.
+
+
+
+   .. py:method:: add_user_item_rating(user_id: str, item_id: str, normalized_rating: float) -> None
+
+      Adds the rating by a given user on a specific item.
+
+      :param user_id: User ID.
+      :param item_id: Item ID.
+      :param normalized_rating: Normalized rating.
+
+
+
+   .. py:method:: get_user_item_rating(user_id: str, item_id: str) -> Optional[float]
+
+      Returns the rating by a given user on a specific item.
+
+      :param user_id: User ID.
+      :param item_id: Item ID.
+
+      :returns: Rating as float or None.
+
+
+
+   .. py:method:: get_random_user_id() -> str
+
+      Returns a random user ID.
+
+      :returns: User ID.
+
+
+
+   .. py:method:: create_split(historical_ratio: float, sampler: Callable = user_item_sampler) -> Tuple[Ratings, Ratings]
+
+      Splits ratings into historical and ground truth ratings.
+
+      :param historical_ratio: Ratio ([0..1]) of ratings to be used as historical
+                               data.
+      :param sampler: Callable performing the sampling of items per user.
+
+      :raises ValueError: if historical_ratio is not in the interval [0,1].
+
+      :returns: Two Ratings objects, one corresponding to historical and another to
+                ground truth ratings.
+
+
+

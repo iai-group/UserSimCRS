@@ -1,0 +1,47 @@
+llm_interface
+=============
+
+.. py:module:: llm_interface
+
+.. autoapi-nested-parse::
+
+   Interface for the LLM model.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   llm_interface.LLMInterface
+
+
+Module Contents
+---------------
+
+.. py:class:: LLMInterface(default_response: str = None)
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   Initializes the LLM interface.
+
+   :param default_response: Default response to be used if the LLM fails to
+                            generate a response.
+
+
+   .. py:method:: generate_response(prompt: usersimcrs.simulator.llm.prompt.Prompt) -> dialoguekit.core.Utterance
+      :abstractmethod:
+
+
+      Generates an utterance given a prompt.
+
+      :param prompt: Prompt for generating the utterance.
+
+      :raises NotImplementedError: If the method is not implemented in subclass.
+
+      :returns: Utterance.
+
+
+

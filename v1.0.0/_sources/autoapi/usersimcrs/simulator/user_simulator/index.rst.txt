@@ -1,0 +1,38 @@
+usersimcrs.simulator.user_simulator
+===================================
+
+.. py:module:: usersimcrs.simulator.user_simulator
+
+.. autoapi-nested-parse::
+
+   User simulator abstract class.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.user_simulator.UserSimulator
+
+
+Module Contents
+---------------
+
+.. py:class:: UserSimulator(id: str)
+
+   Bases: :py:obj:`dialoguekit.participant.user.User`, :py:obj:`abc.ABC`
+
+
+   Initializes the user simulator.
+
+
+   .. py:method:: receive_utterance(utterance: dialoguekit.core.utterance.Utterance) -> None
+
+      Gets called every time there is a new agent utterance.
+
+      :param utterance: Agent utterance.
+
+
+

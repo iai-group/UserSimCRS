@@ -1,0 +1,48 @@
+openai_interface
+================
+
+.. py:module:: openai_interface
+
+.. autoapi-nested-parse::
+
+   Interface to use a LLM served by OpenAI.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   openai_interface.OpenAILLMInterface
+
+
+Module Contents
+---------------
+
+.. py:class:: OpenAILLMInterface(configuration_path: str, use_chat_api: bool = False, default_response: str = None)
+
+   Bases: :py:obj:`usersimcrs.simulator.llm.interfaces.llm_interface.LLMInterface`
+
+
+   Initializes interface for OpenAI served LLM.
+
+   :param configuration_path: Path to the configuration file.
+   :param use_chat_api: Whether to use the chat or completion API. Defaults to
+                        False (i.e., completion API).
+   :param default_response: Default response to be used if the LLM fails to
+                            generate a response.
+
+   :raises FileNotFoundError: If the configuration file is not found.
+
+
+   .. py:method:: generate_response(prompt: usersimcrs.simulator.llm.prompt.Prompt) -> dialoguekit.core.Utterance
+
+      Generates a user utterance given a prompt.
+
+      :param prompt: Prompt for generating the utterance.
+
+      :returns: Utterance.
+
+
+

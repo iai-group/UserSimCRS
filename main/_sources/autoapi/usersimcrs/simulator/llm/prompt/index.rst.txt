@@ -1,0 +1,76 @@
+usersimcrs.simulator.llm.prompt
+===============================
+
+.. py:module:: usersimcrs.simulator.llm.prompt
+
+.. autoapi-nested-parse::
+
+   Define the prompt for the simulator.
+
+   The structure of the prompt is inspired by the work of Terragni et al. It
+   includes the task description, the information need, and optionally a persona
+   and an example of a conversation. Unlike the original work, we consider a zero-
+   shot setting, i.e., the prompt does not include any examples of conversations.
+
+   Reference: Terragni, S., et al. (2023). "In-Context Learning User Simulators
+   for Task-Oriented Dialog Systems", arXiv 2306.00774.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.llm.prompt.DEFAULT_TASK_DEFINITION
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.llm.prompt.Prompt
+
+
+Module Contents
+---------------
+
+.. py:data:: DEFAULT_TASK_DEFINITION
+   :value: 'Complete the conversation as a CUSTOMER discussing with an ASSISTANT. The conversation is about...
+
+
+.. py:class:: Prompt(requirements: usersimcrs.core.information_need.InformationNeed, item_type: str, task_definition: str = DEFAULT_TASK_DEFINITION, persona: usersimcrs.user_modeling.persona.Persona = None)
+
+   Initializes the prompt.
+
+   :param requirements: The information need of the user.
+   :param item_type: The type of the item to be recommended.
+   :param task_definition: The definition of the task to be performed.
+                           Defaults to DEFAULT_TASK_DEFINITION.
+   :param persona: The persona of the user. Defaults to None.
+
+
+   .. py:property:: prompt_text
+      :type: str
+
+      Prompt for the user simulator.
+
+
+   .. py:method:: build_new_prompt() -> str
+
+      Builds the initial prompt without any context.
+
+      :returns: Initial prompt with task definition, requirements, and persona.
+
+
+
+   .. py:method:: update_prompt_context(utterance: dialoguekit.core.Utterance, participant: dialoguekit.participant.DialogueParticipant) -> None
+
+      Updates the context provided in the prompt.
+
+      :param utterance: Utterance to be added to the prompt.
+      :param participant: Participant of the conversation.
+
+
+

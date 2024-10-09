@@ -1,0 +1,47 @@
+ollama_interface
+================
+
+.. py:module:: ollama_interface
+
+.. autoapi-nested-parse::
+
+   Interface to use a LLM served by Ollama.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ollama_interface.OllamaLLMInterface
+
+
+Module Contents
+---------------
+
+.. py:class:: OllamaLLMInterface(configuration_path: str, default_response: str = None)
+
+   Bases: :py:obj:`usersimcrs.simulator.llm.interfaces.llm_interface.LLMInterface`
+
+
+   Initializes interface for ollama served LLM.
+
+   :param configuration_path: Path to the configuration file.
+   :param default_response: Default response to be used if the LLM fails to
+                            generate a response.
+
+   :raises FileNotFoundError: If the configuration file is not found.
+   :raises ValueError: If the model or host is not specified in the config.
+
+
+   .. py:method:: generate_response(prompt: usersimcrs.simulator.llm.prompt.Prompt) -> dialoguekit.core.Utterance
+
+      Generates a user utterance given a prompt.
+
+      :param prompt: Prompt for generating the utterance.
+
+      :returns: Utterance.
+
+
+
