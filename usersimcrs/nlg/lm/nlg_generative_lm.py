@@ -140,7 +140,7 @@ class LMGenerativeNLG(AbstractNLG):
         """
         return "\n".join(
             [
-                f"{a.slot}={a.value}" if a.value else f"{a.slot}"
+                f"{a.key}={a.value}" if a.value else f"{a.key}"
                 for a in annotations
             ]
         )
