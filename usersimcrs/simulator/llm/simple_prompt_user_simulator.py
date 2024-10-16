@@ -56,7 +56,9 @@ class SinglePromptUserSimulator(UserSimulator):
         self.prompt.update_prompt_context(
             agent_utterance, DialogueParticipant.AGENT
         )
-        user_utterance = self.llm_interface.generate_response(self.prompt)
+        user_utterance = self.llm_interface.generate_natural_response(
+            self.prompt
+        )
         self.prompt.update_prompt_context(
             user_utterance, DialogueParticipant.USER
         )

@@ -62,16 +62,18 @@ class OpenAILLMInterface(LLMInterface):
         self.client = OpenAI(api_key=self._llm_configuration.get("api_key"))
         self.use_chat_api = use_chat_api
 
-    def generate_response(self, prompt: UtteranceGenerationPrompt) -> Utterance:
+    def generate_natural_response(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:
             prompt: Prompt for generating the utterance.
 
         Returns:
-            Utterance.
+            Utterance in natural language.
         """
-        response = self.get_llm_response(
+        response = self.get_llm_api_response(
             prompt.prompt_text, initial_prompt=prompt.build_new_prompt()
         )
         response = response.replace("USER: ", "")
@@ -96,15 +98,20 @@ class OpenAILLMInterface(LLMInterface):
                 messages.append({"role": role.lower(), "content": text})
         return messages
 
-    def get_llm_response(self, prompt: str, initial_prompt: str = None) -> str:
-        """Generates a response given a prompt.
+    def get_llm_api_response(
+        self, prompt: str, initial_prompt: str = None
+    ) -> str:
+        """Gets the raw response from the LLM API.
+
+        This method should be used to interact directly with the LLM API, i.e.,
+        for everything that is not related to the generation of an utterance.
 
         Args:
-            prompt: Prompt for generating the response.
-            initial_prompt: Initial prompt to be used in the chat API.
+            prompt: Prompt for the LLM.
+            initial_prompt: Initial prompt for the chat API. Defaults to None.
 
         Returns:
-            Response.
+            Response from the LLM API without any post-processing.
         """
         if self.use_chat_api:
             messages = [

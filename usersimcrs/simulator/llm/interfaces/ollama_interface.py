@@ -53,29 +53,35 @@ class OllamaLLMInterface(LLMInterface):
             **self._llm_configuration.get("options", {})
         )
 
-    def generate_response(self, prompt: UtteranceGenerationPrompt) -> Utterance:
+    def generate_natural_response(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:
             prompt: Prompt for generating the utterance.
 
         Returns:
-            Utterance.
+            Utterance in natural language.
         """
-        response = self.get_llm_response(prompt.prompt_text)
+        response = self.get_llm_api_response(prompt.prompt_text)
         if response == "":
             response = self.default_response
         response = response.replace("USER: ", "")
         return Utterance(response, participant=DialogueParticipant.USER)
 
-    def get_llm_response(self, prompt: str) -> str:
-        """Generates a response given a prompt.
+    def get_llm_api_response(self, prompt: str) -> str:
+        """Gets the raw response from the LLM API.
+
+        This method should be used to interact directly with the LLM API, i.e.,
+        for everything that is not related to the generation of an utterance.
 
         Args:
-            prompt: Prompt for generating the response.
+            prompt: Prompt for the LLM.
+            **kwargs: Additional arguments to be passed to the API call.
 
         Returns:
-            Response.
+            Response from the LLM API without any post-processing.
         """
         ollama_response = self.client.generate(
             self.model,
