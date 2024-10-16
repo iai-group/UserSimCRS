@@ -9,47 +9,45 @@ Reference: Terragni, S., et al. (2023). "In-Context Learning User Simulators
 for Task-Oriented Dialog Systems", arXiv 2306.00774.
 """
 
-from dialoguekit.core import Utterance
-from dialoguekit.participant import DialogueParticipant
-
+from dialoguekit.core.utterance import Utterance
+from dialoguekit.participant.participant import DialogueParticipant
 from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.simulator.llm.prompt.prompt import Prompt
 from usersimcrs.user_modeling.persona import Persona
 
 DEFAULT_TASK_DEFINITION = (
-    "Complete the conversation as a CUSTOMER discussing with an ASSISTANT. The "
-    "conversation is about getting a recommendation according to the "
-    "REQUIREMENTS. You must fulfill all REQUIREMENTS."
+    "You are a USER discussing with an ASSISTANT. Given the conversation "
+    "history, you need to generate the next USER message in the most natural "
+    "way possible. The conversation is about getting a recommendation "
+    "according to the REQUIREMENTS. You must fulfill all REQUIREMENTS as the "
+    "conversation progresses (you don't need to fulfill them all at once). "
+    "After getting all the necessary information, you can terminate the "
+    "conversation by sending '\\end'. You may also terminate the conversation "
+    "is not going anywhere or the ASSISTANT is not helpful by sending "
+    "'\\giveup'. "
 )
 
 
-class Prompt:
+class UtteranceGenerationPrompt(Prompt):
     def __init__(
         self,
-        requirements: InformationNeed,
+        information_need: InformationNeed,
         item_type: str,
-        task_definition: str = DEFAULT_TASK_DEFINITION,
+        prompt_definition: str = DEFAULT_TASK_DEFINITION,
         persona: Persona = None,
     ) -> None:
         """Initializes the prompt.
 
         Args:
-            requirements: The information need of the user.
+            information_need: The information need of the user.
             item_type: The type of the item to be recommended.
-            task_definition: The definition of the task to be performed.
+            prompt_definition: The definition of the task to be performed.
               Defaults to DEFAULT_TASK_DEFINITION.
             persona: The persona of the user. Defaults to None.
         """
-        self.requirements = requirements
-        self.item_type = item_type
-        self.task_definition = task_definition
-        self.persona = persona
-        self._initial_prompt = self.build_new_prompt()
-        self._prompt_context = ""
-
-    @property
-    def prompt_text(self) -> str:
-        """Prompt for the user simulator."""
-        return self._initial_prompt + "\n" + self._prompt_context
+        super().__init__(
+            information_need, item_type, prompt_definition, persona
+        )
 
     def build_new_prompt(self) -> str:
         """Builds the initial prompt without any context.
@@ -57,7 +55,7 @@ class Prompt:
         Returns:
             Initial prompt with task definition, requirements, and persona.
         """
-        initial_prompt = self.task_definition
+        initial_prompt = self.prompt_definition
 
         if self.persona:
             initial_prompt += (
@@ -77,16 +75,18 @@ class Prompt:
 
         stringified_constraints = ", ".join(
             [
-                f"{key}={value}"
-                for key, value in self.requirements.constraints.items()
+                f"{key.lower()}={value}"
+                for key, value in self.information_need.constraints.items()
             ]
         )
-        requestable_slot = ", ".join(self.requirements.requested_slots.keys())
+        requestable_slot = ", ".join(
+            [k.lower() for k in self.information_need.requested_slots.keys()]
+        )
         initial_prompt += (
-            f"REQUIREMENTS: You are looking for a {self.item_type} with the "
+            f"\nREQUIREMENTS: You are looking for a {self.item_type} with the "
             f"following characteristics: {stringified_constraints}. Once you "
             f"find a suitable {self.item_type}, make sure to get the following "
-            f"information: {requestable_slot}.\n"
+            f"information: {requestable_slot}.\nHISTORY:\n"
         )
         return initial_prompt
 
@@ -99,10 +99,6 @@ class Prompt:
             utterance: Utterance to be added to the prompt.
             participant: Participant of the conversation.
         """
-        role = (
-            "ASSISTANT" if participant == DialogueParticipant.AGENT else "USER"
-        )
-
-        self._prompt_context += f"{role}: {utterance.text}\n"
+        super().update_prompt_context(utterance, participant)
         if participant == DialogueParticipant.AGENT:
             self._prompt_context += "USER: "
