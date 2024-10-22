@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM-based simulator &mdash; UserSimCRS 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UserSimCRS
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interaction_model.html">Interaction model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Main Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Setting up a user simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UserSimCRS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LLM-based simulator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/llm_based.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="llm-based-simulator">
+<h1>LLM-based simulator<a class="headerlink" href="#llm-based-simulator" title="Link to this heading">¶</a></h1>
+<p>This simulator relies on a large language model (LLM) to generate utterances. Currently, only single zero-shot prompts are supported for generating responses. The interactions with the LLM are managed by the LLM interface.</p>
+<section id="prompt">
+<h2>Prompt<a class="headerlink" href="#prompt" title="Link to this heading">¶</a></h2>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">usersimcrs.simulator.llm.prompt.Prompt</span></code></p>
+<p>The prompt is inspired by <a class="reference external" href="https://arxiv.org/abs/2306.00774">[Terragni et al., 2023]</a> It includes the following information: task description, information need, conversational context, and optionally the simulated user persona. The prompt is built as follows:</p>
+<div class="line-block">
+<div class="line">{task_description} PERSONA: {persona} REQUIREMENTS: You are looking for a {item_type} with the following characteristics: {constraints}. Once you find a suitable {item_type}, make sure to get the following information: {requests}.</div>
+<div class="line">{conversational_context}</div>
+</div>
+<p>The persona section is included if the simulated user persona is provided. The placeholder <em>item_type</em> is replaced by the type of item the user is looking for such as a restaurant or a movie. The <em>constraints</em> and <em>requests</em> are extracted from the information need. The <em>conversational_context</em> is the history of the conversation up to the current utterance, hence, it is updated each time an utterance is received (agent utterance) or generated (simulated user utterance).</p>
+</section>
+<section id="llm-interface">
+<h2>LLM interface<a class="headerlink" href="#llm-interface" title="Link to this heading">¶</a></h2>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">usersimcrs.simulator.llm.interfaces</span></code></p>
+<p>The LLM interface is responsible for interacting with the large language model to generate responses. Currently, two LLM interfaces are supported: Ollama and OpenAI.</p>
+<section id="ollama">
+<h3>Ollama<a class="headerlink" href="#ollama" title="Link to this heading">¶</a></h3>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">usersimcrs.simulator.llm.interfaces.ollama_interface.OllamaLLMInterface</span></code></p>
+<p>This interface is used to interact with a LLM that is hosted on the <a class="reference external" href="https://ollama.com">Ollama platform</a>. The interface sends requests to the <a class="reference external" href="https://github.com/ollama/ollama/blob/main/docs/api.md">Ollama API</a> to generate the responses.</p>
+<p>This interface is configured with a YAML file that includes: the model name, the host URL, whether to stream the responses, and the LLM specific options. An example configuration is shown below:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;llama3&quot;</span>
+<span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OLLAMA_HOST_URL</span>
+<span class="nt">stream</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">options</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">max_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="w">  </span><span class="nt">top_p</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.9</span>
+<span class="w">  </span><span class="nt">top_k</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+</section>
+<section id="openai">
+<h3>OpenAI<a class="headerlink" href="#openai" title="Link to this heading">¶</a></h3>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">usersimcrs.simulator.llm.interfaces.openai_interface.OpenAILLMInterface</span></code></p>
+<p>This interface interacts with models hosted on the OpenAI platform using their <a class="reference external" href="https://openai.com/api/">API</a>. The interface sends requests to the OpenAI API to generate the responses.</p>
+<p>This interface is configured with a YAML file that includes: the model name, the API key, and the LLM specific options. An example configuration is shown below:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GPT-4o&quot;</span>
+<span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_API_KEY</span>
+<span class="nt">options</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">max_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42</span>
+<span class="w">  </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+<p><strong>Reference</strong></p>
+<p>Silvia Terragni, Modestas Filipavicius, Nghia Khau, Bruna Guedes, André Manso, and Roland Mathis. 2023. In-Context Learning User Simulators for Task-Oriented Dialog Systems. arXiv:2306.00774 [cs.CL].</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAI group, University of Stavanger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
