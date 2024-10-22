@@ -78,7 +78,7 @@ class DualPromptUserSimulator(UserSimulator):
         if b_continue.strip().lower() == "false":
             user_utterance = Utterance("\\end", DialogueParticipant.USER)
         else:
-            user_utterance = self.llm_interface.generate_response(
+            user_utterance = self.llm_interface.generate_utterance(
                 self.generation_prompt
             )
         self.generation_prompt.update_prompt_context(

@@ -19,7 +19,9 @@ class LLMInterface(ABC):
         self.default_response = default_response
 
     @abstractmethod
-    def generate_response(self, prompt: UtteranceGenerationPrompt) -> Utterance:
+    def generate_utterance(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates an utterance given a prompt.
 
         Args:

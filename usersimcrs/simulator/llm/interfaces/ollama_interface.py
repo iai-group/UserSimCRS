@@ -53,7 +53,9 @@ class OllamaLLMInterface(LLMInterface):
             **self._llm_configuration.get("options", {})
         )
 
-    def generate_response(self, prompt: UtteranceGenerationPrompt) -> Utterance:
+    def generate_utterance(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:

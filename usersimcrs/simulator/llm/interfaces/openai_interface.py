@@ -62,7 +62,9 @@ class OpenAILLMInterface(LLMInterface):
         self.client = OpenAI(api_key=self._llm_configuration.get("api_key"))
         self.use_chat_api = use_chat_api
 
-    def generate_response(self, prompt: UtteranceGenerationPrompt) -> Utterance:
+    def generate_utterance(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:
