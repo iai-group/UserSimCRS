@@ -72,7 +72,7 @@ class DualPromptUserSimulator(UserSimulator):
         )
 
         # Check if the conversation should continue
-        b_continue = self.llm_interface.get_llm_response(
+        b_continue = self.llm_interface.get_llm_api_response(
             self.stop_prompt.prompt_text
         )
         if b_continue.strip().lower() == "false":
