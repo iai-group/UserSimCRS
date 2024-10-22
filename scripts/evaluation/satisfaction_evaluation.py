@@ -42,7 +42,7 @@ if __name__ == "__main__":
     satisfaction_classifier = SatisfactionClassifierSVM()
 
     # Evaluate dialogues
-    scores: Dict[str, Dict[str, float]] = defaultdict(dict)
+    scores: Dict[str, Dict[int, float]] = defaultdict(dict)
 
     for i, dialogue in enumerate(dialogues):
         scores[dialogue.agent_id][
