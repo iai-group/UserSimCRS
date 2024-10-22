@@ -131,7 +131,7 @@ if __name__ == "__main__":
     for dialogue in tqdm(dialogues):
         for aspect in QualityRubrics:
             prompt = get_prompt(aspect, dialogue)
-            response = ollama_interface.get_llm_response(prompt)
+            response = ollama_interface.get_llm_api_response(prompt)
             try:
                 response = response.replace("\\", "\\\\")
                 response = json.loads(response)
