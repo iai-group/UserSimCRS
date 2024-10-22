@@ -8,7 +8,9 @@ from ollama import Client, Options
 from dialoguekit.core import Utterance
 from dialoguekit.participant import DialogueParticipant
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
-from usersimcrs.simulator.llm.prompt import Prompt
+from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
+    UtteranceGenerationPrompt,
+)
 
 
 class OllamaLLMInterface(LLMInterface):
@@ -51,20 +53,40 @@ class OllamaLLMInterface(LLMInterface):
             **self._llm_configuration.get("options", {})
         )
 
-    def generate_response(self, prompt: Prompt) -> Utterance:
+    def generate_utterance(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:
             prompt: Prompt for generating the utterance.
 
         Returns:
-            Utterance.
+            Utterance in natural language.
+        """
+        response = self.get_llm_api_response(prompt.prompt_text)
+        if response == "":
+            response = self.default_response
+        response = response.replace("USER: ", "")
+        return Utterance(response, participant=DialogueParticipant.USER)
+
+    def get_llm_api_response(self, prompt: str) -> str:
+        """Gets the raw response from the LLM API.
+
+        This method should be used to interact directly with the LLM API, i.e.,
+        for everything that is not related to the generation of an utterance.
+
+        Args:
+            prompt: Prompt for the LLM.
+            **kwargs: Additional arguments to be passed to the API call.
+
+        Returns:
+            Response from the LLM API without any post-processing.
         """
         ollama_response = self.client.generate(
             self.model,
-            prompt.prompt_text,
+            prompt,
             options=self._llm_options,
             stream=self._stream,
         )
-        response = ollama_response.get("response", self.default_response)
-        return Utterance(response, participant=DialogueParticipant.USER)
+        return ollama_response.get("response", "")
