@@ -136,14 +136,14 @@ if __name__ == "__main__":
     for dialogue in tqdm(dialogues):
         for aspect in QualityRubrics:
             prompt = get_prompt(aspect, dialogue)
-            response = ollama_interface.get_llm_response(prompt)
+            response = ollama_interface.get_llm_api_response(prompt)
             try:
                 response = response.replace("\\", "\\\\")
-                response = json.loads(response)
+                response_dict = json.loads(response)
                 score = QualityScore(
                     conversation_id=dialogue.conversation_id,
-                    score=int(response["score"]),
-                    explanation=response["score_explanation"],
+                    score=int(response_dict["score"]),
+                    explanation=response_dict["score_explanation"],
                 )
                 scores[dialogue.agent_id][aspect.name].append(score)
             except Exception as e:
@@ -161,8 +161,8 @@ if __name__ == "__main__":
     # Summary
     for agent_id, agent_scores in scores.items():
         print(f"Scores for agent {agent_id}:")
-        for aspect, scores in agent_scores.items():
-            print(f"Aspect: {aspect}")
-            avg_score = mean([score.score for score in scores])
-            std_dev = stdev([score.score for score in scores])
+        for aspect_name, aspect_scores in agent_scores.items():
+            print(f"Aspect: {aspect_name}")
+            avg_score = mean([score.score for score in aspect_scores])
+            std_dev = stdev([score.score for score in aspect_scores])
             print(f"Average score: {avg_score:.2f} (std dev: {std_dev:.2f})")

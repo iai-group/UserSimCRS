@@ -10,7 +10,9 @@ from openai import OpenAI
 from dialoguekit.core import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
 from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
-from usersimcrs.simulator.llm.prompt import Prompt
+from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
+    UtteranceGenerationPrompt,
+)
 
 
 class OpenAILLMInterface(LLMInterface):
@@ -60,40 +62,21 @@ class OpenAILLMInterface(LLMInterface):
         self.client = OpenAI(api_key=self._llm_configuration.get("api_key"))
         self.use_chat_api = use_chat_api
 
-    def generate_response(self, prompt: Prompt) -> Utterance:
+    def generate_utterance(
+        self, prompt: UtteranceGenerationPrompt
+    ) -> Utterance:
         """Generates a user utterance given a prompt.
 
         Args:
             prompt: Prompt for generating the utterance.
 
         Returns:
-            Utterance.
+            Utterance in natural language.
         """
-        if self.use_chat_api:
-            return self._generate_chat_response(prompt)
-
-        return self._generate_completion_response(prompt.prompt_text)
-
-    def _generate_chat_response(self, prompt: Prompt) -> Utterance:
-        """Generates a user utterance using the chat API.
-
-        Args:
-            prompt: Prompt for generating the utterance.
-
-        Returns:
-            Utterance.
-        """
-        messages = [
-            {"role": "system", "content": prompt.build_new_prompt()},
-            *self._parse_prompt_context(prompt.prompt_text),
-        ]
-        response = (
-            self.client.chat.completions.create(
-                messages=messages, model=self.model, **self._llm_options  # type: ignore[arg-type] # noqa
-            )
-            .choices[0]
-            .message.content
+        response = self.get_llm_api_response(
+            prompt.prompt_text, initial_prompt=prompt.build_new_prompt()
         )
+        response = response.replace("USER: ", "")
         return Utterance(response, DialogueParticipant.USER)
 
     def _parse_prompt_context(
@@ -115,20 +98,40 @@ class OpenAILLMInterface(LLMInterface):
                 messages.append({"role": role.lower(), "content": text})
         return messages
 
-    def _generate_completion_response(self, prompt: str) -> Utterance:
-        """Generates a user utterance using the completion API.
+    def get_llm_api_response(
+        self, prompt: str, initial_prompt: str = None
+    ) -> str:
+        """Gets the raw response from the LLM API.
+
+        This method should be used to interact directly with the LLM API, i.e.,
+        for everything that is not related to the generation of an utterance.
 
         Args:
-            prompt: Prompt for generating the utterance.
+            prompt: Prompt for the LLM.
+            initial_prompt: Initial prompt for the chat API. Defaults to None.
 
         Returns:
-            Utterance.
+            Response from the LLM API without any post-processing.
         """
-        response = (
-            self.client.completions.create(
-                model=self.model, prompt=prompt, **self._llm_options
+        if self.use_chat_api:
+            messages = [
+                {"role": "system", "content": initial_prompt},
+                *self._parse_prompt_context(prompt),
+            ]
+            response = (
+                self.client.chat.completions.create(
+                    messages=messages, model=self.model, **self._llm_options  # type: ignore[arg-type] # noqa
+                )
+                .choices[0]
+                .message.content
             )
-            .choices[0]
-            .text
-        )
-        return Utterance(response, DialogueParticipant.USER)
+        else:
+            response = (
+                self.client.completions.create(
+                    model=self.model, prompt=prompt, **self._llm_options
+                )
+                .choices[0]
+                .text
+            )
+
+        return response
