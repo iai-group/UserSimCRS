@@ -1,4 +1,4 @@
-"""Script to evaluate dialogue quality using LLM.
+"""Script to evaluate dialogue quality using an LLM.
 
 The script evaluates dialogue quality with regards to five aspects:
 - Recommendation relevance
@@ -27,6 +27,18 @@ from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from scripts.evaluation.rubrics.quality_rubrics import QualityRubrics
 from usersimcrs.simulator.llm.interfaces.ollama_interface import (
     OllamaLLMInterface,
+)
+
+_PROMPT_EVAL_INTRO = (
+    "You are an evaluator and you need to judge how does the "
+    "ASSISTANT perform based on the following CONVERSATION HISTORY. Please "
+    "rate the ASSISTANT's performance based on the following GRADING RUBRIC.\n"
+    "\nCONVERSATION HISTORY:"
+)
+_PROMPT_EVAL_OUTPUT_FORMAT = (
+    'Your output need be a be in a JSON format as follows:\n{"score": '
+    '<score>, "score_explanation": <explanation>}\nDo not include '
+    "additional information.\n"
 )
 
 
@@ -89,10 +101,7 @@ def get_prompt(grading_rubric: QualityRubrics, dialogue: Dialogue) -> str:
     Returns:
         Prompt comprising task definition, grading rubric, and dialogue.
     """
-    prompt = "You are an evaluator and you need to judge how does the "
-    "ASSISTANT perform based on the following CONVERSATION HISTORY. Please "
-    "rate the ASSISTANT's performance based on the following GRADING RUBRIC.\n"
-    "\nCONVERSATION HISTORY:"
+    prompt = _PROMPT_EVAL_INTRO
 
     # Add dialogue history
     for utterance in dialogue.utterances:
@@ -104,11 +113,7 @@ def get_prompt(grading_rubric: QualityRubrics, dialogue: Dialogue) -> str:
         prompt += f"\n{role}: {utterance.text}"
 
     prompt += f"\n\nGRADING RUBRIC:\n{grading_rubric.value}\n"
-    prompt += (
-        'Your output need be a be in a JSON format as follows:\n{"score": '
-        '<score>, "score_explanation": <explanation>}\nDo not include '
-        "additional information.\n"
-    )
+    prompt += _PROMPT_EVAL_OUTPUT_FORMAT
     return prompt
 
 
