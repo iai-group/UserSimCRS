@@ -79,8 +79,8 @@ class QualityRubrics(Enum):
             "engaging and informative.",
             "4: The user is mostly satisfied with the conversation, with only "
             "a few minor points of dissatisfaction.",
-            "3: The user is somewhat satisfied with the conversation, but there "
-            "are several aspects that could be improved.",
+            "3: The user is somewhat satisfied with the conversation, but "
+            "there are several aspects that could be improved.",
             "2: The user is mostly dissatisfied with the conversation, with "
             "only a few minor points of satisfaction.",
             "1: The user is highly dissatisfied with the conversation, finding "
