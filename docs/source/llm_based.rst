@@ -1,20 +1,63 @@
-LLM-based simulator
-===================
+LLM-based simulators
+====================
 
-This simulator relies on a large language model (LLM) to generate utterances. Currently, only single zero-shot prompts are supported for generating responses. The interactions with the LLM are managed by the LLM interface.
+UserSimCRS implements two user simulators relying on a large language model (LLM) to generate utterances: 
 
-Prompt
-------
+- **Single Prompt Simulator**: It generates utterances based on a single prompt that includes the task description, user persona, information need, and conversational context.
+- **Dual Prompt Simulator**: It generates utterances based on two prompts: one to decide whether to continue the conversation or not, and the same prompt as the single prompt simulator to generate the utterance if the conversation should continue.
 
-:py:class:`usersimcrs.simulator.llm.prompt.Prompt`
+We present the different prompts and available LLM interfaces below.
 
-The prompt is inspired by `[Terragni et al., 2023] <https://arxiv.org/abs/2306.00774>`_ It includes the following information: task description, information need, conversational context, and optionally the simulated user persona. The prompt is built as follows:
+Prompts
+-------
 
-| {task_description} PERSONA: {persona} REQUIREMENTS: You are looking for a {item_type} with the following characteristics: {constraints}. Once you find a suitable {item_type}, make sure to get the following information: {requests}.
-| {conversational_context}
+:py:class:`usersimcrs.simulator.llm.prompt.prompt.Prompt`
+
+The base class for all prompts. It provides the basic structure and methods to build prompts for LLM-based simulators. 
+
+Note that currently, the prompts are built with a zero-shot approach in mind, but they can be adapted to use few-shot or in-context learning by providing examples in the prompt (especially in the task description).
+
+Utterance Generation Prompt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:py:class:`usersimcrs.simulator.llm.prompt.utterance_generation_prompt.UtteranceGenerationPrompt`
+
+The prompt is inspired by `[Terragni et al., 2023] <https://arxiv.org/abs/2306.00774>`_. It includes the following information: task description, information need, conversational context, and optionally the simulated user persona. The prompt is built as follows:
+
+  {task_description}
+
+  PERSONA: {persona}
+
+  REQUIREMENTS: You are looking for a {item_type} with the following characteristics: {constraints}. Once you find a suitable {item_type}, make sure to get the following information: {requests}.
+
+  HISTORY:   
+  
+  {conversational_context}
 
 The persona section is included if the simulated user persona is provided. The placeholder *item_type* is replaced by the type of item the user is looking for such as a restaurant or a movie. The *constraints* and *requests* are extracted from the information need. The *conversational_context* is the history of the conversation up to the current utterance, hence, it is updated each time an utterance is received (agent utterance) or generated (simulated user utterance).
 
+The default task description is:
+  
+  You are a USER discussing with an ASSISTANT. Given the conversation history, you need to generate the next USER message in the most natural way possible. The conversation is about getting a recommendation according to the REQUIREMENTS. You must fulfill all REQUIREMENTS as the conversation progresses (you don't need to fulfill them all at once). After getting all the necessary information, you can terminate the conversation by sending '\end'. You may also terminate the conversation is stuck in a loop or the ASSISTANT is not helpful by sending '\giveup'. Be precise with the REQUIREMENTS, clear and concise.
+
+Stop Conversation Prompt
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+:pyclass:`usersimcrs.simulator.llm.prompt.stop_prompt.StopPrompt`
+
+The stop conversation prompt is used to indicate that the conversation should end. It is built as follows:
+
+  {task_description}
+
+  HISTORY:
+  
+  {conversational_context}
+  
+  Continue?
+
+The default task description is:
+
+  As a USER interacting with an ASSISTANT to receive a recommendation, analyze the conversation history to determine if it is progressing productively. If the conversation has been stuck in a loop with repeated misunderstandings across multiple turns, return 'FALSE' to indicate the conversation should be terminated. Otherwise, return 'TRUE' to indicate that the conversation should continue. Only return 'TRUE' or 'FALSE' without any additional information.
 
 LLM interface
 -------------
