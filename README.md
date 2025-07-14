@@ -7,9 +7,8 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![docs](https://img.shields.io/github/actions/workflow/status/iai-group/UserSimCRS/build_docs.yaml?label=docs&branch=main)
 ![Tests](https://img.shields.io/github/actions/workflow/status/iai-group/UserSimCRS/merge.yaml?label=Tests&branch=main)
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.UserSimCRS.main.json) 
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.UserSimCRS.main.json)
 ![Python version](https://img.shields.io/badge/python-3.9-blue)
-
 
 UserSimCRS is an extensible user simulation toolkit for evaluating conversational recommender systems.  
 
@@ -41,7 +40,7 @@ To work on the documentation you also need to install other dependencies:
 python -m pip install -r requirements/docs_requirements.txt
 ```
 
-## Usage 
+## Usage
 
 A YAML configuration file is necessary to start the simulation; see [default configuration](config/default/config_default.yaml) for an example.  
 Run the following command to start the simulation:
@@ -58,6 +57,7 @@ This example shows how to run simulation using the default configuration and the
 
   * Download IAI MovieBot v1.0.1 [here](https://github.com/iai-group/MovieBot/releases/tag/v1.0.1)
   * Follow the IAI MovieBot installation instructions
+  * Create a folder `conversation_history` in the folder you run MovieBot from.
   * Start the IAI MovieBot locally: `python -m run_bot -c config/moviebot_config_no_integration.yaml`
 
 Note: you need to update the parameter `agent_uri` in the configuration in case MovieBot does not run on the default URI (i.e., `http://127.0.0.1:5001`).
@@ -77,7 +77,7 @@ We follow the [IAI Python Style Guide](https://github.com/iai-group/styleguide/t
 
 ## Contributors
 
-UserSimCRS is developed and maintained by the [IAI group](https://iai.group) at the University of Stavanger. 
+UserSimCRS is developed and maintained by the [IAI group](https://iai.group) at the University of Stavanger.
 
 (Alphabetically ordered by last name)
 

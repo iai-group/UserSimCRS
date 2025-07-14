@@ -5,15 +5,14 @@ from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
+
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
 )
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.simulator.agenda_based.interaction_model import (
-    InteractionModel,
-)
+from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 
@@ -89,7 +88,7 @@ class AgendaBasedSimulator(UserSimulator):
             for da in agent_dialogue_acts
         ):
             self._dialogue_connector.close()
-            quit()
+            return
 
         # Update agenda based on the agent's dialogue acts.
         self._interaction_model.update_agenda(

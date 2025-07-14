@@ -103,7 +103,7 @@ class SimulationPlatform(Platform):
             agent_id: Agent ID.
             utterance: An instance of Utterance.
         """
-        logging.debug(f"Agent {agent_id}: {utterance.text}")
+        logging.debug(f"{agent_id}: {utterance.text}")
 
     def display_user_utterance(
         self, user_id: str, utterance: Utterance
@@ -114,4 +114,4 @@ class SimulationPlatform(Platform):
             user_id: User ID.
             utterance: An instance of Utterance.
         """
-        logging.debug(f"User {user_id}: {utterance.text}")
+        logging.debug(f"{user_id}: {utterance.text}")

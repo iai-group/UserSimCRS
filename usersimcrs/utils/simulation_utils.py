@@ -5,7 +5,6 @@ from typing import Any, Dict, Set, Tuple, Type
 
 import confuse
 import yaml
-
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -24,12 +23,11 @@ from dialoguekit.nlu.models.intent_classifier_cosine import (
 from dialoguekit.participant import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
+
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.simulator.agenda_based.interaction_model import (
-    InteractionModel,
-)
+from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
 )
@@ -67,7 +65,7 @@ def get_agent_information(
     """
     agent_class = map_path_to_class(config["agent_class_path"].get())
     agent_config = {
-        "agent_id": config["agent_id"].get(),
+        "id": config["agent_id"].get(),
         "uri": config["agent_uri"].get(),
     }
 
