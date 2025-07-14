@@ -1,0 +1,59 @@
+core.feature_handler
+====================
+
+.. py:module:: core.feature_handler
+
+.. autoapi-nested-parse::
+
+   Interface to build feature vector for neural-based user simulator.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   core.feature_handler.FeatureVector
+   core.feature_handler.FeatureMask
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   core.feature_handler.FeatureHandler
+
+
+Module Contents
+---------------
+
+.. py:data:: FeatureVector
+
+.. py:data:: FeatureMask
+
+.. py:class:: FeatureHandler
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+
+   .. py:method:: build_input_vector(utterance: dialoguekit.core.annotated_utterance.AnnotatedUtterance, **kwargs) -> Tuple[FeatureVector, FeatureMask]
+      :abstractmethod:
+
+
+      Builds the input vector for a given utterance.
+
+      :param utterance: Annotated utterance.
+      :param kwargs: Additional arguments.
+
+      :raises NotImplementedError: If not implemented in derived class.
+
+      :returns: Input vector and mask.
+
+
+
