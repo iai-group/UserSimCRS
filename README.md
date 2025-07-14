@@ -58,7 +58,7 @@ This example shows how to run simulation using the default configuration and the
   * Download IAI MovieBot v1.0.1 [here](https://github.com/iai-group/MovieBot/releases/tag/v1.0.1)
   * Follow the IAI MovieBot installation instructions
   * Create a folder `conversation_history` in the folder you run MovieBot from.
-  * Start the IAI MovieBot locally: `python -m run_bot -c config/moviebot_config_no_integration.yaml`
+  * Start the IAI MovieBot locally: `python -m moviebot.run -c config/moviebot_config_no_integration.yaml`
 
 Note: you need to update the parameter `agent_uri` in the configuration in case MovieBot does not run on the default URI (i.e., `http://127.0.0.1:5001`).
 
