@@ -9,18 +9,12 @@ from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlg.nlg_abstract import AbstractNLG
-from dialoguekit.nlg.template_from_training_data import (
-    extract_utterance_template,
-)
+from dialoguekit.nlg.template_from_training_data import extract_utterance_template
 from dialoguekit.nlu import NLU
-from dialoguekit.nlu.disjoint_dialogue_act_extractor import (
-    DisjointDialogueActExtractor,
-)
+from dialoguekit.nlu.disjoint_dialogue_act_extractor import DisjointDialogueActExtractor
 from dialoguekit.nlu.intent_classifier import IntentClassifier
 from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.nlu.models.intent_classifier_cosine import (
-    IntentClassifierCosine,
-)
+from dialoguekit.nlu.models.intent_classifier_cosine import IntentClassifierCosine
 from dialoguekit.participant import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
@@ -31,9 +25,7 @@ from usersimcrs.items.ratings import Ratings
 from usersimcrs.nlu.lm.lm_dialogue_act_extractor import LMDialogueActsExtractor
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.user_modeling.persona import Persona
-from usersimcrs.user_modeling.simple_preference_model import (
-    SimplePreferenceModel,
-)
+from usersimcrs.user_modeling.simple_preference_model import SimplePreferenceModel
 
 
 def map_path_to_class(cls_path: str) -> Type:
@@ -342,6 +334,7 @@ def _get_single_prompt_user_simulator_config(
 
     task_definition = config["task_definition"].get()
 
+    persona = None
     if "persona" in config:
         persona = Persona(config["persona"].get())
 
