@@ -107,7 +107,7 @@ class SimulationPlatform(Platform):
         logging.debug(f"{agent_id}: {utterance.text}")
 
     def display_user_utterance(
-        self,  utterance: Utterance,user_id: str
+        self, utterance: Utterance, user_id: str
     ) -> None:
         """Displays a user utterance.
 

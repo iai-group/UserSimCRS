@@ -1,4 +1,9 @@
-"""Dialogue act extractor based on a language model."""
+"""Dialogue act extractor based on a language model.
+
+Note that the language model is expected to be hosted externally on a ollama
+server. Also, the prompt used to extract dialogue acts is expected to have a
+placeholder "utterance" that will be replaced by the utterance text.
+"""
 
 from __future__ import annotations
 
@@ -8,13 +13,12 @@ import string
 from typing import List
 
 import yaml
-from ollama import Client, Options
-
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlu.dialogue_acts_extractor import DialogueActsExtractor
+from ollama import Client, Options
 
 
 class LMDialogueActsExtractor(DialogueActsExtractor):
@@ -94,6 +98,9 @@ class LMDialogueActsExtractor(DialogueActsExtractor):
     ) -> List[DialogueAct]:
         """Parses dialogue acts from a list of strings.
 
+        The expected format of a dialogue act is:
+        "intent(slot1=value1, slot2,...)".
+
         Args:
             dialogue_acts: String representation of dialogue acts.
 
@@ -111,7 +118,9 @@ class LMDialogueActsExtractor(DialogueActsExtractor):
                 for slot_value_pair in slot_value_pairs:
                     pair = slot_value_pair.split("=")
                     if len(pair) != 2:
-                        continue
+                        annotations.append(
+                            SlotValueAnnotation(pair[0].strip(), None)
+                        )
                     annotations.append(
                         SlotValueAnnotation(
                             pair[0].strip(), pair[1].strip().strip('"')
@@ -124,6 +133,9 @@ class LMDialogueActsExtractor(DialogueActsExtractor):
 
     def _parse_model_output(self, model_output: str) -> List[DialogueAct]:
         """Parses model output.
+
+        The expected output format is a string of dialogue acts separated by
+        "|". A dialogue act is formatted as: "intent(slot1=value1, slot2,...)".
 
         Args:
             model_output: Model output.
