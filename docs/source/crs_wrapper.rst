@@ -1,9 +1,9 @@
 CRS Wrapper
 ===========
 
-A CRS wrapper facilitates the interaction between a conversational recommender system (CRS) and a simulated user. It provides a standardized communication interface that does not make assumptions about the inner workings or source code of the CRS.
-
-In practice, a CRS wrapper is a class inheriting from DialogueKit's `Agent` class. It allows to easily support new CRSs by creating new wrappers under `crs_agent_wrapper`.
+A CRS wrapper facilitates the interaction between a conversational recommender system (CRS) and a simulated user. It provides a standardized communication interface that does not make assumptions about the inner workings or source code of the CRS. We consider that communication with a CRS is done via an API.
+ 
+In practice, a CRS wrapper is a class inheriting from DialogueKit's `Agent` class with an additional parameter `uri` that specifies the API endpoint of the CRS. It allows to easily support new CRSs by creating new wrappers under `crs_agent_wrapper`.
 
 Supported CRSs
 --------------
