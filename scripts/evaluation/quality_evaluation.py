@@ -81,7 +81,7 @@ def parse_args() -> argparse.Namespace:
         "--ollama_config",
         type=str,
         required=True,
-        help="Path to the OLLAMA config file.",
+        help="Path to the Ollama config file.",
     )
     parser.add_argument(
         "--output",
