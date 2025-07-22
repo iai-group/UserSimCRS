@@ -1,0 +1,78 @@
+usersimcrs.simulation_platform
+==============================
+
+.. py:module:: usersimcrs.simulation_platform
+
+.. autoapi-nested-parse::
+
+   Simulation platform to connect simulator and agent.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulation_platform.SimulationPlatform
+
+
+Module Contents
+---------------
+
+.. py:class:: SimulationPlatform(agent_class: Type[dialoguekit.participant.Agent], agent_config: Dict[str, Any] = {})
+
+   Bases: :py:obj:`dialoguekit.platforms.Platform`
+
+
+   Initializes the simulation platform.
+
+   :param agent_class: Agent class.
+   :param agent_config: Configuration of the agent. Defaults to empty
+                        dictionary.
+
+
+   .. py:method:: start() -> None
+
+      Starts the simulation platform.
+
+      It creates the agent.
+
+      :raises RuntimeError: If the connection to the agent is refused.
+      :raises ValueError: If the agent URI is not specified in the agent
+          configuration.
+
+
+
+   .. py:method:: connect(user_id: str, simulator_class: Type[usersimcrs.simulator.user_simulator.UserSimulator], simulator_config: Dict[str, Any] = {}) -> None
+
+      Connects a user simulator to an agent.
+
+      :param user_id: User ID.
+      :param simulator_class: User simulator class.
+      :param simulator_config: Configuration of the user simulator. Defaults to
+                               empty dictionary.
+
+      :raises Exception: If an error occurs during the dialogue.
+
+
+
+   .. py:method:: display_agent_utterance(utterance: dialoguekit.core.Utterance, agent_id: str, user_id: str = None) -> None
+
+      Displays an agent utterance.
+
+      :param utterance: An instance of Utterance.
+      :param agent_id: Agent ID.
+      :param user_id: User ID. Defaults to None.
+
+
+
+   .. py:method:: display_user_utterance(utterance: dialoguekit.core.Utterance, user_id: str) -> None
+
+      Displays a user utterance.
+
+      :param utterance: An instance of Utterance.
+      :param user_id: User ID.
+
+
+
