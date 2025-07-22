@@ -25,6 +25,7 @@ UserSimCRS can also be extended with other simulation approaches and more advanc
    interaction_model
    components
    configuration
+   evaluation
    :ref:`modindex`
 
 Indices and tables
