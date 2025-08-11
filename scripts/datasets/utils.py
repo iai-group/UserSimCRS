@@ -9,6 +9,9 @@ def merge_consecutive_utterances(
 ) -> List[Dict[str, Any]]:
     """Merges consecutive utterances from the same participant.
 
+    It concatenates the text of consecutive utterances from the same participant
+    and combines their metadata and annotations.
+
     Args:
         utterances: List of utterances to merge.
 
