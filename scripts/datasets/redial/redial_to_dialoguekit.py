@@ -5,6 +5,10 @@ DialogueKit's format. Formatting includes merging consecutive utterances from
 the same participant and replacing movie mentions with their titles and years.
 In addition to formatting the dialogues, this script also processes items and
 ratings information.
+
+Reference:
+Li, Raymond, et al. "Towards deep conversational recommendations." Advances in
+neural information processing systems 31 (2018).
 """
 
 import json
@@ -17,6 +21,8 @@ from typing import Any, Dict, List, Tuple
 
 import pandas as pd
 import wget
+
+from scripts.datasets.utils import merge_consecutive_utterances
 
 REDIAL_DATASET_URL = (
     "https://github.com/ReDialData/website/raw/data/redial_dataset.zip"
@@ -132,7 +138,9 @@ def parse_utterances(
         text = message["text"]
         utterance = {
             "participant": participant,
-            "timeOffset": message["timeOffset"],
+            "metadata": {
+                "timeOffset": message["timeOffset"],
+            },
         }
 
         pattern = r"(@\d+)"
@@ -153,31 +161,8 @@ def parse_utterances(
         utterance["utterance"] = text
         utterances.append(utterance)
 
-    utterances = _merge_consecutive_utterances(utterances)
+    utterances = merge_consecutive_utterances(utterances)
     return utterances
-
-
-def _merge_consecutive_utterances(
-    utterances: List[Dict[str, Any]]
-) -> List[Dict[str, Any]]:
-    """Merges consecutive utterances from the same participant.
-
-    Args:
-        utterances: List of utterances to merge.
-
-    Returns:
-        List of merged utterances.
-    """
-    merged_utterances: List[Dict[str, Any]] = []
-    for utterance in utterances:
-        if (
-            not merged_utterances
-            or utterance["participant"] != merged_utterances[-1]["participant"]
-        ):
-            merged_utterances.append(utterance)
-        else:
-            merged_utterances[-1]["utterance"] += "\n" + utterance["utterance"]
-    return merged_utterances
 
 
 def get_items(dialogue: Dict[str, Any]) -> Items:
