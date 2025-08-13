@@ -1,4 +1,4 @@
-"""Utility functions for transforming datasets into the DialogueKit format."""
+"""Utility functions for transforming datasets into DialogueKit format."""
 
 from typing import Dict, Any, List, Tuple, Union
 from itertools import chain

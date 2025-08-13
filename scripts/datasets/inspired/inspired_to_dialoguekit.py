@@ -92,18 +92,18 @@ def process_data(data_path: str, items: pd.DataFrame) -> List[Dict[str, Any]]:
             "others_dict",
         ]
     ].apply(
-        convert_to_dict
+        _convert_to_dict
     )
     dialogues = []
 
     for _, group in data.groupby("dialog_id"):
-        formatted_dialogue = format_dialogue(group, items)
+        formatted_dialogue = _format_dialogue(group, items)
         dialogues.append(formatted_dialogue)
 
     return dialogues
 
 
-def convert_to_dict(values: pd.Series) -> pd.Series:
+def _convert_to_dict(values: pd.Series) -> pd.Series:
     """Converts cell value to a dictionary.
 
     Args:
@@ -126,7 +126,7 @@ def convert_to_dict(values: pd.Series) -> pd.Series:
     return pd.Series(converted_values)
 
 
-def format_dialogue(
+def _format_dialogue(
     dialogue: pd.DataFrame, items: pd.DataFrame
 ) -> Dict[str, Any]:
     """Formats a dialogue into the DialogueKit format.
@@ -170,12 +170,12 @@ def format_dialogue(
             "recommended_movie"
         ] = recommended_movie_title
 
-    utterances = parse_utterances(dialogue)
+    utterances = _parse_utterances(dialogue)
     formatted_dialogue["conversation"] = utterances
     return formatted_dialogue
 
 
-def parse_utterances(dialogue: pd.DataFrame) -> List[Dict[str, Any]]:
+def _parse_utterances(dialogue: pd.DataFrame) -> List[Dict[str, Any]]:
     """Parses utterances from a dialogue DataFrame.
 
     Args:
