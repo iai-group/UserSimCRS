@@ -79,14 +79,14 @@ def load_data(
     ratings = deepcopy(ratings) if ratings else list()
 
     for line in open(path, "r"):
-        dialogue, _items, _ratings = format_dialogue(json.loads(line))
+        dialogue, _items, _ratings = _format_dialogue(json.loads(line))
         data.append(dialogue)
         items.update(_items)
         ratings.extend(_ratings)
     return data, items, ratings
 
 
-def format_dialogue(
+def _format_dialogue(
     dialogue: Dict[str, Any]
 ) -> Tuple[Dict[str, Any], Items, List[Rating]]:
     """Formats a dialogue into DialogueKit format.
@@ -108,16 +108,16 @@ def format_dialogue(
             "type": "USER",
         },
     }
-    items = get_items(dialogue)
-    ratings = get_ratings(dialogue, dialogue["initiatorWorkerId"])
-    utterances = parse_utterances(
+    items = _get_items(dialogue)
+    ratings = _get_ratings(dialogue, dialogue["initiatorWorkerId"])
+    utterances = _parse_utterances(
         dialogue, dialogue["initiatorWorkerId"], items
     )
     formatted_dialogue["conversation"] = utterances
     return formatted_dialogue, items, ratings
 
 
-def parse_utterances(
+def _parse_utterances(
     dialogue: Dict[str, Any], user_id: str, items: Items
 ) -> List[Dict[str, Any]]:
     """Parses utterances from the dialogue.
@@ -165,7 +165,7 @@ def parse_utterances(
     return utterances
 
 
-def get_items(dialogue: Dict[str, Any]) -> Items:
+def _get_items(dialogue: Dict[str, Any]) -> Items:
     """Extracts items mentioned in the dialogue.
 
     Args:
@@ -195,7 +195,7 @@ def get_items(dialogue: Dict[str, Any]) -> Items:
     return items
 
 
-def get_ratings(dialogue: Dict[str, Any], user_id: str) -> List[Rating]:
+def _get_ratings(dialogue: Dict[str, Any], user_id: str) -> List[Rating]:
     """Extracts ratings from the dialogue.
 
     Args:
