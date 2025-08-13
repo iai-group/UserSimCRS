@@ -1,5 +1,7 @@
-Setting up a user simulator
-===========================
+Experiment Configuration
+========================
+
+This page describes how to configure the simulation-based evaluation of a conversational recommender system (CRS).  
 
 Requirements
 ------------
@@ -9,70 +11,81 @@ To run the simulation, the following are needed:
 1. **Domain:** A YAML file with domain-specific slot names that will be used for the preference model.
 2. **Item collection:** A CSV file containing the item collection. This file must contain at least 2 columns labeled *ID* and *NAME*.
 3. **Preference data:** A CSV file containing the item ratings in the shape of user ID, item ID, and rating triples.
-4. **Interaction model:** A YAML file containing the users’ and agent’s intent space, as well as the set of expected agent intents for each user intent, is required for the interaction model. The CIR6 interaction model shipped with library offers a baseline starting point, which may be further tailored according to the behavior and capabilities of the CRS.
-5. **Annotated sample dialogues:** A small sample of annotated dialogues with the CRS. The sample size depends on the complexity of the system, in terms of action space and language variety, but is generally in the order of 5-50 dialogues. The sample of dialogues must contain utterance-level annotations in terms of intents and entities, as this is required to train the NLU and NLG components. Note that the slots used for annotation should be the same as the ones defined in the domain file (1) and intents should follow the ones defined in the interaction model (4).
 
 Configuration
 -------------
 
-The agenda based simulator has a number of parameters that can be customized.
-These can be either provided in a YAML config file and/or via the command line. Note that arguments passed through the command line will override those in the config file.
+The configuration of an experiment is defined in a YAML file (some parameters can also be passed via the command line). The configuration file is divided into three main sections:
 
-Simulator parameters
-^^^^^^^^^^^^^^^^^^^^
+1. **General parameters**: These parameters define the general settings of the simulation. It includes the following fields:
+  - `output_name`: Experiment name.
+  - `debug`: A boolean flag to activate debug mode.
+  - `fix_random_seed`: A boolean flag to fix the random seed for reproducibility.
+  - `num_simulated_dialogues`: Number of simulated dialogues to be generated during the experiment. 
+2. **Agent configuration**: Configuration of the agent to be tested in the simulation. It includes the following fields:
+  - `agent_id`: Agent identifier.
+  - `agent_uri`: URI to communicate with the agent (by default, it is assumed that the agent has an HTTP API).
+  - `agent_class_path`: Import path to the CRS wrapper class. This is used to instantiate the agent in the simulation. More details on CRS wrapper is provided :doc:`here <crs_wrapper>`.
+  - `agent_config` (optional): Dictionary with additional configuration parameters for the agent.
+3. **Simulator configuration**: Configuration of the user simulator. It includes at least the following fields:
+  - `simulator_id`: User simulator identifier.
+  - `simulator_class_path`: Import path to the user simulator class. This is used to instantiate the user simulator in the simulation.
+  - `domain`: A YAML file with domain-specific slot names.
+  - `items`: Path to items file.
+  - `id_col`: Name of the CSV field containing item id.
+  - `domain_mapping`: CSV field mapping to create item based on domain slots.
+  - `ratings`: Path to ratings file.
+  - `historical_ratings_ratio`: Ratio ([0..1]) of ratings to be used as historical data.
 
-  * `agent_id`: Id of the agent tested.
-  * `output_name`: Specifies the output name for the simulation configuration that will be stored under `data/runs` at the end of the simulation.
-  * `agent_uri`: URI to communicate with the agent. By default we assume that the agent has an HTTP API.
-  * `domain`: A YAML file with domain-specific slot names.
-  * `intents`: Path to the intent schema file.
-  * `items`: Path to items file.
-  * `id_col`: Name of the CSV field containing item id.
-  * `domain_mapping`: CSV field mapping to create item based on domain slots.
-  * `ratings`: Path to ratings file.
-  * `historical_ratings_ratio`: Ratio ([0..1]) of ratings to be used as historical data.
+Note that additional parameters specific to the user simulator should be added in the simulator configuration section. For example, it can be parameters related to the natural language understanding components or related to the large language model used for the simulation. We discuss some of parameters for agenda-based and LLM-based simulators below. In general, the parameters correspond to the ones defined in the specific simulator class.
+
+Agenda-based simulation configuration
+"""""""""""""""""""""""""""""""""""""
+
+To build an agenda-based user simulator, you need to provide an **interaction model**. It is a YAML file containing the users' and agent's intent space, as well as the set of expected agent intents for each user intent, is required for the interaction model. The CIR6 interaction model shipped with library offers a baseline starting point, which may be further tailored according to the behavior and capabilities of the CRS. The path to the interaction model file should be specified in the configuration file under the `intents` parameter.
+
+A default configuration to experiment with the IAI MovieBot, as the conversational agent, and agenda-based user simulator with supervised NLU and NLG is provided in `config/default/config_default.yaml`.
+
+Supervised NLU and NLG
+^^^^^^^^^^^^^^^^^^^^^^
+
+To use supervised NLU and NLG components in the simulation, you need access to:
+
+  * **Annotated sample dialogues:** A small sample of annotated dialogues with the CRS. The sample size depends on the complexity of the system, in terms of action space and language variety, but is generally in the order of 5-50 dialogues. The sample of dialogues must contain utterance-level annotations in terms of intents and entities, as this is required to train the NLU and NLG components. Note that the slots used for annotation should be the same as the ones defined in the domain file and intents should follow the ones defined in the interaction model.
+
+Associated configuration parameters are:
+
+  
   * `dialogues`: Path to domain config file.
   * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifiers.
   * `rasa_dialogues`: File with Rasa annotated dialogues. Only needed when using a DIET intent classifier.
-  * `debug`: Flag (boolean) to activate debug mode.
+  * `nlg`: NLG type to be used, set to "conditional" for template-based NLG.
 
-Configuration example
+LLM-based NLU and NLG
 ^^^^^^^^^^^^^^^^^^^^^
 
-Below is the default configuration to run simulation with the IAI MovieBot as the conversational agent.
+Additional parameters for LLM-based NLU and NLG components are:
 
-.. todo:: Add args for context and persona.
+  * `intent_classifier`: Intent classifier set to "lm" for LLM-based dialogue act extraction.
+  * `intent_classifier_config`: Configuration file for `LMDialogueActsExtractor`.
+  * `nlg`: NLG type set to "lm" for LLM-based NLG.
 
-.. code-block:: yaml
-  
-  agent_id: "IAI MovieBot"
-  output_name: "moviebot"
-  # By default, the agent has an HTTP API.
-  agent_uri: "http://127.0.0.1:5001"
+    - `nlg_class_path`: Import path to the LLM-based NLG class.
+    - `nlg_args`: Dictionary with additional configuration parameters for the LLM-based NLG class.
 
-  domain: data/domains/movies.yaml
-  intents: data/interaction_models/crs_v1.yaml
 
-  items: data/movielens-25m-sample/movies_w_keywords.csv
-  id_col: movieId
-  domain_mapping:
-    title:
-      slot: TITLE
-    genres:
-      slot: GENRE
-      multi-valued: True
-      delimiter: "|"
-    keywords:
-      slot: KEYWORD
-      multi-valued: True
-      delimiter: "|"
-  ratings: data/movielens-25m-sample/ratings.csv
-  historical_ratings_ratio: 0.8
-  
-  dialogues: data/agents/moviebot/annotated_dialogues.json
-  intent_classifier: "cosine"
-  # If using the DIET classifier the following file needs to be provided. 
-  # rasa_dialogues: data/agents/moviebot/annotated_dialogues_rasa_agent.yml
+LLM-based simulation configuration
+""""""""""""""""""""""""""""""""""
 
-  debug: False
+Additional parameters for the LLM-based user simulators are:
 
+  * `llm_interface_class_path`: Import path to the LLM interface class. This is used to instantiate the LLM interface in the simulation.
+  * `llm_interface_args`: Dictionary with additional configuration parameters for the LLM interface.
+  * `item_type`: Type of items to be recommended.
+
+Optional parameters for the LLM-based simulators include:
+
+  * `task_definition`: Task description to be used in the utterance generation prompt.
+  * `stop_definition` (only for `DualPromptUserSimulator`): Task description to be used in the stop decision prompt.
+
+.. todo: A default configuration to experiment with the IAI MovieBot, as the conversational agent, and single prompt user simulator is provided in `config/default/config_default.yaml`.
