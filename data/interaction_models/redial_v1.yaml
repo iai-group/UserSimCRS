@@ -1,0 +1,123 @@
+name: intent_schema_redial_v1
+description: Intent schema for ReDial, built based on IARD dataset, by Bernard and Balog.
+
+# Minimum intents required
+required_intents:
+  INTENT_START:
+  INTENT_STOP: BYE
+  INTENT_ITEM_CONSUMED: SEE
+  INTENT_LIKE: ACC
+  INTENT_DISLIKE: REJ
+  INTENT_NEUTRAL: NRE
+  INTENT_DISCLOSE: PRO
+  INTENT_INQUIRE: INQ
+  INTENT_DONT_KNOW: DONT-KNOW
+  INTENT_YES: YES
+  INTENT_NO: NO
+
+# Possible user intents with optional description.
+user_intents:
+  IQU:
+    expected_agent_intents:
+      - OTH
+  CON:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+  REF:
+    expected_agent_intents:
+      - REQ
+      - CLA
+  STO:
+    expected_agent_intents:
+  PRO:
+    expected_agent_intents:
+      - REQ
+      - CLA
+  ANS:
+    expected_agent_intents:
+      - REQ
+      - CLA
+  SEE:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+    preference_contingent: CONSUMED
+  ACC:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+    preference_contingent: POSITIVE
+  REJ:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+    preference_contingent: NEGATIVE
+  INQ:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+  CRI-F:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+    remove_user_preference: true
+  CRI-A:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+  NRE:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+  CRI-C:
+    expected_agent_intents:
+      - REC-S
+      - REC-E
+      - EXP-I
+      - EXP-P
+      - EXP-S
+  OTH:
+    expected_agent_intents:
+      - OTH
+  BYE:
+    expected_agent_intents:
+      - END
+
+# List of agent intents (including sub-intents) that elicit preferences.
+agent_elicit_intents:
+  - REQ
+  - CLA
+
+# List of agent intents (including sub-intents) that are for set retrieval.
+agent_set_retrieval:
+  - REC-S
+  - REC-E
+
+# List of agent intents (including sub-intents) that are for inquiries.
+agent_inquire_intents:
+  - INQ

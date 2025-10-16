@@ -30,8 +30,6 @@ user_intents:
       - INQUIRE.ELICIT
       - REVEAL
       - REVEAL.NONE
-  REVEAL:
-    expected_agent_intents:
   REVEAL.EXPAND:
     expected_agent_intents:
       - INQUIRE.ELICIT
@@ -73,7 +71,6 @@ user_intents:
       - REVEAL
       - REVEAL.SIMILAR
   NOTE.DISLIKE:
-    expected_agent_intents:
     preference_contingent: NEGATIVE
   NOTE.LIKE:
     expected_agent_intents:
