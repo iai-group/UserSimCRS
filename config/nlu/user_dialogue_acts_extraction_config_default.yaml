@@ -29,7 +29,7 @@ slot_labels:
   - YEAR
   - OTHER
 
-ollama_host: "https://ollama.ux.uis.no"
+ollama_host: "OLLAMA_URL"
 ollama_model: "mistral-nemo:latest"
 ollama_options:
   temperature: 0

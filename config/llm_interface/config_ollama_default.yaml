@@ -1,5 +1,5 @@
-host: "https://ollama.ux.uis.no"
+host: "OLLAMA_URL"
 model: "mistral-nemo:latest"
 stream: False
 options:
-  temperature: 0
+  temperature: 0.7
