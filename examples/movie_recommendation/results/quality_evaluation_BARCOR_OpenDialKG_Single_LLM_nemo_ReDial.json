@@ -1,0 +1,2514 @@
+{
+  "BARCOR_OpenDialKG": {
+    "REC_RELEVANCE": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided an irrelevant recommendation ('The Movie' instead of 'The Thin Red Line') and failed to understand the user's confirmation question."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant provided a movie recommendation for 1987 instead of 1986, which does not meet the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant did not provide a relevant recommendation for the year 2003. Instead, it suggested '2001', which was released in 1968."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant often provided irrelevant movie recommendations and struggled to stick to the user's request for movies released in 2007. Despite several attempts by the user to clarify their request, the assistant continued to suggest movies from other years or incorrect titles."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided one relevant recommendation but failed to understand and respond appropriately when the user asked for the title again."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The first suggestion was from the wrong year and featured Tom Hanks despite user's clarification that they were looking for movies released in 2010 without mentioning Tom Hanks."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided an incorrect recommendation and did not attempt to correct it after being informed of the mistake."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant provided irrelevant and incorrect recommendations ('milk and honey' was not released in 1937), failing to meet the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user was looking for movies from 2014 with specific criteria (strong female lead), but the assistant repeatedly recommended 'You Will Meet a Tall Dark Stranger', which is not a movie from 2014 and does not meet the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It suggested movies released in different years and genres despite the user's clear preference for a movie released in 2000."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered books instead of movies despite the user's repeated clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant movie title ('milk and honey') for the year 1914, failing to meet the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was looking for a movie from 1975 but the assistant kept recommending books or authors."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It suggested movies released in different years than requested."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and adapt to the user's preference for non-comedy movies from 2007. It repeatedly suggested comedies despite the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided irrelevant recommendations ('Date Night') and incorrect information ('Bloody Sunday' was written by Mark Boal), failing to meet the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies mentioned were not released in 1969."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie 'Shark Night' was released in 2012, not 2013."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any movie recommendations for 1988 despite the user's repeated requests. Instead, it provided irrelevant information about a book."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated requests for movies released in 2014, the assistant suggested movies from different years."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It suggested 'Time Bits' instead of the correct movie title 'Time Bandits', and incorrectly categorized it as a Business genre."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant made two suggestions (Zoolander and Mad Max: Fury Road) that did not meet the user's requirement of being released in 2015. However, they did eventually provide a relevant suggestion after the second attempt."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user asked for a movie released in 1940 but the assistant recommended 'The Wizard of Oz' which was released in 1939."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended 'You Again', which was released in 2008, despite the user's request for movies from 2006. The recommendations did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie 'Shark Night' was released in 2011, not 2004."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided one relevant recommendation ('Zoom'), but it was incorrect regarding the year of release. The user had to clarify this, indicating that the recommendation did not fully meet their needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant movie recommendation ('Shark Night') for the user's query about good movies from the year 2011."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2001: A Space Odyssey' was released in 1968, not 2004."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for non-science fiction movies from 1994."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested 'You, Me and Dupree', which the user had already indicated they were not interested in."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference. It suggested 'Shark Night' twice despite the user expressing they weren't interested in shark movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie suggested was released in the wrong year and the title was incorrectly stated."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the year 2005. Instead, it recommended '2001', which is not what the user asked for."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant only provided one relevant recommendation ('You Will Meet a Tall Dark Stranger') and kept repeating it despite the user asking for another movie from the same year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested 'The men who stare at goats', despite the user's indication that they were looking for a movie released in 1943."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies suggested were either from different years or did not meet the user's specific request for a movie released in 2015."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided one relevant recommendation but made an error by stating the release year incorrectly."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested movies titled 'Kylie' and 'Shark Night', despite the user's indication that they hadn't seen them and weren't interested."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided some relevant movie recommendations from 2004 but struggled to understand the user's preference for highly regarded movies. The repetition of 'highly regarded' instead of providing a brief explanation or other options led to confusion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested the same movie ('You Will Meet a Tall Dark Stranger') despite the user's indication that it wasn't what they were looking for."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user specifying they wanted a drama or action movie from 2000 without comedy as its primary genre, the assistant repeatedly suggested comedies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the user's request for a movie from 1992."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant only provided one relevant movie recommendation ('Zoolander') and failed to understand the user's clarification about theatrical release in 2000."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended thriller and action movies despite the user specifying they were looking for something different from those genres. The recommendations did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie 'Time Bandits' was released in 1985, not 1996."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided irrelevant movie suggestions (Flubber and Bandidas) instead of the requested year (1995)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations that met the user's request for a movie from 1992."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly mentioned 'You, Me and Dupree' despite the user's request for movies other than that."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It incorrectly stated that Moneyball was released in 1991 and then offered 'Lambs' when the user corrected it."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided irrelevant movie titles ('The Gift' was mentioned twice) and did not ask for the user's preferences or genre before making recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant rarely provided relevant recommendations. It repeatedly suggested movies titled '2010' despite the user's clarification that they were looking for a movie released in 2010."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested were released in different years than what the user requested."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. Despite the user specifying they wanted a movie released in theaters in 2016, the assistant repeatedly suggested 'Shark Night', which was direct-to-video."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie Marathon Man was not released in 2005 and the user had not asked for movies from other years."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The first suggestion was for a movie released in 2008 and the second suggestion was also incorrect regarding the release year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided an irrelevant movie title ('Ten Apples Up on Top') that was not released in 1998. The user had to ask for the correct title again."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations that met the user's preference for movies released in 1964."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie suggested was from the wrong year (2001 instead of 2006)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie 'Shark Night' was released in 2011, not 2004."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended movies ('You, Me and Dupree', 'Zoolander', 'Zombieland') that the user was already familiar with instead of suggesting other films from 2006."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant initially provided irrelevant movie recommendations (Rocky and Die Hard), despite the user specifying they wanted movies from 2004. Even after being corrected, it suggested The Rocky Horror Picture Show, which is also not from 2004."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested movies by Mark Bomback despite the user's lack of interest in 'Flubber' and no indication they were interested in his other films."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any movie recommendations for the year 1994. Instead, it mentioned a book titled 'Milk and Honey', which is irrelevant to the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It misunderstood the user's request and offered movies based on writers or actors born in 2001 instead of movies released in that year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested 'Pushing Tin', which was released in 1988 and does not star Robert De Niro."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It suggested 'Shark Night' twice despite the user stating they had already seen it."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant did not provide a relevant recommendation for the movie released in 1986."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested 'You, Me and Dupree', which was released in 2007, not 2008."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's specific request for movies released in 2017."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user explicitly stated they were looking for a movie from 2014 that wasn't a comedy, but the assistant only recommended 'You Will Meet a Tall Dark Stranger', which is indeed a comedy."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was looking for a movie from 1934 but the assistant kept recommending 'milk and honey', which is not a movie."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie 'Vertical Limit' was released in 2000, not 2017."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The first movie mentioned was released in 2006 (not 2003), and the second movie was from a different year altogether."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly offered movies with incorrect titles or actors, and did not meet the user's preference for a movie released in 2008 starring Kyla Pratt."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user was looking for a movie released in 1983 but the assistant only suggested movies starring Robert Duvall without considering the release year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested 'You, Me and Dupree' despite the user asking for movies from 1998."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie 'Shark Night' was released in 2011, not 2002."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide relevant recommendations. While it initially offered movies released around the year 2000, they were either part of a series or already seen by the user. It also repeatedly provided incorrect release years for suggested movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested were either from different years or had incorrect titles."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided inaccurate movie recommendations for the year 1995, showing limited knowledge of movies released that year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide accurate recommendations. It first mentioned 'The Doors', then 'The Doors Revisited', and finally 'The Bourne Legacy' for the year 1975."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond accurately to the user's request for the movie title 'You, Me and Dupree'. Instead, it provided irrelevant information or incorrect titles."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any movie recommendations from 1973. Instead, it mentioned 'Milk and Honey' which is a book by Rupi Kaur published in 2014, not a movie from 1973."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The first movie suggested was not from the year 2002 and the second suggestion was incorrect as well."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant provided irrelevant recommendations ('milk and honey', 'milk and water') for the user's request of a movie from 1977."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested 'Shark Night' despite the user stating they had already seen it."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide the correct movie title released in 1966 despite multiple attempts by the user to clarify their request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The Polar Express was mentioned twice despite the user's clarification that they were looking for a movie available to watch online."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant provided a recommendation ('1999: The Bourne Legacy') that does not meet the user's needs or preferences (they were looking for a movie from the year 1999)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided one relevant recommendation ('You, Me and Dupree') but then offered another ('We Bought A Zoo') which was released in a different year (2011), showing a lack of understanding or memory of the user's initial request for a movie from 2003."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested 'The Good German' and 'The Bad Germans', despite the user's clarification that they were looking for any movie from the year 1984."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was looking for movies released in 2017 but the assistant recommended 'Blade Runner: The Original Screenplay' and 'The New World', which are not from that year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided an irrelevant movie recommendation and did not understand the user's follow-up question about streaming availability."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. Zoolander was released in 2001, not 2016."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly offered movies that were not released in the year 2000 despite the user's clear request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant movie recommendation ('Shark Night') for the user's query about movies from the year 2011."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a single relevant movie recommendation from the year 1956 that the user hadn't already seen. Instead, they repeatedly suggested movies that were either mentioned earlier or didn't exist."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie 'Shark Night' was released in 2011, not 2017."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies released in different years despite the user's specific request for a movie from 1986."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested 'You, Me and Dupree' despite the user's indication that it wasn't what they were looking for."
+      }
+    ],
+    "COM_STYLE": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?' and '1954 was the year that released The Thin Red Line.'), but there are instances of ambiguity ('The Movie' instead of 'The Thin Red Line') or unnecessary complexity ('starring Gary Gary who also starred in The Thin Blue Line')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness and accuracy. It recommended a movie released in 1987 instead of 1986."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but contained ambiguity ('2001' instead of '2003') and unnecessary complexity (mentioning 'The Godfather Part II')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant often provided ambiguous or incorrect information, leading to confusion for the user. It also struggled to maintain focus on the user's request for a movie from 2007 with notable actors."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely, but there's one instance of unnecessary repetition ('1971 was the year that released The Doors')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often misunderstands the user's intent, leading to ambiguous or irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant started with clear communication but made an error in the second response, leading to ambiguity. The final response was also abrupt and could have been clearer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat ambiguous and overly complex. It incorrectly identified 'milk and honey' as a movie from 1937 and attributed it to George Kennedy, who is an actor, not a writer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly recommends 'You Will Meet a Tall Dark Stranger' despite the user's clarification for a movie with a strong female lead from 2014."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant often provided ambiguous or incorrect recommendations ('Zookeeper', 'Zombie'), and struggled to understand the user's request despite multiple attempts."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant often misunderstood the user's intent and provided irrelevant responses. It also failed to clarify when it was unsure about the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat ambiguous ('milk and honey' vs 'milk and butter') and could have been more clear in suggesting a movie from 1914."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly misunderstood the user's intent despite clarification, leading to confusion and ultimately causing the user to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's communication style was often ambiguous and inaccurate. It repeatedly suggested movies that were not released in 1993."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides irrelevant or incorrect suggestions based on the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Sure! What about Date Night...'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly attributes 'Bloody Sunday' to Mark Boal instead of Paul Greengrass, and it confuses Mark Bylance with Mark Boal."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends books instead of movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant's communication style is mostly clear and concise. However, the movie suggestion 'Shark Night' might have been too specific for the user's query about a movie released in 2013."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's intent and provided irrelevant responses, leading to confusion. The conversation style was unclear and did not meet the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant often provided ambiguous or incorrect information despite the user's repeated clarifications. It struggled to maintain context and understand the user's specific request for movies released in 2014."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant mostly communicates clearly but made one significant mistake by providing incorrect genre and examples for the movie 'Time Bandits', leading to confusion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of ambiguity ('Ok, then I would suggest Zoolander') which led to a misunderstanding."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the response 'similar to The Wizard of Oz' could be seen as ambiguous as it doesn't provide a specific title."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but has several instances of ambiguity or unnecessary complexity. It initially recommends 'You, Me and Dupree' but later suggests 'You Again', which is confusing as the user specified they haven't seen the first film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant communicated clearly and concisely most of the time. However, suggesting 'Shark Night' for a movie released in 2004 might be considered ambiguous or inaccurate, which slightly lowers the score."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the response 'No, but Zoom was released in 1995 with a great soundtrack.' is ambiguous as it's unclear whether the movie is from 1995 or not."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's recommendation was not relevant to the user's request for a good movie from 2011. The communication style was clear but the content was inappropriate."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant made an irrelevant movie recommendation (2001: A Space Odyssey instead of a 2004 film), showing a lack of understanding of the user's request. However, its communication style was clear and concise."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but has several instances of ambiguity or unnecessary complexity. It incorrectly suggests 'Cloverfield' twice despite the user's clarification that they are not interested in science fiction movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeats the same movie title multiple times and makes a mistake by stating 'You, me and Dupre both released movies in 2003'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends 'Shark Night' twice instead of providing another suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Sure!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that 'You, Me and Dupree' was released in 2013 instead of 2006."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are instances of ambiguity ('What about 2001?' instead of addressing the user's request for a movie from 2005) and unnecessary complexity ('I hear that it was a great movie released that year.' could be simplified to 'It was a great movie.')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it repeats the same movie title multiple times instead of providing other recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but makes mistakes by repeating the same movie title and incorrect release year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It initially recommends movies released before 2015 and repeatedly suggests the same movie with different titles."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of ambiguity ('Shark Night was released 2010') which contradicts the user's initial question about a movie from 2011."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous references ('Kylie') and unnecessary complexity ('Shark Night was written by Kylie Scott'), leading to confusion for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely, but there's one instance of unnecessary repetition ('highly regarded' twice in the same sentence)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats the same movie title despite user's feedback, showing lack of understanding or adaptability."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but makes several mistakes. It repeatedly recommends Zoolander despite the user's preference for a non-comedy movie from 2000."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the first response could have been more helpful by providing suggestions based on genre or popularity instead of just mentioning two films."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. For example, it incorrectly states that 'Zoolander' was written by Tony Gilroy (who actually directed the movie), and it misunderstands the user's request for a movie released in theaters in 2000."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly suggests thriller movies despite the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the first recommendation is incorrect ('Time Bandits was also released that year.'), leading to confusion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are instances of ambiguity ('Did you know that Flabber was also the year...') and unnecessary complexity ('1995 was the year that Flubber and Bandidas released')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly clear and concise. However, the first response could have been more helpful by suggesting movies released around 1992 instead of stating there was no movie from that year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has several instances of ambiguity and incorrect information. It incorrectly states the release year of 'You, Me and Dupree' and provides irrelevant information about Wes Craven."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it incorrectly stated that Moneyball was released in 1991 instead of 2011."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but makes mistakes. It repeats the same movie title 'The Gift' thrice instead of providing different options, leading to confusion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often responds with ambiguous or irrelevant suggestions. It fails to understand the user's intent until the third attempt."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or incorrect information. It failed to understand the user's request for a movie released in 2013 and repeatedly suggested movies from other years."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in theaters in 2016 and repeatedly suggested 'Shark Night', which is a direct-to-video film. This demonstrates poor comprehension of the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there is one instance of ambiguity ('Have you seen the movie Marathon Man? It was written by Mark Boal') which could be clearer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Sure, you might enjoy...'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends movies from 2008 instead of 2009."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, the movie title is incorrectly stated multiple times."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides incorrect or ambiguous information. It fails to understand the user's requirement for a movie released in 1964 despite multiple attempts."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was ambiguous and irrelevant to the user's query about movies from the year 2006. It did not provide a clear recommendation for that specific year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's recommendation was not relevant to the user's request for a movie released in 2004. The communication style was clear but the content was inappropriate."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly mentions 'You, Me and Dupree' even after the user has stated they've seen it, and provides irrelevant information about writers and directors."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but fails to address the user's specific request for movies released in 2004 until the third suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for movies released in 1999, leading to confusion and frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant started with clear communication but then provided an irrelevant response ('Did you know that 1994 was the year that milk and honey was released?'), leading to user frustration (indicated by '\\giveup'). The final utterance 'Goodbye!' is clear but comes across as dismissive due to the previous irrelevant response."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous and did not directly address the user's request for a movie released in 2001. Instead, it provided information about people born or active in that year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides incorrect or ambiguous information. It failed to understand the user's request for a movie released in 1992 despite multiple attempts."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request and kept suggesting the same movie ('Shark Night') despite being told it had already been seen. This led to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness and accuracy. It provided a movie released in the wrong year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends the same movie twice and provides irrelevant information about the writer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Sure! I'd be happy to.'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends movies from different years ('Shark Night') and uses incorrect movie titles ('Shrek' instead of a 2017 movie)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or irrelevant recommendations. It fails to understand the user's preference for a different genre."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language ('milk and honey', 'milk & honey') leading to confusion for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and repetitive ('Vertical Limit' was mentioned twice), which could cause confusion for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeats the same movie title twice and suggests a movie from two years earlier when asked for one from 2003."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or incorrect information (e.g., mixing up movie titles and actors), leading to confusion for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous references ('Robert Duvall' instead of movie titles) leading to confusion and user frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends 'You, Me and Dupree' as a movie from 1998 when it was actually released in 2006."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. The recommendation 'Shark Night starring Katharine McPhee' is specific but the user's response of '\\giveup' suggests they were looking for a different type of movie or had difficulty understanding the suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or incorrect information (e.g., suggesting movies released before 2000), leading to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides incorrect or ambiguous movie recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides incorrect or ambiguous information ('What Lies Beneath' and 'The Sum of All Fears' were released in 1995 and 2002 respectively), leading to confusion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or incorrect information. For example, it initially recommends 'The Doors' but later incorrectly states that 'The Bourne Legacy' was released in 1975."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'You Again'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly stated that 'You, Me and Dupree' was written by Luc Besson instead of being directed by him."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it initially responds with the title of a book ('Milk and Honey') instead of a movie, which confuses the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that Zoolander was released in 2002 and stars Bill Murray."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat ambiguous and overly complex for the user's simple request. It provided information about two movies ('milk and honey' and 'milk and water') without specifying which one is from 1977."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats the same suggestion ('Shark Night') and fails to provide other options despite user's feedback."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides unnecessary details or incorrect information. It took multiple prompts from the user to understand and provide the correct movie title."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it incorrectly stated that The Polar Express is available to listen to at Amazon instead of watch."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the recommendation '1999: The Bourne Legacy' is ambiguous because it's unclear whether the assistant meant to recommend a movie from 1999 or a different movie with '1999' in its title."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of ambiguity ('You, me and Dupre are both comedies') which could be clearer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats the same recommendation ('The Good German and The Bad German') despite user's clarification, leading to ambiguity and frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. It misunderstands the user's request initially and offers irrelevant recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends a movie titled 'Ok, you will Meet a Stranger' instead of the correct title 'You Will Meet a Tall Dark Stranger', and fails to understand the user's follow-up question about streaming platforms."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It suggested 'Zoolander' without providing any context about why it might be suitable for the user's request of a movie released in 2016."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant often misunderstood the user's request and provided irrelevant recommendations. It also repeated incorrect information despite being corrected by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's recommendation was unclear and irrelevant to the user's request for a movie from the year 2011."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely, but there are instances of repetition ('The Time Machine' was mentioned twice) which could be considered unnecessary complexity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant's communication style is mostly clear and concise. However, the movie suggestion 'Shark Night' might have been too specific for the user's broad request ('a movie from the year 2017'), which could be seen as an instance of unnecessary complexity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It initially recommends movies from incorrect years and fails to understand the user's clarification until the third attempt."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeats the same movie title twice instead of providing another suggestion."
+      }
+    ],
+    "FLUENCY": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly suggested 'The Movie' instead of 'The Thin Red Line', and mentioned Gary Gary twice instead of clarifying that it was the same person."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate (1987 instead of 1986) and did not provide any movie recommendations, making it unhelpful and robotic."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and irrelevant to the user's query about movies released in 2003. It suggested '2001' instead, which is a 1968 film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It frequently repeats incorrect or irrelevant information despite the user's corrections, leading to a frustrating conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. It repeated the movie title instead of providing more details or recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's request for movies released in 2010 despite multiple attempts."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The first response was incorrect and required correction, which is unusual for a human conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It provided incorrect movie details for the year 1937 and didn't understand or respond appropriately to the user's 'giveup'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended 'You Will Meet a Tall Dark Stranger' despite the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to maintain context and provides inaccurate or irrelevant information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly misunderstood the user's intent despite clarification, leading to irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It provided incorrect movie titles for the year 1914, suggesting 'milk and honey' instead of a real film like 'Cabiria'. The farewell was also abrupt."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's intent despite repeated corrections, leading to an unproductive conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. It repeatedly made factual errors and struggled to maintain context from previous interactions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie title 'Shark Night' despite user's disinterest and offers an irrelevant suggestion 'Zoolander'. It also makes incorrect assumptions about the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly attributes 'Bloody Sunday' to Mark Boal instead of Paul Greengrass, and later incorrectly attributes it to Mark Bylance."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, it repeatedly mentioned '1969' instead of directly answering the user's question about movie recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'Shark Night' as a movie released in 2013 is incorrect."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's intent despite repeated clarification, leading to an unproductive conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to maintain context and provides incorrect or irrelevant information despite the user's repeated clarifications."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly stated 'Time Bits' instead of 'Time Bandits', and it provided irrelevant information about the genre and examples."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant suggests 'Zoolander' despite knowing it was released in 2001, not 2015."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, the response 'Have you seen it?' is quite formal and could be more conversational."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommends 'You Again' despite the user's clarification that they're looking for movies released in 2006 specifically."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but lacked the fluidity of human interaction. The suggestion 'Shark Night starring Katharine McPhee' seemed random and didn't flow naturally from the user's request for a movie released in 2004."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant's responses are mostly fluent and human-like. However, the last response 'Goodbye!' seems abrupt and could be improved for a perfect score."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was not fluent. It recommended 'Shark Night' despite the user asking for a good movie from 2011, indicating a lack of understanding or context."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request and did not resemble human-like conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly states that Cloverfield is a science fiction movie released in 1994."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly made the same mistake with the movie title, which is unusual for a human conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'Shark Night' twice despite user's preference and mentioning 'Clerks II', which is not from 2016."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly stated that 'You, Me and Dupree' was released in 2013 instead of 2006."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query about movies released in 2005. It suggested a movie from 2001 instead, which shows a lack of understanding or incorrect interpretation of the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie title multiple times instead of providing other recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, repeating the same movie title and year despite user correction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It struggles to understand and respond appropriately to the user's specific request for a movie released in 2015."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly states that 'Shark Night' was released in 2010 instead of 2011."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly suggested 'Kylie' as a movie title despite user feedback."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluent and human-like, with only minor instances of artificial language use. However, it did repeat the phrase 'highly regarded' twice unnecessarily."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were repetitive and did not adapt to the user's preferences, leading to an unnatural conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommends 'Zoolander' despite user's preference for drama or action movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The suggestion of movies was relevant to the year mentioned but the conversation lacked personalization and engagement."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly stated that Zoolander was written by Tony Gilroy (it was directed by him) and misinterpreted the user's request for movies released in theaters in 2000."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It struggled to understand and respond appropriately to the user's clarifications."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the repetition of 'Ok there' and the incorrect movie release year suggest a lack of human-like flexibility in conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, mentioning 'Flabber' instead of 'Flubber' and incorrectly stating that Never Back Down was released in 1995."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The first response was appropriate and human-like, but the second response seemed too abrupt and unnatural for a conversational agent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly stated that 'You, Me and Dupree' was released in 2004 instead of 2005."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, referring to 'Moneyballs' instead of 'Moneyball', and asking about 'Lambs' instead of 'The Silence of the Lambs'. However, it did attempt to maintain context from previous responses."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, repeating 'The Gift' twice in quick succession is unusual for a human conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It struggles to understand and respond appropriately to the user's requests."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly suggested the same movie despite being corrected by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were repetitive and did not adapt to the user's clarification, sounding robotic."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly states that Marathon Man was written by Mark Boal (it was actually directed by John Frankenheimer) and later confuses the release year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly suggested movies released in 2008 instead of 2009."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats 'Ten Apples Up on Top' incorrectly multiple times."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to maintain a consistent human-like conversation flow. It struggled to understand the user's request for a movie from 1964 despite multiple attempts."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response did not match the user's query (2006 vs. 2001), indicating a lack of understanding or fluency in the conversation context."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request for a movie released in 2004. It suggested 'Shark Night', which was released in 2011."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie titles and provides unnecessary trivia instead of offering more recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting movies released in earlier years when asked for ones from 2004 shows a lack of understanding of the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly mentioned 'Flubber' despite the user's disinterest, and it incorrectly stated that Flubber was released in 1998 instead of 1997."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query about movies released in 1994. It gave information about a book instead."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's intent correctly, leading to irrelevant recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly mentioned 'Pushing Tin' even after being corrected about the year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were repetitive and did not adapt to the user's feedback, sounding robotic."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 1986. The language used was also quite formal and robotic."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly made mistakes about the movie 'You, Me and Dupree' despite being corrected by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It struggled to understand and respond appropriately to the user's specific request for movies released in 2017."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly recommended the same movie despite user feedback, leading to frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly provided incorrect or irrelevant information despite the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The repetition of 'Vertical Limit' was unusual and might indicate a lack of understanding or flexibility in recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie title twice and suggests an irrelevant year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like language style. It struggles to maintain context and provides incorrect or irrelevant information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the repetition of 'Robert Duvall' and lack of variation in response format make it less fluent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats 'You' instead of correcting itself to 'You, Me and Dupree', and it incorrectly states that both movies were released in 1998."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was not fluent. It recommended a movie released in 2011 ('Shark Night') instead of one from 2002."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly made mistakes in suggesting movies released in 2000 and struggled to understand the user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'Shark Night' twice instead of providing other options."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movies and years multiple times without addressing the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly identified 'The Doors' as a movie released in 1975 when it is actually a band, and later suggested 'The Bourne Legacy', which was released in 2012."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to maintain context from previous interactions and provides irrelevant or incorrect information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly mentioned '1973' instead of providing movie titles."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request correctly twice, leading to inappropriate recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was factually incorrect and did not address the user's request for movie recommendations from 1977. The language used also felt robotic and unnatural."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly suggests the same movie despite being told it has been seen."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's intent correctly, leading to irrelevant or incorrect information being provided."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly suggested 'The Polar Express' when asked for different movies from 1983."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but lacked human-like variation and context awareness. It recommended '1999: The Bourne Legacy' despite the user asking for a movie from the year 1999."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats 'You' twice in its first response and offers an irrelevant movie suggestion later on."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly suggested the same incorrect movie titles despite the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommends movies that aren't from 2017."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie title incorrectly and doesn't understand the user's follow-up question about streaming platforms."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was inappropriate for the user's request (they asked for a movie released in 2016, but the assistant suggested 'Zoolander', which was released in 2001). The assistant also didn't acknowledge or respond to the user's 'giveup' message."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to understand the user's requirement correctly, leading to irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's response was not fluent. It recommended a movie from the year 2011 that was actually released in 2011, which is not a typical behavior for a human assistant."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, it repeats the same movie title twice instead of suggesting another one."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, suggesting 'Shark Night' as a movie from 2017 when it was actually released in 2011 shows a lack of accurate knowledge."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly suggested movies from incorrect years despite being corrected by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, repeating 'You, me and Dupree' twice without providing other options makes it seem robotic."
+      }
+    ],
+    "CONV_FLOW": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation starts well but quickly becomes disjointed. The assistant incorrectly identifies the movie title and actor's name, leading to confusion for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response is incorrect (1986 vs 1987) and doesn't address the user's request for a movie recommendation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie released in 2003 and suggested '2001' instead. This lack of understanding caused an abrupt transition and led to user frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's persistent mistakes in understanding and responding to the user's requests. The assistant often provided incorrect or irrelevant movie titles and years, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had instances of abrupt transitions. The assistant repeated the year '1971' instead of simply stating 'The Doors' when asked for the title again."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request. The assistant initially suggests a movie from the wrong year and then incorrectly states that another suggested movie was released in 2009 when it was actually released in 2010."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect initial response and abrupt termination after correcting itself."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response about 'milk and honey' being released in 1937 is irrelevant to the user's query about movies from that year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated recommendation of 'You Will Meet a Tall Dark Stranger', despite the user's clarification that they were looking for something specific from 2014 with a strong female lead. The assistant also failed to acknowledge or respond appropriately to the user's frustration, indicated by their use of '\\giveup'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's incorrect recommendations ('Zookeeper' instead of 'Zoolander', 'Zombieland' in 2009 instead of 2000) and lack of understanding of user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's intent and providing irrelevant responses. The transitions between utterances are disjointed."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response 'milk and butter' is confusing and irrelevant to the user's request for a movie made in 1914."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's intent. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in suggesting movies from the wrong year. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies that were not requested by the user. The transitions are disjointed and do not follow the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect movie suggestions and failure to understand the user's intent. The circular conversation and abrupt transitions lead to a disjointed experience."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly providing incorrect movie titles for the year 1969. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant suggested a movie from 2010 ('Shark Night') when the user asked for one released in 2013."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's intent. Instead of recommending movies from 1988, it repeatedly mentions 'Milk and Honey', leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated mistakes in providing accurate movie titles and release years. The user had to clarify their request multiple times."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation starts well but quickly becomes disjointed. The assistant incorrectly identifies the genre of 'Time Bandits' and provides irrelevant information about business and utilitarianism."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant suggested 'Zoolander' despite the user specifying a release year of 2015."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant's response to the user's question about the movie title was vague and did not directly answer the query."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant misunderstood the user's request initially and persisted with incorrect recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant suggested a movie from 2011 ('Shark Night') instead of one released in 2004."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had instances of abrupt transitions. The assistant initially provided incorrect information about the movie 'Zoom' and its release year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is not relevant to the user's request for a good movie from 2011 ('Shark Night' was released in 2011 but is not considered a 'good' movie). The user's response of '\\giveup' indicates their dissatisfaction with the suggestion, yet the assistant does not acknowledge or apologize for this before ending the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's recommendation being from the wrong year (1968 instead of 2004)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated suggestion of science fiction movies despite user's disinterest. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repetitive responses from the assistant. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated suggestion of 'Shark Night' despite user's disinterest. The transitions are disjointed and there's a lack of coherence in the assistant's responses."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect information about 'You, Me and Dupree' being released in both 2013 and 2014. This confusion led to a disjointed exchange."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request. Instead of recommending movies from 2005, it suggested a movie released in 2001."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant repeated the same movie title despite being asked for another recommendation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting the same movie despite user's feedback. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had instances of abrupt transitions. The assistant incorrectly stated the release year of 'Shark Night' twice before the user gave up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive recommendations and failure to understand the user's intent. The transitions are disjointed, and there is a lack of coherence in the assistant's responses."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant repeated the movie title unnecessarily and didn't provide a reason why 'The Butterfly Effect' is highly regarded."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting the same movie despite user feedback. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting comedies despite user's preference for drama or action movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant didn't directly address the user's request for a movie from 1992 and instead offered unrelated suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant did not understand the user's clarification and persisted with incorrect information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated suggestions of thriller and action movies despite user's clarification for other genres. The transitions are disjointed, leading to user frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect recommendation ('Time Bandits' was released in 1985, not 1996) and failure to clarify or correct this mistake when asked for confirmation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly states that Never Back Down was released in 1995 (it was actually released in 2008), which is an abrupt and disjointed transition from the previous suggestion of Flubber."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant's first response was incorrect and the user gave up after that."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect movie release years and repetitive responses."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant incorrectly stated the release year of Moneyball and struggled to understand the user's correction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant repeated 'The Gift' twice and offered three titles but only mentioned two."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in movie titles and years. The assistant also fails to acknowledge the user's correction, leading to frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive suggestion despite user feedback. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant incorrectly stated that Marathon Man was written by Mark Boal and later corrected themselves about the release year."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant did not correctly understand the user's requirement for a movie released in 2009."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive mistakes in movie titles and genres. The transitions are disjointed, making it difficult for the user to follow along."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in recommending movies from the wrong years. The user had to repeatedly correct the assistant, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's recommendation is for a movie from the wrong year (2001 instead of 2006), leading to user frustration and early termination."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is not relevant to the user's request for a movie released in 2004."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repetitive recommendations despite user's familiarity with them and lack of varied suggestions from the assistant."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request for movies released in 2004. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes. Instead of providing another movie from 1999 after the user's first rejection, it incorrectly recommends 'Flubber' again and then provides irrelevant information about its writer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response about 'milk and honey' is irrelevant to the user's query about movies released in 1994."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request. The assistant repeatedly provides incorrect movie recommendations based on birth years rather than release years."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mention of 'Pushing Tin', despite the user correcting that they are looking for a movie from 1992. The assistant also incorrectly states that Pushing Tin was released in 1988."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting 'Shark Night' despite user feedback that they've already seen it. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided an incorrect movie title and year despite the user's specific request for a movie released in 1986. This led to an abrupt transition and lack of coherence in the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in movie recommendations and incorrect information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request for movies released specifically in 2017. The assistant's responses are disjointed and do not address the user's specific query."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated recommendation of the same movie despite user's request for a different genre."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly misunderstanding the user's intent and providing irrelevant responses. The transitions are disjointed, leading to user frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation feels disjointed due to the assistant repeating the same movie title twice without providing any context or explanation for why they chose that particular film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant repeated the same movie title and suggested a movie from two years earlier when asked for another recommendation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repeated mistakes in movie titles and actors' names. The assistant also fails to understand the user's request for movies released in 2008 with Kyla Pratt."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly suggests movies starring Robert Duvall despite the user's indication that this is not what they're looking for."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's intent and providing irrelevant responses. The assistant also fails to maintain context from previous utterances."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is from 2011, not 2002, which is an abrupt and incorrect response."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but there were several instances of abrupt transitions and lack of understanding the user's requirements (e.g., suggesting movies released in different years or series)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies that are not from 2018. The transitions between utterances feel disjointed and incoherent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in providing accurate movie release years. This leads to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to misunderstandings and incorrect responses from the assistant. The transitions are disjointed, leading to user frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to misunderstandings and irrelevant responses from the assistant. The assistant repeatedly fails to provide the requested movie title."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly provides irrelevant information instead of directly answering the user's question about movie recommendations from 1973."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated incorrect recommendation and failure to understand the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's response about 'milk and honey' and 'Harold Ramis' is irrelevant to the user's query about movies from 1977."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly suggests the same movie despite user's feedback."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to misunderstandings and incorrect responses from the assistant. The assistant repeatedly provides irrelevant information instead of simply stating the movie title requested by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repetitive suggestions (both times mentioning 'The Polar Express' or similar titles) and failure to understand the user's intent despite repeated requests for movies available online."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant recommended a movie from the year 2012 instead of 1999."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant did not directly answer the user's question about the movie title and instead suggested another movie."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses and misunderstanding of the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's request for movies released in 2017, instead suggesting Blade Runner-related films or ones from different years."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses and failure to address the user's follow-up question about streaming platforms."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's suggestion of 'Zoolander' for a movie released in 2016 is incorrect and does not flow naturally from the user's request. The conversation feels disjointed due to this inappropriate recommendation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's request for a movie released in 2000, leading to frustration and eventual abandonment of the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is from the wrong year (2010) and doesn't match the user's request for a movie from 2011."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant repeated the same suggestions without considering the user's preference for just one title."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant suggested a movie from the year 2017 but it was unclear if that was based on any specific criteria or user preference."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in understanding the user's request for a movie released in 1986. The assistant also fails to acknowledge or correct its previous errors, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses and failure to understand the user's preferences."
+      }
+    ],
+    "OVERALL_SAT": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect information ('The Movie' instead of 'The Thin Red Line') and failed to understand the user's intent when they asked to confirm the movie title."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant did not provide a relevant movie recommendation for the year 1986. Instead, it suggested a movie from 1987."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie released in 2003 and suggested '2001' instead. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide accurate movie suggestions from the year 2007 despite repeated requests. It often provided incorrect titles or movies from different years, leading to user frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant information but struggled with repetition, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies released in 2010 and repeatedly suggested movies from other years featuring Tom Hanks. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant made an incorrect recommendation initially, which was corrected later. However, the conversation ended abruptly without addressing the user's original request for a movie from 1969."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect information about movies from 1937, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie with a strong female lead from 2014. It repeatedly recommended 'You Will Meet a Tall Dark Stranger' starring Seth Rogan and Jessica Chastain, which is not a movie from 2014."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide accurate recommendations for movies released in the year 2000. Instead of improving, it made mistakes twice and offered irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1997 and repeatedly suggested books instead. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect movie titles for the year 1914, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie recommendation from 1975 despite multiple attempts and corrections by the user. This led to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate recommendations for movies released in 1993 despite the user's repeated corrections. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for non-comedy movies from 2007 and kept suggesting comedies. The conversation ended with the user expressing frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2002 and instead provided irrelevant information about different movies and people. The conversation became circular and frustrating for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect movie titles for the year 1969 and did not understand the user's request for a film title."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate suggestion for the user's request. The movie 'Shark Night' was released in 2011, not 2013."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request initially and continued to provide irrelevant information even after being corrected. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide accurate movie suggestions for the year 2014 despite repeated prompts from the user. This led to a mostly dissatisfying conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect information about 'Time Bandits' genre and related examples. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement despite multiple attempts, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a specific movie title despite the user's request. Instead, they described it generically as 'similar to The Wizard of Oz'. This lack of concrete information led the user to give up on the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released specifically in 2006. They recommended 'You Again', which was released in 2009, and persisted with this recommendation despite the user correcting them."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's suggestion was not relevant to the user's request (movie released in 2004), leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant movie suggestions but made an error regarding the release year of 'Zoom'. The conversation could have been improved by verifying the information before sharing it."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's recommendation was not relevant to the user's request for a good movie from 2011. The user's 'giveup' response indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from the year 2004 and instead recommended an unrelated film from 1968. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for non-science fiction movies from 1994, leading to repeated suggestions of science fiction films and ultimately frustrating the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide alternative movie recommendations despite the user's request. Instead, it repeatedly suggested 'You, Me and Dupree', leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for non-shark movies and persisted with shark-related suggestions. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant made several mistakes: confusing the year of release for 'You, Me and Dupree' (2006) with another movie released in 2013. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2005 and instead recommended a movie from 14 years earlier. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide diverse recommendations despite the user's request for more suggestions. The conversation ended abruptly after the user expressed frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement despite multiple attempts, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant made an error by providing incorrect release year for the movie 'Shark Night', leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie title from 2013 and repeatedly suggested 'Kylie' instead. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant movie recommendations but made an error by repeating the title of 'The Butterfly Effect' instead of just providing it again. This mistake led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for drama or action movies over comedy. Despite repeated requests for non-comedy suggestions, it continued to recommend comedies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie suggestions from the requested year (1992), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in theaters in 2000. It repeatedly suggested 'Zoolander', which was actually released in 2001. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a non-thriller/non-action movie from 2015, repeatedly suggesting movies in these genres. The conversation became frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect information ('Time Bandits' was released in 1985, not 1998) leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant made factual errors (Never Back Down was released in 2008) and did not provide helpful suggestions based on the user's request for a movie from 1995."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant incorrectly stated that there was no movie released in 1992, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies released in 2005 and kept suggesting 'You, Me and Dupree', which was released in 2006. The conversation became repetitive and uninformative."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant made several factual errors (Moneyball's release year) and did not provide the requested movie recommendation from 1991 until prompted by the user. The conversation was mostly dissatisfying due to these issues."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations despite multiple attempts. The user's 'giveup' response indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts, leading to frustration and dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2013 and repeatedly suggested movies from other years. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in theaters in 2016. Despite being given this clarification twice, it continued to recommend 'Shark Night', which was direct-to-video. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie suggestions for the year 2005 and incorrectly stated that Marathon Man was released in 2004. The user expressed dissatisfaction by typing '\\giveup'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate recommendation for a movie released in 2009 despite the user's clarification. This led to the user expressing dissatisfaction with the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect movie titles and genres, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate recommendation for a movie released in 1964 despite multiple attempts and hints from the user. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from the year 2006 and instead recommended a movie from 1968. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an appropriate recommendation for the user's request. The suggested movie was released in 2011, not 2004."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide new movie recommendations after the user expressed familiarity with previous suggestions. The conversation became repetitive and unsatisfying for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released in 2004 and kept suggesting older movies. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations for the year 1999 and persisted with incorrect information despite user's disinterest."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie recommendation. Instead of providing a film released in 1994, it mentioned a book titled 'Milk and Honey'. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide different movie suggestions despite the user's feedback, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's request for a movie released in 1986. Instead, it provided information about a book released in 1987."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate recommendations for movies released in 2008 and persisted in suggesting incorrect titles even after the user expressed dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released specifically in 2017 and kept suggesting movies from other years. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for a different genre and repeatedly recommended the same movie. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly misunderstood the user's intent, leading to frustration and eventual dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a unique movie recommendation despite the user's request for one released in 2017. The repetition of 'Vertical Limit' twice was confusing and unhelpful."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for just the movie title and instead repeated the same recommendation twice. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide accurate movie recommendations based on the user's preferences. They mixed up titles and actors, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts at suggesting movies starring Robert Duvall. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's intent and provided incorrect movie titles. The conversation became frustrating for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an appropriate movie recommendation for the year 2002. The user's response of '\\giveup' indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide accurate movie suggestions despite the user's repeated requests for movies released in 2000. The conversation became frustrating for the user, leading them to express dissatisfaction with 'giveup'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate recommendations for movies released in 2018, leading the user to express frustration and give up on the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant made repeated mistakes in providing accurate movie release years. This led to user dissatisfaction and frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect movie titles for the year 1975 and did not correctly understand the user's request even after clarification, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's request for the movie title and provided incorrect or irrelevant information, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for movie recommendations from 1973 and instead provided irrelevant information about a book. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate recommendation for the year 2002 despite being corrected by the user. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie from 1977 and provided irrelevant information about books instead. The user's 'giveup' response indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide new movie suggestions despite the user's indication that they had already seen the first suggestion. This led to user dissatisfaction and disengagement."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for the title of a movie released in 1966. Instead, they provided irrelevant information about writers and actors, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for an online movie streaming option despite multiple attempts. It repeatedly suggested movies that were not available online."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from the year 1999 and instead recommended a movie with '1999' in its title but not released until 2012."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant movie suggestions but failed to accurately recall the title when asked by the user. This led to some dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for any movie from the year 1984 and repeatedly suggested movies that don't exist ('The Good German' and 'The Bad Germans'). This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2017 and repeatedly recommended movies from different years. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's follow-up question about streaming availability and provided repetitive responses, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie released in 2016 and suggested an inappropriate film ('Zoolander'), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's requirement despite multiple attempts by the user to clarify. This led to several rounds of incorrect recommendations and ultimately resulted in user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant's recommendation was not relevant to the user's request for a movie from the year 2011. The user's 'giveup' response indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a single movie recommendation from the year 1956 despite multiple attempts by the user. This led to user dissatisfaction and frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an appropriate movie suggestion for the year 2017. The user's response of '\\giveup' indicates dissatisfaction with the suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 1986 despite multiple attempts. The conversation was frustrating and uninformative."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_ReDial-1760971792",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 2008 other than 'You, Me and Dupree', leading to user dissatisfaction."
+      }
+    ]
+  }
+}

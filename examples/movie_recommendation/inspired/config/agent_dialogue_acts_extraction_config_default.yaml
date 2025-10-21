@@ -1,0 +1,43 @@
+extraction_prompt: data/datasets/inspired/agent_dialogue_acts_extraction_prompt.txt
+
+intent_labels:
+  - greeting
+  - offer_help
+  - opinion_inquiry
+  - experience_inquiry
+  - personal_opinion
+  - personal_experience
+  - similarity
+  - encouragement
+  - rephrase_preference
+  - credibility
+  - self_modeling
+  - recommend
+  - acknowledgment
+  - chit_chat
+  - goodbye
+
+slot_labels:
+  - YEAR
+  - ACTORS
+  - AWARDS
+  - BOX_OFFICE_REVENUE
+  - COUNTRY
+  - DIRECTOR
+  - GENRE
+  - LANGUAGE
+  - LONG_PLOT
+  - DURATION
+  - POSTER
+  - PRODUCTION
+  - RATED
+  - RATING
+  - RELEASE_DATE
+  - SHORT_PLOT
+  - YOUTUBE_TRAILER
+  - TITLE
+
+ollama_host: "http://localhost:11434"
+ollama_model: "mistral-nemo:12b"
+ollama_options:
+  temperature: 0

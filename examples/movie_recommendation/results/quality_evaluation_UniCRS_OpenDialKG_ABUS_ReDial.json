@@ -1,0 +1,2509 @@
+{
+  "UniCRS_OpenDialKG": {
+    "REC_RELEVANCE": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant recommendations (e.g., 'Tuesdays with Morrie'), but they also provided suggestions that didn't align with the user's preferences ('2012', 'Mama'). The assistant didn't adapt well to the user's stated preference for movies from the 1950s."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was interested in movies from 1979 but the assistant kept mentioning Michael Bay's works which are not related to that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant recommendations (e.g., 'Lolita'), but they also provided suggestions ('Tuesdays with Morrie', '2012', 'Mama') that the user didn't engage with and didn't align with their later expressed preference for movies from the early '90s."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was interested in movies from 1987 but the assistant kept mentioning Michael Bay's films which are not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It incorrectly identified 'Be Kind Rewind' and 'The Mortal Instruments: City of Bones' as romance novels and dramas/comedies respectively, despite the user's clear request for movies from 1989."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant initially provided irrelevant movie recommendations ('The Martian', '2012', 'Under the Skin') when the user was looking for movies from 2003. Even after the user expressed dislike for one of the suggested films and specified their preference for movies from a specific year, the assistant continued to provide irrelevant suggestions ('The Civil War' and again '2012')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered 'Tuesdays with Morrie' and 'Wild Wild West', both of which are not from the year 2010 as requested by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not provide relevant recommendations based on the user's preference for movies from 1999. Instead, it suggested movies that were not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user asked for movies from the year 1989, but the assistant kept providing information about '2012'."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the movies/books mentioned were from the year 2015 or related to the user's stated preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies mentioned were not from the year 1986."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide relevant recommendations based on the user's preference for movies from the year 2002. Instead of suggesting movies released in 2002, it suggested 'Yes Man' (released in 2008) and mentioned 'Wild Wild West' (1999), but incorrectly attributed its writing to Michael Cera who was born in 1988."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently fails to provide informative and helpful recommendations. It repeatedly offers irrelevant information about movies directed by Michael Bay despite the user's clear preference for movies from 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for movies from around 2010. It repeatedly suggested 'Zero Effect', which is not from that time period."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from different years and incorrect sequel information when the user was looking for movies from the year 2003."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user asked for movies from 2013, but the assistant kept mentioning 'Tuesdays with Morrie' and '2012', which are neither movies nor from 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant made several irrelevant suggestions and failed to adapt to the user's preferences. They continued to recommend movies despite the user expressing uncertainty about their mood and preference for newer films."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations throughout the conversation. It recommended 'Yes Man' when the user was looking for comedy movies, suggested 'Wrath of the Titans' as a comedy (which it is not), and offered '<mask>' and 'Goodbye' as movie titles when the user asked for movies from 2001."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently fails to provide informative and helpful recommendations. It offers recommendations that do not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies released in 2006 instead of 2004 and did not respond appropriately to the user's farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user expressed interest in movies from 2014 but the assistant recommended a book ('Men in Black') and then provided an unclear movie recommendation (<mask>)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie 'Skyfall' was released in 2012 and is not a comedy nor does it star Tom Cruise twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's feedback. After the user expressed dislike for 'Mama', the assistant continued to recommend horror movies ('Lolita' and 'When a Stranger Calls'), despite the user stating they were into movies from the 90s."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was looking for movies from 1996 but the assistant kept mentioning books and movies that are not related to the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's request for movies from the year 2006."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not provide relevant recommendations based on the user's request for comedy movies from the past five years or specifically from 2008. Instead, it mentioned 'This Is the End' and 'Public Enemies', which are not from the requested timeframe."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly mentioned movies and actors that were not from the year 2012, despite the user's clear request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It did not respond to the user's request for movies from the year 1986 and instead provided irrelevant movie details."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie 'Yes Man' is from 2008 and the user specified they wanted a comedy from 2014."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently fails to provide informative and helpful recommendations. The user's statements indicate they are interested in movies from the year 1993, but the assistant keeps providing irrelevant information about books and movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's preference for movies from 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's interest in movies released in 2014. Instead of suggesting movies from that year, it mentioned 'This Is the End' and later 'Men in Black', which are not helpful or relevant to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations related to movies released in 2002. Instead, it mentioned 'This Is the End' and 'Vanilla Sky', both of which were released before 2002."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user asked for movies from the year 2015, but the assistant provided information about books ('Tuesdays with Morrie' and '2012') and a movie from an unknown year ('What Lies Beneath')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It incorrectly identified 'The Matrix' as a comedy film and ignored the user's preference for movies from the year 1938."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user asked for movies from the year 1931, but the assistant kept recommending 'The Truman Show' and 'Caddyshack', which are not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for recent movies. It repeatedly suggested 'Wrath of the Titans' despite the user expressing interest in more recent films."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user asked for movies from the 70s but received information about books and movies that are not from that decade."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was looking for something from around 2004, but the assistant kept suggesting '2012' which is not relevant to the user's preference."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently fails to provide informative and helpful recommendations. The responses are irrelevant to the user's inputs."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's preference for comedy movies released in 2010."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's request for movies from 1987."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was looking for movies from 2018 but the assistant kept mentioning 'Tuesdays with Morrie' and '2012', which are neither movies nor from 2018."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered 'Tuesdays with Morrie' when the user was looking for a film from 2015, and then suggested '2012' instead of 'The Watch', which is from 2015."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It incorrectly stated that 'Good in Bed' is a movie when it's actually a book, and it provided the release year of 'Young Sherlock Holmes' as 1962 instead of 1985."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and adapt to the user's preference for movies from 1988. Instead, it continued to recommend movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's request for movies released in 2013. Instead, it provided irrelevant movie release years and titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was looking for movies from 2014 but the assistant kept mentioning movies from different years ('Tuesdays with Morrie' is a book, not a movie, and 'Zero Dark Thirty' was released in 2012)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was looking for movies from 2005, but the assistant provided titles that were either incorrect ('Tuesdays with Morrie') or not from 2005 ('Wild Wild West', 'Wrath of the Titans')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently fails to provide informative and helpful recommendations. It offered movies from different eras (2013, late 80s) and genres (comedy, drama), none of which were relevant to the user's stated preference for late 80s movies."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was interested in movies from 2012, but the assistant kept mentioning 'Tuesdays with Morrie' and 'Wrath of the Titans', which are neither informative nor helpful for the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for movies from 1994. Instead, it repeatedly suggested 'Men in Black' and other irrelevant titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie suggested was from 2012 ('Wrath of the Titans'), not 2004 as requested by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie '2012' was mentioned instead of providing movies from 2016."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's input. The user asked for movies from 2003 and mentioned they haven't seen '2012', but the assistant recommended '2012' instead of other movies from 2003."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was interested in movies from the year 1927 but received responses about books and movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user asked for movies from the year 1997 and the assistant continued to recommend 'Inception', which was released in 2010."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently fails to provide informative and helpful recommendations. It offers irrelevant responses that do not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user expressed interest in movies released after 2005, but the assistant mentioned 'Tuesdays with Morrie' (a book) and 'Wild Wild West' (released in 1999), and then stated that '2012' is a drama without any context to its release date."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not provide relevant recommendations based on the user's interest in movies from the year 2000. Instead, it mentioned 'Tuesdays with Morrie' and incorrectly stated that '2012' was written by John Green and released in 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not consistently provide relevant recommendations. After the user specified they were interested in movies released after 2013, the assistant mentioned '2012' and 'Young Sherlock Holmes', which are not helpful as they do not meet the user's preference for post-2013 releases."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for movies from the year 2000 and continued to recommend books instead."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It did not respond appropriately to the user's interest in movies from 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was interested in movies from the year 2007, but the assistant provided information about a movie ('Young Adult') released in 2011 and another movie ('Wild Wild West') released in 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for movies from 2007. It repeatedly suggested 'The Red Pyramid', which was released in 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It did not understand the user's request for comedy movies from 2014 and instead provided irrelevant responses."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies mentioned ('2012' and 'Zero Dark Thirty') do not match the user's preference for comedy movies from the year 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not provide relevant recommendations based on the user's request for movies from around 2005. Instead, it mentioned movies released in different years and genres that were not asked for."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the user's preference for movies from 1986."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies mentioned ('Yes Man', 'Wild Wild West') were not from the year 2005 and did not match the user's preference."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user expressed interest in movies from 2013, but the assistant recommended 'Wild Wild West' (which is actually from 1999) and mentioned '2012' (a romance movie), neither of which meet the user's preference."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie 'Grandma's Boy' was released in 2006, not 1986, and Tom Cruise is not one of the main stars. Additionally, the last response about '2012' being a comedy starring Kevin Spacey is incorrect as it's an action film with different cast."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently fails to provide informative and helpful recommendations. None of the movie titles mentioned ('The Other Hand', 'Windtalkers', 'The Princess and the Frog') were released in or related to the year 1978, which was the user's stated preference."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the user's statement about watching movies from 1998. Instead, it provided unrelated movie titles and genres."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It ignored the user's feedback and continued to recommend '2012', even after the user expressed dislike for it. The assistant also ignored the user's interest in movies from 1998."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user was looking for movies from the year 2000 but received only one irrelevant movie title ('Zulu') and no further suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies suggested were either incorrect genres or not what the user was looking for."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's request for movies released in 1964. Instead, it mentioned 'Men in Black' and '2012', which are neither from 1964 nor relevant to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's request for movies from the year 2004."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not adapt its recommendations based on user feedback. It continued to recommend movies from different years despite the user's clear preference for movies from 1966."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not adapt well to the user's feedback. After the user expressed dislike for 'Mama', the assistant continued to recommend books ('Matched') without considering the user's preference."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations after the user expressed dislike for one of the movies. Instead of asking for preferences or clarifying the user's tastes, it continued to recommend movies without considering the user's feedback."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was interested in movies from the year 1990 but the assistant provided information about books and movies that were not related to this preference."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was discussing books and movies from the year 2005, but the assistant kept mentioning Michael Bay's films from other years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested '2012', despite the user expressing dislike for it and stating they prefer movies from around 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that met the user's criteria of being a comedy movie released in 2007."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's feedback. After the user expressed they didn't enjoy 'Mama', the assistant continued to recommend it again later in the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the movies suggested were released in 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently fails to provide informative and helpful recommendations. It offers recommendations that do not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It did not respond appropriately to user feedback and provided irrelevant suggestions throughout the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user was interested in movies from 2011, but the assistant kept mentioning 'Tuesdays with Morrie' and '2012', which are neither books nor movies from 2011."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for movies from the year 2010. Instead of suggesting other movies from that year, it mentioned 'Windtalkers' twice and then suggested a movie ('The Other Hand') that is not from 2010."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It did not respond appropriately to the user's request for movies from the year 1955."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for classic era movies released in 1963. Instead of suggesting movies from that period, it mentioned 'Young Sherlock Holmes' which was released in 1985 and 'The Memoirs of Sherlock Holmes' which is a TV series."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered books and movies that were not from the user's preferred time period (2016) or genre (drama)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It did not suggest any movies from the director or from the year 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies mentioned were not comedies from the year 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie 'When a Stranger Calls' is a horror film from 1979, not a recent comedy or action film as requested by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user asked for movies from 1986 but the assistant suggested movies released in 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested ('The Golden Compass' and '2012') do not meet the user's preference for comedy movies released in 2004."
+      }
+    ],
+    "COM_STYLE": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of unnecessary complexity ('Bye Bye Bye. You will be a great fan') that makes the score slightly lower than perfect."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye, have a great day!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay when it's actually written by Mitch Albom."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of unnecessary complexity ('That's a great one' in response to 'I'm really into movies from the early '90s') which drops it from a perfect score."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye, thanks for your help!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the assistant incorrectly attributes books to Michael Bay instead of Mitch Albom ('Tuesdays with Morrie') and confuses him with Mike Myers ('2012')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous or irrelevant to the user's queries. It failed to understand and respond appropriately to the user's intent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it recommends movies without checking if they fit the user's criteria ('2012' was released in 2009), and it mentions 'The Civil War' when the user is looking for movies from 2003."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Tuesdays with Morrie is a romance film'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly identified 'Wild Wild West' as a Romance film instead of an Action/Western film."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Wild Wild West is a movie.'). However, there are several instances of ambiguity or unnecessary complexity in its utterances, such as mentioning movies that don't fit the user's interest ('Young Adult is a great movie') and suggesting movies without being asked ('The Watch is a comedy movie. It is a good movie. You should check it out', 'When a Stranger Calls is a romance movie. I like it')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeatedly mentions '2012' even after the user clarifies they're looking for movies from 1989."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant often provides irrelevant or incorrect information and does not maintain context from previous user inputs."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Yes Man is a comedy film...'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeats the same movie title without context ('Yes Man is a drama and it's a romance') when the user was looking for movies from 1986."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Yes Man is a comedy movie'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it mentioned 'Wild Wild West' instead of suggesting movies from the year 2002, and it incorrectly stated that 'Wrath of the Titans stars Tom Hanks and Tom Hank.'"
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the assistant incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay when it's actually written by Mitch Albom."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye, have a great day!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that Zero Effect is starring Tom Hanks when it's actually directed by him."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant often provided irrelevant or incorrect information and did not address the user's query about movies from the year 2003."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous or irrelevant to the user's queries. It repeatedly mentioned Michael Bay and 'Tuesdays with Morrie' when the user was asking for movies from 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, 'I'm not in the Mood for rightnow' is confusing."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant often provided irrelevant or incorrect suggestions and made inappropriate responses, such as suggesting 'Goodbye' as a movie title when the user said goodbye."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye, have a great day!'), but there are several instances of ambiguity or unnecessary complexity in its utterances ('Yes, it is a movie written by the author of the book.', '2012 is a Fantasy movie. It was released in 2014.')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Ok'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly responds with movies released in 2006 instead of 2004."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'I will be the one to tell you the truth'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends a book ('Men in Black') when the user is interested in movies from 2014, and it uses an incomplete sentence ('<mask> is a good movie')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous and lacked clarity. It repeatedly recommended 'Skyfall' despite the user specifying they wanted movies from 1995."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, the recommendation 'When a Stranger Calls is a comedy' is incorrect."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay when it's actually written by Mitch Albom."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'See you later!'), but there are several instances of ambiguity or irrelevant responses ('Tuesdays with Morrie is written by Michael Bay', '2012 was written by Mike Morrie.')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the assistant mentions Public Enemies when the user is looking for movies from 2008, and it incorrectly states that 'Goodbye' was written by David Weber."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous and lacked clarity. It repeatedly mentioned 'Tom Hank' instead of providing movie titles or recommendations from the year 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Vertical Limit is...'), but there are several instances of ambiguity or incorrect information ('Zoolander is a sequel to Shrek.', 'Groundhog Day was written by James Franco')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Yes Man is a comedy movie'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends '2012' instead of a movie from 2014."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'See ya later!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the assistant incorrectly states that 'Tuesdays with Morrie is written by Michael Bay' when it should be Mitch Albom."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', '2012 is a movie'), but there are several instances of ambiguity or irrelevant responses ('Sellevision is a great movie.', 'Wild Wild West stars Tom Cruise and is a comedy.', 'Night Watch was written by Tom Cruise')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the last utterance 'Men in Black is a fantasy movie' seems out of context as it doesn't respond to the user's previous statement 'Nice chatting with you too, bye!'. This instance of ambiguity reduces the score from 5."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello', 'This Is the End is a movie starring Tom Cruise'), but there are instances of ambiguity ('Vanilla Sky is a comedy film starring Tom cruise') and lack of relevance to the user's query ('I'm interested in movies released in 2002')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'See you later.'), but there are several instances of ambiguity or irrelevant responses ('Tuesdays with Morrie is written by Michael Bay', '2012 was written by Mike Carey.', 'What Lies Beneath was written in the same year.')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses were sometimes ambiguous or inaccurate. It incorrectly identified 'The Matrix' as a comedy movie and didn't respond appropriately to the user's goodbye."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant frequently repeats the same information ('The Truman Show is...') despite user's attempts to change the topic. It also fails to understand and respond appropriately to user's preference for movies from a specific year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Wrath of the Titans is a great one'), but there are several instances of ambiguity or unnecessary complexity ('<mask> is a good one') and repetition ('Wrath of the Titans is a very good one')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous or irrelevant to the user's queries. It repeatedly mentioned Michael Bay despite the user looking for movies from the 70s."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'See you later!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay and provides irrelevant information about the year a movie was written."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the responses about book/movie authors and years seem unrelated to the user's inputs."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Yes Man is a comedy movie'), but there are several instances of ambiguity or irrelevant responses ('Zulu is a movie produced by Michael Bay', 'Zero Effect is a great movie. Wrath of the Titans stars Tom Cruise and Tom Cruise')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye, thank you for your help.'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly identified movies and directors when the user was looking for films from 1987."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous or irrelevant to the user's queries. It repeatedly mentioned Michael Bay and '2012', which was not what the user was asking for."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye and thanks!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly identified the year for 'Tuesdays with Morrie' and provided incorrect movie titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, the response 'Wild Wild West is a film from the 1960.' is incorrect as it was released in 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly stated that '2012' is a book when the user was looking for movies from 1988."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Night Watch was released because it was a great film.'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the assistant incorrectly states that Men in Black was released in 2013 and provides irrelevant information about Zulu being released by the same company."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'See you later!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay when it's actually written by Mitch Albom."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Goodbye, thanks for your help!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly attributes books and movies to Michael Bay when the user is looking for movie recommendations from 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Wag the Dog is a comedy movie'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it's unclear why the assistant mentioned Sellevision when the user wasn't looking for anything specific, and the final utterance about Wrath of the Titans being a drama doesn't seem relevant to the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous and irrelevant to the user's queries. It repeatedly mentioned Michael Bay despite the user's interest in movies from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Men in Black is a great movie'), but there are several instances of ambiguity or unnecessary complexity. For example, the assistant's second response ('<mask> is a crime fiction movie') does not provide any specific movie title or information relevant to the user's request for movies from 1994."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the assistant recommends a movie without specifying why it's interesting ('Wrath of the Titans is a great movie. It is a good one.') and later provides no context for its recommendation ('<mask> is a thriller.')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Wild Wild West is a comedy movie starring Tom Cruise and Tom Cruise.'). However, there are several instances of ambiguity or unnecessary complexity in its utterances ('Game Change' was not clear without context, and mentioning both Tom Cruises for the same role was confusing)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of ambiguity ('2012 is a great movie.' when the user asked about movies from 2003) and one instance of unnecessary complexity ('Wild Wild West is a movie written by john gere and published in 2003' could be simplified to 'Wild Wild West was released in 2003')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often irrelevant or incorrect, showing little understanding of the user's intent. For example, it mentioned 'Tuesdays with Morrie' when the user asked about movies from 1927."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's intent and provide relevant information. It repeatedly mentioned 'Inception' instead of suggesting movies from 1997."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the response to 'I usually watch movies from around 2010.' is unrelated to the user's statement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Wild Wild West was released in 2004.'), but there are instances of ambiguity ('Tuesdays with Morrie is written by Michael Bay') or irrelevant information ('2012 is a Drama')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye, thanks for your help!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that '2012' was released in 1999 instead of 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the response '2012 is a fantasy movie' does not directly address the user's interest in movies released after 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it repeats '2012 is a great book' twice without providing any context for the user's request about movies from the year 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Goodbye'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the first response about 'Wrath of the Titans' is incorrect regarding its release year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often irrelevant or incorrect, leading to confusion. For example, it provided movie titles that didn't match the user's query about movies from 2007."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'The Red Pyramid is a movie that was released in 2013'), but there are several instances of ambiguity or unnecessary complexity. For example, the response '<mask> is a fantasy' lacks clarity as it's unclear what the assistant is referring to."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Show me movies from the year 2014.') but there are several instances of ambiguity or unnecessary complexity ('I'm not sure if I can find it...', 'When a Stranger Calls is a thriller. It's a comedy and it's a thriller')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or irrelevant responses ('2012 is a movie written by Michael Bay')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeats 'Sci fi movie' unnecessarily and provides irrelevant information like the release year of Wrath of the Titans when not asked."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat clear but lacked conciseness and showed some ambiguity. For instance, the last response 'Night Watch is a great movie' was unrelated to the user's previous statement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, the first response mentions 'Yes Man' as both a comedy and romance film, which is ambiguous as it's primarily known for being a comedy."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Wild Wild West is a movie from 2013.'), but there are instances of ambiguity ('I have a similar one 2012') or irrelevant information ('2012 is a romance movie.')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'I think we are all caught up'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly identified the genre and cast of 'Grandma's Boy' and provided irrelevant information ('2012 is a comedy movie starring Kevin Spacey') when the user had already said goodbye."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly attributes 'Windtalkers' to John Lassley (who is known for animation films), and its final utterance about 'The Princess and the Frog' seems unrelated to the conversation context."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Have a nice day!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the response to 'I usually watch movies from 1998' is ambiguous as it doesn't relate to the user's statement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides irrelevant or incorrect information (e.g., mentioning 'Wrath of the Titans' when the user is interested in movies from 1998), leading to ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the last utterance 'Zulu is a comedy movie.' seems unnecessary and could be considered overly complex given the context of the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Tuesdays with Morrie is a movie...'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly identifies 'The Shawshank Redemption' as a romance movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Men in Black is a great movie. It's a great film.'), but there are several instances of ambiguity or unnecessary complexity ('2012 is a thriller.', '2012 is a crime film. It was released in 2014.')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Speed Racer is a fantasy movie.'). However, there are several instances of ambiguity or unnecessary complexity in its utterances, such as providing information ('The Red Pyramid is a Sci-Fi movie') that was not requested by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there are instances of unnecessary complexity ('I would recommend the following items:') and ambiguity ('--------------------- ------------------------. ------------------------!! ------------------------, ------------------------ is a movie from the same year 1966. It is a good movie.')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that 'Mama' was written by the author of Matched when the user didn't like the previous suggestion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it recommends 'Matched' twice without specifying why the user might like it, and it repeats the same movie title ('Wag the Dog') even after the user has moved on to a new request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly responded to the user's interest in movies from the year 1990 by mentioning books ('Tuesdays with Morrie' and 'The Interview') and movies that were not released in 1990 ('Larry Crowne')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly attributes books to Michael Bay and repeats the same incorrect statement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's communication style is often ambiguous and confusing. It repeatedly provides incorrect or irrelevant information about the movie '2012', despite the user's clear indication that they don't like it."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Yes Man is a comedy'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends 'Wild Wild West' when asked for movies from the year 2007, which is incorrect as that movie was released in 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it incorrectly stated that '2012' is a book instead of a movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it doesn't directly address the user's request for movies released in 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous or irrelevant to the user's input. For example, it responded with grammatical analysis ('is a verb', 'is not a verb') when the user was discussing movies."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or irrelevant responses. For example, it mentioned 'Lolita' when the user was looking for movies from 1972."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay when it's actually written by Mitch Albom."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of unnecessary complexity ('Yes, The Other Hand is a fantasy film... It is a Fantasy and is a Sci-Fi') that could be simplified."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Zero Effect was written by Robert De Niro'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that The Family Man is a movie written by the author of Wrath of the Titans, and it repeats incorrect information about Wrath of the Titans being directed by Robert de Niro."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that 'Yes Please' is a film written by John Lasswell when the user didn't mention any movie title."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, the assistant's last response 'Wild Wild West was written In the same time period' is unclear as it does not specify which movie from 2016 it is referring to."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has several instances of ambiguity or unnecessary complexity. For example, it incorrectly responds to 'I'm looking for movies from 2013' with '2012 is a movie', and repeats the genre when not asked."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous or incorrect. It failed to understand the user's intent and provided irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'I'm not sure if you are into that kind of thing'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, the assistant incorrectly identifies 'When a Stranger Calls' as a comedy and repeats 'bye' excessively at the end."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or irrelevant responses ('Men in Black is a great movie starring Tom Hardy' when asked for something from 1986)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'I do. The Golden Compass is a comedy.'), but there are several instances of ambiguity or irrelevant responses ('2012 is a Comedy.', 'Young Sherlock Holmes is a thriller.')."
+      }
+    ],
+    "FLUENCY": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Bye Bye Bye. You will be a great fan' is awkward and unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, the repetition of 'Michael Bay' and incorrect movie titles make it less fluent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response '2012 Goodbye, a great movie is a good one' does not flow naturally."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the repetition of 'Michael Bay' and incorrect statements like '2012 is written by Mike Bay' make it less fluent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly identifies 'The Mortal Instruments: City of Bones' as a comedy and drama instead of acknowledging it's a fantasy film from 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it recommends movies without considering the user's preference ('I didn't like that one') and provides irrelevant information ('Under the Skin was released in 2013')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly categorized movies as romance films and didn't understand the user's request for movies from a specific year until the third attempt."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant recommends movies without understanding the user's preference for movies from 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often irrelevant to the user's queries and did not flow naturally like human conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. It struggles to maintain context from one interaction to the next."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats 'Yes Man is a drama and it's a romance.' twice without acknowledging the user's request for movies from 1986."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. They also contain factual inaccuracies ('Wild Wild West' was released in 1999, not written by Michael Cera), indicating a lack of understanding or context."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often inaccurate and off-topic, showing little understanding of the user's intent. The language used was also robotic and unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats 'Zero Effect' multiple times and incorrectly states that Tom Hanks directed the movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like language style. It failed to understand the user's intent correctly multiple times."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's intent, repeatedly mentioning Michael Bay instead of providing movies from 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, 'I'm not in the Mood for rightnow' and 'We'll have to wait until the next one is released.'"
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic or unnatural. It fails to maintain context from previous user utterances and provides irrelevant suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response to 'I usually watch movies from the 90s' is unrelated to the user's statement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, repeating 'Ok' multiple times and providing an irrelevant movie title at the end."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Men in Black is a great book' seems inappropriate as it was asked about movies from 2014."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It repeatedly recommended the same movie despite the user's clarification about the year, and it also incorrectly stated that Tom Cruise starred in 'Skyfall' twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the recommendation 'When a Stranger Calls is a comedy' is incorrect and the final response 'See you later!' seems out of place."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's intent and provided irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often inaccurate and off-topic, showing little understanding of the user's intent. The language used was also robotic and unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, in the second response, it incorrectly states that Public Enemies was written by the same writer as This Is the End, and in the final response, it seems to misunderstand the user's farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. It repeatedly mentions 'Tom Hank' despite corrections, indicating it didn't understand the user's intent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, in response to 'I'm looking for movies from the year 1986', it mentions 'Zoolander' which is not from that year and incorrectly attributes Groundhog Day's writer as James Franco."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a comedy movie from 2014 and repeatedly suggested movies that did not match the criteria."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly attributes 'Tuesdays with Morrie' to Michael Bay (who is known for directing action films), and provides irrelevant information about '2012' when the user mentions preferring movies from 1993."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. It failed to understand the user's request for movies from 2013 and instead suggested movies from different years or genres."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Men in Black is a fantasy movie' seems out of context and unrelated to the user's previous statement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it didn't directly address the user's interest in movies released in 2002 and instead provided information about Tom Cruise movies."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often inaccurate and irrelevant to the user's queries, making them sound robotic or unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'The Matrix is a Comedy movie.' is factually incorrect and could be seen as a sign of artificiality."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly mentions 'The Truman Show' even when it's not relevant to the user's query about movies from 1931."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, repeating 'Wrath of the Titans is a good one' and saying 'Goodbye, thank you for the good choice in movies' when the user didn't choose any movie makes it seem robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often inaccurate and off-topic, showing no understanding of the user's intent. They also lacked human-like variation in language or style."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to maintain context from the user's previous messages ('Tuesdays with Morrie' vs '2012'), and its responses did not flow naturally like a human conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the responses 'Tuesdays with Morrie is written by Michael Bay' and '2012 was written by Jim Halley.' seem out of context and not directly related to the user's inputs."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to provide relevant movie suggestions based on the user's preference for movies released in 2010."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly identified 'Yes Please' as a film written by John Lasswell when no such film exists."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often inaccurate and off-topic, showing no understanding of the user's intent. They also lacked human-like variation in language style."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly states that 'Tuesdays with Morrie' is a film written by John Lasswell when it was actually directed by Scott Hicks."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Wild Wild West is a film from the 1960.' is incorrect and unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly mentioned '2012' even after being told it was not liked by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like conversation flow. It incorrectly states that Men in Black was released in 2013 when it was actually released in 1997, and it provides irrelevant information about 'Night Watch' at the end."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. It repeatedly provides incorrect or irrelevant information about movies directed by Michael Bay, despite the user's attempts to steer the conversation towards movies from 2014."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay when it was actually written by Mitch Albom."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Wag the Dog is a comedy movie.' seems abrupt and lacks context."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly irrelevant to the user's queries and showed no understanding of context, making them sound robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the repetition of 'Men in Black' and the lack of context for the movie title '<mask>' make some responses feel unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'I will be the one to answer your question' is quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Game Change' is not a coherent sentence and 'Wild Wild West is a comedy movie starring Tom Cruise and Tom Cruise.' repeats the actor's name unnecessarily."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 4,
+        "score_explanation": "The assistant's responses are mostly fluent and resemble those of a real human. However, the repetition of '2012 is a great movie' when the user said goodbye indicates a lack of understanding context, which feels slightly artificial."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly irrelevant to the user's queries and showed no understanding of context, making them sound robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly irrelevant to the user's queries and did not flow naturally like human conversation. It failed to understand or respond appropriately to the user's requests."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Tuesdays with Morrie is written by Michael Bay' is factually incorrect and seems like an attempt to fill in silence rather than being relevant to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Tuesdays with Morrie is written by Michael Bay' is factually incorrect and the follow-up responses about movie release years seem unrelated to the user's stated preference for movies released after 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly states that '2012' was released in 1999 and written by John Green."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly states that '2012 is a fantasy movie' and 'Young Sherlock Holmes was released after Zulu', which are factual errors."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, repeating '2012 is a great book' and the farewell message seems overly enthusiastic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response to 'I'm interested in movies from 2017' is incomplete and doesn't provide any relevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to maintain context from the user's previous statement ('I'm mainly interested in movies from the year 2007'), instead providing irrelevant movie titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the repetition of 'The Red Pyramid is a movie' and the odd phrasing in 'You have been warned' make it clear that this isn't a perfectly natural conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to maintain context from one response to the next, leading to irrelevant or incorrect suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's intent and provided irrelevant or incorrect information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, repeating 'Sci fi movie' and providing irrelevant information like 'Wrath of the Titans was released in 2013' when the user is looking for movies from around 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Night Watch is a great movie' doesn't fit the context of the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, in the second response, it incorrectly identifies 'Yes Man' as both a comedy and romance film when it's primarily a comedy."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'I have a similar one 2012' is unclear and not very helpful."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, in response to 'I'm looking for movies from 1986.', it incorrectly states that Grandma's Boy is a movie starring Tom Cruise and Tom Cruise."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly attributes films to John Lasseter (who is an animator and director at Pixar) instead of John Lassley, and provides irrelevant information in its last response."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses are mostly irrelevant to the user's inputs and seem robotic or unnatural. It doesn't maintain context well (e.g., mentioning 'Game Change' after 'Hi there', and discussing movies from 1998 when the user didn't specify a year)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same information about '2012' multiple times and doesn't address the user's preference for movies from 1998."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Zulu is a comedy movie' seems irrelevant to the user's previous statement 'See you later!'"
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly categorized 'The Shawshank Redemption' as a romance movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like conversation flow. It failed to understand the user's intent when asking for movies from 1964, instead mentioning 'Men in Black' and '2012', which are not relevant to the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it didn't acknowledge the user's change in topic from books to movies and continued to provide irrelevant movie recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response 'Yes, I am also interested in Movies from the Year 1966.' seems overly formal and not conversational."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the responses often lack context or continuity from the previous conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie title twice and doesn't acknowledge the user's farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the responses about movies ('Tuesdays with Morrie', 'The Interview') seem unrelated to the user's query about movies from 1990."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to maintain context from the user's statements, leading to irrelevant or incorrect responses."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeats the same movie title '2012' despite corrections from the user, and provides incorrect information about the genre and director of the movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it recommended 'Yes Man' when asked for movies from 2007, and then mentioned 'Wild Wild West', which is not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, repeating 'Bye bye bye bye Bye bye Bye Bye' multiple times is unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats its recommendation for 'Wild Wild West' even after the user expresses they're looking for movies from 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the response to 'None() implies no specific intent...' is confusing and unnatural, and the responses to 'I usually watch movies from 2002.' and 'Goodbye, have a great day!' seem to misunderstand the user's intent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. It repeats 'bye bye' multiple times at the end, which is unnatural for a conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often inaccurate and off-topic, making them sound robotic or unnatural. It failed to understand the user's intent and provide relevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, repeating 'Windtalkers is a great movie' twice in response to different user inputs shows a lack of contextual understanding."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly states that 'Zero Effect' was written by Robert De Niro instead of its actual director, and later confuses 'Wrath of the Titans' with another film."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly states 'Yes Please' as a film written by John Lasswell when no such film exists, and it provides information about 'Young Sherlock Holmes' being released in 1962 instead of 1985."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant continues to recommend movies even after the user expresses dislike for one, and it provides irrelevant information about movie release years when the user is interested in movies from a specific year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like fluency. For example, it repeats the genre of '2012' twice instead of providing a suggestion for movies from 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often inaccurate and did not closely resemble those of a real human. They sounded robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the repetitive goodbyes at the end of the conversation sound unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant continues to recommend movies from different years despite being corrected by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often inaccurate and did not closely resemble those of a real human. They failed to understand the user's request for comedy movies from the year 2004."
+      }
+    ],
+    "CONV_FLOW": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant's responses were not always relevant to the user's inputs."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are unrelated to the user's inputs ('Tuesdays with Morrie' and '2012' have no connection to movies from 1979), leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., when the assistant responds to user's feedback on book recommendations), but there are several instances of abrupt or disjointed transitions. For example, the assistant's response to 'I'm really into movies from the early '90s' is not relevant and does not flow smoothly."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect or irrelevant responses. The assistant repeatedly mentions Michael Bay despite the user's attempts to change the topic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect genre classifications and failure to address the user's request for movies from 1989."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or off-topic ('Under the Skin was released in 2013'), and there are abrupt transitions that disrupt the conversation (e.g., mentioning 'The Civil War' when the user is looking for movies from 2003)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., USER: 'I'm looking for movies from the year 2010.', ASSISTANT: 'Wild Wild West is a Romance film.'), but there are several instances of abrupt or disjointed transitions. The assistant's responses do not always directly address the user's queries."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often unrelated to the user's inputs, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly mentions '2012' despite the user's request for movies from 1989, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's responses being mostly irrelevant or incorrect. The transitions between utterances are often disjointed."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., USER: 'I'm looking for movies from 1986.', ASSISTANT: 'Grandma's Boy is a Romance film and is a Comedy.'), but there are several instances of abrupt or disjointed transitions. The assistant did not understand the user's intent to find movies from a specific year, leading to irrelevant recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or incorrect, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's inputs ('Tuesdays with Morrie' is a book, not a movie from 2017), and there are abrupt transitions that do not maintain coherence."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses often do not directly relate to the user's inputs, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect or irrelevant responses. The assistant did not address the user's request for movies from the year 2003 and instead provided unrelated movie information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly provides incorrect or irrelevant information based on the user's inputs."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of user inputs ('I'm not sure what I'm in the mood for right now' and 'I prefer movies from the year 2017') and inappropriate responses ('We'll have to wait until the next one is released')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to maintain context and provide relevant responses. The assistant recommends movies that are not comedies ('Wrath of the Titans') or are not from the year 2001 (<mask>). Additionally, the final response ('Goodbye is a movie written by James Cameron') is off-topic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., USER: 'I usually watch movies from the 90s.', ASSISTANT: 'Cowboys & Aliens is a fantasy movie.'), but there are several instances of abrupt or disjointed transitions. For example, the assistant's last response ('2012 is a Fantasy movie. It was released in 2014.') does not follow from the user's farewell utterance."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request ('2004' instead of '2006') and its irrelevant response at the end."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often unrelated to the user's inputs ('Men in Black' when asked about movies from 2014), and there are abrupt transitions between utterances."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly recommends the same movie despite the user's clarification about the release year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant didn't maintain the context well (e.g., recommending 'When a Stranger Calls' as a comedy when it's actually a horror film)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's queries and show no attempt at maintaining context."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's queries and show no attempt at maintaining context."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often off-topic or incorrect, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the Assistant's repetitive responses about Tom Hanks and movies that don't match the user's request for films from 2012. The transitions are disjointed, and there's a lack of coherence in the Assistant's responses."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect or irrelevant responses. For instance, it recommends 'Vertical Limit' when asked for movies from 1986 and mentions Jim Cameron while the user is asking about movies from a specific year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to understand and respond appropriately to the user's requests. The assistant recommended movies from different years than requested and provided incorrect movie titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are unrelated to the user's inputs, making it disjointed and lacking coherence."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or incorrect, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., when the user expresses interest in movies released in 2014), but there are several instances of abrupt or disjointed transitions. For example, the assistant's response to 'Nice chatting with you too, bye!' is unrelated and off-topic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's queries ('This Is the End' and 'Vanilla Sky' were released in 1999 and 2001 respectively), leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's inputs ('Tuesdays with Morrie' and '2012' have nothing to do with movies from 2015), leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect responses ('The Matrix is a Comedy movie.' and 'The Watch is a Drama' when no such movies were mentioned). The transitions are disjointed, leading to a lack of coherence."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses despite changes in topic by the user. The assistant also provides incorrect or irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant repeated the movie title 'Wrath of the Titans' and didn't adapt well to the user's uncertainty about their preference."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant repeatedly mentions Michael Bay despite the user's request for movies from the 70s."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly attributes 'Tuesdays with Morrie' to Michael Bay and provides irrelevant information about the movie '2012'. The transitions between utterances are disjointed."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are unrelated to the user's inputs, making it disjointed and lacking coherence."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or incorrect, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's responses being mostly irrelevant or incorrect. The assistant did not address the user's query about movies from 1987 until the very end of the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect responses. The assistant repeatedly mentions 'Michael Bay' and '2012', which are irrelevant to the user's query about movies from 2018."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect responses ('Tuesdays with Morrie' instead of '2012', and 'John Lassway' instead of 'Jared Leto'). The assistant also fails to address the user's request for a film from 2015 until the very last utterance."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., USER: 'I'm interested in movies from the year 1961.', ASSISTANT: 'Young Sherlock Holmes was released in 1962.'), but there are several instances of abrupt or disjointed transitions. For example, the assistant incorrectly responds to the user's query about movies from 1961 with information about a movie from 1962."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly recommends '2012', despite the user's feedback and changing their request to movies from 1988. There are abrupt transitions and a lack of coherence in the assistant's responses."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often unrelated to the user's inputs, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect or irrelevant responses. The assistant repeatedly mentions Michael Bay despite the user's interest in movies from 2014."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's inputs ('Tuesdays with Morrie' and 'Wild Wild West' are not movies from 2005), leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's statements ('Sellevision' when the user mentioned late 80s movies, and 'Wrath of the Titans is a drama' after the user said goodbye)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect responses. The assistant incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay (a director known for action films like 'Transformers'), and later incorrectly attributes 'Wrath of the Titans' to him as well."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the initial greeting), but there are several instances of abrupt or disjointed transitions. The assistant repeatedly recommends Men in Black despite the user's request for movies from 1994 and expresses no understanding when the user says they're done."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are abrupt and do not follow the user's preferences or context (e.g., suggesting a movie from 2012 when the user is looking for movies from 2004)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often off-topic or incorrect, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., when the user expresses interest in movies from 2003), but there are several instances of abrupt or disjointed transitions. For example, after the user says goodbye, the assistant recommends another movie without acknowledging the farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are unrelated to the user's inputs, showing no attempt at maintaining context or relevance."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeats the same response despite the user's clarification and then provides irrelevant information when the user tries to end the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's irrelevant responses. The assistant incorrectly states that 'Tuesdays with Morrie' is written by Michael Bay (a film director), and later incorrectly states that '2012' was released in 2009 when it was actually released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the initial greeting), but there are several instances of abrupt or disjointed transitions. The assistant's responses often seem unrelated to the user's inputs."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or incorrect, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses often do not directly relate to the user's inputs, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to understand and respond appropriately to the user's intent. The assistant repeatedly recommends '2012' despite the user expressing interest in movies from the year 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., USER: 'I'm interested in movies from 2017.', ASSISTANT: '<mask> is a Sci-Fi movie.'), but there are several instances of abrupt or disjointed transitions. For example, the assistant incorrectly states that 'Wrath of the Titans' was released in 1999 instead of 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are unrelated to the user's inputs, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., user's follow-up question about movie release year), but there are several instances of abrupt or disjointed transitions. The assistant repeats the same movie title and doesn't adapt to the user's changing preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often off-topic or incorrect, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses do not align with the user's queries (e.g., suggesting '2012' as a comedy when it's an action/disaster film). The final response ('Zero Dark Thirty is a Comedy') is completely irrelevant to the user's request for movies from the year 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., when the assistant responds to user's intent), but there are several instances of abrupt or disjointed transitions. For example, the assistant mentions 'Running with Scissors' without any context and provides incorrect genre for movies."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's inputs ('None()', '1986' movie suggestion when user mentioned enjoying movies from that year), and the final response is unrelated to the user's farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's responses not aligning with the user's queries. The assistant repeatedly mentions movies that don't match the user's criteria (year 2005) and also repeats movie titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., USER: 'I'm mainly interested in movies from 2013.', ASSISTANT: 'Wild Wild West is a movie from 2013.'), but there are several instances of abrupt or disjointed transitions. For example, the assistant's last response ('2012 is a romance movie.') does not relate to the user's previous statement ('Goodbye')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or inaccurate (e.g., mentioning 'Grandma's Boy' instead of movies from 1986), leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's responses being unrelated or incorrect. The assistant also fails to maintain context from one turn to another."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often unrelated to the user's inputs, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses and failure to address the user's preferences (e.g., movies from 1998). The transitions between utterances are often disjointed."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., 'No thanks, I've already watched it' to 'I'm looking for movies from the year 2000'), but there are several instances of abrupt or disjointed transitions. For example, the assistant's response to 'See you later!' is unrelated and off-topic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to maintain context and provide relevant responses. The assistant incorrectly identifies 'The Shawshank Redemption' as a romance movie instead of drama, showing a lack of knowledge about the film."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's inputs ('Men in Black' when asked for movies from 1964 and '2012 is a crime film' when the user was looking for movies released in 1964)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's inputs ('None()' and 'See you later.'), leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally but has several instances of abrupt or disjointed transitions. The assistant's responses are not always relevant to the user's input."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to abrupt transitions and disjointed responses. The assistant's suggestions seem unrelated to the user's input."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., when the assistant recommends movies), but there are several instances of abrupt or disjointed transitions. For example, after the user expresses dislike for a movie, the assistant responds with unrelated information ('Matched was written by the author of Drama'), and later repeats the same movie recommendation despite the user's clear preference for 2007 movies."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are unrelated to the user's inputs, showing no attempt at maintaining context or relevance."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect statements about books and movies. The assistant also fails to respond appropriately to the user's farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in movie details and ignoring user feedback. The transitions are disjointed, with the assistant continuing to mention '2012' even after the user expressed disinterest."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or incorrect, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant incorrectly stated that '2012' was a book instead of a movie and failed to provide relevant suggestions for movies from the year 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to maintain context and adapt suggestions based on user feedback. The assistant also fails to respond appropriately to the user's closing statement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or incorrect, leading to disjointed transitions and lack of coherence."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often unrelated to the user's inputs, leading to disjointed transitions and lack of coherence."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's interests and show no attempt to maintain context or engage in a coherent discussion about movies from 2011."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant incorrectly stated that 'Windtalkers' is a movie from 2010 when it was actually released in 2002."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's responses being irrelevant or incorrect. The assistant did not understand the user's intent in their first message and provided an unrelated response about 'The Family Man'. In the second exchange, the assistant again provides an irrelevant response ('Zero Effect') instead of listing movies from 1955. Lastly, the assistant repeats information about 'Wrath of the Titans' when the user is saying goodbye."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., USER's second utterance to ASSISTANT's first response), but there are several instances of abrupt or disjointed transitions. For example, the ASSISTANT's responses do not always directly relate to the USER's previous utterances."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses often seem disconnected from the user's inputs, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are often irrelevant or off-topic ('I can't think of anything else that he's directed.'), and there are abrupt transitions ('2012 is a movie.', 'Goodbye, have a great day!')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect recommendations ('The Golden Compass is a comedy') and failure to understand the user's intent (recommending '2012' instead of movies from 2013)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request for recent movies and its inappropriate recommendation of 'When a Stranger Calls', which is neither comedy nor action. The assistant also fails to understand the user's goodbye, repeating it excessively."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's inputs ('Men in Black' when asking for a movie from 1986 and '2012' twice instead of providing different movies)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses do not align with the user's requests (recommending 'The Golden Compass' instead of a comedy from 2004), and there are abrupt transitions ('Bye!' followed by an unrelated movie recommendation)."
+      }
+    ],
+    "OVERALL_SAT": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant recommendations but struggled with understanding the user's preferences and providing tailored suggestions. The conversation also ended on an odd note."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's interest in movies from 1979. Instead, they repeatedly mentioned Michael Bay's involvement with different films."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant suggestions but struggled to maintain context (e.g., recommending '2012' twice) and missed opportunities for more engaging responses."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant incorrectly responded to the user's intent multiple times. It failed to understand that the user was discussing books ('Tuesdays with Morrie') and movies from a specific year (1987), leading to irrelevant responses about Michael Bay's films."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant incorrectly identified genres for movies and provided irrelevant responses to user queries."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for movies from 2003 and kept suggesting irrelevant movies. The conversation was mostly dissatisfying."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's request for movies from the year 2010 and kept suggesting films from different years. This led to dissatisfaction in the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's interest in movies from 1999. Instead of providing relevant suggestions, it offered unrelated movie titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's request for movies from the year 1989. Instead, it repeatedly mentioned '2012', leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant made several factual errors (e.g., 'Drama is a book written by the author of Lolita', 'Wild Wild West is a movie written by The Great Khali'), failed to address the user's request for movies from 2015, and did not maintain context throughout the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's request for movies from 1986 and kept recommending 'Yes Man', which is not a movie from that year. This led to dissatisfaction in the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not provide movies from the year 2002 and made incorrect statements about movie titles and actors."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's statements. The conversation was mostly dissatisfying."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to maintain context throughout the conversation. It failed to provide relevant movie suggestions based on the user's preference for movies from around 2010 and instead repeated information about 'Zero Effect'. The final response was also inappropriate as it suggested a movie directed by Tom Hanks (Larry Crowne) instead of Zero Effect."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or irrelevant information multiple times (e.g., mentioning 'When You Are Engulfed in Flames' when the user didn't ask about it, stating 'Windtalkers is a sequel to 2012' instead of providing movies from 2003), leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies from 2013. Instead, they repeatedly mentioned 'Tuesdays with Morrie' and 'Michael Bay', which are irrelevant to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preferences and provided irrelevant movie suggestions. The conversation was mostly dissatisfying."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often irrelevant or incorrect. For example, when the user mentioned watching movies from the 90s, the assistant responded with 'Cowboys & Aliens is a fantasy movie', which has nothing to do with the user's statement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies released in 2004. Instead, they provided information about a movie released in 2006."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's intent when asking about movies from 2014 and provided an irrelevant response. The final message was also inappropriate for the context."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies from 1995 and repeatedly recommended 'Skyfall', which was released in 2012. The conversation was mostly dissatisfying due to this misunderstanding."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant recommendations based on the user's initial preference for movies like '2012'. However, it failed to maintain this relevance throughout the conversation. For instance, recommending 'When a Stranger Calls' as a comedy when it is actually a horror film shows a lack of understanding or attention to the user's preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's request for movies from 1996. Instead, it provided irrelevant information about books and films written/directed by Michael Bay."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's requests. They provided irrelevant information about books and movies from different years instead of listing movies from 2006."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's intent initially and continued to provide irrelevant information even after the user clarified their request. The conversation was mostly dissatisfying due to these misunderstandings."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand and respond appropriately to the user's requests. It repeatedly mentioned 'Tom Hanks' even when it was not relevant, and failed to provide movies from 2012 as requested."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided inaccurate or irrelevant information multiple times (Vertical Limit, Groundhog Day), failed to respond appropriately to the user's request for movies from 1986, and did not engage in a satisfying conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a comedy movie from 2014. Instead of providing relevant suggestions, it offered movies from different genres and years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly irrelevant to the user's inputs, leading to dissatisfaction. The conversation lacked engagement and understanding of the user's intent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies from 2013. Instead, it provided irrelevant movie suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant movie suggestions based on the user's initial interest but missed the user's farewell and continued with an unrelated suggestion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's request for movies released in 2002. It provided irrelevant movie titles and actors instead."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's queries about movies from 2015. Instead, it provided irrelevant information about books and movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's queries about movies from 1938. It incorrectly identified 'The Matrix' as a comedy film instead of a sci-fi action film."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies from the year 1931. It repeatedly mentioned 'The Truman Show' which is not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made recommendations without considering the user's preference for recent movies. They also didn't ask clarifying questions when the user wasn't sure what they wanted. However, they were polite throughout the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies from the 70s. Instead, they repeatedly mentioned Michael Bay films which are not from that decade."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant incorrectly identified 'Tuesdays with Morrie' as being written by Michael Bay (who is known for directing action films). They also failed to understand the user's request for a book from around 2004 until the third exchange. The conversation was mostly dissatisfying due to these inaccuracies."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were irrelevant to the user's inputs, showing a lack of understanding or context. This led to a mostly dissatisfying conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not provide movies released in the past decade or specifically in 2010. Instead, it provided irrelevant movie suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or irrelevant information ('Yes Please', 'Wild Wild West'), missed the user's intent to find movies from 1987, and continued offering unrelated films even after the user said goodbye."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies from 2018. Instead, they repeatedly mentioned Michael Bay's works, which are unrelated to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant made significant errors (incorrect movie titles and release years) and did not adapt to the user's request for movies from a specific year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant incorrectly stated that 'Young Sherlock Holmes' was released in 1962 instead of the correct year of 1985. This error led to a mostly dissatisfying conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for movies from 1988 and continued to recommend movies from different years. This led to dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations for the year 2013 despite the user's request. Instead, it provided irrelevant information about movies released in different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or irrelevant information throughout the conversation, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant incorrectly responded to the user's intent. The user was looking for movies from Michael Bay released in 2005, but the assistant provided incorrect titles and years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly irrelevant to the user's interests and statements. The conversation lacked engagement and understanding of the user's preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant incorrectly responded to user's intent multiple times. It failed to understand that the user was interested in movies from 2012 and kept mentioning 'Tuesdays with Morrie' and 'Wrath of the Titans', which are not related to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preference for movies from 1994 and kept suggesting movies that didn't meet this criterion. The conversation was mostly dissatisfying due to this lack of understanding."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie suggestions based on the user's preference for movies from 2004. The conversation was mostly dissatisfying due to this lack of understanding and appropriate response."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies from 2016. Instead of providing relevant suggestions, it mentioned a movie from another year (2012) and then provided irrelevant information about 'Wild Wild West'. The conversation was mostly dissatisfying due to these inaccuracies."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant provided accurate information but struggled to maintain context. It recommended '2012' twice instead of suggesting movies from 2003 as requested."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not accurately respond to the user's queries about movies from 1927. Instead, it provided irrelevant information about books and movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's intent when asking about movies from 1997 and continued to provide information about 'Inception', leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly irrelevant to the user's inputs, leading to confusion and dissatisfaction. The conversation lacked coherence and engagement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or irrelevant information ('Tuesdays with Morrie' is not written by Michael Bay, 'Wild Wild West' was released in 1999), missed the user's interest in recent movies, and failed to engage in a satisfying conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or irrelevant information multiple times (e.g., mentioning 'Tuesdays with Morrie' when the user was interested in movies from the year 2000, and stating that '2012' was released in 1999). This led to a mostly dissatisfying conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to maintain context and provide relevant responses. It failed to understand the user's interest in movies released after 2013 and continued to mention older movies."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant made incorrect recommendations based on the user's interests and did not adapt to the user's feedback. The conversation was mostly dissatisfying."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or irrelevant information ('Wrath of the Titans' was released in 2012, not 1999) and failed to understand the user's intent when they mentioned 'Goodbye', treating it as a movie title instead of a farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's queries about movies from 2007. Instead, it provided irrelevant movie titles and genres."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's request for movies from 2007 and kept recommending 'The Red Pyramid' despite it being released in 2013. The conversation was confusing and unhelpful."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for movies from the year 2014 and incorrectly stated that '2012 is a comedy'. The conversation ended with confusion as the assistant mentioned 'When a Stranger Calls' being both a comedy and thriller."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's intent despite repeated attempts. It provided irrelevant responses and did not engage with the user's last message."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to maintain context and provide accurate responses. It failed to understand the user's intent of finding movies from around 2005 and instead provided irrelevant movie genres and release years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand or respond appropriately to the user's statements about enjoying movies from 1986 and saying goodbye. The responses were irrelevant and did not maintain the context of the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's intent. It repeatedly recommended movies based on incorrect genres or years, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's interest in movies from 2013 and continued to recommend movies from other years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies from 1986 and provided irrelevant movie suggestions. The conversation ended with the user expressing dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant made factual errors ('John Lassley' instead of 'John Lasseter'), ignored the user's statement about watching movies from 1978, and didn't respond appropriately to the user's farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were irrelevant to the user's inputs. It failed to maintain context or provide useful information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's preferences. It repeatedly recommended '2012' despite the user expressing dislike for it, and when asked about movies from 1998, it incorrectly associated '2012' with that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant movie suggestions but failed to maintain context (repeating 'Zulu is a movie from 2000' twice) and missed the user's farewell ('See you later!'), which could have been improved."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's preferences (interested in older movies) and provided incorrect genre information for 'The Shawshank Redemption'. This led to a mostly dissatisfying conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies released in 1964. Instead, it mentioned 'Men in Black' and '2012', which are irrelevant to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not accurately respond to the user's request for movies from the year 2004. Instead, it provided information about movies from other years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant suggestions but struggled to maintain context when the user's interest shifted. The final response was also off-topic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's feedback ('I didn't like the last one you suggested.'). Instead of adjusting recommendations or asking for preferences, it continued with irrelevant suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant recommendations but struggled with understanding the user's preferences and providing accurate suggestions. The conversation could have been more engaging."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's interest in movies from the year 1990. Instead of providing relevant movie suggestions or information, it offered unrelated book and actor information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly irrelevant to the user's inputs, showing a lack of understanding or context. This led to a dissatisfying conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preferences and kept recommending the same movie despite user feedback. The conversation was mostly dissatisfying due to this lack of understanding."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's requirement for a comedy movie from the year 2007. It provided irrelevant movie suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant suggestions initially but struggled with understanding the user's intent later on. The conversation could have been improved by better tracking of the user's preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand or respond appropriately to the user's inputs. It repeatedly suggested movies without considering the user's preferences and ignored the user's request for movies released in 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand user inputs correctly. It responded with irrelevant or incorrect information, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's inputs. It provided irrelevant suggestions and didn't address the user's request for movies from 1972."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's interest in movies from 2011. Instead, it repeatedly mentioned 'Tuesdays with Morrie' and '2012', which are not relevant to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant responses but struggled with understanding the user's intent. It offered 'Windtalkers' when the user was interested in movies from 2010, and it didn't acknowledge the user's farewell."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or irrelevant information throughout the conversation. The user's intent was to find movies from the year 1955, but the assistant kept mentioning 'Wrath of the Titans' and 'Robert De Niro', which are not related to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or irrelevant responses ('Yes Please' instead of 'Yes, please', 'Young Sherlock Holmes was released in 1962' when the user mentioned movies from the classic era), missing the user's shift to a friendly closing ('Have a great day!')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's feedback ('I didn't like the last one you suggested.') and did not provide relevant movie suggestions when asked for movies from a specific year (2016)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's requests for movie suggestions from a specific year (2013) and director. Instead of providing helpful information or asking clarifying questions, it offered irrelevant responses."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's requests for comedy movies from 2013. Instead of providing relevant suggestions, it repeatedly mentioned '2012' which is incorrect and unhelpful."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a recent comedy or action movie and instead recommended an older horror film. Additionally, the repetitive farewells at the end of the conversation were inappropriate and unsatisfying."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's request for a movie from 1986. Instead, it provided irrelevant suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-ABUS_ReDial-1760341605",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's preferences for comedy movies released in 2004. The responses were inaccurate and did not address the user's specific criteria."
+      }
+    ]
+  }
+}

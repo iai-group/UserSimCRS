@@ -1,0 +1,2514 @@
+{
+  "IAI MovieBot": {
+    "REC_RELEVANCE": [
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide relevant recommendations and instead responded with irrelevant movie titles or apologetic statements, not meeting the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded to the user's request for a movie released in 2007 and did not need any further clarification or correction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent had difficulty providing relevant recommendations and often failed to understand the user's input, leading to repeated errors and off-topic responses. However, there were some instances where it provided helpful suggestions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent repeatedly misunderstood the user's request and failed to provide relevant recommendations."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant did not provide any recommendations based on the user's request for a movie from the year 1950. It only introduced itself and explained its purpose."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently provided relevant and helpful recommendations based on the user's interests and preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent repeatedly asked for information about 'Downsizing With The Joneses' but did not provide any new details or clarifications to help break the loop. It also failed to recognize familiar movie titles and quotes when presented with them."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant initially failed to provide movies released in 2012 despite the user's request. It only offered movies from other years until the user insisted again."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent mostly provided informative and helpful recommendations, with only a few instances where the recommendations did not meet the user's needs or preferences. However, there were some repetitions in the responses which could be improved."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. The agent repeatedly provided irrelevant or unhelpful responses, making it difficult for the user to engage in a meaningful conversation about cinema history."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant initially struggled to find movies released in 1990. While it did provide relevant movie options afterwards, the user had to manually select from a list rather than receiving a single tailored recommendation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering repetitive responses that did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded to the user's request for a movie released in 2005 without needing any further clarification or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering recommendations that did not meet the user's needs or preferences. The conversation was repeatedly derailed by technical difficulties, leading to a lack of relevant movie discussions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations about 'Interstellar' (2014), offering recommendations that did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. The conversation was stuck in repetitive loops without any meaningful interaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant provided a relevant recommendation based on the user's specific request for a movie released in 1964."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent provided relevant and tailored movie recommendations based on the user's preference for 'The Ugly Truth', demonstrating a clear understanding of the user's taste."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately understood and fulfilled the user's request for a movie released in 1981."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. Instead of engaging in a conversation based on the user's inputs, the agent repeatedly asked for help films, which was not relevant to the user's requests."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering recommendations that do not meet the user's needs or preferences. The agent was stuck in a loop with the phrase 'Sorry, I don't have any Assistant films named similar to The Hangover from the year 2010.', even when the user tried to discuss different topics like sports and books."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant provided an immediate and accurate recommendation based on the user's single preference for a movie from the year 2010."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant initially asked for genre preference but didn't use that information. When the user specified the year 1986, the assistant didn't provide any recommendations based on that either."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide helpful recommendations and instead responded with 'Sorry, I couldn't find any...' which did not meet the user's needs or preferences. The conversation was stuck in an infinite loop due to the agent's responses."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide relevant recommendations and instead offered responses that did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent struggled to understand and follow the user's preferences, leading to recommendations that did not fully meet their criteria."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide the movie 'A Star is Born' (2018) directed by Bradley Cooper, despite repeated requests from the user. Instead, it offered numerous irrelevant recommendations, demonstrating a lack of understanding or inability to fulfill the user's specific request."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent did not provide any recommendations or responses to the user's request for movie quotes and their corresponding films."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant initially struggled to provide relevant movies released in 1985. After that, it offered a long list of movies without asking for the user's preferences. It only provided helpful recommendations after the user specifically asked about 'The Goonies'."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently provided relevant and helpful movie recommendations based on the user's requests for specific genres or themes, such as science fiction, time travel, and action-adventure."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally provided informative and helpful recommendations based on hypothetical scenarios, but there were several instances where the agent struggled to provide relevant suggestions due to limitations in suggesting movies based on user preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant did not ask for any other preferences besides the year, so it could only provide a general recommendation based on that single criterion. While this is somewhat helpful, it's not as tailored to the user's needs as it could be."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded to the user's request for a movie released in 2011 and did not need further clarification or additional questions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally provided helpful recommendations, but there were several instances where the recommendations did not meet the user's needs or preferences. For example, the agent repeatedly offered 'Avatar' as a recommendation even after it was correctly identified by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide recommendations for movies and TV shows released after 2010, despite the user's repeated requests. The agent also repeatedly asked the user to select from a list of options when no such list was provided."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for a movie from the year 1999 that hasn't been mentioned yet."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. The agent repeatedly apologized for confusion but was unable to break out of the loop or engage in meaningful conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's request for movies from the year 2015. None of the suggested films were released in that year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded with relevant questions to understand the user's preference and provided a movie recommendation based on the year specified by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering recommendations that did not meet the user's needs or preferences. The conversation was stuck in an infinite loop due to the agent's inability to generate relevant responses."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant did not ask for any other preferences besides the year, so it could only provide a general recommendation. It might recommend movies that are not the user's favorite genre or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent provided relevant and personalized recommendations based on the user's stated preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant did not ask for any specific genre, actor, director, etc., which could limit the relevance of the recommendation based on the user's preference."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations related to artificial intelligence, offering recommendations that did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. The agent repeatedly provided irrelevant or non-responsive outputs, indicating a significant lack of understanding and assistance."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded with relevant questions to understand the user's preference and provided a movie recommendation ('The Lord of the Rings: The Fellowship of the Ring') that matches the user's specified release year (2001)."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent struggled to maintain context and provide relevant recommendations throughout the conversation. While it attempted to engage with the user's topics of interest, its responses often deviated from the expected course, leading to a lack of informative and helpful suggestions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded to the user's request for a movie released in 2006 and did not need any further clarification or correction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences regarding movies."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant provided a relevant recommendation based on the user's request for a movie released in 2010."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to understand and respond appropriately to the user's inputs, leading to an unproductive conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded to the user's request for a movie released in 2015 and did not need further clarification or additional questions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant did not provide any recommendations based on the user's request for a movie from the year 1965. It only stated its purpose and how it operates."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant initially misunderstood the user's request for movies released in 2016. While it did eventually ask about genres after the user clarified, it could have directly addressed the year requirement first."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately offered to help find a movie released in 2017 based on the user's request, demonstrating perfect recommendation relevance."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally provided informative and helpful recommendations, but there were several instances where the recommendations did not meet the user's needs or preferences due to communication issues."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering recommendations that did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering recommendations that did not meet the user's needs or preferences. The conversation was stuck in a loop with the assistant not understanding the flow of the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately understood and fulfilled the user's request for a movie released in 1997."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent struggled to maintain context and provide relevant responses throughout the conversation. While it attempted to engage with the user's queries, its recommendations often fell short of meeting the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant initially struggled to understand the user's preference for movies released in 2001. While it eventually provided options from that year, it repeatedly asked if the user liked each movie before providing another option, which was inefficient and did not meet the user's stated preference."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent provided seven tailored movie recommendations based on the user's preference for feel-good comedies with heartwarming moments and satisfying resolutions. The recommendations also considered the user's enjoyment of romantic comedy-dramas like 'To All the Boys I've Loved Before'."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally provided helpful recommendations but often struggled to understand the user's needs and preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations related to space exploration, offering recommendations that did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately understood and fulfilled the user's request for a movie released in 1968."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a general greeting and stated its purpose but did not ask any follow-up questions to understand the user's preferences better before making a recommendation. It also did not provide any recommendations based on the user's request for a movie from the year 2018."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded with relevant questions to understand the user's preference and provided an accurate recommendation based on the year specified."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to understand and respond appropriately to the user's intent to stop assistance after a certain point. The agent continued to provide irrelevant recommendations even after the user explicitly stated 'Stop'."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. The agent struggled with understanding natural language processing and generating appropriate responses, leading to a poor conversational experience."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. The agent repeatedly apologized for confusion but did not attempt to understand or address the user's requests."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally provided informative and helpful recommendations related to movies with 'end' in their titles or themes from other years. However, it repeatedly offered the same suggestions for movies released in 1979 despite no films matching the user's criteria being available from that year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally provided informative and helpful recommendations, but there were several instances where the recommendations did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant initially struggled to provide relevant recommendations by offering movies from various years instead of focusing on the user's request for movies released in 2014. However, it eventually provided a list of movies from that year and allowed the user to select one they liked."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant provided a relevant movie recommendation from the year 1995 ('Bombay') that the user was happy to watch."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently provided relevant and helpful recommendations that met the user's needs and preferences for movies, TV shows, video games, and music."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent repeatedly failed to understand and respond appropriately to the user's requests for movie discussions and theme explorations, offering irrelevant or incomprehensible responses throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded to the user's request for a movie released in 2004 without needing further clarification."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, repeatedly offering the same response about not being able to find films similar to 'Inception' released in 2010, despite user attempts to change the topic or provide more context."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent mostly provided informative and helpful recommendations, but there were some instances where the recommendations did not meet the user's needs or preferences exactly."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations about movies, offering recommendations that did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently provided informative and helpful recommendations that met exactly the user's needs and preferences regarding cat-friendly plants and indoor gardening with cats."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately understood and fulfilled the user's request for a movie released in 1999."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a general greeting and stated its purpose but did not ask any follow-up questions to understand the user's preferences better before making a recommendation. It also did not provide any recommendations based on the user's request for a movie from the year 2011."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's preference for movies from the year 1962. The recommended movies were not from that specific year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently fails to provide informative and helpful recommendations, offering recommendations that do not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand and fulfill the user's request for a movie released in 2013. After initially providing 'Her', it failed to recall this recommendation later in the conversation despite the user's repeated interest."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's clear preference for movies released in 2014 with a rating of at least 8 out of 10, the assistant insisted on providing movies that did not meet these criteria and refused to simply provide the title of any movie released in 2014 until the very end of the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering recommendations that did not meet the user's needs or preferences. Despite multiple attempts at different approaches, the agent remained stuck in a loop discussing movies from specific years."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant immediately responded to the user's request for a movie released in 2014 and did not need further clarification or additional questions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently provided relevant and helpful recommendations based on the user's preferences for themes and genres similar to 'Last Summer'."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally provided informative and helpful recommendations related to space exploration, but there were several instances where the recommendations did not meet the user's needs or preferences due to persistent references to specific films directed by John Glenn from certain years starring specific months."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide relevant recommendations and instead offered responses that did not meet the user's needs or preferences. The agent repeatedly apologized for confusion but did not attempt to understand or address the user's requests."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. Instead of engaging in meaningful conversation, it repeatedly provided irrelevant or unhelpful responses, leading to an infinite loop."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide relevant recommendations and instead kept asking for 'end films from 1969', which is not a valid request. The agent did not adapt to the user's attempts to change the topic or engage in different activities."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The agent consistently failed to provide informative and helpful recommendations, offering responses that did not meet the user's needs or preferences. Instead of breaking the infinite loop, the agent kept apologizing and asking for options from the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide the correct title of 'The Bubble' despite repeated requests from the user. Instead, it repeatedly offered other movie titles that did not meet the user's requirement."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally provided informative and helpful recommendations, but there were several instances where the recommendations did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant did not provide any recommendations based on the user's preference for a movie from the year 1979. It only stated its purpose and how it would proceed."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently provided relevant and helpful recommendations based on the user's requests, including movie trivia, popular music genres, and a short poem about music."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant rarely provided relevant recommendations. Despite the user specifying they were looking for a movie from 1993, the assistant offered movies from various other years."
+      }
+    ],
+    "COM_STYLE": [
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicated clearly and concisely, but there were several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely. It introduces itself, states its purpose, and asks for user preferences without any ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely throughout the conversation, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent frequently used ambiguous and overly complex language, making it difficult to understand its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there are instances where it repeats the same question without acknowledging the user's previous responses (e.g., asking for movie preference after the user has already selected one)."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely throughout the conversation, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. The conversation repeatedly circled around movies released in 1988 despite attempts to change the topic."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant communicates mostly clearly and concisely. However, there's some repetition in the responses ('Do you like...') which could be simplified."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent repeatedly mentioned 'Interstellar' despite the user's clear selection of other movies, leading to confusion and frustration."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely throughout the conversation. It introduces itself, states its purpose, and asks for user preferences without any ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, providing helpful movie recommendations based on the user's preference for 'The Ugly Truth'."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant communicates mostly clearly and concisely. However, the first response could have been more specific about how many 'end' films there are in total to avoid confusion."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant often failed to communicate clearly and concisely. It repeatedly misunderstood the user's request for 'A Star is Born' (2018) directed by Bradley Cooper, leading to confusion and frustration."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses were mostly clear and concise, but there were some instances of ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant communicates mostly clearly and concisely. However, there are instances of unnecessary repetition (e.g., repeatedly asking 'Do you like...?') which could be improved."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent mostly communicates clearly and concisely, with only a few instances of ambiguous or overly complex utterances. However, there are some repetitive responses that could be improved."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent mostly communicates clearly and concisely, with only a few instances of ambiguous or overly complex utterances. However, there were some repetitions in the responses which could have been avoided."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has instances of ambiguity. It incorrectly states the release year of 'Cosy Dens' and doesn't clarify its misunderstanding until the user corrects it."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant communicated clearly most of the time but failed to address the user's request for movies from the year 2015 initially, leading to confusion and requiring clarification."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicated clearly and concisely, but there were several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent struggled with consistent communication throughout the conversation. While it provided accurate responses to some questions and showed understanding of movie trivia, it repeatedly failed to acknowledge user inputs or follow instructions, leading to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely throughout the conversation. It introduces itself, states its purpose, and asks for user preferences in a straightforward manner."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely, avoiding ambiguity and unnecessary complexity. It directly addresses the user's request for a movie released in 2015."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant communicates mostly clearly and concisely. However, the first response could have been more concise ('Hi there! I'm MovieBot. Let's find a movie from 2016 for you. Do you have any specific genres in mind?')."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely. It introduces itself, states its purpose, and asks for user preferences without any ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicated clearly and concisely, but there were several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent mostly communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant mostly communicates clearly but there are instances of ambiguity and unnecessary complexity. For example, it repeatedly asks 'Do you like:' instead of providing a simple summary or description of the movie."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely throughout the conversation, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely throughout the conversation, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant communicates mostly clearly and concisely. However, there are instances of unnecessary repetition (e.g., repeatedly asking if the user likes a movie after they've already indicated they don't) which could be improved."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely throughout the conversation. It asks for user preferences directly ('I will ask you a few questions...'), provides movie recommendations based on those preferences ('based on your answers, I will try to find a movie for you.'), and uses simple language with no ambiguity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely throughout the conversation, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent frequently struggled to communicate effectively, often leading to misunderstandings and confusion. It had difficulty following the user's intentions and maintaining a coherent conversation flow."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely throughout the conversation, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely throughout the conversation. It introduces itself, states its purpose, and asks for user preferences in a straightforward manner."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant communicates mostly clearly and concisely but there's some ambiguity in the last utterance ('USER: \\end')."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant mostly communicates clearly but occasionally uses ambiguous phrases like 'Sorry, I couldn't find any misunderstanding films' and provides repetitive suggestions despite user's interest in a specific movie ('Her')."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant often used ambiguous or overly complex language, such as repeatedly mentioning IMDb ratings when they were not relevant to the user's request for any movie released in 2014. This made it difficult for the user to understand and follow the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent rarely communicates clearly and concisely, often using ambiguous or overly complex language in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely throughout the conversation, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, repeatedly apologizing for not finding a documentary when it's clear that the agent doesn't have access to such resources."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent initially communicated clearly by asking for specific films from a certain year. However, it became repetitive and did not adapt to the user's apologies or suggestions for alternative activities, leading to a loop that was difficult to break."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant often repeats the same responses and does not provide clear or concise information about the movie 'The Bubble' despite multiple requests. It also fails to understand the user's intent when they ask for the title of a previously mentioned movie."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent mostly communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The assistant communicates clearly and concisely with no ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent consistently communicates clearly and concisely, avoiding ambiguity and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. It repeatedly asks if the user likes movies that were not released in 1993 despite being told by the user to find a movie from that year."
+      }
+    ],
+    "FLUENCY": [
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and human-like. It greets the user warmly and clearly states its purpose and how it will assist the user. However, there's a slight formality that makes it feel slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the agent made some attempts to engage with the user's requests, there were several instances where the responses felt noticeably artificial or unrelated to the user's input. The agent also struggled with maintaining context throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which feels slightly artificial as it could have been phrased more naturally."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style. The agent repeatedly asks for similar information without providing new details or clarifications, leading to an unproductive loop."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant's responses were mostly coherent and helpful, but they often felt artificial due to the repetitive pattern of asking 'Do you like...?' for each movie suggestion. This made the conversation feel less natural."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial. However, there were some repetitions and lack of understanding in certain contexts."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language and style. The agent repeatedly asked for the same information despite it being provided earlier."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluent and human-like, with only minor instances of artificial language or style (e.g., 'Sorry, I couldn't find any...'). However, it did not maintain context well when the user asked for the title again."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial, hence a score of 4."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language and style. The conversation was repeatedly interrupted by errors and apologies, making it difficult to maintain a coherent discussion."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent repeatedly failed to recognize the user's selection of 'Interstellar' from the provided list, leading to an unnatural and frustrating conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which feels slightly artificial as the user has already asked a question."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial. The agent was able to provide movie recommendations based on the user's preference and also provided relevant information about the movies."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and natural, closely resembling human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial in a real human conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language or style. The agent also repeatedly provided the same apology phrase despite being asked to discuss different topics."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and human-like. It uses contractions ('I am' instead of 'I am') and has a conversational tone ('Hi there', 'your movie recommending buddy'). However, it's not perfect; the phrase 'based on your answers, I will try to find a movie for you.' could be more natural if it were rephrased to sound less robotic."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's responses are mostly fluent and human-like. However, the transition from 'end films' to asking about genres feels slightly unnatural."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style. The conversation is stuck in an infinite loop where neither the user nor the assistant can provide a suitable response to break out of it."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language and style. The agent struggled to maintain context throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to maintain a consistent conversation flow and fails to understand or respond appropriately to the user's requests for 'A Star is Born' (2018)."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. The agent struggled with maintaining context and understanding user intent throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant's responses were mostly coherent and helpful, but they felt somewhat artificial due to the repetitive phrasing ('Do you like:') and lack of variation in tone. The assistant also missed opportunities for more engaging interactions, such as explaining why it couldn't find movies from a specific year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent's responses are indistinguishable from those of a real human."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial. However, there were some repetitive responses which slightly affected the fluency."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and natural, closely resembling human conversation. However, there's one instance where the language feels slightly artificial ('I will try to find a movie for you') due to its formal tone."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the agent often apologizes unnecessarily and repeats phrases like 'Please select from the list of options to continue.' This makes the conversation feel less natural."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the repetition of 'Do you like:' and the lack of variation in response format make it less fluent."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style. The agent repeatedly apologized for the confusion caused earlier and suggested new approaches to break the pattern, but the conversations remained stuck in loops."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant's responses are somewhat conversational but they lack human-like flexibility. It doesn't acknowledge the user's feedback about the movies' release years until explicitly told to check again."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and natural, closely resembling human conversation. However, there's a slight formality that makes it feel slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style. The conversation is stuck in an infinite loop due to the agent's inability to generate diverse and relevant responses."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite natural and human-like. It greets the user warmly and clearly states its purpose and how it will assist the user. However, there's a slight formality that makes it feel slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. The agent struggled to maintain context and provide relevant recommendations based on the user's preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and natural, closely resembling human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial in a real human conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial, hence a score of 4."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language and style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial, hence a score of 4."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language or style. Despite the user's attempts to engage in different activities related to movies, the agent consistently failed to respond appropriately or maintain a coherent conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which feels slightly artificial as the user has already asked a question."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which feels slightly artificial as the user hasn't asked for that yet."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which sounds slightly artificial as it could have been phrased more naturally."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's responses are mostly fluent and human-like. However, the response 'I have found almost 3100 end films' is slightly odd and could be seen as artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which feels slightly artificial as the user hasn't asked for that yet."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses are quite fluent and closely resemble those of a real human. However, there are a few instances where the language or style feels slightly artificial, such as using 'Sorry' repeatedly at the beginning of responses."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent's responses are indistinguishable from those of a real human."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language or style. The assistant struggled to maintain context and coherence throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly asks 'Do you like:' instead of providing more context or engaging in conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent's responses are indistinguishable from those of a real human."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which feels slightly artificial as the user hasn't asked for that yet."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and natural, closely resembling human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial in a real human conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. The repetition of 'Sorry, I don't have any...' makes it seem less natural."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language and style. The agent repeatedly apologized for confusion and asked the user to select from options, which made the conversation feel rigid and unnatural."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. The repetition and lack of personalization in some responses detract from the overall fluency."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent's responses are indistinguishable from those of a real human."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluent and resembled those of a real human. However, there were a few instances where the language felt slightly artificial, such as repeatedly asking 'Do you like...' without variation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's responses are mostly natural and conversational. However, the use of '8.1 141 min' in the movie recommendation feels slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and natural, closely resembling human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial in a real human conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses were repetitive and did not adapt to the user's attempts to change the topic or engage in a different conversation. The language used was also quite robotic and unnatural."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial. The agent maintained context and provided relevant suggestions throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language or style. The agent struggled to understand and respond appropriately to the user's inputs."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The agent's responses were indistinguishable from those of a real human throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and human-like. It greets the user warmly and clearly states its purpose and how it will assist the user. However, there are a few instances where the language feels slightly artificial (e.g., 'your movie recommending buddy')."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and human-like. It greets the user warmly and clearly states its purpose and how it will assist the user. However, there are a few instances where the language feels slightly artificial (e.g., 'your movie recommending buddy')."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant's responses are somewhat conversational but there are noticeable instances where the language feels artificial, such as using movie ratings and runtime in every suggestion without considering user feedback."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but often felt artificial due to the repetitive phrasing ('Do you like:') and lack of variation in response style."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It frequently repeats the same phrases like 'It was released in the year 2014.' and fails to adapt its language based on the user's feedback."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resembled those of a real human, often sounding robotic or unnatural in language or style. Despite the user's efforts to change the conversation, the agent kept responding with similar patterns related to movies and years."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which could be seen as slightly artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial. The agent provided relevant recommendations based on the user's preferences and maintained a consistent tone throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the agent repeatedly apologized for not having certain actions or films, which is unnatural in a conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style. The agent repeatedly apologizes for not finding relevant documents and sticks to a limited set of phrases, which makes the conversation feel repetitive and unnatural."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. The agent often falls back to apologetic phrases and lacks consistency in its interactions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses were consistently robotic and unnatural, failing to resemble those of a real human. Despite the user's attempts to change the topic or break the loop, the agent persisted in asking for 'end films from 1969', which is not a valid request."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The agent's responses rarely resemble those of a real human, often sounding robotic or unnatural in language or style. The conversation quickly entered an infinite loop with repetitive apologies and failed attempts to find relevant films."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. While it tried to provide movie suggestions based on the user's request for a 2006 release, it repeatedly failed to understand or respond appropriately to the user's attempts to confirm the title of 'The Bubble'. The conversation quickly became repetitive and frustrating for the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The agent's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant's response is quite fluent and resembles human conversation. However, it starts with 'I will ask you...' which feels slightly artificial as it could have been phrased more naturally."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The agent's responses closely resemble those of a real human, with only a few instances where the language or style feels slightly artificial. The agent maintains context well and provides relevant information throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but often felt artificial due to the repetitive pattern of asking 'Do you like...' followed by a movie title and runtime. The assistant also failed to address the user's repeated request for a movie from 1993 until the very end."
+      }
+    ],
+    "CONV_FLOW": [
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences, but the transition to the user's request could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally and smoothly, but there were several instances of abrupt or disjointed transitions, particularly when the assistant repeatedly apologized for confusion or errors."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences. However, the transition from introducing itself to asking about movie preferences could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant repeatedly asks for similar information without providing new details or clarifications, leading to a loop."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but there were several instances of abrupt transitions. The assistant repeatedly asked for movie preferences without acknowledging the user's specific request for a 2012 release until the very end."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions, such as repeatedly asking for options when none were provided."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant repeatedly asked about movies released in 1988 despite the user's attempts to change the topic."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally, but there are instances where it feels disjointed. The assistant doesn't acknowledge the user's request for movies released in 1990 and instead offers a list of movies without specifying their release years."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The conversation consistently fails to flow naturally and smoothly, with disjointed transitions and lack of coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant greets the user and clearly states its purpose before asking for user preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence due to the assistant's repeated inability to understand and respond appropriately to the user's inputs."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences. However, the transition from the assistant's introduction to the user's request could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but there were several instances of abrupt or disjointed transitions, especially when repeatedly apologizing for past responses."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant greets the user and clearly states its purpose before asking for input."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant's responses do not align with the user's inputs, leading to a repetitive loop."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence due to the repeated phrase 'Sorry, I don't have any Assistant films named similar to The Hangover from the year 2010'."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose, then directly asks for the user's preference without any abrupt transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the assistant's initial greeting and explanation of its purpose), but there are several instances of abrupt transitions. The assistant could have acknowledged the user's request for movies from 1986 before asking about genres."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence due to the looping issue."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's request for 'A Star is Born' (2018) directed by Bradley Cooper, leading to frustration and multiple attempts to clarify the request."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to repeated misunderstandings and difficulties maintaining context."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant repeatedly asked if the user liked movies without waiting for a response to previous questions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flowed naturally and smoothly throughout, with seamless transitions between utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences. However, the transition from introducing itself to asking about movie preferences could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant initiates the interaction with a greeting and clearly states its purpose, then directly responds to the user's request by asking for more specific preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant incorrectly stated the release year of 'Cosy Dens' and didn't acknowledge the user's correction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant did not initially verify the movies' release years before recommending them."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant initiates the interaction with a greeting and explains its purpose, then directly responds to the user's request by asking for more specific preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence due to the infinite loop."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose, then directly asks for the user's preference without any abrupt transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences. However, the transition from introducing itself to asking about movie preferences could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly due to repeated disruptions and difficulties finding common topics of interest."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant's responses frequently do not align with the user's inputs, leading to a repetitive and unproductive exchange."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant introduces itself and its purpose, then directly asks for the user's preference without any abrupt transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences, but the transition could be smoother by directly addressing the user's request ('I'm looking for a movie released in the year 2006') instead of waiting for further questions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant's responses do not align with the user's inputs or follow the intended conversational flow."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences, and the user's request is acknowledged with a relevant question. However, there's a slight abruptness in transition from the assistant's introduction to the user's request."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences, but the transition could be smoother by directly addressing the user's request ('I'm looking for a movie released in the year 2015') instead of waiting for further questions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences. However, the transition from introducing itself to asking about movie preferences could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the assistant acknowledges the user's request for movies released in 2016), but there are several instances of abrupt transitions. For example, the assistant initially asks about genres before the user specifies a release year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences, but the transition could be smoother by directly addressing the user's request ('I'm looking for a movie released in 2017') with a response like 'Sure, I can help you find a movie from 2017.'"
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant's responses frequently do not align with the user's inputs, leading to a repetitive and unsatisfying exchange."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's inability to maintain context and understand user inputs, leading to repetitive responses and lack of coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant greets the user and clearly states its purpose before asking for user preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but there were several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally but has several instances of abrupt or disjointed transitions. The assistant repeatedly offers movie suggestions despite the user's repeated requests for movies released in 2001."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly, with seamless transitions between utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but there were several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant's responses repeatedly asked for similar information despite the user's attempts to rephrase or provide new information."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences. However, the transition from the assistant's introduction to the user's request could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose, then asks for user preference. However, the transition could be smoother by asking 'What year are you interested in?' instead of stating 'I'm looking for a movie from the year 2018.'"
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant greets the user and clearly states its purpose before asking for user preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation lacked natural flow due to the user's repeated use of 'end' without providing context or asking for assistance with something specific. The assistant's responses were consistent but did not adapt to the user's unclear intentions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally, but there were several instances of abrupt transitions. The assistant repeatedly asked 'Do you like...' without waiting for the user's response to the previous movie suggestion."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally. The assistant provides a movie title based on the user's preference for the year 1995 and the user responds positively. However, there is an abrupt transition when the user asks 'What's its title?' as it seems they didn't notice or remember the title provided by the assistant."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation mostly flowed naturally and smoothly, but there were a few instances where the AI seemed to misunderstand or ignore previous context, leading to abrupt transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to repeated misunderstandings and difficulties following the user's instructions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant greets the user and clearly states its purpose before asking for user preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant repeatedly responds with 'Sorry, I couldn't find any other end films named similar to Inception from the year 2010.' even when the user tries to change the topic."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation mostly flowed naturally and smoothly, but there were a few instances where the assistant's responses seemed repetitive or abrupt."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flowed naturally and smoothly throughout, with seamless transitions between utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences, and the user's request is acknowledged with a relevant recommendation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences. However, the transition from introducing itself to asking for a specific year could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the assistant provides movie recommendations based on the user's preference for movies from 1962), but there are several instances of abrupt transitions. For example, the assistant does not acknowledge or respond to the user's 'end' message."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly due to the repetitive loops caused by the user's previous responses."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions. The assistant repeatedly offers new movie suggestions instead of addressing the user's request for 'Her'."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repetitive behavior of asking if the user liked movies without considering the user's specific requests and patience running out."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. Despite the user's attempts to change the topic or approach, the assistant consistently responds with irrelevant or looping information."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flows naturally and smoothly. The assistant initiates the interaction with a greeting and clearly states its purpose, then directly responds to the user's request by asking for more specific preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The conversation flowed naturally and smoothly throughout, with seamless transitions between utterances."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions. The assistant's responses sometimes do not match the user's questions exactly."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant's responses frequently do not follow the user's input, leading to a repetitive and unnatural flow."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant's responses do not align with the user's inputs, leading to a repetitive and unsatisfying exchange."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence. The assistant repeatedly asks for 'end films from 1969' despite the user's apologies and attempts to change the topic."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly, often feeling disjointed or lacking coherence due to the repetitive nature of the responses."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the repetitive nature of suggesting movies without confirming the user's preference or providing clear options. The assistant also failed to understand and respond appropriately to the user's repeated requests for confirmation about 'The Bubble'."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation flows mostly naturally. The assistant introduces itself and its purpose before asking for user preferences. However, the transition from introducing itself to asking about movie preferences could be smoother."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally and smoothly, but there are several instances of abrupt or disjointed transitions, such as when the assistant repeats 'Please select from the list of options to continue' despite the user's attempts to engage in off-menu topics."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the repetitive pattern of asking 'Do you like...' for movies that are not from 1993. The assistant does not acknowledge or address the user's repeated request for a movie from 1993 until the very end."
+      }
+    ],
+    "OVERALL_SAT": [
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant made an effort to engage in conversation, it was stuck in an infinite loop, making it difficult to have a satisfying discussion about movies."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 2007. It missed an opportunity to provide a recommendation immediately."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "While the user was mostly satisfied with the conversation once we got past the initial technical difficulties, there were still some minor points of dissatisfaction due to the repeated errors and misunderstandings during the early part of our interaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to persistent misunderstandings throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a greeting and explained its purpose, but it did not directly address the user's request for a movie from the year 1950. It could have immediately recommended 'The Asphalt Jungle' (1950) or asked if the user had any specific genre preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided helpful movie recommendations based on the user's interests. However, there were some repetitive statements about runtime and IMDb ratings that could have been omitted to make the conversation more concise."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While I tried to provide assistance, the conversation got stuck in a loop due to my repetitive responses. I could have been more creative and varied in my approach to help break the cycle."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant struggled to understand and fulfill the user's specific request for a movie released in 2012. While it eventually provided 'Seven Psychopaths', it took many attempts and didn't confirm the release year until prompted by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided mostly accurate and engaging responses. However, there were some instances where the assistant struggled with understanding the user's intent or providing incorrect information, which slightly impacted the overall satisfaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to repeated mistakes and misunderstandings in the conversation. The assistant's responses did not align with the user's intentions or follow the requested formats."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant was able to provide movie recommendations based on the user's preference for release year. However, it didn't initially understand that '1990' wasn't a genre but a specific year, leading to an initial misunderstanding."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to repetitive responses from the assistant, indicating that the conversation was not engaging or informative enough."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a helpful introduction and responded promptly to the user's request. However, it did not provide any movie recommendations based on the year specified by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to technical issues causing an infinite loop, preventing a smooth conversation despite attempts to reset and try new approaches."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While I appreciate your patience, I apologize for the repeated misunderstandings. I was unable to provide information about 'Interstellar' due to a technical issue."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to repetitive loops and lack of engagement in the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 1964. It missed an opportunity to provide a recommendation based on the given year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant was helpful in providing movie recommendations based on the user's preference for 'The Ugly Truth'. However, there were repeated apologies and inability to move past previous attempts at conversation, which caused some dissatisfaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 1981. It missed an opportunity to provide immediate assistance."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to the repetitive nature of the conversation and the inability to engage in meaningful interactions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant provided some useful information about movies released in other years and popular music in 2010, it was stuck in a loop with an apologetic phrase related to 'The Hangover' movie from 2010. This made the conversation somewhat unsatisfying as it hindered the flow of discussion on other topics like sports or books."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a clear introduction and responded promptly to the user's request. However, it did not ask any follow-up questions to refine the recommendation or provide any context about why it chose that movie."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant made an effort to clarify the user's request but then failed to provide relevant recommendations based on the specified year (1986). The conversation could have been more engaging and informative by offering specific movie titles or genres from that year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed frustration due to looping issues throughout the conversation. Despite multiple attempts to resolve and restart the interaction, the problem persisted, leading to a mostly dissatisfied experience."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user made efforts to restart the conversation, the assistant's responses remained stuck in an error message loop, leading to some dissatisfaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant made efforts to provide recommendations based on the user's preferences, there was some confusion and repetition in the conversation. The user seemed somewhat satisfied but expressed dissatisfaction with the lack of clarity and understanding of their initial reference point ('Buried')."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand and fulfill the user's specific request for 'A Star is Born' (2018) directed by Bradley Cooper. Despite repeated clarification from the user, the assistant continued to recommend other movies or provide incorrect information about available films."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user made efforts to engage in conversation about movies and filmmakers, there were frequent misunderstandings and difficulties maintaining the flow of the discussion. The user's overall satisfaction with the conversation is somewhat low due to these issues."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant was able to provide a list of movies released in 1985 and offered recommendations based on the user's interest. However, it failed to initially understand that the user was looking for movies from a specific year (1985), leading to confusion. It also didn't provide any information about 'The Goonies' when asked."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided helpful movie recommendations and engaged with the user's questions about time travel films. However, there were some instances of repetition in the responses, which slightly detracted from the overall satisfaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant made some relevant suggestions based on the given scenarios, there were repeated apologies for limitations and difficulties in providing tailored recommendations. The conversation could be improved by addressing these issues more proactively."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a greeting and explained its purpose, but it did not directly address the user's request for a movie from the year 2008. It could have immediately started recommending movies from that year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a clear introduction and responded promptly to the user's request. However, it did not provide any movie recommendations based on the year specified by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant provided helpful clues for the movie-themed guessing game, there were some repetitive mistakes and lack of engagement. The assistant often apologized for not having certain films in its database, which became tiresome. Additionally, the assistant did not provide any context or follow-up questions to make the conversation more engaging."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user was repeatedly dissatisfied due to the model's inability to provide recommendations for movies and TV shows released after 2010, despite their requests."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant made mistakes in providing accurate movie release years. While it tried to recommend movies from 1999, it failed to meet the user's expectations."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user is mostly dissatisfied with the conversation due to the repetitive nature of the responses and lack of engagement."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide movies from the requested year (2015), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 2001. It could have offered suggestions immediately after acknowledging the year preference."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed frustration due to an infinite loop in the conversation. The assistant was unable to provide satisfactory responses or break the loop, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a greeting and explained its purpose, but it did not directly address the user's request for a movie from the year 1990. It also did not provide any recommendations or further questions based on this preference."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user made efforts to provide recommendations based on my preferences, there was significant confusion and repetition throughout the conversation due to my inability to understand or respond appropriately to their inputs. This led to a somewhat satisfying but ultimately frustrating experience."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a greeting and explained its purpose, but it did not directly address the user's request for a movie from the year 1999. It could have immediately recommended movies released in 1999 without waiting for further questions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user seemed interested in discussing AI topics, the conversation was hindered by repeated issues with finding relevant movies and maintaining focus on the chosen topics. The user's overall satisfaction might have been higher if the discussion flowed more smoothly."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 1,
+        "score_explanation": "The user expressed frustration due to repeated misunderstandings and lack of engagement throughout the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a helpful introduction and responded promptly to the user's request. However, it did not provide any movie recommendations based on the year specified by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While there were moments of engagement, the conversation often struggled due to misunderstandings and lack of clear direction. The user attempted to guide the discussion with specific topics, but the assistant's responses did not align well with these parameters."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a helpful introduction and responded to the user's request by asking for more preferences. However, it did not immediately provide a movie recommendation based on the year 2006."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user made efforts to engage in conversation about movies, the assistant's responses were consistently unhelpful and off-topic, leading to a frustrating experience for the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 2010. It missed an opportunity to provide a recommendation immediately."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to repeated misunderstandings and lack of engagement in the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a helpful introduction and responded to the user's request promptly. However, it did not provide any movie recommendations based on the year specified by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a greeting and explained its purpose, but it did not directly address the user's request for a movie from the year 1965. It could have immediately recommended a movie or asked more specific questions to narrow down the search."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant initially misunderstood the user's request for movies released in 2016. It first offered to find 'end' films, which is likely a typo or misunderstanding of the user's input. After the user clarified their request, the assistant did not provide any recommendations based on the year requirement."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a clear introduction and responded to the user's request by asking for more preferences. However, it did not immediately provide any movie recommendations based on the year 2017."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant made efforts to engage with the user's requests, there were several instances of misunderstanding and repetition, leading to some dissatisfaction. The conversation could have flowed more smoothly with better comprehension of the user's intentions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user made efforts to engage in conversation and play games, the assistant's responses were consistently apologetic and unhelpful, leading to a frustrating experience for the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant made some relevant suggestions based on the user's preferences, it struggled to maintain a coherent conversation flow and often responded with irrelevant or unhelpful messages. The user had to repeatedly guide the assistant back on track, which led to a somewhat dissatisfying experience."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 1997. It also did not ask any follow-up questions to refine the recommendation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user attempted to engage in conversation about movies released around 2006, there were frequent misunderstandings and difficulties in maintaining a coherent discussion due to my limitations in understanding and responding to complex queries. I was unable to provide satisfactory responses or keep up with the user's expectations for an engaging movie-related conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant struggled to understand the user's specific request for movies released in 2001. It initially denied having any films from that year but later provided several options from that year when prompted repeatedly. The conversation could have been more efficient if the assistant understood and responded accurately to the user's initial preference."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The user seemed mostly satisfied with the recommendations provided based on their preferences for feel-good comedies and romantic dramas. However, there were a few instances where they expressed dissatisfaction due to the lack of personalized recommendations based on their initial query about a specific film genre and mood."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant provided some movie recommendations based on the user's initial request, it repeatedly apologized for not having more options and didn't engage in further conversation when the user expressed interest in discussing something else. The conversation could have been more satisfying if the assistant had suggested other topics or activities to discuss instead of focusing solely on movies."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user tried to provide helpful information about space exploration, there were repeated misunderstandings and difficulties in communicating effectively with the assistant. The conversation could have been more engaging and informative if these issues were resolved."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 1968. It could have offered suggestions immediately after understanding the year preference."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a greeting and explained its purpose, but it did not directly address the user's request for a movie from the year 2018. It could have immediately started recommending movies from that year."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 1989. It missed an opportunity to provide immediate assistance."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The user was somewhat satisfied with the conversation but there were several aspects that could be improved. The assistant did not understand the user's intent to stop assisting after a certain point and continued responding even when the user apologized for the misunderstanding."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to repeated issues with the conversation flow, leading to frustration and a lack of engagement."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to the repetitive nature of the conversation, with neither party's responses matching expectations. The assistant failed to engage in a productive manner, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant made efforts to provide relevant information based on the user's initial request, the conversation became repetitive and did not fully address the user's shifting interests. The assistant also missed opportunities to engage with the user about other topics they expressed interest in, such as classic filmmakers."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The conversation was mostly satisfactory, but there were some misunderstandings and repetitions that could have been avoided."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant was able to provide movie recommendations based on the user's preference for movies released in 2014. However, it failed to initially understand that the user wanted movies from that specific year and kept asking for preferences despite the user's repeated 'end' responses. The conversation could have been more efficient if the assistant had understood the user's initial request better."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant quickly provided a relevant movie recommendation based on the user's preference for a movie from 1995. However, it could have mentioned the title of the movie ('Bombay') before asking if the user wants to watch it."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The user seemed mostly satisfied with the recommendations provided. However, there were some misunderstandings and repetitive conversations at the beginning which could have been improved."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the user seemed eager to discuss movies and their themes initially, repeated misunderstandings and difficulties in maintaining the conversation led to a decrease in satisfaction. The user's final request to switch topics indicates a desire for a change in pace, which was not accommodated."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a clear introduction and responded promptly to the user's request. However, it did not provide any movie recommendations based on the year specified by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction with the repetitive responses about not finding films similar to 'Inception' released in 2010. The assistant failed to engage in a new conversation topic despite multiple attempts by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant was helpful in providing movie recommendations, but the conversation became repetitive due to the user's specific criteria for movies released in 2011. The assistant could have been more proactive in suggesting alternative years or genres once it became clear that suitable films from 2011 were scarce."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed frustration due to communication issues and lack of engagement. The assistant failed to understand the user's intentions and provide relevant information."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The user expressed satisfaction throughout the conversation, indicating they found it engaging and informative."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a helpful introduction but did not directly address the user's request for a movie released in 1999. It missed an opportunity to provide an immediate recommendation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a clear introduction and asked for user preferences to make a recommendation. However, it did not directly respond to the user's specific request for a movie from the year 2011."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant made an effort to recommend movies from the year 1962 but failed to engage the user effectively. The user was not satisfied with the recommendations provided."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant made efforts to engage in conversation, the responses were repetitive and did not address the user's inputs, leading to a frustrating loop. The user had to repeatedly ask for new questions or formats, which is not ideal for an engaging conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's request for a movie released in 2013 multiple times. It repeatedly offered movies from different years despite the user's repeated requests."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user was mostly dissatisfied with the conversation due to the assistant's persistent refusal to simply provide the title of a movie released in 2014 without additional details or ratings. This led to frustration and ultimately a poor user experience."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to repeated responses and loops related to specific movies or years. The assistant did not effectively engage with the user's attempts to change the approach."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided a clear introduction and responded promptly to the user's request. However, it did not provide any movie recommendations based on the year specified by the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 5,
+        "score_explanation": "The user was highly satisfied with the conversation, finding it engaging and informative. The assistant provided tailored recommendations based on the user's preferences."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant provided some useful information, there were several instances where it struggled to understand or respond appropriately to user inputs. This led to a somewhat dissatisfying conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The conversation quickly became repetitive due to the assistant's responses being stuck in loops. While there were attempts to break the pattern with new approaches like 'Yes, and...', the assistant's responses remained unchanged, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user is mostly dissatisfied with the conversation. The assistant's responses did not align with the user's attempts to engage in different activities and broke the flow of the conversation."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to being stuck in an infinite loop with previous responses. The assistant did not acknowledge the user's attempts to change the topic or play a game."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The user expressed dissatisfaction due to an infinite loop where neither of us made progress. The conversation was repetitive and unproductive."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide the title of 'The Bubble' despite repeated requests from the user. The conversation was frustrating and uninformative for the user."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "While the assistant made efforts to understand user preferences and provide recommendations, the conversation was hindered by repeated apologies for inconvenience and lack of specific suggestions based on user input. The user had to repeatedly guide the assistant towards a solution."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 3,
+        "score_explanation": "The assistant provided a greeting and explained its purpose, but it did not directly address the user's request for a movie from the year 1979. It could have immediately recommended movies released in 1979 without asking further questions."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 4,
+        "score_explanation": "The assistant provided helpful and engaging responses throughout the conversation. However, there were occasional misunderstandings due to the user's unconventional phrasing ('non text based films', 'music, fun'), which led to some confusion in the assistant's responses."
+      },
+      {
+        "conversation_id": "IAI MovieBot-Dual_LLM_nemo_ReDial-1760087745",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie released in 1993. Despite providing multiple options, none were from the requested year."
+      }
+    ]
+  }
+}

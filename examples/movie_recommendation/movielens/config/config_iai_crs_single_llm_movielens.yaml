@@ -1,0 +1,41 @@
+output_name: "iai_moviebot_dual_llm_movielens"
+debug: False
+fix_random_seed: False
+num_simulated_dialogues: 100
+
+### AGENT CONFIGURATION ###
+agent_class_path: "sample_agents.moviebot_agent.MovieBotAgent"
+agent_id: "IAI MovieBot"
+# By default, the agent has an HTTP API.
+agent_uri: "http://127.0.0.1:5002"
+
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.llm.simple_prompt_user_simulator.SinglePromptUserSimulator"
+simulator_id: "Single_LLM_nemo_MovieLens"
+
+domain: data/domains/moviebot.yaml
+item_type: "movie"
+
+collection_db_path: "data/item_collections.db"
+collection_name: "movies_w_keywords"
+items: data/item_collections/movielens-25m-sample/movies_w_keywords.csv
+id_col: movieId
+domain_mapping:
+  title:
+    slot: TITLE
+  genres:
+    slot: GENRE
+    multi-valued: True
+    delimiter: "|"
+  keywords:
+    slot: KEYWORD
+    multi-valued: True
+    delimiter: "|"
+ratings: data/item_collections/movielens-25m-sample/ratings.csv
+historical_ratings_ratio: 0.8
+
+task_definition: "You are a USER discussing with an ASSISTANT. Your goal is to get a recommendation according to the REQUIREMENTS.\nABANDONMENT CONDITIONS: You MUST abandon the conversation by sending the token 'quit' if you encounter any of the following failure modes:\n* The ASSISTANT provides repetitive or circular responses\n* The ASSISTANT is unable to understand or act on a simple, direct request\n* You have made multiple attempts to clarify a request, and the ASSISTANT continues to fail\n* The conversation has reached a logical dead end with no clear path forward\nYou should fulfill all REQUIREMENTS as the conversation progresses (you don't need to fulfill them all at once).\nTERMINATION CONDITION: You MUST terminate the conversation by sending 'exit' once you fulfill the REQUIREMENTS.\nGiven the ABANDONMENT conditions, the TERMINATION condition and conversation history, you need to either send specific token or generate the next USER message in the most natural way possible. "
+
+llm_interface_class_path: "usersimcrs.simulator.llm.interfaces.ollama_interface.OllamaLLMInterface"
+llm_interface_args:
+  configuration_path: config/llm_interface/config_ollama_default.yaml

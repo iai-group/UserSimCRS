@@ -1,0 +1,85 @@
+output_name: "ievalm_dual_llm_inspired"
+debug: False
+fix_random_seed: False
+num_simulated_dialogues: 100
+
+### AGENT CONFIGURATION ###
+agent_class_path: "crs_agent_wrapper.ievalm_agent.iEvaLMAgent"
+agent_id: "BARCOR_ReDial"
+# By default, the agent has an HTTP API.
+agent_uri: "http://127.0.0.1:5006"
+agent_config:
+  stop_intent:
+    class_path: "dialoguekit.core.intent.Intent"
+    args:
+      label: "goodbye"
+    
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.llm.dual_prompt_user_simulator.DualPromptUserSimulator"
+simulator_id: "Dual_LLM_nemo_INSPIRED"
+
+domain: data/domains/movies.yaml
+item_type: "movie"
+
+collection_db_path: "data/item_collections.db"
+collection_name: "movies_inspired"
+items: data/item_collections/inspired/movie_database.tsv
+id_col: imdb_id
+csv_delimiter: "\t"
+domain_mapping:
+  title:
+    slot: TITLE
+  year:
+    slot: YEAR
+  actors:
+    slot: ACTORS
+    multi-valued: True
+    delimiter: ","
+  genre:
+    slot: GENRE
+    multi-valued: True
+    delimiter: ","
+  director:
+    slot: DIRECTOR
+    multi-valued: True
+    delimiter: ","
+  awards:
+    slot: AWARDS
+  box_office:
+    slot: BOX_OFFICE_REVENUE
+  country:
+    slot: COUNTRY
+    multi-valued: True
+    delimiter: ","
+  language:
+    slot: LANGUAGE
+    multi-valued: True
+    delimiter: ","
+  long_plot:
+    slot: LONG_PLOT
+  movie_runtime:
+    slot: DURATION
+  poster:
+    slot: POSTER
+  production:
+    slot: PRODUCTION
+  rated:
+    slot: RATED
+  rating:
+    slot: RATING
+  release_date:
+    slot: RELEASE_DATE
+  short_plot:
+    slot: SHORT_PLOT
+  youtube_link:
+    slot: YOUTUBE_TRAILER
+ratings: 
+historical_ratings_ratio: 
+
+task_definition: "You are a USER discussing with an ASSISTANT. Given the conversation history, you need to generate the next USER message in the most natural way possible. The conversation is about getting a recommendation according to the REQUIREMENTS. You must fulfill all REQUIREMENTS as the conversation progresses (you don't need to fulfill them all at once). After getting all the necessary information, you terminate the conversation by sending '\\end'. You should also terminate the conversation is stuck in a loop or the ASSISTANT is not helpful by sending '\\giveup'. "
+
+stop_definition: "As a USER interacting with an ASSISTANT to receive a recommendation, analyze the conversation history to determine if it is progressing productively. If the conversation has been stuck in a loop with repeated misunderstandings across multiple turns, return 'FALSE' to indicate the conversation should be terminated. Otherwise, return 'TRUE' to indicate that the conversation should continue. Only return 'TRUE' or 'FALSE' without any additional information. If the length of the conversation exceeds 50 turns, you must terminate the conversation by sending 'FALSE'."
+
+llm_interface_class_path: "usersimcrs.simulator.llm.interfaces.ollama_interface.OllamaLLMInterface"
+llm_interface_args:
+  configuration_path: config/llm_interface/config_ollama_default.yaml

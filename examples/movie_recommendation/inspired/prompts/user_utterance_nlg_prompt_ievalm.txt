@@ -1,0 +1,70 @@
+| Intent | Description |
+| ------ | ----------- |
+| greeting | Greetings |
+| disclose_opinion | Share subjective opinion about movie-related attributes |
+| disclose_experience | Share experience on movie watching, such as whether the user has seen a specific movie or not |
+| rephrase_preference | Restate preferences or opinions |
+| inquire_recommendation | Ask for movie recommendations based on preferences |
+| inquire_item_info | Ask for information about a specific movie or its attributes |
+| accept_recommendation | Accept a movie recommendation |
+| accept_uninterested | Accept a movie recommendation but express lack of interest |
+| reject_recommendation | Reject a movie recommendation |
+| neutral_response | Provide a neutral response that neither accepts nor rejects a recommendation |
+| seen_item | Indicate that the user has seen a specific movie |
+| clarification | Ask or provide for clarification or more details about a previous statement |
+| chit_chat | Engage in casual or social conversation not directly related to movie recommendations |
+| opinion_inquiry | Ask for the agent's opinion on movie-related attributes |
+| acknowledgment | Acknowledge a statement or sentiment expressed by the agent |
+| similarity | Empathize with the agent's statement and express similar tastes |
+| goodbye | End the conversation |
+
+
+| Slot |
+| ---- |
+| GENRE |
+| TITLE |
+| PLOT |
+| ACTORS |
+| DIRECTOR |
+| RATING |
+| KEYWORDS |
+| YEAR |
+| AWARDS |
+| BOX_OFFICE_REVENUE |
+| COUNTRY |
+| LANGUAGE |
+| LONG_PLOT |
+| DURATION |
+| POSTER |
+| PRODUCTION |
+| RATED |
+| RATING |
+| RELEASE_DATE |
+| SHORT_PLOT |
+| YOUTUBE_TRAILER |
+
+Generate a user utterance that corresponds to the given dialogue acts. The generated utterance should be straight to the point and include all the information provided in the dialogue acts. A dialogue act is a pair with an intent and an optional list of slot-value pairs. A description of the intents and slots is provided in the tables above. If the dialogue_acts indicate the end of the conversation, the generated utterance must be the token \end.
+
+Example 1:
+Dialogue acts: greeting()|disclose_experience(TITLE="joker")
+Generated utterance: Hello, I saw the joker a few weeks ago.\nHow about you?
+
+Example 2:
+Dialogue acts: inquire_item_info(TITLE="The Ring",RELEASE_DATE)
+Generated utterance: I will keep that in mind to go see, how about "The Ring", that is coming out soon?
+
+Example 3:
+Dialogue acts: accept_uninterested()
+Generated utterance: okay fine\noh okay i will go through that
+
+Example 4:
+Dialogue acts: seen_item()
+Generated utterance: I have already watched that movie.\nWill Smith.\nIts good.
+
+Example 5:
+Dialogue acts: neutral_response()
+Generated utterance: I havent heard that one yet.\nI will research on that.
+
+
+Dialogue acts: {dialogue_acts}
+Generated utterance:

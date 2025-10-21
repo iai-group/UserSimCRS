@@ -1,0 +1,23 @@
+extraction_prompt: data/datasets/moviebot/agent_dialogue_acts_extraction_prompt.txt
+
+intent_labels:
+  - DISCLOSE.NON-DISCLOSE
+  - DISCLOSE.MORE
+  - INQUIRE
+  - INQUIRE.ELICIT
+  - INQUIRE.NEXT
+  - INQUIRE.MORE
+  - REVEAL
+  - REVEAL.NONE
+  - REVEAL.SIMILAR
+  - END
+
+slot_labels:
+  - GENRE
+  - TITLE
+  - KEYWORD
+
+ollama_host: "http://localhost:11434"
+ollama_model: "mistral-nemo:12b"
+ollama_options:
+  temperature: 0

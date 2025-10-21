@@ -1,0 +1,87 @@
+output_name: "iai_moviebot_abus_inspired"
+debug: False
+fix_random_seed: False
+num_simulated_dialogues: 100
+
+### AGENT CONFIGURATION ###
+agent_class_path: "sample_agents.moviebot_agent.MovieBotAgent"
+agent_id: "IAIMovieBot"
+# By default, the agent has an HTTP API.
+agent_uri: "http://127.0.0.1:5002"
+agent_config:
+  stop_intent:
+    class_path: "dialoguekit.core.intent.Intent"
+    args:
+      label: "goodbye"
+
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.agenda_based.agenda_based_simulator.AgendaBasedSimulator"
+simulator_id: "ABUS_INSPIRED"
+
+domain: data/domains/inspired.yaml
+intents: data/interaction_models/inspired_v1.yaml
+
+collection_db_path: "data/item_collections.db"
+collection_name: "movies_inspired"
+items: data/item_collections/inspired/movie_database.tsv
+id_col: imdb_id
+csv_delimiter: "\t"
+domain_mapping:
+  title:
+    slot: TITLE
+  year:
+    slot: YEAR
+  actors:
+    slot: ACTORS
+    multi-valued: True
+    delimiter: ","
+  genre:
+    slot: GENRE
+    multi-valued: True
+    delimiter: ","
+  director:
+    slot: DIRECTOR
+    multi-valued: True
+    delimiter: ","
+  awards:
+    slot: AWARDS
+  box_office:
+    slot: BOX_OFFICE_REVENUE
+  country:
+    slot: COUNTRY
+    multi-valued: True
+    delimiter: ","
+  language:
+    slot: LANGUAGE
+    multi-valued: True
+    delimiter: ","
+  long_plot:
+    slot: LONG_PLOT
+  movie_runtime:
+    slot: DURATION
+  poster:
+    slot: POSTER
+  production:
+    slot: PRODUCTION
+  rated:
+    slot: RATED
+  rating:
+    slot: RATING
+  release_date:
+    slot: RELEASE_DATE
+  short_plot:
+    slot: SHORT_PLOT
+  youtube_link:
+    slot: YOUTUBE_TRAILER
+ratings: 
+
+dialogues: data/datasets/inspired/annotated_sample.json
+intent_classifier: "lm"
+intent_classifier_config: examples/movie_recommendation/inspired/config/agent_dialogue_acts_extraction_config_default.yaml
+
+nlg: "lm"
+nlg_class_path: usersimcrs.nlg.lm.nlg_generative_lm.LMGenerativeNLG
+nlg_args:
+  ollama_config_file: config/llm_interface/config_ollama_default.yaml
+  prompt_file: data/datasets/inspired/user_utterance_nlg_prompt.txt
+  prompt_prefix: "Generated utterance:"

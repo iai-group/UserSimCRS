@@ -1,0 +1,2514 @@
+{
+  "KBRD_ReDial": {
+    "REC_RELEVANCE": [
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the movies suggested were from the year 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the user's request for a movie released in 1997."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated requests for movies from 1955, the assistant only recommended 'The Sixth Sense' (1999)."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations for movies released in 2006."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 5,
+        "score_explanation": "The assistant responded appropriately to the user's ellipsis by saying goodbye, showing it understood the user was ending the conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the user's request for movies made in 1939."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user specifying they were looking for movies released in 2006, the assistant repeatedly suggested 'The Sixth Sense' which was released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies from the year 1995. Instead, it suggested 'The Sixth Sense' (1999) and provided an unclear and irrelevant description."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies released in 2008. Instead, it repeatedly suggested movies from other years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It offered movies released in 2012 and 2018 instead of a movie from 1983."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from different years and gave incoherent responses when asked for a movie released in 1986."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from different years despite the user's clear request for a movie released in 2005."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations that met the user's preference for movies released in 1996."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested movies from different years despite the user's clear preference for films released in 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested 'The Sixth Sense' despite the user's request for movies from 1961."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies mentioned were released in 2012 and 2018 respectively, not 1996."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The first movie suggested was from 1999 instead of 1983, and the second suggestion was also incorrect."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It repeatedly suggested movies from different years despite the user's repeated requests for movies released in 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a relevant recommendation for the year 2014. Instead of correcting their mistake, they offered 'The Conjuring 2' from 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant initially provided an irrelevant recommendation (The Matrix, 1999) and later gave vague hints about a movie from 2000 instead of directly answering the user's question."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations relevant to the user's request for movies from 1978."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from different years despite the user's repeated requests for movies released in 2011."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations relevant to the user's request for a movie from 1982."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations for a movie released in 1951. Instead, they mentioned an unspecified movie currently in theaters."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations for movies released in 1993. Instead, it repeatedly suggested 'The Avengers' from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated requests for movies released in 1998, the assistant recommended 'The Avengers' (2012) and 'Avengers: Infinity War' (2018), which do not meet the user's criteria."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies released in 1998."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations that met the user's needs and preferences. Despite repeated requests for movies released in 2014, the assistant suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations and instead responded with confusing statements like 'I have seen it but I have not seen it', failing to meet the user's request for a movie recommendation from 2009."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested movies from different years despite the user's clear preference for movies released in 2008."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations for movies from the year 1984. Instead, it recommended 'The Sixth Sense' which was released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations from movies released in 2015 despite the user's repeated requests."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested 'The Greatest Showman', which was released in 2017, not 2007."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie recommended was released in 2012, not 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's specific request for a movie released in 2014. Instead of offering suggestions from that year, they repeatedly mentioned 'The Conjuring' which was released in 2013."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies suggested were released between 1999 and 2003, despite the user's request for a movie from 2015."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 2016 despite the user's repeated requests. Instead, it suggested 'The Silence of the Lambs' which was released in 1991."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 2012."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any relevant recommendations from 2017 despite the user's repeated requests."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies released in different years (2012 and 2018) despite the user's clear request for a movie from 2006."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user specifying they were looking for movies from 2016, the assistant recommended 'The Sixth Sense' (1999) twice."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly suggested 'The Avengers' and its sequels despite the user's request for movies released in 2012. The recommendations did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation despite being corrected twice by the user. The recommended movie was from 2017 instead of 1989."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies released in 2007 despite the user's repeated requests."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from different years (1999 and 2003) instead of suggesting films released in 1975."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly recommended movies from different years despite the user's repeated requests for movies released in 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 2010 despite the user's specific request. Instead, it suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested movies from the Avengers series despite the user specifying they were looking for a movie released in 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies released in 1981 despite the user's repeated requests."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant provided some relevant movie recommendations ('Jumanji: Welcome to the Jungle' and 'The Boss Baby'), but it also made an irrelevant statement ('I have not seen it. I have seen it yet.') which did not meet the user's needs."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. It recommended 'The Avengers' from 2012 instead of a movie released in 2006."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 4,
+        "score_explanation": "The assistant provided relevant movie recommendations for the year 1999 ('The Sixth Sense' and 'The Matrix'). However, it also recommended 'The Matrix Reloaded', which is from a different year (2003), showing a lack of attention to the user's original request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations for movies released in 2006. Instead, it recommended 'The Greatest Showman' which was released in 2017."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user asked for movies from 1973 but the assistant recommended 'The Conjuring' (2013) and 'The Conjuring 2' (2016), which are not from the requested year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations that met the user's preference for movies released in 2014."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated requests for movies released in 2010, the assistant only recommended 'The Shining' from 1980."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from different years despite the user's repeated requests for films released in 2006."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the year 2010. Instead, it recommended 'The Conjuring' which was released in 2013."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The first movie recommended was released in 2017, and the second movie recommended was released in 1990, neither of which were from the year 2005 as requested by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 2011. Instead, it recommended 'The Greatest Showman' which was released in 2017."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. Despite being corrected twice about the year of the movie requested, it continued to recommend 'The Sixth Sense' from 1999 instead of a movie from 1996."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the movies suggested were released in 1987."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation for the year 2010. Instead, it recommended 'The Shining', which was released in 1980."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. Instead of suggesting movies from 2018 similar to The Avengers, it repeatedly recommended 'The Avengers (2012)', which is not what the user asked for."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any recommendations based on the user's request for a good movie from 1999. Instead, it mentioned 'The Mummy' but failed to explain why it was a good choice or if there were other options."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 2003. Instead, they recommended 'The Conjuring' (2013) and 'The Conjuring 2' (2016), which do not meet the user's specified preference."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations that met the user's requirement of movies released in 2005."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies released in the year 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It first mentioned a movie it hadn't seen, then recommended 'The Greatest Showman' despite the user asking for movies from 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It suggested 'The Greatest Showman' (2017) when the user asked for a movie from 1982, and then offered 'The Greatest Greatest Show Showmanman' (1990), which is not an actual film."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations and instead responded with 'I have not seen that one. I've seen it.', which is irrelevant to the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations based on the user's request for movies released in 2006."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the user's request for a movie from 1987."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user specifying they were looking for a film from 1947, the assistant recommended films released in different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the year 1950. Instead, it suggested 'The Sixth Sense' from 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any movie recommendations from 2016 and instead asked about a movie released in 2012."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations that met the user's preference for movies released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 1988, despite the user's specific request. Instead, they recommended 'The Shining' (1980) twice."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to consistently provide relevant recommendations. It initially recommended movies from different years despite the user's request for a movie released in 2015."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It offered 'The Avengers (2012)' despite the user's request for a movie from 1996."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies suggested were from different years (2013 and 2016) despite the user's repeated request for movies released in 2010."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in the year 2004. Instead, it recommended movies from other years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies from the year 1934."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It suggested movies from different years (2017) instead of the requested year (1993)."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie suggested was released in 2012, not 1996."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from different years despite the user's repeated request for movies released in 2008."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the year 2005. Instead, it recommended 'The Greatest Showman' which was released in 2017."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies from the year 1970. Instead, it repeatedly suggested 'The Sixth Sense' (1999), which does not meet the user's needs."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the year 2015."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested movies from different years despite the user's clear preference for a movie released in 2003."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant movie recommendation from 2004 despite the user's repeated requests. Instead, it repeatedly suggested 'The Sixth Sense' which was released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations and instead responded with 'I have not seen that one. I've seen it.', which is irrelevant to the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies suggested were either from different years or part of the same series but not released in 2015."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It suggested movies released in 2012 and 2017 despite the user's clear request for a movie from 1958."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated requests for movies from 1971, the assistant continued to recommend movies released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It did not recommend any movies released in the year 2003 despite the user's repeated requests."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations that met the user's preference for movies released in 2013."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies released in 1986. Instead, it repeatedly suggested 'The Sixth Sense', which was released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It recommended 'The Avengers (2012)' instead of a movie from the year 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated requests for movies released in 2001, the assistant only recommended 'The Sixth Sense' from 1999."
+      }
+    ],
+    "COM_STYLE": [
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's request for a movie from the year 2001 and repeatedly suggested movies from different years. This led to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It suggested a movie released in 1999 instead of 1997, which caused ambiguity."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended 'The Sixth Sense' despite the user's clarification that they were interested in movies from 1955. This demonstrates a lack of understanding and responsiveness to the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'I have not seen it'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, 'I think you would like to watch it' is ambiguous as the assistant never mentioned a specific movie."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 5,
+        "score_explanation": "The assistant's response is clear and concise."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query about movies made in 1939. It suggested 'The Sixth Sense', which was released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended 'The Sixth Sense' despite the user's request for a movie from 2006. This demonstrates a lack of understanding and responsiveness to the user's requirement."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was ambiguous and unclear. Instead of providing a movie recommendation from 1995, it mentioned 'The Sixth Sense' (1999) and then gave an incoherent sentence about aliens."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's request for movies released in 2008 and instead recommended movies from different years. This led to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often misunderstands the user's intent, leading to irrelevant recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It often uses ambiguous or irrelevant responses that do not address the user's request for a movie from 1986."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for a movie from 2005, leading to confusion."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or irrelevant recommendations. It struggles to understand the user's request for movies from 1996."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for movies released in 2016, suggesting movies from different years instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly recommends 'The Sixth Sense' despite the user's request for movies from 1961, leading to confusion."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's request for movies released in 1996 and instead recommended movies from different years. This led to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant often misunderstood the user's request for a movie from 1983 and repeatedly suggested movies from different years. This led to confusion and frustration in the conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or irrelevant responses. It failed to understand the user's requirement for a movie released in 2016 despite being corrected twice."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are instances of ambiguity or unnecessary complexity. For example, it incorrectly stated the year for 'The Conjuring' and failed to address the user's correction before recommending another movie."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. For example, 'I have seen that movie' when the user asked for a title is unclear."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for a movie from 1978, instead recommending movies released in 1999 ('The Sixth Sense' and 'The Matrix'). Even when the user provided a suggestion ('Midnight Express'), the assistant did not acknowledge it."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Have you seen The Greatestman (1990)?'), but there are several instances of ambiguity or unnecessary complexity in its utterances ('I have not seen that one.', 'It's a good movie, but it's a little bit of a bit of.')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends a movie from the wrong year ('The Sixth Sense (1999)') and repeats the same recommendation despite user correction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. For example, 'I haven't seen that one' could be interpreted in different ways, and 'The first one is in the theater now' doesn't answer the user's question about a movie from 1951."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but makes several mistakes. It initially recommends 'The Avengers' (2012) instead of a movie from 1993, and later repeats the same mistake by suggesting 'The Avengers' (2014)."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often misunderstands the user's request for a movie released in 1998, leading to several instances of ambiguity."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has several instances of ambiguity ('I have seen that one' instead of 'I've seen it')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for movies released in 2014, suggesting films from different years instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were ambiguous and unclear. They did not provide any movie recommendations or clarify which movie they had seen."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It often uses ambiguous or irrelevant responses, making it difficult for the user to understand its utterances."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has several instances of ambiguity and unnecessary complexity. For example, 'I have not seen that one. I have seen it.' is confusing."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. It initially recommended 'The Matrix' from 1999 instead of a movie from 2015, and later incorrectly stated that 'The Matrix' was released in 1981."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous or irrelevant responses. For example, it repeatedly mentions movies from different years despite the user's request for a movie released in 2007."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous phrases like 'the first one is the best' and makes irrelevant recommendations ('The Avengers (2012)') leading to confusion."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often responds ambiguously or off-topic. For instance, it repeatedly mentions 'The Conjuring' despite the user's request for a movie released in 2014."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for a movie released in 2015, instead recommending movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. It failed to provide a recommendation for a movie released in 2016 despite the user's repeated requests."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses were mostly clear and concise, but there was one instance of ambiguity ('I have not seen that one. I've seen it') which could be improved."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Sure!', 'You're welcome. Have a good day.'), but there are several instances of ambiguity or unnecessary complexity in its utterances ('Have you seen The Conjuring (2013)?', 'I haven\u2019t seen it, but I've heard good things about it.', 'The Conj Conjuring 2 (2016)')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but fails to address the user's request for a movie released in 2006 until the third attempt. The responses are ambiguous or irrelevant initially."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended 'The Sixth Sense' despite the user's request for a movie from 2016, showing a lack of understanding or disregard for the user's preference. This demonstrates poor communication style and responsiveness to user input."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats recommendations and provides incorrect or irrelevant information ('The Avengers Part II' was released in 2011)."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'I haven't seen that one.'). However, there are instances of ambiguity ('I would recommend The Greatest Showman (2017)') leading to user confusion."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but fails to understand the user's requirement for movies released in 2007. It repeatedly suggests 'The Boss Baby' which was released in 2017."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but often fails to understand the user's request for movies released in 1975, leading to irrelevant recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant often repeats the same phrases ('I haven't seen it', 'It's a great movie') and fails to understand the user's request for a movie released in 2001, leading to confusion."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. It failed to understand the user's requirement for a movie released specifically in 2010 and kept suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeatedly recommends 'The Avengers' movies instead of focusing on the user's request for a movie released in 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it initially recommends a movie from 2017 instead of 1981, and repeatedly states 'I haven\u2019t seen that yet' instead of providing recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has instances of ambiguity ('I have seen it. I have seen it yet') and unnecessary complexity ('It's a good one')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but made mistakes. It recommended a movie from the wrong year (2012 instead of 2006) and misunderstood the user's correction ('I have not seen that one' instead of 'I haven't seen it')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the recommendation of 'The Matrix Reloaded' (2003) instead of another 1999 movie is ambiguous and unnecessary."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often responds with ambiguous or irrelevant suggestions. It fails to understand the user's requirement for movies released in 2006."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly misunderstood the user's request for an older movie and suggested recent films instead. This led to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's request for movies released in 2014 and repeatedly suggested 'The Conjuring' from 2013. It also recommended 'The Sixth Sense', which was released in 1999. The communication style lacked clarity and precision."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly recommends 'The Shining' despite the user's clarification that they are interested in movies released after 1980."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Goodbye!'), but there are several instances of ambiguity or misunderstanding the user's request ('I would recommend The Avengers (2012)', 'I haven't seen that one')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was ambiguous and irrelevant to the user's request. It recommended a movie from three years after the requested year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not communicate clearly and concisely. It failed to understand the user's requirement for a movie released in 2005 and repeatedly recommended movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has instances of ambiguity ('I have seen it' instead of 'I've heard good things about it')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but makes several mistakes. It repeatedly recommends 'The Sixth Sense' despite the user correcting them about the year, showing a lack of understanding or adaptability."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicated clearly and concisely. It repeatedly ignored the user's request for movies released in 1987, suggesting movies from different years instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response 'It's about a girl who's in the world of his wife. It's a little different.' is ambiguous and does not address the user's request for a movie recommendation from 2010."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it repeatedly recommends 'The Avengers (2012)' instead of suggesting a movie from 2018."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Goodbye!'), but there are several instances of ambiguity or unnecessary complexity ('I have not seen that one. I've seen it.', 'It's about a man who is trying to find a man man who gets gets back to save the world.')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Sure thing!', 'Goodbye!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly recommends movies released after 2003 despite the user's request for a movie from that year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Sure!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly suggested movies from different years despite the user's clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends 'The Avengers' when the user is looking for movies from 2001, and it repeatedly states 'I haven\u2019t seen it' instead of providing recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has instances of ambiguity ('I have seen that one', 'I think it is') and irrelevant information ('I also liked The Greatest Showman (2017)')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often ambiguous and did not directly address the user's request for a movie from 1982. Instead of providing relevant recommendations, it suggested 'The Greatest Showman' (2017) twice."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's response 'I have not seen that one. I've seen it.' is ambiguous and confusing."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses were mostly clear and concise, but the second response ('I have not seen that one. I've seen it.') is ambiguous and could be interpreted in different ways."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It suggested an incorrect year for the movie."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for a film from 1947, instead suggesting films released in different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was irrelevant to the user's query about movies from the year 1950. It suggested 'The Sixth Sense' which is from 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. It asked about a movie from 2012 instead of 2016 in its first response."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for movies from the year 1999, suggesting movies from different years instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends 'The Shining' instead of a movie from 1988 initially."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'I would recommend The Martian (2015)'), but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly recommends movies from the wrong years despite being corrected by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous responses ('I haven't seen that') and fails to understand the user's requirement for a movie from 1996."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely understood and addressed the user's request for movies released in 2010. It repeatedly suggested movies from different years despite the user's clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Sure thing!', 'Goodbye!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. It initially recommended movies from the wrong years despite the user's specific request for a movie from 2004."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 1934 and repeatedly recommended movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant often failed to communicate clearly and concisely. It repeatedly misunderstood the user's request for movies from 1993, instead suggesting movies released in other years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Sure!'), but there are instances of ambiguity ('Have you seen The Avengers (2012)?') and misunderstanding the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly suggests movies from different years despite the user's clear request for movies released in 2008."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'I haven't seen that one'), but there are instances of ambiguity ('I also liked The Greatest Showman (2017). It's a classic.' was not relevant to the user's query about movies from 2005) and unnecessary complexity ('I've seen it' is unclear without more context)."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended the same movie ('The Sixth Sense') despite the user's clarification that they were interested in movies from 1970. This demonstrates a lack of understanding and responsiveness to the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked relevance to the user's query about movies from the year 2015. It suggested a movie from 1999 instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeatedly recommends movies from different years despite the user's repeated requests for a movie released in 2003."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. It initially recommends a movie from the wrong year and repeats itself instead of providing a relevant suggestion for 2004."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's response 'I have not seen that one. I've seen it.' is ambiguous and confusing."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly misunderstood the user's request for a movie released in 2015, instead suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but makes several mistakes. It initially recommends movies from the wrong years (2012 and 2017) instead of 1958."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly recommends movies from the wrong year despite the user's repeated clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'I apologize...'), but there are several instances of ambiguity or misunderstanding the user's request ('I have not seen that one. I've seen it.', 'I haven't seen that')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It repeatedly fails to understand the user's requirement for movies released in 2013, instead recommending movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's request for a movie from 1986 and repeatedly suggested 'The Sixth Sense' (1999), demonstrating confusion and lack of clarity in communication."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Sure thing. Have you seen...'), but there are several instances of ambiguity or unnecessary complexity in its utterances (e.g., recommending a movie from the wrong year)."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly recommends 'The Sixth Sense' instead of a movie from 2001."
+      }
+    ],
+    "FLUENCY": [
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly fails to understand the user's request for a movie from the year 2001, suggesting movies released in different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate (suggesting 'The Matrix' instead of a movie from 1997) and the conversation ended abruptly without addressing the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It repeatedly recommended 'The Sixth Sense' despite the user's clear request for a movie from 1955."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like fluency. It struggles to maintain context and provides irrelevant or confusing responses."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 5,
+        "score_explanation": "The assistant's response is indistinguishable from that of a real human."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query about movies made in 1939. It suggested 'The Sixth Sense', which was released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often repetitive and did not address the user's specific request for a movie released in 2006. The language used was also noticeably artificial."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. They did not closely resemble those of a real human."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly recommended movies from the wrong year despite being corrected by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie from 1983 and repeatedly suggested movies released in different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like fluency. It struggles to maintain context and provides irrelevant or confusing suggestions."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly misunderstood the user's request despite clear instructions."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly recommended movies from the wrong year despite being corrected by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly fails to understand the user's request for movies released in 2016, instead suggesting movies from different years or providing irrelevant responses."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly recommends 'The Sixth Sense' despite the user asking for movies from 1961."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly failed to understand the user's request for movies released in 1996, instead recommending movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's requirement for a movie from 1983 despite being corrected twice."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly made mistakes in understanding the user's request for a movie released in 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeated the same recommendation twice without acknowledging the user's correction about the release year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant repeats 'I have seen that movie' and provides an unclear description instead of giving a specific title."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly recommended movies from the wrong year despite being corrected by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to maintain context and provide relevant recommendations based on the user's request for a movie from 2011."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's requirement for a movie from 1982, repeatedly suggesting 'The Sixth Sense' which is from 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like conversation flow. It fails to address the user's request for a movie released in 1951 directly, instead making vague statements like 'I've seen it' and 'It's a good one', which do not provide useful information."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 1993, repeatedly suggesting 'The Avengers' from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to understand the user's request for a movie released in 1998 despite multiple attempts."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly used the phrase 'I have seen that movie' instead of providing recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly fails to understand the user's request for movies released in 2014."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. They failed to provide meaningful recommendations or clarify the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly recommended movies from different years despite the user's request for 2008 releases."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like fluency. It struggles to maintain context from one response to the next, leading to irrelevant or confusing statements."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's requirement for a movie from 2015, repeatedly suggesting 'The Matrix' which was released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly fails to understand the user's request for movies released in 2007, instead suggesting a movie from 2017."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it recommended 'The Avengers' (2012) instead of a movie from 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant repeats 'I haven't seen it' instead of understanding and recommending movies from 2014."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It repeatedly recommended movies from the wrong years despite being corrected by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant recommends 'The Silence of the Lambs' despite the user specifying they're looking for a movie from 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, the response 'I have not seen that one. I've seen it.' is confusing and unnatural."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended 'The Conjuring' instead of suggesting movies from 2017 until explicitly corrected by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly failed to understand the user's request for a movie released in 2006."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. Despite the user's repeated requests for a movie from 2016, the assistant persisted in recommending 'The Sixth Sense' (1999), showing a lack of understanding or flexibility."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, recommending 'The Avengers: Infinity War' (2018) instead of another movie from 2012 shows a lack of understanding of the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's requirement for a movie from 1989 despite being corrected twice."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 2007 despite repeated clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly fails to understand the user's request for movies released in 1975, instead suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly gives recommendations for movies released in different years despite the user's repeated requests for a movie from 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's requirement for a movie released in 2010 and repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly recommends 'The Avengers' movies despite the user specifying they're looking for a movie released in 2016. The final response is also unrelated to the conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. It repeatedly uses the phrase 'I haven't seen that' without attempting to provide an actual movie recommendation from 1981."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial (e.g., 'I have seen it yet', 'It's a good one')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie released in 2006, repeatedly suggesting 'The Avengers' which was released in 2012."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 4,
+        "score_explanation": "The assistant's responses are mostly fluent and human-like. However, the recommendation of 'The Matrix Reloaded' (2003) instead of another 1999 movie feels slightly off-topic and artificial."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly misunderstood the user's request for movies released in 2006, suggesting a movie from 2017 instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for an older film from 1973 and repeatedly suggested newer films."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly ignored the user's request for movies released in 2014."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly recommended 'The Shining' despite the user's clarification that they were interested in movies from 2010."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended movies from different years despite being asked for films released in 2006 specifically."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response did not match the user's request and was off-topic. It also ended the conversation abruptly without giving the user a chance to ask for another recommendation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's requirement for a movie released in 2005, repeatedly suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, the first response 'I have not seen that one. I've seen it.' is confusing and unnatural."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's correction about the movie year and persisted with an incorrect recommendation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 1987, repeatedly suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie from 2010 and instead recommended an older film."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It fails to understand the user's intent and repeatedly promotes 'The Avengers' instead of suggesting a movie from 2018."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, in the second response, the repetition of 'man' is unusual and unnatural."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's requirement for movies released in 2003 and repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's requirement for a movie released in 2005 despite being told twice."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant repeatedly states 'I haven\u2019t seen it' instead of providing movie recommendations for the year 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, 'I have seen it. I think it is.' and 'I also liked The Greatest Showman (2017)' do not flow naturally."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie from 1982 and repeatedly suggested 'The Greatest Showman', which is not from that year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, 'I have not seen that one' is an unusual way to express unfamiliarity with a movie."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The first response was appropriate and human-like, but the second response ('I've seen it') was abrupt and did not flow naturally from the user's input."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query about movies from 1987. It suggested 'The Shining' which is from 1980."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and did not closely resemble those of a real human. It repeatedly failed to understand the user's request for a film from 1947, instead suggesting films from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was completely off-topic and did not address the user's request for a movie recommendation from the year 1950. The language used was also robotic and unnatural."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's response 'Have you seen The Avengers (2012)?' is somewhat conversational but feels artificial given the user asked for a movie recommendation from 2016. It also abruptly ended the conversation without further assistance."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly fails to understand the user's request for movies released in 1999, suggesting films from different years instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended 'The Shining' instead of suggesting movies from 1988."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended movies from different years despite being asked for a movie released in 2015."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's request for a movie from 1996 and repeatedly suggested 'The Avengers' which was released in 2012."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often repetitive and did not address the user's request for movies released in 2010. The language used was also noticeably artificial."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended movies from different years despite being asked for a movie from 2004 specifically."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's requirement for a movie from 1934 and repeatedly recommended movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly misunderstood the user's request for movies from 1993, instead suggesting recent films."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant repeats 'I've seen it' twice, which is unusual in a conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly fails to understand the user's request for movies released in 2008, suggesting irrelevant films instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 2005, instead recommending a movie from 2017."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly recommended the same movie from a different year despite the user's clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query about movies from the year 2015. It suggested a movie from 1999 instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly suggested movies released in different years despite being asked for a movie from 2003."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It repeatedly recommended 'The Sixth Sense', despite the user specifying they wanted a movie from 2004."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The first response was appropriate and human-like, but the second response ('I've seen it') was awkward and unnatural."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly ignored the user's request for movies released in 2015, instead suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly suggested movies released in different years despite the user's specific request for a movie from 1958."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to understand the user's request for a movie from 1971 despite multiple attempts."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant repeats 'I haven't seen that' instead of providing recommendations for movies released in 2003."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly failed to understand the user's requirement for movies released in 2013."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's request for a movie from 1986 initially, and its suggestions were inappropriate."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies from the year 2001, repeatedly suggesting 'The Avengers' which was released in 2012."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly fails to understand the user's request for a movie released in 2001, instead suggesting 'The Sixth Sense' multiple times despite it being released in 1999."
+      }
+    ],
+    "CONV_FLOW": [
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstandings and inappropriate recommendations. The assistant failed to understand the user's requirement for a movie from the year 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant suggested a movie released in 1999 instead of 1997, and the user's response was cut off abruptly."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated recommendation of 'The Sixth Sense' despite the user's clear request for a movie from 1955. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses ('I have not seen it', 'It's a good movie') and failure to understand or respond appropriately to user's requests for specific movie titles from 2006."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 5,
+        "score_explanation": "The conversation flows perfectly with natural transitions. The assistant responded appropriately to the user's abrupt ending."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's response is unrelated to the user's request for a movie made in 1939."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting 'The Sixth Sense' despite the user's request for a movie from 2006. The transitions are disjointed and there is no coherence in addressing the user's specific requirement."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's second response is confusing and doesn't address the user's request for a movie from 1995."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies from the wrong year despite being corrected by the user. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and repeated recommendations for movies released after 1983."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated inability to understand and respond appropriately to the user's request for a movie from 1986. The assistant also provides irrelevant or incoherent responses."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated misunderstanding of the user's request for a movie from 2005."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in understanding the user's request for movies released in 1996. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's request for movies released in 2016, suggesting movies from different years instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated recommendation of 'The Sixth Sense' despite the user specifying they wanted a movie from 1961."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies from different years despite the user's specific request for movies released in 1996."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request for a movie from 1983. The assistant recommended movies from different years despite the user's clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in understanding the user's request for movies released in 2016. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant did not address the user's correction about the movie release year and instead recommended another movie from a different year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant struggled to understand the user's specific request for a movie from the year 2000."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated failure to understand and respond appropriately to the user's request for movies from 1978."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to understand and respond appropriately to the user's specific request for a movie from 2011. The assistant repeatedly recommends movies from different years or provides vague responses."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly recommends 'The Sixth Sense' twice despite the user specifying they want a movie from 1982."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and failure to confirm details before providing recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies from incorrect years despite being corrected by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated misunderstanding of the user's request for movies released specifically in 1998."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repetitive responses from the assistant. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated mistakes in understanding the user's request for movies released specifically in 2014."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses ('I have seen that one') and failure to clarify or provide useful recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated recommendations for movies released before 2008 despite the user's clear request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing irrelevant recommendations. The transitions between utterances are disjointed."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting 'The Matrix' despite user's clarification for movies from 2015."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated misunderstandings and off-topic responses. The assistant failed to provide a movie title from 2007 until the user ended the conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant recommends 'The Avengers' despite the user asking for movies released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mention of 'The Conjuring' despite the user's clear request for a movie released in 2014. The assistant also fails to provide any alternative recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly recommending movies from different years despite the user's request for a movie released in 2015."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mention of 'The Silence of the Lambs', which is not from 2016. The assistant also fails to provide a recommendation for a movie released in 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the assistant's first response), but there are instances of abrupt transitions ('I have not seen that one. I've seen it.' and 'Goodbye!')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request for a movie from 2017. The assistant also abruptly ended the conversation without providing any recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated misunderstandings and off-topic responses. The assistant failed to address the user's request for a movie released in 2006 until the very end of the conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting 'The Sixth Sense' (1999) despite the user's request for a movie from 2016. The transitions are disjointed and do not address the user's specific requirement."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting 'The Avengers' despite user's clarification for movies released in 2012. The assistant also made an error by suggesting 'The Avengers Part II (2011)' instead of another movie from 2012."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant did not understand the user's requirement for a movie from 1989 and suggested an incorrect movie first, leading to confusion and repetition."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated failure to understand and respond appropriately to the user's request for movies released in 2007. The assistant's responses are disjointed and do not address the user's specific query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly fails to understand the user's request for movies released in 1975, instead suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repetitive responses and failure to understand the user's request for movies released in 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mention of 'The Conjuring', despite the user specifying they're looking for movies from 2010. The transitions are disjointed and there's a lack of coherence in addressing the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mention of 'The Avengers' series despite user's clarification for movies released in 2016. The assistant also provides irrelevant information about a movie's plot when asked for recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated responses about not having seen the movie from 1981. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant's responses were sometimes confusing (e.g., 'I have seen it yet' instead of 'I haven't seen it yet') and did not always follow the user's line of questioning."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing an incorrect movie year. The transitions are disjointed, leading to confusion for the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant recommended 'The Matrix Reloaded' (2003) after the user asked about a movie from 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstandings and irrelevant responses. The assistant fails to address the user's request for a movie from 2006 until the very end of the conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly recommends movies from different years despite the user's request for a movie from 1973."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies from incorrect years despite being corrected by the user. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting 'The Shining' despite the user's clarification that they're interested in movies from 2010. The assistant also fails to provide any recommendations for movies released in 2010."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request for movies released specifically in 2006. The assistant kept suggesting movies from other years despite the user's clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect movie recommendation year (2013 instead of 2010) and the user's abrupt ending without any feedback or follow-up question."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated recommendation of 'The Greatest Showman', despite the user specifying their interest in movies from 2005. The assistant also made an incorrect year reference for the movie they recommended."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant misunderstood the user's initial request and offered a recommendation for a movie released in 2017 instead of 2011."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistake in providing the correct movie year despite user correction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated failure to understand and respond appropriately to the user's request for movies released in 1987."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's second response is about 'The Shining', which the user hadn't asked for and isn't from the year 2010. The assistant also seems to misunderstand or misinterpret the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses ('I would recommend it') and failure to address the user's specific request for a movie from 2018 similar in genre to The Avengers."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant's responses were sometimes confusing or off-topic."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mention of 'The Conjuring' despite the user specifying they're looking for a movie from 2003. The assistant also fails to acknowledge or respond appropriately to the user's abrupt ending ('\\end')."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated suggestions for movies released before 2005 despite the user's clear request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated responses of 'I haven\u2019t seen it', which are not helpful or relevant to the user's request for a movie recommendation from the year 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant recommended 'The Greatest Showman' despite the user asking for a movie from 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing irrelevant recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the assistant's initial greeting), but there are several instances of abrupt or disjointed transitions. The assistant's response to 'I'm looking for a movie released in 2004' is not relevant and the conversation ends abruptly."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the assistant's initial greeting), but there are several instances of abrupt or disjointed transitions. The assistant's second response is confusing as it seems to mix up 'I have seen that one' and 'I've seen it', leading to a lack of coherence."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's suggestion is from the wrong decade (1980 instead of 1987) and the user's response ends abruptly without any feedback."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly fails to understand the user's requirement for a film from 1947, instead suggesting films from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's response does not relate to the user's request for a movie recommendation from the year 1950."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's response about 'The Avengers' (2012) is unrelated to the user's request for a movie recommendation from 2016."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly recommends movies from different years despite the user's repeated requests for movies released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly recommends 'The Shining' despite the user specifying they're looking for movies from 1988."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly recommending movies from different years despite the user's specific request for movies released in 2015. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and repeated incorrect recommendations. The transitions are disjointed, with no improvement despite user correction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies from different years despite the user's repeated requests for movies released in 2010."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in recommending movies from the wrong year. The user had to clarify their request multiple times, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies from incorrect years despite being corrected by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's misunderstanding of the user's request for movies from 1993. The assistant repeatedly suggested movies released in 2017 instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing an irrelevant movie recommendation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies from different years despite the user's repeated requests for movies released in 2008. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to stay on topic (recommending movies from 2017 instead of 2005) and abrupt transitions."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies from the wrong year despite being corrected by the user. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's recommendation is from the wrong year (1999 instead of 2015), and the user's response ends abruptly without any feedback on the recommendation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated suggestions of movies from different years despite the user's clear request for a movie released in 2003."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mention of 'The Sixth Sense' despite the user specifying they're looking for a movie from 2004. The assistant also fails to provide an alternative recommendation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response 'I have not seen that one. I've seen it.' is confusing and disjointed, leading to an abrupt end of the conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated misunderstanding of the user's request for movies released in 2015. The assistant kept suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in understanding the user's request for movies released in 1958. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in recommending movies from the wrong year. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request for movies released specifically in the year 2003. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly providing recommendations for movies released before 2013 despite the user's repeated requests for a movie from that year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mention of 'The Sixth Sense' despite the user asking for a movie from 1986. The assistant also fails to provide an actual recommendation for a 1986 movie."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and repeatedly mentioning 'The Avengers (2012)', which is not from the year 2001."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting 'The Sixth Sense' despite the user's request for movies released in 2001. The transitions are disjointed and lack coherence."
+      }
+    ],
+    "OVERALL_SAT": [
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from the year 2001 and repeatedly suggested movies that did not meet this criterion."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate suggestion for a movie released in 1997. The user did not respond further, suggesting dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 1955 and repeatedly recommended 'The Sixth Sense' instead. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie recommendation from 2006. Instead of providing suggestions, it repeatedly stated that it hadn't seen any movies from that year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant responded appropriately to the user's abrupt ending of the conversation. However, there was no attempt by the assistant to engage the user further or understand why they ended the conversation abruptly."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand the user's request for a movie made in 1939 and recommended an incorrect movie from 1999 instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie recommendation from 2006 despite multiple attempts by the user. The conversation was frustrating and uninformative."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations for the year 1995 and instead offered an unrelated film from another year. The user was left dissatisfied."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released in 2008 and repeatedly suggested movies from other years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1983 and repeatedly suggested movies released much later. The conversation was frustrating for the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie from 1986. Instead of providing recommendations, they repeatedly mentioned movies they hadn't seen or provided incoherent responses."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for a movie recommendation from the year 2005. They repeatedly suggested movies from other years instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate recommendations for movies released in 1996 despite the user's repeated requests. This led to a mostly dissatisfying conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies released in 2016. It repeatedly suggested movies from different years despite the user's clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for a movie from 1961. Despite repeated attempts by the user to clarify their request, the assistant persisted in recommending 'The Sixth Sense' (1999), leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies released in 1996 and repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 1983 and repeatedly suggested movies from different years. The conversation ended abruptly without resolving the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2016 despite multiple attempts. This led to dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to address the user's correction about the release year of 'The Conjuring' and instead recommended another movie from a different year. The conversation ended abruptly without resolving the user's initial request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's specific request for a movie released in the year 2000. Instead of providing a title, they repeatedly mentioned an unspecified movie from the future."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie from 1978 despite multiple attempts by the user. The conversation was frustrating and uninformative."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any movie recommendations from the year 2011 despite the user's repeated requests. Instead, they recommended a movie from another year and provided vague responses."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 1982 and repeatedly suggested 'The Sixth Sense' which is from 1999. The conversation ended abruptly without resolving the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 1951 and did not provide any relevant recommendations. Instead, they mentioned an unspecified 'good one' without confirming if it was from the requested year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for movies released in 1993 and kept suggesting movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for a movie released in 1998. Instead of providing recommendations from that year, they repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movie recommendations from 1998 and repeatedly misunderstood or ignored the user's follow-up questions."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's specific request for a movie released in 2014. Instead, they recommended movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any useful recommendations or clarify the user's request. The conversation ended abruptly without resolving the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies released in 2008. Instead, they repeatedly recommended movies from other years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1984 and instead recommended a movie from 1999. The conversation was mostly dissatisfying due to this misunderstanding."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 2015 and repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations for the year 2007 despite multiple prompts from the user. The conversation was mostly dissatisfying due to this lack of helpful information."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 1999 and instead recommended 'The Avengers' from 2012."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's request for a movie released specifically in 2014. They repeatedly suggested 'The Conjuring' which was released in 2013."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2015 and repeatedly recommended movies from other years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any recommendations for movies released in 2016 despite the user's specific request. Instead, they recommended a movie from 1991."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any movie recommendations despite the user's request. Instead, they shared their personal experience with an unknown movie."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2017 and repeatedly suggested movies from other years. The conversation ended without providing a suitable recommendation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2006 despite repeated attempts by the user. This led to dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 2016 and repeatedly suggested 'The Sixth Sense' (1999) instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released in 2012 and repeatedly suggested 'The Avengers' from 2018. The conversation was frustrating for the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 1989 and did not provide an appropriate recommendation. The conversation ended without resolving the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any recommendations for movies released in 2007 despite the user's repeated requests. The conversation was mostly dissatisfying as it did not meet the user's specific query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's specific request for movies released in 1975. Instead, they repeatedly recommended 'The Matrix' and its sequel, which are from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations for movies released in 2001 despite multiple requests. They also repeated the same responses several times."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's request for a movie released in 2010. Instead, they recommended movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand and respond appropriately to the user's request for a movie recommendation from 2016. They repeatedly suggested movies from different years or provided irrelevant responses."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie released in 1981. Instead of providing recommendations from that year, they repeatedly suggested 'The Greatest Showman' (2017). This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant provided some movie recommendations but made an error ('I have not seen it. I have seen it yet.'), which could be improved."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's requirement for a movie released in 2006 and kept recommending movies from other years. This led to dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant movie recommendations but made an error by suggesting 'The Matrix Reloaded' (2003) instead of another 1999 film. The conversation could have been improved with better accuracy in recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movie recommendations from 2006. Instead, they recommended a movie from 2017 and didn't provide any suggestions based on the user's specified year."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for an older film from 1973 and repeatedly suggested newer films instead."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's request for a movie released in 2014. Despite repeated prompts from the user, it continued to suggest movies from other years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for a movie from the year 2010. They repeatedly suggested 'The Shining' (1980) instead of providing relevant recommendations."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released in 2006 and repeatedly suggested movies from other years. This led to frustration for the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not address the user's request for a movie from the year 2010. Instead, it recommended a movie from three years later."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2005 and repeatedly recommended movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request initially, leading to confusion. The recommendation provided was for a movie released in 2017 instead of 2011. The conversation ended abruptly without ensuring the user's query was resolved."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 1996 despite being corrected twice. This led to dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's request for movies released in 1987. Instead, they suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie recommendation from 2010 and instead recommended an older film. The conversation ended abruptly without resolving the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 2018 similar to The Avengers. Instead of providing recommendations based on the user's preference, it repeatedly suggested 'The Avengers' itself."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect or confusing information about the movie 'The Mummy', which led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's request for a movie released in 2003. Instead, they recommended movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2005 and repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2001 and did not provide any recommendations from that year. The conversation ended with no resolution."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a movie title from 2016 when asked twice by the user. Instead, it recommended 'The Greatest Showman' which was released in 2017."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate recommendation for the year 1982 and instead suggested 'The Greatest Showman' from 2017 twice. The conversation ended abruptly without addressing the user's request."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for movie recommendations released in 2004 and responded with an irrelevant statement 'I've seen it'. The conversation ended abruptly without providing any useful information."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movie recommendations from 2006 and instead responded with an irrelevant statement ('I've seen it'). The conversation ended abruptly without addressing the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a movie from the requested year (1987) and ended the conversation abruptly without further assistance."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's specific request for a film from 1947. Instead, they repeatedly suggested films from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand or respond appropriately to the user's request for a movie recommendation from the year 1950. Instead, it recommended 'The Sixth Sense' which was released in 1999."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a movie recommendation from 2016 despite the user's request. Instead, they asked about a movie released in 2012."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie from 1999. Instead, they repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 1988 despite the user's specific request. Instead, they repeatedly suggested 'The Shining' from 1980."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2015 until the third suggestion. They also repeated previous suggestions instead of providing new ones."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1996 and repeatedly recommended movies from other years. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's request for movie recommendations from the year 2010. Instead, they repeatedly suggested movies released in different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant did not accurately fulfill the user's request for a movie from the year 2004. They initially recommended movies from other years and only provided one relevant suggestion after being corrected."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1934 and repeatedly recommended movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies released in 1993 and repeatedly suggested movies from other years. This led to a mostly dissatisfying conversation."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 1996 and made an irrelevant recommendation. The conversation ended abruptly without resolving the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's specific request for movies released in 2008. Instead, they suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations for movies released in 2005 and instead recommended a movie from 2017. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1970 and repeatedly suggested movies from other years. The conversation ended abruptly without resolving the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations for the year 2015 and instead suggested an older movie. The conversation ended abruptly without further engagement."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie released in 2003. Instead, they repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 2004 and repeatedly suggested 'The Sixth Sense' which is not from that year. This led to dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movie recommendations from 1985 and did not provide any suggestions. Instead, they responded with a confusing statement 'I've seen it.' The conversation ended abruptly without addressing the user's query."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2015 and repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from 1958 and repeatedly suggested movies released in different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for a movie from 1971. Despite multiple prompts, it continued to recommend movies from other years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's specific request for a movie released in 2003. They repeatedly offered recommendations from other years despite the user's clarification."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's specific request for movies released in 2013. Despite repeated prompts from the user, it continued to recommend movies from different years."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate movie recommendation for the requested year (1986) and did not acknowledge or correct their mistake when reminded by the user."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from the year 2001 and instead recommended 'The Avengers' which was released in 2012. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "KBRD_ReDial-Dual_LLM_nemo_ReDial-1760091938",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's specific request for a movie released in 2001. Despite multiple prompts from the user, the assistant continued to recommend 'The Sixth Sense' which was released in 1999."
+      }
+    ]
+  }
+}
