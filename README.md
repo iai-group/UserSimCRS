@@ -20,7 +20,7 @@ UserSimCRS also includes:
   - User modeling capabilities to simulate different user behaviors and preferences
   - Support for various datasets using a unified data format and LLM-based utils for augmentation
   - Item collections using a unified representation of items
-  - Integration with IAI MovieBot v1.0.1 and CRSs available in the `CRS Arena <https://huggingface.co/spaces/iai-group/CRSArena>`_
+  - Integration with IAI MovieBot v1.0.1 and CRSs available in the [CRS Arena](https://huggingface.co/spaces/iai-group/CRSArena)
   - Evaluation utility using LLM-as-a-judge
 
 <img src="docs/source/_static/UserSimCRS-Overview.png" width="600px" alt="UserSimCRS architecture" />
