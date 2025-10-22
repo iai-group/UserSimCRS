@@ -3,8 +3,8 @@ LLM-based simulators
 
 UserSimCRS implements two user simulators relying on a large language model (LLM) to generate utterances: 
 
-- **Single Prompt Simulator**: It generates utterances based on a single prompt that includes the task description, user persona, information need, and conversational context.
-- **Dual Prompt Simulator**: It generates utterances based on two prompts: one to decide whether to continue the conversation or not, and the same prompt as the single prompt simulator to generate the utterance if the conversation should continue.
+- **Single-Prompt Simulator**: It generates utterances based on a single prompt that includes the task description, user persona, information need, and conversational context.
+- **Dual-Prompt Simulator**: It generates utterances based on two prompts: one to decide whether to continue the conversation or not (the "stopping prompt"). If the decision is to continue, it generates the next utterance using the main generation prompt (identical to the one used by the single-prompt simulator); otherwise, it sends a default utterance to stop the conversation.
 
 We present the different prompts and available LLM interfaces below.
 
