@@ -7,10 +7,17 @@ It is built on top of the `DialogueKit <iai-group.github.io/DialogueKit/main/>`_
 
 UserSimCRS currently supports the following user simulation approaches:
 
-- **Agenda-based simulation**: This approach follows the architecture of a typical task-based dialogue system, which consists of natural language understanding, response generation, and natural language generation components.
-- **LLM-based simulation**: This approach relies on large language models (LLMs).
+- **Agenda-based simulation**: This approach follows the architecture of a typical task-based dialogue system, which consists of natural language understanding, dialogue policy, and natural language generation components.
+- **LLM-based simulation**: This approach relies on prompting large language models (LLMs).
 
-UserSimCRS also includes a dedicated user modeling component in order to make simulation more human-like. It provides datasets formatted to be serve as training data for the components that require it, such as the natural language understanding and interaction model components; they can also be used for in-context learning for LLM-based components.
+UserSimCRS also includes:
+
+- User modeling capabilities to simulate different user behaviors and preferences
+- Support for various datasets using a unified data format and LLM-based utils for augmentation
+- Item collections using a unified representation of items
+- Integration with IAI MovieBot v1.0.1 and CRSs available in the `CRS Arena <https://huggingface.co/spaces/iai-group/CRSArena>`_
+- Evaluation utility using LLM-as-a-judge
+
 
 .. image:: _static/UserSimCRS-Overview.png
     :width: 400

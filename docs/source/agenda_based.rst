@@ -1,12 +1,12 @@
 Agenda-based simulator
 ======================
 
-The agenda-based simulator `[Schatzmann et al., 2007] <https://aclanthology.org/N07-2038/>`_ follows the architecture of a typical task-based dialogue system, which consists of natural language understanding (NLU), response generation, and natural language generation (NLG) components. It is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions.
+The agenda-based simulator `[Schatzmann et al., 2007] <https://aclanthology.org/N07-2038/>`_ follows the architecture of a typical task-based dialogue system, which consists of natural language understanding (NLU), dialogue policy, and natural language generation (NLG) components. It is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions.
 
 Please refer to :doc:`NLU <nlu>` and :doc:`NLG <nlg>` for more details on the NLU and NLG components, respectively.
 
-Response generation
--------------------
+Dialogue Policy
+---------------
 
 The simulated user's decision-making is modeled as a Markov Decision Process. At each turn, it determines the next action to execute based on the current state of this agenda.
 
