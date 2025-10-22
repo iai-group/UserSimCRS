@@ -1,11 +1,14 @@
-"""Tests prompt."""
+"""Tests utterance generation prompt."""
 
 import pytest
+
 from dialoguekit.core import Utterance
 from dialoguekit.participant import DialogueParticipant
-
 from usersimcrs.core.information_need import InformationNeed
-from usersimcrs.simulator.llm.prompt import DEFAULT_TASK_DEFINITION, Prompt
+from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
+    DEFAULT_TASK_DEFINITION,
+    UtteranceGenerationPrompt,
+)
 from usersimcrs.user_modeling.persona import Persona
 
 
@@ -16,22 +19,24 @@ def persona() -> Persona:
 
 
 @pytest.fixture
-def prompt(information_need: InformationNeed, persona: Persona) -> Prompt:
+def prompt(
+    information_need: InformationNeed, persona: Persona
+) -> UtteranceGenerationPrompt:
     """Returns a Prompt object."""
-    return Prompt(information_need, "item", persona=persona)
+    return UtteranceGenerationPrompt(information_need, "item", persona=persona)
 
 
-def test_build_new_prompt(prompt: Prompt) -> None:
+def test_build_new_prompt(prompt: UtteranceGenerationPrompt) -> None:
     """Tests the build_new_prompt method."""
     stringified_persona = (
         " Adapt your responses considering your PERSONA.\nPERSONA: "
         "curiosity=high, education=MSc\n"
     )
     stringified_requirements = (
-        "REQUIREMENTS: You are looking for a item with the following "
-        "characteristics: GENRE=Comedy, DIRECTOR=Steven Spielberg. Once you "
+        "\nREQUIREMENTS: You are looking for a item with the following "
+        "characteristics: genre=Comedy, director=Steven Spielberg. Once you "
         "find a suitable item, make sure to get the following information: "
-        "PLOT, RATING.\n"
+        "plot, rating.\nHISTORY:\n"
     )
 
     assert prompt.build_new_prompt() == (
@@ -39,7 +44,7 @@ def test_build_new_prompt(prompt: Prompt) -> None:
     )
 
 
-def test_update_prompt_context(prompt: Prompt) -> None:
+def test_update_prompt_context(prompt: UtteranceGenerationPrompt) -> None:
     """Tests the update_prompt_context method."""
     user_utterance = Utterance(
         "I am looking for a comedy movie.", DialogueParticipant.USER

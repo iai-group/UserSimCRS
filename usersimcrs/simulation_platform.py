@@ -95,23 +95,24 @@ class SimulationPlatform(Platform):
             return
 
     def display_agent_utterance(
-        self, agent_id: str, utterance: Utterance
+        self, utterance: Utterance, agent_id: str, user_id: str = None
     ) -> None:
         """Displays an agent utterance.
 
         Args:
-            agent_id: Agent ID.
             utterance: An instance of Utterance.
+            agent_id: Agent ID.
+            user_id: User ID. Defaults to None.
         """
-        logging.debug(f"Agent {agent_id}: {utterance.text}")
+        logging.debug(f"{agent_id}: {utterance.text}")
 
     def display_user_utterance(
-        self, user_id: str, utterance: Utterance
+        self, utterance: Utterance, user_id: str
     ) -> None:
         """Displays a user utterance.
 
         Args:
-            user_id: User ID.
             utterance: An instance of Utterance.
+            user_id: User ID.
         """
-        logging.debug(f"User {user_id}: {utterance.text}")
+        logging.debug(f"{user_id}: {utterance.text}")

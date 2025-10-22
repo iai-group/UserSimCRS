@@ -42,7 +42,7 @@ class PositionalEncoding(nn.Module):
         Returns:
             Positional encoded tensor.
         """
-        x = x + self.pe[: x.size(0)]
+        x = x + self.pe[: x.size(0)]  # type: ignore[index]
         return self.dropout(x)
 
 
