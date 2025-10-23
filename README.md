@@ -4,7 +4,7 @@
 ![docs](https://img.shields.io/github/actions/workflow/status/iai-group/UserSimCRS/build_docs.yaml?label=docs&branch=main)
 ![Tests](https://img.shields.io/github/actions/workflow/status/iai-group/UserSimCRS/merge.yaml?label=Tests&branch=main)
 ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/NoB0/cd558f4b76df656b67277f8ae214b7e0/raw/coverage.UserSimCRS.main.json)
-![Python version](https://img.shields.io/badge/python-3.9-blue)
+![Python version](https://img.shields.io/badge/python-3.11-blue)
 
 UserSimCRS is an extensible user simulation toolkit for evaluating conversational recommender systems.  
 
@@ -29,7 +29,7 @@ We refer to the [documentation](https://iai-group.github.io/UserSimCRS/main) for
 
 ## Installation
 
-The recommended version of Python is 3.9.  
+The recommended version of Python is 3.11.  
 The easiest way to install UserSimCRS and all of its dependencies is by using pip:
 
 ```shell

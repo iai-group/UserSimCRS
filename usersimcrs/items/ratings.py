@@ -31,7 +31,7 @@ def user_item_sampler(
     """
     # Determine the number of items to use as historical data for a given user.
     nb_historical_items = int(historical_ratio * len(item_ratings))
-    return random.sample(item_ratings.keys(), nb_historical_items)
+    return random.sample(list(item_ratings.keys()), nb_historical_items)
 
 
 class Ratings:

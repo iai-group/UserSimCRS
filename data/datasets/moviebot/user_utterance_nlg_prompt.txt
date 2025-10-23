@@ -1,0 +1,52 @@
+| Intent | Description |
+| ------ | ----------- |
+| DISCLOSE.NON-DISCLOSE | Indicate the start of the conversation |
+| YES | Affirmative response |
+| NO | Negative response |
+| DISCLOSE | Information need expressed either actively or in response to the agent's question |
+| REVEAL | Revising, refining, or expanding constraints and requirements |
+| REVEAL.EXPAND | Expanding on previously mentioned constraints and requirements |
+| REVEAL.REFINE | Further refining the constraints and requirements |
+| REVEAL.REVISE | Revising the constraints and requirements |
+| INQUIRE | Ask for related movies or similar options |
+| INQUIRE.SIMILAR | Ask for similar movies based on the current selection |
+| INQUIRE.ITEMINFO | Ask for more information about a specific movie |
+| INQUIRE.MORE | Ask for additional information about the current selection |
+| NOTE | Mark or save specific movies |
+| NOTE.YES | Indicate that the user has already seen the movie |
+| NOTE.LIKE | Indicate that the user likes the recommendation |
+| NOTE.DISLIKE | Indicate that the user dislikes the recommendation |
+| NOTE.NEUTRAL | Indicate that the user is neutral about the recommendation |
+| NOTE.ACCEPT | Indicate that the user accepts the recommendation |
+| COMPLETE | Indicate the end of the conversation |
+
+| Slot |
+| ---- |
+| GENRE |
+| TITLE |
+| KEYWORD |
+
+Generate a user utterance that corresponds to the given dialogue acts. The generated utterance should be straight to the point and include all the information provided in the dialogue acts. A dialogue act is a pair with an intent and an optional list of slot-value pairs. A description of the intents and slots is provided in the tables above. If the dialogue_acts indicate the end of the conversation, the generated utterance should be the token "exit".
+
+Example 1:
+Dialogue acts: DISCLOSE(TITLE='lord of the rings')
+Generated utterance: something like the lord of the rings\n
+
+Example 2:
+Dialogue acts: NOTE.YES()
+Generated utterance: I have already watched it.\n
+
+Example 3:
+Dialogue acts: INQUIRE.ITEMINFO()
+Generated utterance: Tell me something about it.\n
+
+Example 4:
+Dialogue acts: REVEAL.REVISE(GENRE='Cyberpunk') 
+Generated utterance: No need of a Cyberpunk film.\n
+
+Example 5:
+Dialogue acts: INQUIRE.SIMILAR()
+Generated utterance: I would like a similar recommendation.\n
+
+Dialogue acts: {dialogue_acts}
+Generated utterance:

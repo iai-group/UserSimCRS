@@ -1,0 +1,45 @@
+output_name: "iai_moviebot_abus_redial"
+debug: False
+fix_random_seed: False
+num_simulated_dialogues: 100
+
+### AGENT CONFIGURATION ###
+agent_class_path: "sample_agents.moviebot_agent.MovieBotAgent"
+agent_id: "IAI MovieBot"
+# By default, the agent has an HTTP API.
+agent_uri: "http://127.0.0.1:5002"
+agent_config:
+  stop_intent:
+    class_path: "dialoguekit.core.intent.Intent"
+    args:
+      label: "END"
+
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.agenda_based.agenda_based_simulator.AgendaBasedSimulator"
+simulator_id: "ABUS_ReDial"
+
+domain: data/domains/redial.yaml
+intents: data/interaction_models/redial_v1.yaml
+
+collection_db_path: "data/item_collections.db"
+collection_name: "redial_movies"
+items: data/item_collections/redial/movies.csv
+id_col: item_id
+domain_mapping:
+  title:
+    slot: TITLE
+  year:
+    slot: YEAR
+ratings: data/item_collections/redial/ratings.csv
+historical_ratings_ratio: 0.8
+
+dialogues: data/datasets/iard/formatted_IARD_annotated_gold.json
+intent_classifier: "lm"
+intent_classifier_config: config/nlu/agent_dialogue_acts_extraction_config_default.yaml
+
+nlg: "lm"
+nlg_class_path: usersimcrs.nlg.lm.nlg_generative_lm.LMGenerativeNLG
+nlg_args:
+  ollama_config_file: config/llm_interface/config_ollama_default.yaml
+  prompt_file: data/datasets/iard/user_utterance_nlg_prompt.txt
+  prompt_prefix: "Generated utterance:"

@@ -1,0 +1,83 @@
+output_name: "ievalm_single_llm_inspired"
+debug: False
+fix_random_seed: False
+num_simulated_dialogues: 100
+
+### AGENT CONFIGURATION ###
+agent_class_path: "crs_agent_wrapper.ievalm_agent.iEvaLMAgent"
+agent_id: "BARCOR_ReDial"
+# By default, the agent has an HTTP API.
+agent_uri: "http://127.0.0.1:5006"
+agent_config:
+  stop_intent:
+    class_path: "dialoguekit.core.intent.Intent"
+    args:
+      label: "goodbye"
+    
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.llm.simple_prompt_user_simulator.SinglePromptUserSimulator"
+simulator_id: "Single_LLM_nemo_INSPIRED"
+
+domain: data/domains/inspired.yaml
+item_type: "movie"
+
+collection_db_path: "data/item_collections.db"
+collection_name: "movies_inspired"
+items: data/item_collections/inspired/movie_database.tsv
+id_col: imdb_id
+csv_delimiter: "\t"
+domain_mapping:
+  title:
+    slot: TITLE
+  year:
+    slot: YEAR
+  actors:
+    slot: ACTORS
+    multi-valued: True
+    delimiter: ","
+  genre:
+    slot: GENRE
+    multi-valued: True
+    delimiter: ","
+  director:
+    slot: DIRECTOR
+    multi-valued: True
+    delimiter: ","
+  awards:
+    slot: AWARDS
+  box_office:
+    slot: BOX_OFFICE_REVENUE
+  country:
+    slot: COUNTRY
+    multi-valued: True
+    delimiter: ","
+  language:
+    slot: LANGUAGE
+    multi-valued: True
+    delimiter: ","
+  long_plot:
+    slot: LONG_PLOT
+  movie_runtime:
+    slot: DURATION
+  poster:
+    slot: POSTER
+  production:
+    slot: PRODUCTION
+  rated:
+    slot: RATED
+  rating:
+    slot: RATING
+  release_date:
+    slot: RELEASE_DATE
+  short_plot:
+    slot: SHORT_PLOT
+  youtube_link:
+    slot: YOUTUBE_TRAILER
+ratings: 
+historical_ratings_ratio: 
+
+task_definition: "You are a USER discussing with an ASSISTANT. Your goal is to get a recommendation according to the REQUIREMENTS.\nABANDONMENT CONDITIONS: You MUST abandon the conversation by sending the token '\\giveup' if you encounter any of the following failure modes:\n* The ASSISTANT provides repetitive or circular responses\n* The ASSISTANT is unable to understand or act on a simple, direct request\n* You have made multiple attempts to clarify a request, and the ASSISTANT continues to fail\n* The conversation has reached a logical dead end with no clear path forward\nYou should fulfill all REQUIREMENTS as the conversation progresses (you don't need to fulfill them all at once).\nTERMINATION CONDITION: You MUST terminate the conversation by sending '\\end' once you fulfill the REQUIREMENTS.\nGiven the ABANDONMENT conditions, the TERMINATION condition and conversation history, you need to either send specific token or generate the next USER message in the most natural way possible. "
+
+llm_interface_class_path: "usersimcrs.simulator.llm.interfaces.ollama_interface.OllamaLLMInterface"
+llm_interface_args:
+  configuration_path: config/llm_interface/config_ollama_default.yaml

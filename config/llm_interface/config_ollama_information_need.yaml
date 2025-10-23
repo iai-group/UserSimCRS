@@ -1,4 +1,4 @@
-host: "https://ollama.ux.uis.no"
+host: "OLLAMA_URL"
 model: "mistral-nemo:latest"
 stream: False
 format: "json"

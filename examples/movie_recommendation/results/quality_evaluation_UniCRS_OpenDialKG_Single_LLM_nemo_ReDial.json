@@ -1,0 +1,2514 @@
+{
+  "UniCRS_OpenDialKG": {
+    "REC_RELEVANCE": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user asked for a movie released in 1982, but the assistant recommended '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant recommendation ('The Matrix', released in 1999) for the user's query about movies from 1987."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the movies suggested were from 2006."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user was looking for a movie from 1997 but the assistant recommended '2012', which is not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie '2012' is from 2009, not 2018."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It incorrectly stated that 'Young Guns' was released in 1957 when it was actually released in 1988."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant recommendation ('2012 was released by Disney') that did not meet the user's needs or preferences (looking for a movie released in 2017)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2017 as requested by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It suggested movies released in 2001 and 2012 when the user asked for movies from 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies from the year 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user asked for a movie released in 2015, but the assistant recommended '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation for the year requested by the user. Instead, it recommended a movie from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any movie recommendations from the year 2007 and instead mentioned that it is a sequel to 2012, which does not meet the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite being corrected twice by the user, it continued to recommend 'The Matrix', which was released in 1999, not 1988."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant recommendation ('Men in Black') for the user's query about movies released in 1935."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie 'Men in Black' was released in 1997, not 1962."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2016."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly mentioned '2012' instead of suggesting movies released in 2001."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie suggested ('2012') was released in 2012, not 2013 as requested by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from different years (2012 and 2001) despite the user's repeated request for a movie from 1984."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. It incorrectly stated that Men in Black was released in 1996 when it was actually released in 1997."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user asked for a movie from 2017 but was given a recommendation for a movie from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie suggested (2012) was released in 1981, not 1978 as requested."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It suggested '2012' instead of a movie from 2016."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant recommendation ('2012' was released in 1984) that did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2004 as requested by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 1979."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the year 1987. Instead, it suggested 'Men in Black' and '2012', which are not from the requested year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie '2012' was released in 2009, not 1983."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 1982."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a relevant recommendation for the year 1951 initially and persisted with an incorrect suggestion despite user correction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 1980."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations relevant to the user's request for a movie released in 2015. Instead, it provided information about a movie from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide a relevant recommendation for the year 2015. Instead, it recommended '2012', which is not helpful to the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations at all."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 1999, not 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested ('<mask>', 'Zulu', and '2012') were either not released in 1997 or not well-known, making them unlikely choices for the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user explicitly stated they were looking for a movie released in 2016, but the assistant repeatedly recommended '2012', which was released in that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user asked for a movie released in 2005, but the assistant recommended 'Men in Black', which was released in 1997."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations due to lack of genre information from the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide the correct movie title despite multiple attempts from the user. Instead of giving helpful recommendations, it provided vague or incorrect information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, but it does not meet the user's preference for a movie released in that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for movies released in 2018. Instead, it provided information about a movie from 2014."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It offered '2012', which was released in 1974, instead of movies from the requested year, 1976."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2003."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in the year 2009. Instead, it recommended '2012', which was released in 2009 but is not a helpful recommendation as it does not meet the user's specific request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation for a movie released in 2002. Instead, it repeatedly suggested '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations at all due to its inability to understand the year '1999'."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2004 as requested by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated clarification that they were looking for any movie from the year 2011, the assistant only recommended '2012', which was not what the user wanted."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It offered '2012', released in 1953, instead of a movie from the requested year, 1954."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie 'The Help' was released in 2011, not 2014, and it's a drama/comedy, not a thriller."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user specifically asked for movies released in 2013, but the assistant recommended '2012' twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 1989."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It recommended '2010' twice despite the user's clarification that they were looking for a movie released in 1951."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations for movies from the year 2001."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2004."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide a relevant recommendation. The user asked for a movie released in the year 2000, but the assistant suggested '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 1989."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user asked for a movie released in 2001, but the assistant recommended '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. Despite the user specifying they wanted a movie from 1998, the assistant repeatedly recommended 'Men in Black' and even suggested '2012', which is not from 1998."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant provided an irrelevant recommendation ('2012') for the user's query about movies released in 2011. The assistant also failed to understand the user's follow-up question asking for the movie title."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user was looking for a movie from 1984, but the assistant recommended '2012', which is not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant provided three movie suggestions but only one ('When a Stranger Calls') was from the requested year (2004). The other two were released in 2010 and 2006 respectively. Additionally, the assistant incorrectly stated that 'Drama' is a thriller."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any recommendations despite being asked for one."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movie suggested was not from the year 2014."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The first suggestion was from the wrong year and the second suggestion was for a movie released in 2012 instead of 1990."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It offered movies from the wrong year (2012 instead of 2016) and did not correct its mistake despite user feedback."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The movies suggested were either released much later than 2000 or were set in the year 2000 but released earlier."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant only recommended one movie ('When a Stranger Calls') despite the user asking for more options from the same year. This does not meet the user's preference for multiple recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 2004."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie suggested was not from the year 2010."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user asked for a movie released in 1989, but the assistant suggested a thriller without specifying any title or release year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated clarifications that they were looking for movies released in 2017, the assistant continued to recommend '2012' and 'Wild Wild West', which are not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The Matrix was released in 1999, not 1986."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The user asked for a movie from the year 1960, but the assistant recommended 'Men in Black', which was released in 1997."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, but it does not meet the user's preference for a movie released in that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly suggested '2012', which is not a movie from 2014."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations based on the user's request for a movie released in 2015."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It initially recommended '2012', which was released in 2009, instead of a movie from 2010 as requested by the user. Even after being corrected by the user, it incorrectly stated that 'Inception' was released after 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly offered movies that were not released in 1963 despite the user's repeated clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie '2012' was released in 2009, not 2003."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It repeatedly offered movies that were not released in 2012 or provided incorrect genres."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie '2012' was released in 2009, not 1972."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie from the year 2001 and consistently recommended '2012', which is not relevant."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. Instead of suggesting movies from 2015, it mentioned '2012' which is a movie from 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie suggested was released in 2009, not 2008."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie '2012' was released in 2009, not 1979."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any recommendations that met the user's requirement of movies released in 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations based on the user's request for movies from 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The first movie recommended was released in the wrong year (2002 instead of 2003), and the second recommendation was not provided after the user expressed dissatisfaction with the first."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations based on the user's request for a movie from 1987."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It first recommended '2012', then mentioned 'Wild Wild West' which was released in 1999, not meeting the user's requirement for a movie from 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant recommendation ('2012') for the user's query about movies from the year 1953."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations that met the user's needs and preferences. Despite repeated clarification from the user, the assistant continued to recommend science fiction movies or movies released in incorrect years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user asked for movies released in 2011, but the assistant repeatedly suggested '2012', which is about the year itself."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. The user explicitly asked for movies released in 2015, but the assistant recommended '2012' and 'Wild Wild West', both of which were released before 2015."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant only provided one relevant recommendation (Men in Black) but failed to provide any recommendations for movies released in 1997 despite the user's repeated requests."
+      }
+    ],
+    "COM_STYLE": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's communication style was inconsistent. While the initial greeting and farewell were clear, its recommendation of '2012' instead of a movie from 1982 was ambiguous and did not meet the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's recommendation was inaccurate (The Matrix is sci-fi, not romance) and the conversation ended abruptly after the user expressed frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It recommended a movie titled '2012' without considering the user's preference for movies from the year 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides incorrect or ambiguous movie suggestions, leading to confusion for the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness and relevance to the user's query. It did not provide any movies from 1997."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's communication style was unclear and confusing. It failed to understand the user's request for movies from 2018 and instead recommended a movie from another year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly stated that 'Young Guns' was a romance film released in 1957 when it was actually a western released in 1988."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not directly address the user's query about movies released in 2017. It mentioned '2012' instead."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was ambiguous and did not address the user's request for a movie released in 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends movies released in years other than 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. The first response is ambiguous ('I have not') and the last response ('Goodbye!') seems unnecessary."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are instances of ambiguity ('I can't. I can recommend a movie called 2012') and unnecessary complexity ('I can't. I can recommend...')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is inconsistent. While the initial greeting and farewell are clear, its recommendation of a movie from 2012 instead of 2005 is ambiguous and confusing."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not directly address the user's request for a movie suggestion from 2007. Instead, it mentioned '2012', which is unrelated to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often fails to understand the user's request for movies released in 1988, leading to confusion and unnecessary repetition."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness and accuracy. It provided an incorrect movie title based on the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant made an error in recommending 'Men in Black' for the year 1962. While its communication style was mostly clear and concise, this mistake led to confusion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It recommended a movie titled '2012', which is actually released in 2009, showing a lack of understanding or verification of the user's request for a 2016 release."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly states that '2012 was released in 2001' and mentions 'Cloverfield is a sequel to Zodiac', which is irrelevant to the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'It is a thriller'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends the movie '2012' instead of a 2013 release."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?', 'Goodbye!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeatedly recommends the movie '2012' despite the user's clarification about the year 1984."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly stated that Men in Black was released in 1996 and then provided an unrelated release year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was ambiguous and did not address the user's request for a movie from 2017. Instead, it recommended a movie from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not directly address the user's request for a movie released in 1978. It suggested '2012', which was released in 1981."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Goodbye!'), but there are several instances of ambiguity or misunderstanding the user's request ('I can recommend a movie called 2012' instead of suggesting a movie from 2016)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was mostly clear but contained an error (2012 instead of 1984), leading to ambiguity."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant made an error by recommending '2012' instead of a movie released in 2004. While its communication style was mostly clear and concise, the mistake led to confusion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It failed to understand the user's request for a movie from 1979 and suggested one released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends movies released in different years ('Men in Black', '2012') when the user specifically asked for movies from 1987."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked relevance to the user's query about movies from 1983. It also failed to engage further after the user expressed frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not meet the user's request for a movie released in 1982."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has instances of ambiguity. It initially recommended '2010', which is confusing as it's also the year in which the user was looking for a movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness and accuracy. It recommended '2012', which is a movie from 2009, instead of suggesting a film from the year 1980."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. It misunderstood the user's request initially and provided irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It misunderstood the user's request by recommending '2012' instead of a movie released in 2015."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response 'I can't. I have no idea what the movie is.' could have been clearer and more helpful. It didn't provide any suggestions or guidance on how to refine the search."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was ambiguous and did not address the user's request for a movie released in the year 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Men in Black is a great movie'), but there are several instances of ambiguity or unnecessary complexity. For example, the titles of two movies were masked ('<mask>') and one movie was incorrectly identified as being released in 1997 ('2012')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly misunderstood the user's request and failed to clarify or apologize for the confusion, leading to frustration and ultimately no helpful response."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked relevance to the user's request. It did not provide any movies released in 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response 'I can't. I have no idea what the genre is.' was ambiguous and did not guide the user towards providing more specific details about their preference."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it initially provided information about the movie's genre instead of its title."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It recommended a movie released in 2009 (2012) without providing any context or explanation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It misunderstood the user's request for a movie released in 2018 and provided incorrect information about '2012', leading to confusion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it recommends a movie released in 1974 instead of 1976, which is not relevant to the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It failed to understand the user's request for a movie released in 2003 and provided an irrelevant recommendation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. It misunderstands the user's request initially and provides irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly misunderstood the user's request for a movie released in 2002, suggesting '2012' instead. This led to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's communication style was inconsistent. While the initial greeting was clear and concise ('Hello! How can I help you?'), its subsequent response ('I can't. I have no idea what the year is.') was ambiguous and could have been phrased more clearly (e.g., 'I'm unable to provide movie suggestions based on specific years.'). The final utterance ('Goodbye!') was clear but abrupt, lacking a transition from the previous exchange."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not meet the user's request for a movie released in 2004."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats the same recommendation ('2012') despite user's clarification, leading to ambiguity and frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Yes, I think you are right.') but there are several instances of ambiguity or unnecessary complexity ('2012 is a great movie. It was released in 1953.', 'I think it was released on the same day')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'I can help you with that.') but there are instances of ambiguity ('What genre are you interested in?' was answered with 'The Help is a thriller.', which doesn't directly address the user's question) and unnecessary complexity ('Goodbye!' seems abrupt after the user's 'giveup')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or irrelevant responses. It failed to understand the user's requirement for movies released in 2013 despite repeated clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. The first response is ambiguous ('I have not...') and the final response ('Goodbye!') seems abrupt given the user's previous message."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but there are several instances of ambiguity or misunderstanding the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the response 'I have not' could be interpreted as ambiguous since it's unclear whether the assistant doesn't have recommendations or can't access them."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not directly address the user's request for a movie released in 2006. It recommended '2012', which was released in 2004."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not directly address the user's request for a movie released in the year 2000. It mentioned '2012' instead of providing a title that matches the release year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness and accuracy. It recommended '2012', which was released in 2009, instead of a movie from 1990."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are instances of ambiguity ('I can't. I can recommend 2012') and unnecessary complexity ('Goodbye!')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats the same recommendation ('Men in Black') despite user's request for another option from the specific year (1998), leading to ambiguity and frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'I can recommend 2012. It is a thriller.'), but there are instances of ambiguity ('2012 is a movie written by Michael Scott') and unnecessary complexity ('Goodbye!' after the user expressed frustration)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are instances of ambiguity ('I can recommend 2012. It's a thriller.' for a movie from 1984) and unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has several instances of ambiguity. It initially misunderstood the user's request and provided incorrect movie suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. The first response is ambiguous ('I can't recommend anything else') and the final response is unnecessary."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not communicate effectively. It repeatedly misunderstood the user's request for a movie released in 2014 and suggested movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Goodbye!'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly suggested Men in Black twice despite being corrected by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's requests and provided irrelevant recommendations. It also repeated the same movie title twice, indicating a lack of clarity in communication."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's request and provided irrelevant suggestions. It also failed to clarify its responses when asked for clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not meet the user's request. It suggested '2012' instead of a movie released in the year 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but repeats the same movie title despite being asked for more options, showing lack of understanding or flexibility in its responses."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It recommended '2012' for a movie released in 2004, which is ambiguous and not relevant to the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has instances of ambiguity. It incorrectly states that '2012' is from the year 2010."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant started with clear communication but became ambiguous when it claimed to find a movie from 1989 without providing any specific title or details. The final goodbye was clear but the middle response lacked clarity."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's request despite multiple attempts at clarification. It repeatedly suggested movies related to '2012' instead of movies released in 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. It misunderstood the user's request initially and recommended an inappropriate movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness and relevance to the user's request. It did not provide any recommendations for movies from the year 1960."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It did not directly address the user's request for a movie released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's request and provided irrelevant information. It also failed to acknowledge or correct its mistakes, leading to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's communication style was unclear and ambiguous. It failed to understand the user's request for a movie released in 2015 and instead recommended '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant made mistakes in the movie release year and title, leading to confusion. However, it did eventually clarify its recommendation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant often responded with ambiguous or irrelevant recommendations despite the user's repeated clarifications. It struggled to understand and address the user's request for a movie released in 1963."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has several instances of ambiguity. It misunderstands the user's request initially and provides irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant often used ambiguous language ('It is a thriller', 'Yes, When a Stranger Calls is a comedy. It is a drama.', repeated 'It's a Drama') and failed to understand the user's request for movies released in 2012 of any genre."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was mostly clear but contained an error (recommending '2012' instead of a movie from 1971), leading to confusion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has several instances of misunderstanding the user's request, leading to ambiguity."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's communication style was unclear and confusing. It failed to understand the user's intent and provided irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it initially refused to provide a movie recommendation from the year 2008 despite the user's specific request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but makes several mistakes. It misunderstands the user's request initially and persists with incorrect information despite correction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has instances of ambiguity ('Wild Wild West' was not released in 2005) and unnecessary complexity (recommending 'Young Guns', which is also not from 2005)."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. The first response is ambiguous ('I have not') and the last response ('Goodbye!') seems unnecessary."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often misunderstands the user's intent, leading to irrelevant recommendations and causing confusion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was ambiguous and did not directly address the user's request for a movie suggestion from 1987. It also introduced unnecessary complexity by mentioning Michael Bay."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant struggled with understanding the user's request for a movie released in 2017. It initially recommended '2012', then mentioned 'Wild Wild West' without specifying its release year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked conciseness. It misunderstood the user's request and provided irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or irrelevant responses. It repeatedly recommends sci-fi movies despite the user's clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but has several instances of ambiguity. It initially misunderstood the user's request and persisted with an incorrect response despite clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for movies released in 2015 despite multiple attempts by the user to clarify. The assistant persisted in recommending movies from other years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?', 'Men in Black is a great movie. It was released in 1996.'), but there are instances of ambiguity ('<mask> is a thriller') and unnecessary complexity ('<mask>')."
+      }
+    ],
+    "FLUENCY": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie released in 1982 and instead recommended a movie from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie from 1987 and provided an irrelevant recommendation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was not appropriate for the user's request. It recommended a movie from 2009 ('2012') instead of one from 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly suggested 'Wild Wild West' despite being corrected, and its suggestions for movies from 2006 were incorrect."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query (1997 movie), making it sound robotic and unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies from 2018 and instead recommended a movie from another year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly stated that 'Young Guns' was released in 1957 instead of its actual release year of 1988."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and off-topic, leading to user frustration. The language used was also robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query and did not resemble human conversation, leading to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 1999 despite being asked twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The use of 'I have not' instead of 'I don't have any' and the abrupt 'Goodbye!' at the end made it less human-like."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie released in 2015 and instead recommended '2012', which is a movie from 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie from the year 2005 and instead recommended a movie from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, the response 'I can't' is quite abrupt and unnatural for a conversational context."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly misunderstood the user's request for movies released in 1988, leading to frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's query about movies released in 1935. The language used was also quite artificial."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for movies released in 1962. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, suggesting '2012' for a movie released in 2016 is not accurate."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's intent correctly, leading to irrelevant suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, it incorrectly recommends '2012' instead of a movie released in 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie from the year 1984 despite multiple attempts."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It made factual errors and did not correct them appropriately."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie from 2017 and instead recommended a movie from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 1978. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting '2012' instead of a movie from 2016 shows a lack of understanding of the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was factually incorrect and did not address the user's question about movies released in 1984. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and off-topic, leading to user frustration. The language used was also robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie from 1979 and suggested '2012', which is not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting '2012' instead of a movie from 1987 shows a lack of understanding of the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's query about movies from 1983. It suggested '2012', which is a movie from 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and irrelevant to the user's request, making it sound robotic or unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly recommends '2010' twice instead of providing an actual movie from 1951."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie from the year 1980. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie released in 2015 and instead provided information about a movie released in 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 2015. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were brief and lacked the conversational flow expected from a human. The final response was also abrupt."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in the year 2000. The language used was also robotic and unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats 'is a good one' and provides incorrect movie titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's correction and persisted with incorrect information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie released in 2005 and instead recommended an unrelated film."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were brief and lacked the conversational flow expected from a human. The agent did not attempt to clarify or guide the user when they asked for a movie recommendation without specifying a genre."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, the use of 'Yes' followed by a movie title and release date instead of providing just the title."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 2009. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's request for a movie released in 2018 and instead provided irrelevant information about a movie from another year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly recommends '2012' instead of suggesting movies released in 1976."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and off-topic, which is unusual for human conversation. The user was looking for a movie released in 2003, but the assistant recommended '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie released in 2009, repeatedly mentioning '2012' which is not from that year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie released in 2002, repeatedly suggesting '2012' despite the user's correction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response 'I can't. I have no idea what the year is.' sounds robotic and unnatural, failing to resemble human conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and off-topic, suggesting it doesn't understand the user's request. This makes its responses seem robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly suggested the same movie ('2012') despite the user's requests for other options from the year 2011."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly recommends '2012' instead of a movie from 1954 and persists in this error despite user correction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's intent when asking for a movie genre, leading to an irrelevant suggestion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 2013, repeatedly suggesting '2012' instead."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The use of 'I have not' instead of 'I don't have' and the abrupt 'Goodbye!' at the end made it less human-like."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie released in 1951 despite multiple attempts."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, the response 'I have not' is unusual for a conversational agent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 2006. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in the year 2000. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 1990. The language used was also robotic and unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie released in 2001 and instead recommended a movie from 2012."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to maintain a consistent human-like conversation flow. It repeatedly suggested the same movie despite user clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly stated that '2012' was written by Michael Scott instead of directed by Roland Emmerich."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie from 1984 and suggested a movie released in 2009 instead."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the repetition of 'It's a thriller' and mixing up genres is unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but lacked continuity and context. It failed to provide a movie suggestion despite the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to understand the user's request for a movie released in 2014. It repeatedly suggested movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's requirement for a movie released in 1990 despite being corrected twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies from the year 2016, repeatedly suggesting movies from other years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It struggled to understand the user's intent despite repeated clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in the year 2000. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language feels noticeably artificial. For example, repeating 'When a Stranger Calls is a thriller' twice without providing other options makes the conversation feel robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 2004. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant incorrectly states that '2012' is from 2010."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The first response was appropriate and human-like, but the second response seemed to misunderstand the user's intent ('I can't find it in 1989') and the final response was abrupt."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to understand the user's intent despite repeated clarification. It repeatedly suggested movies related to '2012' instead of movies released in 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like variation. It repeatedly misunderstood the user's request despite clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie from the year 1960 and instead recommended 'Men in Black', which is not from that era."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 2009. The language used was also quite robotic."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's correction about the movie release year and persisted in recommending '2012', which is a clear misunderstanding."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were robotic and unnatural. It failed to understand the user's request for a movie released in 2015 and instead recommended '2012', which was released in 2009. The conversation ended abruptly without attempting to clarify or correct its mistake."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It made factual errors ('2012' instead of 'Inception') and failed to correct itself despite user clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to understand the user's intent despite repeated clarification, leading to irrelevant recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 2003 despite repeated clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to understand the user's intent despite repeated clarification attempts. It also provided incorrect genre information for the movie titles mentioned."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and did not address the user's request for a movie released in 1971. The language used was also robotic and unnatural."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended '2012' despite the user correcting them twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's intent and provided irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly recommended 'Wild Wild West' despite being asked for a movie from 2008."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for a movie from 1979 despite being corrected twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'Young Guns' after being corrected about 'Wild Wild West' shows a lack of understanding context."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but lacked personalization and context awareness. The final response was abrupt."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 2003, instead recommending a movie from another year twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's intent (looking for a movie from 1987) and provided irrelevant information about Michael Bay."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's request for a movie released in 2017 despite multiple attempts."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's response was inaccurate and irrelevant to the user's query, showing a lack of understanding or inappropriate use of knowledge. The conversation ended abruptly without attempting to clarify or correct the mistake."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly misunderstood the user's request despite multiple clarifications, suggesting it lacks human-like understanding or adaptability."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It failed to understand the user's clarification and persisted with an incorrect response."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for movies released in 2015 despite multiple attempts."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but had noticeable artificiality. The first response was accurate but the second one was vague and didn't provide a specific movie title or any details about it."
+      }
+    ],
+    "CONV_FLOW": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response is irrelevant to the user's request and doesn't transition smoothly."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is incorrect for the user's query and doesn't transition smoothly to the user's follow-up."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is not relevant to the user's request for a movie from 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in suggesting movies from the correct year. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant recommended '2012', which was released in 2009, instead of a movie from 1997."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant recommended movies from the wrong year and didn't provide any titles when asked."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly states that 'Young Guns' is a romance film released in 1957 when it's actually a Western released in 1988."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant incorrectly responds with '2012 was released by Disney' when the user asked for a movie released in 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's response '2012 is a thriller' does not address the user's request for a movie released in 2017."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in understanding the user's request for movies released in 1999. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant did not provide any recommendations despite the user's request and instead offered something different."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant misunderstands the user's request and recommends an irrelevant movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly recommends a movie from the wrong year and doesn't acknowledge or respond to the user's frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response is irrelevant to the user's request and doesn't transition smoothly."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request for movies released in 1988. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant provided an irrelevant movie title ('Men in Black', released in 1997) despite the user's request for a movie from 1935."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect recommendation (Men in Black was released in 1997) and the user's frustrated response ('\\giveup')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is not relevant to the user's request (a movie released in 2016), leading to an abrupt and disjointed transition."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly identifies the movie '2012' twice and mentions an unrelated movie 'Cloverfield'. This leads to user frustration and eventual disengagement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request. The assistant recommended '2012', a movie released in 2012, instead of a movie released in 2013."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing irrelevant responses."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to incorrect recommendations and an abrupt change of topic ('<mask> was released the same year as 2012'), leading to user frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly suggests a movie from 2012 instead of 2017 and doesn't correct itself despite the user's confusion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's incorrect movie suggestion. The user had to give up on the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request. Instead of suggesting movies from 2016 after the first correction, it offered a movie from 2015."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect response. The user asked for movies released in 1984, but the assistant mentioned a movie released in 2012 instead."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's incorrect recommendation (2012 was released in 2009, not 2006), leading to user frustration and early termination."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's suggestion of '2012' for a movie from 1979 is incorrect and irrelevant."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's request for movies released in 1987."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant recommended '2012', which is a movie from 2009, instead of suggesting movies from the requested year (1983). This led to user frustration and an abrupt end to the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant recommended '2012', which was released in 2009, instead of a movie from 1982."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant initially misunderstood the user's request and recommended a movie from the wrong year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant misunderstood the user's request and recommended a movie from the year 2012 instead of 1980."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly suggests '2012' instead of a movie released in 2015 and doesn't acknowledge the user's giveup gesture."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant recommended '2012', which was released in 2009, instead of a movie from 2015."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response 'I can't. I have no idea what the movie is.' abruptly ends the interaction without attempting to clarify or guide the user further."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant recommended '2012', which was released in 1999, instead of a movie from the year 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant struggled to maintain context and provide relevant suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and repeated incorrect recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's recommendation is unrelated to the user's request for a movie released in 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's response does not address the user's request for a movie recommendation and instead asks for genre preference, leading to an abrupt transition."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant struggled to understand the user's request initially and provided irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's recommendation is incorrect (2012 was released in 2009), and the user's reaction (\\giveup) wasn't acknowledged."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing irrelevant information. The transitions are disjointed, leading to user frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and failure to provide relevant recommendations for movies released in 1976."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's incorrect movie recommendation for the year 2003."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant misunderstood the user's request initially and continued to provide irrelevant information despite clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing incorrect movie recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response 'I can't. I have no idea what the year is.' seems abrupt and unexpected given the user's request for a movie suggestion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's incorrect movie suggestion (2012 was released in 2009) and the user's immediate frustration ('\\giveup')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive recommendation of '2012', despite the user's attempts to clarify their request for a movie from the year 2011."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and repeated mistakes. The transitions are disjointed, leading to user frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly identifies 'The Help' as a thriller when it's actually a drama, leading the user to give up on the interaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request. The assistant recommends movies released in 2012 instead of 2013, leading to frustration and eventual disengagement by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant did not directly address the user's request for a movie released in 1989 and instead offered movies from an unspecified genre."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing irrelevant recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant did not provide any recommendations despite the user's request and instead offered something different."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request. The assistant recommended a movie released in 2004 instead of 2006, leading to an abrupt and disjointed transition."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant suggested '2012', which was released in 2009, instead of a movie from the year 2000."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's misunderstanding of the user's request. The assistant recommended a movie released in 1989 instead of 1990."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant misunderstood the user's request and recommended a movie from the wrong year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses despite user clarification. The assistant fails to understand and adapt to the user's specific request for a movie from 1998 other than Men in Black."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant misunderstood the user's request for the movie title and provided irrelevant information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant misunderstood the user's request for a movie from 1984 and suggested '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant struggled to maintain coherence when providing movie recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flows naturally (e.g., the initial greeting), but there are several instances of abrupt transitions. The assistant's second response is disjointed and does not flow smoothly from the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in understanding the user's request for a movie released in 2014. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes. It failed to understand the user's requirement for a movie released in 1990 and kept suggesting movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistakes in understanding the user's request for movies released in 2016. The transitions are disjointed and incoherent."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing irrelevant suggestions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's suggestion of '2012' for a movie released in the year 2000 is incorrect and abrupt, leading to user frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive response, which leads to user frustration and eventual disengagement."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant recommended '2012', which was released in 2009, instead of a movie from 2004."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect information about the movie '2012' and its release year. This led to frustration for the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant incorrectly stated that they couldn't find a movie from 1989 when the user was looking for one."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's request, leading to disjointed transitions and lack of coherence."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing irrelevant responses. The transitions between utterances are disjointed."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's recommendation is not relevant to the user's request for a movie from the year 1960."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's suggestion of '2012' is incorrect for the user's request ('a movie released in 2009'), leading to an abrupt and disjointed transition."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstanding of the user's request for a movie from 2014. The assistant persisted in recommending '2012', despite the user's corrections."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant incorrectly recommends '2012' despite the user's clarification about the release year, leading to confusion and an abrupt ending."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect movie recommendations and misunderstanding of the user's corrections."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's persistent misunderstanding of the user's request. The assistant repeatedly recommends movies that are not from the year 1963, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant misunderstood the user's request and provided irrelevant responses, leading to user frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repetitive responses and misunderstanding of the user's request."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's incorrect recommendation (2012 was released in 2009) and the user's immediate frustration ('\\giveup')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and repeated incorrect recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant incorrectly suggests '2012' instead of offering movie suggestions from 2015."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to understand and respond appropriately to the user's specific request for a movie released in 2008. The assistant provided an incorrect recommendation from 2009 instead."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated mistake in recommending '2012', despite the user correcting them twice. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's responses are not relevant to the user's request for a movie released in 2005."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant misunderstood the user's intent initially and didn't provide any recommendations for movies from 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request. The assistant recommended movies from different years despite the user's repeated clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response is irrelevant to the user's request and doesn't transition smoothly."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to misunderstandings and irrelevant recommendations. The assistant failed to understand the user's request for a movie released in 2017 despite being corrected twice."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant misunderstanding the user's request. The assistant recommended '2012', which is a movie released in 2009, instead of suggesting movies from 1953."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's request despite clarification, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request. The assistant repeatedly suggests '2012' despite the user correcting them, leading to frustration and a disjointed conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and repeated incorrect recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant provided a movie recommendation from the wrong year initially and then gave a vague response without specifying the title or any details about the movie from 1997."
+      }
+    ],
+    "OVERALL_SAT": [
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 1982 and instead recommended a movie from 2012. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant provided an incorrect recommendation (The Matrix is a sci-fi film, not from 1987), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 2017 and recommended an irrelevant movie (2012), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 2006 despite multiple attempts. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's request for a movie from 1997. The user expressed dissatisfaction with the response ('\\giveup')."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 2018 and instead recommended a movie from another year. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate or helpful information throughout the conversation. The user was left dissatisfied and gave up."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's query about movies released in 2017 and provided irrelevant information about '2012'. This led to user dissatisfaction as indicated by their response '\\giveup'."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie released in 2017 and suggested '2012', which is not from that year. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies released in 1999. It provided incorrect recommendations twice before the user gave up."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any recommendations for movies from the year 2009 and could not engage the user further after they expressed dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie released in 2015 and instead recommended '2012', which is not helpful. The user's response of '\\giveup' indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 2005 and instead recommended a movie from 2012. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a helpful response to the user's query about movies from 2007. Instead, it provided irrelevant information about a sequel to a different movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for movies released in 1988. Despite repeated clarification from the user, the assistant persisted with an incorrect recommendation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect information (Men in Black was released in 1997), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect information (Men in Black was released in 1997), leading to user dissatisfaction and early termination of the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie released in 2016 and suggested '2012', which was released in 2009. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant was unable to understand and fulfill the user's request for a movie released in the year 2001. The conversation became confusing and frustrating for the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate recommendation for a movie released in 2013. Instead, it recommended '2012', which was released in 2009. This led the user to express frustration and end the conversation prematurely."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1984 and repeatedly recommended '2012', leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant made incorrect recommendations twice despite being corrected by the user. This led to user dissatisfaction and frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 2017 and instead recommended a movie from 2012. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's request for a movie released in 1978. Instead, it suggested '2012', which was released in 1981."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released specifically in 2016. Instead of trying again with the correct year, it offered a movie from two years earlier."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect information (2012 was released in 2009), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's request for a movie released in 2004. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie from 1979 and suggested a movie released in 2009 instead. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released specifically in 1987. Instead of providing relevant suggestions, it mentioned movies from different years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or respond appropriately to the user's request for a movie from 1983. The user expressed dissatisfaction by using '\\giveup'."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie released in 1982 and provided an irrelevant recommendation ('2012'), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not accurately understand the user's request for a movie from 1951 and persisted with an incorrect recommendation despite the user's clarification."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie from the year 1980 and recommended '2012' instead. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2015 and instead provided information about a movie from 2012. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2015 and recommended an incorrect movie (2012). The conversation ended abruptly without further assistance."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any helpful response or suggestion despite the user's request for movie recommendations. The conversation ended abruptly without addressing the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's request for a movie released in 2000. Instead, it recommended '2012', which was released in 1999."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate recommendations for movies released in 1997. The user expressed dissatisfaction by saying 'I haven't heard of those movies' and eventually gave up on the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite clarification, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2005 and instead recommended an unrelated film. The conversation ended abruptly without further attempts to assist the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any helpful response despite the user's request for movie recommendations. The conversation ended abruptly without resolution."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide the correct movie title despite multiple attempts by the user to clarify their request. This led to user dissatisfaction and frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2009. The recommended movie was released in 2009 but is titled '2012', which could cause confusion. The user's response of '\\giveup' indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie released in 2018. Instead, it provided incorrect information about a movie from another year."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies released in 1976 and did not provide any relevant recommendations."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie released in 2003 and provided an irrelevant recommendation (2012), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's requirement for a movie released in 2009 and kept suggesting '2012', which was released in 2009 but is not a typical recommendation due to its title. The conversation ended with the user giving up."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2002 and repeatedly suggested '2012', which is not from that year. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any useful response to the user's request for movie suggestions from the year 1999. Instead of trying to assist or asking for clarification, it immediately stated that it couldn't help and ended the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's request for a movie released in 2004. The suggested movie was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2011 other than '2012'. Despite multiple prompts from the user, it continued to recommend the same movie."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies released in 1954 and repeatedly provided incorrect information. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant incorrectly identified 'The Help' as a thriller when it's actually a drama. This misinformation led the user to give up on the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released in 2013 and repeatedly suggested movies from other years."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not provide any recommendations for movies released in 1989 and the conversation ended abruptly after the user expressed frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 1951 despite multiple attempts. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any recommendations for movies from the year 2001 and did not engage further with the user after they expressed dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie released in 2006 and recommended '2012' instead. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie released in 2000 and suggested '2012' instead. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie released in 1990 and instead recommended '2012', which was released in 1989. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2001 and instead recommended a movie from 2012. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie specifically from 1998 and kept recommending 'Men in Black', despite the user's repeated requests for another option. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie title and provided incorrect information. The conversation ended abruptly after 'giveup', indicating dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a movie from 1984 and suggested '2012', which was released in 2009. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate recommendations for movies from the year 2004 and confused the user with incorrect genre information."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any movie suggestion despite the user's request. The conversation ended abruptly without addressing the user's query."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie released in 2014 and continued to suggest movies from different years despite being corrected by the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate movie recommendation for the year 1990 despite being corrected twice. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand the user's request for movies released in 2016 and repeatedly provided incorrect recommendations. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts by the user to clarify. This led to dissatisfaction and ultimately resulted in the user giving up on the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie released in the year 2000. Instead of suggesting a movie from that year, it suggested '2012', which was released in 2009."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide more movie recommendations from 1994 despite the user's request. This led to the user expressing dissatisfaction with 'giveup'."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2004 and recommended an irrelevant movie (2012), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to accurately respond to the user's request for a movie from the year 2010. This led to dissatisfaction and frustration on the part of the user."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a movie released in 1989 despite the user's request. The conversation ended abruptly with 'Goodbye!' without attempting to resolve the issue or offer an alternative suggestion."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts at clarification. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1986 and instead recommended 'The Matrix', which was released in 1999. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from the year 1960 and instead recommended a recent film. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie released in 2009 and suggested an incorrect movie (2012). The user expressed dissatisfaction with \\giveup."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2014 and repeatedly provided incorrect recommendations. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie released in 2015 and did not improve despite correction. The conversation ended abruptly without resolution."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant made an error in recommending 'Inception' despite the user correcting them. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's request for a movie released in 1963, repeatedly suggesting movies that were not from that year. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request initially and failed to provide relevant movie recommendations from the year 2003. The conversation ended with the user expressing frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request for a movie released in 2012. Instead of providing recommendations, it repeatedly stated incorrect genres and titles."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie released in 1971 and provided an incorrect recommendation. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite being corrected twice. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 2015 and instead recommended a movie from 2012. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations for the year 2008 despite being asked repeatedly. This led to user dissatisfaction and frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie from 1979 and repeatedly recommended '2012', despite the user correcting them. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide an accurate recommendation for a movie released in 2005, leading the user to express dissatisfaction and end the conversation prematurely."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide any movie recommendations from 2009 and did not engage the user further after their initial response."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released in 2003 and provided irrelevant recommendations. The conversation ended with the user expressing frustration."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide helpful suggestions for the user's query about movies from 1987. Instead, it provided irrelevant information about Michael Bay."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request twice, leading to frustration and dissatisfaction. The user gave up on the conversation."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's request for a highly regarded movie from 1953 and recommended '2012', which was actually released in 2009. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple clarifications. It repeatedly suggested sci-fi movies when the user explicitly asked for non-sci-fi films released in 1988."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for movies released in 2015 despite being corrected twice. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "UniCRS_OpenDialKG-Single_LLM_nemo_ReDial-1760945193",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a relevant movie recommendation for the year requested by the user. Instead of suggesting another movie from 1997, it provided a vague statement about a thriller without specifying its title or any details."
+      }
+    ]
+  }
+}

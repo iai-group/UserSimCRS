@@ -1,0 +1,2514 @@
+{
+  "BARCOR_OpenDialKG": {
+    "REC_RELEVANCE": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie based on a book. The first recommendation was not accurate and the second response was completely off-topic."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations that met the user's criteria for gore and nudity. Despite the user's clarification, the assistant persisted in recommending movies that did not fit their preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. None of the movies suggested were centered around Halloween or Christmas."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations that met all of the user's criteria. Instead of asking for clarification or trying again, it gave up and ended the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's clear requests for movies with specific themes of sexual abuse and rape, the assistant repeatedly suggested sequels or movies with similar titles that did not meet these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The assistant provided an accurate and relevant movie recommendation ('The Prestige') that perfectly matches the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested were not animated films based on Shakespeare's works featuring talking animals."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations that met the user's needs and preferences. None of the suggested movies were about teenagers or high school life."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that matched the user's criteria of 'music', 'dancing', 'based on a play', and 'broadway or musical'. Instead, it suggested movies with unrelated themes like zombies and butterflies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's clarification and repeated attempts, the assistant continued to suggest movies that did not meet the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite clear user requirements for a 'so bad it's funny' horror cult film with low budget production values set in a small town, the assistant recommended 'Unfaithful', which is a psychological thriller without these qualities."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations that met the user's criteria of being an adaptation from a book with the theme of a serial killer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations based on the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It did not understand the user's criteria and kept suggesting movies that did not fit the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant initially provided an irrelevant movie recommendation ('The Day After Tomorrow'), but then correctly suggested 'The Departed' based on the user's requirements. However, it took two attempts from the user to clarify their request before the assistant understood and provided a relevant suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. It did not understand the user's request for 'Jay and Silent Bob Strike Back' and instead recommended movies with different titles and casts."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's keywords ('brutal', 'prison', 'brutality', 'gangs', and 'violence'). Both suggested movies ('The men who stare at goats' and 'Thirteen Days') do not align with these themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations based on the user's keywords and preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly suggested 'Cloverfield' and its sequels despite the user's clear indication that they were looking for a sequel to an established sci-fi franchise starring anyone other than Bill Murray. The recommendations did not meet the user's needs or preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that were relevant to the user's request for movies about 'gangsters', 'mob', or 'high fantasy'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant only recommended 'The Last Dragon', which is an older film and does not meet the user's preference for newer films. The assistant did not provide any other recommendations despite the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide a relevant recommendation. The user asked for a coming-of-age movie with bittersweet relationships and adolescence themes, but the assistant recommended 'The Next Three Days', which is an action thriller."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations that met the user's criteria for independent films with significant gay characters or themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user was looking for a movie with certain characteristics but the assistant suggested 'Shark Night' without any further clarification or understanding of the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. Despite the user's repeated requests for an animated movie with original animation featuring animals, the assistant consistently recommended 'Treasure Planet', which is a live-action film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The assistant provided a relevant and accurate recommendation ('The Breakfast Club') that met the user's requirements for a funny movie about a teacher dealing with idiotic students or bullying."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely provided informative and helpful recommendations that met the user's specific needs. The suggested movies did not closely match all the keywords provided by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The films mentioned were not artistic with surreal elements and did not match the user's preference for films from the Criterion Collection."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations throughout the conversation. The user specifically asked for movies about spying or the Cold War, but the assistant suggested 'The Cold Light of Day', which is not related to these themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The first suggestion was for 'Aliens 2', which is not well-known or part of a popular franchise, and the second suggestion was for 'Memento', which has no relation to aliens or adventure."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely provided relevant recommendations. While it initially offered some suggestions with keywords like 'unlikely friendships', it failed to consistently provide movies that specifically featured unlikely friendships between women."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly suggested movies that were not relevant to the user's request for a satire about world politics. The recommendations were mostly political comedies or other genres."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide any relevant recommendations for the user's request for an original holiday movie."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the suggested movies met the user's criteria of being set in the future with martial arts and science fiction elements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested ('Year One', 'Year Two', and 'Year Three') do not have teenagers or high school themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's clear preference for films with themes of mental illness and a bleak atmosphere from the Criterion Collection, the assistant repeatedly suggested 'The Place Beyond the Pines', which is not part of the Criterion Collection and has no apparent connection to the desired themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide informative and helpful recommendations that met the user's needs and preferences. Despite repeated clarification of requirements, the assistant continued to suggest movies that did not fit the criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The assistant provided an accurate and relevant recommendation ('Hot Fuzz') that perfectly matches the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant provided a relevant recommendation ('The Godfather') based on the user's keywords. However, when suggesting another movie similar to 'The Cotton Club', it incorrectly stated that 'The drama' and 'The film' are the same genre, which is not helpful or accurate."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant only provided one recommendation ('Funny People') which did not fully meet the user's preference for 'stupid humor' or 'really silly and over-the-top stuff'. The assistant also misunderstood the user's follow-up question about Jim Carrey."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant made some relevant suggestions but struggled to meet all the user's criteria consistently. They offered three recommendations, but only 'The Tree of Life' seemed to fit all the user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant movie recommendation ('Tomorrow Never Dies', a James Bond film) that does not match the user's requested themes of life, travel, and midlife crisis."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a recommendation that met all of the user's requirements (nudity). Instead, it repeatedly suggested 'The Poker House', which does not contain nudity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for a light, cult classic documentary. Instead of providing recommendations in that category, it repeatedly mentioned 'Light' as a film, which is not a documentary nor cult classic."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The user specifically asked for a horror movie that would scare them, but the assistant recommended 'Vampires in Amber' twice despite the user mentioning they had seen it and questioning its horror classification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations that met the user's preference for weed-related humor. Instead of offering new suggestions, it repeatedly mentioned movies already suggested."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's clear preference for animated movies featuring animals set in Russia, the assistant repeatedly suggested 'Finnikin', a movie that does not meet these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations despite multiple attempts. It repeatedly suggested 'The People Speak', which is not an independent film set in a small town."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant movie recommendations based on the user's keywords (adultery, romantic, romance, love story, interracial romance). None of the suggested titles matched these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations that met the user's needs. The movies suggested ('Unbroken', 'Zero Dark Thirty', and 'Takers') did not have a clear relation to the United Nations despite the user's repeated requests."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that matched the user's keywords 'teens', 'geeks', and 'high school'. Instead, it suggested movies about zombies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely provided informative and helpful recommendations that met the user's needs and preferences. While they tried to suggest movies or specials, none of them were original, politically charged, humorous, involving doctors or stand-up comedy, and released in the past few years."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie suggested ('The Next Three Days') is neither a coming-of-age film nor does it have queer or homosexual themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation based on the user's keywords ('passionate', 'enigmatic', 'intimate', 'betrayal'). The suggested movie, 'The Croods', does not align with these themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that matched the user's preference for space travel themes and sci-fi or space opera genres."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's criteria. The movies suggested did not meet the requirements of being about teenagers with elements of ridiculousness and idiotic humor, nor did they emphasize action scenes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's clear request for movies that are sequels and contain erotic or sexy scenes, the assistant repeatedly suggested movies that did not meet these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that were relevant to the user's request for a short animated Halloween-themed classic cartoon. Instead, it recommended 'Treasure Planet', which is neither short nor Halloween-themed."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The Spirit does not meet the user's criteria of being based on a play or having scenes involving drinking."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not attempt to provide any recommendations and ended the conversation prematurely."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested did not match the user's criteria of 'bad ending', 'suspense', and 'prison' setting."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's request for horror movies with keywords 'haunted house', 'scary', and 'supernatural'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations relevant to the user's request for a romantic teen comedy movie."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended movies from The Matrix series despite the user expressing no interest in them. No other relevant recommendations were provided based on the user's keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely provided informative and helpful recommendations that met the user's needs. While they did eventually suggest 'The Three Colors' trilogy, they failed to confirm if it won the Golden Palm award or explain why it was enigmatic. They also suggested irrelevant films initially and gave up mid-conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant provided an irrelevant recommendation (Zathura: A Space Adventure) that does not meet the user's needs for a cult film with dark humor and surreal elements set in suburbia."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant provided relevant recommendations ('Into the Wild') after the first suggestion didn't fully meet the user's criteria. However, it took two attempts to find a suitable film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested did not match the user's criteria of martial arts and undercover cops."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movie suggested, 'The Next Three Days', does not involve teenagers, hip hop culture, or take place in high school."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely provided relevant recommendations. While they initially suggested 'The Full Monty', it didn't fully match the user's requirements about gunfights, cars, and mentors. Subsequent suggestions like 'Zookeeper' and 'You've Got Mail' were not based on a play and did not contain these elements either."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested did not match the user's preferences for neo-noir, suspenseful films with elements of paranoia."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any relevant recommendations based on the user's criteria of historical, Germany, WWII, wartime. The movies suggested were not related to these keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the movies suggested were fully animated superhero films."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations that met the user's needs and preferences. Despite repeated clarification from the user, the assistant continued to recommend movies that did not fit the criteria of monsters being the main focus in a small town setting, preferably as part of a franchise or sequel."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's keywords ('weapons', '1980s', 'teen movie', 'teenager', 'science'). The recommended movies ('Wild Wild West' and 'Zookeeper') did not match any of these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant only provided one relevant recommendation ('The Independent') after the user specified they were looking for something more independent and weirder. The first suggestion ('Aliens 2') did not meet the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The films suggested ('Zoe's Tale', 'Wyrd Sisters', and 'Shark Night') do not explore themes of sexuality explicitly or erotically as requested by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations based on the user's preferences for time travel, love, and romance. The same movies were recommended twice without considering the user's feedback."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the suggested movies involved marijuana or drug abuse based on true stories."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant mostly provided relevant recommendations. After initially suggesting 'The Rocky Horror Picture Show', which wasn't what the user was looking for, the assistant correctly recommended 'Blazing Saddles' as a fun and silly western movie. However, there was some confusion when the assistant mentioned 'Funny People', which didn't fit the user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that met the user's criteria of being part of the Criterion Collection and epic in scale with strong storytelling and minimal dialogue. Instead, it suggested 'The Last Samurai' and 'The Last Olympian', which are not relevant to the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that matched the user's requirements of 'catastrophe', 'survival', and being based on a book with an original story."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The Tenant of Wildfell Hall is not a queer pornography documentary nor does it have themes related to censorship or stand-up comedy."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely provided relevant recommendations. Most suggestions were either not adventure murder mysteries or not set in Russia/involving Russian characters."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's keywords. 'The Men Who Stare at Goats' and 'The Godfather' do not align with the themes of 'based on true story', 'culture clash', 'women', 'Iran', or 'Islam'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant initially provided irrelevant recommendations (The Polar Express movie and TV series) and later incorrectly stated that 'Merry Madagascar' was based on a book. The user had to clarify their question multiple times before the assistant corrected themselves."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's specific criteria of being set during World War II in Italy. The films mentioned were either not from that period or not set in Italy."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide an informative and helpful recommendation that met the user's needs and preferences. Instead of suggesting a movie with elements of brutality, splatter, based on a comic, involving vigilante themes, and featuring significant violence, it provided an unrelated suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations that met the user's criteria. It repeatedly suggested movies that were not satirical, nostalgic, artistic, stylized, or recognized by Criterion Collection."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The movies suggested were not set in high schools or featured teenage characters."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant repeatedly recommended 'Ghost Town' and its sequels despite the user's clear preference for an original movie with ghosts or supernatural elements that has a sequel. The recommendations did not meet the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand and use the correct keywords provided by the user ('France', 'splatter', 'zombie/zombies'). Instead, it offered irrelevant keywords ('War', 'Spain', 'Destruction'), leading to an unhelpful recommendation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant movie recommendation based on the user's request for specific characteristics. The user's immediate response of '\\giveup' indicates dissatisfaction with the suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. Despite the user's repeated clarification and correction, the assistant continued to recommend 'The Day After Tomorrow', which is an English-language film set in the future, not a German-language film about Nazis and World War II."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations. The film suggested ('Young Adult') did not meet the user's criteria of having elements of hip hop and tackling stereotypes or pornography themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations. It suggested fantasy films that did not meet the user's criteria of being art house films with magic realism elements and having won or been nominated for the Golden Palm award at Cannes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide relevant recommendations. None of the movies suggested featured Chris Tucker or were known for being very funny."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not provide any recommendations that matched the user's criteria of being an Oscar-winning director, historical, aviation, biopic. The suggested movies were not relevant to the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant consistently failed to provide recommendations that met the user's needs and preferences. None of the suggested movies ('Teacher', 'Men in Black 3', 'Boy in Black 2', 'Boy in Blue 3') contained notable male nudity or were sequels."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide a relevant recommendation. The movie 'Shark Night' is neither French nor a screwball comedy and it's unclear if it's available on the Criterion Channel."
+      }
+    ],
+    "COM_STYLE": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of ambiguity ('The Light Between Oceans which is also a romance novel') that could be improved."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but fails to understand the user's requirements despite repeated clarification. This leads to ambiguity in its recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant started with clear communication but failed to address the user's specific request for Halloween or Christmas-themed horror movies. It recommended irrelevant movies like 'Zombieland' and 'The Shaggy Dog', showing a lack of understanding of the user's preference."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant initially provided recommendations that did not fully match the user's criteria. After the user asked for clarification, the assistant did not respond or misunderstood, leading to a lack of clear communication."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant frequently misunderstood the user's requests and offered irrelevant suggestions, leading to confusion. It also failed to clarify its recommendations when asked for specifics."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The assistant communicated clearly and concisely throughout the conversation, providing a precise movie recommendation based on the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but makes several mistakes. It repeats the same recommendations despite the user's clarification, showing a lack of understanding or adaptation to the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide relevant movie recommendations despite the user's clear criteria. It often suggested action or horror movies when the user specified they were not interested in those genres."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request and provided irrelevant movie recommendations. The communication was unclear and did not meet the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often misunderstands the user's requirements, leading to ambiguous recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicated clearly and concisely. It provided an irrelevant recommendation despite the user's specific requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It struggles to understand the user's criteria despite repeated attempts."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats previous suggestions despite user feedback, showing lack of understanding or adaptability."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides irrelevant or incorrect recommendations ('The Butterfly Effect', 'You've Got Mail'), leading to confusion and requiring clarification from the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there's one instance of ambiguity ('Ok, then you'll like The Day After Tomorrow') which led to user confusion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but makes several mistakes leading to ambiguity. It incorrectly identifies the movie and its characters initially."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant made two recommendations that did not match the user's keywords ('brutal', 'prison', 'brutality', 'gangs', and 'violence'), showing a lack of understanding or consideration for the user's preferences. However, its communication style was clear and concise."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides irrelevant or ambiguous suggestions despite the user's repeated attempts to clarify their preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often responds with ambiguous or irrelevant suggestions (e.g., repeatedly mentioning 'Cloverfield' when the user has already stated they've seen it and are looking for something else)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were ambiguous and did not match the user's request for movie recommendations with specific keywords ('gangsters', 'mob', 'high fantasy'). Instead of providing relevant suggestions, it mentioned movies starring Russell Crowe or movies with unrelated themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a newer movie and repeatedly recommended 'The Last Dragon', demonstrating poor comprehension of the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but missed the user's requirement for a coming-of-age movie with specific themes. It recommended an unrelated film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or irrelevant suggestions, leading to confusion and frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. The suggestion 'Shark Night' seems unrelated to the user's request for a movie with certain characteristics."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly suggests 'Treasure Planet' despite the user's request for an animated movie with original animation featuring animals."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The assistant communicated clearly and concisely throughout the conversation, providing relevant responses to the user's queries without any ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. It fails to understand the user's specific requirements and keeps suggesting movies that don't match all the keywords provided."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides irrelevant or incorrect information (e.g., listing films that are not artistic with surreal elements), leading to user frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's request and provided irrelevant movie suggestions. It also failed to clarify misunderstandings or ask for more specific details."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it incorrectly recommends 'Aliens 2' and confuses the user by mentioning Roberto Orci and Miguel Arteta."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it repeatedly suggests 'Wishingin': a Love Story' despite the user's clarification about wanting movies featuring unlikely friendships between women."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but often provides irrelevant or incorrect suggestions, leading to ambiguity and unnecessary complexity in the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant started with clear communication but became ambiguous and unresponsive when the user expressed frustration. It also made an irrelevant suggestion (WALL-E) instead of trying to understand the user's preference for a holiday movie."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or irrelevant suggestions that do not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely (e.g., 'Sure, I can. Have you seen the movie...'), but there are several instances of ambiguity or unnecessary complexity in its utterances ('Year Two' written by Jerry Bruckheimer or 'Year Three' written y Michael Bay')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's request and kept suggesting films that didn't match the criteria. The communication was often ambiguous and lacked clarity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to maintain clear and concise communication throughout the conversation. It repeatedly misunderstood or ignored the user's requirements, leading to confusion and frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The assistant communicated clearly and concisely throughout the conversation, providing a specific movie recommendation based on the user's preferences without any ambiguity or unnecessary complexity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant communicates mostly clearly and concisely. However, the utterance 'Similar to The Cotton Club, The drama and The film are the same genre.' is ambiguous and confusing."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. It repeats the same movie title despite being asked for specific types of humor."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant communicates clearly most of the time but occasionally uses ambiguous phrases like 'Sure, let's start with...' which could be clearer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked relevance to the user's request for a feel-good movie with specific themes. The recommended movie, Tomorrow Never Dies, is actually a James Bond film which doesn't fit the requested themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats the same information ('The Poker House') without addressing the user's specific request for nudity scenes. This leads to ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity. For example, it incorrectly recommends 'Light' instead of a documentary, and provides incorrect information about 'American Movie'. It also repeats its initial response when the user asks again for recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but fails to address the user's concern about wanting a scary horror movie. It repeats its recommendation despite the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats previous recommendations despite the user's clarification. This leads to ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but often provides incorrect or irrelevant movie titles ('Finnikin', 'Finnikins', 'Finnikain'), leading to confusion and ambiguity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats the same information ('Coming of age') and fails to understand the user's requirement for an independent film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides ambiguous or irrelevant movie recommendations. It also fails to address the user's requests for specific details about the movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, there are instances of ambiguity (e.g., 'Unbroken has a genre of War and Civil War') and lack of relevance to the user's request ('War films are generally considered to be a good movie')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant made some attempts at clear communication but the movie recommendations were not relevant to the user's request ('teens', 'geeks', 'high school'), showing a lack of understanding or consideration of the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but often provides ambiguous or irrelevant recommendations. It also fails to clarify whether the suggestions are movies or stand-up specials as requested."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request for movies with queer or homosexual themes. It recommended 'The Next Three Days', which is a thriller, not a coming-of-age movie."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request for a movie recommendation based on the given keywords. The suggestion of 'The Croods' was ambiguous and did not match the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's recommendations were not aligned with the user's preferences (space travel themes and sci-fi/space opera genres), indicating a lack of understanding or consideration of the user's input. This resulted in ambiguous and irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly suggests movies with Bill Murray despite the user's preference for teen action comedies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. It often uses ambiguous or irrelevant recommendations despite the user's repeated attempts to clarify their request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely. However, the second response could have been more relevant to the user's request for a Halloween-themed cartoon."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. It provided a movie suggestion without fully addressing the user's specific criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant started with clear communication but became ambiguous and unresponsive when the user did not provide more details. The conversation ended abruptly without any further assistance."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were repetitive and did not address the user's specific criteria ('bad ending', 'suspense', 'prison'). The assistant also failed to clarify or confirm if the suggested movies fit these criteria before providing them."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were ambiguous and did not match the user's request for horror movie recommendations. It suggested books instead of movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were not relevant to the user's request for a romantic teen comedy movie. It provided suggestions from different genres ('The Other Guys' is an action-comedy and 'Wild Wild West' is a western), demonstrating a lack of understanding or consideration of the user's preference."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats recommendations without providing new information or addressing the user's request for more details about genres."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it initially recommended movies that didn't fit the user's requirements and struggled to provide accurate information about the suggested trilogies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's recommendation was not relevant to the user's request for a cult film with dark humor and surreal elements set in suburbia. The agent occasionally communicates clearly but failed to understand the user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The assistant consistently communicates clearly and concisely throughout the conversation, avoiding ambiguity and unnecessary complexity."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or irrelevant suggestions. For example, suggesting 'What Lies Beneath' which is a horror film, not an action movie with martial arts."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's response was somewhat clear but lacked relevance to the user's request. It did not provide any movie recommendations that match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly suggests movies that do not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. It failed to understand the user's preferences and provided irrelevant movie suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly irrelevant to the user's request for a movie recommendation about historical Germany during WWII. The agent did not communicate clearly or concisely regarding the user's specific criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or misunderstanding the user's requirements (e.g., recommending non-animated movies)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant rarely communicates clearly and concisely. Despite the user's repeated clarifications, it continued to recommend movies that did not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. For example, it initially suggested 'Western' genre despite the user's preference for 'teen movie' or 'science'. It also misunderstood the user's request for a teen movie with science elements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant communicates clearly most of the time but occasionally uses ambiguous language (e.g., 'It's available to rent at Amazon' without specifying which service) and fails to understand the user's preference for independent films better after the first suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous or irrelevant recommendations. It fails to understand the user's preference for explicit or erotic films."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often provides irrelevant recommendations and repeats the same suggestions despite user feedback."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or irrelevant suggestions. The assistant did not understand the user's requirement correctly in their second response."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant mostly communicates clearly and concisely, but there are a few instances of ambiguity (e.g., initially suggesting 'You Only Live Twice' as a western comedy) or unnecessary complexity in its utterances."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant made two recommendations that did not match the user's criteria (Criterion Collection, epic scale, visually appealing, strong storytelling with minimal dialogue). This shows a lack of understanding or consideration of the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant made some attempts at clear communication but struggled with understanding the user's requirements. The recommended movies did not match the user's specified keywords ('catastrophe', 'survival', 'drama') and were not based on books."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request for a movie recommendation containing the keywords 'queer', 'pornography', and 'documentary' with themes related to censorship or stand-up comedy. The suggested film, 'The Tenant of Wildfell Hall', does not appear to match any of these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but often provides suggestions that do not fully match the user's requirements ('Shark Night', 'The Sting', 'The Bone Collector'), leading to confusion and multiple rounds of clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat clear but lacked conciseness and precision. The movie recommendations given did not align well with the user's specified keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicated clearly and concisely but had several instances of ambiguity or unnecessary complexity. For example, it incorrectly stated that 'Merry Madagascar' was based on a book and provided incorrect information about its writer."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeats the same movie titles multiple times instead of providing new suggestions based on the user's feedback."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response did not directly address the user's requirements and instead provided an unrelated suggestion, demonstrating poor understanding of the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it repeatedly recommends 'Almost Like Now' despite the user's clarification about Criterion Collection recognition."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly (e.g., 'Hello! How can I help you?'), but there are several instances of ambiguity or irrelevant responses ('The Last Airbender', 'The Next Airbender')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often repeats the same suggestion despite user's clarification, leading to ambiguity and frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's communication style was often ambiguous and unclear. It misunderstood the user's keywords and provided irrelevant information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's communication style is somewhat clear but could be more concise. The recommendation 'Shark Night' was not tailored to the user's specific characteristics and led to a negative response ('\\giveup')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. It repeatedly recommends 'The Day After Tomorrow', which is not a German film about Nazis and World War II, despite the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous language. For example, mentioning 'elements like Young Adult and Urban Legend' without specifying how they relate to hip hop or the themes mentioned by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely, but there are several instances of ambiguity or unnecessary complexity in its utterances. For example, it initially suggested 'The Mist' which is not an art house film with magic realism elements, and later provided suggestions that do not fit the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly and concisely but often provides incorrect or irrelevant responses leading to confusion for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was ambiguous and did not match the user's request for an Oscar-winning director, historical aviation biopic. Instead, it suggested movies with similar titles but different themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant occasionally communicates clearly but often uses ambiguous or irrelevant suggestions. It fails to understand the user's preference for male nudity and sequels in its initial responses."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was ambiguous and did not meet the user's criteria. It suggested a thriller ('Shark Night') instead of a screwball comedy set in France or Paris."
+      }
+    ],
+    "FLUENCY": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly recommends 'Gathering Blue' as a sequel to 'The Light Between Oceans', which is not based on a book series."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie title despite being asked for something different."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to provide relevant movie recommendations based on the user's request for Halloween or Christmas-themed horror movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's requirements accurately despite multiple attempts, leading to irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly suggested movies that did not fit the user's criteria, showing a lack of understanding or consideration for the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluent and human-like. However, the final response of 'Goodbye!' seemed somewhat abrupt and could have been more natural."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended movies that were not relevant to the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to provide relevant movie recommendations despite the user's repeated requests for teenager/high school-themed movies. The language used was also noticeably artificial."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for movie recommendations based on specific keywords and instead provided irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It failed to understand the user's requirements despite multiple attempts, leading to frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was irrelevant to the user's request and did not demonstrate an understanding of the requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'The Interpreter' and '(The Book Thief)' as adaptations with serial killer themes when they are not."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to provide relevant movie recommendations despite the user's clear criteria. The repetition of previous suggestions also contributed to a lack of fluency in the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resembled those of a real human, but there were several instances where the language or style felt noticeably artificial. For example, it repeatedly recommended 'You've Got Mail', despite the user's clarification that they wanted a classic screwball comedy from the Criterion Collection."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluid and natural, with only minor instances of artificial language use. However, it did not maintain context perfectly (e.g., repeating the genre of 'The Departed'), which is why it didn't score a perfect 5."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like language style. It repeatedly made mistakes in understanding the user's request despite being corrected."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but lacked the nuance expected for the user's specific request. The movie recommendations given did not match the keywords provided by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like understanding of the user's requests. It repeatedly suggests movies that do not match the user's desired themes or mood."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It struggled to understand and respond appropriately to the user's requests."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for movie recommendations based on specific keywords ('gangsters', 'mob', 'high fantasy') and instead provided irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It repeatedly recommended 'The Last Dragon' despite the user asking for newer movies, showing a lack of understanding or flexibility in its suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response did not match the user's request for a coming-of-age movie with specific themes and genre. Instead, it recommended an action thriller ('The Next Three Days'), showing a lack of understanding or consideration of the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. The assistant struggled to understand and respond appropriately to the user's requests."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat natural but lacked personalization and depth. The suggestion 'Shark Night' seemed random and didn't show understanding of the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It repeatedly suggested 'Treasure Planet' despite the user asking for an animated movie with original animation featuring animals."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly natural and helpful, closely resembling those of a real human. However, there was one instance ('Great! What genre does it fall under?') where the user's response seemed slightly artificial or leading, which is why it didn't score a perfect 5."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant repeatedly offers movie titles that don't match all the user's keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's request for an artistic film with surreal elements from the IMDB top 250 list, instead listing unrelated films."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like language style. It repeatedly misunderstood the user's request and offered irrelevant movie suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, mentioning 'Aliens 2' when the user was looking for well-known franchises and suggesting Miguel Arteta as a director instead of an actor."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie titles despite being corrected by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It struggles to understand and respond appropriately to the user's specific request for a satire about world politics."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'WALL-E' as a feel-good original holiday movie is unusual and not tailored to the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to understand the user's requirements despite repeated clarification. The suggested movies did not match the user's criteria for science fiction elements or futuristic settings."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly suggested movies with similar titles but different content, which was not helpful to the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural, failing to understand the user's requests despite repeated clarification. It repeatedly suggested films that did not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to maintain context throughout the conversation, repeatedly suggesting movies that do not meet the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluent and human-like. However, there was one instance ('\\giveup') where the user's input was unusual and the assistant's response ('Goodbye!') felt slightly artificial."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluent and human-like. However, the last response ('Similar to 'The Cotton Club', 'The drama' and 'The film' are the same genre.') was somewhat confusing and unnatural."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats 'Funny people' and 'Jim Carrey/Carrel' multiple times without addressing the user's question about stupid humor."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluent and human-like, with only minor instances of artificial language or style. However, it did not fully understand the user's requirements until the end."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request for a feel-good movie with specific themes. Instead, it recommended 'Tomorrow Never Dies', which is a James Bond film, suggesting that the assistant did not understand or consider the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats 'The Poker House' multiple times and provides incorrect information about the movie's genre."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same recommendation despite being corrected by the user and doesn't provide relevant recommendations based on the user's interest in 'American Movie'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommends 'Vampires in Amber' despite the user specifying they're looking for something scary and have already seen that movie."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeats the same recommendations despite user feedback, lacks understanding of the user's preferences, and fails to provide relevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly suggested movies that do not match the user's criteria, indicating a lack of understanding or flexibility in its recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly mentioned 'Coming OF age' instead of providing new suggestions based on the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like language or style. It repeatedly fails to understand the user's requests and provide relevant movie recommendations based on the given keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, the assistant repeats 'War films are generally considered to be a good movie' and doesn't directly address the user's request for a movie related to the United Nations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to provide relevant movie recommendations based on the user's keywords ('teens', 'geeks', 'high school'), suggesting movies with unrelated themes like zombies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'We're the Millers' and 'Year One' when the user specified they were looking for something more original and politically charged."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request and did not show an understanding of the queer or homosexual themes they were looking for. The language used also felt artificial."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request for a movie recommendation based on the given keywords. The language used was also quite artificial and robotic."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's preference for space travel themes and sci-fi or space opera genres, instead suggesting movies from different genres."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, recommending 'Zoolander' and 'The Incredibles' for an action movie about teenagers shows a lack of understanding of the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to understand the user's request despite repeated clarification, repeatedly suggesting movies that do not meet the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but had noticeable artificiality. The first response was appropriate and helpful, but the second response seemed to ignore the user's frustration and didn't provide a satisfying conclusion to the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'The Spirit' as a movie that fits the user's criteria is incorrect and not fluent."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but lacked the fluidity and engagement of human interaction. The follow-up question felt more like a form being filled out than a natural conversation flow."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were repetitive and did not address the user's specific requirements ('prison' setting and 'bad ending'). The language used was also noticeably artificial."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were not fluent and did not resemble those of a real human. It failed to understand the user's request for horror movie recommendations and provided irrelevant titles."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were not fluent and did not resemble those of a real human. It recommended movies that do not fit the user's request ('The Other Guys' is an action comedy, 'Wild Wild West' is a sci-fi western), indicating a lack of understanding or inappropriate response."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended 'The Matrix' and its sequels despite the user's lack of interest in them."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It struggles to maintain context throughout the conversation and provides irrelevant or incorrect information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response does not match the user's request for a cult film with dark humor and surreal elements set in suburbia. The recommended movie, Zathura: A Space Adventure, is more of a fantasy adventure film aimed at children."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluid and natural, with only minor instances of slightly artificial language (e.g., 'Sure', 'I'd suggest')."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like language style. It failed to understand the user's requirements accurately, suggesting movies that don't fit the martial arts or undercover cop theme."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie recommendation based on specific criteria (teenagers, hip hop culture, high school setting, remake of a classic teen movie), instead suggesting an unrelated film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats previous suggestions despite being told they don't fit the user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, recommending 'The Last Airbender' and 'The American President' for neo-noir suspense despite user's clarification shows lack of understanding."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's criteria for movie recommendations, suggesting films that do not match the given keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It struggled to understand and respond appropriately to the user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It repeatedly suggested movies that did not match the user's criteria, despite the user's attempts to clarify their preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, suggesting 'Wild Wild West' and 'Zookeeper' as matches for 'teen movie', 'science', and other given keywords shows a lack of understanding of the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats Odette Annable's name twice and doesn't provide specific titles for independent films about aliens set in the desert."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and lack human-like language style. It failed to understand the user's preference for explicit or erotic films, leading to irrelevant recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's preferences and kept recommending irrelevant movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It failed to understand the user's requirements and kept suggesting irrelevant movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant's responses were mostly fluent and human-like, with only minor instances of artificial language or style. However, there were a few repetitions and misunderstandings that slightly detracted from the conversation flow."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for movies from the Criterion Collection with specific characteristics, instead suggesting unrelated movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses were somewhat conversational but often missed the mark based on the user's requirements. The recommended movies did not match the keywords 'catastrophe', 'survival', and 'drama'. The language used was mostly natural but lacked fluency in maintaining the context of the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response did not match the user's request for a movie with keywords 'queer', 'pornography', and 'documentary', nor did it mention stand-up comedy or censorship themes. The suggested film, 'The Tenant of Wildfell Hall', is neither a documentary nor does it contain the specified keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resembled those of a real human, but there were several instances where the language or style felt noticeably artificial. It struggled to understand and respond appropriately to the user's specific requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were mostly robotic and unnatural. It failed to understand the user's request for a movie recommendation based on specific keywords and instead provided irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly stated that 'Merry Madagascar' was based on a book and attributed its authorship to Joseph Gordon-Levitt instead of DreamWorks Animation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeats the same movie titles multiple times and misunderstands the user's request about World War II in Italy."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response did not directly address the user's requirements and instead provided an unrelated suggestion. The conversation flow was not fluent or helpful."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly suggested 'Almost Like Now', which is not a movie, and failed to understand the user's clarification about Criterion Collection recognition."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were often robotic and unnatural. It repeatedly suggested movies that did not match the user's criteria, indicating a lack of understanding or fluency in the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, repeatedly suggesting 'Ghost Town' despite user's clarification that they're looking for an original movie with supernatural elements and sequels."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses often sound robotic and unnatural. It misunderstood the user's keywords and provided irrelevant information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were brief and lacked the conversational flow expected from a human. The movie recommendation was also inappropriate given no context was provided by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were repetitive and did not address the user's corrected request accurately, sounding robotic."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, mentioning 'Young Adult' twice without addressing the user's specific request for hip hop elements and films featuring Robert Downey Jr., and stating 'It also has elements like Young Adult and Urban Legend', which is unclear."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it incorrectly suggested fantasy films instead of art house films with magic realism elements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. It struggled to understand and respond appropriately to the user's requests."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response did not match the user's request for an Oscar-winning director movie with historical and aviation themes. Instead, it suggested movies that are not relevant to the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant's responses sometimes resemble those of a real human, but there are several instances where the language or style feels noticeably artificial. For example, it repeatedly recommended 'Teacher' despite the user specifying different preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response was not relevant to the user's request for a movie recommendation with specific criteria ('screwball', 'France', or 'Paris'), and it did not mention the Criterion Channel. The suggestion of 'Shark Night' as a thriller seemed unrelated to the user's preferences."
+      }
+    ],
+    "CONV_FLOW": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant misunderstood the user's request for a movie based on a book and instead recommended a romance novel, then incorrectly stated that the movie was part of a series when it is not."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeats the same movie recommendation despite user feedback that it doesn't meet their criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant recommends movies that don't match the user's request for Halloween or Christmas-themed horror films."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacked natural flow due to the assistant misunderstanding or ignoring the user's criteria and failing to respond appropriately when asked to try again."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's requests and offered irrelevant suggestions, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally. The assistant provides a relevant movie recommendation based on the user's preferences and the transition back to closing the conversation is smooth."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies that do not meet the user's criteria. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated failure to understand and follow the user's preferences for movies about teenagers or high school life. The transitions were often disjointed, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant provided movie recommendations that do not match the user's criteria ('music', 'dancing', 'based on a play', 'broadway or musical'), indicating a misunderstanding of the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated misunderstandings and failure to address the user's corrections. The transitions are disjointed, leading the user to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The conversation consistently fails to flow naturally and smoothly. The assistant provided an irrelevant recommendation despite the user's specific requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated suggestions that don't match the user's criteria. The transitions are abrupt and disjointed."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally and smoothly. The assistant repeatedly recommended movies that did not fit the user's criteria, leading to frustration and ultimately a 'giveup' response from the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant struggled to understand the user's requirements despite repeated attempts, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally. However, there are a couple of instances where the assistant misunderstands or repeats the user's request, causing slight disjointedness."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's persistent mistakes in understanding and responding to the user's requests. The transitions are disjointed, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's inappropriate movie recommendations based on the user's keywords. The abrupt ending also contributes to the disjointed flow."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant struggled to understand the user's requirements despite repeated clarification, leading to irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated misunderstanding of the user's request. The assistant kept suggesting 'Cloverfield' and its sequels despite the user's clarification that they were looking for a sequel from a well-known franchise starring anyone other than Bill Murray."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's movie recommendations are unrelated to the user's keywords ('gangsters', 'mob', 'high fantasy'). The user's response of '\\giveup' indicates their frustration with the irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated recommendation of 'The Last Dragon' despite the user's request for newer movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's recommendation was not relevant to the user's request for a coming-of-age movie with specific themes and genre. The conversation felt disjointed due to this irrelevant suggestion."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly provides suggestions that do not match the user's criteria, leading to frustration and eventual disengagement."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant's suggestion was not relevant to the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repetitive suggestions despite user's dissatisfaction and abrupt transitions when the user tries to restart the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The conversation flowed naturally and smoothly, with seamless transitions between utterances. The assistant understood the user's request and provided relevant information."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant struggled to understand the user's specific requirements and kept suggesting movies that didn't match all the keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to understand and respond appropriately to the user's requests for specific types of films. The assistant's responses are disjointed and irrelevant to the user's query."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's request despite clarification, leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant did not understand the user's request for a well-known franchise and instead suggested lesser-known movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly suggests movies that don't match the user's criteria ('Wishingin': A Love Story' and 'Food Network'), leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies that don't match the user's criteria. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's suggestion of WALL-E is not an original holiday movie and the user's response of '\\giveup' indicates frustration with the recommendation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's inability to understand and respond appropriately to the user's specific criteria for movie recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the repetitive suggestions ('Year One', 'Year Two', 'Year Three') and failure to understand or respond appropriately to user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated misunderstandings and inappropriate recommendations. The user had to repeatedly clarify their preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly provides movie recommendations that do not meet the user's criteria, leading to frustration and repeated clarification requests from the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The conversation flowed naturally and smoothly, with seamless transitions between utterances. The assistant provided a relevant movie recommendation based on the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally. However, the transition from 'The Godfather' to 'The Cotton Club' is somewhat abrupt and confusing due to the assistant's mention of 'the drama' and 'the film', which are unclear references."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant repeatedly mentioned 'Funny People' and 'Jim Carrey' even when the user was asking about specific types of humor."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt transitions. The assistant did not always address the user's specific criteria in their suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's recommendation was completely off-topic based on the user's request for a feel-good movie with themes of life, travel, and midlife crisis. The conversation lacked coherence and natural flow."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's question about nudity and providing irrelevant information about Vincent De Paul."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant repeatedly recommending 'Light' despite the user's interest in cult classics and their mention of 'American Movie'. The transitions are disjointed, with the assistant ignoring the user's follow-up question about 'American Movie'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant failed to understand the user's requirement for a scary horror movie and repeatedly recommended 'Vampires in Amber', despite the user stating they had seen it and were looking for something scarier."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive recommendations that don't match the user's criteria. The assistant also fails to acknowledge or address the user's clarification about weed-related humor."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting movies that do not match the user's criteria. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repetitive suggestions ('The People Speak') and failure to understand the user's criteria for an independent film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated failure to understand and respond appropriately to the user's requests for movie recommendations based on specific keywords. The assistant also struggled to maintain coherence in their responses."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant's responses did not always directly address the user's requests."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses did not align with the user's request for movie recommendations based on specific keywords (teens, geeks, high school). The suggested movies were about zombies and had no apparent connection to the requested themes. This lack of relevance made the conversation disjointed."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant struggled to understand and respond appropriately to the user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's recommendation is irrelevant to the user's request for movies with queer or homosexual themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's inappropriate movie recommendation based on the user's keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's recommendations were not aligned with the user's preferences (space travel themes and sci-fi/space opera genres), leading to a disjointed conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repeated suggestions that don't match the user's criteria and abrupt transitions between utterances."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally and smoothly. The assistant repeatedly recommended movies that did not match the user's criteria, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had abrupt transitions. The assistant recommended Treasure Planet despite the user asking for a Halloween-themed cartoon."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's response about 'The Spirit' is unrelated to the user's specific criteria and leads to the user giving up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's second response is abrupt and does not build upon the user's request for movie recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence and feels disjointed. The assistant's suggestions do not match the user's criteria ('prison' setting) and they repeat previous suggestions despite the user's feedback."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's recommendations ('The Return of the Native' and 'The Truth About Forever') do not match the user's request for horror movies with specific keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's recommendations were not appropriate for the user's request ('The Other Guys' and 'Wild Wild West' are action/comedy movies), leading to a disjointed conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repetitive recommendations and failure to address the user's requests for more details about genres or other movie suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant often misunderstands or ignores the user's requirements, leading to disjointed transitions and lack of coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is not relevant to the user's request for a cult film with dark humor and surreal elements set in suburbia."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally and smoothly. However, there are a few instances of abrupt transitions, such as when the assistant immediately starts discussing another movie without acknowledging the user's 'That sounds interesting' response."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to understand and respond appropriately to the user's requests. The suggested movies do not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response did not align with the user's request for a movie recommendation involving teenagers, hip hop culture, and high school setting. Instead of suggesting 'The Next Three Days', which is neither about teenagers nor hip hop culture, it shows a lack of understanding or consideration of the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly suggested movies that did not match the user's requirements, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's inability to understand and respond appropriately to the user's preferences. The assistant repeatedly recommends movies that do not fit the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence due to the assistant's failure to understand the user's criteria. The recommended movies have no relation to Germany or WWII."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flows naturally and smoothly. The assistant repeatedly misunderstood the user's requirements, leading to frustration and ultimately the user giving up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's repeated misunderstandings and failure to address the user's specific criteria. The transitions were often disjointed, leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant struggled to understand the user's requirements and provided irrelevant movie recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant struggled to understand the user's preference for 'weirder and more independent' films after initially suggesting Aliens 2."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly recommends 'Crossed' despite the user's indication that they've already seen it and are looking for something different. The final recommendations ('Zoe's Tale', 'Wyrd Sisters', 'Shark Night') seem unrelated to the user's request for explicit or erotic films."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally and smoothly. The assistant failed to understand the user's preferences and kept recommending movies that did not fit the criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant repeatedly suggesting irrelevant movies despite the user's specific requirements. The transitions are disjointed and lack coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The conversation mostly flows naturally and smoothly, but there are several instances where the assistant misunderstands or misinterprets the user's intent, leading to some disjointed transitions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's recommendations did not match the user's criteria (Criterion Collection, epic scale, visually appealing, strong storytelling with minimal dialogue). The conversation felt disjointed and lacked coherence."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant's recommendations do not match the user's requirements ('catastrophe', 'survival', 'drama', based on a book with an original story)."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response did not match the user's request for a movie with keywords 'queer', 'pornography', and 'documentary', nor did it mention anything about stand-up comedy or censorship themes. The conversation felt disjointed due to this mismatch."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but there were several instances of abrupt transitions. The assistant struggled to understand the user's requirements initially and offered suggestions that didn't fit the criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's responses were not relevant to the user's request for a movie recommendation based on the given keywords. The suggested movies ('The men who stare at goats' and 'The Godfather') did not align with the user's preferences, leading to an abrupt end of the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant struggled to understand the user's clarification and provided incorrect information about 'Merry Madagascar'."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to repetitive suggestions and failure to address the user's specific request for World War II films set in Italy."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally and smoothly. The assistant's response did not directly address the user's requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but there were several instances where the assistant misunderstood or misinterpreted the user's requests ('Your HighNESS', 'Almost Like Now'), leading to disjointed transitions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly suggests movies that don't match the user's criteria ('The Last Airbender' and 'The Next Airbender'), leading to frustration for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant repeatedly recommended 'Ghost Town' despite the user's clarification that they were looking for an original movie with ghosts or supernatural elements and a sequel."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant misunderstood the user's keywords and provided irrelevant information, leading to confusion and eventual abandonment of the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant's recommendation is unrelated to the user's request for specific movie characteristics, leading to an abrupt and unsatisfying exchange."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's repetitive responses despite the user's clarification. The assistant fails to understand and adapt to the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The conversation occasionally flowed naturally but had several instances of abrupt or disjointed transitions. The assistant's responses did not always directly address the user's questions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow due to the assistant's misunderstanding of the user's request and providing irrelevant suggestions. The transitions are disjointed, and there is a lack of coherence in the assistant's responses."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation rarely flowed naturally due to the assistant's persistent mistakes in understanding the user's request. The assistant repeatedly suggested movies that did not feature Chris Tucker or were not known for being funny."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's response did not align with the user's request for an Oscar-winning director movie about aviation. Instead, it suggested movies that were not relevant to the user's keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks natural flow. The assistant repeatedly suggests movies that do not match the user's preferences and does not acknowledge or address the user's clarification requests."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The conversation lacks coherence. The assistant misunderstood the user's request for a 'screwball' movie and recommended a thriller instead."
+      }
+    ],
+    "OVERALL_SAT": [
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a movie based on a book. Instead of providing accurate recommendations, it suggested a romance novel and then incorrectly stated that 'The Light Between Oceans' is part of a series."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite being told that previous recommendations did not meet them. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's request for Halloween or Christmas-themed horror movies. The user had to give up after receiving irrelevant suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's specific criteria for movie recommendations despite multiple attempts. The conversation ended abruptly without resolution."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's specific request for movies with themes of sexual abuse and rape. Despite repeated attempts by the user to clarify their requirements, the assistant persisted in suggesting irrelevant movies."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant provided a relevant movie recommendation based on the user's preferences. However, the user did not engage further with the suggestion, indicating some dissatisfaction or lack of interest."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite multiple attempts, leading to frustration and dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations despite the user's repeated requests for movies about teenagers or high school life. The conversation was frustrating and uninformative."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not understand or respond to the user's request for movie recommendations based on specific keywords. Instead, it provided irrelevant suggestions, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite multiple attempts, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand the user's requirements despite direct communication, leading to an irrelevant recommendation and dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and fulfill the user's request despite multiple attempts. The suggestions made were not relevant to the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's criteria. Despite being given another chance, it repeated the same suggestions, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide an accurate movie recommendation despite the user's clear criteria. The conversation became repetitive and frustrating for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant provided accurate movie recommendations based on the user's criteria. However, there was some confusion and repetition in the conversation that could have been avoided."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant made several mistakes in understanding the user's request, leading to dissatisfaction. They incorrectly identified the movie and its stars initially, and despite correction, they continued with incorrect recommendations."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a movie with specific keywords ('brutal', 'prison', 'brutality', 'gangs', and 'violence'). The suggested movies were irrelevant to the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite multiple attempts, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite repeated clarification attempts. This led to frustration for the user and an early termination of the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or consider the user's preferences ('gangsters', 'mob', 'high fantasy'), leading to irrelevant movie suggestions. The user's response of '\\giveup' indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a newer movie and kept recommending 'The Last Dragon', leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's request for a coming-of-age movie with specific themes and genre. The recommended film was not relevant to the user's query."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate recommendations based on the user's criteria, leading to frustration and dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to engage the user further after their initial response, leading to the user giving up on the conversation. The assistant could have asked more questions to better understand the user's preferences."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts. It repeatedly suggested 'Treasure Planet' and 'Treasure 2', which do not meet the user's criteria of original animation featuring animals."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 5,
+        "score_explanation": "The assistant understood the user's request promptly, provided an accurate recommendation, and engaged in follow-up questions to ensure satisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The user was mostly dissatisfied with the conversation. The assistant did not provide a movie recommendation that matched all the keywords provided by the user, leading to the user giving up on the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for an artistic film with surreal elements from the IMDB top 250 list and the Criterion Collection. Instead of providing relevant recommendations, they listed films that did not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts at clarification. The user was mostly dissatisfied with the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations despite the user's specific request for an alien-themed adventure film from a popular franchise. The assistant also made factual errors in their responses."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations despite the user's specific request for movies featuring unlikely friendships between women. The repeated suggestions of 'Wishingin': a Love Story' and 'Food Network': A Women in Love Story', which are not accurate titles or relevant to the user's request, led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a satire about world politics despite multiple attempts by the user to clarify. The conversation was mostly dissatisfying due to this misunderstanding."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations for the user's request for a feel-good original holiday movie. The conversation ended abruptly with no attempt to resolve the issue."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations despite the user's repeated attempts to clarify their preferences. This led to the user expressing dissatisfaction and giving up on the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's preference for movies with teenagers or high school themes. Instead, it suggested movies that are not related to these themes."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preferences despite multiple attempts at clarification. The suggested films did not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide accurate recommendations based on the user's clear criteria. Despite repeated attempts by the user to clarify their requirements, the assistant continued to suggest movies that did not meet all the specified conditions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant provided an accurate recommendation based on the user's preferences. However, the conversation ended abruptly with the user using '\\giveup', suggesting there might have been some dissatisfaction or frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant provided relevant movie recommendations based on the user's preferences. However, it made an error when suggesting 'The Cotton Club' instead of another gangster film similar to 'The Godfather'. The conversation could have been improved by providing more accurate suggestions."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's specific request for 'stupid humor' or over-the-top comedy. The conversation became repetitive and did not meet the user's needs."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 3,
+        "score_explanation": "The assistant made some effort to understand the user's preferences but struggled to provide suitable recommendations. The conversation could have been improved by asking more specific questions or providing more options."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a feel-good movie with specific themes. Instead, it recommended an action film ('Tomorrow Never Dies'), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide accurate recommendations based on the user's preferences (nudity), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for a light, cult classic documentary. Instead of providing recommendations, it repeatedly mentioned films that were not documentaries ('Light', 'American Movie'). The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for a scary horror movie despite being told they were looking for something frightening. They persisted in recommending 'Vampires In Amber' even after the user expressed that it wasn't what they wanted."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's specific request for weed-related humor. Instead of providing relevant recommendations like 'Harold & Kumar Go to White Castle' or 'Pineapple Express', they repeatedly suggested movies that did not meet the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request despite multiple attempts, leading to frustration and dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request for an independent film with specific themes. They repeatedly suggested 'The People Speak', which is not an independent film, despite the user's clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's keywords. Despite multiple attempts and clarifications from the user, the assistant continued to suggest irrelevant titles, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide movies related to the United Nations despite repeated requests from the user. The conversation became repetitive and unsatisfying for the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not provide relevant movie recommendations based on the user's keywords. The user's 'giveup' response indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and meet the user's requirements despite multiple attempts. The suggestions made were not relevant or recent, leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand or respond appropriately to the user's request for movies with queer/homosexual themes. Instead, it recommended a movie that does not fit this category."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand or consider the user's preferences, leading to an irrelevant movie recommendation and a dissatisfied user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant did not understand or consider the user's preferences for space travel themes and sci-fi/space opera genres. The recommended movies were completely unrelated to these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite multiple attempts. The suggested movies did not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The user was highly dissatisfied with the conversation. The assistant repeatedly misunderstood and misinterpreted the user's request despite multiple clarifications."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide a Halloween-themed recommendation despite the user's request. Instead, they suggested Treasure Planet which is not themed around Halloween."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand or consider the user's specific requirements for the movie recommendation. The suggested film, 'The Spirit', does not meet any of the specified criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not attempt to provide a movie recommendation based on the user's preferences and instead ended the conversation abruptly after asking for more clarification."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's specific criteria ('bad ending', 'suspense', 'prison'), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to provide relevant recommendations based on the user's keywords ('haunted house', 'scary', 'supernatural'), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a romantic teen comedy movie and provided irrelevant recommendations ('The Other Guys' is an action-comedy, 'Wild Wild West' is a western), leading to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's keywords and did not engage with the user's follow-up questions effectively."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide accurate recommendations based on the user's requirements. While they initially provided some suggestions, they were unable to confirm whether any of them had won a Golden Palm award or explained how they fit the 'enigmatic' theme. The conversation ended abruptly with 'Goodbye!' without resolving the user's query."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not understand the user's request for a cult film with dark humor and surreal elements set in suburbia. The recommended movie, Zathura: A Space Adventure, does not fit these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant provided relevant movie recommendations based on the user's preferences. However, it did not explicitly mention 'homelessness' in its first suggestion and did not directly address the 'hospitalization' criterion until asked again."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite multiple attempts. The suggested movies did not match the user's criteria for martial arts and undercover cops."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for a movie recommendation involving teenagers, hip hop culture, and high school setting. Instead of suggesting 'Rapper's Delight' or 'Honey Boy', it recommended 'The Next Three Days', which is not related to the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's specific criteria despite multiple attempts. The user expressed dissatisfaction and gave up on the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preferences despite being corrected twice. This led to dissatisfaction and the user giving up on the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's criteria. The user's response of '\\giveup' indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to understand the user's requirements despite multiple attempts. The recommended movies did not match the user's criteria for an animated superhero film."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The user was mostly dissatisfied with the conversation. Despite repeated attempts to clarify their preferences, the assistant continued to recommend movies that did not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite multiple attempts. The recommended movies did not match the given keywords."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant recommendations despite the user's repeated attempts to clarify their preferences. The conversation ended abruptly with 'Goodbye!' instead of offering further assistance."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for an explicit or erotic film and recommended inappropriate films. The conversation ended with the user expressing frustration."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's preferences despite multiple attempts, leading to dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie suggestions despite the user's repeated attempts to clarify their requirements. This led to user dissatisfaction and eventual disengagement."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 4,
+        "score_explanation": "The assistant provided relevant movie suggestions and accurately described the genre of 'Blazing Saddles'. However, there was some confusion in the conversation regarding the user's specific requirements for a western comedy. The assistant also missed an opportunity to confirm if 'Blazing Saddles' fully met the user's criteria before moving on."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for movies from the Criterion Collection with minimal dialogue. Instead, it recommended 'The Last Samurai' and 'The Last Olympian', which do not fit these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant did not understand or fulfill the user's requirements for movie recommendations based on specific keywords and book adaptation. The user's response of '\\giveup' indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand or address the user's specific request for movies containing 'queer', 'pornography', and 'documentary' themes, as well as stand-up comedy or censorship-related topics. The suggested movie, 'The Tenant of Wildfell Hall', does not match any of these criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide accurate recommendations based on the user's specific requirements. They offered movies that didn't fit all the criteria and persisted with suggestions despite the user's repeated corrections."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant's recommendations were not relevant to the user's request for movies about 'based on true story', 'culture clash', 'women', 'Iran', and 'Islam'. The user's response of '\\giveup' indicates dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant provided incorrect information about 'Merry Madagascar' being based on a book and its author. This led to confusion for the user and ultimately resulted in them giving up on the conversation."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant movie recommendations based on the user's specific criteria (World War II, Italy). The assistant repeatedly suggested movies that did not meet these requirements."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant's response did not address the user's requirements for movie recommendations and instead provided an unrelated suggestion. This led to user dissatisfaction."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and adapt to the user's preferences despite multiple attempts. It kept suggesting movies that didn't fit all the criteria mentioned by the user."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's request for an action movie set in a high school with teenage characters. Instead of suggesting relevant movies like 'The Breakfast Club' or '10 Things I Hate About You', they repeatedly suggested 'The Last Airbender' and 'The Next Airbender', which are not teen action movies set in high schools."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirement for an original movie with ghosts or supernatural elements that has a sequel. Instead, they repeatedly suggested sequels of the same movie without meeting the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant misunderstood the user's keywords and provided irrelevant recommendations. The conversation ended abruptly without resolving the user's request."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to engage with the user's request for a movie recommendation with specific characteristics. The suggested movie ('Shark Night') was not tailored to any mentioned preferences and the conversation ended abruptly."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and respond appropriately to the user's request despite multiple attempts. The recommended movie was irrelevant to the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to provide relevant suggestions based on the user's preferences and did not engage with the user's follow-up questions effectively."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand the user's requirements despite repeated clarification. The suggested films were not art house films with magic realism elements and did not fit the other criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant struggled to provide accurate recommendations despite the user's repeated corrections. The conversation was frustrating for the user, leading them to give up."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand or respond appropriately to the user's request for movie recommendations based on specific keywords. The suggested movies were not relevant and did not match the user's criteria."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 2,
+        "score_explanation": "The assistant failed to understand and address the user's specific preferences for sequels with notable male nudity. Instead, it repeatedly suggested movies about teachers."
+      },
+      {
+        "conversation_id": "BARCOR_OpenDialKG-Single_LLM_nemo_MovieLens-1760084821",
+        "score": 1,
+        "score_explanation": "The assistant failed to understand or consider the user's specific criteria ('screwball', 'France', 'Paris', available on Criterion Channel), leading to an irrelevant movie suggestion and a dissatisfied user."
+      }
+    ]
+  }
+}
