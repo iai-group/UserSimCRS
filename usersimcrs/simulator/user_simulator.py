@@ -17,7 +17,13 @@ class UserSimulator(User, ABC):
         domain: SimulationDomain,
         item_collection: ItemCollection,
     ) -> None:
-        """Initializes the user simulator."""
+        """Initializes the user simulator.
+
+        Args:
+            id: User ID.
+            domain: Domain knowledge.
+            item_collection: Collection of items.
+        """
         super().__init__(id, UserType.SIMULATOR)
         self._domain = domain
         self._item_collection = item_collection

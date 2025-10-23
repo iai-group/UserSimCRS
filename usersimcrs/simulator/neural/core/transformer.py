@@ -1,4 +1,11 @@
-"""Encoder-only transformer model for neural user simulator."""
+"""Encoder-only transformer model for neural user simulator.
+
+Implementation inspired by PyTorch documentation and TUS's transformer model.
+
+Sources:
+https://colab.research.google.com/github/pytorch/tutorials/blob/gh-pages/_downloads/dca13261bbb4e9809d1a3aa521d22dd7/transformer_tutorial.ipynb#scrollTo=R8veciavth40
+https://gitlab.cs.uni-duesseldorf.de/general/dsml/tus_public/-/blob/master/convlab2/policy/tus/multiwoz/transformer.py?ref_type=heads
+"""
 
 import math
 
@@ -54,7 +61,6 @@ class TransformerEncoderModel(nn.Module):
         nhead: int,
         hidden_dim: int,
         num_encoder_layers: int,
-        num_token: int,
         dropout: float = 0.5,
     ) -> None:
         """Initializes a encoder-only transformer model.
@@ -69,15 +75,15 @@ class TransformerEncoderModel(nn.Module):
             dropout: Dropout rate. Defaults to 0.5.
         """
         super(TransformerEncoderModel, self).__init__()
-        self.d_model = input_dim
+        self.d_model = hidden_dim
 
-        self.pos_encoder = PositionalEncoding(input_dim, dropout)
-        self.embedding = nn.Embedding(num_token, input_dim)
+        self.pos_encoder = PositionalEncoding(hidden_dim, dropout)
+        self.embedding = nn.Linear(input_dim, hidden_dim)
 
         # Encoder layers
-        norm_layer = nn.LayerNorm(input_dim)
+        norm_layer = nn.LayerNorm(hidden_dim)
         encoder_layer = nn.TransformerEncoderLayer(
-            d_model=input_dim,
+            d_model=self.d_model,
             nhead=nhead,
             dim_feedforward=hidden_dim,
         )
@@ -87,7 +93,7 @@ class TransformerEncoderModel(nn.Module):
             norm=norm_layer,
         )
 
-        self.linear = nn.Linear(input_dim, output_dim)
+        self.linear = nn.Linear(hidden_dim, output_dim)
         self.softmax = nn.Softmax(dim=-1)
 
         self.init_weights()
@@ -113,6 +119,8 @@ class TransformerEncoderModel(nn.Module):
         """
         src = self.embedding(src) * math.sqrt(self.d_model)
         src = self.pos_encoder(src)
-        output = self.encoder(src, mask=src_mask)
+        src = src.permute(1, 0, 2)
+        output = self.encoder(src, src_key_padding_mask=src_mask)
         output = self.linear(output)
+        output = output.permute(1, 0, 2)
         return output
