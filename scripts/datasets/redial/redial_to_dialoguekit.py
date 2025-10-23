@@ -5,6 +5,10 @@ DialogueKit's format. Formatting includes merging consecutive utterances from
 the same participant and replacing movie mentions with their titles and years.
 In addition to formatting the dialogues, this script also processes items and
 ratings information.
+
+Reference:
+Li, Raymond, et al. "Towards deep conversational recommendations." Advances in
+neural information processing systems 31 (2018).
 """
 
 import json
@@ -17,6 +21,8 @@ from typing import Any, Dict, List, Tuple
 
 import pandas as pd
 import wget
+
+from scripts.datasets.utils import merge_consecutive_utterances
 
 REDIAL_DATASET_URL = (
     "https://github.com/ReDialData/website/raw/data/redial_dataset.zip"
@@ -73,14 +79,14 @@ def load_data(
     ratings = deepcopy(ratings) if ratings else list()
 
     for line in open(path, "r"):
-        dialogue, _items, _ratings = format_dialogue(json.loads(line))
+        dialogue, _items, _ratings = _format_dialogue(json.loads(line))
         data.append(dialogue)
         items.update(_items)
         ratings.extend(_ratings)
     return data, items, ratings
 
 
-def format_dialogue(
+def _format_dialogue(
     dialogue: Dict[str, Any]
 ) -> Tuple[Dict[str, Any], Items, List[Rating]]:
     """Formats a dialogue into DialogueKit format.
@@ -102,16 +108,16 @@ def format_dialogue(
             "type": "USER",
         },
     }
-    items = get_items(dialogue)
-    ratings = get_ratings(dialogue, dialogue["initiatorWorkerId"])
-    utterances = parse_utterances(
+    items = _get_items(dialogue)
+    ratings = _get_ratings(dialogue, dialogue["initiatorWorkerId"])
+    utterances = _parse_utterances(
         dialogue, dialogue["initiatorWorkerId"], items
     )
     formatted_dialogue["conversation"] = utterances
     return formatted_dialogue, items, ratings
 
 
-def parse_utterances(
+def _parse_utterances(
     dialogue: Dict[str, Any], user_id: str, items: Items
 ) -> List[Dict[str, Any]]:
     """Parses utterances from the dialogue.
@@ -132,7 +138,9 @@ def parse_utterances(
         text = message["text"]
         utterance = {
             "participant": participant,
-            "timeOffset": message["timeOffset"],
+            "metadata": {
+                "timeOffset": message["timeOffset"],
+            },
         }
 
         pattern = r"(@\d+)"
@@ -153,34 +161,11 @@ def parse_utterances(
         utterance["utterance"] = text
         utterances.append(utterance)
 
-    utterances = _merge_consecutive_utterances(utterances)
+    utterances = merge_consecutive_utterances(utterances)
     return utterances
 
 
-def _merge_consecutive_utterances(
-    utterances: List[Dict[str, Any]]
-) -> List[Dict[str, Any]]:
-    """Merges consecutive utterances from the same participant.
-
-    Args:
-        utterances: List of utterances to merge.
-
-    Returns:
-        List of merged utterances.
-    """
-    merged_utterances: List[Dict[str, Any]] = []
-    for utterance in utterances:
-        if (
-            not merged_utterances
-            or utterance["participant"] != merged_utterances[-1]["participant"]
-        ):
-            merged_utterances.append(utterance)
-        else:
-            merged_utterances[-1]["utterance"] += "\n" + utterance["utterance"]
-    return merged_utterances
-
-
-def get_items(dialogue: Dict[str, Any]) -> Items:
+def _get_items(dialogue: Dict[str, Any]) -> Items:
     """Extracts items mentioned in the dialogue.
 
     Args:
@@ -210,7 +195,7 @@ def get_items(dialogue: Dict[str, Any]) -> Items:
     return items
 
 
-def get_ratings(dialogue: Dict[str, Any], user_id: str) -> List[Rating]:
+def _get_ratings(dialogue: Dict[str, Any], user_id: str) -> List[Rating]:
     """Extracts ratings from the dialogue.
 
     Args:
