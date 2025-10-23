@@ -5,12 +5,13 @@ from usersimcrs.simulator.llm.prompt.prompt import Prompt
 from usersimcrs.user_modeling.persona import Persona
 
 DEFAULT_STOP_DEFINITION = (
-    "You are a USER discussing with an ASSISTANT to get a recommendation "
-    "meeting your REQUIREMENTS. Given the conversation history, you need to "
-    "decide whether to continue the conversation or not. Detect if the "
-    "conversation is not progressing towards your goal or if the ASSISTANT is "
-    "not helpful. In such cases, you should terminate the conversation by "
-    "returning TRUE. Otherwise, return FALSE."
+    "As a USER interacting with an ASSISTANT to receive a recommendation, "
+    "analyze the conversation history to determine if it is progressing "
+    "productively. If the conversation has been stuck in a loop with repeated "
+    "misunderstandings across multiple turns, return 'FALSE' to indicate the "
+    "conversation should be terminated. Otherwise, return 'TRUE' to indicate "
+    "that the conversation should continue. Only return 'TRUE' or 'FALSE' "
+    "without any additional information."
 )
 
 
@@ -67,19 +68,5 @@ class StopPrompt(Prompt):
             )
             initial_prompt += f"PERSONA: {stringified_characteristics}\n"
 
-        stringified_constraints = ", ".join(
-            [
-                f"{key.lower()}={value}"
-                for key, value in self.information_need.constraints.items()
-            ]
-        )
-        requestable_slot = ", ".join(
-            [k.lower() for k in self.information_need.requested_slots.keys()]
-        )
-        initial_prompt += (
-            f"\nREQUIREMENTS: You are looking for a {self.item_type} with the "
-            f"following characteristics: {stringified_constraints} and want to "
-            f"know the following information about it: {requestable_slot}.\n"
-            "HISTORY:\n"
-        )
+        initial_prompt += "\nHISTORY:\n"
         return initial_prompt
