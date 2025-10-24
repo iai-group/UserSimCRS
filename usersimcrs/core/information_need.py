@@ -41,14 +41,14 @@ def generate_random_information_need(
         target_item.properties.keys()
     )
     num_constraints = random.randint(1, len(informable_slots))
-    for slot in random.sample(informable_slots, num_constraints):
+    for slot in random.sample(list(informable_slots), num_constraints):
         constraints[slot] = target_item.get_property(slot)
 
     requestable_slots = set(
         domain.get_requestable_slots()
     ).symmetric_difference(constraints.keys())
     num_requests = random.randint(1, len(requestable_slots))
-    requests = random.sample(requestable_slots, num_requests)
+    requests = random.sample(list(requestable_slots), num_requests)
 
     return InformationNeed([target_item], constraints, requests)
 

@@ -1,19 +1,25 @@
-"""Generative natural language generation using a language model."""
+"""Generative natural language generation using a large language model.
+
+Note that the large language model is expected to be hosted externally on a
+Ollama server. Also, the prompt used to generate utterances is expected to have
+the following placeholders:
+- "dialogue_acts": to be replaced by the stringified dialogue acts.
+- "annotations": to be replaced by the stringified annotations (if provided).
+"""
 
 import os
 from typing import List, Optional, Union
 
 import yaml
-from ollama import Client, Options
-
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.nlg.nlg_abstract import AbstractNLG
 from dialoguekit.participant.participant import DialogueParticipant
+from ollama import Client, Options
 
 
-class LMGenerativeNLG(AbstractNLG):
+class LLMGenerativeNLG(AbstractNLG):
     def __init__(
         self,
         ollama_config_file: str,

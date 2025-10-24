@@ -22,7 +22,7 @@ from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.persona import Persona
 
 
-class DualPromptUserSimulator(UserSimulator):
+class LLMDualPromptUserSimulator(UserSimulator):
     def __init__(
         self,
         id: str,

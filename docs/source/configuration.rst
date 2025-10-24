@@ -58,17 +58,17 @@ Associated configuration parameters are:
   
   * `dialogues`: Path to domain config file.
   * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifiers.
-  * `rasa_dialogues`: File with Rasa annotated dialogues. Only needed when using a DIET intent classifier.
   * `nlg`: NLG type to be used, set to "conditional" for template-based NLG.
+  * `debug`: Flag (boolean) to activate debug mode.
 
 LLM-based NLU and NLG
 ^^^^^^^^^^^^^^^^^^^^^
 
 Additional parameters for LLM-based NLU and NLG components are:
 
-  * `intent_classifier`: Intent classifier set to "lm" for LLM-based dialogue act extraction.
-  * `intent_classifier_config`: Configuration file for `LMDialogueActsExtractor`.
-  * `nlg`: NLG type set to "lm" for LLM-based NLG.
+  * `intent_classifier`: Intent classifier set to "llm" for LLM-based dialogue act extraction.
+  * `intent_classifier_config`: Configuration file for `LLMDialogueActsExtractor`.
+  * `nlg`: NLG type set to "llm" for LLM-based NLG.
 
     - `nlg_class_path`: Import path to the LLM-based NLG class.
     - `nlg_args`: Dictionary with additional configuration parameters for the LLM-based NLG class.
