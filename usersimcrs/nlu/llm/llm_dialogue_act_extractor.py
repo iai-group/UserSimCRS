@@ -1,8 +1,8 @@
-"""Dialogue act extractor based on a language model.
+"""Dialogue act extractor based on a large language model.
 
-Note that the language model is expected to be hosted externally on a ollama
-server. Also, the prompt used to extract dialogue acts is expected to have a
-placeholder "utterance" that will be replaced by the utterance text.
+Note that the large language model is expected to be hosted externally on a
+Ollama server. Also, the prompt used to extract dialogue acts is expected to
+have a placeholder "utterance" that will be replaced by the utterance text.
 """
 
 from __future__ import annotations
@@ -21,7 +21,7 @@ from dialoguekit.nlu.dialogue_acts_extractor import DialogueActsExtractor
 from ollama import Client, Options
 
 
-class LMDialogueActsExtractor(DialogueActsExtractor):
+class LLMDialogueActsExtractor(DialogueActsExtractor):
     def __init__(self, config_file: str) -> None:
         """Initializes the dialogue act extractor.
 
@@ -189,7 +189,7 @@ class LMDialogueActsExtractor(DialogueActsExtractor):
         pass
 
     @classmethod
-    def load(cls, path: str) -> LMDialogueActsExtractor:
+    def load(cls, path: str) -> LLMDialogueActsExtractor:
         """Loads the dialogue act extractor from a path.
 
         This method is not implemented for this dialogue act extractor as the

@@ -17,7 +17,7 @@ from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.persona import Persona
 
 
-class SinglePromptUserSimulator(UserSimulator):
+class LLMSinglePromptUserSimulator(UserSimulator):
     def __init__(
         self,
         id: str,

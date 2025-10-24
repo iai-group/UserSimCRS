@@ -13,7 +13,9 @@ from scripts.nlu.metrics import (
     intent_error_rate,
     slot_error_rate,
 )
-from usersimcrs.nlu.lm.lm_dialogue_act_extractor import LMDialogueActsExtractor
+from usersimcrs.nlu.lm.llm_dialogue_act_extractor import (
+    LLMDialogueActsExtractor,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -56,10 +58,10 @@ def parse_args() -> argparse.Namespace:
 if __name__ == "__main__":
     args = parse_args()
 
-    user_dialogue_acts_extractor = LMDialogueActsExtractor(
+    user_dialogue_acts_extractor = LLMDialogueActsExtractor(
         args.user_extractor_config
     )
-    agent_dialogue_acts_extractor = LMDialogueActsExtractor(
+    agent_dialogue_acts_extractor = LLMDialogueActsExtractor(
         args.agent_extractor_config
     )
 
