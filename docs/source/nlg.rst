@@ -3,7 +3,7 @@ Natural Language Generation
 
 The natural language generation (NLG) component is responsible for generating text utterances based on the structured representation provided by the dialogue policy. The generated utterances can be further customized based on user preferences and satisfaction levels.
 
-UserSimCRS is compatible with NLU components from the `DialogueKit <https://iai-group.github.io/DialogueKit/main/>`_ library, which provides basic NLG functionalities. Additionally, we implement :py:class:`LMGenerativeNLG`, a generative NLG component using a large language model to produce text responses based on the structured dialogue acts.
+UserSimCRS is compatible with NLU components from the `DialogueKit <https://iai-group.github.io/DialogueKit/main/>`_ library, which provides basic NLG functionalities. Additionally, we implement :py:class:`LLMGenerativeNLG`, a generative NLG component using a large language model to produce text responses based on the structured dialogue acts.
 
 Generative NLG
 --------------
