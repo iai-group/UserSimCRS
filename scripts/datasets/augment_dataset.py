@@ -1,4 +1,4 @@
-"""Augment the formatted ReDial dataset with additional information.
+"""Augment the formatted dataset with additional information.
 
 The augmentation is artificial and done to create training data for neural user
 simulators. Each dialogue is augmented with an information need and each
@@ -74,15 +74,15 @@ def parse_args() -> argparse.Namespace:
     """
     parser = argparse.ArgumentParser(
         description=(
-            "Augment the formatted ReDial dataset with additional information."
+            "Augment the formatted dataset with additional information."
         ),
-        prog="augment_redial.py",
+        prog="augment_dataset.py",
     )
     parser.add_argument(
         "--input_path",
         type=str,
-        default="data/datasets/redial/train_dialogues.json",
-        help="Path to the formatted ReDial dataset.",
+        required=True,
+        help="Path to the formatted dataset.",
     )
     parser.add_argument(
         "--user_nlu_config",
@@ -111,7 +111,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output_path",
         type=str,
-        default="data/datasets/redial/augmented_train_dialogues.json",
+        required=True,
         help="Path to save the augmented dataset.",
     )
     return parser.parse_args()

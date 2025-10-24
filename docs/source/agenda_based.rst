@@ -1,13 +1,20 @@
 Agenda-based simulator
 ======================
 
-The agenda-based simulator `[Schatzmann et al., 2007] <https://aclanthology.org/N07-2038/>`_ is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions. The simulated user's decision-making is modeled as a Markov Decision Process. At each turn, it determines the next action to execute based on the current state of this agenda.
+The agenda-based simulator `[Schatzmann et al., 2007] <https://aclanthology.org/N07-2038/>`_ follows the architecture of a typical task-based dialogue system, which consists of natural language understanding (NLU), dialogue policy, and natural language generation (NLG) components. It is designed to ensure that the simulated user adheres to a predetermined dialogue strategy by maintaining an agenda (or stack) of actions.
+
+Please refer to :doc:`NLU <nlu>` and :doc:`NLG <nlg>` for more details on the NLU and NLG components, respectively.
+
+Dialogue Policy
+---------------
+
+The simulated user's decision-making is modeled as a Markov Decision Process. At each turn, it determines the next action to execute based on the current state of this agenda.
 
 Specifically, the simulator's next action is determined by the agent response. 
 If the agent responds expectedly, the next user action is pulled from the top of the agenda; otherwise, the simulator samples the next user action based on transition probabilities from responses in historical dialogues.
 
 Agenda initialization
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The agenda (:py:class:`usersimcrs.simulator.agenda_based.agenda.Agenda`) is initialized based on the :doc:`information need <information_need>` of the simulated user. Specifically, the agenda is initialized with the following steps:
 
@@ -17,7 +24,7 @@ The agenda (:py:class:`usersimcrs.simulator.agenda_based.agenda.Agenda`) is init
 4. Add the stop intent
 
 Example
-^^^^^^^
+"""""""
 
 For example, the following information need:
 
@@ -43,7 +50,7 @@ will result in the following agenda:
     ]
 
 Agenda update
--------------
+^^^^^^^^^^^^^
 
 The agenda is updated after each agent utterance by the :doc:`interaction model <interaction_model>`. The interaction model determines if new actions should be created or sampled and added to the agenda. For example, if the agent recommends an item, the interaction model may decide to create an action to express a preference regarding the recommended item.
 

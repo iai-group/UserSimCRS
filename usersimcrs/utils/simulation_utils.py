@@ -1,20 +1,24 @@
 """Utility functions to run the simulation."""
 
 import json
-from typing import Any, Dict, Set, Tuple, Type
+from typing import Any, Dict, Tuple, Type
 
 import confuse
-import yaml
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
 from dialoguekit.nlg.nlg_abstract import AbstractNLG
-from dialoguekit.nlg.template_from_training_data import extract_utterance_template
+from dialoguekit.nlg.template_from_training_data import (
+    extract_utterance_template,
+)
 from dialoguekit.nlu import NLU
-from dialoguekit.nlu.disjoint_dialogue_act_extractor import DisjointDialogueActExtractor
+from dialoguekit.nlu.disjoint_dialogue_act_extractor import (
+    DisjointDialogueActExtractor,
+)
 from dialoguekit.nlu.intent_classifier import IntentClassifier
-from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
-from dialoguekit.nlu.models.intent_classifier_cosine import IntentClassifierCosine
+from dialoguekit.nlu.models.intent_classifier_cosine import (
+    IntentClassifierCosine,
+)
 from dialoguekit.participant import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
@@ -22,10 +26,14 @@ from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
-from usersimcrs.nlu.lm.lm_dialogue_act_extractor import LMDialogueActsExtractor
+from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
+    LLMDialogueActsExtractor,
+)
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.user_modeling.persona import Persona
-from usersimcrs.user_modeling.simple_preference_model import SimplePreferenceModel
+from usersimcrs.user_modeling.simple_preference_model import (
+    SimplePreferenceModel,
+)
 
 
 def map_path_to_class(cls_path: str) -> Type:
@@ -93,12 +101,14 @@ def get_simulator_information(
 
     if simulator_class.__name__ == "AgendaBasedSimulator":
         simulator_config.update(_get_agenda_based_simulator_config(config))
-    elif simulator_class.__name__ == "SinglePromptUserSimulator":
+    elif simulator_class.__name__ == "LLMSinglePromptUserSimulator":
         simulator_config.update(
-            _get_single_prompt_user_simulator_config(config)
+            _get_llm_single_prompt_user_simulator_config(config)
         )
-    elif simulator_class.__name__ == "DualPromptUserSimulator":
-        simulator_config.update(_get_dual_prompt_user_simulator_config(config))
+    elif simulator_class.__name__ == "LLMDualPromptUserSimulator":
+        simulator_config.update(
+            _get_llm_dual_prompt_user_simulator_config(config)
+        )
     else:
         raise ValueError(f"Simulator class {simulator_class} is not supported.")
     return simulator_id, simulator_class, simulator_config
@@ -132,7 +142,7 @@ def _get_agenda_based_simulator_config(
 
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(file_path=config["ratings"].get())
-    historical_ratings, ground_truth_ratings = ratings.create_split(
+    historical_ratings, _ = ratings.create_split(
         config["historical_ratings_ratio"].get(0.8)
     )
 
@@ -196,11 +206,10 @@ def get_NLU(config: confuse.Configuration) -> NLU:
         return NLU(
             DisjointDialogueActExtractor(classifier, slot_value_annotators=[])
         )
-    elif intent_classifier == "diet":
-        classifier = train_rasa_diet_classifier(config)
-        return NLU(DisjointDialogueActExtractor(classifier, [classifier]))
-    elif intent_classifier == "lm":
-        return LMDialogueActsExtractor(config["intent_classifier_config"].get())
+    elif intent_classifier == "llm":
+        return LLMDialogueActsExtractor(
+            config["intent_classifier_config"].get()
+        )
     raise ValueError(
         "Unsupported intent classifier. Check DialogueKit intent"
         " classifiers."
@@ -242,38 +251,6 @@ def train_cosine_classifier(
     return intent_classifier
 
 
-def train_rasa_diet_classifier(
-    config: confuse.Configuration,
-) -> IntentClassifierRasa:
-    """Trains a DIET classifier on Rasa annotated dialogues for NLU module.
-
-    Args:
-        config: Configuration generated from YAML configuration file.
-
-    Returns:
-        A trained Rasa DIET model for intent classification.
-    """
-    # TODO: Move to DialogueKit as util function.
-    # See: https://github.com/iai-group/UserSimCRS/issues/92
-    intent_schema_file = config["intents"].get()
-    intent_schema = yaml.load(open(intent_schema_file), Loader=yaml.FullLoader)
-
-    agent_intents_str: Set[str] = set()
-    for v in intent_schema["user_intents"].values():
-        intents = v.get("expected_agent_intents", []) or []
-        agent_intents_str.update(intents)
-    # agent_intents_str = intent_schema["agent_elicit_intents"]
-    # agent_intents_str.extend(intent_schema["agent_set_retrieval"])
-    agent_intents = [Intent(intent) for intent in agent_intents_str]
-    intent_classifier = IntentClassifierRasa(
-        agent_intents,
-        config["rasa_dialogues"].get(),
-        ".rasa",
-    )
-    intent_classifier.train_model()
-    return intent_classifier
-
-
 def get_NLG(config: confuse.Configuration) -> AbstractNLG:
     """Returns an NLG component.
 
@@ -293,17 +270,17 @@ def get_NLG(config: confuse.Configuration) -> AbstractNLG:
             annotated_dialogue_file=annotated_dialogues_file,
         )
         return ConditionalNLG(template)
-    elif nlg_type == "lm":
+    elif nlg_type == "llm":
         return map_path_to_class(config["nlg_class_path"].get())(
             **config["nlg_args"].get()
         )
     raise ValueError("Unsupported NLG component.")
 
 
-def _get_single_prompt_user_simulator_config(
+def _get_llm_single_prompt_user_simulator_config(
     config: confuse.Configuration,
 ) -> Dict[str, Any]:
-    """Gets the configuration of the single prompt user simulator.
+    """Gets the configuration of the LLM single-prompt user simulator.
 
     Args:
         config: Configuration of the run.
@@ -348,10 +325,10 @@ def _get_single_prompt_user_simulator_config(
     }
 
 
-def _get_dual_prompt_user_simulator_config(
+def _get_llm_dual_prompt_user_simulator_config(
     config: confuse.Configuration,
 ) -> Dict[str, Any]:
-    """Gets the configuration of the dual prompt user simulator.
+    """Gets the configuration of the LLM dual-prompt user simulator.
 
     Args:
         config: Configuration of the run.
@@ -359,6 +336,6 @@ def _get_dual_prompt_user_simulator_config(
     Returns:
         Configuration of the dual prompt user simulator.
     """
-    simulator_config = _get_single_prompt_user_simulator_config(config)
+    simulator_config = _get_llm_single_prompt_user_simulator_config(config)
     simulator_config["stop_definition"] = config["stop_definition"].get()
     return simulator_config
