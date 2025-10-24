@@ -19,7 +19,9 @@ from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from scripts.datasets.information_need_annotation.information_need_annotator import (  # noqa: E501
     InformationNeedAnnotator,
 )
-from usersimcrs.nlu.lm.lm_dialogue_act_extractor import LMDialogueActsExtractor
+from usersimcrs.nlu.lm.llm_dialogue_act_extractor import (
+    LLMDialogueActsExtractor,
+)
 
 
 def annotate_dialogue_acts(
@@ -121,8 +123,8 @@ if __name__ == "__main__":
     args = parse_args()
 
     dialogues = json_to_dialogues(args.input_path)
-    user_nlu = NLU(LMDialogueActsExtractor(args.user_nlu_config))
-    agent_nlu = NLU(LMDialogueActsExtractor(args.agent_nlu_config))
+    user_nlu = NLU(LLMDialogueActsExtractor(args.user_nlu_config))
+    agent_nlu = NLU(LLMDialogueActsExtractor(args.agent_nlu_config))
 
     information_need_annotator = InformationNeedAnnotator(
         args.ollama_config, args.information_need_prompt

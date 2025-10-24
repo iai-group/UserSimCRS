@@ -37,3 +37,5 @@ historical_ratings_ratio: 0.8
 dialogues: data/datasets/moviebot/annotated_dialogues.json
 intent_classifier: "cosine"
 
+nlg: conditional
+

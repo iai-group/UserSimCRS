@@ -7,6 +7,7 @@ import confuse
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
+from dialoguekit.nlg.nlg_abstract import AbstractNLG
 from dialoguekit.nlg.template_from_training_data import (
     extract_utterance_template,
 )
@@ -25,7 +26,11 @@ from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
+from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
+    LLMDialogueActsExtractor,
+)
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.user_modeling.persona import Persona
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
 )
@@ -96,6 +101,14 @@ def get_simulator_information(
 
     if simulator_class.__name__ == "AgendaBasedSimulator":
         simulator_config.update(_get_agenda_based_simulator_config(config))
+    elif simulator_class.__name__ == "LLMSinglePromptUserSimulator":
+        simulator_config.update(
+            _get_llm_single_prompt_user_simulator_config(config)
+        )
+    elif simulator_class.__name__ == "LLMDualPromptUserSimulator":
+        simulator_config.update(
+            _get_llm_dual_prompt_user_simulator_config(config)
+        )
     else:
         raise ValueError(f"Simulator class {simulator_class} is not supported.")
     return simulator_id, simulator_class, simulator_config
@@ -159,10 +172,7 @@ def _get_agenda_based_simulator_config(
     nlu = get_NLU(config)
 
     # NLG
-    template = extract_utterance_template(
-        annotated_dialogue_file=annotated_dialogues_file,
-    )
-    nlg = ConditionalNLG(template)
+    nlg = get_NLG(config)
 
     return {
         "preference_model": preference_model,
@@ -177,8 +187,6 @@ def _get_agenda_based_simulator_config(
 
 def get_NLU(config: confuse.Configuration) -> NLU:
     """Returns an NLU component.
-
-    Only supports disjoint dialogue act extractors for now.
 
     Args:
         config: Configuration for the simulation.
@@ -197,6 +205,10 @@ def get_NLU(config: confuse.Configuration) -> NLU:
         classifier = train_cosine_classifier(config)
         return NLU(
             DisjointDialogueActExtractor(classifier, slot_value_annotators=[])
+        )
+    elif intent_classifier == "llm":
+        return LLMDialogueActsExtractor(
+            config["intent_classifier_config"].get()
         )
     raise ValueError(
         "Unsupported intent classifier. Check DialogueKit intent"
@@ -237,3 +249,93 @@ def train_cosine_classifier(
     intent_classifier = IntentClassifierCosine(intents=gt_intents)
     intent_classifier.train_model(utterances=utterances, labels=gt_intents)
     return intent_classifier
+
+
+def get_NLG(config: confuse.Configuration) -> AbstractNLG:
+    """Returns an NLG component.
+
+    Args:
+        config: Configuration for the simulation.
+
+    Raises:
+        ValueError: Unsupported NLG component.
+
+    Returns:
+        An NLG component.
+    """
+    nlg_type = config["nlg"].get()
+    if nlg_type == "conditional":
+        annotated_dialogues_file = config["dialogues"].get()
+        template = extract_utterance_template(
+            annotated_dialogue_file=annotated_dialogues_file,
+        )
+        return ConditionalNLG(template)
+    elif nlg_type == "llm":
+        return map_path_to_class(config["nlg_class_path"].get())(
+            **config["nlg_args"].get()
+        )
+    raise ValueError("Unsupported NLG component.")
+
+
+def _get_llm_single_prompt_user_simulator_config(
+    config: confuse.Configuration,
+) -> Dict[str, Any]:
+    """Gets the configuration of the LLM single-prompt user simulator.
+
+    Args:
+        config: Configuration of the run.
+
+    Returns:
+        Configuration of the single prompt user simulator.
+    """
+    domain = SimulationDomain(config["domain"].get())
+    item_type = config["item_type"].get()
+
+    item_collection = ItemCollection(
+        config["collection_db_path"].get(), config["collection_name"].get()
+    )
+    if config["items"].get() is not None:
+        # Load items if CSV file is provided
+        item_collection.load_items_csv(
+            config["items"].get(),
+            domain=domain,
+            domain_mapping=config["domain_mapping"].get(),
+            id_col=config["id_col"].get(),
+        )
+
+    llm_interface_class = map_path_to_class(
+        config["llm_interface_class_path"].get()
+    )
+    llm_interface_args = config["llm_interface_args"].get()
+    llm_interface = llm_interface_class(**llm_interface_args)
+
+    task_definition = config["task_definition"].get()
+
+    persona = None
+    if "persona" in config:
+        persona = Persona(config["persona"].get())
+
+    return {
+        "domain": domain,
+        "item_collection": item_collection,
+        "llm_interface": llm_interface,
+        "item_type": item_type,
+        "task_definition": task_definition,
+        "persona": persona,
+    }
+
+
+def _get_llm_dual_prompt_user_simulator_config(
+    config: confuse.Configuration,
+) -> Dict[str, Any]:
+    """Gets the configuration of the LLM dual-prompt user simulator.
+
+    Args:
+        config: Configuration of the run.
+
+    Returns:
+        Configuration of the dual prompt user simulator.
+    """
+    simulator_config = _get_llm_single_prompt_user_simulator_config(config)
+    simulator_config["stop_definition"] = config["stop_definition"].get()
+    return simulator_config
