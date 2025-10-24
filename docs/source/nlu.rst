@@ -4,7 +4,7 @@ Natural Language Understanding
 The natural language understanding (NLU) component is responsible for obtaining a structured representation of text utterances. This typically entails dialogue act recognition; a dialogue act comprises an intent and its associated slot-value pairs. 
 In addition to this, the NLU can also do satisfaction prediction. This is the user's satisfaction with the agent's response.
 
-UserSimCRS is compatible with NLU components from the `DialogueKit <https://iai-group.github.io/DialogueKit/main/>`_ library, which provides basic NLU functionalities. Additionally, we implement :py:class:`usersimcrs.nlu.lm.LMDialogueActExtractor`, a dialogue act extractor based on a large language model. 
+UserSimCRS is compatible with NLU components from the `DialogueKit <https://iai-group.github.io/DialogueKit/main/>`_ library, which provides basic NLU functionalities. Additionally, we implement :py:class:`usersimcrs.nlu.llm.LLMDialogueActExtractor`, a dialogue act extractor based on a large language model. 
 
 LLM-based NLU
 -------------
