@@ -1,7 +1,7 @@
 Evaluation
 ==========
 
-The evaluation is performed on the synthetic dialogues generated between the conversational recommender system (CRS) and the user simulator. 
+The evaluation of a conversational recommender system (CRS) is performed by first generating dialogues between the CRS and the user simulator, then computing evaluation measures on these synthetic dialogues. 
 The evaluation scripts are located in the directory `scripts/evaluation`.
 
 Currently, we provide the following evaluation scripts:
