@@ -1,10 +1,9 @@
 """Utility functions to run the simulation."""
 
 import json
-from typing import Any, Dict, Set, Tuple, Type
+from typing import Any, Dict, Tuple, Type
 
 import confuse
-import yaml
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlg import ConditionalNLG
@@ -16,7 +15,6 @@ from dialoguekit.nlu.disjoint_dialogue_act_extractor import (
     DisjointDialogueActExtractor,
 )
 from dialoguekit.nlu.intent_classifier import IntentClassifier
-from dialoguekit.nlu.models.diet_classifier_rasa import IntentClassifierRasa
 from dialoguekit.nlu.models.intent_classifier_cosine import (
     IntentClassifierCosine,
 )
@@ -131,7 +129,7 @@ def _get_agenda_based_simulator_config(
 
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(file_path=config["ratings"].get())
-    historical_ratings, ground_truth_ratings = ratings.create_split(
+    historical_ratings, _ = ratings.create_split(
         config["historical_ratings_ratio"].get(0.8)
     )
 
@@ -200,9 +198,6 @@ def get_NLU(config: confuse.Configuration) -> NLU:
         return NLU(
             DisjointDialogueActExtractor(classifier, slot_value_annotators=[])
         )
-    elif intent_classifier == "diet":
-        classifier = train_rasa_diet_classifier(config)
-        return NLU(DisjointDialogueActExtractor(classifier, [classifier]))
     raise ValueError(
         "Unsupported intent classifier. Check DialogueKit intent"
         " classifiers."
@@ -241,36 +236,4 @@ def train_cosine_classifier(
                 )
     intent_classifier = IntentClassifierCosine(intents=gt_intents)
     intent_classifier.train_model(utterances=utterances, labels=gt_intents)
-    return intent_classifier
-
-
-def train_rasa_diet_classifier(
-    config: confuse.Configuration,
-) -> IntentClassifierRasa:
-    """Trains a DIET classifier on Rasa annotated dialogues for NLU module.
-
-    Args:
-        config: Configuration generated from YAML configuration file.
-
-    Returns:
-        A trained Rasa DIET model for intent classification.
-    """
-    # TODO: Move to DialogueKit as util function.
-    # See: https://github.com/iai-group/UserSimCRS/issues/92
-    intent_schema_file = config["intents"].get()
-    intent_schema = yaml.load(open(intent_schema_file), Loader=yaml.FullLoader)
-
-    agent_intents_str: Set[str] = set()
-    for v in intent_schema["user_intents"].values():
-        intents = v.get("expected_agent_intents", []) or []
-        agent_intents_str.update(intents)
-    # agent_intents_str = intent_schema["agent_elicit_intents"]
-    # agent_intents_str.extend(intent_schema["agent_set_retrieval"])
-    agent_intents = [Intent(intent) for intent in agent_intents_str]
-    intent_classifier = IntentClassifierRasa(
-        agent_intents,
-        config["rasa_dialogues"].get(),
-        ".rasa",
-    )
-    intent_classifier.train_model()
     return intent_classifier

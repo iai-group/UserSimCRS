@@ -123,11 +123,6 @@ def parse_args() -> argparse.Namespace:
         help="Intent classifier model to be used. Defaults to cosine.",
     )
     parser.add_argument(
-        "--rasa_dialogues",
-        type=str,
-        help="Path to the Rasa annotated dialogues file.",
-    )
-    parser.add_argument(
         "-d",
         "--debug",
         action="store_const",
