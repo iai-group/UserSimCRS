@@ -29,7 +29,7 @@ from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
     LLMDialogueActsExtractor,
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
-from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 from usersimcrs.user_modeling.persona import Persona
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,

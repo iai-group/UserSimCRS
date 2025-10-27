@@ -116,7 +116,7 @@ def test_generate_utterance_text(llm_generative_nlg: LLMGenerativeNLG) -> None:
     )
 
     assert utterance.text == "This is a generated utterance."
-    llm_generative_nlg.llm_interface.get_llm_api_response.assert_called_once_with( # noqa: E501
+    llm_generative_nlg.llm_interface.get_llm_api_response.assert_called_once_with(  # noqa: E501
         "This is a mock prompt."
     )
 
