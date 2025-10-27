@@ -15,7 +15,6 @@ from dialoguekit.nlu import NLU
 from dialoguekit.nlu.disjoint_dialogue_act_extractor import (
     DisjointDialogueActExtractor,
 )
-from dialoguekit.nlu.intent_classifier import IntentClassifier
 from dialoguekit.nlu.models.intent_classifier_cosine import (
     IntentClassifierCosine,
 )
@@ -30,6 +29,7 @@ from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
     LLMDialogueActsExtractor,
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
+from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
 from usersimcrs.user_modeling.persona import Persona
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
@@ -197,9 +197,8 @@ def get_NLU(config: confuse.Configuration) -> NLU:
     Returns:
         An NLU component.
     """
-
-    intent_classifier = config["intent_classifier"].get()
-    classifier: IntentClassifier = None
+    nlu_config = config["nlu"].get()
+    intent_classifier = nlu_config.get("intent_classifier")
     if intent_classifier == "cosine":
         # NLU without slot annotators
         classifier = train_cosine_classifier(config)
@@ -207,8 +206,9 @@ def get_NLU(config: confuse.Configuration) -> NLU:
             DisjointDialogueActExtractor(classifier, slot_value_annotators=[])
         )
     elif intent_classifier == "llm":
+        nlu_llm_interface = _get_llm_interface(nlu_config)
         return LLMDialogueActsExtractor(
-            config["intent_classifier_config"].get()
+            nlu_llm_interface, nlu_config.get("intent_classifier_config")
         )
     raise ValueError(
         "Unsupported intent classifier. Check DialogueKit intent"
@@ -263,7 +263,8 @@ def get_NLG(config: confuse.Configuration) -> AbstractNLG:
     Returns:
         An NLG component.
     """
-    nlg_type = config["nlg"].get()
+    nlg_config = config["nlg"].get()
+    nlg_type = nlg_config.get("type")
     if nlg_type == "conditional":
         annotated_dialogues_file = config["dialogues"].get()
         template = extract_utterance_template(
@@ -271,9 +272,10 @@ def get_NLG(config: confuse.Configuration) -> AbstractNLG:
         )
         return ConditionalNLG(template)
     elif nlg_type == "llm":
-        return map_path_to_class(config["nlg_class_path"].get())(
-            **config["nlg_args"].get()
-        )
+        nlg_llm_interface = _get_llm_interface(nlg_config)
+        nlg_args = nlg_config.get("args", {})
+        nlg_args["llm_interface"] = nlg_llm_interface
+        return map_path_to_class(nlg_config.get("class_path"))(**nlg_args)
     raise ValueError("Unsupported NLG component.")
 
 
@@ -303,11 +305,7 @@ def _get_llm_single_prompt_user_simulator_config(
             id_col=config["id_col"].get(),
         )
 
-    llm_interface_class = map_path_to_class(
-        config["llm_interface_class_path"].get()
-    )
-    llm_interface_args = config["llm_interface_args"].get()
-    llm_interface = llm_interface_class(**llm_interface_args)
+    llm_interface = _get_llm_interface(dict(config))
 
     task_definition = config["task_definition"].get()
 
@@ -323,6 +321,23 @@ def _get_llm_single_prompt_user_simulator_config(
         "task_definition": task_definition,
         "persona": persona,
     }
+
+
+def _get_llm_interface(config: Dict[str, Any]) -> LLMInterface:
+    """Returns the LLM interface.
+
+    Args:
+        config: Configuration.
+
+    Returns:
+        LLM interface.
+    """
+    llm_interface_class = map_path_to_class(
+        config.get("llm_interface_class_path")
+    )
+    llm_interface_args = config.get("llm_interface_args", {})
+    llm_interface = llm_interface_class(**llm_interface_args)
+    return llm_interface
 
 
 def _get_llm_dual_prompt_user_simulator_config(

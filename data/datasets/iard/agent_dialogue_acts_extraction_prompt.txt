@@ -35,7 +35,7 @@ Dialogue acts: OTH()|REQ(GENRE)
 
 Example 3:
 Input utterance: Okay! How about Horrible Bosses (2011) or Superbad (2007)?
-Dialogue acts: REC-S(TITLE='Horrible Bosses', TITLE='Superbad')
+Dialogue acts: REC-S(TITLE="Horrible Bosses", TITLE="Superbad")
 
 Example 4:
 Input utterance: It came out in 2011...No problem! You're welcome!
@@ -43,7 +43,7 @@ Dialogue acts: RES(YEAR="2011")|OTH()
 
 Example 5:
 Input utterance: how about Eddie Murphy Raw (1987) it is a stand up comedy
-Dialogue acts: REC-S(TITLE='Eddie Murphy Raw')|EXP-I(GENRE='stand up comedy')
+Dialogue acts: REC-S(TITLE="Eddie Murphy Raw")|EXP-I(GENRE="stand up comedy")
 
 
 Input utterance: {utterance}

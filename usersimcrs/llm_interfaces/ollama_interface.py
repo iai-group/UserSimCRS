@@ -7,7 +7,7 @@ from ollama import Client, Options
 
 from dialoguekit.core import Utterance
 from dialoguekit.participant import DialogueParticipant
-from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
     UtteranceGenerationPrompt,
 )

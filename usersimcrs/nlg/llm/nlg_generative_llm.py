@@ -1,8 +1,8 @@
 """Generative natural language generation using a large language model.
 
-Note that the large language model is expected to be hosted externally on a
-Ollama server. Also, the prompt used to generate utterances is expected to have
-the following placeholders:
+Note that the large language model is expected to be hosted externally. Also,
+the prompt used to generate utterances is expected to have the following
+placeholders:
 - "dialogue_acts": to be replaced by the stringified dialogue acts.
 - "annotations": to be replaced by the stringified annotations (if provided).
 """
@@ -10,45 +10,37 @@ the following placeholders:
 import os
 from typing import List, Optional, Union
 
-import yaml
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.annotation import Annotation
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.nlg.nlg_abstract import AbstractNLG
 from dialoguekit.participant.participant import DialogueParticipant
-from ollama import Client, Options
+
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 
 
 class LLMGenerativeNLG(AbstractNLG):
     def __init__(
         self,
-        ollama_config_file: str,
+        llm_interface: LLMInterface,
         prompt_file: str,
         prompt_prefix: Optional[str] = None,
     ) -> None:
         """Initializes the generative NLG.
 
         Args:
-            ollama_config_file: Path to the Ollama configuration file.
+            llm_interface: Interface to the large language model.
             prompt_file: Path to the prompt file.
             prompt_prefix: Prefix to be remove from generated utterances.
               Defaults to None.
 
         Raises:
-            FileNotFoundError: If the Ollama configuration file or the prompt
-              file is not found.
+            FileNotFoundError: If the prompt file is not found.
         """
-        if not os.path.exists(ollama_config_file):
-            raise FileNotFoundError(f"File '{ollama_config_file}' not found.")
         if not os.path.exists(prompt_file):
             raise FileNotFoundError(f"File '{prompt_file}' not found.")
 
-        # Ollama
-        ollama_config = yaml.safe_load(open(ollama_config_file, "r"))
-        self.client = Client(ollama_config.get("host"))
-        self._model = ollama_config.get("model")
-        self._stream = ollama_config.get("stream", False)
-        self._options = Options(**ollama_config.get("options", {}))
+        self.llm_interface = llm_interface
 
         # Prompt
         self.prompt = open(prompt_file, "r").read()
@@ -87,13 +79,10 @@ class LLMGenerativeNLG(AbstractNLG):
             else:
                 prompt = self.prompt.format(dialogue_acts=dialogue_acts_str)
 
-            response = self.client.generate(
-                prompt=prompt,
-                model=self._model,
-                options=self._options,
-                stream=self._stream,
-            ).get("response", "")
-            response = response.strip().replace(self.prompt_prefix, "")
+            response = self.llm_interface.get_llm_api_response(prompt)
+            response = response.strip()
+            if self.prompt_prefix:
+                response = response.replace(self.prompt_prefix, "")
         except Exception as e:
             raise RuntimeError(f"Failed to generate utterance: {e}")
 
