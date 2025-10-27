@@ -4,7 +4,7 @@ Your should be formatted as a JSON object with two fields: constraints and reque
 Constraints are represented as a dictionary where the keys are the slots, and the values are the values that the movie must have for that slot. The possible slots are:
 - GENRE: Movie genre
 - ACTOR: Actor starring in the movie
-- KEYWORD: Keyword associated with the movie
+- KEYWORDS: Keywords associated with the movie
 - DIRECTOR: Director of the movie
 Requests are represented as a list of slots. The possible slots are:
 - PLOT: Movie plot
