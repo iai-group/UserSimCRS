@@ -1,8 +1,8 @@
 """Dialogue act extractor based on a large language model.
 
-Note that the large language model is expected to be hosted externally on a
-Ollama server. Also, the prompt used to extract dialogue acts is expected to
-have a placeholder "utterance" that will be replaced by the utterance text.
+Note that the large language model is expected to be hosted externally. Also,
+the prompt used to extract dialogue acts is expected to have a placeholder
+"utterance" that will be replaced by the utterance text.
 """
 
 from __future__ import annotations
@@ -18,15 +18,17 @@ from dialoguekit.core.intent import Intent
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.nlu.dialogue_acts_extractor import DialogueActsExtractor
-from ollama import Client, Options
+
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 
 
 class LLMDialogueActsExtractor(DialogueActsExtractor):
-    def __init__(self, config_file: str) -> None:
+    def __init__(self, llm_interface: LLMInterface, config_file: str) -> None:
         """Initializes the dialogue act extractor.
 
         Args:
-            config_file: YAML configuration file.
+            llm_interface: Interface to the large language model.
+            config_file: Path to the configuration file.
 
         Raises:
             FileNotFoundError: If the configuration or prompt file is not found.
@@ -52,10 +54,7 @@ class LLMDialogueActsExtractor(DialogueActsExtractor):
         self.intent_labels = config.get("intent_labels", [])
         self.slot_labels = config.get("slot_labels", [])
 
-        # Ollama
-        self.ollama_client = Client(host=config.get("ollama_host"))
-        self._model = config.get("ollama_model")
-        self._options = Options(**config.get("ollama_options", {}))
+        self.llm_interface = llm_interface
 
     def filter_invalid_dialogue_acts(
         self,
@@ -168,12 +167,9 @@ class LLMDialogueActsExtractor(DialogueActsExtractor):
         Returns:
             List of dialogue acts.
         """
-        model_output = self.ollama_client.generate(
-            self._model,
-            self.extraction_prompt.format(utterance=utterance.text),
-            options=self._options,
-            stream=False,
-        ).get("response", "")
+        model_output = self.llm_interface.get_llm_api_response(
+            self.extraction_prompt.format(utterance=utterance.text)
+        )
         dialogue_acts = self._parse_model_output(model_output)
         return self.filter_invalid_dialogue_acts(utterance.text, dialogue_acts)
 

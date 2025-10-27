@@ -1,0 +1,10 @@
+extraction_prompt: tests/data/test_user_dact_extraction.txt
+
+intent_labels:
+  - disclose
+  - feedback
+
+slot_labels:
+  - cuisine
+  - ingredient
+

@@ -9,7 +9,7 @@ from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
-from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 from usersimcrs.simulator.llm.prompt.stop_prompt import (
     DEFAULT_STOP_DEFINITION,
     StopPrompt,

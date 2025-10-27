@@ -1,6 +1,7 @@
 """Fixtures for the tests."""
 
 import os
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -8,6 +9,7 @@ from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
 from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.llm_interfaces.ollama_interface import OllamaLLMInterface
 from usersimcrs.simulator.neural.tus.tus_feature_handler import (
     TUSFeatureHandler,
 )
@@ -87,3 +89,9 @@ def feature_handler(domain: SimulationDomain) -> TUSFeatureHandler:
     ]
 
     return tus_feature_handler
+
+
+@pytest.fixture
+def mock_ollama_interface() -> OllamaLLMInterface:
+    """Mock Ollama LLM interface fixture."""
+    return MagicMock(spec=OllamaLLMInterface)
