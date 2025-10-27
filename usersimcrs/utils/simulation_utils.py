@@ -305,7 +305,7 @@ def _get_llm_single_prompt_user_simulator_config(
             id_col=config["id_col"].get(),
         )
 
-    llm_interface = _get_llm_interface(dict(config))
+    llm_interface = _get_llm_interface(config["llm_interface"].get())
 
     task_definition = config["task_definition"].get()
 
