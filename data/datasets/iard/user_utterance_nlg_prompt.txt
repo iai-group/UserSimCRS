@@ -32,7 +32,7 @@
 Generate a user utterance that corresponds to the given dialogue acts. The generated utterance should be straight to the point and include all the information provided in the dialogue acts. A dialogue act is a pair with an intent and an optional list of slot-value pairs. A description of the intents and slots is provided in the tables above. 
 
 Example 1:
-Dialogue acts: REJ(GENRE='horror')|CRI-A(GENRE='thrillers')
+Dialogue acts: REJ(GENRE="horror")|CRI-A(GENRE="thrillers")
 Generated utterance: I don't really like horror movies what about thrillers
 
 Example 2:

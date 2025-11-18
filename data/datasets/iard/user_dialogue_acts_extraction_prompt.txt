@@ -33,7 +33,7 @@ Given the list of available intents and slots, extract a list of dialogue acts f
 
 Example 1:
 Input utterance: I don't really like horror movies what about thrillers
-Dialogue acts: REJ(GENRE='horror')|CRI-A(GENRE='thrillers')
+Dialogue acts: REJ(GENRE="horror")|CRI-A(GENRE="thrillers")
 
 Example 2:
 Input utterance: Thank you bye.

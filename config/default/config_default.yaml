@@ -34,8 +34,10 @@ domain_mapping:
 ratings: data/item_collections/movielens-25m-sample/ratings.csv
 historical_ratings_ratio: 0.8
 
+nlu:
+  intent_classifier: "cosine"
+  
 dialogues: data/datasets/moviebot/annotated_dialogues.json
-intent_classifier: "cosine"
 
-nlg: conditional
-
+nlg:
+  type: conditional

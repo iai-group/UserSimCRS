@@ -9,7 +9,7 @@ from openai import OpenAI
 
 from dialoguekit.core import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
-from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
     UtteranceGenerationPrompt,
 )
