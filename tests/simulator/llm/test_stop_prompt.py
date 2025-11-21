@@ -24,8 +24,6 @@ def test_build_new_prompt(prompt: StopPrompt) -> None:
 
 def test_prompt_text(prompt: StopPrompt) -> None:
     """Tests the prompt_text property."""
-    initial_prompt = (
-        f"{DEFAULT_STOP_DEFINITION}\nHISTORY:\n"
-    )
+    initial_prompt = f"{DEFAULT_STOP_DEFINITION}\nHISTORY:\n"
 
     assert prompt.prompt_text == initial_prompt + "\n\nCONTINUE: "
