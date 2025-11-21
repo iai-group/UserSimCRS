@@ -16,7 +16,7 @@ Simulation." arXiv preprint arXiv:2510.05624 (2025).
 import argparse
 from collections import defaultdict
 import json
-from typing import List, Tuple
+from typing import Dict, List, Tuple
 
 from confuse import Configuration
 from tqdm import tqdm
@@ -53,13 +53,13 @@ def annotate_dialogue(
             continue
 
         if utterance.participant == DialogueParticipant.USER:
-            dialogue.utterances[i].dialogue_acts = (
-                user_nlu.extract_dialogue_acts(utterance)
-            )
+            dialogue.utterances[
+                i
+            ].dialogue_acts = user_nlu.extract_dialogue_acts(utterance)
         elif utterance.participant == DialogueParticipant.AGENT:
-            dialogue.utterances[i].dialogue_acts = (
-                agent_nlu.extract_dialogue_acts(utterance)
-            )
+            dialogue.utterances[
+                i
+            ].dialogue_acts = agent_nlu.extract_dialogue_acts(utterance)
         else:
             raise ValueError(f"Unknown participant: {utterance.participant}")
     return dialogue
@@ -97,7 +97,7 @@ def get_recommendation_rounds(
         Utterances per recommendation round.
     """
     rounds = []
-    current_round = []
+    current_round: List[AnnotatedUtterance] = []
     for utterance in dialogue.utterances:
         if any(
             intent in utterance.get_intents()
@@ -182,7 +182,7 @@ def get_summary(dialogues: List[Dialogue]) -> None:
     Args:
         dialogues: Dialogues.
     """
-    summary = defaultdict(
+    summary: Dict[str, Dict[str, float]] = defaultdict(
         lambda: {
             "total_dialogues": 0,
             "success_rate": 0,
@@ -286,13 +286,15 @@ if __name__ == "__main__":
 
     dialogues = annotate_dialogues(dialogues, user_nlu, agent_nlu)
     for dialogue in dialogues:
-        nb_accepted_recommendations, successful_rounds, total_rounds = (
-            assess_dialogue(
-                dialogue,
-                recommendation_intents,
-                acceptance_intents,
-                rejection_intents,
-            )
+        (
+            nb_accepted_recommendations,
+            successful_rounds,
+            total_rounds,
+        ) = assess_dialogue(
+            dialogue,
+            recommendation_intents,
+            acceptance_intents,
+            rejection_intents,
         )
         dialogue.metadata["utility"] = {
             "success": int(successful_rounds > 0),
