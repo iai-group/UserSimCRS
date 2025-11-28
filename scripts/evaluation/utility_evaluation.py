@@ -11,6 +11,7 @@ Reference:
 Bernard, Nolwenn, and Krisztian Balog. "Limitations of Current Evaluation
 Practices for Conversational Recommender Systems and the Potential of User
 Simulation." arXiv preprint arXiv:2510.05624 (2025).
+https://arxiv.org/abs/2510.05624
 """
 
 import argparse
@@ -78,13 +79,15 @@ def annotate_dialogues(
     Returns:
         Annotated dialogues.
     """
+    # TODO: Move this to DialogueKit
+    # See: https://github.com/iai-group/UserSimCRS/issues/219
     return [
         annotate_dialogue(dialogue, user_nlu, agent_nlu)
         for dialogue in tqdm(dialogues)
     ]
 
 
-def get_recommendation_rounds(
+def _get_recommendation_rounds(
     dialogue: Dialogue, recommendation_intents: List[Intent]
 ) -> List[List[AnnotatedUtterance]]:
     """Gets utterances per recommendation round.
@@ -111,7 +114,7 @@ def get_recommendation_rounds(
     return rounds
 
 
-def is_recommendation_accepted(
+def _is_recommendation_accepted(
     round: List[AnnotatedUtterance],
     acceptance_intents: List[Intent],
     rejection_intents: List[Intent],
@@ -157,10 +160,10 @@ def assess_dialogue(
     """
     # TODO: Optimize overall assessment to avoid multiple iterations over
     # utterances.
-    rounds = get_recommendation_rounds(dialogue, recommendation_intents)
+    rounds = _get_recommendation_rounds(dialogue, recommendation_intents)
     successful_rounds = 0
     for round in rounds:
-        if is_recommendation_accepted(
+        if _is_recommendation_accepted(
             round, acceptance_intents, rejection_intents
         ):
             successful_rounds += 1
