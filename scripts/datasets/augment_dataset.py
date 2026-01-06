@@ -1,4 +1,4 @@
-"""Augment the formatted ReDial dataset with additional information.
+"""Augment the formatted dataset with additional information.
 
 The augmentation is artificial and done to create training data for neural user
 simulators. Each dialogue is augmented with an information need and each
@@ -19,7 +19,9 @@ from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from scripts.datasets.information_need_annotation.information_need_annotator import (  # noqa: E501
     InformationNeedAnnotator,
 )
-from usersimcrs.nlu.lm.lm_dialogue_act_extractor import LMDialogueActsExtractor
+from usersimcrs.nlu.lm.llm_dialogue_act_extractor import (
+    LLMDialogueActsExtractor,
+)
 
 
 def annotate_dialogue_acts(
@@ -74,15 +76,15 @@ def parse_args() -> argparse.Namespace:
     """
     parser = argparse.ArgumentParser(
         description=(
-            "Augment the formatted ReDial dataset with additional information."
+            "Augment the formatted dataset with additional information."
         ),
-        prog="augment_redial.py",
+        prog="augment_dataset.py",
     )
     parser.add_argument(
         "--input_path",
         type=str,
-        default="data/datasets/redial/train_dialogues.json",
-        help="Path to the formatted ReDial dataset.",
+        required=True,
+        help="Path to the formatted dataset.",
     )
     parser.add_argument(
         "--user_nlu_config",
@@ -111,7 +113,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output_path",
         type=str,
-        default="data/datasets/redial/augmented_train_dialogues.json",
+        required=True,
         help="Path to save the augmented dataset.",
     )
     return parser.parse_args()
@@ -121,8 +123,8 @@ if __name__ == "__main__":
     args = parse_args()
 
     dialogues = json_to_dialogues(args.input_path)
-    user_nlu = NLU(LMDialogueActsExtractor(args.user_nlu_config))
-    agent_nlu = NLU(LMDialogueActsExtractor(args.agent_nlu_config))
+    user_nlu = NLU(LLMDialogueActsExtractor(args.user_nlu_config))
+    agent_nlu = NLU(LLMDialogueActsExtractor(args.agent_nlu_config))
 
     information_need_annotator = InformationNeedAnnotator(
         args.ollama_config, args.information_need_prompt

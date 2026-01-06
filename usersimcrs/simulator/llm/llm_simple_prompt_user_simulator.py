@@ -8,7 +8,7 @@ from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
-from usersimcrs.simulator.llm.interfaces.llm_interface import LLMInterface
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
     DEFAULT_TASK_DEFINITION,
     UtteranceGenerationPrompt,
@@ -17,7 +17,7 @@ from usersimcrs.simulator.user_simulator import UserSimulator
 from usersimcrs.user_modeling.persona import Persona
 
 
-class SinglePromptUserSimulator(UserSimulator):
+class LLMSinglePromptUserSimulator(UserSimulator):
     def __init__(
         self,
         id: str,

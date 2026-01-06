@@ -25,7 +25,7 @@ from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from scripts.evaluation.rubrics.quality_rubrics import QualityRubrics
-from usersimcrs.simulator.llm.interfaces.ollama_interface import (
+from usersimcrs.llm_interfaces.ollama_interface import (
     OllamaLLMInterface,
 )
 
@@ -81,7 +81,7 @@ def parse_args() -> argparse.Namespace:
         "--ollama_config",
         type=str,
         required=True,
-        help="Path to the OLLAMA config file.",
+        help="Path to the Ollama config file.",
     )
     parser.add_argument(
         "--output",

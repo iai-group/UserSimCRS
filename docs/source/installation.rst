@@ -1,7 +1,7 @@
 Installation
 ============
 
-The recommended version of Python is 3.11.  
+UserSimCRS requires Python 3.11+.  
 The easiest way to install UserSimCRS and all of its dependencies is by using pip:
 
 .. code-block:: shell
