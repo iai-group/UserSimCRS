@@ -42,7 +42,7 @@ Note that additional parameters specific to the user simulator should be added i
 Agenda-based simulation configuration
 """""""""""""""""""""""""""""""""""""
 
-To build an agenda-based user simulator, you need to provide an **interaction model**. It is a YAML file containing the users' and agent's intent space, as well as the set of expected agent intents for each user intent, is required for the interaction model. The CIR6 interaction model shipped with library offers a baseline starting point, which may be further tailored according to the behavior and capabilities of the CRS. The path to the interaction model file should be specified in the configuration file under the `intents` parameter.
+To build an agenda-based user simulator, you need to provide an **interaction model**. It is a YAML file containing the users' and agent's intent space, as well as the set of expected agent intents for each user intent, is required for the interaction model. The CIR6 interaction model shipped with library offers a baseline starting point, which may be further tailored according to the behavior and capabilities of the CRS. The path to the interaction model file should be specified in the configuration file under the `intents` parameter. You also need to configure the natural language understanding (NLU) and natural language generation (NLG) components to be used in the simulation, under the `nlu` and `nlg` sections, respectively.
 
 A default configuration to experiment with the IAI MovieBot, as the conversational agent, and agenda-based user simulator with supervised NLU and NLG is provided in `config/default/config_default.yaml`.
 
@@ -55,23 +55,54 @@ To use supervised NLU and NLG components in the simulation, you need access to:
 
 Associated configuration parameters are:
 
-  
   * `dialogues`: Path to domain config file.
-  * `intent_classifier`: Intent classifier model to be used. Only supports DialogueKit intent classifiers.
-  * `nlg`: NLG type to be used, set to "conditional" for template-based NLG.
-  * `debug`: Flag (boolean) to activate debug mode.
+  * `nlu`: Configuration for the NLU component.
+    - `type`: Type of intent classifier to be used, set to "cosine" for cosine classifier.
+  * `nlg`: Configuration for the NLG component.
+    - `type`: NLG type to be used, set to "conditional" for template-based NLG.
+
 
 LLM-based NLU and NLG
 ^^^^^^^^^^^^^^^^^^^^^
 
-Additional parameters for LLM-based NLU and NLG components are:
+To use LLM-based NLU and NLG components in the simulation, you need to set the parameter `type` to "llm" in the components' configuration sections.
 
-  * `intent_classifier`: Intent classifier set to "llm" for LLM-based dialogue act extraction.
-  * `intent_classifier_config`: Configuration file for `LLMDialogueActsExtractor`.
-  * `nlg`: NLG type set to "llm" for LLM-based NLG.
+Parameters to configure the LLM interface used by the components are:
 
-    - `nlg_class_path`: Import path to the LLM-based NLG class.
-    - `nlg_args`: Dictionary with additional configuration parameters for the LLM-based NLG class.
+  * `llm_interface_class_path`: Import path to the LLM interface class. This is used to instantiate the LLM interface in the NLU and NLG components.
+  * `llm_interface_args`: Dictionary with additional configuration parameters for the LLM interface.
+
+
+LLM-based NLU configuration also requires the parameter `intent_classifier_config`, which is the configuration file for the `LLMDialogueActsExtractor` class.
+
+Additional parameters for LLM-based NLG components are:
+
+  * `class_path`: Import path to the LLM-based NLG class. This is used to instantiate the LLM-based NLG component in the simulation.
+  * `args`: Dictionary with additional configuration parameters for the LLM-based NLG component.
+
+
+Note that all these parameters should be added in the NLU and NLG configuration sections of the simulator configuration. For example:
+
+.. code-block:: yaml
+
+    simulator_config:
+      ...
+      nlu:
+        type: llm
+        llm_interface_class_path: "usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface"
+        llm_interface_args:
+          configuration_path: config/llm_interface/config_ollama_default.yaml
+        intent_classifier_config: path/to/llm_dialogue_acts_extractor_config.yaml
+      nlg:
+        type: llm
+        llm_interface_class_path: "usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface"
+        llm_interface_args:
+          configuration_path: config/llm_interface/config_ollama_default.yaml
+        class_path: "usersimcrs.nlg.llm.nlg_generative_llm.LLMGenerativeNLG"
+        args:
+          prompt_file: data/datasets/iard/user_utterance_nlg_prompt.txt
+          prompt_prefix: "Generated utterance:"
+    ...
 
 
 LLM-based simulation configuration
@@ -82,6 +113,7 @@ Additional parameters for the LLM-based user simulators are:
   * `llm_interface_class_path`: Import path to the LLM interface class. This is used to instantiate the LLM interface in the simulation.
   * `llm_interface_args`: Dictionary with additional configuration parameters for the LLM interface.
   * `item_type`: Type of items to be recommended.
+
 
 Optional parameters for the LLM-based simulators include:
 
