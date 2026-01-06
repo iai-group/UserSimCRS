@@ -1,7 +1,6 @@
 """Console application for running simulation."""
 
 import argparse
-import json
 import logging
 import os
 import random
