@@ -62,19 +62,11 @@ runs:
       shell: bash
       run: |
         git checkout ${{ inputs.branch }}
-    # - name: sphinx apidoc generation
-    #   shell: bash -l {0}
-    #   working-directory: ./${{ inputs.dir_docs }}
-    #   run: |
-    #     echo ::group::Sphinx apidocs generation
-    #     sphinx-apidoc ${{ inputs.sphinxapiopts }}  ${{ inputs.sphinxapiexclude }}
-    #     echo ::endgroup::
     - name: sphinx html docs compilation
       shell: bash -l {0} # This is needed to work with conda here. See:https://github.com/marketplace/actions/setup-miniconda#IMPORTANT
       working-directory: ./${{ inputs.dir_docs }}
       run: |
         echo ::group::Sphinx docs compilation
-        mkdir -p autoapi
         sphinx-multiversion . _build ${{ inputs.sphinxopts }}
         echo ::endgroup::
     # - name: pushing to gh-pages
