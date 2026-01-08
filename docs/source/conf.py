@@ -94,6 +94,7 @@ autoapi_options = [
     "show-module-summary",
 ]
 autoapi_python_class_content = "init"
+autoapi_root = "autoapi"
 
 # -- Options for versioning -------------------------------------------------
 # See documentation at:
