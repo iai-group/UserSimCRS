@@ -1,5 +1,5 @@
-name: 'Sphinx docs to GitHub Pages'
-description: 'Automatic Sphinx html docs compilation and deployment through the gh-pages branch.'
+name: "Sphinx docs to GitHub Pages"
+description: "Automatic Sphinx html docs compilation and deployment through the gh-pages branch."
 author: "Diego Prada-Gracia"
 branding:
   icon: "upload-cloud"
@@ -8,23 +8,23 @@ inputs:
   branch:
     description: Name of the branch where the sphinx documentation is located
     required: false
-    default: 'main'
+    default: "main"
   dir_docs:
     description: Path where the sphinx documentation is located
     required: false
-    default: 'docs'
+    default: "docs"
   sphinxapiexclude:
     description: Files/directories to exclude from sphinx-apidoc
-    require: false
-    default: '*setup* tests*'
+    required: false
+    default: "*setup* tests*"
   sphinxapiopts:
     description: Options for sphinx-apidoc (default outputs to dir_docs and searches for modules one level up)
-    require: false
-    default: '-o . ../'
+    required: false
+    default: "-o . ../"
   sphinxopts:
     description: Compilation options for sphinx-multiversion
     required: false
-    default: ''
+    default: ""
 
 runs:
   using: "composite"
@@ -61,16 +61,16 @@ runs:
       id: to-branch-with-docs
       shell: bash
       run: |
-           git checkout ${{ inputs.branch }}
-    - name: sphinx apidoc generation
-      shell: bash -l {0}
-      working-directory: ./${{ inputs.dir_docs }}
-      run: |
-        echo ::group::Sphinx apidocs generation
-        sphinx-apidoc ${{ inputs.sphinxapiopts }}  ${{ inputs.sphinxapiexclude }}
-        echo ::endgroup::
+        git checkout ${{ inputs.branch }}
+    # - name: sphinx apidoc generation
+    #   shell: bash -l {0}
+    #   working-directory: ./${{ inputs.dir_docs }}
+    #   run: |
+    #     echo ::group::Sphinx apidocs generation
+    #     sphinx-apidoc ${{ inputs.sphinxapiopts }}  ${{ inputs.sphinxapiexclude }}
+    #     echo ::endgroup::
     - name: sphinx html docs compilation
-      shell: bash -l {0}      # This is needed to work with conda here. See:https://github.com/marketplace/actions/setup-miniconda#IMPORTANT
+      shell: bash -l {0} # This is needed to work with conda here. See:https://github.com/marketplace/actions/setup-miniconda#IMPORTANT
       working-directory: ./${{ inputs.dir_docs }}
       run: |
         echo ::group::Sphinx docs compilation
