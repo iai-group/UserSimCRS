@@ -25,9 +25,10 @@ Below, we specify the YAML format that is used for defining an interaction model
 * **agent_inquire_intents**: List of intents that the agent can use to ask the user if they want to know more.
 * **REWARD**: The reward settings for automatic assessment of simulated dialogues.
 
+
 An example of interaction model is available at: `data/interaction_models/crs_v1.yaml`.
 
-New interaction models can be added by providing a YAML file with the same format as the example above. The path to this file can be provided either in the configuration file or the command line, see :ref:`Configuration`.
+New interaction models can be added by providing a YAML file with the same format as the example above. The path to this file can be provided either in the configuration file or the command line, see :doc:`configuration documentation <configuration>`.
 
 Agenda update
 -------------
