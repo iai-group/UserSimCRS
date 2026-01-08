@@ -16,7 +16,8 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v4
         with:
-          ref: main
+          # ref: main
+          ref: feature/222-Fix-deployment-of-documentation
           fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -29,7 +30,8 @@ jobs:
       - name: Sphinx docs to GitHub Pages
         uses: ./.github/actions/build_docs/
         with:
-          branch: main
+          # branch: main
+          branch: feature/222-Fix-deployment-of-documentation
           dir_docs: docs/source
           sphinxapiopts: "--separate -o . ../"
           sphinxapiexclude: "../*setup* ../*.ipynb"
