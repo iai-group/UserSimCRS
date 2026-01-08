@@ -74,6 +74,7 @@ runs:
       working-directory: ./${{ inputs.dir_docs }}
       run: |
         echo ::group::Sphinx docs compilation
+        mkdir -p autoapi
         sphinx-multiversion . _build ${{ inputs.sphinxopts }}
         echo ::endgroup::
     - name: pushing to gh-pages
