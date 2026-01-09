@@ -64,7 +64,7 @@ This example shows how to run simulation using the default configuration and the
 
 Note: you need to update the parameter `agent_uri` in the configuration in case MovieBot does not run on the default URI (i.e., `http://127.0.0.1:5001`).
 
-2. Run simulation
+1. Run simulation
 
 ```shell
 python -m usersimcrs.run_simulation -c config/default/config_default.yaml
@@ -93,9 +93,21 @@ We welcome contributions both on the high level (feedback and ideas) as well as 
 
 ## Publication
 
-If you are using our simulation tool, please cite the following paper:
+For the most recent version (v2) of UserSimCRS, please cite the following paper:
 
+```bibtex
+@inproceedings{Bernard:2026:ECIR,
+  author = {Bernard, Nolwenn and Balog, Krisztian},
+  title = {UserSimCRS v2: Simulation-Based Evaluation for Conversational Recommender Systems},
+  year = {2026},
+  booktitle = {Advances in Information Retrieval},
+  series = {ECIR '26}
+}
 ```
+
+For UserSimCRS v1, please cite the following paper:
+
+```bibtex
 @inproceedings{Afzali:2023:WSDM,
   author = {Afzali, Jafar and Drzewiecki, Aleksander Mark and Balog, Krisztian and Zhang, Shuo},
   title = {UserSimCRS: A User Simulation Toolkit for Evaluating Conversational Recommender Systems},
