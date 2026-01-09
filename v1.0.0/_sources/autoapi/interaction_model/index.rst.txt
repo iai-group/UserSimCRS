@@ -1,0 +1,149 @@
+interaction_model
+=================
+
+.. py:module:: interaction_model
+
+.. autoapi-nested-parse::
+
+   Interaction model.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   interaction_model.IntentDistribution
+   interaction_model.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   interaction_model.InteractionModel
+
+
+Module Contents
+---------------
+
+.. py:data:: IntentDistribution
+
+.. py:data:: logger
+
+.. py:class:: InteractionModel(config_file: str, annotated_conversations: List[dialoguekit.core.dialogue.Dialogue])
+
+   Initializes the interaction model.
+
+   :param config_file: Path to configuration file.
+   :param annotated_conversations: List of annotated conversations.
+
+
+   .. py:attribute:: REQUIRED_INTENTS
+
+
+   .. py:method:: intent_distribution(annotated_conversations: List[dialoguekit.core.dialogue.Dialogue]) -> Tuple[IntentDistribution, IntentDistribution]
+
+      Distills user intent distributions based on conversations.
+
+      Arg:
+          annotated_conversations: List of annotated conversations.
+
+      :returns:     {user of agent intent: {next_user_intent: occurrence}}
+      :rtype: Intent distributions
+
+      :raises TypeError: if some utterances are not an instance of
+          AnnotatedUtterance.
+
+
+
+   .. py:method:: initialize_agenda() -> List
+
+      Initializes user agenda.
+
+      Step1: Load all the dialogues with intents and generate a map:
+              intent_map = {
+                  current_intent:
+                      {next_intent1: n_1,
+                       next_intent_2: n_2}
+              }
+      Note: CIR6 only based on user intents while qrfa uses both
+          user and agent intents
+
+      Step2: populate the agenda.
+          starting_intent = "None_disclose"
+          self.agenda.append(starting_intent)
+          next_intent = self.next_intent(starting_intent)
+          agenda.append(next_intent)
+          while next_intent != "stop":
+              self..append(next_intent)
+              next_intent = self.next_intent(next_intent)
+          agenda.append(next_intent)
+
+      Step3: filter the agenda, e.g. too short or too long agenda will
+          trigger this function rerun
+
+
+
+   .. py:property:: agenda
+
+
+   .. py:property:: current_intent
+      :type: dialoguekit.core.intent.Intent
+
+
+
+   .. py:method:: is_agent_intent_elicit(agent_intent: dialoguekit.core.intent.Intent) -> bool
+
+      Checks if the given agent intent is elicitation.
+
+      :param agent_intent: Agent's intent.
+
+      :returns: True if it is an elicitation intent.
+
+
+
+   .. py:method:: is_agent_intent_set_retrieval(agent_intent: dialoguekit.core.intent.Intent) -> bool
+
+      Checks if the given agent intent is set retrieval.
+
+      :param agent_intent: Agent's intent.
+
+      :returns: True if it is a set retrieval intent.
+
+
+
+   .. py:method:: next_intent(intent: dialoguekit.core.intent.Intent, intent_dist: IntentDistribution) -> dialoguekit.core.intent.Intent
+
+      Predicts the next user intent.
+
+      Given current_intent, we determine the next intent
+          (either next_intent1 or next_intent2) by probabilities.
+
+      :param Intent: current intent.
+      :param Intent_dist: intent distributions.
+
+      :returns: Next user intent based on probability distribution.
+
+
+
+   .. py:method:: update_agenda(agent_intent: dialoguekit.core.intent.Intent) -> None
+
+      Updates the agenda and determines the next user intent based on agent
+      intent.
+
+      If agent replies with an expected intent in response to the last user
+      intent (based on the expected_responses mapping in the config file),
+      then
+          pops up the next user intent from the agenda;
+          update the current intent;
+      Otherwise:
+          pushes a new intent (select a replacement intent);
+          updates the current intent.
+
+      :param Agent_intent: Agent's intent.
+
+
+

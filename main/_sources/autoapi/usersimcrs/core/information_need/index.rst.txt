@@ -1,0 +1,99 @@
+usersimcrs.core.information_need
+================================
+
+.. py:module:: usersimcrs.core.information_need
+
+.. autoapi-nested-parse::
+
+   Interface to represent an information need.
+
+   The information need comprises three elements: constraints, requests, and target
+   items. The constraints specify the slot-value pairs that the item of interest
+   must satisfy, while the requests specify the slots for which the user wants
+   information. The target items represent the "ground truth" items that the user
+   is interested in.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.core.information_need.InformationNeed
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   usersimcrs.core.information_need.generate_random_information_need
+
+
+Module Contents
+---------------
+
+.. py:function:: generate_random_information_need(domain: usersimcrs.core.simulation_domain.SimulationDomain, item_collection: usersimcrs.items.item_collection.ItemCollection) -> InformationNeed
+
+   Generates a random information need based on the domain.
+
+   It randomly selects one target item and sets constraints and requests slots.
+   The value of constraints are derived from the target's properties. The
+   number of constraints and requests are also randomly determined.
+
+   :param domain: Domain knowledge.
+   :param item_collection: Collection of items.
+
+   :returns: Information need.
+
+
+.. py:class:: InformationNeed(target_items: List[usersimcrs.items.item.Item], constraints: Dict[str, Any], requests: List[str])
+
+   Initializes an information need.
+
+   :param target_items: Items that the user is interested in.
+   :param constraints: Slot-value pairs representing constraints on the item
+                       of interest.
+   :param requests: Slots representing the desired information.
+
+
+   .. py:attribute:: target_items
+
+
+   .. py:attribute:: constraints
+
+
+   .. py:attribute:: requested_slots
+
+
+   .. py:method:: get_constraint_value(slot: str) -> Any
+
+      Returns the value of a constraint slot.
+
+      :param slot: Slot.
+
+      :returns: Value of the slot.
+
+
+
+   .. py:method:: get_requestable_slots() -> List[str]
+
+      Returns the list of requestable slots.
+
+
+
+   .. py:method:: from_dict(data: Dict[str, Any]) -> InformationNeed
+      :classmethod:
+
+
+      Creates information need from a dictionary.
+
+
+
+   .. py:method:: to_dict() -> Dict[str, Any]
+
+      Returns information need as a dictionary.
+
+
+

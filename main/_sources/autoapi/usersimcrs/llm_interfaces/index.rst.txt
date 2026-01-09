@@ -1,0 +1,22 @@
+usersimcrs.llm_interfaces
+=========================
+
+.. py:module:: usersimcrs.llm_interfaces
+
+.. autoapi-nested-parse::
+
+   Module level init for LLM interfaces.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/usersimcrs/llm_interfaces/llm_interface/index
+   /autoapi/usersimcrs/llm_interfaces/ollama_interface/index
+   /autoapi/usersimcrs/llm_interfaces/openai_interface/index
+
+

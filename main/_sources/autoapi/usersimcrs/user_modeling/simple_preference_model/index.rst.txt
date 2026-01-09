@@ -1,0 +1,82 @@
+usersimcrs.user_modeling.simple_preference_model
+================================================
+
+.. py:module:: usersimcrs.user_modeling.simple_preference_model
+
+.. autoapi-nested-parse::
+
+   Simple user preference modeling component.
+
+   This class implements the "single item preference" approach in [Zhang & Balog,
+   KDD'20].
+
+   - Whenever a user is prompted whether they had seen/consumed a specific item, we
+     answer that based on historical data.
+   - Whenever the user is prompted for their preference on a given item or
+     slot-value pair, we provide a positive/negative response by flipping a coin
+     (i.e., either -1 or +1 as the preference).
+   - Whenever the user is prompted for a preference on a given slot, a random value
+     among the existing slot values is picked and returned as positive preference.
+
+   The responses given are remembered so that the user would respond the same way
+   if they are asked the same question again.
+
+   This approach offers limited consistency. Items that are seen/consumed are
+   rooted in real user behavior, but the preferences expressed about them are not.
+   Hence, the user might express a preference about a slot that is inconsistent
+   with the answers given to other questions (e.g., likes "action" as a genre, but
+   has not seen a single action movie).
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.user_modeling.simple_preference_model.SimplePreferenceModel
+
+
+Module Contents
+---------------
+
+.. py:class:: SimplePreferenceModel(domain: usersimcrs.core.simulation_domain.SimulationDomain, item_collection: usersimcrs.items.item_collection.ItemCollection, historical_ratings: usersimcrs.items.ratings.Ratings, historical_user_id: str = None)
+
+   Bases: :py:obj:`usersimcrs.user_modeling.preference_model.PreferenceModel`
+
+
+   Initializes the simple preference model of a simulated user.
+
+   :param domain: Domain.
+   :param item_collection: Item collection.
+   :param historical_ratings: Historical ratings.
+   :param historical_user_id: If provided, the simulated user is
+                              based on this particular historical user; otherwise, it is based
+                              on a randomly sampled user. This is mostly added to make the
+                              class testable. Defaults to None.
+   :type historical_user_id: Optional
+
+
+   .. py:method:: get_item_preference(item_id: str) -> float
+
+      Returns a preference for a given item.
+
+      :param item_id: Item ID.
+
+      :returns: Randomly chosen preference, which is either -1 or +1.
+
+      :raises ValueError: If the item does not exist in the collection.
+
+
+
+   .. py:method:: get_slot_value_preference(slot: str, value: str) -> float
+
+      Returns a preference on a given slot-value pair.
+
+      :param slot: Slot name (needs to exist in the domain).
+      :param value: Slot value.
+
+      :returns: Randomly chosen preference, which is either -1 or +1.
+
+
+

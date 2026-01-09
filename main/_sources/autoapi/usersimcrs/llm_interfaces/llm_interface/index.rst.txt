@@ -1,0 +1,70 @@
+usersimcrs.llm_interfaces.llm_interface
+=======================================
+
+.. py:module:: usersimcrs.llm_interfaces.llm_interface
+
+.. autoapi-nested-parse::
+
+   Interface for the LLM model.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.llm_interfaces.llm_interface.LLMInterface
+
+
+Module Contents
+---------------
+
+.. py:class:: LLMInterface(default_response: str = None)
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   Initializes the LLM interface.
+
+   :param default_response: Default response to be used if the LLM fails to
+                            generate a response.
+
+
+   .. py:attribute:: default_response
+      :value: None
+
+
+
+   .. py:method:: generate_utterance(prompt: usersimcrs.simulator.llm.prompt.utterance_generation_prompt.UtteranceGenerationPrompt) -> dialoguekit.core.Utterance
+      :abstractmethod:
+
+
+      Generates an utterance given a prompt.
+
+      :param prompt: Prompt for generating the utterance.
+
+      :raises NotImplementedError: If the method is not implemented in subclass.
+
+      :returns: Utterance in natural language.
+
+
+
+   .. py:method:: get_llm_api_response(prompt: str, **kwargs) -> str
+      :abstractmethod:
+
+
+      Gets the raw response from the LLM API.
+
+      This method should be used to interact directly with the LLM API, i.e.,
+      for everything that is not related to the generation of an utterance.
+
+      :param prompt: Prompt for the LLM.
+      :param \*\*kwargs: Additional arguments to be passed to the API call.
+
+      :raises NotImplementedError: If the method is not implemented in subclass.
+
+      :returns: Response from the LLM API without any post-processing.
+
+
+

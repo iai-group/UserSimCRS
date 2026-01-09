@@ -1,0 +1,77 @@
+usersimcrs.simulator.llm.prompt.prompt
+======================================
+
+.. py:module:: usersimcrs.simulator.llm.prompt.prompt
+
+.. autoapi-nested-parse::
+
+   Interface for prompt.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.llm.prompt.prompt.Prompt
+
+
+Module Contents
+---------------
+
+.. py:class:: Prompt(information_need: usersimcrs.core.information_need.InformationNeed, item_type: str, prompt_definition: str, persona: usersimcrs.user_modeling.persona.Persona = None)
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   Initializes the prompt.
+
+   :param information_need: The information need of the user.
+   :param item_type: The type of the item to be recommended.
+   :param prompt_definition: The definition of the task to be performed.
+   :param persona: The persona of the user. Defaults to None.
+
+
+   .. py:attribute:: information_need
+
+
+   .. py:attribute:: item_type
+
+
+   .. py:attribute:: prompt_definition
+
+
+   .. py:attribute:: persona
+      :value: None
+
+
+
+   .. py:property:: prompt_text
+      :type: str
+
+
+      Prompt for the user simulator.
+
+
+   .. py:method:: build_new_prompt(**kwargs) -> str
+      :abstractmethod:
+
+
+      Builds the initial prompt without any context.
+
+      :raises NotImplementedError: If the method is not implemented in subclasses.
+
+      :returns: Initial prompt.
+
+
+
+   .. py:method:: update_prompt_context(utterance: dialoguekit.core.utterance.Utterance, participant: dialoguekit.participant.participant.DialogueParticipant) -> None
+
+      Updates the context provided in the prompt.
+
+      :param utterance: Utterance to be added to the prompt.
+      :param participant: Participant of the conversation.
+
+
+

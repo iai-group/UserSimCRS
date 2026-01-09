@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interaction model &mdash; UserSimCRS 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UserSimCRS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agenda_based.html">Agenda-based simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm_based.html">LLM-based simulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_modeling.html">User modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Experiment Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UserSimCRS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Interaction model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/interaction_model.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interaction-model">
+<h1>Interaction model<a class="headerlink" href="#interaction-model" title="Link to this heading"></a></h1>
+<p>The interaction model is based on <a class="reference external" href="https://arxiv.org/abs/2006.08732">[Zhang &amp; Balog, 2020]</a> and defines the allowed transitions between dialogue acts based on their intents. In our implementation, the interaction model is also responsible for the updating of the agenda based on a predefined dialogue strategy.</p>
+<section id="define-allowed-transitions">
+<h2>Define allowed transitions<a class="headerlink" href="#define-allowed-transitions" title="Link to this heading"></a></h2>
+<p>The interaction model defines the user-agent interactions in terms of <em>intents</em> from their respective dialogue acts. The model specifies a set of <em>user intents</em> including required ones, a set of <em>agent intents</em>, and <em>expected agent responses</em> to each user intent.</p>
+<section id="format">
+<h3>Format<a class="headerlink" href="#format" title="Link to this heading"></a></h3>
+<p>Below, we specify the YAML format that is used for defining an interaction model.</p>
+<ul class="simple">
+<li><p><strong>required_intents</strong>: List of minimum required intents for the user.</p></li>
+<li><p><strong>user_intents</strong>:  List of all user intents; each should minimally specify <strong>expected_agent_intents</strong>.</p>
+<ul>
+<li><p>Additionally, if a user intent is dependent on the preference model, this should be indicated via another key, i.e., <strong>preference_contingent</strong>.</p></li>
+<li><p>Similarly, intents that are used to remove preferences should be indicated in another key, <strong>remove_user_preference</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>sub_intents</strong>: Intents that are a variation of another intent can be listed as <strong>sub_intents</strong> of the same main intent. We separate them with a <strong>“.”</strong>, where the former part indicates the main intent, and the latter the sub-intent. For example, REVEAL.EXPAND is a sub-intent of REVEAL (main intent).</p></li>
+<li><p><strong>agent_elicit_intents</strong>: List of intents that the agent can use to elicit preferences/need from the user.</p></li>
+<li><p><strong>agent_set_retrieval</strong>: List of intents that the agent can use to reveal information to the user.</p></li>
+<li><p><strong>agent_inquire_intents</strong>: List of intents that the agent can use to ask the user if they want to know more.</p></li>
+<li><p><strong>REWARD</strong>: The reward settings for automatic assessment of simulated dialogues.</p></li>
+</ul>
+<p>An example of interaction model is available at: <cite>data/interaction_models/crs_v1.yaml</cite>.</p>
+<p>New interaction models can be added by providing a YAML file with the same format as the example above. The path to this file can be provided either in the configuration file or the command line, see <a class="reference internal" href="configuration.html"><span class="doc">configuration documentation</span></a>.</p>
+</section>
+</section>
+<section id="agenda-update">
+<h2>Agenda update<a class="headerlink" href="#agenda-update" title="Link to this heading"></a></h2>
+<p>The agenda is updated based on the last agent dialogue acts and the current state of the conversation. For each agent dialogue act, the interaction model performs a push operation on the agenda stack. We consider four cases:</p>
+<ol class="arabic simple">
+<li><p><strong>Agent elicits</strong>: In case the agent elicits information from the user, the interaction model may push a new dialogue act to disclose the information elicited.</p></li>
+<li><p><strong>Agent recommends</strong>: In case the agent recommends an item, the interaction model may push a new dialogue act to express a preference regarding the recommended item (e.g., like, dislike, already consumed).</p></li>
+<li><p><strong>Agent inquires</strong>: In case the agent inquires if the user wants to know more about a specific item, the interaction model may push a new dialogue act to request a slot in the information need or a random one.</p></li>
+<li><p><strong>None of the above</strong>: In case none of the above cases apply, the interaction model checks if it is coherent to continue with the current agenda or if a new dialogue act should be sampled to keep the conversation going. In the latter case, the new dialogue act is sampled based on the transition probabilities from historical dialogues.</p></li>
+</ol>
+<p>Once all the push operations are done, the agenda is cleaned to discard unnecessary dialogue acts, e.g., duplicates.</p>
+<section id="transition-probabilities-matrices">
+<h3>Transition probabilities matrices<a class="headerlink" href="#transition-probabilities-matrices" title="Link to this heading"></a></h3>
+<p>The interaction model uses transition probabilities matrices to sample new dialogue acts. These matrices are built from historical dialogues when the model is initialized. The transition probabilities are calculated based on the frequency of transitions between intents in the historical dialogues. We consider two matrices:</p>
+<ul class="simple">
+<li><p><em>Single intent</em>: The set of intents from an utterance is considered individually. That is, the transition probabilities are calculated based on the frequency of each intent following another intent.</p></li>
+<li><p><em>Compound intent</em>: The set of intents from an utterance is considered as a whole, i.e., the sequence of intents is considered as a single entity. That is, the transition probabilities are calculated based on the frequency of each sequence of intents following another sequence of intents.</p></li>
+</ul>
+<p>For example the following consecutive sequence of dialogue acts:</p>
+<div class="line-block">
+<div class="line">&gt; Agent: [GREETINGS(), ELICIT(genre=?)]</div>
+<div class="line">&gt; User: [GREETINGS(), DISCLOSE(genre=action)]</div>
+</div>
+<p>will result in the following transition probabilities matrices:</p>
+<p><em>Single intent</em>:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>GREETINGS</p></td>
+<td><p>DISCLOSE</p></td>
+</tr>
+<tr class="row-even"><td><p>GREETINGS</p></td>
+<td><p>0.5</p></td>
+<td><p>0.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>ELICIT</p></td>
+<td><p>0.5</p></td>
+<td><p>0.5</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Compound intent</em>:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>GREETINGS_DISCLOSE</p></td>
+</tr>
+<tr class="row-even"><td><p>GREETINGS_ELICIT</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reference</strong></p>
+<p>Shuo Zhang and Krisztian Balog. 2020. Evaluating Conversational Recommender Systems via User Simulation. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining (KDD ‘20). 1512–1520.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAI group, University of Stavanger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

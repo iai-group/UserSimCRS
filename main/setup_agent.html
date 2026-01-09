@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting up an agent &mdash; UserSimCRS 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UserSimCRS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agenda_based.html">Agenda-based simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm_based.html">LLM-based simulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_modeling.html">User modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Experiment Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UserSimCRS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Setting up an agent</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/setup_agent.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-up-an-agent">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Setting up an agent</a><a class="headerlink" href="#setting-up-an-agent" title="Link to this heading"></a></h1>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#setting-up-an-agent" id="id3">Setting up an agent</a></p>
+<ul>
+<li><p><a class="reference internal" href="#prepare-domain-and-item-collection" id="id4">1. Prepare domain and item collection</a></p></li>
+<li><p><a class="reference internal" href="#provide-preference-data" id="id5">2. Provide preference data</a></p></li>
+<li><p><a class="reference internal" href="#dialogue-sample" id="id6">3. Dialogue sample</a></p></li>
+<li><p><a class="reference internal" href="#annotate-sample" id="id7">4. Annotate sample</a></p></li>
+<li><p><a class="reference internal" href="#define-interaction-model" id="id8">5. Define interaction model</a></p></li>
+<li><p><a class="reference internal" href="#define-user-model-population" id="id9">6. Define user model/population</a></p></li>
+<li><p><a class="reference internal" href="#train-simulator" id="id10">7. Train simulator</a></p></li>
+<li><p><a class="reference internal" href="#run-simulation" id="id11">8. Run simulation</a></p></li>
+<li><p><a class="reference internal" href="#perform-evaluation" id="id12">9. Perform evaluation</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="prepare-domain-and-item-collection">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Prepare domain and item collection</a><a class="headerlink" href="#prepare-domain-and-item-collection" title="Link to this heading"></a></h2>
+<p>A YAML file with domain-specific slot names must be prepared for the preference model. Additionally, a file containing the item collection is required; currently, this is expected in CSV format.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">domain.yaml</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="nt">slot_names</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">TITLE</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">GENRE</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">ACTOR</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">KEYWORD</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">DIRECTOR</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">item_collection.csv</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">movieId,title,genres</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">1,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">2,Jumanji (1995),Adventure|Children|Fantasy</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">3,Grumpier Old Men (1995),Comedy|Romance</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">4,Waiting to Exhale (1995),Comedy|Drama|Romance</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">5,Father of the Bride Part II (1995),Comedy</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">6,Heat (1995),Action|Crime|Thriller</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">7,Sabrina (1995),Comedy|Romance</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="provide-preference-data">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Provide preference data</a><a class="headerlink" href="#provide-preference-data" title="Link to this heading"></a></h2>
+<p>Preference data is consumed in the form of item ratings and needs to be provided in a CSV file in the shape of user ID, item ID, and rating triples.</p>
+</section>
+<section id="dialogue-sample">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Dialogue sample</a><a class="headerlink" href="#dialogue-sample" title="Link to this heading"></a></h2>
+<p>A small sample of dialogues with the target CRS needs to be collected. The sample size depends on the complexity of the system, in terms of action space and language variety, but is generally in the order of 5-50 dialogues</p>
+</section>
+<section id="annotate-sample">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Annotate sample</a><a class="headerlink" href="#annotate-sample" title="Link to this heading"></a></h2>
+<p>The sample of dialogues must contain utterance-level annotations in terms of intents and entities, as this is required to train the NLU and NLG components. Note that the slots used for annotation should be the same as the ones defined in the domain file (cf. Step 1) and intents should follow the ones defined in the interaction model (cf. Step 4.)</p>
+</section>
+<section id="define-interaction-model">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Define interaction model</a><a class="headerlink" href="#define-interaction-model" title="Link to this heading"></a></h2>
+<p>A config file containing the users’ and agent’s intent space, as well as the set of expected agents for each user intent, is required for the interaction model. The CIR6 interaction model shipped with library offers a baseline starting point, which may be further tailored according to the behavior and capabilities of the target CRS</p>
+</section>
+<section id="define-user-model-population">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">6. Define user model/population</a><a class="headerlink" href="#define-user-model-population" title="Link to this heading"></a></h2>
+<p>Simulation is seeded with a user population that needs to be characterized, in terms of the different contexts (e.g., weekday vs. weekend, alone vs. group setting) and personas (e.g., patient and impatient users) and the number of users to be generated for each combination of context and persona. Each user has their own preference model, which may be instantiated by grounding it to actual preferences (i.e., the ratings dataset given in Step 2)</p>
+<p><strong>Note:</strong> The next three steps are done when running the <code class="docutils literal notranslate"><span class="pre">run_simulator.py</span></code> script.</p>
+</section>
+<section id="train-simulator">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">7. Train simulator</a><a class="headerlink" href="#train-simulator" title="Link to this heading"></a></h2>
+<p>The NLU and NLG components of the simulator are trained using the annotated dialogue sample.</p>
+</section>
+<section id="run-simulation">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">8. Run simulation</a><a class="headerlink" href="#run-simulation" title="Link to this heading"></a></h2>
+<p>Running the simulator will generate a set of simulated conversations for each user with the target CRS and save those to files.</p>
+</section>
+<section id="perform-evaluation">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">9. Perform evaluation</a><a class="headerlink" href="#perform-evaluation" title="Link to this heading"></a></h2>
+<p>Evaluation takes the set of simulated dialogues generated in the previous step as input, and measures the performance of the target CRS in terms of the metrics implemented in DialogueKit (cf. Section 3.1)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAI group, University of Stavanger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

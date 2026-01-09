@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tus_feature_handler &mdash; UserSimCRS 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="usersimcrs.utils.simulation_utils" href="../usersimcrs/utils/simulation_utils/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            UserSimCRS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agenda_based.html">Agenda-based simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../llm_based.html">LLM-based simulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_modeling.html">User modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Experiment Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../evaluation.html">Evaluation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core/index.html">core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usersimcrs/index.html">usersimcrs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tus_feature_handler</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tus_feature_handler.TUSFeatureHandler"><code class="docutils literal notranslate"><span class="pre">TUSFeatureHandler</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">UserSimCRS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">tus_feature_handler</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/autoapi/tus_feature_handler/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-tus_feature_handler">
+<span id="tus-feature-handler"></span><h1>tus_feature_handler<a class="headerlink" href="#module-tus_feature_handler" title="Link to this heading"></a></h1>
+<p>Feature handler for the TUS simulator.</p>
+<p>For simplicity, the feature handler supports a single domain unlike the original
+implementation.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tus_feature_handler.TUSFeatureHandler" title="tus_feature_handler.TUSFeatureHandler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TUSFeatureHandler</span></code></a></p></td>
+<td><p>Initializes the feature handler.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tus_feature_handler.</span></span><span class="sig-name descname"><span class="pre">TUSFeatureHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/core/simulation_domain/index.html#usersimcrs.core.simulation_domain.SimulationDomain" title="usersimcrs.core.simulation_domain.SimulationDomain"><span class="pre">usersimcrs.core.simulation_domain.SimulationDomain</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_turn_feature_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agent_actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['inform',</span> <span class="pre">'request']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureHandler</span></code></p>
+<p>Initializes the feature handler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>domain</strong> – Domain knowledge.</p></li>
+<li><p><strong>max_turn_feature_length</strong> – Maximum length of a turn feature vector.</p></li>
+<li><p><strong>context_depth</strong> – Number of previous turns to include in the input
+vector.</p></li>
+<li><p><strong>agent_actions</strong> – Agent actions.</p></li>
+<li><p><strong>user_actions</strong> – User actions. Defaults to [“inform”, “request”].</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.max_turn_feature_length">
+<span class="sig-name descname"><span class="pre">max_turn_feature_length</span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.max_turn_feature_length" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.context_depth">
+<span class="sig-name descname"><span class="pre">context_depth</span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.context_depth" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.action_slots">
+<span class="sig-name descname"><span class="pre">action_slots</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.action_slots" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.user_feature_history">
+<span class="sig-name descname"><span class="pre">user_feature_history</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureVector</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.user_feature_history" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.reset" title="Link to this definition"></a></dt>
+<dd><p>Resets the feature handler.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.reset_user_feature_history">
+<span class="sig-name descname"><span class="pre">reset_user_feature_history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.reset_user_feature_history" title="Link to this definition"></a></dt>
+<dd><p>Resets the user feature history.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.update_action_slots">
+<span class="sig-name descname"><span class="pre">update_action_slots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.update_action_slots" title="Link to this definition"></a></dt>
+<dd><p>Updates the action slots.</p>
+<p>Action slots are slots present in the information need and mentioned
+during the conversation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>slots</strong> – Slots mentioned in an utterance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.get_basic_information_feature">
+<span class="sig-name descname"><span class="pre">get_basic_information_feature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">information_need</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/core/information_need/index.html#usersimcrs.core.information_need.InformationNeed" title="usersimcrs.core.information_need.InformationNeed"><span class="pre">usersimcrs.core.information_need.InformationNeed</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureVector</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.get_basic_information_feature" title="Link to this definition"></a></dt>
+<dd><p>Builds feature vector for basic information.</p>
+<p>It concatenates the value in agent state, user state, slot type,
+completion status, and first mention.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slot</strong> – Slot.</p></li>
+<li><p><strong>information_need</strong> – Information need.</p></li>
+<li><p><strong>state</strong> – Current state.</p></li>
+<li><p><strong>previous_state</strong> – Previous state.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Feature vector for basic information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.get_agent_action_feature">
+<span class="sig-name descname"><span class="pre">get_agent_action_feature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_dialogue_acts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dialoguekit.core.dialogue_act.DialogueAct</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureVector</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.get_agent_action_feature" title="Link to this definition"></a></dt>
+<dd><p>Builds feature vector for agent action.</p>
+<p>It concatenates action vectors represented as 3-dimensional vectors that
+describe whether the slot and value are absent, only slot is present, or
+both slot and value are present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>agent_dialogue_acts</strong> – Agent dialogue acts.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Feature vector for agent action.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.get_slot_index_feature">
+<span class="sig-name descname"><span class="pre">get_slot_index_feature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureVector</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.get_slot_index_feature" title="Link to this definition"></a></dt>
+<dd><p>Builds feature vector for slot index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>slot</strong> – Slot.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Feature vector for slot index.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.get_slot_feature_vector">
+<span class="sig-name descname"><span class="pre">get_slot_feature_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">information_need</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/core/information_need/index.html#usersimcrs.core.information_need.InformationNeed" title="usersimcrs.core.information_need.InformationNeed"><span class="pre">usersimcrs.core.information_need.InformationNeed</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">agent_dialogue_acts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dialoguekit.core.dialogue_act.DialogueAct</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_action_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureVector</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.get_slot_feature_vector" title="Link to this definition"></a></dt>
+<dd><p>Builds the feature vector for a slot.</p>
+<p>It concatenates the basic information, user action, agent action, and
+slot index feature vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slot</strong> – Slot.</p></li>
+<li><p><strong>previous_state</strong> – Previous state.</p></li>
+<li><p><strong>state</strong> – Current state.</p></li>
+<li><p><strong>information_need</strong> – Information need.</p></li>
+<li><p><strong>agent_dialogue_acts</strong> – Agent dialogue acts.</p></li>
+<li><p><strong>user_action_vector</strong> – User action feature vector (output vector for
+previous turn). Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Feature vector for the slot.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.get_turn_feature_vectors">
+<span class="sig-name descname"><span class="pre">get_turn_feature_vectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_dialogue_acts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dialoguekit.core.dialogue_act.DialogueAct</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">information_need</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/core/information_need/index.html#usersimcrs.core.information_need.InformationNeed" title="usersimcrs.core.information_need.InformationNeed"><span class="pre">usersimcrs.core.information_need.InformationNeed</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_action_vectors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureVector</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.get_turn_feature_vectors" title="Link to this definition"></a></dt>
+<dd><p>Builds the feature vectors for a turn.</p>
+<p>It comprises the feature vectors for all slots that in the
+information need and mentioned during the conversation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>agent_dialogue_acts</strong> – Agent dialogue acts.</p></li>
+<li><p><strong>previous_state</strong> – Previous state.</p></li>
+<li><p><strong>state</strong> – Current state.</p></li>
+<li><p><strong>information_need</strong> – Information need.</p></li>
+<li><p><strong>user_action_vectors</strong> – User action feature vectors per slot. Defaults
+to an empty dictionary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Feature vectors for the turn.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.build_input_vector">
+<span class="sig-name descname"><span class="pre">build_input_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_dialogue_acts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dialoguekit.core.dialogue_act.DialogueAct</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">information_need</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/core/information_need/index.html#usersimcrs.core.information_need.InformationNeed" title="usersimcrs.core.information_need.InformationNeed"><span class="pre">usersimcrs.core.information_need.InformationNeed</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_action_vectors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureVector</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureMask</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.build_input_vector" title="Link to this definition"></a></dt>
+<dd><p>Builds the input vector $V_{input}$ for a turn.</p>
+<p>It concatenates the feature vectors for the last n turns separated by
+a special token. Note that is inferred from the list of feature vectors
+provided.
+The input vector is structured as follows:
+[CLS] $V^t$ [SEP] $V^{t-1}$ [SEP] … [SEP] $V^{t-n}$ [SEP] {padding},
+where {padding} indicates the padding to reach the maximum length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>agent_dialogue_acts</strong> – Agent dialogue acts.</p></li>
+<li><p><strong>previous_state</strong> – Previous state.</p></li>
+<li><p><strong>state</strong> – Current state.</p></li>
+<li><p><strong>information_need</strong> – Information need.</p></li>
+<li><p><strong>user_action_vectors</strong> – User action feature vectors per slot. Defaults
+to an empty dictionary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Input vector.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.get_label_vector">
+<span class="sig-name descname"><span class="pre">get_label_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_utterance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dialoguekit.core.annotated_utterance.AnnotatedUtterance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/dialogue_management/dialogue_state/index.html#usersimcrs.dialogue_management.dialogue_state.DialogueState" title="usersimcrs.dialogue_management.dialogue_state.DialogueState"><span class="pre">usersimcrs.dialogue_management.dialogue_state.DialogueState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">information_need</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../usersimcrs/core/information_need/index.html#usersimcrs.core.information_need.InformationNeed" title="usersimcrs.core.information_need.InformationNeed"><span class="pre">usersimcrs.core.information_need.InformationNeed</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">usersimcrs.simulator.neural.core.feature_handler.FeatureVector</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.get_label_vector" title="Link to this definition"></a></dt>
+<dd><p>Builds the label vector for a turn.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_utterance</strong> – User utterance with annotations.</p></li>
+<li><p><strong>current_state</strong> – Current state.</p></li>
+<li><p><strong>information_need</strong> – Information need.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Label vector for the turn.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.save_handler">
+<span class="sig-name descname"><span class="pre">save_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.save_handler" title="Link to this definition"></a></dt>
+<dd><p>Saves the feature handler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – Path to the output file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tus_feature_handler.TUSFeatureHandler.load_handler">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#tus_feature_handler.TUSFeatureHandler" title="tus_feature_handler.TUSFeatureHandler"><span class="pre">TUSFeatureHandler</span></a></span></span><a class="headerlink" href="#tus_feature_handler.TUSFeatureHandler.load_handler" title="Link to this definition"></a></dt>
+<dd><p>Loads a feature handler from a given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – Path to load the feature handler from.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – If the file is not found.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Feature handler.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../usersimcrs/utils/simulation_utils/index.html" class="btn btn-neutral float-left" title="usersimcrs.utils.simulation_utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAI group, University of Stavanger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM-based simulators &mdash; UserSimCRS 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User modeling" href="user_modeling.html" />
+    <link rel="prev" title="Agenda-based simulator" href="agenda_based.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UserSimCRS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agenda_based.html">Agenda-based simulator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LLM-based simulators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prompts">Prompts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utterance-generation-prompt">Utterance Generation Prompt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stop-conversation-prompt">Stop Conversation Prompt</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#llm-interface">LLM interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ollama">Ollama</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openai">OpenAI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_modeling.html">User modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Experiment Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UserSimCRS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LLM-based simulators</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/llm_based.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="llm-based-simulators">
+<h1>LLM-based simulators<a class="headerlink" href="#llm-based-simulators" title="Link to this heading"></a></h1>
+<p>UserSimCRS implements two user simulators relying on a large language model (LLM) to generate utterances:</p>
+<ul class="simple">
+<li><p><strong>Single-Prompt Simulator</strong>: It generates utterances based on a single prompt that includes the task description, user persona, information need, and conversational context.</p></li>
+<li><p><strong>Dual-Prompt Simulator</strong>: It generates utterances based on two prompts: one to decide whether to continue the conversation or not (the “stopping prompt”). If the decision is to continue, it generates the next utterance using the main generation prompt (identical to the one used by the single-prompt simulator); otherwise, it sends a default utterance to stop the conversation.</p></li>
+</ul>
+<p>We present the different prompts and available LLM interfaces below.</p>
+<section id="prompts">
+<h2>Prompts<a class="headerlink" href="#prompts" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="autoapi/usersimcrs/simulator/llm/prompt/prompt/index.html#usersimcrs.simulator.llm.prompt.prompt.Prompt" title="usersimcrs.simulator.llm.prompt.prompt.Prompt"><code class="xref py py-class docutils literal notranslate"><span class="pre">usersimcrs.simulator.llm.prompt.prompt.Prompt</span></code></a></p>
+<p>The base class for all prompts. It provides the basic structure and methods to build prompts for LLM-based simulators.</p>
+<p>Note that currently, the prompts are built with a zero-shot approach in mind, but they can be adapted to use few-shot or in-context learning by providing examples in the prompt (especially in the task description).</p>
+<section id="utterance-generation-prompt">
+<h3>Utterance Generation Prompt<a class="headerlink" href="#utterance-generation-prompt" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="autoapi/usersimcrs/simulator/llm/prompt/utterance_generation_prompt/index.html#usersimcrs.simulator.llm.prompt.utterance_generation_prompt.UtteranceGenerationPrompt" title="usersimcrs.simulator.llm.prompt.utterance_generation_prompt.UtteranceGenerationPrompt"><code class="xref py py-class docutils literal notranslate"><span class="pre">usersimcrs.simulator.llm.prompt.utterance_generation_prompt.UtteranceGenerationPrompt</span></code></a></p>
+<p>The prompt is inspired by <a class="reference external" href="https://arxiv.org/abs/2306.00774">[Terragni et al., 2023]</a>. It includes the following information: task description, information need, conversational context, and optionally the simulated user persona. The prompt is built as follows:</p>
+<blockquote>
+<div><p>{task_description}</p>
+<p>PERSONA: {persona}</p>
+<p>REQUIREMENTS: You are looking for a {item_type} with the following characteristics: {constraints}. Once you find a suitable {item_type}, make sure to get the following information: {requests}.</p>
+<p>HISTORY:</p>
+<p>{conversational_context}</p>
+</div></blockquote>
+<p>The persona section is included if the simulated user persona is provided. The placeholder <em>item_type</em> is replaced by the type of item the user is looking for such as a restaurant or a movie. The <em>constraints</em> and <em>requests</em> are extracted from the information need. The <em>conversational_context</em> is the history of the conversation up to the current utterance, hence, it is updated each time an utterance is received (agent utterance) or generated (simulated user utterance).</p>
+<p>The default task description is:</p>
+<blockquote>
+<div><p>You are a USER discussing with an ASSISTANT. Given the conversation history, you need to generate the next USER message in the most natural way possible. The conversation is about getting a recommendation according to the REQUIREMENTS. You must fulfill all REQUIREMENTS as the conversation progresses (you don’t need to fulfill them all at once). After getting all the necessary information, you can terminate the conversation by sending ‘end’. You may also terminate the conversation is stuck in a loop or the ASSISTANT is not helpful by sending ‘giveup’. Be precise with the REQUIREMENTS, clear and concise.</p>
+</div></blockquote>
+</section>
+<section id="stop-conversation-prompt">
+<h3>Stop Conversation Prompt<a class="headerlink" href="#stop-conversation-prompt" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="autoapi/usersimcrs/simulator/llm/prompt/stop_prompt/index.html#usersimcrs.simulator.llm.prompt.stop_prompt.StopPrompt" title="usersimcrs.simulator.llm.prompt.stop_prompt.StopPrompt"><code class="xref py py-class docutils literal notranslate"><span class="pre">usersimcrs.simulator.llm.prompt.stop_prompt.StopPrompt</span></code></a></p>
+<p>The stop conversation prompt is used to indicate that the conversation should end. It is built as follows:</p>
+<blockquote>
+<div><p>{task_description}</p>
+<p>PERSONA: {persona}</p>
+<p>HISTORY:</p>
+<p>{conversational_context}</p>
+<p>Continue?</p>
+</div></blockquote>
+<p>The default task description is:</p>
+<blockquote>
+<div><p>As a USER interacting with an ASSISTANT to receive a recommendation, analyze the conversation history to determine if it is progressing productively. If the conversation has been stuck in a loop with repeated misunderstandings across multiple turns, return ‘FALSE’ to indicate the conversation should be terminated. Otherwise, return ‘TRUE’ to indicate that the conversation should continue. Only return ‘TRUE’ or ‘FALSE’ without any additional information.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="llm-interface">
+<h2>LLM interface<a class="headerlink" href="#llm-interface" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="autoapi/usersimcrs/llm_interfaces/index.html#module-usersimcrs.llm_interfaces" title="usersimcrs.llm_interfaces"><code class="xref py py-mod docutils literal notranslate"><span class="pre">usersimcrs.llm_interfaces</span></code></a></p>
+<p>The LLM interface is responsible for interacting with the large language model to generate responses. Currently, two LLM interfaces are supported: Ollama and OpenAI.</p>
+<section id="ollama">
+<h3>Ollama<a class="headerlink" href="#ollama" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="autoapi/usersimcrs/llm_interfaces/ollama_interface/index.html#usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface" title="usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface</span></code></a></p>
+<p>This interface is used to interact with a LLM that is hosted on the <a class="reference external" href="https://ollama.com">Ollama platform</a>. The interface sends requests to the <a class="reference external" href="https://github.com/ollama/ollama/blob/main/docs/api.md">Ollama API</a> to generate the responses.</p>
+<p>This interface is configured with a YAML file that includes: the model name, the host URL, whether to stream the responses, and the LLM specific options. An example configuration is shown below:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;llama3&quot;</span>
+<span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OLLAMA_HOST_URL</span>
+<span class="nt">stream</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">options</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">max_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="w">  </span><span class="nt">top_p</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.9</span>
+<span class="w">  </span><span class="nt">top_k</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+</section>
+<section id="openai">
+<h3>OpenAI<a class="headerlink" href="#openai" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="autoapi/usersimcrs/llm_interfaces/openai_interface/index.html#usersimcrs.llm_interfaces.openai_interface.OpenAILLMInterface" title="usersimcrs.llm_interfaces.openai_interface.OpenAILLMInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">usersimcrs.llm_interfaces.openai_interface.OpenAILLMInterface</span></code></a></p>
+<p>This interface interacts with models hosted on the OpenAI platform using their <a class="reference external" href="https://openai.com/api/">API</a>. The interface sends requests to the OpenAI API to generate the responses.</p>
+<p>This interface is configured with a YAML file that includes: the model name, the API key, and the LLM specific options. An example configuration is shown below:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GPT-4o&quot;</span>
+<span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_API_KEY</span>
+<span class="nt">options</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">max_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42</span>
+<span class="w">  </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+<p><strong>Reference</strong></p>
+<p>Silvia Terragni, Modestas Filipavicius, Nghia Khau, Bruna Guedes, André Manso, and Roland Mathis. 2023. In-Context Learning User Simulators for Task-Oriented Dialog Systems. arXiv:2306.00774 [cs.CL].</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agenda_based.html" class="btn btn-neutral float-left" title="Agenda-based simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_modeling.html" class="btn btn-neutral float-right" title="User modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAI group, University of Stavanger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

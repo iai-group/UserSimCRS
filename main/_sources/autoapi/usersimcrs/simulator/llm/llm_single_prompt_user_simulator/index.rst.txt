@@ -1,0 +1,46 @@
+usersimcrs.simulator.llm.llm_single_prompt_user_simulator
+=========================================================
+
+.. py:module:: usersimcrs.simulator.llm.llm_single_prompt_user_simulator
+
+.. autoapi-nested-parse::
+
+   User simulator leveraging a large language model to generate responses.
+
+   The responses are generated via a single prompt template with a large language
+   model.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.llm.llm_single_prompt_user_simulator.LLMSinglePromptUserSimulator
+
+
+Module Contents
+---------------
+
+.. py:class:: LLMSinglePromptUserSimulator(id: str, domain: usersimcrs.core.simulation_domain.SimulationDomain, item_collection: usersimcrs.items.item_collection.ItemCollection, llm_interface: usersimcrs.llm_interfaces.llm_interface.LLMInterface, item_type: str, task_definition: str = DEFAULT_TASK_DEFINITION, persona: usersimcrs.user_modeling.persona.Persona = None)
+
+   Bases: :py:obj:`usersimcrs.simulator.user_simulator.UserSimulator`
+
+
+   Initializes the user simulator.
+
+   :param id: User simulator ID.
+   :param llm_interface: Interface to the large language model.
+   :param item_type: Type of the item to be recommended. Defaults to None.
+   :param task_definition: Definition of the task to be performed.
+                           Defaults to DEFAULT_TASK_DEFINITION.
+   :param persona: Persona of the user. Defaults to None.
+
+
+   .. py:attribute:: llm_interface
+
+
+   .. py:attribute:: prompt
+
+

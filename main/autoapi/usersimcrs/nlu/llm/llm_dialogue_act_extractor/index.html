@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>usersimcrs.nlu.llm.llm_dialogue_act_extractor &mdash; UserSimCRS 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.png"/>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="usersimcrs.run_simulation" href="../../../run_simulation/index.html" />
+    <link rel="prev" title="usersimcrs.nlu.llm" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            UserSimCRS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../agenda_based.html">Agenda-based simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../llm_based.html">LLM-based simulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../user_modeling.html">User modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration.html">Experiment Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../evaluation.html">Evaluation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../core/index.html">core</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">usersimcrs</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../core/index.html">usersimcrs.core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../dialogue_management/index.html">usersimcrs.dialogue_management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../items/index.html">usersimcrs.items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../llm_interfaces/index.html">usersimcrs.llm_interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../nlg/index.html">usersimcrs.nlg</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">usersimcrs.nlu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../run_simulation/index.html">usersimcrs.run_simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../simulation_platform/index.html">usersimcrs.simulation_platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../simulator/index.html">usersimcrs.simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../user_modeling/index.html">usersimcrs.user_modeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">usersimcrs.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tus_feature_handler/index.html">tus_feature_handler</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">UserSimCRS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">usersimcrs</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">usersimcrs.nlu</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">usersimcrs.nlu.llm</a></li>
+      <li class="breadcrumb-item active">usersimcrs.nlu.llm.llm_dialogue_act_extractor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/usersimcrs/nlu/llm/llm_dialogue_act_extractor/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-usersimcrs.nlu.llm.llm_dialogue_act_extractor">
+<span id="usersimcrs-nlu-llm-llm-dialogue-act-extractor"></span><h1>usersimcrs.nlu.llm.llm_dialogue_act_extractor<a class="headerlink" href="#module-usersimcrs.nlu.llm.llm_dialogue_act_extractor" title="Link to this heading"></a></h1>
+<p>Dialogue act extractor based on a large language model.</p>
+<p>Note that the large language model is expected to be hosted externally. Also,
+the prompt used to extract dialogue acts is expected to have a placeholder
+“utterance” that will be replaced by the utterance text.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor" title="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LLMDialogueActsExtractor</span></code></a></p></td>
+<td><p>Initializes the dialogue act extractor.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">usersimcrs.nlu.llm.llm_dialogue_act_extractor.</span></span><span class="sig-name descname"><span class="pre">LLMDialogueActsExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">llm_interface</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../llm_interfaces/llm_interface/index.html#usersimcrs.llm_interfaces.llm_interface.LLMInterface" title="usersimcrs.llm_interfaces.llm_interface.LLMInterface"><span class="pre">usersimcrs.llm_interfaces.llm_interface.LLMInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">dialoguekit.nlu.dialogue_acts_extractor.DialogueActsExtractor</span></code></p>
+<p>Initializes the dialogue act extractor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>llm_interface</strong> – Interface to the large language model.</p></li>
+<li><p><strong>config_file</strong> – Path to the configuration file.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – If the configuration or prompt file is not found.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.intent_labels">
+<span class="sig-name descname"><span class="pre">intent_labels</span></span><a class="headerlink" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.intent_labels" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.slot_labels">
+<span class="sig-name descname"><span class="pre">slot_labels</span></span><a class="headerlink" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.slot_labels" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.llm_interface">
+<span class="sig-name descname"><span class="pre">llm_interface</span></span><a class="headerlink" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.llm_interface" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.filter_invalid_dialogue_acts">
+<span class="sig-name descname"><span class="pre">filter_invalid_dialogue_acts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utterance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialogue_acts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dialoguekit.core.dialogue_act.DialogueAct</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dialoguekit.core.dialogue_act.DialogueAct</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.filter_invalid_dialogue_acts" title="Link to this definition"></a></dt>
+<dd><p>Filters out invalid dialogue acts.</p>
+<p>This method should be used after inference to filter out dialogue
+acts with invalid intents, slots, or values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>utterance</strong> – Input utterance.</p></li>
+<li><p><strong>dialogue_acts</strong> – List of dialogue acts.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of valid dialogue acts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.extract_dialogue_acts">
+<span class="sig-name descname"><span class="pre">extract_dialogue_acts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utterance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dialoguekit.core.utterance.Utterance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dialoguekit.core.dialogue_act.DialogueAct</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.extract_dialogue_acts" title="Link to this definition"></a></dt>
+<dd><p>Extracts dialogue acts from an utterance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>utterance</strong> – Utterance.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of dialogue acts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.save" title="Link to this definition"></a></dt>
+<dd><p>Saves the dialogue act extractor to a given path.</p>
+<p>This method is not implemented for this dialogue act extractor as the
+model is externally hosted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – Path to save the dialogue act extractor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.load">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor" title="usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor"><span class="pre">LLMDialogueActsExtractor</span></a></span></span><a class="headerlink" href="#usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor.load" title="Link to this definition"></a></dt>
+<dd><p>Loads the dialogue act extractor from a path.</p>
+<p>This method is not implemented for this dialogue act extractor as the
+model is externally hosted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – Path to the dialogue act extractor.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>LMDialogueActsExtractor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="usersimcrs.nlu.llm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../run_simulation/index.html" class="btn btn-neutral float-right" title="usersimcrs.run_simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAI group, University of Stavanger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+usersimcrs.utils.simulation_utils
+=================================
+
+.. py:module:: usersimcrs.utils.simulation_utils
+
+.. autoapi-nested-parse::
+
+   Utility functions to run the simulation.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   usersimcrs.utils.simulation_utils.map_path_to_class
+   usersimcrs.utils.simulation_utils.get_agent_information
+   usersimcrs.utils.simulation_utils.get_simulator_information
+   usersimcrs.utils.simulation_utils.get_NLU
+   usersimcrs.utils.simulation_utils.train_cosine_classifier
+   usersimcrs.utils.simulation_utils.get_NLG
+
+
+Module Contents
+---------------
+
+.. py:function:: map_path_to_class(cls_path: str) -> Type
+
+   Maps a class path to a class.
+
+   :param cls_path: Class path.
+
+   :returns: Class.
+
+
+.. py:function:: get_agent_information(config: confuse.Configuration) -> Tuple[Type, Dict[str, Any]]
+
+   Gets the agent information.
+
+   :param config: Configuration of the run.
+
+   :raises TypeError: if agent class does not inherit from Agent.
+
+   :returns: Agent class and agent configuration.
+
+
+.. py:function:: get_simulator_information(config: confuse.Configuration) -> Tuple[str, Type, Dict[str, Any]]
+
+   Gets the simulator information.
+
+   :param config: Configuration of the run.
+
+   :raises ValueError: If the simulator class is not supported.
+
+   :returns: Simulator ID, simulator class, and configuration.
+
+
+.. py:function:: get_NLU(config: confuse.Configuration) -> dialoguekit.nlu.NLU
+
+   Returns an NLU component.
+
+   :param config: Configuration for the simulation.
+
+   :raises ValueError: Unsupported intent classifier.
+
+   :returns: An NLU component.
+
+
+.. py:function:: train_cosine_classifier(config: confuse.Configuration) -> dialoguekit.nlu.models.intent_classifier_cosine.IntentClassifierCosine
+
+   Trains a cosine classifier on annotated dialogues for NLU module.
+
+   :param config: Configuration generated from YAML configuration file.
+
+   :returns: A trained cosine model for intent classification.
+
+
+.. py:function:: get_NLG(config: confuse.Configuration) -> dialoguekit.nlg.nlg_abstract.AbstractNLG
+
+   Returns an NLG component.
+
+   :param config: Configuration for the simulation.
+
+   :raises ValueError: Unsupported NLG component.
+
+   :returns: An NLG component.
+
+

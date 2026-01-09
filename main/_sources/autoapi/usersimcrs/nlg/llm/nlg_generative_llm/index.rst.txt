@@ -1,0 +1,70 @@
+usersimcrs.nlg.llm.nlg_generative_llm
+=====================================
+
+.. py:module:: usersimcrs.nlg.llm.nlg_generative_llm
+
+.. autoapi-nested-parse::
+
+   Generative natural language generation using a large language model.
+
+   Note that the large language model is expected to be hosted externally. Also,
+   the prompt used to generate utterances is expected to have the following
+   placeholders:
+   - "dialogue_acts": to be replaced by the stringified dialogue acts.
+   - "annotations": to be replaced by the stringified annotations (if provided).
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.nlg.llm.nlg_generative_llm.LLMGenerativeNLG
+
+
+Module Contents
+---------------
+
+.. py:class:: LLMGenerativeNLG(llm_interface: usersimcrs.llm_interfaces.llm_interface.LLMInterface, prompt_file: str, prompt_prefix: Optional[str] = None)
+
+   Bases: :py:obj:`dialoguekit.nlg.nlg_abstract.AbstractNLG`
+
+
+   Initializes the generative NLG.
+
+   :param llm_interface: Interface to the large language model.
+   :param prompt_file: Path to the prompt file.
+   :param prompt_prefix: Prefix to be remove from generated utterances.
+                         Defaults to None.
+
+   :raises FileNotFoundError: If the prompt file is not found.
+
+
+   .. py:attribute:: llm_interface
+
+
+   .. py:attribute:: prompt
+
+
+   .. py:attribute:: prompt_prefix
+      :value: None
+
+
+
+   .. py:method:: generate_utterance_text(dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct], annotations: Optional[Union[List[dialoguekit.core.annotation.Annotation], None]] = None, force_annotation: bool = False) -> Union[dialoguekit.core.annotated_utterance.AnnotatedUtterance, bool]
+
+      Turns a structured utterance into a textual one.
+
+      :param dialogue_acts: Dialogue acts of the utterance to be generated.
+      :param annotations: If provided, these annotations should be considered
+                          during generation.
+      :param force_annotation: A flag to indicate whether annotations should be
+                               forced or not. Not used in this NLG.
+
+      :raises RuntimeError: If generation fails.
+
+      :returns: Natural language utterance.
+
+
+

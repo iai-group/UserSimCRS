@@ -1,0 +1,21 @@
+usersimcrs.core
+===============
+
+.. py:module:: usersimcrs.core
+
+.. autoapi-nested-parse::
+
+   Module level init for the core classes.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/usersimcrs/core/information_need/index
+   /autoapi/usersimcrs/core/simulation_domain/index
+
+

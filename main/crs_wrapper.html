@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRS Wrapper &mdash; UserSimCRS 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UserSimCRS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agenda_based.html">Agenda-based simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llm_based.html">LLM-based simulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_modeling.html">User modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Experiment Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UserSimCRS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CRS Wrapper</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/crs_wrapper.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crs-wrapper">
+<h1>CRS Wrapper<a class="headerlink" href="#crs-wrapper" title="Link to this heading"></a></h1>
+<p>A CRS wrapper facilitates the interaction between a conversational recommender system (CRS) and a simulated user. It provides a standardized communication interface that does not make assumptions about the inner workings or implementation of the CRS. We consider that communication with a CRS is done via an API.</p>
+<p>In practice, a CRS wrapper is a class inheriting from DialogueKit’s <cite>Agent</cite> class with an additional parameter <cite>uri</cite> that specifies the API endpoint of the CRS. It allows to easily support new CRSs by creating new wrappers under <cite>crs_agent_wrapper</cite>.</p>
+<section id="supported-crss">
+<h2>Supported CRSs<a class="headerlink" href="#supported-crss" title="Link to this heading"></a></h2>
+<p>Below is a list of currently supported CRSs along with their associated wrapper classes and origins.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>CRS</p></th>
+<th class="head"><p>Wrapper</p></th>
+<th class="head"><p>Source code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IAI MovieBot v1.0.1, <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3340531.3417433">Habib et al., 2020</a></p></td>
+<td><p>sample_agents.moviebot_agent.MovieBotAgent</p></td>
+<td><p><a class="reference external" href="https://github.com/iai-group/MovieBot/releases/tag/v1.0.1">https://github.com/iai-group/MovieBot/releases/tag/v1.0.1</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>KBRD, <a class="reference external" href="https://aclanthology.org/D19-1189/">Chen et al., 2019</a></p></td>
+<td><p>crs_agent_wrapper.ievalm_agent.iEvaLMAgent</p></td>
+<td><p><a class="reference external" href="https://github.com/iai-group/iEvaLM-CRS">https://github.com/iai-group/iEvaLM-CRS</a></p></td>
+</tr>
+<tr class="row-even"><td><p>BARCOR, <a class="reference external" href="https://arxiv.org/abs/2203.14257">Wang et al., 2022</a></p></td>
+<td><p>crs_agent_wrapper.ievalm_agent.iEvaLMAgent</p></td>
+<td><p><a class="reference external" href="https://github.com/iai-group/iEvaLM-CRS">https://github.com/iai-group/iEvaLM-CRS</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>UniCRS, <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3534678.3539382">Wang et al., 2022</a></p></td>
+<td><p>crs_agent_wrapper.ievalm_agent.iEvaLMAgent</p></td>
+<td><p><a class="reference external" href="https://github.com/iai-group/iEvaLM-CRS">https://github.com/iai-group/iEvaLM-CRS</a></p></td>
+</tr>
+<tr class="row-even"><td><p>ChatCRS, <a class="reference external" href="https://aclanthology.org/2023.emnlp-main.621/">Wang et al., 2023</a></p></td>
+<td><p>crs_agent_wrapper.ievalm_agent.iEvaLMAgent</p></td>
+<td><p><a class="reference external" href="https://github.com/iai-group/iEvaLM-CRS">https://github.com/iai-group/iEvaLM-CRS</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>CRB-CRS, <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0306437922000709">Manzoor and Jannach, 2022</a></p></td>
+<td><p>crs_agent_wrapper.ievalm_agent.iEvaLMAgent</p></td>
+<td><p><a class="reference external" href="https://github.com/iai-group/iEvaLM-CRS">https://github.com/iai-group/iEvaLM-CRS</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAI group, University of Stavanger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+agenda_based_simulator
+======================
+
+.. py:module:: agenda_based_simulator
+
+.. autoapi-nested-parse::
+
+   Agenda-based user simulator from [Zhang and Balog, KDD'20].
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   agenda_based_simulator.AgendaBasedSimulator
+
+
+Module Contents
+---------------
+
+.. py:class:: AgendaBasedSimulator(id: str, preference_model: usersimcrs.user_modeling.preference_model.PreferenceModel, interaction_model: usersimcrs.simulator.agenda_based.interaction_model.InteractionModel, nlu: dialoguekit.nlu.nlu.NLU, nlg: dialoguekit.nlg.ConditionalNLG, domain: dialoguekit.core.domain.Domain, item_collection: usersimcrs.items.item_collection.ItemCollection, ratings: usersimcrs.items.ratings.Ratings)
+
+   Bases: :py:obj:`usersimcrs.simulator.user_simulator.UserSimulator`
+
+
+   Initializes the agenda-based simulated user.
+
+   :param preference_model: Preference model.
+   :param interaction_model: Interaction model.
+   :param nlu: NLU module performing intent classification and entity linking.
+   :param nlg: NLG module generating textual responses.
+   :param domain: Domain.
+   :param item_collection: Item collection.
+   :param ratings: Historical ratings.
+
+
+   .. py:method:: generate_response(agent_utterance: dialoguekit.core.utterance.Utterance) -> dialoguekit.core.annotated_utterance.AnnotatedUtterance
+
+      Generates response to the agent's utterance.
+
+      :param agent_utterance: Agent utterance.
+
+      :returns: User utterance.
+
+
+

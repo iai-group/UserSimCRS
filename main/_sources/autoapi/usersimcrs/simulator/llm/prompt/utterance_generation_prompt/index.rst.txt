@@ -1,0 +1,73 @@
+usersimcrs.simulator.llm.prompt.utterance_generation_prompt
+===========================================================
+
+.. py:module:: usersimcrs.simulator.llm.prompt.utterance_generation_prompt
+
+.. autoapi-nested-parse::
+
+   Define the prompt for the simulator.
+
+   The structure of the prompt is inspired by the work of Terragni et al. It
+   includes the task description, the information need, and optionally a persona
+   and an example of a conversation. Unlike the original work, we consider a zero-
+   shot setting, i.e., the prompt does not include any examples of conversations.
+
+   Reference: Terragni, S., et al. (2023). "In-Context Learning User Simulators
+   for Task-Oriented Dialog Systems", arXiv 2306.00774.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.llm.prompt.utterance_generation_prompt.DEFAULT_TASK_DEFINITION
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.llm.prompt.utterance_generation_prompt.UtteranceGenerationPrompt
+
+
+Module Contents
+---------------
+
+.. py:data:: DEFAULT_TASK_DEFINITION
+   :value: "You are a USER discussing with an ASSISTANT. Given the conversation history, you need to...
+
+
+.. py:class:: UtteranceGenerationPrompt(information_need: usersimcrs.core.information_need.InformationNeed, item_type: str, prompt_definition: str = DEFAULT_TASK_DEFINITION, persona: usersimcrs.user_modeling.persona.Persona = None)
+
+   Bases: :py:obj:`usersimcrs.simulator.llm.prompt.prompt.Prompt`
+
+
+   Initializes the prompt.
+
+   :param information_need: The information need of the user.
+   :param item_type: The type of the item to be recommended.
+   :param prompt_definition: The definition of the task to be performed.
+                             Defaults to DEFAULT_TASK_DEFINITION.
+   :param persona: The persona of the user. Defaults to None.
+
+
+   .. py:method:: build_new_prompt() -> str
+
+      Builds the initial prompt without any context.
+
+      :returns: Initial prompt with task definition, requirements, and persona.
+
+
+
+   .. py:method:: update_prompt_context(utterance: dialoguekit.core.utterance.Utterance, participant: dialoguekit.participant.participant.DialogueParticipant) -> None
+
+      Updates the context provided in the prompt.
+
+      :param utterance: Utterance to be added to the prompt.
+      :param participant: Participant of the conversation.
+
+
+

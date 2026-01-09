@@ -1,0 +1,70 @@
+usersimcrs.dialogue_management.dialogue_state
+=============================================
+
+.. py:module:: usersimcrs.dialogue_management.dialogue_state
+
+.. autoapi-nested-parse::
+
+   Representation of the dialogue state.
+
+   The dialogue state includes the number of utterances, a list of dialogue acts
+   per utterance for both the agent and the user, and the belief state. The belief
+   state is a dictionary that holds for each slot (key) the values provided by the
+   user.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.dialogue_management.dialogue_state.DialogueState
+
+
+Module Contents
+---------------
+
+.. py:class:: DialogueState
+
+   Dialogue state.
+
+   .. attribute:: utterance_count
+
+      Utterance count.
+
+   .. attribute:: agent_dialogue_acts
+
+      List of dialogue acts per turn for the agent.
+
+   .. attribute:: user_dialogue_acts
+
+      List of dialogue acts per turn for the user.
+
+   .. attribute:: belief_state
+
+      Belief state.
+
+
+   .. py:attribute:: utterance_count
+      :type:  int
+      :value: 0
+
+
+
+   .. py:attribute:: agent_dialogue_acts
+      :type:  List[List[dialoguekit.core.dialogue_act.DialogueAct]]
+      :value: []
+
+
+
+   .. py:attribute:: user_dialogue_acts
+      :type:  List[List[dialoguekit.core.dialogue_act.DialogueAct]]
+      :value: []
+
+
+
+   .. py:attribute:: belief_state
+      :type:  DefaultDict[str, List[str]]
+
+

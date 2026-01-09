@@ -1,0 +1,124 @@
+usersimcrs.run_simulation
+=========================
+
+.. py:module:: usersimcrs.run_simulation
+
+.. autoapi-nested-parse::
+
+   Console application for running simulation.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   usersimcrs.run_simulation.DEFAULT_CONFIG_PATH
+   usersimcrs.run_simulation.OUTPUT_DIR
+   usersimcrs.run_simulation.logger
+   usersimcrs.run_simulation.args
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   usersimcrs.run_simulation.main
+   usersimcrs.run_simulation.simulate_conversation
+   usersimcrs.run_simulation.parse_args
+   usersimcrs.run_simulation.load_config
+   usersimcrs.run_simulation.get_NLU
+   usersimcrs.run_simulation.load_cosine_classifier
+   usersimcrs.run_simulation.load_rasa_diet_classifier
+
+
+Module Contents
+---------------
+
+.. py:data:: DEFAULT_CONFIG_PATH
+   :value: 'config/default/config_default.yaml'
+
+
+.. py:data:: OUTPUT_DIR
+   :value: 'data/runs'
+
+
+.. py:data:: logger
+
+.. py:function:: main(config: confuse.Configuration, agent: dialoguekit.participant.agent.Agent) -> None
+
+   Executes the specified configuration.
+
+   Loads domain and interaction model. Initializes agent and user. Runs the
+   simulation.
+
+   :param config: Configuration generated from YAML configuration file.
+   :param agent: Conversational agent.
+
+   :raises TypeError: if the agent is not an instance of Agent.
+
+
+.. py:function:: simulate_conversation(agent: dialoguekit.participant.agent.Agent, user_simulator: usersimcrs.simulator.user_simulator.UserSimulator) -> dialoguekit.core.dialogue.Dialogue
+
+   Simulates a single conversation and returns the resulting dialogue.
+
+   :param agent: An agent.
+   :param user_simulator: A user simulator.
+
+   :returns: The simulated dialogue.
+
+
+.. py:function:: parse_args() -> argparse.Namespace
+
+   Defines accepted arguments and returns the parsed values.
+
+   :returns: A namespace object containing the arguments.
+
+
+.. py:function:: load_config(args: argparse.Namespace) -> confuse.Configuration
+
+   Loads config from config file and command line parameters.
+
+   Loads default values from `config/default/config_default.yaml`. Values are
+   then updated with any value specified in the command line arguments.
+
+   :param args: Arguments parsed with argparse.
+
+
+.. py:function:: get_NLU(config: confuse.Configuration) -> dialoguekit.nlu.intent_classifier.IntentClassifier
+
+   Returns an NLU component.
+
+   Only supports DialogueKit intent classifiers.
+
+   :param config: Configuration for the simulation.
+
+   :raises ValueError: Unsupported intent classifier.
+
+   :returns: An NLU component.
+
+
+.. py:function:: load_cosine_classifier(config: confuse.Configuration) -> dialoguekit.nlu.models.intent_classifier_cosine.IntentClassifierCosine
+
+   Trains a cosine classifier on annotated dialogues for NLU module.
+
+   :param config: Configuration generated from YAML configuration file.
+
+   :returns: A trained cosine model for intent classification.
+
+
+.. py:function:: load_rasa_diet_classifier(config: confuse.Configuration) -> dialoguekit.nlu.models.intent_classifier_cosine.IntentClassifierCosine
+
+   Trains a DIET classifier on Rasa annotated dialogues for NLU module.
+
+   :param config: Configuration generated from YAML configuration file.
+
+   :returns: A trained Rasa DIET model for intent classification.
+
+
+.. py:data:: args
+   :value: None
+
+

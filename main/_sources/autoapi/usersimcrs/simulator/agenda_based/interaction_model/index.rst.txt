@@ -1,0 +1,134 @@
+usersimcrs.simulator.agenda_based.interaction_model
+===================================================
+
+.. py:module:: usersimcrs.simulator.agenda_based.interaction_model
+
+.. autoapi-nested-parse::
+
+   Interaction model.
+
+   The interaction model is responsible for defining the allowed transitions
+   between dialogue acts based on their intents and updating the agenda.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.agenda_based.interaction_model.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.agenda_based.interaction_model.InteractionModel
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:class:: InteractionModel(config_file: str, domain: usersimcrs.core.simulation_domain.SimulationDomain, annotated_conversations: List[dialoguekit.core.dialogue.Dialogue])
+
+   Initializes the interaction model.
+
+   :param config_file: Path to configuration file.
+   :param domain: Simulation domain.
+   :param annotated_conversations: Annotated conversations.
+
+
+   .. py:attribute:: REQUIRED_INTENTS
+
+
+   .. py:attribute:: dialogue_state_tracker
+
+
+   .. py:method:: initialize_transition_matrices(annotated_conversations: List[dialoguekit.core.dialogue.Dialogue]) -> Tuple[pandas.DataFrame, pandas.DataFrame]
+
+      Initializes transition matrices from annotated conversations.
+
+      We consider two transition matrices. The first one uses single intents
+      as states, while the second one uses compound intents. For example:
+      Dialogue acts in utt. 1: [GREETING(), REQUEST(genre=?, year=?)]
+      Dialogue acts in utt. 2: [INFORM(genre=action, year=2024)]
+
+      The single intent transition matrix will be:
+      GREETING -> INFORM : 1
+      REQUEST -> INFORM : 1
+      The compound intent transition matrix will be:
+      GREETING_REQUEST -> INFORM : 1
+
+      Note that the compound intent may also include single intents, in case
+      an utterance has a single dialogue act.
+
+      :param annotated_conversations: Annotated conversations.
+
+      :returns: Transition matrices.
+
+
+
+   .. py:method:: initialize_agenda(information_need: usersimcrs.core.information_need.InformationNeed)
+
+      Initializes user agenda.
+
+      :param information_need: Information need.
+
+
+
+   .. py:method:: is_agent_intent_elicit(agent_intent: dialoguekit.core.intent.Intent) -> bool
+
+      Checks if the given agent intent is elicitation.
+
+      :param agent_intent: Agent's intent.
+
+      :returns: True if it is an elicitation intent.
+
+
+
+   .. py:method:: is_agent_intent_set_retrieval(agent_intent: dialoguekit.core.intent.Intent) -> bool
+
+      Checks if the given agent intent is set retrieval.
+
+      :param agent_intent: Agent's intent.
+
+      :returns: True if it is a set retrieval intent.
+
+
+
+   .. py:method:: is_agent_intent_inquire(agent_intent: dialoguekit.core.intent.Intent) -> bool
+
+      Checks if the given agent intent is inquiry.
+
+      :param agent_intent: Agent's intent.
+
+      :returns: True if it is an inquiry intent.
+
+
+
+   .. py:method:: get_next_dialogue_acts(n: int = 1) -> List[dialoguekit.core.dialogue_act.DialogueAct]
+
+      Returns the next n dialogue acts from the stack.
+
+      :param n: Number of dialogue acts to return. Defaults to 1.
+
+      :returns: List of dialogue acts.
+
+
+
+   .. py:method:: update_agenda(information_need: usersimcrs.core.information_need.InformationNeed, preference_model: usersimcrs.user_modeling.preference_model.PreferenceModel, item_collection: usersimcrs.items.item_collection.ItemCollection) -> None
+
+      Updates the agenda based on the last agent dialogue acts and state.
+
+      Each agent dialogue act results in a push operation on the stack. We
+      consider four cases: the agent elicits, recommends, inquires, or
+      neither. Once the push operations are done, we clean the stack.
+
+      :param information_need: Information need.
+
+
+

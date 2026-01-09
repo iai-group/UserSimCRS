@@ -1,0 +1,63 @@
+usersimcrs.simulator.llm.prompt.stop_prompt
+===========================================
+
+.. py:module:: usersimcrs.simulator.llm.prompt.stop_prompt
+
+.. autoapi-nested-parse::
+
+   Define the prompt for stopping the conversation.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.llm.prompt.stop_prompt.DEFAULT_STOP_DEFINITION
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.llm.prompt.stop_prompt.StopPrompt
+
+
+Module Contents
+---------------
+
+.. py:data:: DEFAULT_STOP_DEFINITION
+   :value: "As a USER interacting with an ASSISTANT to receive a recommendation, analyze the conversation...
+
+
+.. py:class:: StopPrompt(information_need: usersimcrs.core.information_need.InformationNeed, item_type: str, prompt_definition: str = DEFAULT_STOP_DEFINITION, persona: usersimcrs.user_modeling.persona.Persona = None)
+
+   Bases: :py:obj:`usersimcrs.simulator.llm.prompt.prompt.Prompt`
+
+
+   Initializes the prompt.
+
+   :param information_need: The information need of the user.
+   :param item_type: The type of the item to be recommended.
+   :param prompt_definition: The definition of the task to be performed.
+                             Defaults to DEFAULT_STOP_DEFINITION.
+   :param persona: The persona of the user. Defaults to None.
+
+
+   .. py:property:: prompt_text
+      :type: str
+
+
+      Prompt for the user simulator.
+
+
+   .. py:method:: build_new_prompt() -> str
+
+      Builds the initial prompt without any context.
+
+      :returns: Initial prompt with task definition, requirements, and persona.
+
+
+

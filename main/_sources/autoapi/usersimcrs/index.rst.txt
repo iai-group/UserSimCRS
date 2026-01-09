@@ -1,0 +1,30 @@
+usersimcrs
+==========
+
+.. py:module:: usersimcrs
+
+.. autoapi-nested-parse::
+
+   Main module level init.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/usersimcrs/core/index
+   /autoapi/usersimcrs/dialogue_management/index
+   /autoapi/usersimcrs/items/index
+   /autoapi/usersimcrs/llm_interfaces/index
+   /autoapi/usersimcrs/nlg/index
+   /autoapi/usersimcrs/nlu/index
+   /autoapi/usersimcrs/run_simulation/index
+   /autoapi/usersimcrs/simulation_platform/index
+   /autoapi/usersimcrs/simulator/index
+   /autoapi/usersimcrs/user_modeling/index
+   /autoapi/usersimcrs/utils/index
+
+

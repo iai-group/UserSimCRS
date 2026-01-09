@@ -1,0 +1,214 @@
+tus_feature_handler
+===================
+
+.. py:module:: tus_feature_handler
+
+.. autoapi-nested-parse::
+
+   Feature handler for the TUS simulator.
+
+   For simplicity, the feature handler supports a single domain unlike the original
+   implementation.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   tus_feature_handler.TUSFeatureHandler
+
+
+Module Contents
+---------------
+
+.. py:class:: TUSFeatureHandler(domain: usersimcrs.core.simulation_domain.SimulationDomain, max_turn_feature_length: int, context_depth: int, agent_actions: List[str], user_actions: List[str] = ['inform', 'request'])
+
+   Bases: :py:obj:`usersimcrs.simulator.neural.core.feature_handler.FeatureHandler`
+
+
+   Initializes the feature handler.
+
+   :param domain: Domain knowledge.
+   :param max_turn_feature_length: Maximum length of a turn feature vector.
+   :param context_depth: Number of previous turns to include in the input
+                         vector.
+   :param agent_actions: Agent actions.
+   :param user_actions: User actions. Defaults to ["inform", "request"].
+
+
+   .. py:attribute:: max_turn_feature_length
+
+
+   .. py:attribute:: context_depth
+
+
+   .. py:attribute:: action_slots
+      :type:  List[str]
+      :value: []
+
+
+
+   .. py:attribute:: user_feature_history
+      :type:  List[List[usersimcrs.simulator.neural.core.feature_handler.FeatureVector]]
+      :value: []
+
+
+
+   .. py:method:: reset() -> None
+
+      Resets the feature handler.
+
+
+
+   .. py:method:: reset_user_feature_history() -> None
+
+      Resets the user feature history.
+
+
+
+   .. py:method:: update_action_slots(slots: Iterable[str]) -> None
+
+      Updates the action slots.
+
+      Action slots are slots present in the information need and mentioned
+      during the conversation.
+
+      :param slots: Slots mentioned in an utterance.
+
+
+
+   .. py:method:: get_basic_information_feature(slot: str, information_need: usersimcrs.core.information_need.InformationNeed, state: usersimcrs.dialogue_management.dialogue_state.DialogueState, previous_state: usersimcrs.dialogue_management.dialogue_state.DialogueState) -> usersimcrs.simulator.neural.core.feature_handler.FeatureVector
+
+      Builds feature vector for basic information.
+
+      It concatenates the value in agent state, user state, slot type,
+      completion status, and first mention.
+
+      :param slot: Slot.
+      :param information_need: Information need.
+      :param state: Current state.
+      :param previous_state: Previous state.
+
+      :returns: Feature vector for basic information.
+
+
+
+   .. py:method:: get_agent_action_feature(agent_dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct]) -> usersimcrs.simulator.neural.core.feature_handler.FeatureVector
+
+      Builds feature vector for agent action.
+
+      It concatenates action vectors represented as 3-dimensional vectors that
+      describe whether the slot and value are absent, only slot is present, or
+      both slot and value are present.
+
+      :param agent_dialogue_acts: Agent dialogue acts.
+
+      :returns: Feature vector for agent action.
+
+
+
+   .. py:method:: get_slot_index_feature(slot: str) -> usersimcrs.simulator.neural.core.feature_handler.FeatureVector
+
+      Builds feature vector for slot index.
+
+      :param slot: Slot.
+
+      :returns: Feature vector for slot index.
+
+
+
+   .. py:method:: get_slot_feature_vector(slot: str, previous_state: usersimcrs.dialogue_management.dialogue_state.DialogueState, state: usersimcrs.dialogue_management.dialogue_state.DialogueState, information_need: usersimcrs.core.information_need.InformationNeed, agent_dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct], user_action_vector: torch.Tensor = None) -> usersimcrs.simulator.neural.core.feature_handler.FeatureVector
+
+      Builds the feature vector for a slot.
+
+      It concatenates the basic information, user action, agent action, and
+      slot index feature vectors.
+
+      :param slot: Slot.
+      :param previous_state: Previous state.
+      :param state: Current state.
+      :param information_need: Information need.
+      :param agent_dialogue_acts: Agent dialogue acts.
+      :param user_action_vector: User action feature vector (output vector for
+                                 previous turn). Defaults to None.
+
+      :returns: Feature vector for the slot.
+
+
+
+   .. py:method:: get_turn_feature_vectors(agent_dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct], previous_state: usersimcrs.dialogue_management.dialogue_state.DialogueState, state: usersimcrs.dialogue_management.dialogue_state.DialogueState, information_need: usersimcrs.core.information_need.InformationNeed, user_action_vectors: Dict[str, torch.Tensor] = {}) -> List[usersimcrs.simulator.neural.core.feature_handler.FeatureVector]
+
+      Builds the feature vectors for a turn.
+
+      It comprises the feature vectors for all slots that in the
+      information need and mentioned during the conversation.
+
+      :param agent_dialogue_acts: Agent dialogue acts.
+      :param previous_state: Previous state.
+      :param state: Current state.
+      :param information_need: Information need.
+      :param user_action_vectors: User action feature vectors per slot. Defaults
+                                  to an empty dictionary.
+
+      :returns: Feature vectors for the turn.
+
+
+
+   .. py:method:: build_input_vector(agent_dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct], previous_state: usersimcrs.dialogue_management.dialogue_state.DialogueState, state: usersimcrs.dialogue_management.dialogue_state.DialogueState, information_need: usersimcrs.core.information_need.InformationNeed, user_action_vectors: Dict[str, torch.Tensor] = {}) -> Tuple[List[usersimcrs.simulator.neural.core.feature_handler.FeatureVector], usersimcrs.simulator.neural.core.feature_handler.FeatureMask]
+
+      Builds the input vector $V_{input}$ for a turn.
+
+      It concatenates the feature vectors for the last n turns separated by
+      a special token. Note that is inferred from the list of feature vectors
+      provided.
+      The input vector is structured as follows:
+      [CLS] $V^t$ [SEP] $V^{t-1}$ [SEP] ... [SEP] $V^{t-n}$ [SEP] {padding},
+      where {padding} indicates the padding to reach the maximum length.
+
+      :param agent_dialogue_acts: Agent dialogue acts.
+      :param previous_state: Previous state.
+      :param state: Current state.
+      :param information_need: Information need.
+      :param user_action_vectors: User action feature vectors per slot. Defaults
+                                  to an empty dictionary.
+
+      :returns: Input vector.
+
+
+
+   .. py:method:: get_label_vector(user_utterance: dialoguekit.core.annotated_utterance.AnnotatedUtterance, current_state: usersimcrs.dialogue_management.dialogue_state.DialogueState, information_need: usersimcrs.core.information_need.InformationNeed) -> usersimcrs.simulator.neural.core.feature_handler.FeatureVector
+
+      Builds the label vector for a turn.
+
+      :param user_utterance: User utterance with annotations.
+      :param current_state: Current state.
+      :param information_need: Information need.
+
+      :returns: Label vector for the turn.
+
+
+
+   .. py:method:: save_handler(path: str) -> None
+
+      Saves the feature handler.
+
+      :param path: Path to the output file.
+
+
+
+   .. py:method:: load_handler(path: str) -> TUSFeatureHandler
+      :classmethod:
+
+
+      Loads a feature handler from a given path.
+
+      :param path: Path to load the feature handler from.
+
+      :raises FileNotFoundError: If the file is not found.
+
+      :returns: Feature handler.
+
+
+

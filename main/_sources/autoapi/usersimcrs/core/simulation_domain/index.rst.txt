@@ -1,0 +1,47 @@
+usersimcrs.core.simulation_domain
+=================================
+
+.. py:module:: usersimcrs.core.simulation_domain
+
+.. autoapi-nested-parse::
+
+   Simulation domain knowledge.
+
+   This domain knowledge allows the definition of requestable and informable slots.
+   If not specified, all the slots are considered requestable and informable.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.core.simulation_domain.SimulationDomain
+
+
+Module Contents
+---------------
+
+.. py:class:: SimulationDomain(config_file: str)
+
+   Bases: :py:obj:`dialoguekit.core.domain.Domain`
+
+
+   Initializes the domain knowledge.
+
+   :param config_file: Path to the domain configuration file.
+
+
+   .. py:method:: get_requestable_slots() -> List[str]
+
+      Returns the list of requestable slots.
+
+
+
+   .. py:method:: get_informable_slots() -> List[str]
+
+      Returns the list of informable slots.
+
+
+

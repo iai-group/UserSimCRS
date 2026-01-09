@@ -1,0 +1,54 @@
+context_model
+=============
+
+.. py:module:: context_model
+
+.. autoapi-nested-parse::
+
+   Context model including multiple context dimensions, e.g., temporal.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   context_model.ContextModel
+
+
+Module Contents
+---------------
+
+.. py:class:: ContextModel(context_probability_mapping: Dict[str, Dict[str, float]] = _DEFAULT_CONTEXT_PROBABILITIES)
+
+   Instantiates a context model.
+
+   :param context_probability_mapping: A dictionary with necessary
+                                       probabilities to sample context. If it is not provided, we use
+                                       default values. The dictionary should contain the context
+                                       dimension as the outer key and the corresponding value should be
+                                       another dictionary with key-value pairs for events and the
+                                       respective probability assigned to it. Example structure:
+                                       {
+                                         temporal: {
+                                             weekend: 0.50,
+                                             weekday: 0.50
+                                         },
+                                         relational: {
+                                             group: 0.50,
+                                             alone: 0.50
+                                         }
+                                       }
+
+
+   .. py:method:: sample_context()
+
+      Samples context along each of the dimensions independently.
+
+      Args:
+
+      Returns:
+
+
+

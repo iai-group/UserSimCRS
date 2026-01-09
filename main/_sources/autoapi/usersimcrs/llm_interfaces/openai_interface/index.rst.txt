@@ -1,0 +1,73 @@
+usersimcrs.llm_interfaces.openai_interface
+==========================================
+
+.. py:module:: usersimcrs.llm_interfaces.openai_interface
+
+.. autoapi-nested-parse::
+
+   Interface to use a LLM served by OpenAI.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.llm_interfaces.openai_interface.OpenAILLMInterface
+
+
+Module Contents
+---------------
+
+.. py:class:: OpenAILLMInterface(configuration_path: str, use_chat_api: bool = False, default_response: str = None)
+
+   Bases: :py:obj:`usersimcrs.llm_interfaces.llm_interface.LLMInterface`
+
+
+   Initializes interface for OpenAI served LLM.
+
+   :param configuration_path: Path to the configuration file.
+   :param use_chat_api: Whether to use the chat or completion API. Defaults to
+                        False (i.e., completion API).
+   :param default_response: Default response to be used if the LLM fails to
+                            generate a response.
+
+   :raises FileNotFoundError: If the configuration file is not found.
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: client
+
+
+   .. py:attribute:: use_chat_api
+      :value: False
+
+
+
+   .. py:method:: generate_utterance(prompt: usersimcrs.simulator.llm.prompt.utterance_generation_prompt.UtteranceGenerationPrompt) -> dialoguekit.core.Utterance
+
+      Generates a user utterance given a prompt.
+
+      :param prompt: Prompt for generating the utterance.
+
+      :returns: Utterance in natural language.
+
+
+
+   .. py:method:: get_llm_api_response(prompt: str, initial_prompt: str = None) -> str
+
+      Gets the raw response from the LLM API.
+
+      This method should be used to interact directly with the LLM API, i.e.,
+      for everything that is not related to the generation of an utterance.
+
+      :param prompt: Prompt for the LLM.
+      :param initial_prompt: Initial prompt for the chat API. Defaults to None.
+
+      :returns: Response from the LLM API without any post-processing.
+
+
+

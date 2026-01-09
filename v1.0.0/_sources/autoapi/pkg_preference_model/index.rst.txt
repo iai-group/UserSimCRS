@@ -1,0 +1,70 @@
+pkg_preference_model
+====================
+
+.. py:module:: pkg_preference_model
+
+.. autoapi-nested-parse::
+
+   User preference modeling component based on a PKG.
+
+   A personal knowledge graph (PKG), in this particular application context, is a
+   knowledge graph that is used to store the preferences of a single individual to
+   support the delivery of services that are customized to that individual.
+
+   The implementation of get_item_preference() and get_slot_value_preference()
+   depends on the release of the PKG API.
+   See: https://github.com/iai-group/UserSimCRS/issues/110
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   pkg_preference_model.PKGPreferenceModel
+
+
+Module Contents
+---------------
+
+.. py:class:: PKGPreferenceModel(domain: dialoguekit.core.domain.Domain, item_collection: usersimcrs.items.item_collection.ItemCollection, historical_ratings: usersimcrs.items.ratings.Ratings, historical_user_id: str = None)
+
+   Bases: :py:obj:`usersimcrs.user_modeling.preference_model.PreferenceModel`
+
+
+   Initializes the preference model of a simulated user based on a PKG.
+
+   :param domain: Domain.
+   :param item_collection: Item collection.
+   :param historical_ratings: Historical ratings.
+   :param historical_user_id: If provided, the simulated user is
+                              based on this particular historical user; otherwise, it is based
+                              on a randomly sampled user. This is mostly added to make the
+                              class testable.
+   :type historical_user_id: Optional
+
+
+   .. py:method:: get_item_preference(item_id: str) -> float
+
+      Returns a preference for a given item.
+
+      :param item_id: Item ID.
+
+      :returns: Item preference, which is in [-1,1].
+
+      :raises ValueError: If the item does not exist in the collection.
+
+
+
+   .. py:method:: get_slot_value_preference(slot: str, value: str) -> float
+
+      Returns a preference on a given slot-value pair.
+
+      :param slot: Slot name (needs to exist in the domain).
+      :param value: Slot value.
+
+      :returns: Slot-value preference, which is in [-1,1].
+
+
+

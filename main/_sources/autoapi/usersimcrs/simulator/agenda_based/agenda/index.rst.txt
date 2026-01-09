@@ -1,0 +1,88 @@
+usersimcrs.simulator.agenda_based.agenda
+========================================
+
+.. py:module:: usersimcrs.simulator.agenda_based.agenda
+
+.. autoapi-nested-parse::
+
+   Interface to represent an agenda.
+
+   The agenda is a stack of dialogue acts that the user wants to perform to fulfill
+   their information need. The representation is based on the description in:
+   Agenda-Based User Simulation for Bootstrapping a POMDP Dialogue System,
+   Schatzmann et al., 2007.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.simulator.agenda_based.agenda.Agenda
+
+
+Module Contents
+---------------
+
+.. py:class:: Agenda(information_need: usersimcrs.core.information_need.InformationNeed, inform_intent: dialoguekit.core.intent.Intent, request_intent: dialoguekit.core.intent.Intent, stop_intent: dialoguekit.core.intent.Intent, start_intent: dialoguekit.core.intent.Intent = None)
+
+   Initializes the agenda.
+
+   :param information_need: Information need.
+   :param inform_intent: Inform intent.
+   :param request_intent: Request intent.
+   :param stop_intent: Stop intent.
+   :param start_intent: Start intent. Defaults to None.
+
+
+   .. py:attribute:: inform_intent
+
+
+   .. py:attribute:: request_intent
+
+
+   .. py:property:: stack
+      :type: Deque[dialoguekit.core.dialogue_act.DialogueAct]
+
+
+      Returns the dialogue acts stack.
+
+
+   .. py:method:: get_next_dialogue_acts(n: int) -> List[dialoguekit.core.dialogue_act.DialogueAct]
+
+      Returns the next n dialogue acts from the stack.
+
+      :param n: Number of dialogue acts to return.
+
+      :returns: List of dialogue acts.
+
+
+
+   .. py:method:: push_dialogue_act(dialogue_act: dialoguekit.core.dialogue_act.DialogueAct) -> None
+
+      Pushes a dialogue act onto the stack.
+
+      :param dialogue_act: Dialogue act.
+
+
+
+   .. py:method:: push_dialogue_acts(dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct]) -> None
+
+      Pushes dialogue acts onto the stack.
+
+      :param dialogue_acts: Dialogue acts.
+
+
+
+   .. py:method:: clean_agenda(information_need: usersimcrs.core.information_need.InformationNeed) -> None
+
+      Cleans the agenda.
+
+      Removes duplicate dialogue acts, null dialogue acts, and requests for
+      already informed slots.
+
+      :param information_need: Information need.
+
+
+

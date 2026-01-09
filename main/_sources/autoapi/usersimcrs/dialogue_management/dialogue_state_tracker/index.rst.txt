@@ -1,0 +1,58 @@
+usersimcrs.dialogue_management.dialogue_state_tracker
+=====================================================
+
+.. py:module:: usersimcrs.dialogue_management.dialogue_state_tracker
+
+.. autoapi-nested-parse::
+
+   Interface for dialogue state tracking.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.dialogue_management.dialogue_state_tracker.DialogueStateTracker
+
+
+Module Contents
+---------------
+
+.. py:class:: DialogueStateTracker
+
+   Initializes the dialogue state tracker.
+
+
+   .. py:method:: get_current_state() -> usersimcrs.dialogue_management.dialogue_state.DialogueState
+
+      Returns the current dialogue state.
+
+      :returns: DialogueState.
+
+
+
+   .. py:method:: update_state(dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct], participant: dialoguekit.participant.DialogueParticipant) -> None
+
+      Updates the dialogue state based on the dialogue acts.
+
+      :param dialogue_acts: Dialogue acts.
+      :param participant: Dialogue participant.
+
+
+
+   .. py:method:: update_belief_state(dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct]) -> None
+
+      Updates the belief state based on the dialogue acts.
+
+      :param dialogue_acts: Dialogue acts.
+
+
+
+   .. py:method:: reset_state() -> None
+
+      Resets the dialogue state.
+
+
+

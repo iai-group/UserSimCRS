@@ -1,0 +1,67 @@
+usersimcrs.llm_interfaces.ollama_interface
+==========================================
+
+.. py:module:: usersimcrs.llm_interfaces.ollama_interface
+
+.. autoapi-nested-parse::
+
+   Interface to use a LLM served by Ollama.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface
+
+
+Module Contents
+---------------
+
+.. py:class:: OllamaLLMInterface(configuration_path: str, default_response: str = None)
+
+   Bases: :py:obj:`usersimcrs.llm_interfaces.llm_interface.LLMInterface`
+
+
+   Initializes interface for ollama served LLM.
+
+   :param configuration_path: Path to the configuration file.
+   :param default_response: Default response to be used if the LLM fails to
+                            generate a response.
+
+   :raises FileNotFoundError: If the configuration file is not found.
+   :raises ValueError: If the model or host is not specified in the config.
+
+
+   .. py:attribute:: client
+
+
+   .. py:attribute:: model
+
+
+   .. py:method:: generate_utterance(prompt: usersimcrs.simulator.llm.prompt.utterance_generation_prompt.UtteranceGenerationPrompt) -> dialoguekit.core.Utterance
+
+      Generates a user utterance given a prompt.
+
+      :param prompt: Prompt for generating the utterance.
+
+      :returns: Utterance in natural language.
+
+
+
+   .. py:method:: get_llm_api_response(prompt: str) -> str
+
+      Gets the raw response from the LLM API.
+
+      This method should be used to interact directly with the LLM API, i.e.,
+      for everything that is not related to the generation of an utterance.
+
+      :param prompt: Prompt for the LLM.
+      :param \*\*kwargs: Additional arguments to be passed to the API call.
+
+      :returns: Response from the LLM API without any post-processing.
+
+
+

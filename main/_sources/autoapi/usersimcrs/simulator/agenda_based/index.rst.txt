@@ -1,0 +1,22 @@
+usersimcrs.simulator.agenda_based
+=================================
+
+.. py:module:: usersimcrs.simulator.agenda_based
+
+.. autoapi-nested-parse::
+
+   Module level init for agenda-based simulators.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/usersimcrs/simulator/agenda_based/agenda/index
+   /autoapi/usersimcrs/simulator/agenda_based/agenda_based_simulator/index
+   /autoapi/usersimcrs/simulator/agenda_based/interaction_model/index
+
+

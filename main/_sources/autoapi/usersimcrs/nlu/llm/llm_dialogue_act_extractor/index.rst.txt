@@ -1,0 +1,98 @@
+usersimcrs.nlu.llm.llm_dialogue_act_extractor
+=============================================
+
+.. py:module:: usersimcrs.nlu.llm.llm_dialogue_act_extractor
+
+.. autoapi-nested-parse::
+
+   Dialogue act extractor based on a large language model.
+
+   Note that the large language model is expected to be hosted externally. Also,
+   the prompt used to extract dialogue acts is expected to have a placeholder
+   "utterance" that will be replaced by the utterance text.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.nlu.llm.llm_dialogue_act_extractor.LLMDialogueActsExtractor
+
+
+Module Contents
+---------------
+
+.. py:class:: LLMDialogueActsExtractor(llm_interface: usersimcrs.llm_interfaces.llm_interface.LLMInterface, config_file: str)
+
+   Bases: :py:obj:`dialoguekit.nlu.dialogue_acts_extractor.DialogueActsExtractor`
+
+
+   Initializes the dialogue act extractor.
+
+   :param llm_interface: Interface to the large language model.
+   :param config_file: Path to the configuration file.
+
+   :raises FileNotFoundError: If the configuration or prompt file is not found.
+
+
+   .. py:attribute:: intent_labels
+
+
+   .. py:attribute:: slot_labels
+
+
+   .. py:attribute:: llm_interface
+
+
+   .. py:method:: filter_invalid_dialogue_acts(utterance: str, dialogue_acts: List[dialoguekit.core.dialogue_act.DialogueAct]) -> List[dialoguekit.core.dialogue_act.DialogueAct]
+
+      Filters out invalid dialogue acts.
+
+      This method should be used after inference to filter out dialogue
+      acts with invalid intents, slots, or values.
+
+      :param utterance: Input utterance.
+      :param dialogue_acts: List of dialogue acts.
+
+      :returns: List of valid dialogue acts.
+
+
+
+   .. py:method:: extract_dialogue_acts(utterance: dialoguekit.core.utterance.Utterance) -> List[dialoguekit.core.dialogue_act.DialogueAct]
+
+      Extracts dialogue acts from an utterance.
+
+      :param utterance: Utterance.
+
+      :returns: List of dialogue acts.
+
+
+
+   .. py:method:: save(path: str) -> None
+
+      Saves the dialogue act extractor to a given path.
+
+      This method is not implemented for this dialogue act extractor as the
+      model is externally hosted.
+
+      :param path: Path to save the dialogue act extractor.
+
+
+
+   .. py:method:: load(path: str) -> LLMDialogueActsExtractor
+      :classmethod:
+
+
+      Loads the dialogue act extractor from a path.
+
+      This method is not implemented for this dialogue act extractor as the
+      model is externally hosted.
+
+      :param path: Path to the dialogue act extractor.
+
+      :returns: LMDialogueActsExtractor.
+
+
+

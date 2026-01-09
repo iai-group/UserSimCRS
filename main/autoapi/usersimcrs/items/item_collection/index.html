@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>usersimcrs.items.item_collection &mdash; UserSimCRS 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="usersimcrs.items.ratings" href="../ratings/index.html" />
+    <link rel="prev" title="usersimcrs.items.item" href="../item/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            UserSimCRS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../agenda_based.html">Agenda-based simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../llm_based.html">LLM-based simulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../user_modeling.html">User modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration.html">Experiment Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../evaluation.html">Evaluation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../core/index.html">core</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">usersimcrs</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../core/index.html">usersimcrs.core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../dialogue_management/index.html">usersimcrs.dialogue_management</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">usersimcrs.items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../llm_interfaces/index.html">usersimcrs.llm_interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../nlg/index.html">usersimcrs.nlg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../nlu/index.html">usersimcrs.nlu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../run_simulation/index.html">usersimcrs.run_simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../simulation_platform/index.html">usersimcrs.simulation_platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../simulator/index.html">usersimcrs.simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_modeling/index.html">usersimcrs.user_modeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">usersimcrs.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tus_feature_handler/index.html">tus_feature_handler</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">UserSimCRS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">usersimcrs</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">usersimcrs.items</a></li>
+      <li class="breadcrumb-item active">usersimcrs.items.item_collection</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/usersimcrs/items/item_collection/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-usersimcrs.items.item_collection">
+<span id="usersimcrs-items-item-collection"></span><h1>usersimcrs.items.item_collection<a class="headerlink" href="#module-usersimcrs.items.item_collection" title="Link to this heading"></a></h1>
+<p>Represents a collection of items.</p>
+<p>Items are characterized by a set of properties, which correspond to slots in a
+domain. Items are stored in a SQLite database and can be populated from a CSV
+file.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#usersimcrs.items.item_collection.MappingConfig" title="usersimcrs.items.item_collection.MappingConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MappingConfig</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#usersimcrs.items.item_collection.SQL_DELIMITER" title="usersimcrs.items.item_collection.SQL_DELIMITER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SQL_DELIMITER</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#usersimcrs.items.item_collection.ItemCollection" title="usersimcrs.items.item_collection.ItemCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemCollection</span></code></a></p></td>
+<td><p>Initializes an item collection.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.MappingConfig">
+<span class="sig-prename descclassname"><span class="pre">usersimcrs.items.item_collection.</span></span><span class="sig-name descname"><span class="pre">MappingConfig</span></span><a class="headerlink" href="#usersimcrs.items.item_collection.MappingConfig" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.SQL_DELIMITER">
+<span class="sig-prename descclassname"><span class="pre">usersimcrs.items.item_collection.</span></span><span class="sig-name descname"><span class="pre">SQL_DELIMITER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'|'</span></em><a class="headerlink" href="#usersimcrs.items.item_collection.SQL_DELIMITER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">usersimcrs.items.item_collection.</span></span><span class="sig-name descname"><span class="pre">ItemCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection" title="Link to this definition"></a></dt>
+<dd><p>Initializes an item collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db_path</strong> – Path to the SQLite database.</p></li>
+<li><p><strong>table_name</strong> – Name of the table containing the items.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.connect" title="Link to this definition"></a></dt>
+<dd><p>Connects to the SQLite database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.close" title="Link to this definition"></a></dt>
+<dd><p>Closes the connection to the SQLite database.</p>
+<p>Connection and cursor are set to None to allow pickling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.get_item">
+<span class="sig-name descname"><span class="pre">get_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../item/index.html#usersimcrs.items.item.Item" title="usersimcrs.items.item.Item"><span class="pre">usersimcrs.items.item.Item</span></a></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.get_item" title="Link to this definition"></a></dt>
+<dd><p>Returns an item from the collection based on its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – Item ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Item or None, if not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.get_random_item">
+<span class="sig-name descname"><span class="pre">get_random_item</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../item/index.html#usersimcrs.items.item.Item" title="usersimcrs.items.item.Item"><span class="pre">usersimcrs.items.item.Item</span></a></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.get_random_item" title="Link to this definition"></a></dt>
+<dd><p>Returns a random item from the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Random item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.exists">
+<span class="sig-name descname"><span class="pre">exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.exists" title="Link to this definition"></a></dt>
+<dd><p>Checks if a given item exists in the item collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – Item ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the item exists in the collection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.num_items">
+<span class="sig-name descname"><span class="pre">num_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.num_items" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of items in the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.add_item">
+<span class="sig-name descname"><span class="pre">add_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../item/index.html#usersimcrs.items.item.Item" title="usersimcrs.items.item.Item"><span class="pre">usersimcrs.items.item.Item</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.add_item" title="Link to this definition"></a></dt>
+<dd><p>Adds an item to the collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – Item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.load_items_csv">
+<span class="sig-name descname"><span class="pre">load_items_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../core/simulation_domain/index.html#usersimcrs.core.simulation_domain.SimulationDomain" title="usersimcrs.core.simulation_domain.SimulationDomain"><span class="pre">usersimcrs.core.simulation_domain.SimulationDomain</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain_mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MappingConfig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ID'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.load_items_csv" title="Link to this definition"></a></dt>
+<dd><p>Loads an item collection from a CSV file.</p>
+<p>If items are connected to a Domain, only domain properties will be kept.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> – Path to CSV file.</p></li>
+<li><p><strong>domain</strong> – Domain of the items.</p></li>
+<li><p><strong>domain_mapping</strong> – Mapping configuration.</p></li>
+<li><p><strong>id_col</strong> – Name of the column containing the item ID.</p></li>
+<li><p><strong>delimiter</strong> – CSV delimiter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.get_possible_property_values">
+<span class="sig-name descname"><span class="pre">get_possible_property_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.get_possible_property_values" title="Link to this definition"></a></dt>
+<dd><p>Returns the possible values for a given property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>property</strong> – Property name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Set of possible values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="usersimcrs.items.item_collection.ItemCollection.get_items_by_properties">
+<span class="sig-name descname"><span class="pre">get_items_by_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">annotations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dialoguekit.core.slot_value_annotation.SlotValueAnnotation</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../item/index.html#usersimcrs.items.item.Item" title="usersimcrs.items.item.Item"><span class="pre">usersimcrs.items.item.Item</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#usersimcrs.items.item_collection.ItemCollection.get_items_by_properties" title="Link to this definition"></a></dt>
+<dd><p>Returns items that match the given slot-value annotations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>annotations</strong> – List of slot-value pair annotations.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of matching items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../item/index.html" class="btn btn-neutral float-left" title="usersimcrs.items.item" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ratings/index.html" class="btn btn-neutral float-right" title="usersimcrs.items.ratings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, IAI group, University of Stavanger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

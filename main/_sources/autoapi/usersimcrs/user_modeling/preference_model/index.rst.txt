@@ -1,0 +1,149 @@
+usersimcrs.user_modeling.preference_model
+=========================================
+
+.. py:module:: usersimcrs.user_modeling.preference_model
+
+.. autoapi-nested-parse::
+
+   User preference modeling interface.
+
+   Preferences are stored for (1) items in the collection and (2) slot-value pairs
+   (for slots defined in the domain).  Preferences are represented as real values
+   in [-1,1], where zero corresponds to neutral.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   usersimcrs.user_modeling.preference_model.KEY_ITEM_ID
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.user_modeling.preference_model.PreferenceModel
+
+
+Module Contents
+---------------
+
+.. py:data:: KEY_ITEM_ID
+   :value: 'ITEM_ID'
+
+
+.. py:class:: PreferenceModel(domain: usersimcrs.core.simulation_domain.SimulationDomain, item_collection: usersimcrs.items.item_collection.ItemCollection, historical_ratings: usersimcrs.items.ratings.Ratings, historical_user_id: str = None)
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   Initializes the preference model of a simulated user.
+
+   A list of initial seen items is generated based on historical ratings.
+   Further preferences are inferred along the way as the simulated user is
+   being prompted by the agent for preferences.
+
+   :param domain: Domain.
+   :param item_collection: Item collection.
+   :param historical_ratings: Historical ratings.
+   :param historical_user_id: If provided, the simulated user is
+                              based on this particular historical user; otherwise, it is based
+                              on a randomly sampled user. This is mostly added to make the
+                              class testable. Defaults to None.
+   :type historical_user_id: Optional
+
+
+   .. py:attribute:: PREFERENCE_THRESHOLD
+      :value: 0.25
+
+
+
+   .. py:method:: is_item_consumed(item_id: str) -> bool
+
+      Returns whether or not an item has been consumed by the user.
+
+      This is used to answer questions like: "Have you seen Inception?"
+
+      :param item_id: Item ID.
+
+      :returns: True if the item has been consumed (i.e., appears among the
+                historical ratings).
+
+
+
+   .. py:method:: get_item_preference(item_id: str) -> float
+      :abstractmethod:
+
+
+      Returns a preference for a given item.
+
+      This is used to answer questions like: "How did you like it?",
+      where "it" refers to the movie mentioned previously.
+
+      :param item_id: Item ID.
+
+      :returns: Item preference, which is generally in [-1,1].
+
+      :raises NotImplementedError: If not implemented in derived class.
+
+
+
+   .. py:method:: get_slot_value_preference(slot: str, value: str) -> float
+      :abstractmethod:
+
+
+      Returns a preference on a given slot-value pair.
+
+      This is used to answer questions like: "Do you like action movies?"
+
+      :param slot: Slot name (needs to exist in the domain).
+      :param value: Slot value.
+
+      :returns: Slot-value preference.
+
+      :raises NotImplementedError: If not implemented in derived class.
+
+
+
+   .. py:method:: get_slot_preference(slot: str) -> Tuple[str, float]
+
+      Returns a preferred value for a given slot.
+
+      This is used to answer questions like: "What movie genre do you prefer?"
+
+      While in principle negative preferences could also be returned, here it
+      is always a positive preference that is expressed.
+
+      :param slot: Slot name (needs to exist in the domain).
+
+      :returns: A value and corresponding preferences; if no preference could be
+                obtained for that slot, then (None, 0) are returned.
+
+
+
+   .. py:method:: load_preference_model(path: str) -> PreferenceModel
+      :classmethod:
+
+
+      Loads preference model from a file.
+
+      :param path: Path to preference model.
+
+      :raises FileNotFoundError: If file does not exist.
+
+      :returns: Preference model.
+
+
+
+   .. py:method:: save_preference_model(path: str) -> None
+
+      Saves preference model to a file.
+
+      :param path: Path to save preference model.
+
+
+

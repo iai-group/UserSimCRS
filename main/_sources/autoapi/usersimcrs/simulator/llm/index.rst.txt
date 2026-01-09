@@ -1,0 +1,22 @@
+usersimcrs.simulator.llm
+========================
+
+.. py:module:: usersimcrs.simulator.llm
+
+.. autoapi-nested-parse::
+
+   Module level init for LLM-based simulators.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/usersimcrs/simulator/llm/llm_dual_prompt_user_simulator/index
+   /autoapi/usersimcrs/simulator/llm/llm_single_prompt_user_simulator/index
+   /autoapi/usersimcrs/simulator/llm/prompt/index
+
+

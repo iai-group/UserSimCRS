@@ -1,0 +1,20 @@
+usersimcrs.nlu.llm
+==================
+
+.. py:module:: usersimcrs.nlu.llm
+
+.. autoapi-nested-parse::
+
+   Module level init for LLM-based NLU components.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/usersimcrs/nlu/llm/llm_dialogue_act_extractor/index
+
+

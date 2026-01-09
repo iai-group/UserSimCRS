@@ -1,0 +1,24 @@
+usersimcrs.user_modeling
+========================
+
+.. py:module:: usersimcrs.user_modeling
+
+.. autoapi-nested-parse::
+
+   Module level init for user modeling.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/usersimcrs/user_modeling/context_model/index
+   /autoapi/usersimcrs/user_modeling/persona/index
+   /autoapi/usersimcrs/user_modeling/pkg_preference_model/index
+   /autoapi/usersimcrs/user_modeling/preference_model/index
+   /autoapi/usersimcrs/user_modeling/simple_preference_model/index
+
+

@@ -1,0 +1,72 @@
+usersimcrs.items.item
+=====================
+
+.. py:module:: usersimcrs.items.item
+
+.. autoapi-nested-parse::
+
+   Represents an item.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   usersimcrs.items.item.Item
+
+
+Module Contents
+---------------
+
+.. py:class:: Item(item_id: str, properties: Dict[str, Any] = None, domain: usersimcrs.core.simulation_domain.SimulationDomain = None)
+
+   Creates an item.
+
+   Each item has minimally an ID and can optionally have any number of
+   properties, which are represented as key-value pairs.
+
+   :param item_id: Item ID.
+   :param properties: Dictionary of item properties (key-value pairs).
+                      Defaults to None.
+   :param domain: Domain of the item. Defaults to None.
+
+
+   .. py:property:: id
+      :type: str
+
+
+      Return the item id.
+
+
+   .. py:property:: properties
+      :type: Dict[str, Any]
+
+
+      Returns the item properties.
+
+
+   .. py:method:: get_property(key: str) -> Any
+
+      Returns a given item property.
+
+      :param key: Name of property.
+
+      :returns: Value of property or None.
+
+
+
+   .. py:method:: set_property(key: str, value: Any) -> None
+
+      Sets the value of a given item property.
+
+      If the item property exists it will be overwritten.
+
+      :param key: Property name.
+      :param value: Property value.
+
+      :raises ValueError: if the property is not part of the domain knowledge.
+
+
+

@@ -1,0 +1,22 @@
+usersimcrs.simulator
+====================
+
+.. py:module:: usersimcrs.simulator
+
+.. autoapi-nested-parse::
+
+   Module level init for simulators.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/usersimcrs/simulator/agenda_based/index
+   /autoapi/usersimcrs/simulator/llm/index
+   /autoapi/usersimcrs/simulator/user_simulator/index
+
+

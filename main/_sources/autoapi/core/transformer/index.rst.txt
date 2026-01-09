@@ -1,0 +1,99 @@
+core.transformer
+================
+
+.. py:module:: core.transformer
+
+.. autoapi-nested-parse::
+
+   Encoder-only transformer model for neural user simulator.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   core.transformer.PositionalEncoding
+   core.transformer.TransformerEncoderModel
+
+
+Module Contents
+---------------
+
+.. py:class:: PositionalEncoding(d_model: int, dropout: float = 0.1, max_len: int = 5000, **kwargs)
+
+   Bases: :py:obj:`torch.nn.Module`
+
+
+   Initializes positional encoding layer.
+
+   :param d_model: Dimension of the model.
+   :param dropout: Dropout rate. Defaults to 0.1.
+   :param max_len: Maximum length of the input sequence. Defaults to 5000.
+
+
+   .. py:attribute:: dropout
+
+
+   .. py:method:: forward(x: torch.Tensor) -> torch.Tensor
+
+      Performs forward pass.
+
+      :param x: Input tensor.
+
+      :returns: Positional encoded tensor.
+
+
+
+.. py:class:: TransformerEncoderModel(input_dim: int, output_dim: int, nhead: int, hidden_dim: int, num_encoder_layers: int, num_token: int, dropout: float = 0.5)
+
+   Bases: :py:obj:`torch.nn.Module`
+
+
+   Initializes a encoder-only transformer model.
+
+   :param input_dim: Size of the input vector.
+   :param output_dim: Size of the output vector.
+   :param nhead: Number of heads.
+   :param hidden_dim: Hidden dimension.
+   :param num_encoder_layers: Number of encoder layers.
+   :param num_token: Number of tokens in the vocabulary.
+   :param dropout: Dropout rate. Defaults to 0.5.
+
+
+   .. py:attribute:: d_model
+
+
+   .. py:attribute:: pos_encoder
+
+
+   .. py:attribute:: embedding
+
+
+   .. py:attribute:: encoder
+
+
+   .. py:attribute:: linear
+
+
+   .. py:attribute:: softmax
+
+
+   .. py:method:: init_weights() -> None
+
+      Initializes weights of the network.
+
+
+
+   .. py:method:: forward(src: torch.Tensor, src_mask: torch.Tensor = None) -> torch.Tensor
+
+      Performs forward pass.
+
+      :param src: Source tensor.
+      :param src_mask: Mask tensor.
+
+      :returns: Output tensor.
+
+
+

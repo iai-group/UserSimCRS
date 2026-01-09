@@ -1,0 +1,27 @@
+annotation_converter_rasa
+=========================
+
+.. py:module:: annotation_converter_rasa
+
+.. autoapi-nested-parse::
+
+   Generates Rasa NLU files from the JSON formatted annotated dialogues.
+
+   Usage:
+     $ python -m usersimcrs.utils.annotation_converter_rasa     -source PathToAnnotatedDialoguesFile     -destination PathToDestinationFolder
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   annotation_converter_rasa.parser
+
+
+Module Contents
+---------------
+
+.. py:data:: parser
+
