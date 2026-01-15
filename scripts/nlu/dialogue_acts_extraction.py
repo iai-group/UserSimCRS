@@ -13,6 +13,7 @@ from scripts.nlu.metrics import (
     intent_error_rate,
     slot_error_rate,
 )
+# TODO: Update to new LLMDialogueActsExtractor class. Issue #230
 from usersimcrs.nlu.lm.llm_dialogue_act_extractor import (
     LLMDialogueActsExtractor,
 )

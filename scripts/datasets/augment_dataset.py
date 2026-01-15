@@ -19,6 +19,7 @@ from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from scripts.datasets.information_need_annotation.information_need_annotator import (  # noqa: E501
     InformationNeedAnnotator,
 )
+# TODO: Update to new LLMDialogueActsExtractor class. Issue #230
 from usersimcrs.nlu.lm.llm_dialogue_act_extractor import (
     LLMDialogueActsExtractor,
 )
