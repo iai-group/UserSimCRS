@@ -66,6 +66,7 @@ def item_collection(domain: SimulationDomain):
     yield item_collection
     os.remove("tests/data/items.db")
 
+
 @pytest.fixture
 def mock_ollama_interface() -> OllamaLLMInterface:
     """Mock Ollama LLM interface fixture."""
