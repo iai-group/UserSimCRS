@@ -38,6 +38,7 @@ UserSimCRS can also be extended with other simulation approaches and more advanc
    llm_based
    user_modeling
    configuration
+   dataset
    evaluation
    :ref:`modindex`
 
