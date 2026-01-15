@@ -35,8 +35,8 @@ ratings: data/item_collections/movielens-25m-sample/ratings.csv
 historical_ratings_ratio: 0.8
 
 nlu:
-  intent_classifier: "cosine"
-  
+  type: "cosine"
+
 dialogues: data/datasets/moviebot/annotated_dialogues.json
 
 nlg:

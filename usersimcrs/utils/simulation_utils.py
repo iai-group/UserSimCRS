@@ -198,7 +198,7 @@ def get_NLU(config: confuse.Configuration) -> NLU:
         An NLU component.
     """
     nlu_config = config["nlu"].get()
-    intent_classifier = nlu_config.get("intent_classifier")
+    intent_classifier = nlu_config.get("type")
     if intent_classifier == "cosine":
         # NLU without slot annotators
         classifier = train_cosine_classifier(config)

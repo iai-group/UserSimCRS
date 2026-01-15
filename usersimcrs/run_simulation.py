@@ -1,7 +1,6 @@
 """Console application for running simulation."""
 
 import argparse
-import json
 import logging
 import os
 import random
@@ -66,61 +65,13 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
-        "-a",
-        "--agent_id",
-        type=str,
-        help=("Id of the agent tested. Defaults to 'IAI MovieBot'."),
-    )
-    parser.add_argument(
-        "--agent_uri",
-        type=str,
-        help="URI to communicate with the agent. By default we assume that the"
-        " agent has an HTTP API.",
-    )
-    parser.add_argument(
         "-o",
         "--output_name",
         type=str,
         help="Specifies the output name for the simulation configuration.",
     )
     parser.add_argument(
-        "--domain", type=str, help="Path to domain config file."
-    )
-    parser.add_argument(
-        "--collection_db_path",
-        type=str,
-        help="Path to the item collection database.",
-    )
-    parser.add_argument(
-        "--collection_name",
-        type=str,
-        help="Name of the item collection.",
-    )
-    parser.add_argument(
-        "--intents", type=str, help="Path to the intent schema file."
-    )
-    parser.add_argument("--items", type=str, help="Path to items file.")
-    parser.add_argument(
-        "--id_col", type=str, help="Name of the CSV field containing item id."
-    )
-    parser.add_argument(
-        "--domain_mapping",
-        type=json.loads,
-        help="String form of field mapping.",
-    )
-    parser.add_argument("--ratings", type=str, help="Path to ratings file.")
-    parser.add_argument(
-        "--historical_ratings_ratio",
-        type=float,
-        help="Ratio of ratings to be used as historical data.",
-    )
-    parser.add_argument(
         "--dialogues", type=str, help="Path to the annotated dialogues file."
-    )
-    parser.add_argument(
-        "--intent_classifier",
-        choices=["cosine", "diet"],
-        help="Intent classifier model to be used. Defaults to cosine.",
     )
     parser.add_argument(
         "-d",
