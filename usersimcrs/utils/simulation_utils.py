@@ -206,7 +206,7 @@ def get_NLU(config: confuse.Configuration) -> NLU:
             DisjointDialogueActExtractor(classifier, slot_value_annotators=[])
         )
     elif intent_classifier == "llm":
-        nlu_llm_interface = _get_llm_interface(nlu_config)
+        nlu_llm_interface = get_llm_interface(nlu_config)
         return LLMDialogueActsExtractor(
             nlu_llm_interface, nlu_config.get("intent_classifier_config")
         )
@@ -272,7 +272,7 @@ def get_NLG(config: confuse.Configuration) -> AbstractNLG:
         )
         return ConditionalNLG(template)
     elif nlg_type == "llm":
-        nlg_llm_interface = _get_llm_interface(nlg_config)
+        nlg_llm_interface = get_llm_interface(nlg_config)
         nlg_args = nlg_config.get("args", {})
         nlg_args["llm_interface"] = nlg_llm_interface
         return map_path_to_class(nlg_config.get("class_path"))(**nlg_args)
@@ -305,7 +305,7 @@ def _get_llm_single_prompt_user_simulator_config(
             id_col=config["id_col"].get(),
         )
 
-    llm_interface = _get_llm_interface(config["llm_interface"].get())
+    llm_interface = get_llm_interface(config["llm_interface"].get())
 
     task_definition = config["task_definition"].get()
 
@@ -323,7 +323,7 @@ def _get_llm_single_prompt_user_simulator_config(
     }
 
 
-def _get_llm_interface(config: Dict[str, Any]) -> LLMInterface:
+def get_llm_interface(config: Dict[str, Any]) -> LLMInterface:
     """Returns the LLM interface.
 
     Args:
