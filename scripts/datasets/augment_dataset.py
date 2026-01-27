@@ -9,7 +9,7 @@ requests.
 
 import argparse
 import json
-
+import yaml
 from tqdm import tqdm
 
 from dialoguekit.core.dialogue import Dialogue
@@ -81,10 +81,14 @@ def parse_args() -> argparse.Namespace:
         prog="augment_dataset.py",
     )
     parser.add_argument(
-        "--input_path",
+        "input_path",
         type=str,
-        required=True,
         help="Path to the formatted dataset.",
+    )
+    parser.add_argument(
+        "output_path",
+        type=str,
+        help="Path to save the augmented dataset.",
     )
     parser.add_argument(
         "--user_nlu_config",
@@ -110,12 +114,6 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_INITIAL_PROMPT_MOVIES_FILE,
         help="File containing the prompt for information need annotation.",
     )
-    parser.add_argument(
-        "--output_path",
-        type=str,
-        required=True,
-        help="Path to save the augmented dataset.",
-    )
     return parser.parse_args()
 
 
@@ -127,9 +125,10 @@ if __name__ == "__main__":
     user_nlu = NLU(get_dialogue_acts_extractor(args.user_nlu_config))
     agent_nlu = NLU(get_dialogue_acts_extractor(args.agent_nlu_config))
 
-    information_need_llm_interface = get_llm_interface(
-        args.llm_interface_config
-    )
+    with open(args.llm_interface_config, "r") as f:
+        llm_interface_config = yaml.safe_load(f).get("llm_interface", {})
+
+    information_need_llm_interface = get_llm_interface(llm_interface_config)
     information_need_annotator = InformationNeedAnnotator(
         information_need_llm_interface, args.information_need_prompt
     )

@@ -26,4 +26,4 @@ slot_labels:
 llm_interface:
   llm_interface_class_path: "usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface"
   llm_interface_args:
-  configuration_path: config/llm_interface/config_ollama_default.yaml
+    configuration_path: config/llm_interface/config_ollama_default.yaml
