@@ -9,11 +9,9 @@ import json
 import logging
 import os
 
-import yaml
-from ollama import Client, Options
-
 from dialoguekit.core.dialogue import Dialogue
 from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 
 DEFAULT_INITIAL_PROMPT_MOVIES_FILE = "scripts/datasets/information_need_annotation/information_need_prompt_movies_default.txt"  # noqa: E501
 
@@ -21,30 +19,25 @@ DEFAULT_INITIAL_PROMPT_MOVIES_FILE = "scripts/datasets/information_need_annotati
 class InformationNeedAnnotator:
     def __init__(
         self,
-        ollama_config_file: str,
+        llm_interface: LLMInterface,
         prompt_file: str = DEFAULT_INITIAL_PROMPT_MOVIES_FILE,
     ) -> None:
         """Initializes the annotator.
 
         Args:
-            ollama_config_file: Configuration file for Ollama.
+            llm_interface: Interface to the large language model.
             prompt_file: File containing prompt, it should have a placeholder
               for the dialogue. Defaults to DEFAULT_INITIAL_PROMPT_MOVIES_FILE.
 
         Raises:
-            FileNotFoundError: If the configuration file is not found.
+            FileNotFoundError: If the prompt file is not found.
         """
-        if not os.path.exists(ollama_config_file):
+        if not os.path.exists(prompt_file):
             raise FileNotFoundError(
-                f"No configuration file: {ollama_config_file}"
+                f"No file including the prompt: {prompt_file}"
             )
 
-        configuration = yaml.safe_load(open(ollama_config_file))
-
-        # Ollama
-        self.client = Client(host=configuration.get("host"))
-        self._model = configuration.get("model")
-        self._options = Options(**configuration.get("options", {}))
+        self.llm_interface = llm_interface
 
         # Prompt
         self.prompt = open(prompt_file).read()
@@ -61,9 +54,7 @@ class InformationNeedAnnotator:
         json_dialogue = json.dumps(dialogue.to_dict(), indent=2)
         prompt = self.prompt.replace("{dialogue}", json_dialogue)
 
-        response = self.client.generate(
-            prompt=prompt, model=self._model, options=self._options
-        ).get("response", "")
+        response = self.llm_interface.get_llm_api_response(prompt)
 
         try:
             information_need = self.parse_model_output(response)

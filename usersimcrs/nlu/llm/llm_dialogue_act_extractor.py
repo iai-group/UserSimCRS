@@ -107,27 +107,35 @@ class LLMDialogueActsExtractor(DialogueActsExtractor):
             List of dialogue acts.
         """
         parsed_dialogue_acts = []
-        pattern = r"(\w+-?\w+)\((.*)\)\s*"
+        pattern = re.compile(r"(\w+-?\w+)\((.*)\)\s*")
+
         for dialogue_act in dialogue_acts:
-            match = re.match(pattern, dialogue_act.strip())
-            if match:
-                intent = Intent(match.group(1))
-                slot_value_pairs = match.group(2).split(",")
-                annotations = []
+            match = pattern.search(dialogue_act.strip())
+            if not match:
+                continue
+
+            intent_label, slot_value_pairs_str = match.groups()
+            intent = Intent(intent_label)
+            annotations = []
+
+            if slot_value_pairs_str.strip():
+                slot_value_pairs = slot_value_pairs_str.split(",")
                 for slot_value_pair in slot_value_pairs:
                     pair = slot_value_pair.split("=")
-                    if len(pair) != 2:
+                    if len(pair) == 1:
                         annotations.append(
                             SlotValueAnnotation(pair[0].strip(), None)
                         )
-                    annotations.append(
-                        SlotValueAnnotation(
-                            pair[0].strip(), pair[1].strip().strip('"')
+                    elif len(pair) == 2:
+                        annotations.append(
+                            SlotValueAnnotation(
+                                pair[0].strip(), pair[1].strip().strip('"')
+                            )
                         )
-                    )
-                parsed_dialogue_acts.append(
-                    DialogueAct(intent=intent, annotations=annotations)
-                )
+
+            parsed_dialogue_acts.append(
+                DialogueAct(intent=intent, annotations=annotations)
+            )
         return parsed_dialogue_acts
 
     def _parse_model_output(self, model_output: str) -> List[DialogueAct]:

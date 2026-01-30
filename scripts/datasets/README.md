@@ -27,7 +27,7 @@ Note that ratings cannot be extracted from INSPIRED as we do not have user ids.
 You can artificially augment the dialogues in the dataset with an information need and the utterances with dialogue acts using the following command:
 
 ```bash
-python -m scripts.datasets.augment_dataset --input_path <input_path> --output_path <output_path>
+python -m scripts.datasets.augment_dataset <input_path>  <output_path>
 ```
 
 For more information on the arguments, use the `--help` flag.

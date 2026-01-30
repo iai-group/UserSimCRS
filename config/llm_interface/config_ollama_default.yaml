@@ -1,4 +1,4 @@
-host: "https://ollama.ux.uis.no"
+host: "http://localhost:11434"
 model: "mistral-nemo:latest"
 stream: False
 options:

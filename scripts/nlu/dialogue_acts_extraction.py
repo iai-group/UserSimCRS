@@ -3,6 +3,7 @@ from typing import Dict, List
 
 import pandas as pd
 from tqdm import tqdm
+import yaml
 
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
@@ -13,11 +14,10 @@ from scripts.nlu.metrics import (
     intent_error_rate,
     slot_error_rate,
 )
-
-# TODO: Update to new LLMDialogueActsExtractor class. Issue #230
-from usersimcrs.nlu.lm.llm_dialogue_act_extractor import (
+from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
     LLMDialogueActsExtractor,
 )
+from usersimcrs.utils.simulation_utils import get_llm_interface
 
 
 def parse_args() -> argparse.Namespace:
@@ -29,13 +29,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Experimentation with dialogue acts extraction."
     )
-    parser.add_argument(
-        "-m",
-        "--model",
-        type=str,
-        default="mistral-nemo:latest",
-        help="Model to evaluate.",
-    )
+
     parser.add_argument(
         "--user-extractor-config",
         type=str,
@@ -57,83 +51,75 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def get_dialogue_acts_extractor(config_path: str) -> LLMDialogueActsExtractor:
+    """Returns dialogue acts extractor based on given configuration file."""
+    with open(config_path, "r") as f:
+        config = yaml.safe_load(f)
+
+    interface_cfg = config.get("llm_interface", {})
+    interface = get_llm_interface(interface_cfg)
+    return LLMDialogueActsExtractor(interface, config_path)
+
+
 if __name__ == "__main__":
     args = parse_args()
 
-    user_dialogue_acts_extractor = LLMDialogueActsExtractor(
-        args.user_extractor_config
-    )
-    agent_dialogue_acts_extractor = LLMDialogueActsExtractor(
-        args.agent_extractor_config
-    )
+    dialogue_acts_extractors = {
+        DialogueParticipant.USER: get_dialogue_acts_extractor(
+            args.user_extractor_config
+        ),
+        DialogueParticipant.AGENT: get_dialogue_acts_extractor(
+            args.agent_extractor_config
+        ),
+    }
 
     annotated_dialogues = json_to_dialogues(args.annotated_dialogues)
 
-    print(
-        f"Testing dialogue acts extraction with {args.model} model on "
-        f"{args.annotated_dialogues}"
-    )
+    print(f"Testing dialogue acts extraction on {args.annotated_dialogues}")
 
-    scores: Dict[str, Dict[str, List[float]]] = dict.fromkeys(
-        ["Global", "User", "Agent"],
-        {
-            "ER_slot": [],
-            "ER_intent": [],
-            "Recall_DA": [],
-            "Prec_DA": [],
-            "F1_DA": [],
-        },
-    )
+    metrics_list = ["ER_slot", "ER_intent", "Recall_DA", "Prec_DA", "F1_DA"]
+    scores: Dict[str, Dict[str, List[float]]] = {
+        participant: {m: [] for m in metrics_list}
+        for participant in ["Global", "User", "Agent"]
+    }
 
     for dialogue in tqdm(annotated_dialogues):
         for utterance in dialogue.utterances:
-            if utterance.participant == DialogueParticipant.USER:
-                extracted_dialogue_acts = (
-                    user_dialogue_acts_extractor.extract_dialogue_acts(
-                        utterance
-                    )
-                )
-            else:
-                extracted_dialogue_acts = (
-                    agent_dialogue_acts_extractor.extract_dialogue_acts(
-                        utterance
-                    )
+            participant = utterance.participant
+            extractor = dialogue_acts_extractors.get(participant)
+
+            if not extractor:
+                raise RuntimeError(
+                    f"Cannot access dialogue acts extractor for {participant}"
                 )
 
-            slot_error_rate_score = slot_error_rate(
-                extracted_dialogue_acts, utterance.dialogue_acts
-            )
-            intent_error_rate_score = intent_error_rate(
-                extracted_dialogue_acts, utterance.dialogue_acts
-            )
-            dialogue_acts_recall_score = dialogue_acts_recall(
-                extracted_dialogue_acts, utterance.dialogue_acts
-            )
-            dialogue_acts_precision_score = dialogue_acts_precision(
-                extracted_dialogue_acts, utterance.dialogue_acts
-            )
-            dialogue_acts_f1_score_score = dialogue_acts_f1_score(
-                extracted_dialogue_acts, utterance.dialogue_acts
-            )
+            extracted_dialogue_acts = extractor.extract_dialogue_acts(utterance)
 
-            scores["Global"]["ER_slot"].append(slot_error_rate_score)
-            scores["Global"]["ER_intent"].append(intent_error_rate_score)
-            scores["Global"]["Recall_DA"].append(dialogue_acts_recall_score)
-            scores["Global"]["Prec_DA"].append(dialogue_acts_precision_score)
-            scores["Global"]["F1_DA"].append(dialogue_acts_f1_score_score)
+            metrics = {
+                "ER_slot": slot_error_rate(
+                    extracted_dialogue_acts, utterance.dialogue_acts
+                ),
+                "ER_intent": intent_error_rate(
+                    extracted_dialogue_acts, utterance.dialogue_acts
+                ),
+                "Recall_DA": dialogue_acts_recall(
+                    extracted_dialogue_acts, utterance.dialogue_acts
+                ),
+                "Prec_DA": dialogue_acts_precision(
+                    extracted_dialogue_acts, utterance.dialogue_acts
+                ),
+                "F1_DA": dialogue_acts_f1_score(
+                    extracted_dialogue_acts, utterance.dialogue_acts
+                ),
+            }
 
-            if utterance.participant == DialogueParticipant.USER:
-                scores["User"]["ER_slot"].append(slot_error_rate_score)
-                scores["User"]["ER_intent"].append(intent_error_rate_score)
-                scores["User"]["Recall_DA"].append(dialogue_acts_recall_score)
-                scores["User"]["Prec_DA"].append(dialogue_acts_precision_score)
-                scores["User"]["F1_DA"].append(dialogue_acts_f1_score_score)
-            else:
-                scores["Agent"]["ER_slot"].append(slot_error_rate_score)
-                scores["Agent"]["ER_intent"].append(intent_error_rate_score)
-                scores["Agent"]["Recall_DA"].append(dialogue_acts_recall_score)
-                scores["Agent"]["Prec_DA"].append(dialogue_acts_precision_score)
-                scores["Agent"]["F1_DA"].append(dialogue_acts_f1_score_score)
+            target_keys = [
+                "Global",
+                "User" if participant == DialogueParticipant.USER else "Agent",
+            ]
+            for key in target_keys:
+                for m_name, val in metrics.items():
+                    scores[key][m_name].append(val)
 
     evaluation_results = pd.DataFrame(
         {k: {m: sum(v) / len(v) for m, v in scores[k].items()} for k in scores}

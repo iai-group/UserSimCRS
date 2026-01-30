@@ -9,7 +9,7 @@ requests.
 
 import argparse
 import json
-
+import yaml
 from tqdm import tqdm
 
 from dialoguekit.core.dialogue import Dialogue
@@ -17,13 +17,11 @@ from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from scripts.datasets.information_need_annotation.information_need_annotator import (  # noqa: E501
+    DEFAULT_INITIAL_PROMPT_MOVIES_FILE,
     InformationNeedAnnotator,
 )
-
-# TODO: Update to new LLMDialogueActsExtractor class. Issue #230
-from usersimcrs.nlu.lm.llm_dialogue_act_extractor import (
-    LLMDialogueActsExtractor,
-)
+from scripts.nlu.dialogue_acts_extraction import get_dialogue_acts_extractor
+from usersimcrs.utils.simulation_utils import get_llm_interface
 
 
 def annotate_dialogue_acts(
@@ -83,10 +81,14 @@ def parse_args() -> argparse.Namespace:
         prog="augment_dataset.py",
     )
     parser.add_argument(
-        "--input_path",
+        "input_path",
         type=str,
-        required=True,
         help="Path to the formatted dataset.",
+    )
+    parser.add_argument(
+        "output_path",
+        type=str,
+        help="Path to save the augmented dataset.",
     )
     parser.add_argument(
         "--user_nlu_config",
@@ -101,22 +103,16 @@ def parse_args() -> argparse.Namespace:
         help="NLU configuration file for agent dialogue acts extraction.",
     )
     parser.add_argument(
-        "--ollama_config",
+        "--llm_interface_config",
         type=str,
-        default="config/llm_interface/config_ollama_information_need.yaml",
-        help="Configuration file for Ollama.",
+        default="config/llm_interface/config_llm_interface_information_need.yaml",  # noqa: E501
+        help="Configuration file for LLM interface for information need annotation.",  # noqa: E501
     )
     parser.add_argument(
         "--information_need_prompt",
         type=str,
-        default="scripts/datasets/information_need_annotation/information_need_prompt_movies_default.txt",  # noqa: E501
+        default=DEFAULT_INITIAL_PROMPT_MOVIES_FILE,
         help="File containing the prompt for information need annotation.",
-    )
-    parser.add_argument(
-        "--output_path",
-        type=str,
-        required=True,
-        help="Path to save the augmented dataset.",
     )
     return parser.parse_args()
 
@@ -125,11 +121,16 @@ if __name__ == "__main__":
     args = parse_args()
 
     dialogues = json_to_dialogues(args.input_path)
-    user_nlu = NLU(LLMDialogueActsExtractor(args.user_nlu_config))
-    agent_nlu = NLU(LLMDialogueActsExtractor(args.agent_nlu_config))
 
+    user_nlu = NLU(get_dialogue_acts_extractor(args.user_nlu_config))
+    agent_nlu = NLU(get_dialogue_acts_extractor(args.agent_nlu_config))
+
+    with open(args.llm_interface_config, "r") as f:
+        llm_interface_config = yaml.safe_load(f).get("llm_interface", {})
+
+    information_need_llm_interface = get_llm_interface(llm_interface_config)
     information_need_annotator = InformationNeedAnnotator(
-        args.ollama_config, args.information_need_prompt
+        information_need_llm_interface, args.information_need_prompt
     )
 
     augmented_dialogues = [
