@@ -5,7 +5,7 @@ UserSimCRS considers two types of datasets: *dialogues* and *item/rating* datase
 
 In terms of format, dialogue datasets should be provided in JSON format, where each dialogue follows the DialogueKit schema. Item/rating datasets should be provided in CSV format. For items, the properties considered (columns) are defined in the domain. For ratings, the dataset should include user IDs, item IDs, and rating values (additional columns will be ignored). 
 
-Currently, UserSimCRS only supports movie recommendation datasets.
+Currently, UserSimCRS only supports the following movie recommendation datasets.
 
 
 .. list-table:: Dialogue Datasets
