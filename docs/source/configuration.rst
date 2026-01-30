@@ -71,7 +71,7 @@ Associated configuration parameters are:
 LLM-based NLU and NLG
 ^^^^^^^^^^^^^^^^^^^^^
 
-To use LLM-based NLU and NLG components in the simulation, you need to set the parameter `type` to "llm" in the components' configuration sections.
+To use LLM-based NLU and NLG components in the simulator, you need to set the parameter `type` to "llm" in the components' configuration sections.
 
 Parameters to configure the LLM interface used by the components are:
 
