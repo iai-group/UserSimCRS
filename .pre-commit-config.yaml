@@ -1,15 +1,15 @@
 repos:
 -   repo: https://github.com/ambv/black
-    rev: 22.6.0
+    rev: 26.1.0
     hooks:
     - id: black
       language_version: python3.11
 -   repo: https://github.com/pycqa/flake8
-    rev: 5.0.4
+    rev: 7.3.0
     hooks:
     - id: flake8
 -   repo: https://github.com/PyCQA/docformatter
-    rev: v1.5.0
+    rev: v1.7.7
     hooks:
       - id: docformatter
         name: docformatter
