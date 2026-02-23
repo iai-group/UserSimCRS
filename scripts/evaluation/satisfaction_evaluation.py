@@ -5,14 +5,11 @@ DialogueKit's satisfaction classifier, which assigns a score between 1 and 5.
 """
 
 import argparse
-from collections import defaultdict
 from statistics import mean, stdev
 from typing import Dict
 
-from dialoguekit.nlu.models.satisfaction_classifier import (
-    SatisfactionClassifierSVM,
-)
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
+from scripts.evaluation.satisfaction_metric import SatisfactionMetric
 
 
 def parse_args() -> argparse.Namespace:
@@ -38,18 +35,8 @@ if __name__ == "__main__":
     dialogues = json_to_dialogues(args.dialogues)
     print(f"Loaded {len(dialogues)} dialogues.")
 
-    # Satisfaction classifier
-    satisfaction_classifier = SatisfactionClassifierSVM()
-
-    # Evaluate dialogues
-    scores: Dict[str, Dict[int, float]] = defaultdict(dict)
-
-    for i, dialogue in enumerate(dialogues):
-        scores[dialogue.agent_id][
-            i
-        ] = satisfaction_classifier.classify_last_n_dialogue(
-            dialogue, last_n=None
-        )
+    metric = SatisfactionMetric()
+    scores: Dict[str, Dict[int, float]] = metric.compute(dialogues)
 
     # Summary
     for agent, agent_scores in scores.items():

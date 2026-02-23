@@ -142,9 +142,12 @@ def _get_agenda_based_simulator_config(
 
     ratings = Ratings(item_collection)
     ratings.load_ratings_csv(file_path=config["ratings"].get())
-    historical_ratings, _ = ratings.create_split(
-        config["historical_ratings_ratio"].get(0.8)
-    )
+    raw = config["historical_ratings_ratio"].get()
+    if raw is None:
+        historical_ratio = 0.8
+    else:
+        historical_ratio = float(raw)
+    historical_ratings, _ = ratings.create_split(historical_ratio)
 
     preference_model = SimplePreferenceModel(
         domain,

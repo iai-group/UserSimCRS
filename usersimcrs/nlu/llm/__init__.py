@@ -1,9 +1,9 @@
 """Module level init for LLM-based NLU components."""
 
-from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
-    LLMDialogueActsExtractor,
-)
+"""Module level init for LLM-based NLU components.
 
-__all__ = [
-    "LLMDialogueActsExtractor",
-]
+Avoid importing heavy submodules at package import time to keep test
+collection lightweight; import submodules explicitly when needed.
+"""
+
+__all__ = ["LLMDialogueActsExtractor"]
