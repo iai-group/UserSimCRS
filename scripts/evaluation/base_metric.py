@@ -1,31 +1,35 @@
+"""Abstract base class for dialogue evaluation metrics."""
+
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, List
 
 from dialoguekit.core.dialogue import Dialogue
 
 
 class BaseMetric(ABC):
-    """Abstract base class for dialogue evaluation metrics."""
+    def __init__(self, name: str) -> None:
+        """Initializes the metric.
 
-    def __init__(self) -> None:
-        """Initialize the metric."""
-        pass
+        Args:
+            name: Metric name (e.g., 'quality', 'satisfaction', 'utility').
+        """
+        super().__init__()
+        self._name = name
 
     @property
-    @abstractmethod
     def name(self) -> str:
         """Metric name (e.g., 'quality', 'satisfaction', 'utility')."""
-        pass
+        return self._name
 
     @abstractmethod
-    def compute(self, dialogues: list[Dialogue], **kwargs: Any) -> Any:
-        """Compute the metric over the given dialogues.
+    def compute(self, dialogues: List[Dialogue], **kwargs: Any) -> Any:
+        """Computes the metric over the given dialogues.
 
         Args:
             dialogues: List of dialogues to compute the metric on.
             **kwargs: Additional arguments specific to the metric.
 
         Returns:
-            Metric scores.
+            Metric result; shape is defined by the concrete metric.
         """
-        pass
+        raise NotImplementedError()
