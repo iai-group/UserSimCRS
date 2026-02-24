@@ -6,7 +6,7 @@ from typing import Any, Dict, List
 from dialoguekit.core.dialogue import Dialogue
 
 
-class BaseMetric(ABC):
+class Metric(ABC):
     def __init__(self, name: str) -> None:
         """Initializes the metric.
 
@@ -51,7 +51,7 @@ class BaseMetric(ABC):
     def evaluate_agents(
         self, dialogues: List[Dialogue], **kwargs: Any
     ) -> Dict[str, Dict[str, float]]:
-        """Computes the metric for every agent in a given list.
+        """Computes the metric for every agent over their dialogues.
 
         Args:
             dialogues: Dialogues.
