@@ -7,19 +7,13 @@ from dialoguekit.core.dialogue import Dialogue
 
 
 class BaseMetric(ABC):
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: str):
         """Initializes the metric.
 
         Args:
             name: Metric name (e.g., 'quality', 'satisfaction', 'utility').
         """
-        super().__init__()
-        self._name = name
-
-    @property
-    def name(self) -> str:
-        """Metric name (e.g., 'quality', 'satisfaction', 'utility')."""
-        return self._name
+        self.name = name
 
     @abstractmethod
     def compute(self, dialogues: List[Dialogue], **kwargs: Any) -> Any:
