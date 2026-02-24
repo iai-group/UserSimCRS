@@ -1,12 +1,8 @@
-"""Abstract base class for dialogue evaluation metrics.
-
-Subclasses implement only compute_score(dialogue, **kwargs). The base class
-provides aggregation at three levels: per dialogue, per dialogues, and per
-agent.
-"""
+"""Abstract base class for dialogue evaluation metrics."""
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict
+from collections import defaultdict
+from typing import Any, Dict, List
 from dialoguekit.core.dialogue import Dialogue
 
 
@@ -20,53 +16,54 @@ class BaseMetric(ABC):
         self.name = name
 
     @abstractmethod
-    def compute_score(self, dialogue: Dialogue, **kwargs: Any) -> float:
+    def evaluate_dialogue(self, dialogue: Dialogue, **kwargs: Any) -> float:
         """Computes the metric for a single dialogue.
-
-        Subclasses must implement this method.
 
         Args:
             dialogue: Single dialogue to score.
             **kwargs: Additional arguments specific to the metric.
 
-        Returns:
-            Score for the dialogue.
-
         Raises:
             NotImplementedError: When not implemented by a subclass.
+
+        Returns:
+            Score for the dialogue.
         """
         raise NotImplementedError()
 
-    def compute_scores_for_dialogues(
-        self, dialogues: Dict[str, Dialogue], **kwargs: Any
+    def evaluate_dialogues(
+        self, dialogues: List[Dialogue], **kwargs: Any
     ) -> Dict[str, float]:
-        """Computes the metric for each dialogue in a dict of dialogues.
+        """Computes the metric for every dialogue in a given list.
 
         Args:
-            dialogues: Dict of dialogues
-            **kwargs: Passed through to compute_score.
+            dialogues: Dialogues.
+            **kwargs: Additional arguments specific to the metric.
 
         Returns:
-            Dict of scores per dialogue.
+            Dictionary with result per dialogue.
         """
         return {
-            dialog_id: self.compute_score(dialogue, **kwargs)
-            for dialog_id, dialogue in dialogues.items()
+            dialogue.conversation_id: self.evaluate_dialogue(dialogue, **kwargs)
+            for dialogue in dialogues
         }
 
-    def compute_scores_per_agent(
-        self, dialogues_by_agent: Dict[str, Dict[str, Dialogue]], **kwargs: Any
+    def evaluate_agents(
+        self, dialogues: List[Dialogue], **kwargs: Any
     ) -> Dict[str, Dict[str, float]]:
-        """Computes the metric per agent over their dialogues.
+        """Computes the metric for every agent in a given list.
 
         Args:
-            dialogues_by_agent: Dict of dialogues per agent.
-            **kwargs: Passed through to compute_score.
+            dialogues: Dialogues.
+            **kwargs: Additional arguments specific to the metric.
 
         Returns:
-            Dict of scores per agent.
+            Dictionary with result per agent.
         """
+        dialogues_by_agent: Dict[str, List[Dialogue]] = defaultdict(list)
+        for dialogue in dialogues:
+            dialogues_by_agent[dialogue.agent_id].append(dialogue)
         return {
-            agent_id: self.compute_scores_for_dialogues(dialogues, **kwargs)
-            for agent_id, dialogues in dialogues_by_agent.items()
+            agent_id: self.evaluate_dialogues(agent_dialogues, **kwargs)
+            for agent_id, agent_dialogues in dialogues_by_agent.items()
         }
