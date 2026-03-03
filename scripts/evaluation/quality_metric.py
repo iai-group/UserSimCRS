@@ -135,8 +135,8 @@ class QualityMetric(BaseMetric):
             response = response.replace("\\", "\\\\")
             response_dict = json.loads(response)
             return float(response_dict["score"])
-        except Exception as e:
+        except Exception:
             raise ValueError(
                 f"Failed to get score for {aspect} dialogue "
                 f"{dialogue.conversation_id}: {response}"
-            ) from e
+            )
