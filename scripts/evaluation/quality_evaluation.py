@@ -15,11 +15,10 @@ import argparse
 import json
 import os
 from statistics import mean, stdev
-from typing import Dict, List
 
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
-from scripts.evaluation.quality_metric import QualityMetric, QualityScoreEncoder
+from scripts.evaluation.quality_metric import QualityMetric
 
 
 def parse_args() -> argparse.Namespace:
@@ -56,19 +55,18 @@ if __name__ == "__main__":
     dialogues = json_to_dialogues(args.dialogues)
 
     metric = QualityMetric(args.ollama_config)
-    scores: Dict[str, Dict[str, List]] = metric.compute(dialogues)
+    scores = metric.evaluate_agents(dialogues)
 
-    # Save scores
+    # Save scores (agent_id -> conversation_id -> score)
     if args.output:
-        os.makedirs(os.path.dirname(args.output), exist_ok=True)
+        os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
         with open(args.output, "w") as f:
-            json.dump(scores, f, indent=2, cls=QualityScoreEncoder)
+            json.dump(scores, f, indent=2)
 
     # Summary
     for agent_id, agent_scores in scores.items():
+        score_values = list(agent_scores.values())
         print(f"Scores for agent {agent_id}:")
-        for aspect_name, aspect_scores in agent_scores.items():
-            print(f"Aspect: {aspect_name}")
-            avg_score = mean([score.score for score in aspect_scores])
-            std_dev = stdev([score.score for score in aspect_scores])
-            print(f"Average score: {avg_score:.2f} (std dev: {std_dev:.2f})")
+        avg_score = mean(score_values)
+        std_dev = stdev(score_values) if len(score_values) >= 2 else 0.0
+        print(f"Average score: {avg_score:.2f} (std dev: {std_dev:.2f})")

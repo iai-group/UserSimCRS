@@ -5,8 +5,6 @@ DialogueKit's satisfaction classifier, which assigns a score between 1 and 5.
 """
 
 import argparse
-from statistics import mean, stdev
-from typing import Dict
 
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from scripts.evaluation.satisfaction_metric import SatisfactionMetric
@@ -36,14 +34,14 @@ if __name__ == "__main__":
     print(f"Loaded {len(dialogues)} dialogues.")
 
     metric = SatisfactionMetric()
-    scores: Dict[str, Dict[int, float]] = metric.compute(dialogues)
+    scores = metric.evaluate_agents(dialogues)
 
     # Summary
     for agent, agent_scores in scores.items():
-        avg_score = mean(agent_scores.values())
-        stdev_score = stdev(agent_scores.values())
-        max_score = max(agent_scores.values())
-        min_score = min(agent_scores.values())
+        avg_score = metric.get_average(agent_scores)
+        stdev_score = metric.get_stdev(agent_scores)
+        max_score = metric.get_max(agent_scores)
+        min_score = metric.get_min(agent_scores)
         print(f"Agent: {agent} / Num. dialogues: {len(agent_scores)}")
         print(f"Min score: {min_score}")
         print(f"Max score: {max_score}")

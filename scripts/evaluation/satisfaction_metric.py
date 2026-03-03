@@ -1,73 +1,52 @@
 """Satisfaction metric class implementation.
 
-Wraps DialogueKit's satisfaction classifier into a `BaseMetric` class.
+Wraps DialogueKit's satisfaction classifier into a `Metric` class.
 """
 
-from collections import defaultdict
-from typing import Any, Dict, List, Optional, TYPE_CHECKING
+from statistics import mean, stdev
+from typing import Any, Dict, Optional
 
-if TYPE_CHECKING:
-    from dialoguekit.core.dialogue import Dialogue  # type: ignore
-    from dialoguekit.nlu.models.satisfaction_classifier import (
-        SatisfactionClassifierSVM,
-    )  # type: ignore
-else:
-    try:
-        from dialoguekit.core.dialogue import Dialogue
-        from dialoguekit.nlu.models.satisfaction_classifier import (
-            SatisfactionClassifierSVM,
-        )
-    except Exception:
-        Dialogue = Any
-        SatisfactionClassifierSVM = Any
+from dialoguekit.core.dialogue import Dialogue  # type: ignore
+from dialoguekit.nlu.models.satisfaction_classifier import (
+    SatisfactionClassifierSVM,
+)
 
-from scripts.evaluation.base_metric import BaseMetric
+from scripts.evaluation.base_metric import Metric
 
 
-class SatisfactionMetric(BaseMetric):
-    """Wraps the `SatisfactionClassifierSVM` to compute satisfaction scores.
+class SatisfactionMetric(Metric):
+    """Wraps the `SatisfactionClassifierSVM` to compute satisfaction scores."""
 
-    Output format matches previous CLI script: { agent_id: { dialogue_index:
-    score, ... }, ... }
-    """
-
-    def __init__(self, classifier: Optional[SatisfactionClassifierSVM] = None):
-        super().__init__()
+    def __init__(
+        self,
+        classifier: Optional[SatisfactionClassifierSVM] = None,
+        name: str = "satisfaction",
+    ):
+        super().__init__(name)
         self.classifier = classifier or SatisfactionClassifierSVM()
 
-    @property
-    def name(self) -> str:
-        return "satisfaction"
+    def evaluate_dialogue(self, dialogue: Dialogue, **kwargs: Any) -> float:
+        """Computes the satisfaction score for a single dialogue."""
+        return self.classifier.classify_last_n_dialogue(dialogue, last_n=None)
 
-    def compute(self, dialogues: List[Dialogue]) -> Dict[str, Dict[int, float]]:
-        """Compute satisfaction scores for dialogues.
+    @staticmethod
+    def get_average(agent_scores: Dict[str, float]) -> float:
+        """Returns the average score for an agent's dialogues."""
+        return mean(agent_scores.values()) if agent_scores else 0.0
 
-        Matches the previous CLI output format: agent_id -> dialogue_index ->
-        score
-        """
-        scores: Dict[str, Dict[int, float]] = defaultdict(dict)
-        for i, dialogue in enumerate(dialogues):
-            scores[dialogue.agent_id][
-                i
-            ] = self.classifier.classify_last_n_dialogue(dialogue, last_n=None)
-        return scores
+    @staticmethod
+    def get_stdev(agent_scores: Dict[str, float]) -> float:
+        """Returns the standard deviation of scores for an agent's dialogues."""
+        if len(agent_scores) < 2:
+            return 0.0
+        return stdev(agent_scores.values())
 
+    @staticmethod
+    def get_max(agent_scores: Dict[str, float]) -> float:
+        """Returns the maximum score for an agent's dialogues."""
+        return max(agent_scores.values()) if agent_scores else 0.0
 
-class SatisfactionAverageMetric(SatisfactionMetric):
-    """Aggregates satisfaction scores and returns average per agent."""
-
-    @property
-    def name(self) -> str:
-        return "satisfaction.average"
-
-    def compute(self, dialogues: List[Dialogue]) -> Dict[str, float]:
-        raw = super().compute(dialogues)
-        averages: Dict[str, float] = {}
-        for agent_id, agent_scores in raw.items():
-            if len(agent_scores) == 0:
-                averages[agent_id] = 0.0
-            else:
-                averages[agent_id] = sum(agent_scores.values()) / len(
-                    agent_scores
-                )
-        return averages
+    @staticmethod
+    def get_min(agent_scores: Dict[str, float]) -> float:
+        """Returns the minimum score for an agent's dialogues."""
+        return min(agent_scores.values()) if agent_scores else 0.0

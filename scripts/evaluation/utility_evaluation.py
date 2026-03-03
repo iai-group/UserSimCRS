@@ -16,9 +16,46 @@ https://arxiv.org/abs/2510.05624
 
 import argparse
 import json
+from collections import defaultdict
+from typing import Dict
 
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 from scripts.evaluation.utility_metric import UtilityMetric
+
+
+def get_summary(
+    scores: Dict[str, Dict[str, Dict[str, float]]],
+) -> None:
+    """Displays a summary of the utility evaluation.
+
+    Args:
+        scores: Agent_id -> conversation_id -> utility metrics dict.
+    """
+    summary: dict = defaultdict(
+        lambda: {"total_dialogues": 0, "success_rate": 0, "srrr": 0, "rdl": 0}
+    )
+    for agent_id, agent_scores in scores.items():
+        for conv_metrics in agent_scores.values():
+            summary[agent_id]["total_dialogues"] += 1
+            summary[agent_id]["success_rate"] += conv_metrics["success"]
+            summary[agent_id]["srrr"] += conv_metrics[
+                "successful_recommendation_round_ratio"
+            ]
+            summary[agent_id]["rdl"] += conv_metrics[
+                "reward_per_dialogue_length"
+            ]
+
+    for agent_id, stats in summary.items():
+        total = stats["total_dialogues"]
+        print(f"Agent: {agent_id}")
+        print(f"\tTotal Dialogues: {total}")
+        print(f"\tSuccess Rate: {stats['success_rate'] / total:.4f}")
+        print(
+            "\tSuccessful Recommendation Round Ratio: "
+            f"{stats['srrr'] / total:.4f}"
+        )
+        print(f"\tReward-per-Dialogue-Length: {stats['rdl'] / total:.4f}")
+        print()
 
 
 def parse_args() -> argparse.Namespace:
@@ -75,7 +112,7 @@ if __name__ == "__main__":
     dialogues = json_to_dialogues(args.annotated_dialogues)
 
     metric = UtilityMetric(args.user_nlu_config, args.agent_nlu_config)
-    dialogues = metric.compute(
+    scores = metric.evaluate_agents(
         dialogues,
         recommendation_intent_labels=args.recommendation_intent_labels,
         acceptance_intent_labels=args.accept_intent_labels,
@@ -84,8 +121,6 @@ if __name__ == "__main__":
 
     if args.output:
         with open(args.output, "w") as f:
-            json.dump(
-                [dialogue.to_dict() for dialogue in dialogues], f, indent=2
-            )
+            json.dump(scores, f, indent=2)
 
-    metric.get_summary(dialogues)
+    get_summary(scores)
