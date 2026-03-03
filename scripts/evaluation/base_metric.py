@@ -6,7 +6,7 @@ from typing import Any, Dict, List
 from dialoguekit.core.dialogue import Dialogue
 
 
-class Metric(ABC):
+class BaseMetric(ABC):
     def __init__(self, name: str) -> None:
         """Initializes the metric.
 
@@ -41,7 +41,7 @@ class Metric(ABC):
             **kwargs: Additional arguments specific to the metric.
 
         Returns:
-            Dictionary with result per dialogue.
+            Dictionary with result per dialogue. Keys are conversation IDs.
         """
         return {
             dialogue.conversation_id: self.evaluate_dialogue(dialogue, **kwargs)
@@ -58,7 +58,8 @@ class Metric(ABC):
             **kwargs: Additional arguments specific to the metric.
 
         Returns:
-            Dictionary with result per agent.
+            Dictionary with result per agent. Outer keys are agent IDs;
+            inner dict keys are conversation IDs.
         """
         dialogues_by_agent: Dict[str, List[Dialogue]] = defaultdict(list)
         for dialogue in dialogues:
