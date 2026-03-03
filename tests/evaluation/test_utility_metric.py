@@ -27,7 +27,7 @@ FIXED_UTILITY = {
 
 
 @pytest.fixture
-def metric(dialogues):
+def metric():
     """UtilityMetric returning fixed metrics."""
     with patch.object(
         UtilityMetric, "_get_utility_metrics", return_value=FIXED_UTILITY
@@ -39,7 +39,7 @@ def metric(dialogues):
 
 
 def test_evaluate_dialogue(metric: UtilityMetric, dialogues) -> None:
-    """Test evaluate_dialogue returns selected metric as float."""
+    """Test evaluate_dialogue returns selected metric."""
     dialogue = dialogues[0]
     assert metric.evaluate_dialogue(dialogue) == 1.0
     assert metric.evaluate_dialogue(dialogue, metric="success") == 1.0
@@ -56,22 +56,20 @@ def test_evaluate_dialogue(metric: UtilityMetric, dialogues) -> None:
 
 
 def test_evaluate_dialogues(metric: UtilityMetric, dialogues) -> None:
-    """Test evaluate_dialogues returns conversation_id -> full metrics dict."""
+    """Test evaluate_dialogues returns conversation_id -> metric value."""
     result = metric.evaluate_dialogues(dialogues)
     assert len(result) == len(dialogues)
     for dialogue in dialogues:
         assert dialogue.conversation_id in result
-        assert result[dialogue.conversation_id] == FIXED_UTILITY
+        assert result[dialogue.conversation_id] == 1.0
 
 
-def test_evaluate_agents(metric: UtilityMetric, dialogues) -> None:
-    """Test evaluate_agents returns agent_id -> {conversation_id -> metrics
-    dict}."""
-    result = metric.evaluate_agents(dialogues)
-    assert "Agent" in result
-    agent_scores = result["Agent"]
-    assert len(agent_scores) == len(dialogues)
+def test_evaluate_dialogues_with_specified_metric(
+    metric: UtilityMetric, dialogues
+) -> None:
+    """Test evaluate_dialogues with specified metric."""
+    result = metric.evaluate_dialogues(
+        dialogues, metric="successful_recommendation_round_ratio"
+    )
     for dialogue in dialogues:
-        assert dialogue.conversation_id in agent_scores
-        conv_metrics = agent_scores[dialogue.conversation_id]
-        assert conv_metrics == FIXED_UTILITY
+        assert result[dialogue.conversation_id] == 0.5

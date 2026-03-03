@@ -1,11 +1,12 @@
 """Utility metric class implementation.
 
-Encapsulates the logic from `utility_evaluation.py` into a `Metric`.
+Encapsulates the logic from `utility_evaluation.py` into a `BaseMetric`.
 """
 
-from typing import Any, Dict, List, Optional, Tuple, cast
+from typing import Any, Dict, List, Optional, Tuple
 
 from confuse import Configuration
+import argparse
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.dialogue import Dialogue
@@ -13,10 +14,10 @@ from dialoguekit.core.intent import Intent
 from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
 from usersimcrs.utils.simulation_utils import get_NLU
-from scripts.evaluation.base_metric import Metric
+from scripts.evaluation.base_metric import BaseMetric
 
 
-class UtilityMetric(Metric):
+class UtilityMetric(BaseMetric):
     """Computes utility metrics for dialogues.
 
     Constructor takes paths to user and agent NLU configuration files.
@@ -33,6 +34,54 @@ class UtilityMetric(Metric):
         self.agent_nlu_config_path = agent_nlu_config_path
         self._user_nlu: Optional[NLU] = None
         self._agent_nlu: Optional[NLU] = None
+
+    @classmethod
+    def parse_args(self) -> argparse.Namespace:
+        """Parses command-line arguments.
+
+        Returns:
+            Parsed command-line arguments.
+        """
+        parser = argparse.ArgumentParser(prog="utility_evaluation.py")
+        parser.add_argument(
+            "annotated_dialogues",
+            type=str,
+            help="Annotated dialogues JSON file.",
+        )
+        parser.add_argument(
+            "user_nlu_config",
+            type=str,
+            help="User NLU configuration file.",
+        )
+        parser.add_argument(
+            "agent_nlu_config",
+            type=str,
+            help="Agent NLU configuration file.",
+        )
+        parser.add_argument(
+            "--reject_intent_labels",
+            nargs="+",
+            default=["REJ"],
+            help="Intent labels corresponding to rejection.",
+        )
+        parser.add_argument(
+            "--accept_intent_labels",
+            nargs="+",
+            default=["ACC"],
+            help="Intent labels corresponding to acceptance.",
+        )
+        parser.add_argument(
+            "--recommendation_intent_labels",
+            nargs="+",
+            default=["REC-S", "REC-E"],
+            help="Intent labels corresponding to recommendation.",
+        )
+        parser.add_argument(
+            "--output",
+            type=str,
+            help="Output file to save annotated dialogues with utility metrics",
+        )
+        return parser.parse_args()
 
     def _annotate_dialogue(
         self, dialogue: Dialogue, user_nlu: NLU, agent_nlu: NLU
@@ -211,37 +260,6 @@ class UtilityMetric(Metric):
             [Intent(label) for label in rej_labels],
         )
 
-    def evaluate_dialogues(
-        self, dialogues: List[Dialogue], **kwargs: Any
-    ) -> Dict[str, Dict[str, float]]:
-        """Computes all utility metrics for every dialogue.
-
-        Overrides base to return full metrics dict per dialogue rather than
-        a single float, since utility evaluation aggregates SR, SRRR, and RDL.
-
-        Returns:
-            conversation_id -> metrics dict with keys: success,
-            successful_recommendation_round_ratio, reward_per_dialogue_length.
-        """
-        return {
-            dialogue.conversation_id: self._get_utility_metrics(
-                dialogue, **kwargs
-            )
-            for dialogue in dialogues
-        }
-
-    def evaluate_agents(
-        self, dialogues: List[Dialogue], **kwargs: Any
-    ) -> Dict[str, Dict[str, Dict[str, float]]]:
-        """Computes utility metrics per agent, returning full metrics per
-        dialogue.
-
-        Returns:
-            agent_id -> conversation_id -> metrics dict (success, srrr, rdl).
-        """
-        result = super().evaluate_agents(dialogues, **kwargs)
-        return cast(Dict[str, Dict[str, Dict[str, float]]], result)
-
     def _get_utility_metrics(
         self, dialogue: Dialogue, **kwargs: Any
     ) -> Dict[str, float]:
@@ -276,7 +294,7 @@ class UtilityMetric(Metric):
         }
 
     def evaluate_dialogue(self, dialogue: Dialogue, **kwargs: Any) -> float:
-        """Computes one utility metric for a single dialogue.
+        """Computes one utility metric for a dialogue.
 
         Args:
             dialogue: Dialogue to evaluate.

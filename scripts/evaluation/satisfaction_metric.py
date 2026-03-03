@@ -1,22 +1,20 @@
 """Satisfaction metric class implementation.
 
-Wraps DialogueKit's satisfaction classifier into a `Metric` class.
+Wraps DialogueKit's satisfaction classifier into a `BaseMetric` class.
 """
 
-from statistics import mean, stdev
-from typing import Any, Dict, Optional
+from typing import Any, Optional
 
-from dialoguekit.core.dialogue import Dialogue  # type: ignore
+from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.nlu.models.satisfaction_classifier import (
     SatisfactionClassifierSVM,
 )
+import argparse
 
-from scripts.evaluation.base_metric import Metric
+from scripts.evaluation.base_metric import BaseMetric
 
 
-class SatisfactionMetric(Metric):
-    """Wraps the `SatisfactionClassifierSVM` to compute satisfaction scores."""
-
+class SatisfactionMetric(BaseMetric):
     def __init__(
         self,
         classifier: Optional[SatisfactionClassifierSVM] = None,
@@ -29,24 +27,18 @@ class SatisfactionMetric(Metric):
         """Computes the satisfaction score for a single dialogue."""
         return self.classifier.classify_last_n_dialogue(dialogue, last_n=None)
 
-    @staticmethod
-    def get_average(agent_scores: Dict[str, float]) -> float:
-        """Returns the average score for an agent's dialogues."""
-        return mean(agent_scores.values()) if agent_scores else 0.0
+    @classmethod
+    def parse_args(self) -> argparse.Namespace:
+        """Parses command-line arguments.
 
-    @staticmethod
-    def get_stdev(agent_scores: Dict[str, float]) -> float:
-        """Returns the standard deviation of scores for an agent's dialogues."""
-        if len(agent_scores) < 2:
-            return 0.0
-        return stdev(agent_scores.values())
-
-    @staticmethod
-    def get_max(agent_scores: Dict[str, float]) -> float:
-        """Returns the maximum score for an agent's dialogues."""
-        return max(agent_scores.values()) if agent_scores else 0.0
-
-    @staticmethod
-    def get_min(agent_scores: Dict[str, float]) -> float:
-        """Returns the minimum score for an agent's dialogues."""
-        return min(agent_scores.values()) if agent_scores else 0.0
+        Returns:
+            Parsed arguments.
+        """
+        parser = argparse.ArgumentParser()
+        parser.add_argument(
+            "--dialogues",
+            type=str,
+            required=True,
+            help="Path to the dialogues.",
+        )
+        return parser.parse_args()
