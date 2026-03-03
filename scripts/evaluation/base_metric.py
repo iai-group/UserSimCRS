@@ -1,7 +1,6 @@
 """Abstract base class for dialogue evaluation metrics."""
 
 from abc import ABC, abstractmethod
-from collections import defaultdict
 from typing import Any, Dict, List
 from dialoguekit.core.dialogue import Dialogue
 
@@ -46,25 +45,4 @@ class BaseMetric(ABC):
         return {
             dialogue.conversation_id: self.evaluate_dialogue(dialogue, **kwargs)
             for dialogue in dialogues
-        }
-
-    def evaluate_agents(
-        self, dialogues: List[Dialogue], **kwargs: Any
-    ) -> Dict[str, Dict[str, float]]:
-        """Computes the metric for every agent over their dialogues.
-
-        Args:
-            dialogues: Dialogues.
-            **kwargs: Additional arguments specific to the metric.
-
-        Returns:
-            Dictionary with result per agent.
-            Keys are agent IDs and conversation IDs.
-        """
-        dialogues_by_agent: Dict[str, List[Dialogue]] = defaultdict(list)
-        for dialogue in dialogues:
-            dialogues_by_agent[dialogue.agent_id].append(dialogue)
-        return {
-            agent_id: self.evaluate_dialogues(agent_dialogues, **kwargs)
-            for agent_id, agent_dialogues in dialogues_by_agent.items()
         }
