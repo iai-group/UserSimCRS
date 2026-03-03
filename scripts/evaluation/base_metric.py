@@ -58,8 +58,8 @@ class BaseMetric(ABC):
             **kwargs: Additional arguments specific to the metric.
 
         Returns:
-            Dictionary with result per agent. Outer keys are agent IDs;
-            inner dict keys are conversation IDs.
+            Dictionary with result per agent.
+            Keys are agent IDs and conversation IDs.
         """
         dialogues_by_agent: Dict[str, List[Dialogue]] = defaultdict(list)
         for dialogue in dialogues:
