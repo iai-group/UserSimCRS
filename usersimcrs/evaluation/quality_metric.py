@@ -1,4 +1,4 @@
-"""Script to evaluate dialogue quality using an LLM.
+"""LLM-based dialogue quality evaluation.
 
 The script evaluates dialogue quality with regards to five aspects:
 - Recommendation relevance
@@ -11,19 +11,16 @@ Each aspect is scored between 1 and 5, where the scores are described in a
 dedicated rubric. The scoring is done using a large language model.
 """
 
-import argparse
 import json
-from typing import Any, Optional, TYPE_CHECKING
-
-if TYPE_CHECKING:
-    pass
+import logging
+from typing import Any
 
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.participant.participant import DialogueParticipant
 
-from scripts.evaluation.base_metric import BaseMetric
-from scripts.evaluation.rubrics.quality_rubrics import QualityRubrics
-from usersimcrs.llm_interfaces.ollama_interface import OllamaLLMInterface
+from usersimcrs.evaluation.base_metric import BaseMetric
+from usersimcrs.evaluation.quality_rubrics import QualityRubrics
+from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 
 
 _PROMPT_EVAL_INTRO = (
@@ -42,50 +39,11 @@ _PROMPT_EVAL_OUTPUT_FORMAT = (
 class QualityMetric(BaseMetric):
     def __init__(
         self,
-        ollama_config_path: str,
-        default_response: str = "",
+        llm_interface: LLMInterface,
         name: str = "quality",
     ) -> None:
         super().__init__(name)
-        self.ollama_config_path = ollama_config_path
-        self.default_response = default_response
-        self._ollama_interface: Optional[OllamaLLMInterface] = None
-
-    @staticmethod
-    def parse_args() -> argparse.Namespace:
-        """Parse command-line arguments.
-
-        Returns:
-            Parsed arguments.
-        """
-        parser = argparse.ArgumentParser()
-        parser.add_argument(
-            "--dialogues",
-            type=str,
-            required=True,
-            help="Path to the dialogues.",
-        )
-        parser.add_argument(
-            "--ollama_config",
-            type=str,
-            required=True,
-            help="Path to the Ollama config file.",
-        )
-        parser.add_argument(
-            "--output",
-            type=str,
-            help="(optional) Path to the output file.",
-        )
-        return parser.parse_args()
-
-    def _get_ollama_interface(self) -> OllamaLLMInterface:
-        """Returns Ollama LLM interface."""
-        if self._ollama_interface is None:
-            self._ollama_interface = OllamaLLMInterface(
-                self.ollama_config_path,
-                default_response=self.default_response,
-            )
-        return self._ollama_interface
+        self.llm_interface = llm_interface
 
     def _get_prompt(
         self, grading_rubric: QualityRubrics, dialogue: Dialogue
@@ -125,18 +83,26 @@ class QualityMetric(BaseMetric):
             Score (1-5) for the specified aspect.
 
         Raises:
-            ValueError: When the LLM response cannot be parsed.
+            KeyError: When the aspect does not exist in QualityRubrics.
         """
-        aspect_enum = QualityRubrics[aspect]
-        ollama_interface = self._get_ollama_interface()
+        try:
+            aspect_enum = QualityRubrics[aspect]
+        except KeyError:
+            supported = [e.name for e in QualityRubrics]
+            raise KeyError(
+                f"Unknown aspect '{aspect}'. Supported aspects: {supported}"
+            )
         prompt = self._get_prompt(aspect_enum, dialogue)
-        response = ollama_interface.get_llm_api_response(prompt)
+        response = self.llm_interface.get_llm_api_response(prompt)
         try:
             response = response.replace("\\", "\\\\")
             response_dict = json.loads(response)
             return float(response_dict["score"])
         except Exception:
-            raise ValueError(
-                f"Failed to get score for {aspect} dialogue "
-                f"{dialogue.conversation_id}: {response}"
+            logging.warning(
+                "Failed to parse LLM response for %s dialogue %s: %s",
+                aspect,
+                dialogue.conversation_id,
+                response,
             )
+            return 0.0

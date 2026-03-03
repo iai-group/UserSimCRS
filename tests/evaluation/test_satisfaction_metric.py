@@ -3,7 +3,7 @@
 from unittest.mock import MagicMock
 import pytest
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
-from scripts.evaluation.satisfaction_metric import SatisfactionMetric
+from usersimcrs.evaluation.satisfaction_metric import SatisfactionMetric
 
 
 @pytest.fixture
