@@ -27,8 +27,8 @@ class SatisfactionMetric(BaseMetric):
         """Computes the satisfaction score for a single dialogue."""
         return self.classifier.classify_last_n_dialogue(dialogue, last_n=None)
 
-    @classmethod
-    def parse_args(self) -> argparse.Namespace:
+    @staticmethod
+    def parse_args() -> argparse.Namespace:
         """Parses command-line arguments.
 
         Returns:
