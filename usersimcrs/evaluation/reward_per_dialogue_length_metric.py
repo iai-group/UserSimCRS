@@ -60,11 +60,19 @@ class RewardPerDialogueLengthMetric(UtilityBaseMetric):
 
         Args:
             dialogue: Dialogue to evaluate.
-            **kwargs: Optional intent label overrides.
+            **kwargs: Optional intent label overrides:
+                - recommendation_intent_labels: Labels for recommendation
+                  intents. Defaults to ["REC-S", "REC-E"].
+                - acceptance_intent_labels: Labels for acceptance intents.
+                  Defaults to ["ACC"].
+                - rejection_intent_labels: Labels for rejection intents.
+                  Defaults to ["REJ"].
 
         Returns:
             Ratio of accepted recommendations to total utterances.
         """
-        _, acc, _ = self._resolve_intents(dialogue, **kwargs)
-        nb_accepted, dialogue_length = self._assess_dialogue(dialogue, acc)
+        _, acc, _ = self._resolve_intents(dialogue=dialogue, **kwargs)
+        nb_accepted, dialogue_length = self._assess_dialogue(
+            dialogue=dialogue, acceptance_intents=acc
+        )
         return nb_accepted / dialogue_length

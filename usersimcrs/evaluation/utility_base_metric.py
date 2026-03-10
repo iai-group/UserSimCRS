@@ -1,4 +1,4 @@
-"""Base class for utility metrics that require NLU annotation."""
+"""Base class for dialogue annotation support."""
 
 from abc import ABC
 from typing import Any, List, Optional, Tuple
@@ -18,8 +18,7 @@ class UtilityBaseMetric(BaseMetric, ABC):
     """Shared base for metrics that optionally annotate dialogues via NLU.
 
     When NLU config paths are provided, dialogues are annotated automatically.
-    When omitted, dialogues must be pre-annotated (e.g., via
-    :func:`annotate_dialogues`).
+    When omitted, dialogues must be pre-annotated.
     """
 
     def __init__(

@@ -69,14 +69,23 @@ class SuccessfulRecommendationRoundRatioMetric(UtilityBaseMetric):
 
         Args:
             dialogue: Dialogue to evaluate.
-            **kwargs: Optional intent label overrides.
+            **kwargs: Optional intent label overrides:
+                - recommendation_intent_labels: Labels for recommendation
+                  intents. Defaults to ``["REC-S", "REC-E"]``.
+                - acceptance_intent_labels: Labels for acceptance intents.
+                  Defaults to ``["ACC"]``.
+                - rejection_intent_labels: Labels for rejection intents.
+                  Defaults to ``["REJ"]``.
 
         Returns:
             Ratio of accepted recommendation rounds to total rounds,
             or 0.0 if there are no recommendation rounds.
         """
-        rec, acc, rej = self._resolve_intents(dialogue, **kwargs)
+        rec, acc, rej = self._resolve_intents(dialogue=dialogue, **kwargs)
         successful_rounds, total_rounds = self._assess_dialogue(
-            dialogue, rec, acc, rej
+            dialogue=dialogue,
+            recommendation_intents=rec,
+            acceptance_intents=acc,
+            rejection_intents=rej,
         )
         return successful_rounds / total_rounds if total_rounds > 0 else 0.0

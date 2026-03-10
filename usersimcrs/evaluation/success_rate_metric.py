@@ -66,10 +66,23 @@ class SuccessRateMetric(UtilityBaseMetric):
 
         Args:
             dialogue: Dialogue to evaluate.
-            **kwargs: Optional intent label overrides.
+            **kwargs: Optional intent label overrides:
+                - recommendation_intent_labels: Labels for recommendation
+                  intents. Defaults to ["REC-S", "REC-E"].
+                - acceptance_intent_labels: Labels for acceptance intents.
+                  Defaults to ["ACC"].
+                - rejection_intent_labels: Labels for rejection intents.
+                  Defaults to ["REJ"].
 
         Returns:
             1.0 if at least one recommendation was accepted, 0.0 otherwise.
         """
-        rec, acc, rej = self._resolve_intents(dialogue, **kwargs)
-        return float(self._assess_dialogue(dialogue, rec, acc, rej))
+        rec, acc, rej = self._resolve_intents(dialogue=dialogue, **kwargs)
+        return float(
+            self._assess_dialogue(
+                dialogue=dialogue,
+                recommendation_intents=rec,
+                acceptance_intents=acc,
+                rejection_intents=rej,
+            )
+        )

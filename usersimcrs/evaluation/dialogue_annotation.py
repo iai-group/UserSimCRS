@@ -24,7 +24,7 @@ def annotate_dialogue(
     """Annotates utterances with dialogue acts.
 
     Each utterance that is not already an AnnotatedUtterance is converted to
-    one.  Utterances that already carry dialogue acts are left untouched.
+    one. Utterances that already carry dialogue acts are left untouched.
 
     Args:
         dialogue: Dialogue to be annotated.
@@ -59,35 +59,29 @@ def annotate_dialogue(
     return dialogue
 
 
-def load_nlus(
-    user_nlu_config_path: str,
-    agent_nlu_config_path: str,
-    cached_user_nlu: Optional[NLU] = None,
-    cached_agent_nlu: Optional[NLU] = None,
-) -> Tuple[NLU, NLU]:
-    """Loads user and agent NLU modules.
+def load_nlu(
+    nlu_config_path: str,
+    config_name: str = "NLU Configuration",
+    cached_nlu: Optional[NLU] = None,
+) -> NLU:
+    """Loads a single NLU module.
 
-    Returns cached instances when provided, otherwise creates new ones
-    from the given configuration files.
+    Returns the cached instance when provided, otherwise creates a new one
+    from the given configuration file.
 
     Args:
-        user_nlu_config_path: Path to user NLU configuration file.
-        agent_nlu_config_path: Path to agent NLU configuration file.
-        cached_user_nlu: Previously loaded user NLU module.
-        cached_agent_nlu: Previously loaded agent NLU module.
+        nlu_config_path: Path to the NLU configuration file.
+        config_name: Name for the Configuration instance.
+        cached_nlu: Previously loaded NLU module.
 
     Returns:
-        Tuple of (user_nlu, agent_nlu) modules.
+        NLU module.
     """
-    if cached_user_nlu is None:
-        user_nlu_config = Configuration("User NLU Configuration")
-        user_nlu_config.set_file(user_nlu_config_path)
-        cached_user_nlu = get_NLU(user_nlu_config)
-    if cached_agent_nlu is None:
-        agent_nlu_config = Configuration("Agent NLU Configuration")
-        agent_nlu_config.set_file(agent_nlu_config_path)
-        cached_agent_nlu = get_NLU(agent_nlu_config)
-    return cached_user_nlu, cached_agent_nlu
+    if cached_nlu is not None:
+        return cached_nlu
+    nlu_config = Configuration(config_name)
+    nlu_config.set_file(nlu_config_path)
+    return get_NLU(nlu_config)
 
 
 def get_intent_lists(
@@ -130,7 +124,8 @@ def annotate_dialogues(
         user_nlu_config_path: Path to user NLU configuration file.
         agent_nlu_config_path: Path to agent NLU configuration file.
     """
-    user_nlu, agent_nlu = load_nlus(user_nlu_config_path, agent_nlu_config_path)
+    user_nlu = load_nlu(user_nlu_config_path, "User NLU Configuration")
+    agent_nlu = load_nlu(agent_nlu_config_path, "Agent NLU Configuration")
     for dialogue in dialogues:
         annotate_dialogue(dialogue, user_nlu, agent_nlu)
 
@@ -175,7 +170,7 @@ def prepare_dialogue(
 ) -> Tuple[Dialogue, List[Intent], List[Intent], List[Intent], NLU, NLU]:
     """Loads NLU modules, annotates a dialogue, and builds intent lists.
 
-    Combines :func:`load_nlus`, :func:`annotate_dialogue`, and
+    Combines :func:`load_nlu`, :func:`annotate_dialogue`, and
     :func:`get_intent_lists` into a single convenience call.
 
     Args:
@@ -191,11 +186,11 @@ def prepare_dialogue(
         Tuple of (annotated dialogue, recommendation intents,
         acceptance intents, rejection intents, user NLU, agent NLU).
     """
-    user_nlu, agent_nlu = load_nlus(
-        user_nlu_config_path,
-        agent_nlu_config_path,
-        cached_user_nlu,
-        cached_agent_nlu,
+    user_nlu = load_nlu(
+        user_nlu_config_path, "User NLU Configuration", cached_user_nlu
+    )
+    agent_nlu = load_nlu(
+        agent_nlu_config_path, "Agent NLU Configuration", cached_agent_nlu
     )
     annotate_dialogue(dialogue, user_nlu, agent_nlu)
     rec, acc, rej = get_intent_lists(**kwargs)

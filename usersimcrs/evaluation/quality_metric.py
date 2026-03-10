@@ -46,7 +46,7 @@ class QualityMetric(BaseMetric):
 
         Args:
             llm_interface: LLM interface used for scoring.
-            name: Metric name.
+            name: Metric name. Defaults to "quality".
         """
         super().__init__(name)
         self.llm_interface = llm_interface
