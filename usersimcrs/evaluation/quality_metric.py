@@ -13,7 +13,7 @@ dedicated rubric. The scoring is done using a large language model.
 
 import json
 import logging
-from typing import Any
+from typing import Any, Literal
 
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.participant.participant import DialogueParticipant
@@ -42,6 +42,12 @@ class QualityMetric(BaseMetric):
         llm_interface: LLMInterface,
         name: str = "quality",
     ) -> None:
+        """Initializes the quality metric.
+
+        Args:
+            llm_interface: LLM interface used for scoring.
+            name: Metric name.
+        """
         super().__init__(name)
         self.llm_interface = llm_interface
 
@@ -71,19 +77,28 @@ class QualityMetric(BaseMetric):
         return prompt
 
     def evaluate_dialogue(
-        self, dialogue: Dialogue, aspect: str, **kwargs: Any
+        self,
+        dialogue: Dialogue,
+        aspect: Literal[
+            "REC_RELEVANCE",
+            "COM_STYLE",
+            "FLUENCY",
+            "CONV_FLOW",
+            "OVERALL_SAT",
+        ],
+        **kwargs: Any,
     ) -> float:
         """Returns score for a single aspect of a dialogue.
 
         Args:
             dialogue: Dialogue to evaluate.
-            aspect: Aspect to evaluate. Must be one of QualityRubrics enum names
-
-        Returns:
-            Score (1-5) for the specified aspect.
+            aspect: Aspect to evaluate. One of QualityRubrics enum names.
 
         Raises:
             KeyError: When the aspect does not exist in QualityRubrics.
+
+        Returns:
+            Score (1-5) for the specified aspect.
         """
         try:
             aspect_enum = QualityRubrics[aspect]
@@ -100,9 +115,7 @@ class QualityMetric(BaseMetric):
             return float(response_dict["score"])
         except Exception:
             logging.warning(
-                "Failed to parse LLM response for %s dialogue %s: %s",
-                aspect,
-                dialogue.conversation_id,
-                response,
+                f"Failed to parse LLM response for {aspect} dialogue "
+                f"{dialogue.conversation_id}: {response}",
             )
             return 0.0

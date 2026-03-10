@@ -18,10 +18,18 @@ class SatisfactionMetric(BaseMetric):
         self,
         classifier: SatisfactionClassifier,
         name: str = "satisfaction",
-    ):
+    ) -> None:
+        """Initializes the satisfaction metric.
+
+        Args:
+            classifier: Satisfaction classifier instance.
+            name: Metric name.
+        """
         super().__init__(name)
         self.classifier = classifier
 
     def evaluate_dialogue(self, dialogue: Dialogue, **kwargs: Any) -> float:
         """Computes the satisfaction score for a single dialogue."""
-        return self.classifier.classify_last_n_dialogue(dialogue, last_n=None)
+        return float(
+            self.classifier.classify_last_n_dialogue(dialogue, last_n=None)
+        )

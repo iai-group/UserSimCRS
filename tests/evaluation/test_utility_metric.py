@@ -1,16 +1,20 @@
 """Tests for utility metric classes."""
 
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
-from usersimcrs.evaluation.utility_metric import (
+from usersimcrs.evaluation.reward_per_dialogue_length_metric import (
     RewardPerDialogueLengthMetric,
-    SuccessRateMetric,
+)
+from usersimcrs.evaluation.success_rate_metric import SuccessRateMetric
+from usersimcrs.evaluation.successful_recommendation_round_ratio_metric import (
     SuccessfulRecommendationRoundRatioMetric,
 )
+
+_MOCK_NLU = MagicMock()
 
 
 @pytest.fixture
@@ -53,8 +57,9 @@ def test_success_rate_evaluate_dialogue(
     """Test SuccessRateMetric.evaluate_dialogue."""
     dialogue = dialogues[0]
     with (
-        patch.object(
-            SuccessRateMetric, "_prepare", return_value=(dialogue, [], [], [])
+        patch(
+            "usersimcrs.evaluation.success_rate_metric.prepare_dialogue",
+            return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
         patch.object(SuccessRateMetric, "_assess_dialogue", return_value=1),
     ):
@@ -67,8 +72,9 @@ def test_success_rate_evaluate_dialogue_unsuccessful(
     """Test SuccessRateMetric.evaluate_dialogue for failed dialogue."""
     dialogue = dialogues[0]
     with (
-        patch.object(
-            SuccessRateMetric, "_prepare", return_value=(dialogue, [], [], [])
+        patch(
+            "usersimcrs.evaluation.success_rate_metric.prepare_dialogue",
+            return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
         patch.object(SuccessRateMetric, "_assess_dialogue", return_value=0),
     ):
@@ -82,10 +88,10 @@ def test_successful_recommendation_round_ratio_evaluate_dialogue(
     """Test SuccessfulRecommendationRoundRatioMetric.evaluate_dialogue."""
     dialogue = dialogues[0]
     with (
-        patch.object(
-            SuccessfulRecommendationRoundRatioMetric,
-            "_prepare",
-            return_value=(dialogue, [], [], []),
+        patch(
+            "usersimcrs.evaluation.successful_recommendation_round_ratio_metric"
+            ".prepare_dialogue",
+            return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
         patch.object(
             SuccessfulRecommendationRoundRatioMetric,
@@ -102,10 +108,10 @@ def test_reward_per_dialogue_length_evaluate_dialogue(
     """Test RewardPerDialogueLengthMetric.evaluate_dialogue."""
     dialogue = dialogues[0]
     with (
-        patch.object(
-            RewardPerDialogueLengthMetric,
-            "_prepare",
-            return_value=(dialogue, [], [], []),
+        patch(
+            "usersimcrs.evaluation.reward_per_dialogue_length_metric"
+            ".prepare_dialogue",
+            return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
         patch.object(
             RewardPerDialogueLengthMetric,
