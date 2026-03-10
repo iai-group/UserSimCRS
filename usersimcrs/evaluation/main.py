@@ -5,7 +5,7 @@ import json
 import os
 from collections import defaultdict
 from statistics import mean, stdev
-from typing import Dict, List, Mapping, Sequence
+from typing import Any, Dict, List, Mapping, Sequence
 
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.nlu.models.satisfaction_classifier import (
@@ -14,15 +14,24 @@ from dialoguekit.nlu.models.satisfaction_classifier import (
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
 from usersimcrs.evaluation.base_metric import BaseMetric
+from usersimcrs.evaluation.dialogue_annotation import annotate_dialogues
 from usersimcrs.evaluation.quality_metric import QualityMetric
 from usersimcrs.evaluation.quality_rubrics import QualityRubrics
 from usersimcrs.evaluation.satisfaction_metric import SatisfactionMetric
-from usersimcrs.evaluation.utility_metric import (
+from usersimcrs.evaluation.reward_per_dialogue_length_metric import (
     RewardPerDialogueLengthMetric,
-    SuccessRateMetric,
+)
+from usersimcrs.evaluation.success_rate_metric import SuccessRateMetric
+from usersimcrs.evaluation.successful_recommendation_round_ratio_metric import (
     SuccessfulRecommendationRoundRatioMetric,
 )
 from usersimcrs.llm_interfaces.ollama_interface import OllamaLLMInterface
+
+UTILITY_METRICS = {
+    "success_rate",
+    "successful_recommendation_round_ratio",
+    "reward_per_dialogue_length",
+}
 
 SUPPORTED_METRICS = [
     "quality",
@@ -115,27 +124,23 @@ def _validate_args(args: argparse.Namespace) -> None:
             "The --ollama_config argument is required when using quality."
         )
 
-    utility_metrics = {
-        "success_rate",
-        "successful_recommendation_round_ratio",
-        "reward_per_dialogue_length",
-    }
-    if utility_metrics.intersection(set(args.metrics)):
+    if UTILITY_METRICS.intersection(set(args.metrics)):
         if not args.user_nlu_config or not args.agent_nlu_config:
             raise ValueError(
                 "Both --user_nlu_config and --agent_nlu_config are required "
                 "for utility metrics."
             )
 
+    supported_aspect_names = [aspect.name for aspect in QualityRubrics]
     invalid_aspects = [
         aspect
         for aspect in args.quality_aspects
-        if aspect not in [enum_aspect.name for enum_aspect in QualityRubrics]
+        if aspect not in supported_aspect_names
     ]
     if invalid_aspects:
         raise ValueError(
             f"Unknown quality aspect(s): {invalid_aspects}. "
-            f"Supported aspects: {[aspect.name for aspect in QualityRubrics]}"
+            f"Supported aspects: {supported_aspect_names}"
         )
 
 
@@ -153,22 +158,13 @@ def _build_metric_registry(args: argparse.Namespace) -> Dict[str, BaseMetric]:
             classifier=SatisfactionClassifierSVM()
         )
     if "success_rate" in args.metrics:
-        registry["success_rate"] = SuccessRateMetric(
-            user_nlu_config_path=args.user_nlu_config,
-            agent_nlu_config_path=args.agent_nlu_config,
-        )
+        registry["success_rate"] = SuccessRateMetric()
     if "successful_recommendation_round_ratio" in args.metrics:
         registry[
             "successful_recommendation_round_ratio"
-        ] = SuccessfulRecommendationRoundRatioMetric(
-            user_nlu_config_path=args.user_nlu_config,
-            agent_nlu_config_path=args.agent_nlu_config,
-        )
+        ] = SuccessfulRecommendationRoundRatioMetric()
     if "reward_per_dialogue_length" in args.metrics:
-        registry["reward_per_dialogue_length"] = RewardPerDialogueLengthMetric(
-            user_nlu_config_path=args.user_nlu_config,
-            agent_nlu_config_path=args.agent_nlu_config,
-        )
+        registry["reward_per_dialogue_length"] = RewardPerDialogueLengthMetric()
     return registry
 
 
@@ -204,7 +200,7 @@ def _evaluate_metric(
 ) -> Dict[str, object]:
     """Runs one metric and returns per-dialogue scores and summary."""
     if metric_name == "quality":
-        per_aspect: Dict[str, Dict[str, Dict[str, float]]] = {}
+        per_aspect: Dict[str, Dict[str, Any]] = {}
         for aspect in args.quality_aspects:
             per_dialogue = metric.evaluate_dialogues(
                 list(dialogues),
@@ -219,11 +215,7 @@ def _evaluate_metric(
         return {"aspects": per_aspect}
 
     eval_kwargs = {}
-    if metric_name in {
-        "success_rate",
-        "successful_recommendation_round_ratio",
-        "reward_per_dialogue_length",
-    }:
+    if metric_name in UTILITY_METRICS:
         eval_kwargs = {
             "recommendation_intent_labels": args.recommendation_intent_labels,
             "acceptance_intent_labels": args.accept_intent_labels,
@@ -271,9 +263,15 @@ def main() -> None:
     _validate_args(args)
 
     dialogues = json_to_dialogues(args.dialogues)
+
+    if UTILITY_METRICS.intersection(set(args.metrics)):
+        annotate_dialogues(
+            dialogues, args.user_nlu_config, args.agent_nlu_config
+        )
+
     metric_registry = _build_metric_registry(args)
 
-    results: Dict[str, object] = {
+    results: Dict[str, Any] = {
         "dialogues_path": args.dialogues,
         "metrics_requested": args.metrics,
         "metrics": {},
