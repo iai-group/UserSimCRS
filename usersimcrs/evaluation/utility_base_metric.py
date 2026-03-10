@@ -9,8 +9,9 @@ from dialoguekit.nlu.nlu import NLU
 
 from usersimcrs.evaluation.base_metric import BaseMetric
 from usersimcrs.evaluation.dialogue_annotation import (
+    annotate_dialogue,
     get_intent_lists,
-    prepare_dialogue,
+    load_nlu,
 )
 
 
@@ -55,20 +56,15 @@ class UtilityBaseMetric(BaseMetric, ABC):
             rejection_intents).
         """
         if self._user_nlu_config_path and self._agent_nlu_config_path:
-            (
-                _,
-                rec,
-                acc,
-                rej,
-                self._user_nlu,
-                self._agent_nlu,
-            ) = prepare_dialogue(
-                dialogue,
+            self._user_nlu = load_nlu(
                 self._user_nlu_config_path,
-                self._agent_nlu_config_path,
+                "User NLU Configuration",
                 self._user_nlu,
-                self._agent_nlu,
-                **kwargs,
             )
-            return rec, acc, rej
+            self._agent_nlu = load_nlu(
+                self._agent_nlu_config_path,
+                "Agent NLU Configuration",
+                self._agent_nlu,
+            )
+            annotate_dialogue(dialogue, self._user_nlu, self._agent_nlu)
         return get_intent_lists(**kwargs)

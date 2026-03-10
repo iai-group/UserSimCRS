@@ -3,7 +3,7 @@
 Evaluates the ratio of accepted recommendations to total dialogue length.
 """
 
-from typing import Any, List, Optional, Tuple
+from typing import Any, List, Tuple
 
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
@@ -15,8 +15,6 @@ from usersimcrs.evaluation.utility_base_metric import UtilityBaseMetric
 class RewardPerDialogueLengthMetric(UtilityBaseMetric):
     def __init__(
         self,
-        user_nlu_config_path: Optional[str] = None,
-        agent_nlu_config_path: Optional[str] = None,
         name: str = "reward_per_dialogue_length",
     ) -> None:
         """Initializes the reward-per-dialogue-length metric.
@@ -26,11 +24,7 @@ class RewardPerDialogueLengthMetric(UtilityBaseMetric):
             agent_nlu_config_path: Path to agent NLU configuration.
             name: Metric name.
         """
-        super().__init__(
-            name,
-            user_nlu_config_path=user_nlu_config_path,
-            agent_nlu_config_path=agent_nlu_config_path,
-        )
+        super().__init__(name)
 
     def _assess_dialogue(
         self, dialogue: Dialogue, acceptance_intents: List[Intent]

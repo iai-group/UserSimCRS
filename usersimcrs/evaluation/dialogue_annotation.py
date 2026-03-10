@@ -160,43 +160,6 @@ def get_recommendation_rounds(
     return rounds
 
 
-def prepare_dialogue(
-    dialogue: Dialogue,
-    user_nlu_config_path: str,
-    agent_nlu_config_path: str,
-    cached_user_nlu: Optional[NLU] = None,
-    cached_agent_nlu: Optional[NLU] = None,
-    **kwargs: Any,
-) -> Tuple[Dialogue, List[Intent], List[Intent], List[Intent], NLU, NLU]:
-    """Loads NLU modules, annotates a dialogue, and builds intent lists.
-
-    Combines :func:`load_nlu`, :func:`annotate_dialogue`, and
-    :func:`get_intent_lists` into a single convenience call.
-
-    Args:
-        dialogue: Dialogue to prepare.
-        user_nlu_config_path: Path to user NLU configuration file.
-        agent_nlu_config_path: Path to agent NLU configuration file.
-        cached_user_nlu: Previously loaded user NLU module (avoids reload).
-        cached_agent_nlu: Previously loaded agent NLU module (avoids reload).
-        **kwargs: Optional intent label overrides forwarded to
-            :func:`get_intent_lists`.
-
-    Returns:
-        Tuple of (annotated dialogue, recommendation intents,
-        acceptance intents, rejection intents, user NLU, agent NLU).
-    """
-    user_nlu = load_nlu(
-        user_nlu_config_path, "User NLU Configuration", cached_user_nlu
-    )
-    agent_nlu = load_nlu(
-        agent_nlu_config_path, "Agent NLU Configuration", cached_agent_nlu
-    )
-    annotate_dialogue(dialogue, user_nlu, agent_nlu)
-    rec, acc, rej = get_intent_lists(**kwargs)
-    return dialogue, rec, acc, rej, user_nlu, agent_nlu
-
-
 def is_recommendation_accepted(
     round_utterances: List[AnnotatedUtterance],
     acceptance_intents: List[Intent],

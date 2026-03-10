@@ -4,7 +4,7 @@ Evaluates the ratio of accepted recommendation rounds to total recommendation
 rounds in a dialogue.
 """
 
-from typing import Any, List, Optional, Tuple
+from typing import Any, List, Tuple
 
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
@@ -19,8 +19,6 @@ from usersimcrs.evaluation.utility_base_metric import UtilityBaseMetric
 class SuccessfulRecommendationRoundRatioMetric(UtilityBaseMetric):
     def __init__(
         self,
-        user_nlu_config_path: Optional[str] = None,
-        agent_nlu_config_path: Optional[str] = None,
         name: str = "successful_recommendation_round_ratio",
     ) -> None:
         """Initializes the successful recommendation round ratio metric.
@@ -32,8 +30,6 @@ class SuccessfulRecommendationRoundRatioMetric(UtilityBaseMetric):
         """
         super().__init__(
             name,
-            user_nlu_config_path=user_nlu_config_path,
-            agent_nlu_config_path=agent_nlu_config_path,
         )
 
     def _assess_dialogue(
@@ -71,11 +67,11 @@ class SuccessfulRecommendationRoundRatioMetric(UtilityBaseMetric):
             dialogue: Dialogue to evaluate.
             **kwargs: Optional intent label overrides:
                 - recommendation_intent_labels: Labels for recommendation
-                  intents. Defaults to ``["REC-S", "REC-E"]``.
+                  intents. Defaults to ["REC-S", "REC-E"].
                 - acceptance_intent_labels: Labels for acceptance intents.
-                  Defaults to ``["ACC"]``.
+                  Defaults to ["ACC"].
                 - rejection_intent_labels: Labels for rejection intents.
-                  Defaults to ``["REJ"]``.
+                  Defaults to ["REJ"].
 
         Returns:
             Ratio of accepted recommendation rounds to total rounds,
