@@ -61,7 +61,7 @@ def test_success_rate_evaluate_dialogue(
             "usersimcrs.evaluation.success_rate_metric.prepare_dialogue",
             return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
-        patch.object(SuccessRateMetric, "_assess_dialogue", return_value=1),
+        patch.object(SuccessRateMetric, "_assess_dialogue", return_value=True),
     ):
         assert success_rate_metric.evaluate_dialogue(dialogue) == 1.0
 
@@ -76,7 +76,7 @@ def test_success_rate_evaluate_dialogue_unsuccessful(
             "usersimcrs.evaluation.success_rate_metric.prepare_dialogue",
             return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
-        patch.object(SuccessRateMetric, "_assess_dialogue", return_value=0),
+        patch.object(SuccessRateMetric, "_assess_dialogue", return_value=False),
     ):
         assert success_rate_metric.evaluate_dialogue(dialogue) == 0.0
 

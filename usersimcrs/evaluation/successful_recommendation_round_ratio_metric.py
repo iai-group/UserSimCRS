@@ -12,6 +12,7 @@ from dialoguekit.nlu.nlu import NLU
 
 from usersimcrs.evaluation.base_metric import BaseMetric
 from usersimcrs.evaluation.dialogue_annotation import (
+    get_intent_lists,
     get_recommendation_rounds,
     is_recommendation_accepted,
     prepare_dialogue,
@@ -21,11 +22,15 @@ from usersimcrs.evaluation.dialogue_annotation import (
 class SuccessfulRecommendationRoundRatioMetric(BaseMetric):
     def __init__(
         self,
-        user_nlu_config_path: str,
-        agent_nlu_config_path: str,
+        user_nlu_config_path: Optional[str] = None,
+        agent_nlu_config_path: Optional[str] = None,
         name: str = "successful_recommendation_round_ratio",
     ) -> None:
         """Initializes the successful recommendation round ratio metric.
+
+        When NLU config paths are provided, dialogues are annotated
+        automatically. When omitted, dialogues must be pre-annotated
+        (e.g., via :func:`annotate_dialogues`).
 
         Args:
             user_nlu_config_path: Path to user NLU configuration.
@@ -77,15 +82,26 @@ class SuccessfulRecommendationRoundRatioMetric(BaseMetric):
             Ratio of accepted recommendation rounds to total rounds,
             or 0.0 if there are no recommendation rounds.
         """
-        dlg, rec, acc, rej, self._user_nlu, self._agent_nlu = prepare_dialogue(
-            dialogue,
-            self._user_nlu_config_path,
-            self._agent_nlu_config_path,
-            self._user_nlu,
-            self._agent_nlu,
-            **kwargs,
-        )
+        if self._user_nlu_config_path and self._agent_nlu_config_path:
+            (
+                dialogue,
+                rec,
+                acc,
+                rej,
+                self._user_nlu,
+                self._agent_nlu,
+            ) = prepare_dialogue(
+                dialogue,
+                self._user_nlu_config_path,
+                self._agent_nlu_config_path,
+                self._user_nlu,
+                self._agent_nlu,
+                **kwargs,
+            )
+        else:
+            rec, acc, rej = get_intent_lists(**kwargs)
+
         successful_rounds, total_rounds = self._assess_dialogue(
-            dlg, rec, acc, rej
+            dialogue, rec, acc, rej
         )
         return successful_rounds / total_rounds if total_rounds > 0 else 0.0

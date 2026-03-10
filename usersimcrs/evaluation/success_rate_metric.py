@@ -11,6 +11,7 @@ from dialoguekit.nlu.nlu import NLU
 
 from usersimcrs.evaluation.base_metric import BaseMetric
 from usersimcrs.evaluation.dialogue_annotation import (
+    get_intent_lists,
     get_recommendation_rounds,
     is_recommendation_accepted,
     prepare_dialogue,
@@ -20,11 +21,15 @@ from usersimcrs.evaluation.dialogue_annotation import (
 class SuccessRateMetric(BaseMetric):
     def __init__(
         self,
-        user_nlu_config_path: str,
-        agent_nlu_config_path: str,
+        user_nlu_config_path: Optional[str] = None,
+        agent_nlu_config_path: Optional[str] = None,
         name: str = "success_rate",
     ) -> None:
         """Initializes the success rate metric.
+
+        When NLU config paths are provided, dialogues are annotated
+        automatically. When omitted, dialogues must be pre-annotated
+        (e.g., via :func:`annotate_dialogues`).
 
         Args:
             user_nlu_config_path: Path to user NLU configuration.
@@ -43,8 +48,8 @@ class SuccessRateMetric(BaseMetric):
         recommendation_intents: List[Intent],
         acceptance_intents: List[Intent],
         rejection_intents: List[Intent],
-    ) -> int:
-        """Returns number of successful recommendation rounds.
+    ) -> bool:
+        """Checks whether at least one recommendation round was accepted.
 
         Args:
             dialogue: Annotated dialogue.
@@ -53,15 +58,14 @@ class SuccessRateMetric(BaseMetric):
             rejection_intents: Intents that signal rejection.
 
         Returns:
-            Number of recommendation rounds that were accepted.
+            True if at least one round was accepted, False otherwise.
         """
         rounds = get_recommendation_rounds(dialogue, recommendation_intents)
-        return sum(
-            1
-            for round_utterances in rounds
-            if is_recommendation_accepted(
+        return any(
+            is_recommendation_accepted(
                 round_utterances, acceptance_intents, rejection_intents
             )
+            for round_utterances in rounds
         )
 
     def evaluate_dialogue(self, dialogue: Dialogue, **kwargs: Any) -> float:
@@ -74,13 +78,23 @@ class SuccessRateMetric(BaseMetric):
         Returns:
             1.0 if at least one recommendation was accepted, 0.0 otherwise.
         """
-        dlg, rec, acc, rej, self._user_nlu, self._agent_nlu = prepare_dialogue(
-            dialogue,
-            self._user_nlu_config_path,
-            self._agent_nlu_config_path,
-            self._user_nlu,
-            self._agent_nlu,
-            **kwargs,
-        )
-        successful_rounds = self._assess_dialogue(dlg, rec, acc, rej)
-        return float(successful_rounds > 0)
+        if self._user_nlu_config_path and self._agent_nlu_config_path:
+            (
+                dialogue,
+                rec,
+                acc,
+                rej,
+                self._user_nlu,
+                self._agent_nlu,
+            ) = prepare_dialogue(
+                dialogue,
+                self._user_nlu_config_path,
+                self._agent_nlu_config_path,
+                self._user_nlu,
+                self._agent_nlu,
+                **kwargs,
+            )
+        else:
+            rec, acc, rej = get_intent_lists(**kwargs)
+
+        return float(self._assess_dialogue(dialogue, rec, acc, rej))

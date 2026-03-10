@@ -118,6 +118,27 @@ def get_intent_lists(
     )
 
 
+def annotate_dialogues(
+    dialogues: List[Dialogue],
+    user_nlu_config_path: str,
+    agent_nlu_config_path: str,
+) -> List[Dialogue]:
+    """Annotates a batch of dialogues, loading NLU modules once.
+
+    Args:
+        dialogues: Dialogues to annotate.
+        user_nlu_config_path: Path to user NLU configuration file.
+        agent_nlu_config_path: Path to agent NLU configuration file.
+
+    Returns:
+        The same dialogue objects with annotated utterances.
+    """
+    user_nlu, agent_nlu = load_nlus(user_nlu_config_path, agent_nlu_config_path)
+    for dialogue in dialogues:
+        annotate_dialogue(dialogue, user_nlu, agent_nlu)
+    return dialogues
+
+
 def get_recommendation_rounds(
     dialogue: Dialogue, recommendation_intents: List[Intent]
 ) -> List[List[AnnotatedUtterance]]:
