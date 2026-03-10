@@ -1,4 +1,4 @@
-"""Successful Recommendation Round Ratio (SRRR) metric implementation.
+"""Successful Recommendation Round Ratio metric implementation.
 
 Evaluates the ratio of accepted recommendation rounds to total recommendation
 rounds in a dialogue.
@@ -19,12 +19,6 @@ from usersimcrs.evaluation.dialogue_annotation import (
 
 
 class SuccessfulRecommendationRoundRatioMetric(BaseMetric):
-    """Measures the fraction of recommendation rounds that were accepted.
-
-    Returns a value between 0.0 and 1.0 (or 0.0 when there are no recommendation
-    rounds).
-    """
-
     def __init__(
         self,
         user_nlu_config_path: str,

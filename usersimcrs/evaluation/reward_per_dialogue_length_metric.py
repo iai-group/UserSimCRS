@@ -1,4 +1,4 @@
-"""Reward-per-Dialogue-Length (RDL) metric implementation.
+"""Reward-per-Dialogue-Length metric implementation.
 
 Evaluates the ratio of accepted recommendations to total dialogue length.
 """
@@ -15,12 +15,6 @@ from usersimcrs.evaluation.dialogue_annotation import prepare_dialogue
 
 
 class RewardPerDialogueLengthMetric(BaseMetric):
-    """Measures accepted recommendations relative to dialogue length.
-
-    Returns the number of accepted recommendations divided by the total number
-    of utterances.
-    """
-
     def __init__(
         self,
         user_nlu_config_path: str,

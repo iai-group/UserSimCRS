@@ -1,4 +1,4 @@
-"""Success Rate (SR) metric implementation.
+"""Success Rate metric implementation.
 
 Evaluates whether at least one recommendation was accepted during a dialogue.
 """
@@ -18,13 +18,6 @@ from usersimcrs.evaluation.dialogue_annotation import (
 
 
 class SuccessRateMetric(BaseMetric):
-    """Measures whether a dialogue contains at least one accepted
-    recommendation.
-
-    Returns 1.0 if at least one recommendation round was successful,
-    0.0 otherwise.
-    """
-
     def __init__(
         self,
         user_nlu_config_path: str,
