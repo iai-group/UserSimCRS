@@ -15,6 +15,9 @@ from usersimcrs.evaluation.successful_recommendation_round_ratio_metric import (
 )
 
 _MOCK_NLU = MagicMock()
+_PREPARE_DIALOGUE_PATH = (
+    "usersimcrs.evaluation.utility_base_metric.prepare_dialogue"
+)
 
 
 @pytest.fixture
@@ -58,7 +61,7 @@ def test_success_rate_evaluate_dialogue(
     dialogue = dialogues[0]
     with (
         patch(
-            "usersimcrs.evaluation.success_rate_metric.prepare_dialogue",
+            _PREPARE_DIALOGUE_PATH,
             return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
         patch.object(SuccessRateMetric, "_assess_dialogue", return_value=True),
@@ -73,7 +76,7 @@ def test_success_rate_evaluate_dialogue_unsuccessful(
     dialogue = dialogues[0]
     with (
         patch(
-            "usersimcrs.evaluation.success_rate_metric.prepare_dialogue",
+            _PREPARE_DIALOGUE_PATH,
             return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
         patch.object(SuccessRateMetric, "_assess_dialogue", return_value=False),
@@ -89,8 +92,7 @@ def test_successful_recommendation_round_ratio_evaluate_dialogue(
     dialogue = dialogues[0]
     with (
         patch(
-            "usersimcrs.evaluation.successful_recommendation_round_ratio_metric"
-            ".prepare_dialogue",
+            _PREPARE_DIALOGUE_PATH,
             return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
         patch.object(
@@ -109,8 +111,7 @@ def test_reward_per_dialogue_length_evaluate_dialogue(
     dialogue = dialogues[0]
     with (
         patch(
-            "usersimcrs.evaluation.reward_per_dialogue_length_metric"
-            ".prepare_dialogue",
+            _PREPARE_DIALOGUE_PATH,
             return_value=(dialogue, [], [], [], _MOCK_NLU, _MOCK_NLU),
         ),
         patch.object(

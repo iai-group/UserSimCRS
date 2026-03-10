@@ -7,17 +7,12 @@ from typing import Any, List, Optional, Tuple
 
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
-from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
 
-from usersimcrs.evaluation.base_metric import BaseMetric
-from usersimcrs.evaluation.dialogue_annotation import (
-    get_intent_lists,
-    prepare_dialogue,
-)
+from usersimcrs.evaluation.utility_base_metric import UtilityBaseMetric
 
 
-class RewardPerDialogueLengthMetric(BaseMetric):
+class RewardPerDialogueLengthMetric(UtilityBaseMetric):
     def __init__(
         self,
         user_nlu_config_path: Optional[str] = None,
@@ -26,20 +21,16 @@ class RewardPerDialogueLengthMetric(BaseMetric):
     ) -> None:
         """Initializes the reward-per-dialogue-length metric.
 
-        When NLU config paths are provided, dialogues are annotated
-        automatically. When omitted, dialogues must be pre-annotated
-        (e.g., via :func:`annotate_dialogues`).
-
         Args:
             user_nlu_config_path: Path to user NLU configuration.
             agent_nlu_config_path: Path to agent NLU configuration.
             name: Metric name.
         """
-        super().__init__(name)
-        self._user_nlu_config_path = user_nlu_config_path
-        self._agent_nlu_config_path = agent_nlu_config_path
-        self._user_nlu: Optional[NLU] = None
-        self._agent_nlu: Optional[NLU] = None
+        super().__init__(
+            name,
+            user_nlu_config_path=user_nlu_config_path,
+            agent_nlu_config_path=agent_nlu_config_path,
+        )
 
     def _assess_dialogue(
         self, dialogue: Dialogue, acceptance_intents: List[Intent]
@@ -74,24 +65,6 @@ class RewardPerDialogueLengthMetric(BaseMetric):
         Returns:
             Ratio of accepted recommendations to total utterances.
         """
-        if self._user_nlu_config_path and self._agent_nlu_config_path:
-            (
-                dialogue,
-                _,
-                acc,
-                _,
-                self._user_nlu,
-                self._agent_nlu,
-            ) = prepare_dialogue(
-                dialogue,
-                self._user_nlu_config_path,
-                self._agent_nlu_config_path,
-                self._user_nlu,
-                self._agent_nlu,
-                **kwargs,
-            )
-        else:
-            _, acc, _ = get_intent_lists(**kwargs)
-
+        _, acc, _ = self._resolve_intents(dialogue, **kwargs)
         nb_accepted, dialogue_length = self._assess_dialogue(dialogue, acc)
         return nb_accepted / dialogue_length
