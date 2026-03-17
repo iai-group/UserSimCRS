@@ -18,7 +18,12 @@ from dialoguekit.participant.participant import DialogueParticipant
 from usersimcrs.utils.simulation_utils import get_NLU
 
 
+DEFAULT_REC_LABELS = ["REC-S", "REC-E"]
+DEFAULT_ACC_LABELS = ["ACC"]
+DEFAULT_REJ_LABELS = ["REJ"]
+
 _intent_cache: Dict[Tuple[str, ...], List[Intent]] = {}
+_nlu_cache: Dict[str, NLU] = {}
 
 
 def resolve_intents(
@@ -37,6 +42,37 @@ def resolve_intents(
     if key not in _intent_cache:
         _intent_cache[key] = [Intent(label) for label in key]
     return _intent_cache[key]
+
+
+def annotate_if_needed(
+    dialogue: Dialogue,
+    user_nlu_config_path: Optional[str] = None,
+    agent_nlu_config_path: Optional[str] = None,
+) -> None:
+    """Annotates the dialogue with NLU if config paths are provided.
+
+    NLU modules are loaded lazily and cached by config path.
+
+    Args:
+        dialogue: Dialogue to annotate.
+        user_nlu_config_path: Path to user NLU configuration.
+        agent_nlu_config_path: Path to agent NLU configuration.
+    """
+    if not user_nlu_config_path or not agent_nlu_config_path:
+        return
+    if user_nlu_config_path not in _nlu_cache:
+        _nlu_cache[user_nlu_config_path] = load_nlu(
+            user_nlu_config_path, "User NLU Configuration"
+        )
+    if agent_nlu_config_path not in _nlu_cache:
+        _nlu_cache[agent_nlu_config_path] = load_nlu(
+            agent_nlu_config_path, "Agent NLU Configuration"
+        )
+    annotate_dialogue(
+        dialogue,
+        _nlu_cache[user_nlu_config_path],
+        _nlu_cache[agent_nlu_config_path],
+    )
 
 
 def annotate_dialogue(

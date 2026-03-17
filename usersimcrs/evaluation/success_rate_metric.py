@@ -7,20 +7,19 @@ from typing import Any, List, Optional
 
 from dialoguekit.core.dialogue import Dialogue
 
+from usersimcrs.evaluation.base_metric import BaseMetric
 from usersimcrs.evaluation.dialogue_annotation import (
+    DEFAULT_ACC_LABELS,
+    DEFAULT_REC_LABELS,
+    DEFAULT_REJ_LABELS,
+    annotate_if_needed,
     get_recommendation_rounds,
     is_recommendation_accepted,
     resolve_intents,
 )
-from usersimcrs.evaluation.utility_base import (
-    DEFAULT_ACC_LABELS,
-    DEFAULT_REC_LABELS,
-    DEFAULT_REJ_LABELS,
-    UtilityBase,
-)
 
 
-class SuccessRateMetric(UtilityBase):
+class SuccessRateMetric(BaseMetric):
     def __init__(
         self,
         user_nlu_config_path: Optional[str] = None,
@@ -34,11 +33,9 @@ class SuccessRateMetric(UtilityBase):
             agent_nlu_config_path: Path to agent NLU configuration.
             name: Metric name.
         """
-        super().__init__(
-            name,
-            user_nlu_config_path=user_nlu_config_path,
-            agent_nlu_config_path=agent_nlu_config_path,
-        )
+        super().__init__(name)
+        self._user_nlu_config_path = user_nlu_config_path
+        self._agent_nlu_config_path = agent_nlu_config_path
 
     def evaluate_dialogue(
         self,
@@ -62,7 +59,11 @@ class SuccessRateMetric(UtilityBase):
         Returns:
             1.0 if at least one recommendation was accepted, 0.0 otherwise.
         """
-        self._annotate_if_needed(dialogue)
+        annotate_if_needed(
+            dialogue,
+            self._user_nlu_config_path,
+            self._agent_nlu_config_path,
+        )
         rec = resolve_intents(recommendation_intent_labels, DEFAULT_REC_LABELS)
         acc = resolve_intents(acceptance_intent_labels, DEFAULT_ACC_LABELS)
         rej = resolve_intents(rejection_intent_labels, DEFAULT_REJ_LABELS)

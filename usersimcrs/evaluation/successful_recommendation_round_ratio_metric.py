@@ -8,20 +8,18 @@ from typing import Any, List, Optional
 
 from dialoguekit.core.dialogue import Dialogue
 
+from usersimcrs.evaluation.base_metric import BaseMetric
 from usersimcrs.evaluation.dialogue_annotation import (
+    DEFAULT_ACC_LABELS,
+    DEFAULT_REC_LABELS,
+    DEFAULT_REJ_LABELS,
     get_recommendation_rounds,
     is_recommendation_accepted,
     resolve_intents,
 )
-from usersimcrs.evaluation.utility_base import (
-    DEFAULT_ACC_LABELS,
-    DEFAULT_REC_LABELS,
-    DEFAULT_REJ_LABELS,
-    UtilityBase,
-)
 
 
-class SuccessfulRecommendationRoundRatioMetric(UtilityBase):
+class SuccessfulRecommendationRoundRatioMetric(BaseMetric):
     def __init__(
         self,
         name: str = "successful_recommendation_round_ratio",
@@ -56,7 +54,6 @@ class SuccessfulRecommendationRoundRatioMetric(UtilityBase):
             Ratio of accepted recommendation rounds to total rounds,
             or 0.0 if there are no recommendation rounds.
         """
-        self._annotate_if_needed(dialogue)
         rec = resolve_intents(recommendation_intent_labels, DEFAULT_REC_LABELS)
         acc = resolve_intents(acceptance_intent_labels, DEFAULT_ACC_LABELS)
         rej = resolve_intents(rejection_intent_labels, DEFAULT_REJ_LABELS)

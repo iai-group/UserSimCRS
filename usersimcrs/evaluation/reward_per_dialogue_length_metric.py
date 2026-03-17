@@ -7,14 +7,15 @@ from typing import Any, List, Optional
 
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.participant.participant import DialogueParticipant
+
+from usersimcrs.evaluation.base_metric import BaseMetric
 from usersimcrs.evaluation.dialogue_annotation import (
+    DEFAULT_ACC_LABELS,
     resolve_intents,
 )
 
-from usersimcrs.evaluation.utility_base import DEFAULT_ACC_LABELS, UtilityBase
 
-
-class RewardPerDialogueLengthMetric(UtilityBase):
+class RewardPerDialogueLengthMetric(BaseMetric):
     def __init__(
         self,
         name: str = "reward_per_dialogue_length",
@@ -42,7 +43,6 @@ class RewardPerDialogueLengthMetric(UtilityBase):
         Returns:
             Ratio of accepted recommendations to total utterances.
         """
-        self._annotate_if_needed(dialogue)
         acc = resolve_intents(acceptance_intent_labels, DEFAULT_ACC_LABELS)
         nb_accepted = sum(
             1
