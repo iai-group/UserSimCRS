@@ -170,16 +170,21 @@ def get_recommendation_rounds(
     """
     rounds: List[List[AnnotatedUtterance]] = []
     current_round: List[AnnotatedUtterance] = []
+    in_round = False
     for utterance in dialogue.utterances:
         if any(
             intent in utterance.get_intents()
             for intent in recommendation_intents
         ):
-            if current_round:
+            if in_round and current_round:
                 rounds.append(current_round)
             current_round = [utterance]
+            in_round = True
         else:
-            current_round.append(utterance)
+            if in_round:
+                current_round.append(utterance)
+    if in_round and current_round:
+        rounds.append(current_round)
     return rounds
 
 
