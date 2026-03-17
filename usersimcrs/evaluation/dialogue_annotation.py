@@ -1,11 +1,11 @@
 """Dialogue annotation and recommendation round utilities.
 
 Provides functions for annotating dialogues with dialogue acts using NLU
-modules, parsing intent labels, and extracting recommendation rounds from
-annotated dialogues.
+modules, extracting recommendation rounds from annotated dialogues, and
+assessing recommendation acceptance.
 """
 
-from typing import Any, List, Optional, Tuple
+from typing import Dict, List, Optional, Sequence, Tuple
 
 from confuse import Configuration
 
@@ -16,6 +16,27 @@ from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
 
 from usersimcrs.utils.simulation_utils import get_NLU
+
+
+_intent_cache: Dict[Tuple[str, ...], List[Intent]] = {}
+
+
+def resolve_intents(
+    labels: Optional[Sequence[str]], defaults: List[str]
+) -> List[Intent]:
+    """Resolves optional label overrides to a cached list of Intents.
+
+    Args:
+        labels: Custom labels or None to use defaults.
+        defaults: Default label strings.
+
+    Returns:
+        Cached list of Intent objects.
+    """
+    key = tuple(labels if labels is not None else defaults)
+    if key not in _intent_cache:
+        _intent_cache[key] = [Intent(label) for label in key]
+    return _intent_cache[key]
 
 
 def annotate_dialogue(
@@ -62,54 +83,20 @@ def annotate_dialogue(
 def load_nlu(
     nlu_config_path: str,
     config_name: str = "NLU Configuration",
-    cached_nlu: Optional[NLU] = None,
 ) -> NLU:
-    """Loads a single NLU module.
-
-    Returns the cached instance when provided, otherwise creates a new one
-    from the given configuration file.
+    """Loads a single NLU module from the given configuration file.
 
     Args:
         nlu_config_path: Path to the NLU configuration file.
-        config_name: Name for the Configuration instance.
-        cached_nlu: Previously loaded NLU module.
+        config_name: Name for the Configuration instance. Defaults to
+            ``"NLU Configuration"``.
 
     Returns:
         NLU module.
     """
-    if cached_nlu is not None:
-        return cached_nlu
     nlu_config = Configuration(config_name)
     nlu_config.set_file(nlu_config_path)
     return get_NLU(nlu_config)
-
-
-def get_intent_lists(
-    **kwargs: Any,
-) -> Tuple[List[Intent], List[Intent], List[Intent]]:
-    """Builds recommendation, acceptance, and rejection intent lists.
-
-    Args:
-        **kwargs: Optional intent label overrides:
-            - recommendation_intent_labels: Labels for recommendation intents.
-              Defaults to ``["REC-S", "REC-E"]``.
-            - acceptance_intent_labels: Labels for acceptance intents.
-              Defaults to ``["ACC"]``.
-            - rejection_intent_labels: Labels for rejection intents.
-              Defaults to ``["REJ"]``.
-
-    Returns:
-        Tuple of (recommendation_intents, acceptance_intents,
-        rejection_intents).
-    """
-    rec_labels = kwargs.get("recommendation_intent_labels", ["REC-S", "REC-E"])
-    acc_labels = kwargs.get("acceptance_intent_labels", ["ACC"])
-    rej_labels = kwargs.get("rejection_intent_labels", ["REJ"])
-    return (
-        [Intent(label) for label in rec_labels],
-        [Intent(label) for label in acc_labels],
-        [Intent(label) for label in rej_labels],
-    )
 
 
 def annotate_dialogues(
