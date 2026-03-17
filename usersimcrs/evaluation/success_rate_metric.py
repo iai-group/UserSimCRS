@@ -3,71 +3,57 @@
 Evaluates whether at least one recommendation was accepted during a dialogue.
 """
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from dialoguekit.core.dialogue import Dialogue
+from dialoguekit.core.intent import Intent
 
 from usersimcrs.evaluation.base_metric import BaseMetric
 from usersimcrs.evaluation.dialogue_annotation import (
-    DEFAULT_ACC_LABELS,
-    DEFAULT_REC_LABELS,
-    DEFAULT_REJ_LABELS,
-    annotate_if_needed,
+    ensure_dialogue_is_annotated,
     get_recommendation_rounds,
     is_recommendation_accepted,
-    resolve_intents,
 )
 
 
 class SuccessRateMetric(BaseMetric):
     def __init__(
         self,
-        user_nlu_config_path: Optional[str] = None,
-        agent_nlu_config_path: Optional[str] = None,
         name: str = "success_rate",
     ) -> None:
         """Initializes the success rate metric.
 
         Args:
-            user_nlu_config_path: Path to user NLU configuration.
-            agent_nlu_config_path: Path to agent NLU configuration.
             name: Metric name.
         """
         super().__init__(name)
-        self._user_nlu_config_path = user_nlu_config_path
-        self._agent_nlu_config_path = agent_nlu_config_path
 
     def evaluate_dialogue(
         self,
         dialogue: Dialogue,
-        recommendation_intent_labels: Optional[List[str]] = None,
-        acceptance_intent_labels: Optional[List[str]] = None,
-        rejection_intent_labels: Optional[List[str]] = None,
+        recommendation_intents: List[Intent],
+        acceptance_intents: List[Intent],
+        rejection_intents: List[Intent],
         **kwargs: Any,
     ) -> float:
         """Computes the success rate for a single dialogue.
 
         Args:
             dialogue: Dialogue to evaluate.
-            recommendation_intent_labels: Labels for recommendation intents.
-                Defaults to ``["REC-S", "REC-E"]``.
-            acceptance_intent_labels: Labels for acceptance intents.
-                Defaults to ``["ACC"]``.
-            rejection_intent_labels: Labels for rejection intents.
-                Defaults to ``["REJ"]``.
+            recommendation_intents: Intents that indicate recommendation.
+            acceptance_intents: Intents that indicate acceptance.
+            rejection_intents: Intents that indicate rejection.
 
         Returns:
             1.0 if at least one recommendation was accepted, 0.0 otherwise.
         """
-        annotate_if_needed(
-            dialogue,
-            self._user_nlu_config_path,
-            self._agent_nlu_config_path,
-        )
-        rec = resolve_intents(recommendation_intent_labels, DEFAULT_REC_LABELS)
-        acc = resolve_intents(acceptance_intent_labels, DEFAULT_ACC_LABELS)
-        rej = resolve_intents(rejection_intent_labels, DEFAULT_REJ_LABELS)
-        rounds = get_recommendation_rounds(dialogue, rec)
+        ensure_dialogue_is_annotated(dialogue)
+        rounds = get_recommendation_rounds(dialogue, recommendation_intents)
         return float(
-            any(is_recommendation_accepted(r, acc, rej) for r in rounds)
+            any(
+                is_recommendation_accepted(
+                    r, acceptance_intents, rejection_intents
+                )
+                for r in rounds
+            )
         )

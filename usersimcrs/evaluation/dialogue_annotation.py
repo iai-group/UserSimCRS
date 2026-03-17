@@ -44,6 +44,21 @@ def resolve_intents(
     return _intent_cache[key]
 
 
+DEFAULT_REC_INTENTS: List[Intent] = resolve_intents(None, DEFAULT_REC_LABELS)
+DEFAULT_ACC_INTENTS: List[Intent] = resolve_intents(None, DEFAULT_ACC_LABELS)
+DEFAULT_REJ_INTENTS: List[Intent] = resolve_intents(None, DEFAULT_REJ_LABELS)
+
+
+def ensure_dialogue_is_annotated(dialogue: Dialogue) -> None:
+    """Raises if a dialogue is not annotated with annotated utterances."""
+    for utterance in dialogue.utterances:
+        if not isinstance(utterance, AnnotatedUtterance):
+            raise ValueError(
+                "Dialogue must be annotated (utterances must be "
+                "`AnnotatedUtterance`)."
+            )
+
+
 def annotate_if_needed(
     dialogue: Dialogue,
     user_nlu_config_path: Optional[str] = None,
@@ -170,20 +185,17 @@ def get_recommendation_rounds(
     """
     rounds: List[List[AnnotatedUtterance]] = []
     current_round: List[AnnotatedUtterance] = []
-    in_round = False
     for utterance in dialogue.utterances:
         if any(
             intent in utterance.get_intents()
             for intent in recommendation_intents
         ):
-            if in_round and current_round:
+            if current_round:
                 rounds.append(current_round)
             current_round = [utterance]
-            in_round = True
         else:
-            if in_round:
-                current_round.append(utterance)
-    if in_round and current_round:
+            current_round.append(utterance)
+    if current_round:
         rounds.append(current_round)
     return rounds
 
