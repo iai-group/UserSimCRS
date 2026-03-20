@@ -40,7 +40,7 @@ For example, the following information need:
 
 will result in the following agenda:
 
-.. code-block:: json
+.. code-block:: python
 
     [
         START(),

@@ -43,7 +43,7 @@ The default task description is:
 Stop Conversation Prompt
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-:pyclass:`usersimcrs.simulator.llm.prompt.stop_prompt.StopPrompt`
+:py:class:`usersimcrs.simulator.llm.prompt.stop_prompt.StopPrompt`
 
 The stop conversation prompt is used to indicate that the conversation should end. It is built as follows:
 

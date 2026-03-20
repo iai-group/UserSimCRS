@@ -1,33 +1,40 @@
-Dataset
-=======
+Datasets
+========
 
-UserSimCRS is shipped with a sample of MovieLens 25M dataset. We specifically chose this dataset as it contains *tags*, which are user-generated metadata about *movies*.
-We merge *tags* and *movies* to one file, where each movie in the dataset contains up to 5 most relevant tags. Furthermore, the sampled *ratings* data contains user ratings for 20 users.
+UserSimCRS considers two types of datasets: *dialogues* and *item/rating* datasets. The dialogues are used to train the NLU, NLG, and interaction model components of the simulator. The item and rating datasets are used to create information needs and to model user preferences.
 
-The file containing *movies* consists of four headers, separated by ",":
+In terms of format, dialogue datasets should be provided in JSON format, where each dialogue follows the DialogueKit schema. Item/rating datasets should be provided in CSV format. For items, the properties considered (columns) are defined in the domain. For ratings, the dataset should include user IDs, item IDs, and rating values (additional columns will be ignored). 
 
-#. movieId
-#. title
-#. genres (separated by the pipe character)
-#. keywords (separated by the pipe character)
+Currently, UserSimCRS only supports the following movie recommendation datasets.
 
-Similarly, the *ratings* file consists of four headers, separated by ",":
 
-#. userId
-#. movieId
-#. rating
-#. timestamp
+.. list-table:: Dialogue Datasets
+   :width: 100%
+   :header-rows: 1
 
-If other datasets are used, we expect them to be in the same format as the *movies* and *ratings* files above.
-Note that the *timestamp* field is not in use as of yet. (Can be omitted from the file)
+   * - Name
+     - Description
+   * - MovieBot
+     - Dialogues between users and `IAI MovieBot v1 <https://github.com/iai-group/MovieBot>`_
+   * - `INSPIRED <https://github.com/sweetpeach/Inspired>`_
+     - Dialogues obtained via crowdsourcing
+   * - `ReDial <https://redialdata.github.io/website/>`_
+     - Dialogues obtained via crowdsourcing
+   * - `IARD <https://github.com/wanlingcai1997/umap_2020_IARD>`_
+     - Subset of ReDial with additional annotations
 
-Examples
---------
 
-The following is an entry from the *movies* file:
+.. list-table:: Item/Rating Datasets
+   :width: 100%
+   :header-rows: 1
 
-* 1,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy,animation|kids and family|pixar animation|computer animation|toys
-
-And an entry from *ratings* file:
-
-* 1,296,5.0,1147880044
+   * - Name
+     - Description
+   * - Sample of MovieLens 20M
+     - Subset of the `MovieLens 20M dataset <https://grouplens.org/datasets/movielens/20m/>`_ including users and ratings
+   * - Sample of MovieLens 25M
+     - Subset of the `MovieLens 25M dataset <https://grouplens.org/datasets/movielens/25m/>`_ including users and ratings
+   * - INSPIRED Movies
+     - Movie database released with the INSPIRED dataset
+   * - ReDial
+     - Movies and preferences extracted from the ReDial dialogues
