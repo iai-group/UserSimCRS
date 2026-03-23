@@ -146,7 +146,7 @@ def _get_agenda_based_simulator_config(
         # Load ratings if CSV file is provided
         ratings.load_ratings_csv(file_path=config["ratings"].get())
     historical_ratings, _ = ratings.create_split(
-        config["historical_ratings_ratio"].get(confuse.Float(default=0.8))
+        config["historical_ratings_ratio"].get(confuse.Number(default=0.8))
     )
 
     preference_model = SimplePreferenceModel(
