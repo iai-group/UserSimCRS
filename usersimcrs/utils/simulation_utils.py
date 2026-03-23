@@ -138,6 +138,7 @@ def _get_agenda_based_simulator_config(
             domain=domain,
             domain_mapping=config["domain_mapping"].get(),
             id_col=config["id_col"].get(),
+            delimiter=config["csv_delimiter"].get(","),
         )
 
     ratings = Ratings(item_collection)
@@ -303,6 +304,7 @@ def _get_llm_single_prompt_user_simulator_config(
             domain=domain,
             domain_mapping=config["domain_mapping"].get(),
             id_col=config["id_col"].get(),
+            delimiter=config["csv_delimiter"].get(","),
         )
 
     llm_interface = get_llm_interface(config["llm_interface"].get())
