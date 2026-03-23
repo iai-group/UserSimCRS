@@ -206,7 +206,8 @@ class ItemCollection:
                 if not item_id:  # Checks if ID exist.
                     skipped_rows += 1
                     logging.warning(
-                        f"Item ID is missing for row: {row}. Skipping this item."
+                        f"Item ID is missing for row: {row}."
+                        "Skipping this item."
                     )
                     continue
 
