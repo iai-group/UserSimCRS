@@ -138,6 +138,7 @@ def _get_agenda_based_simulator_config(
             domain=domain,
             domain_mapping=config["domain_mapping"].get(),
             id_col=config["id_col"].get(),
+            delimiter=config["csv_delimiter"].get(","),
         )
 
     ratings = Ratings(item_collection)
@@ -198,7 +199,7 @@ def get_NLU(config: confuse.Configuration) -> NLU:
         An NLU component.
     """
     nlu_config = config["nlu"].get()
-    intent_classifier = nlu_config.get("intent_classifier")
+    intent_classifier = nlu_config.get("type")
     if intent_classifier == "cosine":
         # NLU without slot annotators
         classifier = train_cosine_classifier(config)
@@ -303,6 +304,7 @@ def _get_llm_single_prompt_user_simulator_config(
             domain=domain,
             domain_mapping=config["domain_mapping"].get(),
             id_col=config["id_col"].get(),
+            delimiter=config["csv_delimiter"].get(","),
         )
 
     llm_interface = get_llm_interface(config["llm_interface"].get())
