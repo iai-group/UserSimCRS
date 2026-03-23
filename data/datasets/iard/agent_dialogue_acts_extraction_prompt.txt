@@ -9,7 +9,8 @@
 | Explain-Introduction (EXP-I) | Recommender explains recommendation with non-personalized introduction. | "What about Sleepless in Seattle (1993)? Hanks and Ryan?"  |
 | Explain-Preference (EXP-P)   | Recommender explains recommendation based on the seeker's past preference. | "Will Ferrell is also very good in Elf (2003) if you're in need of another comedy" |
 | Explain-Suggestion (EXP-S)   | Recommender explains recommendation in a suggestive way.     | "If you like gory then I would suggest The Last House on the Left (2009)." |
-| Other (OTH)                  | Greetings, gratitude expression, or chit-chat utterances.    | "Have a good night."                                       |
+| End (END)                    | Recommender ends the conversation.                           | "Awesome! Nice chatting with you...bye now" |
+| Other (OTH)                  | Greetings, gratitude expression, or chit-chat utterances.    | "Hi."                                       |
 
 | Slot |
 | ---- |
