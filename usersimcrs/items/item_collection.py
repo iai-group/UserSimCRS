@@ -6,6 +6,7 @@ file.
 """
 
 import csv
+import logging
 import sqlite3
 from typing import Any, Dict, List, Set
 
@@ -186,9 +187,12 @@ class ItemCollection:
             delimiter: CSV delimiter.
         """
         self._init_table(domain_mapping)
+        skipped_rows = 0
+        total_rows = 0
         with open(file_path, "r", encoding="utf-8") as csvfile:
             csvreader = csv.DictReader(csvfile, delimiter=delimiter)
             for row in csvreader:
+                total_rows += 1
                 item_id = row.pop(id_col, None)
                 properties = {}
 
@@ -199,14 +203,19 @@ class ItemCollection:
                         else row[field].split(_mapping["delimiter"])
                     )
 
-                if not item_id:  # Checks if both ID and name exist.
-                    raise ValueError(
-                        "Item ID is mandatory. Please check that the correct "
-                        "field mapping is used."
+                if not item_id:  # Checks if ID exist.
+                    skipped_rows += 1
+                    logging.warning(
+                        f"Item ID is missing for row: {row}. Skipping this item."
                     )
+                    continue
 
                 item = Item(str(item_id), properties, domain)
                 self.add_item(item)
+        logging.debug(
+            f"Finished loading items from {file_path}.\n"
+            f"Total rows: {total_rows}, Skipped rows: {skipped_rows}."
+        )
 
     def get_possible_property_values(self, property: str) -> Set[str]:
         """Returns the possible values for a given property.

@@ -142,7 +142,9 @@ def _get_agenda_based_simulator_config(
         )
 
     ratings = Ratings(item_collection)
-    ratings.load_ratings_csv(file_path=config["ratings"].get())
+    if config["ratings"].get() is not None:
+        # Load ratings if CSV file is provided
+        ratings.load_ratings_csv(file_path=config["ratings"].get())
     historical_ratings, _ = ratings.create_split(
         config["historical_ratings_ratio"].get(0.8)
     )
