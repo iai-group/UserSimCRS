@@ -7,14 +7,11 @@ assessing recommendation acceptance.
 
 from typing import List
 
-from confuse import Configuration
-
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
 from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
-from usersimcrs.utils.simulation_utils import get_NLU
 
 
 def ensure_dialogue_is_annotated(dialogue: Dialogue) -> None:
@@ -30,7 +27,7 @@ def annotate_dialogue(
     """Annotates utterances with dialogue acts.
 
     Each utterance that is not already an AnnotatedUtterance is converted to
-      one. Utterances that already carry dialogue acts are left untouched.
+    one. Utterances that already carry dialogue acts are left untouched.
 
     Args:
         dialogue: Dialogue to be annotated.
@@ -67,24 +64,16 @@ def annotate_dialogue(
 
 def annotate_dialogues(
     dialogues: List[Dialogue],
-    user_nlu_config_path: str,
-    agent_nlu_config_path: str,
+    user_nlu: NLU,
+    agent_nlu: NLU,
 ) -> None:
-    """Annotates dialogues in place using NLU modules loaded once.
+    """Annotates dialogues in place using provided NLU modules.
 
     Args:
         dialogues: Dialogues to annotate (modified in place).
-        user_nlu_config_path: Path to user NLU configuration file.
-        agent_nlu_config_path: Path to agent NLU configuration file.
+        user_nlu: NLU module for user utterances.
+        agent_nlu: NLU module for agent utterances.
     """
-    user_nlu_config = Configuration("User NLU Configuration")
-    user_nlu_config.set_file(user_nlu_config_path)
-    user_nlu = get_NLU(user_nlu_config)
-
-    agent_nlu_config = Configuration("Agent NLU Configuration")
-    agent_nlu_config.set_file(agent_nlu_config_path)
-    agent_nlu = get_NLU(agent_nlu_config)
-
     for dialogue in dialogues:
         annotate_dialogue(dialogue, user_nlu, agent_nlu)
 
