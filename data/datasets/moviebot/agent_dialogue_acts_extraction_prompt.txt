@@ -1,0 +1,44 @@
+| Intent | Description |
+| ------ | ----------- |
+| DISCLOSE.NON-DISCLOSE | Indicate the start of the conversation |
+| DISCLOSE.MORE | Disclose information about a movie |
+| INQUIRE | Ask the user a question |
+| INQUIRE.ELICIT | Elicit preferences from the user |
+| INQUIRE.NEXT | Inquire the next step from the user |
+| INQUIRE.MORE | Offer additional information or options to the user |
+| REVEAL | Reveal information about a movie |
+| REVEAL.NONE | Indicate no similar movies found |
+| REVEAL.SIMILAR | Suggest similar movies |
+| END | Indicate the end of the conversation |
+
+| Slot |
+| ---- |
+| GENRE |
+| TITLE |
+| KEYWORD |
+
+Given the list of available intents and slots, extract a list of dialogue acts from a given utterance. A dialogue act is a pair of an intent and an optional list of slot-value pairs represented as intent_code(slot="value",slot,...) where the value of a slot is optional or taken from the utterance without any modifications. Multiple dialogue acts are separated by '|'. If no dialogue acts are found, say None. Strictly follow the specified format.
+
+Example 1:
+Input utterance: Hi there. I am IAI MovieBot, your movie recommending buddy. I can recommend you movies based on your preferences.\nI will ask you a few questions and based on your answers, I will try to find a movie for you.\nHi Ethan. Welcome to IAI MovieBot. Shall we start?\n
+Dialogue acts: DISCLOSE.NON-DISCLOSE()
+
+Example 2:
+Input utterance: Which genres do you prefer?\n
+Dialogue acts: INQUIRE.ELICIT(GENRE)
+
+Example 3:
+Input utterance: There is a fantasy and action, lord film named Kung Fu Hustle. Have you seen this one?\n
+Dialogue acts: REVEAL(TITLE='Kung Fu Hustle')
+
+Example 4:
+Input utterance: Sorry, I don't have any fantasy and action, lord films named similar to one. Please select from the list of options to continue.\n
+Dialogue acts: REVEAL.NONE(TITLE='one',GENRE='action',GENRE='fantasy')
+
+Example 5:
+Input utterance: What would you like to know about Gunnm?\n
+Dialogue acts: INQUIRE.MORE(TITLE='Gunnm')
+
+
+Input utterance: {utterance}
+Dialogue acts:

@@ -1,0 +1,67 @@
+| Intent | Description |
+| ------ | ----------- |
+| greeting | Greetings |
+| offer_help | Offer assistance to the user |
+| opinion_inquiry | Ask for the user's opinion on movie-related attributes |
+| experience_inquiry | Ask for the user's experience on movie watching, such as whether they have seen a specific movie or not |
+| personal_opinion | Express a subjective opinion about a movie, including its attributes |
+| personal_experience | Share personal experience related to a movie, such as having seen a specific movie or not |
+| similarity | Empathize with the user's preferences and express similar tastes |
+| encouragement | Praise the user's taste in movies or their opinions |
+| rephrase_preference | Restate or clarify the user's preferences or opinions |
+| credibility | Show expertise and trustworthiness in providing information to persuade the user |
+| self_modeling | Act as a role model to influence the user in doing the same |
+| recommend | Make a movie recommendation |
+| acknowledgment | Acknowledge a statement or sentiment expressed by the user |
+| chit_chat | Engage in casual or social conversation not directly related to movie recommendations |
+| goodbye | End the conversation |
+
+| Slot |
+| ---- |
+| GENRE |
+| TITLE |
+| PLOT |
+| ACTORS |
+| DIRECTOR |
+| RATING |
+| KEYWORDS |
+| YEAR |
+| AWARDS |
+| BOX_OFFICE_REVENUE |
+| COUNTRY |
+| LANGUAGE |
+| LONG_PLOT |
+| DURATION |
+| POSTER |
+| PRODUCTION |
+| RATED |
+| RATING |
+| RELEASE_DATE |
+| SHORT_PLOT |
+| YOUTUBE_TRAILER |
+
+Given the list of available intents and slots, extract a list of dialogue acts from a given utterance. A dialogue act is a pair of an intent and an optional list of slot-value pairs represented as intent_code(slot="value",slot,...) where the value of a slot is optional or taken from the utterance without any modifications. Multiple dialogue acts are separated by '|'. If no dialogue acts are found, say None. Strictly follow the specified format.
+
+Example 1:
+Input utterance: I'm here to discuss movie preferences with you.\nWhat is the most recent movie you have seen?\nMy most recent is IT chapter 2.
+Dialogue acts: offer_help()|experience_inquiry(TITLE)|personal_experience(TITLE="IT chapter 2")
+
+Example 2:
+Input utterance: What do you think is next on your list to see?\nI think I am waiting for Star Wars The Rise of Skywalker.
+Dialogue acts: opinion_inquiry(TITLE)|self_modeling(TITLE="Star Wars The Rise of Skywalker")
+
+Example 3:
+Input utterance: Well then Knives Out would probably be liked by you if you like the Joker, it had a lot more great actors that's for sure.
+Dialogue acts: encouragement(TITLE="Joker")|recommend(TITLE="Knives Out")
+
+Example 4:
+Input utterance: Nice!\nI think I have seen some of Jordan Peele's other flicks.\nDo like them?
+Dialogue acts: acknowledgment()|similarity()|personal_opinion()|opinion_inquiry(DIRECTOR="Jordan Peele")
+
+Example 5:
+Input utterance: Nice.\nDo you enjoy watching mysteries and thrillers regularly?
+Dialogue acts: acknowledgment()|opinion_inquiry(GENRE="mystery",GENRE="thriller")
+
+
+Input utterance: {utterance}
+Dialogue acts:

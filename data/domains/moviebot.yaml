@@ -2,6 +2,11 @@ name: iai_moviebot
 slot_names:
   TITLE:
   GENRE:
-  ACTOR:
   KEYWORD:
-  DIRECTOR:
+
+requestable_slots:
+  - GENRE
+  - KEYWORD
+
+informable_slots:
+  - KEYWORD

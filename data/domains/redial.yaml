@@ -1,0 +1,11 @@
+name: movies_redial
+slot_names:
+  TITLE:
+  YEAR:
+
+requestable_slots:
+  - TITLE
+  - YEAR
+
+informable_slots:
+  - YEAR

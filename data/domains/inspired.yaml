@@ -1,0 +1,48 @@
+name: movies_inspired
+slot_names:
+  TITLE:
+  YEAR:
+  ACTORS:
+  AWARDS:
+  BOX_OFFICE_REVENUE:
+  COUNTRY:
+  DIRECTOR:
+  GENRE:
+  LANGUAGE:
+  LONG_PLOT:
+  DURATION:
+  POSTER:
+  PRODUCTION:
+  RATED:
+  RATING:
+  RELEASE_DATE:
+  SHORT_PLOT:
+  YOUTUBE_TRAILER:
+
+requestable_slots:
+  - YEAR
+  - ACTORS
+  - AWARDS
+  - BOX_OFFICE_REVENUE
+  - COUNTRY
+  - DIRECTOR
+  - GENRE
+  - LANGUAGE
+  - LONG_PLOT
+  - DURATION
+  - POSTER
+  - PRODUCTION
+  - RATED
+  - RATING
+  - RELEASE_DATE
+  - SHORT_PLOT
+  - YOUTUBE_TRAILER
+
+informable_slots:
+  - YEAR
+  - ACTORS
+  - COUNTRY
+  - DIRECTOR
+  - GENRE
+  - LANGUAGE
+  - RATED
