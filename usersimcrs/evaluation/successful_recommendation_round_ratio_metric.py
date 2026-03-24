@@ -26,7 +26,7 @@ class SuccessfulRecommendationRoundRatioMetric(BaseMetric):
 
         Args:
             name: Metric name. Defaults to
-                    "successful_recommendation_round_ratio".
+              "successful_recommendation_round_ratio".
         """
         super().__init__(name)
 
@@ -48,7 +48,7 @@ class SuccessfulRecommendationRoundRatioMetric(BaseMetric):
 
         Returns:
             Ratio of accepted recommendation rounds to total rounds,
-            or 0.0 if there are no recommendation rounds.
+              or 0.0 if there are no recommendation rounds.
         """
         ensure_dialogue_is_annotated(dialogue)
         rounds = get_recommendation_rounds(dialogue, recommendation_intents)

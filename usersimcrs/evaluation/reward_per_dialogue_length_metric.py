@@ -37,7 +37,7 @@ class RewardPerDialogueLengthMetric(BaseMetric):
 
         Args:
             dialogue: Dialogue to evaluate.
-            acceptance_intents: Acceptance intents (e.g., ``[Intent("ACC")]``).
+            acceptance_intents: Acceptance intents.
 
         Returns:
             Ratio of accepted recommendations to total utterances.

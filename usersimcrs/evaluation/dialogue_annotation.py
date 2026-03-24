@@ -5,7 +5,7 @@ modules, extracting recommendation rounds from annotated dialogues, and
 assessing recommendation acceptance.
 """
 
-from typing import Dict, List, Optional, Sequence, Tuple
+from typing import List
 
 from confuse import Configuration
 
@@ -14,80 +14,14 @@ from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
 from dialoguekit.nlu.nlu import NLU
 from dialoguekit.participant.participant import DialogueParticipant
-
 from usersimcrs.utils.simulation_utils import get_NLU
 
 
-DEFAULT_REC_LABELS = ["REC-S", "REC-E"]
-DEFAULT_ACC_LABELS = ["ACC"]
-DEFAULT_REJ_LABELS = ["REJ"]
-
-_intent_cache: Dict[Tuple[str, ...], List[Intent]] = {}
-_nlu_cache: Dict[str, NLU] = {}
-
-
-def resolve_intents(
-    labels: Optional[Sequence[str]], defaults: List[str]
-) -> List[Intent]:
-    """Resolves optional label overrides to a cached list of Intents.
-
-    Args:
-        labels: Custom labels or None to use defaults.
-        defaults: Default label strings.
-
-    Returns:
-        Cached list of Intent objects.
-    """
-    key = tuple(labels if labels is not None else defaults)
-    if key not in _intent_cache:
-        _intent_cache[key] = [Intent(label) for label in key]
-    return _intent_cache[key]
-
-
-DEFAULT_REC_INTENTS: List[Intent] = resolve_intents(None, DEFAULT_REC_LABELS)
-DEFAULT_ACC_INTENTS: List[Intent] = resolve_intents(None, DEFAULT_ACC_LABELS)
-DEFAULT_REJ_INTENTS: List[Intent] = resolve_intents(None, DEFAULT_REJ_LABELS)
-
-
 def ensure_dialogue_is_annotated(dialogue: Dialogue) -> None:
-    """Raises if a dialogue is not annotated with annotated utterances."""
+    """Raises error if dialogue utterances are not annotated."""
     for utterance in dialogue.utterances:
         if not isinstance(utterance, AnnotatedUtterance):
-            raise ValueError(
-                "Dialogue must be annotated (utterances must be "
-                "`AnnotatedUtterance`)."
-            )
-
-
-def annotate_if_needed(
-    dialogue: Dialogue,
-    user_nlu_config_path: Optional[str] = None,
-    agent_nlu_config_path: Optional[str] = None,
-) -> None:
-    """Annotates the dialogue with NLU if config paths are provided.
-
-    NLU modules are loaded lazily and cached by config path.
-
-    Args:
-        dialogue: Dialogue to annotate.
-        user_nlu_config_path: Path to user NLU configuration.
-        agent_nlu_config_path: Path to agent NLU configuration.
-    """
-    if not user_nlu_config_path or not agent_nlu_config_path:
-        return
-    if user_nlu_config_path not in _nlu_cache:
-        _nlu_cache[user_nlu_config_path] = load_nlu(
-            user_nlu_config_path, "User NLU Configuration"
-        )
-    if agent_nlu_config_path not in _nlu_cache:
-        _nlu_cache[agent_nlu_config_path] = load_nlu(
-            agent_nlu_config_path, "Agent NLU Configuration"
-        )
-    annotate_dialogue(
-        dialogue,
-        _nlu_cache[user_nlu_config_path],
-        _nlu_cache[agent_nlu_config_path],
-    )
+            raise RuntimeError("Dialogue must be annotated.")
 
 
 def annotate_dialogue(
@@ -96,7 +30,7 @@ def annotate_dialogue(
     """Annotates utterances with dialogue acts.
 
     Each utterance that is not already an AnnotatedUtterance is converted to
-    one. Utterances that already carry dialogue acts are left untouched.
+      one. Utterances that already carry dialogue acts are left untouched.
 
     Args:
         dialogue: Dialogue to be annotated.
@@ -131,39 +65,26 @@ def annotate_dialogue(
     return dialogue
 
 
-def load_nlu(
-    nlu_config_path: str,
-    config_name: str = "NLU Configuration",
-) -> NLU:
-    """Loads a single NLU module from the given configuration file.
-
-    Args:
-        nlu_config_path: Path to the NLU configuration file.
-        config_name: Name for the Configuration instance. Defaults to
-            ``"NLU Configuration"``.
-
-    Returns:
-        NLU module.
-    """
-    nlu_config = Configuration(config_name)
-    nlu_config.set_file(nlu_config_path)
-    return get_NLU(nlu_config)
-
-
 def annotate_dialogues(
     dialogues: List[Dialogue],
     user_nlu_config_path: str,
     agent_nlu_config_path: str,
 ) -> None:
-    """Annotates a batch of dialogues in place, loading NLU modules once.
+    """Annotates dialogues in place using NLU modules loaded once.
 
     Args:
         dialogues: Dialogues to annotate (modified in place).
         user_nlu_config_path: Path to user NLU configuration file.
         agent_nlu_config_path: Path to agent NLU configuration file.
     """
-    user_nlu = load_nlu(user_nlu_config_path, "User NLU Configuration")
-    agent_nlu = load_nlu(agent_nlu_config_path, "Agent NLU Configuration")
+    user_nlu_config = Configuration("User NLU Configuration")
+    user_nlu_config.set_file(user_nlu_config_path)
+    user_nlu = get_NLU(user_nlu_config)
+
+    agent_nlu_config = Configuration("Agent NLU Configuration")
+    agent_nlu_config.set_file(agent_nlu_config_path)
+    agent_nlu = get_NLU(agent_nlu_config)
+
     for dialogue in dialogues:
         annotate_dialogue(dialogue, user_nlu, agent_nlu)
 
@@ -174,7 +95,7 @@ def get_recommendation_rounds(
     """Splits a dialogue into recommendation rounds.
 
     A new round begins each time an utterance contains a recommendation
-    intent.
+      intent.
 
     Args:
         dialogue: Annotated dialogue.
