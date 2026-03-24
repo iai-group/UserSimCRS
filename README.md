@@ -75,7 +75,7 @@ The simulated dialogue is saved under `dialogue_export`.
 
 #### Case Study: Movie Recommendation
 
-Resources to conduct a case study in the domain of movie recommendation are available in [UserSimCRS-ECIR-2026](https://github.com/iai-group/UserSimCRS-ECIR-2026) repository.
+Resources to conduct a case study in the domain of movie recommendation are available in the [UserSimCRS-ECIR-2026](https://github.com/iai-group/UserSimCRS-ECIR-2026) repository.
 
 ## Conventions
 
