@@ -1,6 +1,13 @@
-"""Tests for utility-style evaluation metrics.
+"""Tests for utility-centric evaluation metrics.
 
-These metrics operate purely on annotated dialogue acts (REC/ACC/REJ) and should
+These tests cover:
+- success rate: whether any recommendation round is accepted
+- reward per dialogue length: accepted recommendations normalized by dialogue
+  length
+- successful recommendation round ratio: accepted recommendation rounds
+  normalized by total recommendation rounds
+
+The metrics operate purely on annotated dialogue acts (REC/ACC/REJ) and should
 be testable without any external NLU or LLM dependencies.
 """
 
@@ -71,8 +78,29 @@ def _dialogue(
     return d
 
 
-def test_success_rate_metric_single_accepted_round() -> None:
-    metric = SuccessRateMetric()
+@pytest.fixture
+def success_rate_metric() -> SuccessRateMetric:
+    """Instantiate the success rate metric."""
+    return SuccessRateMetric()
+
+
+@pytest.fixture
+def reward_per_dialogue_length_metric() -> RewardPerDialogueLengthMetric:
+    """Instantiate the reward-per-dialogue-length metric."""
+    return RewardPerDialogueLengthMetric()
+
+
+@pytest.fixture
+def successful_round_ratio_metric() -> (
+    SuccessfulRecommendationRoundRatioMetric
+):
+    """Instantiate the successful recommendation round ratio metric."""
+    return SuccessfulRecommendationRoundRatioMetric()
+
+
+def test_success_rate_metric_single_accepted_round(
+    success_rate_metric: SuccessRateMetric,
+) -> None:
     dialogue = _dialogue(
         "cid",
         [
@@ -81,7 +109,7 @@ def test_success_rate_metric_single_accepted_round() -> None:
         ],
     )
     assert (
-        metric.evaluate_dialogue(
+        success_rate_metric.evaluate_dialogue(
             dialogue,
             RECOMMENDATION_INTENTS,
             ACCEPTANCE_INTENTS,
@@ -91,8 +119,9 @@ def test_success_rate_metric_single_accepted_round() -> None:
     )
 
 
-def test_success_rate_metric_rejection_overrides_acceptance() -> None:
-    metric = SuccessRateMetric()
+def test_success_rate_metric_rejection_overrides_acceptance(
+    success_rate_metric: SuccessRateMetric,
+) -> None:
     dialogue = _dialogue(
         "cid",
         [
@@ -102,7 +131,7 @@ def test_success_rate_metric_rejection_overrides_acceptance() -> None:
         ],
     )
     assert (
-        metric.evaluate_dialogue(
+        success_rate_metric.evaluate_dialogue(
             dialogue,
             RECOMMENDATION_INTENTS,
             ACCEPTANCE_INTENTS,
@@ -112,8 +141,9 @@ def test_success_rate_metric_rejection_overrides_acceptance() -> None:
     )
 
 
-def test_reward_per_dialogue_length_counts_user_acceptances() -> None:
-    metric = RewardPerDialogueLengthMetric()
+def test_reward_per_dialogue_length_counts_user_acceptances(
+    reward_per_dialogue_length_metric: RewardPerDialogueLengthMetric,
+) -> None:
     dialogue = _dialogue(
         "cid",
         [
@@ -127,13 +157,14 @@ def test_reward_per_dialogue_length_counts_user_acceptances() -> None:
             ),
         ],
     )
-    assert metric.evaluate_dialogue(
+    assert reward_per_dialogue_length_metric.evaluate_dialogue(
         dialogue, ACCEPTANCE_INTENTS
-    ) == pytest.approx(1 / 2)
+    ) == pytest.approx(2 / 4)
 
 
-def test_successful_round_ratio_handles_no_recommendations() -> None:
-    metric = SuccessfulRecommendationRoundRatioMetric()
+def test_successful_round_ratio_handles_no_recommendations(
+    successful_round_ratio_metric: SuccessfulRecommendationRoundRatioMetric,
+) -> None:
     dialogue = _dialogue(
         "cid",
         [
@@ -142,7 +173,7 @@ def test_successful_round_ratio_handles_no_recommendations() -> None:
         ],
     )
     assert (
-        metric.evaluate_dialogue(
+        successful_round_ratio_metric.evaluate_dialogue(
             dialogue,
             RECOMMENDATION_INTENTS,
             ACCEPTANCE_INTENTS,
@@ -152,8 +183,9 @@ def test_successful_round_ratio_handles_no_recommendations() -> None:
     )
 
 
-def test_successful_round_ratio_two_rounds_one_success() -> None:
-    metric = SuccessfulRecommendationRoundRatioMetric()
+def test_successful_round_ratio_two_rounds_one_success(
+    successful_round_ratio_metric: SuccessfulRecommendationRoundRatioMetric,
+) -> None:
     dialogue = _dialogue(
         "cid",
         [
@@ -163,7 +195,7 @@ def test_successful_round_ratio_two_rounds_one_success() -> None:
             _annotated_utterance("reject2", DialogueParticipant.USER, ["REJ"]),
         ],
     )
-    assert metric.evaluate_dialogue(
+    assert successful_round_ratio_metric.evaluate_dialogue(
         dialogue,
         RECOMMENDATION_INTENTS,
         ACCEPTANCE_INTENTS,

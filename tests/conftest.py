@@ -5,6 +5,9 @@ from unittest.mock import MagicMock
 
 import pytest
 
+from dialoguekit.core.dialogue import Dialogue
+from dialoguekit.utils.dialogue_reader import json_to_dialogues
+
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
@@ -65,6 +68,16 @@ def item_collection(domain: SimulationDomain):
     )
     yield item_collection
     os.remove("tests/data/items.db")
+
+
+@pytest.fixture
+def dialogues() -> list[Dialogue]:
+    """Load annotated test dialogues."""
+    return json_to_dialogues(
+        "tests/data/annotated_dialogues.json",
+        agent_ids=["Agent"],
+        user_ids=["User"],
+    )
 
 
 @pytest.fixture
