@@ -105,6 +105,7 @@ For the most recent version (v2) of UserSimCRS, please cite the following paper:
   title = {UserSimCRS v2: Simulation-Based Evaluation for Conversational Recommender Systems},
   year = {2026},
   booktitle = {Proceedings of the 48th European Conference on Information Retrieval},
+  pages={496--510},
   series = {ECIR '26}
 }
 ```
