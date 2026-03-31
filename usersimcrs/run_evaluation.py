@@ -12,9 +12,8 @@ from dialoguekit.core.intent import Intent
 from dialoguekit.nlu.models.satisfaction_classifier import (
     SatisfactionClassifierSVM,
 )
+from dialoguekit.utils.dialogue_annotation import annotate_dialogues
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
-
-from usersimcrs.evaluation.dialogue_annotation import annotate_dialogues
 from usersimcrs.evaluation.quality_metric import QualityMetric
 from usersimcrs.evaluation.quality_rubrics import QualityRubrics
 from usersimcrs.evaluation.reward_per_dialogue_length_metric import (
