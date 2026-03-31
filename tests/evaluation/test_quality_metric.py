@@ -1,15 +1,6 @@
-"""Tests for LLM-based quality evaluation.
+"""Tests for LLM-based quality evaluation."""
 
-These tests cover:
-- valid JSON responses returned by the LLM interface
-- evaluation across all supported quality rubric aspects
-- fallback behavior when the response payload is missing the score field
-- error handling for unsupported aspect names
-- batch evaluation over multiple dialogues
-
-The metric depends on an LLM interface, which is mocked here so the tests stay
-deterministic and do not require external model calls.
-"""
+from typing import List
 
 import pytest
 
@@ -27,9 +18,9 @@ def quality_metric(mock_ollama_interface) -> QualityMetric:
 
 def test_evaluate_dialogue_valid_response(
     quality_metric: QualityMetric,
-    dialogues: list[Dialogue],
+    dialogues: List[Dialogue],
 ) -> None:
-    """Test evaluate_dialogue parses a valid LLM JSON response."""
+    """Verifies that evaluate_dialogue parses a valid LLM JSON response."""
     quality_metric.llm_interface.get_llm_api_response.return_value = (
         '{"score": 3, "score_explanation": "Average."}'
     )
@@ -42,18 +33,18 @@ def test_evaluate_dialogue_valid_response(
 
 def test_evaluate_dialogue_unsupported_aspect(
     quality_metric: QualityMetric,
-    dialogues: list[Dialogue],
+    dialogues: List[Dialogue],
 ) -> None:
-    """Test evaluate_dialogue raises KeyError for an unsupported aspect."""
+    """Verifies that evaluate_dialogue raises KeyError for an invalid aspect."""
     with pytest.raises(KeyError, match="Unknown aspect 'NOT_A_METRIC'"):
         quality_metric.evaluate_dialogue(dialogues[0], aspect="NOT_A_METRIC")
 
 
 def test_evaluate_dialogue_missing_score_key(
     quality_metric: QualityMetric,
-    dialogues: list[Dialogue],
+    dialogues: List[Dialogue],
 ) -> None:
-    """Test evaluate_dialogue returns 0.0 when 'score' key is missing."""
+    """Verifies that evaluate_dialogue returns 0.0 when score is missing."""
     quality_metric.llm_interface.get_llm_api_response.return_value = (
         '{"explanation": "No score field."}'
     )
@@ -63,9 +54,9 @@ def test_evaluate_dialogue_missing_score_key(
 
 def test_evaluate_dialogues(
     quality_metric: QualityMetric,
-    dialogues: list[Dialogue],
+    dialogues: List[Dialogue],
 ) -> None:
-    """Test evaluate_dialogues returns scores keyed by conversation ID."""
+    """Verifies that evaluate_dialogues returns scores by conversation ID."""
     quality_metric.llm_interface.get_llm_api_response.return_value = (
         '{"score": 5, "score_explanation": "Excellent."}'
     )

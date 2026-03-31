@@ -1,14 +1,6 @@
-"""Tests for classifier-based satisfaction evaluation.
+"""Tests for classifier-based satisfaction evaluation."""
 
-These tests cover:
-- conversion of classifier outputs to float satisfaction scores
-- support for both integer and fractional classifier predictions
-- batch evaluation over multiple dialogues
-
-The metric depends on a satisfaction classifier, which is mocked here so the
-tests remain deterministic and do not require external model inference.
-"""
-
+from typing import List
 from unittest.mock import MagicMock
 
 import pytest
@@ -39,11 +31,11 @@ def satisfaction_metric(mock_classifier: MagicMock) -> SatisfactionMetric:
 )
 def test_evaluate_dialogue(
     satisfaction_metric: SatisfactionMetric,
-    dialogues: list[Dialogue],
+    dialogues: List[Dialogue],
     classifier_output: float,
     expected_score: float,
 ) -> None:
-    """Test evaluate_dialogue returns classifier output as float."""
+    """Verifies that evaluate_dialogue returns the classifier output."""
     satisfaction_metric.classifier.classify_last_n_dialogue.return_value = (
         classifier_output
     )
@@ -55,9 +47,9 @@ def test_evaluate_dialogue(
 
 def test_evaluate_dialogues(
     satisfaction_metric: SatisfactionMetric,
-    dialogues: list[Dialogue],
+    dialogues: List[Dialogue],
 ) -> None:
-    """Test evaluate_dialogues returns scores keyed by conversation ID."""
+    """Verifies that evaluate_dialogues returns scores by conversation ID."""
     satisfaction_metric.classifier.classify_last_n_dialogue.return_value = 3
     results = satisfaction_metric.evaluate_dialogues(dialogues)
     assert len(results) == len(dialogues)
