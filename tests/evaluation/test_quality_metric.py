@@ -12,7 +12,7 @@ from usersimcrs.evaluation.quality_rubrics import QualityRubrics
 
 @pytest.fixture
 def quality_metric(mock_ollama_interface) -> QualityMetric:
-    """QualityMetric instance with mocked LLM."""
+    """Provides a QualityMetric instance with a mocked LLM."""
     return QualityMetric(llm_interface=mock_ollama_interface)
 
 

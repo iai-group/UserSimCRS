@@ -15,13 +15,13 @@ from usersimcrs.evaluation.satisfaction_metric import SatisfactionMetric
 
 @pytest.fixture
 def mock_classifier() -> MagicMock:
-    """Mock satisfaction classifier."""
+    """Provides a mocked satisfaction classifier."""
     return MagicMock(spec=SatisfactionClassifier)
 
 
 @pytest.fixture
 def satisfaction_metric(mock_classifier: MagicMock) -> SatisfactionMetric:
-    """SatisfactionMetric instance with mocked classifier."""
+    """Provides a SatisfactionMetric instance with a mocked classifier."""
     return SatisfactionMetric(classifier=mock_classifier)
 
 
