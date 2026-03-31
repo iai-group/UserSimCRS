@@ -1,6 +1,7 @@
 """Fixtures for the tests."""
 
 import os
+from typing import List
 from unittest.mock import MagicMock
 
 import pytest
@@ -71,8 +72,8 @@ def item_collection(domain: SimulationDomain):
 
 
 @pytest.fixture
-def dialogues() -> list[Dialogue]:
-    """Load annotated test dialogues."""
+def dialogues() -> List[Dialogue]:
+    """Loads annotated test dialogues."""
     return json_to_dialogues(
         "tests/data/annotated_dialogues.json",
         agent_ids=["Agent"],
