@@ -8,11 +8,11 @@ from typing import Any, List
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
 from dialoguekit.participant.participant import DialogueParticipant
-
-from usersimcrs.evaluation.base_metric import BaseMetric
-from usersimcrs.evaluation.dialogue_annotation import (
+from dialoguekit.utils.dialogue_annotation import (
     ensure_dialogue_is_annotated,
 )
+
+from usersimcrs.evaluation.base_metric import BaseMetric
 
 
 class RewardPerDialogueLengthMetric(BaseMetric):
