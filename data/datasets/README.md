@@ -9,4 +9,4 @@ The datasets currently supported are:
   * [IARD](https://github.com/wanlingcai1997/umap_2020_IARD): subset of ReDial dialogues related to movie recommendations.
   * [INSPIRED](https://github.com/sweetpeach/Inspired): dialogues related to movie recommendations obtained with crowdsourcing.
 
-Note that when possible, the annotation schema is kept from the original dataset.
+Note that when possible, the annotation schema is kept from the original dataset. You can find scripts to download and format the dialogues in `scripts/datasets/`.
