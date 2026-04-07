@@ -8,13 +8,13 @@ from typing import Any, List
 
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
-
-from usersimcrs.evaluation.base_metric import BaseMetric
-from usersimcrs.evaluation.dialogue_annotation import (
+from dialoguekit.utils.dialogue_annotation import (
     ensure_dialogue_is_annotated,
     get_recommendation_rounds,
     is_recommendation_accepted,
 )
+
+from usersimcrs.evaluation.base_metric import BaseMetric
 
 
 class SuccessfulRecommendationRoundRatioMetric(BaseMetric):
