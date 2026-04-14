@@ -4,7 +4,7 @@ metrics:
   - success_rate
   - successful_recommendation_round_ratio
   - reward_per_dialogue_length
-output: data/evaluation/moviebot_non_quality_results.json
+output: data/evaluation/moviebot_non_quality_results
 
 quality_llm_interface:
   llm_interface_class_path: "usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface"
@@ -18,8 +18,11 @@ quality_aspects:
   - CONV_FLOW
   - OVERALL_SAT
 
-user_nlu_config: config/default/config_default.yaml
-agent_nlu_config: config/default/config_default.yaml
+annotate_dialogues: False
+user_nlu:
+  type: "cosine"
+agent_nlu:
+  type: "cosine"
 
 recommendation_intent_labels:
   - REVEAL
