@@ -1,5 +1,7 @@
 """Tests for the reward-per-dialogue-length metric."""
 
+from typing import List
+
 import pytest
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
@@ -12,8 +14,6 @@ from usersimcrs.evaluation.reward_per_dialogue_length_metric import (
     RewardPerDialogueLengthMetric,
 )
 
-ACCEPTANCE_INTENTS = [Intent("ACC")]
-
 
 @pytest.fixture
 def reward_per_dialogue_length_metric() -> RewardPerDialogueLengthMetric:
@@ -23,6 +23,7 @@ def reward_per_dialogue_length_metric() -> RewardPerDialogueLengthMetric:
 
 def test_reward_per_dialogue_length_counts_user_acceptances(
     reward_per_dialogue_length_metric: RewardPerDialogueLengthMetric,
+    acceptance_intents: List[Intent],
 ) -> None:
     """Verifies that only user acceptances contribute to the reward."""
     dialogue = Dialogue(agent_id="Agent", user_id="User", conversation_id="cid")
@@ -56,5 +57,5 @@ def test_reward_per_dialogue_length_counts_user_acceptances(
     )
 
     assert reward_per_dialogue_length_metric.evaluate_dialogue(
-        dialogue, ACCEPTANCE_INTENTS
+        dialogue, acceptance_intents
     ) == pytest.approx(2 / 4)

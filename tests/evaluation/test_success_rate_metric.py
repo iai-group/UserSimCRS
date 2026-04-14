@@ -1,5 +1,7 @@
 """Tests for the success rate metric."""
 
+from typing import List
+
 import pytest
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
@@ -10,10 +12,6 @@ from dialoguekit.participant.participant import DialogueParticipant
 
 from usersimcrs.evaluation.success_rate_metric import SuccessRateMetric
 
-RECOMMENDATION_INTENTS = [Intent("REC-S"), Intent("REC-E")]
-ACCEPTANCE_INTENTS = [Intent("ACC")]
-REJECTION_INTENTS = [Intent("REJ")]
-
 
 @pytest.fixture
 def success_rate_metric() -> SuccessRateMetric:
@@ -23,6 +21,9 @@ def success_rate_metric() -> SuccessRateMetric:
 
 def test_success_rate_metric_single_accepted_round(
     success_rate_metric: SuccessRateMetric,
+    recommendation_intents: List[Intent],
+    acceptance_intents: List[Intent],
+    rejection_intents: List[Intent],
 ) -> None:
     """Verifies that an accepted recommendation yields a success rate of 1."""
     dialogue = Dialogue(agent_id="Agent", user_id="User", conversation_id="cid")
@@ -44,18 +45,21 @@ def test_success_rate_metric_single_accepted_round(
     assert (
         success_rate_metric.evaluate_dialogue(
             dialogue,
-            RECOMMENDATION_INTENTS,
-            ACCEPTANCE_INTENTS,
-            REJECTION_INTENTS,
+            recommendation_intents,
+            acceptance_intents,
+            rejection_intents,
         )
         == 1.0
     )
 
 
-def test_success_rate_metric_rejection_overrides_acceptance(
+def test_success_rate_metric_accepted_round_with_rejection(
     success_rate_metric: SuccessRateMetric,
+    recommendation_intents: List[Intent],
+    acceptance_intents: List[Intent],
+    rejection_intents: List[Intent],
 ) -> None:
-    """Verifies that a rejection in the round yields a success rate of 0."""
+    """Verifies that an accepted recommendation yields a success rate of 1."""
     dialogue = Dialogue(agent_id="Agent", user_id="User", conversation_id="cid")
     dialogue.add_utterance(
         AnnotatedUtterance(
@@ -82,9 +86,43 @@ def test_success_rate_metric_rejection_overrides_acceptance(
     assert (
         success_rate_metric.evaluate_dialogue(
             dialogue,
-            RECOMMENDATION_INTENTS,
-            ACCEPTANCE_INTENTS,
-            REJECTION_INTENTS,
+            recommendation_intents,
+            acceptance_intents,
+            rejection_intents,
+        )
+        == 1.0
+    )
+
+
+def test_success_rate_metric_rejected_round(
+    success_rate_metric: SuccessRateMetric,
+    recommendation_intents: List[Intent],
+    acceptance_intents: List[Intent],
+    rejection_intents: List[Intent],
+) -> None:
+    """Verifies that a rejected recommendation yields a success rate of 0."""
+    dialogue = Dialogue(agent_id="Agent", user_id="User", conversation_id="cid")
+    dialogue.add_utterance(
+        AnnotatedUtterance(
+            text="rec",
+            participant=DialogueParticipant.AGENT,
+            dialogue_acts=[DialogueAct(Intent("REC-S"))],
+        )
+    )
+    dialogue.add_utterance(
+        AnnotatedUtterance(
+            text="no",
+            participant=DialogueParticipant.USER,
+            dialogue_acts=[DialogueAct(Intent("REJ"))],
+        )
+    )
+
+    assert (
+        success_rate_metric.evaluate_dialogue(
+            dialogue,
+            recommendation_intents,
+            acceptance_intents,
+            rejection_intents,
         )
         == 0.0
     )

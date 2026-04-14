@@ -1,20 +1,19 @@
 """Tests for the successful recommendation round ratio metric."""
 
+from typing import List
+
 import pytest
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
+from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
 
 from usersimcrs.evaluation.successful_recommendation_round_ratio_metric import (
     SuccessfulRecommendationRoundRatioMetric,
 )
-
-RECOMMENDATION_INTENTS = [Intent("REC-S"), Intent("REC-E")]
-ACCEPTANCE_INTENTS = [Intent("ACC")]
-REJECTION_INTENTS = [Intent("REJ")]
 
 
 @pytest.fixture
@@ -27,6 +26,9 @@ def successful_round_ratio_metric() -> (
 
 def test_successful_round_ratio_handles_no_recommendations(
     successful_round_ratio_metric: SuccessfulRecommendationRoundRatioMetric,
+    recommendation_intents: List[Intent],
+    acceptance_intents: List[Intent],
+    rejection_intents: List[Intent],
 ) -> None:
     """Verifies that dialogues without recommendations return 0.0."""
     dialogue = Dialogue(agent_id="Agent", user_id="User", conversation_id="cid")
@@ -48,9 +50,9 @@ def test_successful_round_ratio_handles_no_recommendations(
     assert (
         successful_round_ratio_metric.evaluate_dialogue(
             dialogue,
-            RECOMMENDATION_INTENTS,
-            ACCEPTANCE_INTENTS,
-            REJECTION_INTENTS,
+            recommendation_intents,
+            acceptance_intents,
+            rejection_intents,
         )
         == 0.0
     )
@@ -58,6 +60,9 @@ def test_successful_round_ratio_handles_no_recommendations(
 
 def test_successful_round_ratio_two_rounds_one_success(
     successful_round_ratio_metric: SuccessfulRecommendationRoundRatioMetric,
+    recommendation_intents: List[Intent],
+    acceptance_intents: List[Intent],
+    rejection_intents: List[Intent],
 ) -> None:
     """Verifies that the metric counts successful rounds correctly."""
     dialogue = Dialogue(agent_id="Agent", user_id="User", conversation_id="cid")
@@ -92,7 +97,31 @@ def test_successful_round_ratio_two_rounds_one_success(
 
     assert successful_round_ratio_metric.evaluate_dialogue(
         dialogue,
-        RECOMMENDATION_INTENTS,
-        ACCEPTANCE_INTENTS,
-        REJECTION_INTENTS,
+        recommendation_intents,
+        acceptance_intents,
+        rejection_intents,
     ) == pytest.approx(1 / 2)
+
+
+def test_successful_round_ratio_rejects_unannotated_dialogue(
+    successful_round_ratio_metric: SuccessfulRecommendationRoundRatioMetric,
+    recommendation_intents: List[Intent],
+    acceptance_intents: List[Intent],
+    rejection_intents: List[Intent],
+) -> None:
+    """Verifies that unannotated dialogues raise an error."""
+    dialogue = Dialogue(agent_id="Agent", user_id="User", conversation_id="cid")
+    dialogue.add_utterance(
+        Utterance(
+            text="rec",
+            participant=DialogueParticipant.AGENT,
+        )
+    )
+
+    with pytest.raises(RuntimeError, match="Dialogue must be annotated."):
+        successful_round_ratio_metric.evaluate_dialogue(
+            dialogue,
+            recommendation_intents,
+            acceptance_intents,
+            rejection_intents,
+        )

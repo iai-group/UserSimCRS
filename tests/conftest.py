@@ -7,6 +7,7 @@ from unittest.mock import MagicMock
 import pytest
 
 from dialoguekit.core.dialogue import Dialogue
+from dialoguekit.core.intent import Intent
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
 from usersimcrs.core.information_need import InformationNeed
@@ -85,3 +86,21 @@ def dialogues() -> List[Dialogue]:
 def mock_ollama_interface() -> OllamaLLMInterface:
     """Mock Ollama LLM interface fixture."""
     return MagicMock(spec=OllamaLLMInterface)
+
+
+@pytest.fixture
+def recommendation_intents() -> List[Intent]:
+    """Recommendation intent fixture."""
+    return [Intent("REC-S"), Intent("REC-E")]
+
+
+@pytest.fixture
+def acceptance_intents() -> List[Intent]:
+    """Acceptance intent fixture."""
+    return [Intent("ACC")]
+
+
+@pytest.fixture
+def rejection_intents() -> List[Intent]:
+    """Rejection intent fixture."""
+    return [Intent("REJ")]

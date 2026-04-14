@@ -8,10 +8,11 @@ from dialoguekit.core.dialogue import Dialogue
 
 from usersimcrs.evaluation.quality_metric import QualityMetric
 from usersimcrs.evaluation.quality_rubrics import QualityRubrics
+from usersimcrs.llm_interfaces.ollama_interface import OllamaLLMInterface
 
 
 @pytest.fixture
-def quality_metric(mock_ollama_interface) -> QualityMetric:
+def quality_metric(mock_ollama_interface: OllamaLLMInterface) -> QualityMetric:
     """Provides a QualityMetric instance with a mocked LLM."""
     return QualityMetric(llm_interface=mock_ollama_interface)
 

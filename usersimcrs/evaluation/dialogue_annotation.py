@@ -125,12 +125,11 @@ def is_recommendation_accepted(
     Returns:
         True if the recommendation was accepted, False otherwise.
     """
-    b_accepted = False
     for utterance in round_utterances:
         if utterance.participant == DialogueParticipant.USER:
             intents = utterance.get_intents()
             if any(intent in acceptance_intents for intent in intents):
-                b_accepted = True
-            elif any(intent in rejection_intents for intent in intents):
+                return True
+            if any(intent in rejection_intents for intent in intents):
                 return False
-    return b_accepted
+    return False
