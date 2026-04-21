@@ -1,9 +1,14 @@
 """Fixtures for the tests."""
 
 import os
+from typing import List
 from unittest.mock import MagicMock
 
 import pytest
+
+from dialoguekit.core.dialogue import Dialogue
+from dialoguekit.core.intent import Intent
+from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.core.simulation_domain import SimulationDomain
@@ -68,6 +73,34 @@ def item_collection(domain: SimulationDomain):
 
 
 @pytest.fixture
+def dialogues() -> List[Dialogue]:
+    """Loads annotated test dialogues."""
+    return json_to_dialogues(
+        "tests/data/annotated_dialogues.json",
+        agent_ids=["Agent"],
+        user_ids=["User"],
+    )
+
+
+@pytest.fixture
 def mock_ollama_interface() -> OllamaLLMInterface:
     """Mock Ollama LLM interface fixture."""
     return MagicMock(spec=OllamaLLMInterface)
+
+
+@pytest.fixture
+def recommendation_intents() -> List[Intent]:
+    """Recommendation intent fixture."""
+    return [Intent("REC-S"), Intent("REC-E")]
+
+
+@pytest.fixture
+def acceptance_intents() -> List[Intent]:
+    """Acceptance intent fixture."""
+    return [Intent("ACC")]
+
+
+@pytest.fixture
+def rejection_intents() -> List[Intent]:
+    """Rejection intent fixture."""
+    return [Intent("REJ")]
