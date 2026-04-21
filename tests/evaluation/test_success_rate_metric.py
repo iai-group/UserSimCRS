@@ -164,7 +164,6 @@ def test_success_rate_metric_accepted_2_rounds(
             dialogue_acts=[DialogueAct(Intent("ACC"))],
         )
     )
-    # 2 round
     dialogue.add_utterance(
         AnnotatedUtterance(
             text="rec2",
