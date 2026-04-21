@@ -5,7 +5,7 @@ import json
 import os
 from collections import defaultdict
 from statistics import mean, stdev
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 import confuse
 from dialoguekit.core.dialogue import Dialogue
@@ -62,7 +62,8 @@ def parse_args() -> argparse.Namespace:
         help="Metrics to compute.",
     )
     parser.add_argument(
-        "--output",
+        "--output-dir",
+        dest="output_dir",
         type=str,
         help="Directory to save evaluation results and metadata.",
     )
@@ -117,12 +118,16 @@ def load_config(args: argparse.Namespace) -> confuse.Configuration:
         config.set_file(args.config_file)
     config.set_args(args, dots=True)
 
-    output_dir = config["output"].get()
+    validate_config(config)
+
+    output_dir = config["output_dir"].get()
     output_stem, output_extension = os.path.splitext(output_dir)
     if output_extension:
         output_dir = output_stem
     os.makedirs(output_dir, exist_ok=True)
-    with open(os.path.join(output_dir, "config.meta.yaml"), "w") as f:
+    with open(
+        os.path.join(output_dir, "config_evaluation.meta.yaml"), "w"
+    ) as f:
         f.write(config.dump())
 
     return config
@@ -135,10 +140,10 @@ def validate_config(config: confuse.Configuration) -> None:
         config: Configuration generated from YAML configuration file.
 
     Raises:
-        ValueError: If quality evaluation is requested without an LLM
-            interface, if an unknown quality aspect is configured, or if
-            dialogue annotation is requested without user and agent NLU
-            sections.
+      ValueError: If quality evaluation is requested without an LLM
+        interface, if an unknown quality aspect is configured, or if
+        dialogue annotation is requested without user and agent NLU
+        sections.
     """
     metrics = config["metrics"].get()
     if "quality" in metrics and "quality_llm_interface" not in config:
@@ -166,43 +171,17 @@ def validate_config(config: confuse.Configuration) -> None:
             )
 
 
-def load_nlu(
-    config: confuse.Configuration, nlu_config_key: str, name: str
-) -> Any:
-    """Loads one NLU component from an evaluation config section.
-
-    Args:
-        config: Evaluation configuration.
-        nlu_config_key: Name of the NLU section to load.
-        name: Name for the temporary NLU configuration.
-
-    Returns:
-        NLU component.
-    """
-    nlu_config = confuse.Configuration(name)
-    nlu_config.set(
-        {
-            "dialogues": config["dialogues"].get(),
-            "nlu": config[nlu_config_key].get(),
-        }
-    )
-    return get_NLU(nlu_config)
-
-
 def annotate_for_metrics(
     dialogues: List[Dialogue], config: confuse.Configuration
 ) -> None:
-    """Annotates dialogues when requested by configuration.
+    """Annotates dialogues for metrics that require dialogue acts.
 
     Args:
         dialogues: Dialogues to annotate in place.
         config: Evaluation configuration.
     """
-    if not config["annotate_dialogues"].get():
-        return
-
-    user_nlu = load_nlu(config, "user_nlu", "User NLU Configuration")
-    agent_nlu = load_nlu(config, "agent_nlu", "Agent NLU Configuration")
+    user_nlu = get_NLU(config, nlu_config_key="user_nlu")
+    agent_nlu = get_NLU(config, nlu_config_key="agent_nlu")
     annotate_dialogues(dialogues, user_nlu, agent_nlu)
 
 
@@ -233,31 +212,6 @@ def get_summary_by_agent(
             "stdev": stdev(agent_scores) if len(agent_scores) > 1 else 0.0,
         }
         for agent_id, agent_scores in grouped_scores.items()
-    }
-
-
-def get_utility_intents(
-    config: confuse.Configuration,
-) -> Dict[str, List[Intent]]:
-    """Builds intent lists used by utility metrics.
-
-    Args:
-        config: Evaluation configuration.
-
-    Returns:
-        Utility intent lists keyed by metric argument name.
-    """
-    return {
-        "recommendation_intents": [
-            Intent(label)
-            for label in config["recommendation_intent_labels"].get()
-        ],
-        "acceptance_intents": [
-            Intent(label) for label in config["accept_intent_labels"].get()
-        ],
-        "rejection_intents": [
-            Intent(label) for label in config["reject_intent_labels"].get()
-        ],
     }
 
 
@@ -296,27 +250,25 @@ def build_metric_registry(
 
 
 def evaluate_metric(
-    metric_name: str,
     metric: BaseMetric,
     dialogues: List[Dialogue],
-    quality_aspects: List[str],
-    utility_intents: Dict[str, List[Intent]],
+    quality_aspects: Optional[List[str]] = None,
+    utility_intents: Optional[Dict[str, List[Intent]]] = None,
 ) -> Dict[str, Any]:
     """Evaluates one metric and returns serialized results.
 
     Args:
-        metric_name: Name of the metric to evaluate.
         metric: Metric instance.
         dialogues: Dialogues to evaluate.
         quality_aspects: Quality aspects to evaluate for quality metrics.
-        utility_intents: Utility intent arguments.
+        utility_intents: Utility intent arguments for utility metrics.
 
     Returns:
         Serialized metric result.
     """
-    if metric_name == "quality":
+    if metric.name == "quality":
         aspect_results = {}
-        for aspect in quality_aspects:
+        for aspect in quality_aspects or []:
             scores = metric.evaluate_dialogues(dialogues, aspect=aspect)
             aspect_results[aspect] = {
                 "per_dialogue": scores,
@@ -324,12 +276,13 @@ def evaluate_metric(
             }
         return {"aspects": aspect_results}
 
-    if metric_name in {
+    utility_intents = utility_intents or {}
+    if metric.name in {
         "success_rate",
         "successful_recommendation_round_ratio",
     }:
         scores = metric.evaluate_dialogues(dialogues, **utility_intents)
-    elif metric_name == "reward_per_dialogue_length":
+    elif metric.name == "reward_per_dialogue_length":
         scores = metric.evaluate_dialogues(
             dialogues,
             acceptance_intents=utility_intents["acceptance_intents"],
@@ -376,12 +329,23 @@ def main() -> None:
     config = load_config(args)
 
     metrics = config["metrics"].get()
-    validate_config(config)
     quality_aspects = config["quality_aspects"].get()
     dialogues = json_to_dialogues(config["dialogues"].get())
-    annotate_for_metrics(dialogues, config)
+    if config["annotate_dialogues"].get():
+        annotate_for_metrics(dialogues, config)
 
-    utility_intents = get_utility_intents(config)
+    utility_intents = {
+        "recommendation_intents": [
+            Intent(label)
+            for label in config["recommendation_intent_labels"].get()
+        ],
+        "acceptance_intents": [
+            Intent(label) for label in config["accept_intent_labels"].get()
+        ],
+        "rejection_intents": [
+            Intent(label) for label in config["reject_intent_labels"].get()
+        ],
+    }
     metric_registry = build_metric_registry(config, metrics)
 
     results: Dict[str, Any] = {
@@ -392,14 +356,13 @@ def main() -> None:
 
     for metric_name in metrics:
         results["metrics"][metric_name] = evaluate_metric(
-            metric_name,
             metric_registry[metric_name],
             dialogues,
-            quality_aspects,
-            utility_intents,
+            quality_aspects=quality_aspects,
+            utility_intents=utility_intents,
         )
 
-    output_dir = config["output"].get()
+    output_dir = config["output_dir"].get()
     output_stem, output_extension = os.path.splitext(output_dir)
     if output_extension:
         output_dir = output_stem

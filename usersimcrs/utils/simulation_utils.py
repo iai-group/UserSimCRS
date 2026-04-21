@@ -188,11 +188,12 @@ def _get_agenda_based_simulator_config(
     }
 
 
-def get_NLU(config: confuse.Configuration) -> NLU:
+def get_NLU(config: confuse.Configuration, nlu_config_key: str = "nlu") -> NLU:
     """Returns an NLU component.
 
     Args:
         config: Configuration for the simulation.
+        nlu_config_key: Configuration key containing the NLU settings.
 
     Raises:
         ValueError: Unsupported intent classifier.
@@ -200,7 +201,7 @@ def get_NLU(config: confuse.Configuration) -> NLU:
     Returns:
         An NLU component.
     """
-    nlu_config = config["nlu"].get()
+    nlu_config = config[nlu_config_key].get()
     intent_classifier = nlu_config.get("type")
     if intent_classifier == "cosine":
         # NLU without slot annotators

@@ -1,10 +1,11 @@
 dialogues: data/datasets/moviebot/annotated_dialogues.json
+debug: False
 metrics:
   - satisfaction
   - success_rate
   - successful_recommendation_round_ratio
   - reward_per_dialogue_length
-output: data/evaluation/moviebot_non_quality_results
+output_dir: data/evaluation/moviebot_non_quality_results
 
 quality_llm_interface:
   llm_interface_class_path: "usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface"
