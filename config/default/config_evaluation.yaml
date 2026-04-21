@@ -1,0 +1,36 @@
+dialogues: data/datasets/moviebot/annotated_dialogues.json
+debug: False
+metrics:
+  - satisfaction
+  - success_rate
+  - successful_recommendation_round_ratio
+  - reward_per_dialogue_length
+output_dir: data/evaluation/moviebot_non_quality_results
+
+quality_llm_interface:
+  llm_interface_class_path: "usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface"
+  llm_interface_args:
+    configuration_path: config/llm_interface/config_ollama_default.yaml
+    default_response: ""
+quality_aspects:
+  - REC_RELEVANCE
+  - COM_STYLE
+  - FLUENCY
+  - CONV_FLOW
+  - OVERALL_SAT
+
+annotate_dialogues: False
+user_nlu:
+  type: "cosine"
+agent_nlu:
+  type: "cosine"
+
+recommendation_intent_labels:
+  - REVEAL
+  - REVEAL.SIMILAR
+  - REVEAL.NONE
+  - REVEAL.REVISE
+accept_intent_labels:
+  - NOTE.ACCEPT
+reject_intent_labels:
+  - NOTE.DISLIKE
