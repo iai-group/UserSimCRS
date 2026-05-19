@@ -30,6 +30,10 @@ from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.llm_interfaces.llm_interface import LLMInterface
+from usersimcrs.simulator.llm.prompt.stop_prompt import DEFAULT_STOP_DEFINITION
+from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
+    DEFAULT_TASK_DEFINITION,
+)
 from usersimcrs.user_modeling.persona import Persona
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
@@ -311,11 +315,13 @@ def _get_llm_single_prompt_user_simulator_config(
 
     llm_interface = get_llm_interface(config["llm_interface"].get())
 
-    task_definition = config["task_definition"].get()
+    task_definition = config["task_definition"].get(
+        confuse.String(default=DEFAULT_TASK_DEFINITION)
+    )
 
     persona = None
     if "persona" in config:
-        persona = Persona(config["persona"].get())
+        persona = Persona.from_config(config["persona"].get())
 
     return {
         "domain": domain,
@@ -356,5 +362,7 @@ def _get_llm_dual_prompt_user_simulator_config(
         Configuration of the dual prompt user simulator.
     """
     simulator_config = _get_llm_single_prompt_user_simulator_config(config)
-    simulator_config["stop_definition"] = config["stop_definition"].get()
+    simulator_config["stop_definition"] = config["stop_definition"].get(
+        confuse.String(default=DEFAULT_STOP_DEFINITION)
+    )
     return simulator_config

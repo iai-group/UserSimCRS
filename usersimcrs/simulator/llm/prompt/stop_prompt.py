@@ -67,6 +67,11 @@ class StopPrompt(Prompt):
                 ]
             )
             initial_prompt += f"PERSONA: {stringified_characteristics}\n"
+            if self.persona.persona_description:
+                initial_prompt += (
+                    "PERSONA DESCRIPTION: "
+                    f"{self.persona.persona_description}\n"
+                )
 
         initial_prompt += "\nHISTORY:\n"
         return initial_prompt
