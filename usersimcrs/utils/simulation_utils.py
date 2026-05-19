@@ -315,7 +315,7 @@ def _get_llm_single_prompt_user_simulator_config(
 
     persona = None
     if "persona" in config:
-        persona = Persona(config["persona"].get())
+        persona = Persona.from_config(config["persona"].get())
 
     return {
         "domain": domain,

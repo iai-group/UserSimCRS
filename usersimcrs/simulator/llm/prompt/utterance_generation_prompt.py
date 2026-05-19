@@ -68,6 +68,11 @@ class UtteranceGenerationPrompt(Prompt):
                 ]
             )
             initial_prompt += f"PERSONA: {stringified_characteristics}\n"
+            if self.persona.persona_description:
+                initial_prompt += (
+                    "PERSONA DESCRIPTION: "
+                    f"{self.persona.persona_description}\n"
+                )
         else:
             initial_prompt += (
                 "Be precise with the REQUIREMENTS, clear and concise.\n"
