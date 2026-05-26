@@ -6,6 +6,9 @@ from usersimcrs.user_modeling.pkg_preference_model import PKGPreferenceModel
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
 )
+from usersimcrs.user_modeling.structured_preference_model import (
+    StructuredPreferenceModel,
+)
 from usersimcrs.user_modeling.persona import Persona
 
 __all__ = [
@@ -13,5 +16,6 @@ __all__ = [
     "PreferenceModel",
     "PKGPreferenceModel",
     "SimplePreferenceModel",
+    "StructuredPreferenceModel",
     "Persona",
 ]
