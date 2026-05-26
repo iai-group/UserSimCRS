@@ -13,6 +13,7 @@ from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.simulator.llm.prompt.prompt import Prompt
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 from usersimcrs.user_modeling.persona import Persona
 
 DEFAULT_TASK_DEFINITION = (
@@ -35,6 +36,7 @@ class UtteranceGenerationPrompt(Prompt):
         item_type: str,
         prompt_definition: str = DEFAULT_TASK_DEFINITION,
         persona: Persona = None,
+        preference_model: PreferenceModel = None,
     ) -> None:
         """Initializes the prompt.
 
@@ -44,9 +46,14 @@ class UtteranceGenerationPrompt(Prompt):
             prompt_definition: The definition of the task to be performed.
               Defaults to DEFAULT_TASK_DEFINITION.
             persona: The persona of the user. Defaults to None.
+            preference_model: Preference model. Defaults to None.
         """
         super().__init__(
-            information_need, item_type, prompt_definition, persona
+            information_need,
+            item_type,
+            prompt_definition,
+            persona,
+            preference_model,
         )
 
     def build_new_prompt(self) -> str:

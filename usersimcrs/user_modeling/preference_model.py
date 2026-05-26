@@ -174,6 +174,13 @@ class PreferenceModel(ABC):
 
         return value, preference
 
+    def get_preference_summary(self, max_preferences: int = 10) -> str:
+        """Returns a compact preference summary for prompts."""
+        return ""
+
+    def update_from_dialogue(self, dialogue) -> None:
+        """Updates preferences from dialogue if supported by the model."""
+
     @classmethod
     def load_preference_model(cls, path: str) -> PreferenceModel:
         """Loads preference model from a file.

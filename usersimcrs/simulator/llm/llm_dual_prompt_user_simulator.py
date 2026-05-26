@@ -19,6 +19,7 @@ from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
     UtteranceGenerationPrompt,
 )
 from usersimcrs.simulator.user_simulator import UserSimulator
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 from usersimcrs.user_modeling.persona import Persona
 
 
@@ -33,6 +34,7 @@ class LLMDualPromptUserSimulator(UserSimulator):
         task_definition: str = DEFAULT_TASK_DEFINITION,
         stop_definition: str = DEFAULT_STOP_DEFINITION,
         persona: Persona = None,
+        preference_model: PreferenceModel = None,
     ) -> None:
         """Initializes the user simulator.
 
@@ -45,14 +47,24 @@ class LLMDualPromptUserSimulator(UserSimulator):
             stop_definition: Definition of the stop task. Defaults to
               DEFAULT_STOP_DEFINITION.
             persona: Persona of the user. Defaults to None.
+            preference_model: Preference model. Defaults to None.
         """
         super().__init__(id, domain, item_collection)
         self.llm_interface = llm_interface
+        self.preference_model = preference_model
         self.generation_prompt = UtteranceGenerationPrompt(
-            self.information_need, item_type, task_definition, persona
+            self.information_need,
+            item_type,
+            task_definition,
+            persona,
+            preference_model,
         )
         self.stop_prompt = StopPrompt(
-            self.information_need, item_type, stop_definition, persona
+            self.information_need,
+            item_type,
+            stop_definition,
+            persona,
+            preference_model,
         )
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:

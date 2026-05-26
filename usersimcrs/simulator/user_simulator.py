@@ -53,4 +53,7 @@ class UserSimulator(User, ABC):
         response = self._generate_response(utterance)
         if not isinstance(response, AnnotatedUtterance):
             response = AnnotatedUtterance.from_utterance(response)
+        preference_model = getattr(self, "preference_model", None)
+        if preference_model:
+            preference_model.update_from_dialogue(response)
         self._dialogue_connector.register_user_utterance(response)

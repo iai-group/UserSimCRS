@@ -30,10 +30,8 @@ from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
 )
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
 from usersimcrs.llm_interfaces.llm_interface import LLMInterface
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 from usersimcrs.user_modeling.persona import Persona
-from usersimcrs.user_modeling.simple_preference_model import (
-    SimplePreferenceModel,
-)
 
 
 def map_path_to_class(cls_path: str) -> Type:
@@ -149,11 +147,8 @@ def _get_agenda_based_simulator_config(
         config["historical_ratings_ratio"].get(confuse.Number(default=0.8))
     )
 
-    preference_model = SimplePreferenceModel(
-        domain,
-        item_collection,
-        historical_ratings,
-        historical_user_id="13",
+    preference_model = _get_preference_model(
+        config, domain, item_collection, historical_ratings
     )
 
     # Loads dialogue sample
@@ -309,6 +304,16 @@ def _get_llm_single_prompt_user_simulator_config(
             delimiter=config["csv_delimiter"].get(confuse.String(default=",")),
         )
 
+    ratings = Ratings(item_collection)
+    if config["ratings"].get() is not None:
+        ratings.load_ratings_csv(file_path=config["ratings"].get())
+    historical_ratings, _ = ratings.create_split(
+        config["historical_ratings_ratio"].get(confuse.Number(default=0.8))
+    )
+    preference_model = _get_preference_model(
+        config, domain, item_collection, historical_ratings
+    )
+
     llm_interface = get_llm_interface(config["llm_interface"].get())
 
     task_definition = config["task_definition"].get()
@@ -324,6 +329,7 @@ def _get_llm_single_prompt_user_simulator_config(
         "item_type": item_type,
         "task_definition": task_definition,
         "persona": persona,
+        "preference_model": preference_model,
     }
 
 
@@ -342,6 +348,39 @@ def get_llm_interface(config: Dict[str, Any]) -> LLMInterface:
     llm_interface_args = config.get("llm_interface_args", {})
     llm_interface = llm_interface_class(**llm_interface_args)
     return llm_interface
+
+
+def _get_preference_model(
+    config: confuse.Configuration,
+    domain: SimulationDomain,
+    item_collection: ItemCollection,
+    historical_ratings: Ratings,
+) -> PreferenceModel:
+    """Initializes the configured preference model."""
+    preference_model_config = {}
+    if "preference_model" in config:
+        preference_model_config = config["preference_model"].get()
+
+    preference_model_class_path = preference_model_config.get(
+        "class_path",
+        "usersimcrs.user_modeling.simple_preference_model."
+        "SimplePreferenceModel",
+    )
+    preference_model_args = preference_model_config.get("args", {})
+
+    preference_model_class = map_path_to_class(preference_model_class_path)
+    if not issubclass(preference_model_class, PreferenceModel):
+        raise TypeError(
+            f"Preference model class {preference_model_class} must inherit "
+            "from PreferenceModel."
+        )
+
+    return preference_model_class(
+        domain,
+        item_collection,
+        historical_ratings,
+        **preference_model_args,
+    )
 
 
 def _get_llm_dual_prompt_user_simulator_config(

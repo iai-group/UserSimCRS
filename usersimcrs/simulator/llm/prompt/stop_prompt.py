@@ -2,6 +2,7 @@
 
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.simulator.llm.prompt.prompt import Prompt
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 from usersimcrs.user_modeling.persona import Persona
 
 DEFAULT_STOP_DEFINITION = (
@@ -22,6 +23,7 @@ class StopPrompt(Prompt):
         item_type: str,
         prompt_definition: str = DEFAULT_STOP_DEFINITION,
         persona: Persona = None,
+        preference_model: PreferenceModel = None,
     ) -> None:
         """Initializes the prompt.
 
@@ -31,9 +33,14 @@ class StopPrompt(Prompt):
             prompt_definition: The definition of the task to be performed.
               Defaults to DEFAULT_STOP_DEFINITION.
             persona: The persona of the user. Defaults to None.
+            preference_model: Preference model. Defaults to None.
         """
         super().__init__(
-            information_need, item_type, prompt_definition, persona
+            information_need,
+            item_type,
+            prompt_definition,
+            persona,
+            preference_model,
         )
 
     @property
@@ -42,6 +49,7 @@ class StopPrompt(Prompt):
         return (
             self._initial_prompt
             + "\n"
+            + self._preference_context
             + self._prompt_context
             + "\n"
             + "CONTINUE: "
