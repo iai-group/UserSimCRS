@@ -56,7 +56,14 @@ class Prompt(ABC):
         if not preference_summary:
             return ""
 
-        return f"USER PREFERENCES: {preference_summary}\n"
+        return (
+            "USER PREFERENCES: "
+            f"{preference_summary}\n"
+            "Treat these preferences as soft background tastes, not as new "
+            "requirements. Use them to shape what the user accepts, "
+            "rejects, asks to avoid, or follows up on. Do not force every "
+            "liked preference into the opening request.\n"
+        )
 
     @abstractmethod
     def build_new_prompt(self, **kwargs) -> str:
