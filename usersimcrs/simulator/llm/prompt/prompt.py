@@ -1,7 +1,7 @@
 """Interface for prompt."""
 
 from abc import ABC, abstractmethod
-from typing import Any, Optional
+from typing import Optional
 
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
@@ -67,7 +67,7 @@ class Prompt(ABC):
         )
 
     @abstractmethod
-    def build_new_prompt(self, **kwargs: Any) -> str:
+    def build_new_prompt(self, **kwargs) -> str:
         """Builds the initial prompt without any context.
 
         Raises:
