@@ -24,10 +24,27 @@ class StructuredPreferenceModel(PreferenceModel):
     NEGATIVE_PATTERNS = (
         r"\b(?:avoid|nothing|not|no|without|not into|not too|too much)\b.*"
         r"\b{value}\b",
+        r"\bnot interested in\b.*\b{value}\b",
+        r"\b(?:anything but|other than|except|rather than)\b.*\b{value}\b",
+        r"\bnot a[n]?\b.*\b{value}\b",
+        r"\bnot in\b.*\b{value}\b(?:\s+genre)?\b",
+        r"\bwithout\b.*\b{value}\b",
         r"\b{value}\s+(?:heavy|packed)\b",
     )
     POSITIVE_PATTERNS = (
         r"\b(?:like|love|prefer|enjoy)\b.*\b{value}\b",
+        r"\blooking for\b.*\b{value}\b",
+        r"\binterested in\b.*\b{value}\b",
+        r"\breally looking for\b.*\b{value}\b",
+        r"\bcan you recommend\b.*\b{value}\b",
+        r"\bcould you suggest\b.*\b{value}\b",
+        r"\b(?:with|about|featuring|set in|centered around|based on)\b.*"
+        r"\b{value}\b",
+        r"\bthemes? of\b.*\b{value}\b",
+        r"\bmore\b.*\b{value}\b",
+        r"\bwithin the\b.*\b{value}\b(?:\s+genre)?\b",
+        r"\bin the\b.*\b{value}\b(?:\s+genre)?\b",
+        r"\b{value}\b.*\bover other genres\b",
         r"\b{value}\s+focused\b",
     )
     DIALOGUE_STOP_TOKENS = {
@@ -67,9 +84,6 @@ class StructuredPreferenceModel(PreferenceModel):
         self._long_term_slot_value_counts: Dict[Tuple[str, str], int] = {}
         self._session_slot_value_preferences = UserPreferences(self._user_id)
         self._session_slot_value_counts: Dict[Tuple[str, str], int] = {}
-        self._pending_session_slot_value_updates: Dict[
-            Tuple[str, str], List[float]
-        ] = {}
         self._catalog_slot_values = self._collect_catalog_slot_values()
         self._initialize_preferences()
 
@@ -220,6 +234,10 @@ class StructuredPreferenceModel(PreferenceModel):
     ) -> None:
         """Updates one slot-value preference.
 
+        Existing long-term preferences are updated in place. New preferences
+        are first tracked in the session layer and may later be promoted to
+        long-term memory.
+
         Args:
             slot: Slot name.
             value: Slot value.
@@ -228,6 +246,50 @@ class StructuredPreferenceModel(PreferenceModel):
         self._assert_slot_exists(slot)
         value = self._normalize_preference_value(value)
 
+        if (
+            self._long_term_slot_value_preferences.get_preference(slot, value)
+            is not None
+        ):
+            self._update_existing_preference(
+                self._long_term_slot_value_preferences,
+                self._long_term_slot_value_counts,
+                slot,
+                value,
+                score,
+            )
+            return
+
+        self._update_session_preference(slot, value, score)
+
+    def _update_existing_preference(
+        self,
+        preference_store: UserPreferences,
+        preference_counts: Dict[Tuple[str, str], int],
+        slot: str,
+        value: str,
+        score: float,
+    ) -> None:
+        """Updates an already stored preference by moving it toward a signal."""
+        key = (slot, value)
+        old_score = preference_store.get_preference(slot, value)
+        old_count = preference_counts.get(key, 0)
+
+        if old_score is None:
+            preference_store.set_preference(slot, value, score)
+            preference_counts[key] = 1
+            return
+
+        direction = 1 if score > 0 else -1
+        new_score = max(
+            -1.0, min(1.0, old_score + direction * self.UPDATE_STEP)
+        )
+        preference_store.set_preference(slot, value, new_score)
+        preference_counts[key] = max(1, old_count) + 1
+
+    def _update_session_preference(
+        self, slot: str, value: str, score: float
+    ) -> None:
+        """Tracks a new preference inside the current dialogue session."""
         key = (slot, value)
         old_score = self._session_slot_value_preferences.get_preference(
             slot, value
@@ -235,27 +297,21 @@ class StructuredPreferenceModel(PreferenceModel):
         old_count = self._session_slot_value_counts.get(key, 0)
 
         if old_score is not None and old_count > 0:
-            if score > old_score:
-                new_score = min(old_score + self.UPDATE_STEP, score)
-            else:
-                new_score = max(old_score - self.UPDATE_STEP, score)
-            self._session_slot_value_preferences.set_preference(
-                slot, value, new_score
+            self._update_existing_preference(
+                self._session_slot_value_preferences,
+                self._session_slot_value_counts,
+                slot,
+                value,
+                score,
             )
-            self._session_slot_value_counts[key] = old_count + 1
             return
 
-        pending_scores = self._pending_session_slot_value_updates.setdefault(
-            key, []
-        )
-        pending_scores.append(score)
-
-        new_score = sum(pending_scores) / len(pending_scores)
+        direction = 1 if score > 0 else -1
+        new_score = direction * (2 * self.UPDATE_STEP)
         self._session_slot_value_preferences.set_preference(
             slot, value, new_score
         )
-        self._session_slot_value_counts[key] = len(pending_scores)
-        del self._pending_session_slot_value_updates[key]
+        self._session_slot_value_counts[key] = 1
 
     def _apply_text_update(self, text: str) -> None:
         """Applies preference updates for one user utterance.
@@ -273,7 +329,6 @@ class StructuredPreferenceModel(PreferenceModel):
         """Clears per-dialogue preference state."""
         self._session_slot_value_preferences = UserPreferences(self._user_id)
         self._session_slot_value_counts.clear()
-        self._pending_session_slot_value_updates.clear()
 
     def _promote_session_preferences_to_long_term(self) -> None:
         """Promotes well-confirmed session preferences to long-term memory."""
