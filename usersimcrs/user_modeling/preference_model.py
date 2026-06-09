@@ -174,12 +174,15 @@ class PreferenceModel(ABC):
 
         return value, preference
 
+    @abstractmethod
     def get_preference_summary(self, max_preferences: int = 10) -> str:
         """Returns a compact preference summary for prompts."""
-        return ""
+        raise NotImplementedError
 
+    @abstractmethod
     def update_from_dialogue(self, dialogue) -> None:
         """Updates preferences from dialogue if supported by the model."""
+        raise NotImplementedError
 
     @classmethod
     def load_preference_model(cls, path: str) -> PreferenceModel:

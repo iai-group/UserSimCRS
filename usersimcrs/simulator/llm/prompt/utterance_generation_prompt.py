@@ -9,6 +9,8 @@ Reference: Terragni, S., et al. (2023). "In-Context Learning User Simulators
 for Task-Oriented Dialog Systems", arXiv 2306.00774.
 """
 
+from typing import Optional
+
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
 from usersimcrs.core.information_need import InformationNeed
@@ -35,8 +37,8 @@ class UtteranceGenerationPrompt(Prompt):
         information_need: InformationNeed,
         item_type: str,
         prompt_definition: str = DEFAULT_TASK_DEFINITION,
-        persona: Persona = None,
-        preference_model: PreferenceModel = None,
+        persona: Optional[Persona] = None,
+        preference_model: Optional[PreferenceModel] = None,
     ) -> None:
         """Initializes the prompt.
 
@@ -74,12 +76,10 @@ class UtteranceGenerationPrompt(Prompt):
                     for key, value in self.persona.characteristics.items()
                 ]
             )
-            initial_prompt += f"PERSONA: {stringified_characteristics}\n"
-            if self.persona.persona_description:
-                initial_prompt += (
-                    "PERSONA DESCRIPTION: "
-                    f"{self.persona.persona_description}\n"
-                )
+            persona_text = (
+                self.persona.persona_description or stringified_characteristics
+            )
+            initial_prompt += f"PERSONA: {persona_text}\n"
         else:
             initial_prompt += (
                 "Be precise with the REQUIREMENTS, clear and concise.\n"

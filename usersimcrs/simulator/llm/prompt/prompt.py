@@ -1,6 +1,7 @@
 """Interface for prompt."""
 
 from abc import ABC, abstractmethod
+from typing import Any, Optional
 
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
@@ -15,8 +16,8 @@ class Prompt(ABC):
         information_need: InformationNeed,
         item_type: str,
         prompt_definition: str,
-        persona: Persona = None,
-        preference_model: PreferenceModel = None,
+        persona: Optional[Persona] = None,
+        preference_model: Optional[PreferenceModel] = None,
     ) -> None:
         """Initializes the prompt.
 
@@ -66,7 +67,7 @@ class Prompt(ABC):
         )
 
     @abstractmethod
-    def build_new_prompt(self, **kwargs) -> str:
+    def build_new_prompt(self, **kwargs: Any) -> str:
         """Builds the initial prompt without any context.
 
         Raises:

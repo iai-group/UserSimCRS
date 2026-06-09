@@ -1,5 +1,7 @@
 """Define the prompt for stopping the conversation."""
 
+from typing import Optional
+
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.simulator.llm.prompt.prompt import Prompt
 from usersimcrs.user_modeling.preference_model import PreferenceModel
@@ -22,8 +24,8 @@ class StopPrompt(Prompt):
         information_need: InformationNeed,
         item_type: str,
         prompt_definition: str = DEFAULT_STOP_DEFINITION,
-        persona: Persona = None,
-        preference_model: PreferenceModel = None,
+        persona: Optional[Persona] = None,
+        preference_model: Optional[PreferenceModel] = None,
     ) -> None:
         """Initializes the prompt.
 
@@ -74,12 +76,10 @@ class StopPrompt(Prompt):
                     for key, value in self.persona.characteristics.items()
                 ]
             )
-            initial_prompt += f"PERSONA: {stringified_characteristics}\n"
-            if self.persona.persona_description:
-                initial_prompt += (
-                    "PERSONA DESCRIPTION: "
-                    f"{self.persona.persona_description}\n"
-                )
+            persona_text = (
+                self.persona.persona_description or stringified_characteristics
+            )
+            initial_prompt += f"PERSONA: {persona_text}\n"
 
         initial_prompt += "\nHISTORY:\n"
         return initial_prompt

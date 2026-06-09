@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 import re
-from typing import Dict, Iterable, List, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 
 from dialoguekit.participant.user_preferences import UserPreferences
 
@@ -20,6 +20,16 @@ class StructuredPreferenceModel(PreferenceModel):
 
     UPDATE_STEP = 0.25
     PREFERENCE_SCORE = 0.7
+    NEW_PREFERENCE_MIN_CONFIRMATIONS = 2
+    NEGATIVE_PATTERNS = (
+        r"\b(?:avoid|nothing|not|no|without|not into|not too|too much)\b.*"
+        r"\b{value}\b",
+        r"\b{value}\s+(?:heavy|packed)\b",
+    )
+    POSITIVE_PATTERNS = (
+        r"\b(?:like|love|prefer|enjoy)\b.*\b{value}\b",
+        r"\b{value}\s+focused\b",
+    )
     DIALOGUE_STOP_TOKENS = {
         "exit",
         "goodbye",
@@ -29,32 +39,13 @@ class StructuredPreferenceModel(PreferenceModel):
         "end",
         "giveup",
     }
-    SEARCH_GOAL_CUES = {
-        "looking for",
-        "want a movie",
-        "want something",
-        "can you recommend",
-        "recommend me",
-        "i'm after",
-        "i am after",
-    }
-    NEGATIVE_CUES = (
-        "don't like",
-        "do not like",
-        "not like",
-        "dislike",
-        "hate",
-        "avoid",
-        "not interested",
-    )
-    POSITIVE_CUES = ("like", "love", "prefer", "enjoy")
 
     def __init__(
         self,
         domain: SimulationDomain,
         item_collection: ItemCollection,
         historical_ratings: Ratings,
-        historical_user_id: str = None,
+        historical_user_id: Optional[str] = None,
         preference_threshold: float = PreferenceModel.PREFERENCE_THRESHOLD,
     ) -> None:
         """Initializes structured preferences.
@@ -74,8 +65,23 @@ class StructuredPreferenceModel(PreferenceModel):
         self._item_preferences = UserPreferences(self._user_id)
         self._slot_value_preferences = UserPreferences(self._user_id)
         self._slot_value_counts: Dict[Tuple[str, str], int] = {}
+        self._pending_slot_value_updates: Dict[
+            Tuple[str, str], List[float]
+        ] = {}
         self._dialogue_buffer: List[str] = []
         self._initialize_preferences()
+
+    @staticmethod
+    def _normalize_preference_value(value: str) -> str:
+        """Normalizes preference values for storage and matching.
+
+        Args:
+            value: Raw preference value.
+
+        Returns:
+            Value with normalized spacing and hyphens.
+        """
+        return " ".join(str(value).lower().replace("-", " ").split())
 
     def _initialize_preferences(self) -> None:
         """Initializes preferences from historical ratings.
@@ -147,7 +153,7 @@ class StructuredPreferenceModel(PreferenceModel):
                 continue
             values = value if isinstance(value, list) else [value]
             for slot_value in values:
-                yield slot, str(slot_value)
+                yield slot, self._normalize_preference_value(slot_value)
 
     def get_item_preference(self, item_id: str) -> float:
         """Returns preference score for an item.
@@ -173,13 +179,14 @@ class StructuredPreferenceModel(PreferenceModel):
             Preference score for the slot-value pair, or 0 if unavailable.
         """
         self._assert_slot_exists(slot)
+        value = self._normalize_preference_value(value)
         preference = self._slot_value_preferences.get_preference(slot, value)
         return preference if preference is not None else 0
 
     def update_slot_value_preference(
         self, slot: str, value: str, score: float
     ) -> None:
-        """Updates a slot-value preference.
+        """Updates one slot-value preference.
 
         Args:
             slot: Slot name.
@@ -187,18 +194,30 @@ class StructuredPreferenceModel(PreferenceModel):
             score: Preference score to store.
         """
         self._assert_slot_exists(slot)
+        value = self._normalize_preference_value(value)
+
         key = (slot, value)
         old_score = self._slot_value_preferences.get_preference(slot, value)
         old_count = self._slot_value_counts.get(key, 0)
-        if old_score is None or old_count == 0:
-            new_score = score
-        else:
+
+        if old_score is not None and old_count > 0:
             if score > old_score:
                 new_score = min(old_score + self.UPDATE_STEP, score)
             else:
                 new_score = max(old_score - self.UPDATE_STEP, score)
+            self._slot_value_preferences.set_preference(slot, value, new_score)
+            self._slot_value_counts[key] = old_count + 1
+            return
+
+        pending_scores = self._pending_slot_value_updates.setdefault(key, [])
+        pending_scores.append(score)
+        if len(pending_scores) < self.NEW_PREFERENCE_MIN_CONFIRMATIONS:
+            return
+
+        new_score = sum(pending_scores) / len(pending_scores)
         self._slot_value_preferences.set_preference(slot, value, new_score)
-        self._slot_value_counts[key] = old_count + 1
+        self._slot_value_counts[key] = len(pending_scores)
+        del self._pending_slot_value_updates[key]
 
     def _apply_text_update(self, text: str) -> None:
         """Applies preference updates for one buffered utterance.
@@ -206,19 +225,9 @@ class StructuredPreferenceModel(PreferenceModel):
         Args:
             text: User utterance collected during the dialogue.
         """
-        text_lower = text.lower()
-        global_score = self._score_text(text)
-        matched_values = self._extract_matched_values(text_lower)
-        if not matched_values:
-            return
-
-        has_search_goal_cue = any(
-            cue in text_lower for cue in self.SEARCH_GOAL_CUES
-        )
-        for slot, value in matched_values:
-            score = self._score_value_in_text(
-                text_lower, value.lower(), global_score, has_search_goal_cue
-            )
+        text_lower = self._normalize_preference_value(text)
+        for slot, value in self._extract_matched_values(text_lower):
+            score = self._score_value_in_text(text_lower, value)
             if score != 0:
                 self.update_slot_value_preference(slot, value, score)
 
@@ -235,15 +244,13 @@ class StructuredPreferenceModel(PreferenceModel):
         """
         matches: List[Tuple[str, str]] = []
         for slot, value, _ in self._rank_long_term_preferences():
-            if len(value) >= 3 and value.lower() in text_lower:
+            if len(value) >= 3 and value in text_lower:
                 matches.append((slot, value))
 
         filtered_matches: List[Tuple[str, str]] = []
         for slot, value in sorted(matches, key=lambda match: -len(match[1])):
-            value_lower = value.lower()
             if any(
-                value_lower != kept_value.lower()
-                and value_lower in kept_value.lower()
+                value != kept_value and value in kept_value
                 for _, kept_value in filtered_matches
             ):
                 continue
@@ -251,20 +258,12 @@ class StructuredPreferenceModel(PreferenceModel):
         return filtered_matches
 
     @staticmethod
-    def _score_value_in_text(
-        text_lower: str,
-        value_lower: str,
-        global_score: float,
-        has_search_goal_cue: bool,
-    ) -> float:
+    def _score_value_in_text(text_lower: str, value_lower: str) -> float:
         """Scores one matched value using nearby cues.
 
         Args:
             text_lower: Lowercased user utterance.
             value_lower: Lowercased slot value being inspected.
-            global_score: Fallback score computed for the whole utterance.
-            has_search_goal_cue: Whether the utterance looks like a search
-              goal rather than a stable preference.
 
         Returns:
             A local preference score for the matched value.
@@ -275,38 +274,21 @@ class StructuredPreferenceModel(PreferenceModel):
             if value_lower in clause
         ]
         if not contexts:
-            return 0 if has_search_goal_cue else global_score
+            return 0
 
-        negative_prefix_cues = ("avoid", "nothing", "not", "no", "without")
-        for context in contexts:
-            before_value, _, _ = context.partition(value_lower)
-            if any(cue in before_value for cue in negative_prefix_cues):
-                return -StructuredPreferenceModel.PREFERENCE_SCORE
-
-        negative_patterns = (
-            rf"\btoo much\b[^.?!;]{{0,40}}\b{re.escape(value_lower)}\b",
-        )
         for context in contexts:
             if any(
-                re.search(pattern, context) for pattern in negative_patterns
+                re.search(pattern.format(value=re.escape(value_lower)), context)
+                for pattern in StructuredPreferenceModel.NEGATIVE_PATTERNS
             ):
                 return -StructuredPreferenceModel.PREFERENCE_SCORE
-
-        positive_patterns = (
-            rf"\bi\s+like\b[^.?!;]{{0,20}}\b{re.escape(value_lower)}\b",
-            rf"\bi\s+love\b[^.?!;]{{0,20}}\b{re.escape(value_lower)}\b",
-            rf"\bi\s+enjoy\b[^.?!;]{{0,20}}\b{re.escape(value_lower)}\b",
-            rf"\bi\s+prefer\b[^.?!;]{{0,20}}\b{re.escape(value_lower)}\b",
-        )
-        for context in contexts:
             if any(
-                re.search(pattern, context) for pattern in positive_patterns
+                re.search(pattern.format(value=re.escape(value_lower)), context)
+                for pattern in StructuredPreferenceModel.POSITIVE_PATTERNS
             ):
                 return StructuredPreferenceModel.PREFERENCE_SCORE
 
-        if has_search_goal_cue:
-            return 0
-        return global_score
+        return 0
 
     def update_from_dialogue(self, dialogue) -> None:
         """Updates preferences after a completed dialogue.
@@ -328,34 +310,6 @@ class StructuredPreferenceModel(PreferenceModel):
             return
 
         self._dialogue_buffer.append(text)
-
-    @staticmethod
-    def _score_text(text: str) -> float:
-        """Maps simple textual preference cues to a preference score.
-
-        Args:
-            text: User utterance.
-
-        Returns:
-            Positive, negative, or neutral score inferred from coarse cues.
-        """
-        text_lower = text.lower()
-        if any(
-            cue in text_lower for cue in StructuredPreferenceModel.NEGATIVE_CUES
-        ):
-            return -StructuredPreferenceModel.PREFERENCE_SCORE
-
-        if any(
-            cue in text_lower
-            for cue in StructuredPreferenceModel.SEARCH_GOAL_CUES
-        ):
-            return 0
-
-        if any(
-            cue in text_lower for cue in StructuredPreferenceModel.POSITIVE_CUES
-        ):
-            return StructuredPreferenceModel.PREFERENCE_SCORE
-        return 0
 
     def _rank_long_term_preferences(self) -> List[Tuple[str, str, float]]:
         """Ranks long-term slot-value preferences by support and strength.
@@ -401,7 +355,7 @@ class StructuredPreferenceModel(PreferenceModel):
         max_long_term = max(1, max_preferences // 2)
         sections = [
             (
-                "Ppositive preferences",
+                "Positive preferences",
                 [
                     preference
                     for preference in ranked_preferences

@@ -70,3 +70,11 @@ class PKGPreferenceModel(PreferenceModel):
         # TODO: Query PKG to retrieve slot-value preference.
         preference = None
         return preference
+
+    def get_preference_summary(self, max_preferences: int = 10) -> str:
+        """Returns an empty summary until PKG prompt support is added."""
+        return ""
+
+    def update_from_dialogue(self, dialogue) -> None:
+        """PKG-backed dialogue updates are not implemented yet."""
+        return None

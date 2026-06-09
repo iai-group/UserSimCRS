@@ -98,3 +98,11 @@ class SimplePreferenceModel(PreferenceModel):
             preference = random.choice([-1, 1])
             self._slot_value_preferences.set_preference(slot, value, preference)
         return preference
+
+    def get_preference_summary(self, max_preferences: int = 10) -> str:
+        """Returns an empty summary for non-structured preferences."""
+        return ""
+
+    def update_from_dialogue(self, dialogue) -> None:
+        """Simple preferences do not update from dialogue."""
+        return None
