@@ -20,7 +20,7 @@ class StructuredPreferenceModel(PreferenceModel):
 
     UPDATE_STEP = 0.25
     PREFERENCE_SCORE = 0.7
-    NEW_PREFERENCE_MIN_CONFIRMATIONS = 2
+    LONG_TERM_PROMOTION_MIN_CONFIRMATIONS = 2
     NEGATIVE_PATTERNS = (
         r"\b(?:avoid|nothing|not|no|without|not into|not too|too much)\b.*"
         r"\b{value}\b",
@@ -63,12 +63,14 @@ class StructuredPreferenceModel(PreferenceModel):
         )
         self._preference_threshold = preference_threshold
         self._item_preferences = UserPreferences(self._user_id)
-        self._slot_value_preferences = UserPreferences(self._user_id)
-        self._slot_value_counts: Dict[Tuple[str, str], int] = {}
-        self._pending_slot_value_updates: Dict[
+        self._long_term_slot_value_preferences = UserPreferences(self._user_id)
+        self._long_term_slot_value_counts: Dict[Tuple[str, str], int] = {}
+        self._session_slot_value_preferences = UserPreferences(self._user_id)
+        self._session_slot_value_counts: Dict[Tuple[str, str], int] = {}
+        self._pending_session_slot_value_updates: Dict[
             Tuple[str, str], List[float]
         ] = {}
-        self._dialogue_buffer: List[str] = []
+        self._catalog_slot_values = self._collect_catalog_slot_values()
         self._initialize_preferences()
 
     @staticmethod
@@ -91,6 +93,30 @@ class StructuredPreferenceModel(PreferenceModel):
         self._initialize_item_preferences()
         slot_value_ratings = self._collect_slot_value_ratings()
         self._initialize_slot_value_preferences(slot_value_ratings)
+
+    def _collect_catalog_slot_values(self) -> Dict[str, List[str]]:
+        """Collects normalized slot-values available in the item catalog."""
+        catalog_slot_values: Dict[str, List[str]] = {}
+        for slot in self._domain.get_slot_names():
+            if slot.upper() in {"TITLE", "NAME"}:
+                continue
+            normalized_values = {
+                normalized_value
+                for value in self._item_collection.get_possible_property_values(
+                    slot
+                )
+                if value is not None
+                for normalized_value in [
+                    self._normalize_preference_value(value)
+                ]
+                if len(normalized_value) >= 3
+            }
+            catalog_slot_values[slot] = sorted(
+                normalized_values,
+                key=len,
+                reverse=True,
+            )
+        return catalog_slot_values
 
     def _initialize_item_preferences(self) -> None:
         """Stores strong historical item ratings as item preferences."""
@@ -134,9 +160,9 @@ class StructuredPreferenceModel(PreferenceModel):
         for slot, value_ratings in slot_value_ratings.items():
             for value, ratings in value_ratings.items():
                 score = sum(ratings) / len(ratings)
-                self._slot_value_counts[(slot, value)] = len(ratings)
+                self._long_term_slot_value_counts[(slot, value)] = len(ratings)
                 if abs(score) >= self._preference_threshold:
-                    self._slot_value_preferences.set_preference(
+                    self._long_term_slot_value_preferences.set_preference(
                         slot, value, score
                     )
 
@@ -180,7 +206,13 @@ class StructuredPreferenceModel(PreferenceModel):
         """
         self._assert_slot_exists(slot)
         value = self._normalize_preference_value(value)
-        preference = self._slot_value_preferences.get_preference(slot, value)
+        preference = self._session_slot_value_preferences.get_preference(
+            slot, value
+        )
+        if preference is None:
+            preference = self._long_term_slot_value_preferences.get_preference(
+                slot, value
+            )
         return preference if preference is not None else 0
 
     def update_slot_value_preference(
@@ -197,33 +229,39 @@ class StructuredPreferenceModel(PreferenceModel):
         value = self._normalize_preference_value(value)
 
         key = (slot, value)
-        old_score = self._slot_value_preferences.get_preference(slot, value)
-        old_count = self._slot_value_counts.get(key, 0)
+        old_score = self._session_slot_value_preferences.get_preference(
+            slot, value
+        )
+        old_count = self._session_slot_value_counts.get(key, 0)
 
         if old_score is not None and old_count > 0:
             if score > old_score:
                 new_score = min(old_score + self.UPDATE_STEP, score)
             else:
                 new_score = max(old_score - self.UPDATE_STEP, score)
-            self._slot_value_preferences.set_preference(slot, value, new_score)
-            self._slot_value_counts[key] = old_count + 1
+            self._session_slot_value_preferences.set_preference(
+                slot, value, new_score
+            )
+            self._session_slot_value_counts[key] = old_count + 1
             return
 
-        pending_scores = self._pending_slot_value_updates.setdefault(key, [])
+        pending_scores = self._pending_session_slot_value_updates.setdefault(
+            key, []
+        )
         pending_scores.append(score)
-        if len(pending_scores) < self.NEW_PREFERENCE_MIN_CONFIRMATIONS:
-            return
 
         new_score = sum(pending_scores) / len(pending_scores)
-        self._slot_value_preferences.set_preference(slot, value, new_score)
-        self._slot_value_counts[key] = len(pending_scores)
-        del self._pending_slot_value_updates[key]
+        self._session_slot_value_preferences.set_preference(
+            slot, value, new_score
+        )
+        self._session_slot_value_counts[key] = len(pending_scores)
+        del self._pending_session_slot_value_updates[key]
 
     def _apply_text_update(self, text: str) -> None:
-        """Applies preference updates for one buffered utterance.
+        """Applies preference updates for one user utterance.
 
         Args:
-            text: User utterance collected during the dialogue.
+            text: User utterance.
         """
         text_lower = self._normalize_preference_value(text)
         for slot, value in self._extract_matched_values(text_lower):
@@ -231,9 +269,55 @@ class StructuredPreferenceModel(PreferenceModel):
             if score != 0:
                 self.update_slot_value_preference(slot, value, score)
 
+    def _reset_session_preferences(self) -> None:
+        """Clears per-dialogue preference state."""
+        self._session_slot_value_preferences = UserPreferences(self._user_id)
+        self._session_slot_value_counts.clear()
+        self._pending_session_slot_value_updates.clear()
+
+    def _promote_session_preferences_to_long_term(self) -> None:
+        """Promotes well-confirmed session preferences to long-term memory."""
+        for (
+            slot,
+            value_preferences,
+        ) in self._session_slot_value_preferences._preferences.items():
+            for value, session_score in value_preferences.items():
+                key = (slot, value)
+                session_count = self._session_slot_value_counts.get(key, 0)
+                if session_count < self.LONG_TERM_PROMOTION_MIN_CONFIRMATIONS:
+                    continue
+
+                long_term_score = (
+                    self._long_term_slot_value_preferences.get_preference(
+                        slot, value
+                    )
+                )
+                if long_term_score is None:
+                    self._long_term_slot_value_preferences.set_preference(
+                        slot, value, session_score
+                    )
+                    self._long_term_slot_value_counts[key] = session_count
+                    continue
+
+                if session_score > long_term_score:
+                    new_score = min(
+                        long_term_score + self.UPDATE_STEP, session_score
+                    )
+                else:
+                    new_score = max(
+                        long_term_score - self.UPDATE_STEP, session_score
+                    )
+                self._long_term_slot_value_preferences.set_preference(
+                    slot, value, new_score
+                )
+                self._long_term_slot_value_counts[key] = (
+                    self._long_term_slot_value_counts.get(key, 0)
+                    + session_count
+                )
+
     def _extract_matched_values(self, text_lower: str) -> List[Tuple[str, str]]:
-        """Returns matched known preferences without shorter duplicate
-        fragments.
+        """Returns matched known or catalog preferences without shorter
+        duplicate fragments.
 
         Args:
             text_lower: Lowercased user utterance.
@@ -243,9 +327,19 @@ class StructuredPreferenceModel(PreferenceModel):
             substrings.
         """
         matches: List[Tuple[str, str]] = []
-        for slot, value, _ in self._rank_long_term_preferences():
+        seen_matches = set()
+        for slot, value, _ in self._rank_preferences():
             if len(value) >= 3 and value in text_lower:
                 matches.append((slot, value))
+                seen_matches.add((slot, value))
+
+        for slot, values in self._catalog_slot_values.items():
+            for value in values:
+                if (slot, value) in seen_matches:
+                    continue
+                if value in text_lower:
+                    matches.append((slot, value))
+                    seen_matches.add((slot, value))
 
         filtered_matches: List[Tuple[str, str]] = []
         for slot, value in sorted(matches, key=lambda match: -len(match[1])):
@@ -291,10 +385,7 @@ class StructuredPreferenceModel(PreferenceModel):
         return 0
 
     def update_from_dialogue(self, dialogue) -> None:
-        """Updates preferences after a completed dialogue.
-
-        Buffers ordinary user turns and applies the accumulated updates once
-        the dialogue ends with a stop utterance.
+        """Updates preferences from one user turn.
 
         Args:
             dialogue: Dialogue utterance object.
@@ -304,24 +395,55 @@ class StructuredPreferenceModel(PreferenceModel):
             return
 
         if text.lower() in self.DIALOGUE_STOP_TOKENS:
-            for buffered_text in self._dialogue_buffer:
-                self._apply_text_update(buffered_text)
-            self._dialogue_buffer.clear()
+            self._promote_session_preferences_to_long_term()
+            self._reset_session_preferences()
             return
 
-        self._dialogue_buffer.append(text)
+        self._apply_text_update(text)
 
-    def _rank_long_term_preferences(self) -> List[Tuple[str, str, float]]:
-        """Ranks long-term slot-value preferences by support and strength.
+    def _rank_preferences(self) -> List[Tuple[str, str, float]]:
+        """Ranks session and long-term slot-value preferences.
 
         Returns:
-            Sorted list of long-term slot-value preferences.
+            Sorted list of slot-value preferences, with session preferences
+            overriding long-term ones for the same slot-value pair.
         """
+        ranked_preferences: Dict[Tuple[str, str], Tuple[str, str, float]] = {}
+        for preference_store in (
+            self._long_term_slot_value_preferences,
+            self._session_slot_value_preferences,
+        ):
+            for (
+                slot,
+                value_preferences,
+            ) in preference_store._preferences.items():
+                for value, score in value_preferences.items():
+                    ranked_preferences[(slot, value)] = (slot, value, score)
+
+        return sorted(
+            ranked_preferences.values(),
+            key=lambda preference: (
+                -math.log1p(
+                    self._session_slot_value_counts.get(
+                        (preference[0], preference[1]),
+                        self._long_term_slot_value_counts.get(
+                            (preference[0], preference[1]), 0
+                        ),
+                    )
+                ),
+                -abs(preference[2]),
+                preference[0],
+                preference[1],
+            ),
+        )
+
+    def _rank_long_term_preferences(self) -> List[Tuple[str, str, float]]:
+        """Ranks long-term slot-value preferences by support and strength."""
         ranked_preferences: List[Tuple[str, str, float]] = []
         for (
             slot,
             value_preferences,
-        ) in self._slot_value_preferences._preferences.items():
+        ) in self._long_term_slot_value_preferences._preferences.items():
             for value, score in value_preferences.items():
                 ranked_preferences.append((slot, value, score))
 
@@ -329,7 +451,7 @@ class StructuredPreferenceModel(PreferenceModel):
             ranked_preferences,
             key=lambda preference: (
                 -math.log1p(
-                    self._slot_value_counts.get(
+                    self._long_term_slot_value_counts.get(
                         (preference[0], preference[1]), 0
                     )
                 ),
@@ -348,17 +470,30 @@ class StructuredPreferenceModel(PreferenceModel):
         Returns:
             Summary for the LLM of long-term preferences.
         """
-        ranked_preferences = self._rank_long_term_preferences()
-        if not ranked_preferences:
+        long_term_preferences = self._rank_long_term_preferences()
+        session_preferences = [
+            preference
+            for preference in self._rank_preferences()
+            if self._session_slot_value_preferences.get_preference(
+                preference[0], preference[1]
+            )
+            is not None
+        ]
+        if not long_term_preferences and not session_preferences:
             return ""
 
         max_long_term = max(1, max_preferences // 2)
+        max_session = max(1, max_preferences - max_long_term)
         sections = [
+            (
+                "Session preferences",
+                session_preferences[:max_session],
+            ),
             (
                 "Positive preferences",
                 [
                     preference
-                    for preference in ranked_preferences
+                    for preference in long_term_preferences
                     if preference[2] >= self._preference_threshold
                 ][:max_long_term],
             ),
@@ -366,7 +501,7 @@ class StructuredPreferenceModel(PreferenceModel):
                 "Negative preferences",
                 [
                     preference
-                    for preference in ranked_preferences
+                    for preference in long_term_preferences
                     if preference[2] <= -self._preference_threshold
                 ][:max_long_term],
             ),
