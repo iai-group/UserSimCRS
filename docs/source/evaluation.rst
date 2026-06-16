@@ -64,11 +64,11 @@ Quality
 
 The quality metric uses an LLM to score each dialogue aspect separately. The supported aspects are defined by ``QualityRubrics``:
 
-  * `REC_RELEVANCE`
-  * `COM_STYLE`
-  * `FLUENCY`
-  * `CONV_FLOW`
-  * `OVERALL_SAT`
+  * `REC_RELEVANCE`: Recommendation relevance measures how closely the recommended items align with the user’s preferences and needs.
+  * `COM_STYLE`: Communication style corresponds to the conciseness and clarity of the responses.
+  * `FLUENCY`: Fluency is the degree of naturalness of the responses compared to human-generated responses.
+  * `CONV_FLOW`: Conversational flow assesses the coherence and consistency of the conversation.
+  * `OVERALL_SAT`: Overall satisfaction encapsulates the user’s holistic experience. 
 
 
 When `quality` is requested, the configuration must include `quality_llm_interface`.
@@ -82,10 +82,10 @@ Satisfaction
 The satisfaction metric uses the pre-trained DialogueKit satisfaction classifier and returns one score per dialogue.
 
 
-Utility Metrics
-"""""""""""""""
+User Utility Metrics
+""""""""""""""""""""
 
-The utility metrics capture recommendation outcomes from annotated dialogues. If the input dialogues are not already annotated, they can be annotated before evaluation by enabling `annotate_dialogues` and providing `user_nlu` and `agent_nlu` configurations. For additional context on their role in the evaluation setup, see `Bernard and Balog, 2026 <https://arxiv.org/abs/2512.04588>`_.
+The user utility metrics capture recommendation outcomes from annotated dialogues. If the input dialogues are not already annotated, they can be annotated before evaluation by enabling `annotate_dialogues` and providing `user_nlu` and `agent_nlu` configurations. For additional context on their role in the evaluation setup, see `Bernard and Balog, 2025 <https://doi.org/10.1145/3767695.3769478>`_.
 
 
 Success Rate
@@ -111,9 +111,7 @@ Reward per Dialogue Length
 
 Returns the number of accepted recommendations divided by the total number of utterances in the dialogue.
 
-If the input dialogues are not already annotated, UserSimCRS annotates them in place using the NLU components loaded from `user_nlu_config` and `agent_nlu_config`.
-
-When any utility metric is requested, the following configuration fields are required:
+When any user utility metric is requested, the following configuration fields are required:
 
   * `recommendation_intent_labels`
   * `accept_intent_labels`
@@ -141,10 +139,65 @@ The result JSON contains:
   * `metrics`: Metric results.
 
 
-For `satisfaction` and all utility metrics, each metric entry contains:
+For `satisfaction` and all user utility metrics, each metric entry contains:
 
   * `per_dialogue`: Mapping from conversation ID to score.
   * `summary_by_agent`: Aggregate statistics per agent (`count`, `min`, `max`, `mean`, `stdev`).
 
 
 For `quality`, the output is grouped by aspect. Each aspect contains its own `per_dialogue` scores and `summary_by_agent` statistics.
+
+Example output structure:
+
+.. code-block:: json
+
+    {
+      "dialogues_path": "data/datasets/moviebot/annotated_dialogues.json",
+      "metrics_requested": ["satisfaction", "success_rate", "quality"],
+      "metrics": {
+        "satisfaction": {
+          "per_dialogue": {
+            "conv_001": 0.82
+          },
+          "summary_by_agent": {
+            "moviebot": {
+              "count": 1,
+              "min": 0.82,
+              "max": 0.82,
+              "mean": 0.82,
+              "stdev": 0.0
+            }
+          }
+        },
+        "success_rate": {
+          "per_dialogue": {
+            "conv_001": 1.0
+          },
+          "summary_by_agent": {
+            "moviebot": {
+              "count": 1,
+              "min": 1.0,
+              "max": 1.0,
+              "mean": 1.0,
+              "stdev": 0.0
+            }
+          }
+        },
+        "quality": {
+          "REC_RELEVANCE": {
+            "per_dialogue": {
+              "conv_001": 4.5
+            },
+            "summary_by_agent": {
+              "moviebot": {
+                "count": 1,
+                "min": 4.5,
+                "max": 4.5,
+                "mean": 4.5,
+                "stdev": 0.0
+              }
+            }
+          }
+        }
+      }
+    }
