@@ -315,6 +315,9 @@ class InteractionModel:
         """
         current_state = self.dialogue_state_tracker.get_current_state()
         agent_dialogue_acts = current_state.agent_dialogue_acts[-1]
+        self._update_goal_state_from_agent_dialogue_acts(
+            information_need, agent_dialogue_acts
+        )
         user_dialogue_acts = []
         for dialogue_act in agent_dialogue_acts:
             if self.is_agent_intent_elicit(dialogue_act.intent):
@@ -354,6 +357,25 @@ class InteractionModel:
 
         self.agenda.push_dialogue_acts(user_dialogue_acts)
         self.agenda.clean_agenda(information_need)
+
+    def _update_goal_state_from_agent_dialogue_acts(
+        self,
+        information_need: InformationNeed,
+        agent_dialogue_acts: List[DialogueAct],
+    ) -> None:
+        """Updates goal progress based on the latest agent dialogue acts."""
+        for dialogue_act in agent_dialogue_acts:
+            for annotation in dialogue_act.annotations:
+                slot = annotation.slot
+                value = annotation.value
+                if slot in information_need.request_states:
+                    if value is not None:
+                        information_need.mark_request_complete(slot, value)
+                    else:
+                        information_need.mark_request_attempted(slot)
+
+                if slot in information_need.constraint_states:
+                    information_need.mark_constraint_attempted(slot)
 
     def _get_preference_intent(
         self, preference: float, preference_model: PreferenceModel
@@ -424,6 +446,8 @@ class InteractionModel:
                         [SlotValueAnnotation(elicited_slot, elicited_value)],
                     )
                 )
+                if elicited_slot in information_need.constraint_states:
+                    information_need.mark_constraint_attempted(elicited_slot)
             else:
                 # Agent is asking about value preferences on a given slot, e.g.,
                 # "What movie genre would you prefer?" The value is taken either
@@ -451,6 +475,8 @@ class InteractionModel:
                             annotations,
                         )
                     )
+                    if elicited_slot in information_need.constraint_states:
+                        information_need.mark_constraint_complete(elicited_slot)
                 else:
                     user_dialogue_acts.append(DialogueAct(self.INTENT_DONT_KNOW))  # type: ignore[attr-defined] # noqa
 
@@ -528,6 +554,7 @@ class InteractionModel:
                 slot = slot_value_annotation.slot
                 if slot_value_annotation.value is None:
                     if slot in information_need.get_requestable_slots():
+                        information_need.mark_request_attempted(slot)
                         user_dialogue_acts.append(
                             DialogueAct(
                                 self.INTENT_YES, [SlotValueAnnotation(slot)]  # type: ignore[attr-defined] # noqa
@@ -548,6 +575,8 @@ class InteractionModel:
                 slot = random.choice(requestable_slots)
             else:
                 slot = random.choice(self._domain.get_requestable_slots())
+            if slot in information_need.request_states:
+                information_need.mark_request_attempted(slot)
             user_dialogue_acts.append(
                 DialogueAct(self.INQUIRE, [SlotValueAnnotation(slot)])  # type: ignore[attr-defined] # noqa
             )
@@ -594,6 +623,7 @@ class InteractionModel:
                     slot, value = random.choice(
                         list(information_need.constraints.items())
                     )
+                information_need.mark_constraint_complete(slot)
 
                 user_dialogue_acts.append(
                     DialogueAct(
@@ -604,6 +634,8 @@ class InteractionModel:
                 slot = random.choice(information_need.get_requestable_slots())
                 if not slot:
                     slot = random.choice(self._domain.get_requestable_slots())
+                if slot in information_need.request_states:
+                    information_need.mark_request_attempted(slot)
                 user_dialogue_acts.append(
                     DialogueAct(sampled_intent, [SlotValueAnnotation(slot)])
                 )

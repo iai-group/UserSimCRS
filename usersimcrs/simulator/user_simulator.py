@@ -1,6 +1,7 @@
 """User simulator abstract class."""
 
 from abc import ABC, abstractmethod
+import re
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.utterance import Utterance
@@ -28,6 +29,42 @@ class UserSimulator(User, ABC):
         self.information_need = generate_random_information_need(
             self._domain, self._item_collection
         )
+
+    def _normalize_text(self, text: str) -> str:
+        """Normalizes text for simple slot/value matching."""
+        return " ".join(re.sub(r"[_-]", " ", text.lower()).split())
+
+    def _update_goal_state_from_agent_text(self, utterance: Utterance) -> None:
+        """Updates goal state from a raw agent utterance."""
+        raw = getattr(utterance, "text", "")
+        text = self._normalize_text(raw)
+
+        if not text:
+            return
+
+        is_question = "?" in raw
+
+        for slot in self.information_need.request_states:
+            normalized_slot = self._normalize_text(slot)
+
+            if normalized_slot not in text:
+                continue
+
+            if is_question:
+                self.information_need.mark_request_attempted(slot)
+            else:
+                self.information_need.mark_request_complete(slot, raw.strip())
+
+        for slot, value in self.information_need.constraints.items():
+            normalized_slot = self._normalize_text(slot)
+            values = value if isinstance(value, list) else [value]
+
+            normalized_values = [self._normalize_text(str(v)) for v in values]
+
+            if normalized_slot in text or any(
+                v in text for v in normalized_values
+            ):
+                self.information_need.mark_constraint_attempted(slot)
 
     @abstractmethod
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:

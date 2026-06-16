@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import random
 from collections import defaultdict
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
@@ -54,11 +54,17 @@ def generate_random_information_need(
 
 
 class InformationNeed:
+    INCOMPLETE = "incomplete"
+    ATTEMPTED = "attempted"
+    COMPLETE = "complete"
+
     def __init__(
         self,
         target_items: List[Item],
         constraints: Dict[str, Any],
         requests: List[str],
+        constraint_states: Optional[Dict[str, str]] = None,
+        request_states: Optional[Dict[str, str]] = None,
     ) -> None:
         """Initializes an information need.
 
@@ -67,12 +73,23 @@ class InformationNeed:
             constraints: Slot-value pairs representing constraints on the item
               of interest.
             requests: Slots representing the desired information.
+            constraint_states: Optional states for constraints.
+            request_states: Optional states for requests.
         """
         self.target_items = target_items
         self.constraints = constraints
         self.requested_slots = defaultdict(
             None, {slot: None for slot in requests}
         )
+        self.constraint_states = {
+            slot: (constraint_states or {}).get(slot, self.INCOMPLETE)
+            for slot in constraints
+        }
+
+        self.request_states = {
+            slot: (request_states or {}).get(slot, self.INCOMPLETE)
+            for slot in requests
+        }
 
     def get_constraint_value(self, slot: str) -> Any:
         """Returns the value of a constraint slot.
@@ -90,8 +107,48 @@ class InformationNeed:
         return [
             slot
             for slot in self.requested_slots
-            if not self.requested_slots[slot]
+            if self.request_states.get(slot) != self.COMPLETE
         ]
+
+    def _mark_state(
+        self, states: Dict[str, str], slot: str, state: str
+    ) -> None:
+        if slot in states:
+            states[slot] = state
+
+    def mark_constraint_attempted(self, slot: str) -> None:
+        self._mark_state(self.constraint_states, slot, self.ATTEMPTED)
+
+    def mark_constraint_complete(self, slot: str) -> None:
+        self._mark_state(self.constraint_states, slot, self.COMPLETE)
+
+    def mark_request_attempted(self, slot: str) -> None:
+        self._mark_state(self.request_states, slot, self.ATTEMPTED)
+
+    def mark_request_complete(self, slot: str, value: Any = None) -> None:
+        if slot in self.request_states:
+            self.requested_slots[slot] = value
+            self.request_states[slot] = self.COMPLETE
+
+    def get_goal_progress(self) -> Dict[str, int]:
+        states = [
+            *self.constraint_states.values(),
+            *self.request_states.values(),
+        ]
+
+        return {
+            self.INCOMPLETE: states.count(self.INCOMPLETE),
+            self.ATTEMPTED: states.count(self.ATTEMPTED),
+            self.COMPLETE: states.count(self.COMPLETE),
+            "total": len(states),
+        }
+
+    def get_goal_completion_ratio(self) -> float:
+        """Returns the fraction of completed goal components."""
+        progress = self.get_goal_progress()
+        if progress["total"] == 0:
+            return 1.0
+        return progress[self.COMPLETE] / progress["total"]
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> InformationNeed:
@@ -101,6 +158,8 @@ class InformationNeed:
             target_items=target_items,
             constraints=data["constraints"],
             requests=data["requests"],
+            constraint_states=data.get("constraint_states"),
+            request_states=data.get("request_states"),
         )
 
     def to_dict(self) -> Dict[str, Any]:
@@ -112,4 +171,6 @@ class InformationNeed:
             ],
             "constraints": self.constraints,
             "requests": list(self.requested_slots.keys()),
+            "constraint_states": dict(self.constraint_states),
+            "request_states": dict(self.request_states),
         }

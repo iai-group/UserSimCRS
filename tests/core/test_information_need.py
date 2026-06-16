@@ -59,16 +59,27 @@ def test_get_requestable_slots(information_need: InformationNeed) -> None:
         information_need: Information need.
     """
     assert information_need.get_requestable_slots() == ["PLOT", "RATING"]
-    information_need.requested_slots["RATING"] = 4.5
+    information_need.mark_request_complete("RATING", 4.5)
     assert information_need.get_requestable_slots() == ["PLOT"]
 
 
-def test_to_dict(information_need: InformationNeed) -> None:
-    """Test to_dict.
-
-    Args:
-        information_need: Information need.
-    """
+def test_to_dict() -> None:
+    """Test to_dict."""
+    information_need = InformationNeed(
+        [
+            Item(
+                "1",
+                {
+                    "GENRE": "Comedy",
+                    "DIRECTOR": "Steven Spielberg",
+                    "RATING": 4.5,
+                    "PLOT": "A movie plot",
+                },
+            )
+        ],
+        {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"},
+        ["PLOT", "RATING"],
+    )
     assert information_need.to_dict() == {
         "target_items": [
             {
@@ -83,6 +94,14 @@ def test_to_dict(information_need: InformationNeed) -> None:
         ],
         "constraints": {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"},
         "requests": ["PLOT", "RATING"],
+        "constraint_states": {
+            "GENRE": InformationNeed.INCOMPLETE,
+            "DIRECTOR": InformationNeed.INCOMPLETE,
+        },
+        "request_states": {
+            "PLOT": InformationNeed.INCOMPLETE,
+            "RATING": InformationNeed.INCOMPLETE,
+        },
     }
 
 
@@ -139,4 +158,12 @@ def test_from_dict() -> None:
     assert (
         loaded_information_need.requested_slots
         == expected_information_need.requested_slots
+    )
+    assert (
+        loaded_information_need.constraint_states
+        == expected_information_need.constraint_states
+    )
+    assert (
+        loaded_information_need.request_states
+        == expected_information_need.request_states
     )
