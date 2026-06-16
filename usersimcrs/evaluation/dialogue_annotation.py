@@ -132,5 +132,5 @@ def is_recommendation_accepted(
             if any(intent in acceptance_intents for intent in intents):
                 b_accepted = True
             elif any(intent in rejection_intents for intent in intents):
-                return False
+                b_accepted = False
     return b_accepted
