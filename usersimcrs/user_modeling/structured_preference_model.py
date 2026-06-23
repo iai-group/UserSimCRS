@@ -7,6 +7,7 @@ from typing import Dict, Iterable, List, Optional, Tuple
 from dialoguekit.participant.user_preferences import UserPreferences
 
 from usersimcrs.core.simulation_domain import SimulationDomain
+from usersimcrs.items.item import Item
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.user_modeling.preference_model import (
@@ -72,8 +73,9 @@ class StructuredPreferenceModel(PreferenceModel):
             item_collection: Item collection.
             historical_ratings: Historical ratings.
             historical_user_id: Historical user ID. Defaults to None.
-            preference_threshold: Minimum absolute score to store as
-              meaningful preference.
+            preference_threshold: Minimum absolute score to store as a
+              meaningful preference. Defaults to
+              `PreferenceModel.PREFERENCE_THRESHOLD`.
         """
         super().__init__(
             domain, item_collection, historical_ratings, historical_user_id
@@ -97,7 +99,7 @@ class StructuredPreferenceModel(PreferenceModel):
         Returns:
             Value with normalized spacing and hyphens.
         """
-        return " ".join(str(value).lower().replace("-", " ").split())
+        return " ".join(value.lower().replace("-", " ").split())
 
     def _initialize_preferences(self) -> None:
         """Initializes preferences from historical ratings.
@@ -133,7 +135,7 @@ class StructuredPreferenceModel(PreferenceModel):
         return catalog_slot_values
 
     def _initialize_item_preferences(self) -> None:
-        """Stores strong historical item ratings as item preferences."""
+        """Stores historical item ratings above the threshold as preferences."""
         user_ratings = self._historical_ratings.get_user_ratings(
             self._historical_user_id
         )
@@ -180,7 +182,7 @@ class StructuredPreferenceModel(PreferenceModel):
                         slot, value, score
                     )
 
-    def _iter_preference_values(self, item) -> Iterable[Tuple[str, str]]:
+    def _iter_preference_values(self, item: Item) -> Iterable[Tuple[str, str]]:
         """Yields preference-relevant slot-value pairs for an item.
 
         Excludes title/name fields and normalizes multi-valued properties.

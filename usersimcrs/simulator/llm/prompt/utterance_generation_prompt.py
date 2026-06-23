@@ -70,16 +70,7 @@ class UtteranceGenerationPrompt(Prompt):
             initial_prompt += (
                 " Adapt your responses considering your PERSONA.\n"
             )
-            stringified_characteristics = ", ".join(
-                [
-                    f"{key}={value}"
-                    for key, value in self.persona.characteristics.items()
-                ]
-            )
-            persona_text = (
-                self.persona.persona_description or stringified_characteristics
-            )
-            initial_prompt += f"PERSONA: {persona_text}\n"
+            initial_prompt += f"PERSONA: {self._persona_text}\n"
         else:
             initial_prompt += (
                 "Be precise with the REQUIREMENTS, clear and concise.\n"
@@ -101,6 +92,19 @@ class UtteranceGenerationPrompt(Prompt):
             f"information: {requestable_slot}.\nHISTORY:\n"
         )
         return initial_prompt
+
+    @property
+    def _preference_context_label(self) -> str:
+        """Returns the label used for preference context."""
+        return "YOUR PREFERENCES"
+
+    @property
+    def _preference_context_guidance(self) -> str:
+        """Returns the guidance appended after the preference summary."""
+        return (
+            "Use these preferences to shape what the user accepts, rejects, "
+            "asks to avoid, or follows up on."
+        )
 
     def update_prompt_context(
         self, utterance: Utterance, participant: DialogueParticipant

@@ -48,13 +48,29 @@ class StopPrompt(Prompt):
     @property
     def prompt_text(self) -> str:
         """Prompt for the user simulator."""
+        prompt_text = self._initial_prompt
+
+        if self._preference_context:
+            prompt_text += self._preference_context.rstrip("\n")
+
+        prompt_text += "\n"
+
+        if self._prompt_context:
+            prompt_text += self._prompt_context.rstrip("\n")
+
+        return prompt_text + "\nCONTINUE: "
+
+    @property
+    def _preference_context_label(self) -> str:
+        """Returns the label used for preference context."""
+        return "YOUR PREFERENCES"
+
+    @property
+    def _preference_context_guidance(self) -> str:
+        """Returns the guidance appended after the preference summary."""
         return (
-            self._initial_prompt
-            + "\n"
-            + self._preference_context
-            + self._prompt_context
-            + "\n"
-            + "CONTINUE: "
+            "Use these preferences only as soft context when deciding "
+            "whether the conversation is still productive."
         )
 
     def build_new_prompt(self) -> str:
@@ -70,16 +86,7 @@ class StopPrompt(Prompt):
                 " Take into account your PERSONA when deciding to stop the "
                 "conversation.\n"
             )
-            stringified_characteristics = ", ".join(
-                [
-                    f"{key}={value}"
-                    for key, value in self.persona.characteristics.items()
-                ]
-            )
-            persona_text = (
-                self.persona.persona_description or stringified_characteristics
-            )
-            initial_prompt += f"PERSONA: {persona_text}\n"
+            initial_prompt += f"PERSONA: {self._persona_text}\n"
 
         initial_prompt += "\nHISTORY:\n"
         return initial_prompt

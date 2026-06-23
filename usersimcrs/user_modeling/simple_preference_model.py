@@ -100,9 +100,24 @@ class SimplePreferenceModel(PreferenceModel):
         return preference
 
     def get_preference_summary(self, max_preferences: int = 10) -> str:
-        """Returns an empty summary for non-structured preferences."""
+        """Returns an empty summary for non-structured preferences.
+
+        Args:
+            max_preferences: Maximum number of preferences to include in the
+                summary.
+
+        Returns:
+            Empty summary.
+        """
         return ""
 
     def update_from_dialogue(self, dialogue) -> None:
-        """Simple preferences do not update from dialogue."""
+        """Simple preferences do not update from dialogue.
+
+        Args:
+            dialogue: Dialogue used to update preferences.
+
+        Returns:
+            None.
+        """
         return None

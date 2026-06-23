@@ -72,9 +72,24 @@ class PKGPreferenceModel(PreferenceModel):
         return preference
 
     def get_preference_summary(self, max_preferences: int = 10) -> str:
-        """Returns an empty summary until PKG prompt support is added."""
+        """Returns an empty summary until PKG prompt support is added.
+
+        Args:
+            max_preferences: Maximum number of preferences to include in the
+                summary.
+
+        Returns:
+            Empty summary.
+        """
         return ""
 
     def update_from_dialogue(self, dialogue) -> None:
-        """PKG-backed dialogue updates are not implemented yet."""
+        """PKG-backed dialogue updates are not implemented yet.
+
+        Args:
+            dialogue: Dialogue used to update preferences.
+
+        Returns:
+            None.
+        """
         return None

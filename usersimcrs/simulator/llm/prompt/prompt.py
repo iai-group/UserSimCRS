@@ -58,12 +58,38 @@ class Prompt(ABC):
             return ""
 
         return (
-            "USER PREFERENCES: "
+            f"{self._preference_context_label}: "
             f"{preference_summary}\n"
+            f"{self._preference_context_guidance}\n"
+        )
+
+    @property
+    def _preference_context_label(self) -> str:
+        """Returns the label used for preference context."""
+        return "YOUR PREFERENCES"
+
+    @property
+    def _preference_context_guidance(self) -> str:
+        """Returns the guidance appended after the preference summary."""
+        return (
             "Treat these preferences as soft background tastes, not as new "
-            "requirements. Use them to shape what the user accepts, "
-            "rejects, asks to avoid, or follows up on. Do not force every "
-            "liked preference into the opening request.\n"
+            "requirements."
+        )
+
+    @property
+    def _persona_text(self) -> str:
+        """Returns a compact persona description."""
+        if not self.persona:
+            return ""
+
+        if self.persona.persona_description:
+            return self.persona.persona_description
+
+        return ", ".join(
+            [
+                f"{key}={value}"
+                for key, value in self.persona.characteristics.items()
+            ]
         )
 
     @abstractmethod

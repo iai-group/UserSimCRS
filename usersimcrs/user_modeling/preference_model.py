@@ -176,12 +176,35 @@ class PreferenceModel(ABC):
 
     @abstractmethod
     def get_preference_summary(self, max_preferences: int = 10) -> str:
-        """Returns a compact preference summary for prompts."""
+        """Returns a compact preference summary for prompts.
+
+        Args:
+            max_preferences: Maximum number of preferences to include in the
+                summary.
+
+        Returns:
+            Compact preference summary.
+
+        Raises:
+            NotImplementedError: If the method is not implemented in a
+                subclass.
+        """
         raise NotImplementedError
 
     @abstractmethod
     def update_from_dialogue(self, dialogue) -> None:
-        """Updates preferences from dialogue if supported by the model."""
+        """Updates preferences from dialogue if supported by the model.
+
+        Args:
+            dialogue: Dialogue used to update preferences.
+
+        Returns:
+            None.
+
+        Raises:
+            NotImplementedError: If the method is not implemented in a
+                subclass.
+        """
         raise NotImplementedError
 
     @classmethod

@@ -47,7 +47,6 @@ class AgendaBasedSimulator(UserSimulator):
             item_collection=item_collection,
             preference_model=preference_model,
         )
-        self._preference_model = self.preference_model
         self._interaction_model = interaction_model
         self._interaction_model.initialize_agenda(self.information_need)
         self._nlu = nlu
