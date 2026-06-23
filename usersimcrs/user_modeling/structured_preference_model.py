@@ -1,3 +1,5 @@
+"""Structured preference model backed by historical ratings and metadata."""
+
 from __future__ import annotations
 
 import math
