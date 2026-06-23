@@ -16,6 +16,9 @@ from typing import Any, Dict, List, Optional
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
 from usersimcrs.items.item_collection import ItemCollection
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
+
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 
 def generate_random_information_need(
@@ -49,6 +52,85 @@ def generate_random_information_need(
     ).symmetric_difference(constraints.keys())
     num_requests = random.randint(1, len(requestable_slots))
     requests = random.sample(list(requestable_slots), num_requests)
+
+    return InformationNeed([target_item], constraints, requests)
+
+
+def generate_preference_grounded_information_need(
+    domain: SimulationDomain,
+    item_collection: ItemCollection,
+    preference_model: PreferenceModel,
+    max_constraints: int = 2,
+) -> InformationNeed:
+    """Generates an information need aligned with a preference model.
+
+    The function first samples positive slot preferences from the preference
+    model, then tries to find an item matching them. If no suitable item is
+    found, it falls back to a random item while preserving any discovered
+    preference-aligned constraints.
+
+    Args:
+        domain: Domain knowledge.
+        item_collection: Collection of items.
+        preference_model: Preference model of the same simulated user.
+        max_constraints: Maximum number of preference-grounded constraints.
+
+    Returns:
+        Information need.
+    """
+    preferred_constraints: Dict[str, Any] = {}
+    for slot in domain.get_informable_slots():
+        value, score = preference_model.get_slot_preference(slot)
+        if value is None or score < preference_model.PREFERENCE_THRESHOLD:
+            continue
+        preferred_constraints[slot] = value
+
+    if preferred_constraints:
+        sampled_slots = random.sample(
+            list(preferred_constraints.keys()),
+            min(max_constraints, len(preferred_constraints)),
+        )
+        constraints = {
+            slot: preferred_constraints[slot] for slot in sampled_slots
+        }
+    else:
+        constraints = {}
+
+    matching_items = item_collection.get_items_by_properties(
+        [
+            SlotValueAnnotation(slot, value)
+            for slot, value in constraints.items()
+        ]
+    )
+
+    if matching_items:
+        target_item = max(
+            matching_items,
+            key=lambda item: preference_model.get_item_preference(item.id),
+        )
+    else:
+        target_item = item_collection.get_random_item()
+        if not constraints:
+            informable_slots = set(domain.get_informable_slots()).intersection(
+                target_item.properties.keys()
+            )
+            if informable_slots:
+                num_constraints = random.randint(1, len(informable_slots))
+                for slot in random.sample(
+                    list(informable_slots), num_constraints
+                ):
+                    constraints[slot] = target_item.get_property(slot)
+
+    requestable_slots = [
+        slot
+        for slot in domain.get_requestable_slots()
+        if slot not in constraints
+    ]
+    if requestable_slots:
+        num_requests = random.randint(1, len(requestable_slots))
+        requests = random.sample(requestable_slots, num_requests)
+    else:
+        requests = []
 
     return InformationNeed([target_item], constraints, requests)
 
@@ -113,6 +195,16 @@ class InformationNeed:
     def _mark_state(
         self, states: Dict[str, str], slot: str, state: str
     ) -> None:
+        """Updates the state of a tracked slot.
+
+        Args:
+            states: Mapping from slots to their current states.
+            slot: Slot whose state should be updated.
+            state: New state to assign to the slot.
+
+        Returns:
+            None.
+        """
         if slot in states:
             states[slot] = state
 

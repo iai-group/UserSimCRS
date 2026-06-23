@@ -363,7 +363,19 @@ class InteractionModel:
         information_need: InformationNeed,
         agent_dialogue_acts: List[DialogueAct],
     ) -> None:
-        """Updates goal progress based on the latest agent dialogue acts."""
+        """Updates goal progress based on the latest agent dialogue acts.
+
+        Marks requested slots as attempted or complete depending on whether
+        the agent provided a value, and marks mentioned constraint slots as
+        attempted.
+
+        Args:
+            information_need: Information need to update.
+            agent_dialogue_acts: Latest dialogue acts produced by the agent.
+
+        Returns:
+            None.
+        """
         for dialogue_act in agent_dialogue_acts:
             for annotation in dialogue_act.annotations:
                 slot = annotation.slot

@@ -31,7 +31,17 @@ class UserSimulator(User, ABC):
         )
 
     def _normalize_text(self, text: str) -> str:
-        """Normalizes text for simple slot/value matching."""
+        """Normalizes text for simple slot and value matching.
+
+        Lowercases the text, replaces underscores and hyphens with spaces,
+        and collapses repeated whitespace.
+
+        Args:
+            text: Text to normalize.
+
+        Returns:
+            Normalized text string.
+        """
         return " ".join(re.sub(r"[_-]", " ", text.lower()).split())
 
     def _update_goal_state_from_agent_text(self, utterance: Utterance) -> None:
