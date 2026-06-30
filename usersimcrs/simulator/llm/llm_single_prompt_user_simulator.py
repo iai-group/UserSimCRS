@@ -53,12 +53,12 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         Returns:
             User utterance.
         """
-        self._update_information_need_state_from_agent_text(agent_utterance)
+        self._update_information_need_state_from_utterance(agent_utterance)
         self.prompt.update_prompt_context(
             agent_utterance, DialogueParticipant.AGENT
         )
         user_utterance = self.llm_interface.generate_utterance(self.prompt)
-        self._update_goal_state_from_user_text(user_utterance)
+        self._update_information_need_state_from_utterance(user_utterance)
         self.prompt.update_prompt_context(
             user_utterance, DialogueParticipant.USER
         )

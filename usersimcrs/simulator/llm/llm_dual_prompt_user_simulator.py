@@ -64,7 +64,7 @@ class LLMDualPromptUserSimulator(UserSimulator):
         Returns:
             User utterance.
         """
-        self._update_information_need_state_from_agent_text(agent_utterance)
+        self._update_information_need_state_from_utterance(agent_utterance)
         self.generation_prompt.update_prompt_context(
             agent_utterance, DialogueParticipant.AGENT
         )

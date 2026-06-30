@@ -95,7 +95,7 @@ class UserSimulator(User, ABC):
             )
         return normalized_values
 
-    def _update_information_need_state_from_agent_text(
+    def _update_information_need_state_from_utterance(
         self, utterance: Utterance
     ) -> None:
         """Updates information-need state from a raw agent utterance.
