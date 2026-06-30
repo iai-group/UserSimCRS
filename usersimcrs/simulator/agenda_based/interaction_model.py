@@ -315,7 +315,7 @@ class InteractionModel:
         """
         current_state = self.dialogue_state_tracker.get_current_state()
         agent_dialogue_acts = current_state.agent_dialogue_acts[-1]
-        self._update_goal_state_from_agent_dialogue_acts(
+        self._update_information_need_state_from_agent_dialogue_acts(
             information_need, agent_dialogue_acts
         )
         user_dialogue_acts = []
@@ -358,12 +358,13 @@ class InteractionModel:
         self.agenda.push_dialogue_acts(user_dialogue_acts)
         self.agenda.clean_agenda(information_need)
 
-    def _update_goal_state_from_agent_dialogue_acts(
+    def _update_information_need_state_from_agent_dialogue_acts(
         self,
         information_need: InformationNeed,
         agent_dialogue_acts: List[DialogueAct],
     ) -> None:
-        """Updates goal progress based on the latest agent dialogue acts.
+        """Updates information-need progress from the latest agent dialogue
+        acts.
 
         Marks requested slots as attempted or complete depending on whether
         the agent provided a value, and marks mentioned constraint slots as
@@ -372,9 +373,6 @@ class InteractionModel:
         Args:
             information_need: Information need to update.
             agent_dialogue_acts: Latest dialogue acts produced by the agent.
-
-        Returns:
-            None.
         """
         for dialogue_act in agent_dialogue_acts:
             for annotation in dialogue_act.annotations:
@@ -387,7 +385,13 @@ class InteractionModel:
                         information_need.mark_request_attempted(slot)
 
                 if slot in information_need.constraint_states:
-                    information_need.mark_constraint_attempted(slot)
+                    constraint_value = information_need.get_constraint_value(
+                        slot
+                    )
+                    if value == constraint_value:
+                        information_need.mark_constraint_complete(slot)
+                    else:
+                        information_need.mark_constraint_attempted(slot)
 
     def _get_preference_intent(
         self, preference: float, preference_model: PreferenceModel
@@ -459,7 +463,15 @@ class InteractionModel:
                     )
                 )
                 if elicited_slot in information_need.constraint_states:
-                    information_need.mark_constraint_attempted(elicited_slot)
+                    constraint_value = information_need.get_constraint_value(
+                        elicited_slot
+                    )
+                    if elicited_value == constraint_value:
+                        information_need.mark_constraint_complete(elicited_slot)
+                    else:
+                        information_need.mark_constraint_attempted(
+                            elicited_slot
+                        )
             else:
                 # Agent is asking about value preferences on a given slot, e.g.,
                 # "What movie genre would you prefer?" The value is taken either

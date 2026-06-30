@@ -60,66 +60,69 @@ def generate_preference_grounded_information_need(
     domain: SimulationDomain,
     item_collection: ItemCollection,
     preference_model: PreferenceModel,
-    max_constraints: int = 2,
 ) -> InformationNeed:
     """Generates an information need aligned with a preference model.
 
-    The function first samples positive slot preferences from the preference
-    model, then tries to find an item matching them. If no suitable item is
-    found, it falls back to a random item while preserving any discovered
-    preference-aligned constraints.
+    The function first identifies a target item aligned with the preference
+    model, then samples matching properties from that item as constraints.
+    This keeps the constraints grounded in a real item while still biasing
+    the information need toward the user's preferences.
 
     Args:
         domain: Domain knowledge.
         item_collection: Collection of items.
-        preference_model: Preference model of the same simulated user.
-        max_constraints: Maximum number of preference-grounded constraints.
+        preference_model: Preference model of the simulated user.
 
     Returns:
         Information need.
     """
-    preferred_constraints: Dict[str, Any] = {}
+    preferred_constraints: Dict[str, str] = {}
     for slot in domain.get_informable_slots():
         value, score = preference_model.get_slot_preference(slot)
         if value is None or score < preference_model.PREFERENCE_THRESHOLD:
             continue
         preferred_constraints[slot] = value
 
+    target_item = item_collection.get_random_item()
     if preferred_constraints:
-        sampled_slots = random.sample(
-            list(preferred_constraints.keys()),
-            min(max_constraints, len(preferred_constraints)),
+        anchor_slot = random.choice(list(preferred_constraints.keys()))
+        anchor_value = preferred_constraints[anchor_slot]
+        matching_items = item_collection.get_items_by_properties(
+            [SlotValueAnnotation(anchor_slot, anchor_value)]
         )
+        liked_items = [
+            item
+            for item in matching_items
+            if preference_model.get_item_preference(item.id)
+            >= preference_model.PREFERENCE_THRESHOLD
+        ]
+
+        if liked_items:
+            target_item = random.choice(liked_items)
+        elif matching_items:
+            target_item = random.choice(matching_items)
+
+    preference_aligned_slots = [
+        slot
+        for slot, value in preferred_constraints.items()
+        if target_item.get_property(slot) == value
+    ]
+
+    if preference_aligned_slots:
+        num_constraints = random.randint(1, len(preference_aligned_slots))
+        sampled_slots = random.sample(preference_aligned_slots, num_constraints)
         constraints = {
-            slot: preferred_constraints[slot] for slot in sampled_slots
+            slot: target_item.get_property(slot) for slot in sampled_slots
         }
     else:
         constraints = {}
-
-    matching_items = item_collection.get_items_by_properties(
-        [
-            SlotValueAnnotation(slot, value)
-            for slot, value in constraints.items()
-        ]
-    )
-
-    if matching_items:
-        target_item = max(
-            matching_items,
-            key=lambda item: preference_model.get_item_preference(item.id),
+        informable_slots = set(domain.get_informable_slots()).intersection(
+            target_item.properties.keys()
         )
-    else:
-        target_item = item_collection.get_random_item()
-        if not constraints:
-            informable_slots = set(domain.get_informable_slots()).intersection(
-                target_item.properties.keys()
-            )
-            if informable_slots:
-                num_constraints = random.randint(1, len(informable_slots))
-                for slot in random.sample(
-                    list(informable_slots), num_constraints
-                ):
-                    constraints[slot] = target_item.get_property(slot)
+        if informable_slots:
+            num_constraints = random.randint(1, len(informable_slots))
+            for slot in random.sample(list(informable_slots), num_constraints):
+                constraints[slot] = target_item.get_property(slot)
 
     requestable_slots = [
         slot
@@ -136,9 +139,9 @@ def generate_preference_grounded_information_need(
 
 
 class InformationNeed:
-    INCOMPLETE = "incomplete"
-    ATTEMPTED = "attempted"
-    COMPLETE = "complete"
+    SLOT_STATE_INCOMPLETE = "incomplete"
+    SLOT_STATE_ATTEMPTED = "attempted"
+    SLOT_STATE_COMPLETE = "complete"
 
     def __init__(
         self,
@@ -164,12 +167,14 @@ class InformationNeed:
             None, {slot: None for slot in requests}
         )
         self.constraint_states = {
-            slot: (constraint_states or {}).get(slot, self.INCOMPLETE)
+            slot: (constraint_states or {}).get(
+                slot, self.SLOT_STATE_INCOMPLETE
+            )
             for slot in constraints
         }
 
         self.request_states = {
-            slot: (request_states or {}).get(slot, self.INCOMPLETE)
+            slot: (request_states or {}).get(slot, self.SLOT_STATE_INCOMPLETE)
             for slot in requests
         }
 
@@ -189,7 +194,7 @@ class InformationNeed:
         return [
             slot
             for slot in self.requested_slots
-            if self.request_states.get(slot) != self.COMPLETE
+            if self.request_states.get(slot) != self.SLOT_STATE_COMPLETE
         ]
 
     def _mark_state(
@@ -201,46 +206,69 @@ class InformationNeed:
             states: Mapping from slots to their current states.
             slot: Slot whose state should be updated.
             state: New state to assign to the slot.
-
-        Returns:
-            None.
         """
         if slot in states:
             states[slot] = state
 
     def mark_constraint_attempted(self, slot: str) -> None:
-        self._mark_state(self.constraint_states, slot, self.ATTEMPTED)
+        self._mark_state(
+            self.constraint_states, slot, self.SLOT_STATE_ATTEMPTED
+        )
 
     def mark_constraint_complete(self, slot: str) -> None:
-        self._mark_state(self.constraint_states, slot, self.COMPLETE)
+        self._mark_state(self.constraint_states, slot, self.SLOT_STATE_COMPLETE)
 
     def mark_request_attempted(self, slot: str) -> None:
-        self._mark_state(self.request_states, slot, self.ATTEMPTED)
+        self._mark_state(self.request_states, slot, self.SLOT_STATE_ATTEMPTED)
 
     def mark_request_complete(self, slot: str, value: Any = None) -> None:
         if slot in self.request_states:
             self.requested_slots[slot] = value
-            self.request_states[slot] = self.COMPLETE
+            self.request_states[slot] = self.SLOT_STATE_COMPLETE
 
-    def get_goal_progress(self) -> Dict[str, int]:
-        states = [
+    def _get_slot_progress(self, states: Dict[str, str]) -> Dict[str, int]:
+        """Returns status counts for a single slot category."""
+        values = list(states.values())
+        return {
+            self.SLOT_STATE_INCOMPLETE: values.count(
+                self.SLOT_STATE_INCOMPLETE
+            ),
+            self.SLOT_STATE_ATTEMPTED: values.count(self.SLOT_STATE_ATTEMPTED),
+            self.SLOT_STATE_COMPLETE: values.count(self.SLOT_STATE_COMPLETE),
+            "total": len(values),
+        }
+
+    def get_information_need_progress(self) -> Dict[str, Dict[str, int]]:
+        """Returns progress counters for constraints and requests."""
+        constraint_progress = self._get_slot_progress(self.constraint_states)
+        request_progress = self._get_slot_progress(self.request_states)
+        total_states = [
             *self.constraint_states.values(),
             *self.request_states.values(),
         ]
-
         return {
-            self.INCOMPLETE: states.count(self.INCOMPLETE),
-            self.ATTEMPTED: states.count(self.ATTEMPTED),
-            self.COMPLETE: states.count(self.COMPLETE),
-            "total": len(states),
+            "constraints": constraint_progress,
+            "requests": request_progress,
+            "overall": {
+                self.SLOT_STATE_INCOMPLETE: total_states.count(
+                    self.SLOT_STATE_INCOMPLETE
+                ),
+                self.SLOT_STATE_ATTEMPTED: total_states.count(
+                    self.SLOT_STATE_ATTEMPTED
+                ),
+                self.SLOT_STATE_COMPLETE: total_states.count(
+                    self.SLOT_STATE_COMPLETE
+                ),
+                "total": len(total_states),
+            },
         }
 
-    def get_goal_completion_ratio(self) -> float:
-        """Returns the fraction of completed goal components."""
-        progress = self.get_goal_progress()
+    def get_information_need_completion_ratio(self) -> float:
+        """Returns the fraction of completed information-need components."""
+        progress = self.get_information_need_progress()["overall"]
         if progress["total"] == 0:
             return 1.0
-        return progress[self.COMPLETE] / progress["total"]
+        return progress[self.SLOT_STATE_COMPLETE] / progress["total"]
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> InformationNeed:

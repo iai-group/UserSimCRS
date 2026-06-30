@@ -95,12 +95,12 @@ def test_to_dict() -> None:
         "constraints": {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"},
         "requests": ["PLOT", "RATING"],
         "constraint_states": {
-            "GENRE": InformationNeed.INCOMPLETE,
-            "DIRECTOR": InformationNeed.INCOMPLETE,
+            "GENRE": InformationNeed.SLOT_STATE_INCOMPLETE,
+            "DIRECTOR": InformationNeed.SLOT_STATE_INCOMPLETE,
         },
         "request_states": {
-            "PLOT": InformationNeed.INCOMPLETE,
-            "RATING": InformationNeed.INCOMPLETE,
+            "PLOT": InformationNeed.SLOT_STATE_INCOMPLETE,
+            "RATING": InformationNeed.SLOT_STATE_INCOMPLETE,
         },
     }
 
