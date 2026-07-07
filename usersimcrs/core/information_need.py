@@ -13,10 +13,10 @@ import random
 from collections import defaultdict
 from typing import Any, Dict, List, Optional
 
+from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
 from usersimcrs.items.item_collection import ItemCollection
-from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 
@@ -63,10 +63,9 @@ def generate_preference_grounded_information_need(
 ) -> InformationNeed:
     """Generates an information need aligned with a preference model.
 
-    The function first identifies a target item aligned with the preference
-    model, then samples matching properties from that item as constraints.
-    This keeps the constraints grounded in a real item while still biasing
-    the information need toward the user's preferences.
+    The function first samples preferred slot-value pairs from the preference
+    model, then tries to find an item matching them. If no matching item is
+    found, the information need is returned without target items.
 
     Args:
         domain: Domain knowledge.
@@ -76,66 +75,57 @@ def generate_preference_grounded_information_need(
     Returns:
         Information need.
     """
-    preferred_constraints: Dict[str, str] = {}
-    for slot in domain.get_informable_slots():
-        value, score = preference_model.get_slot_preference(slot)
-        if value is None or score < preference_model.PREFERENCE_THRESHOLD:
-            continue
-        preferred_constraints[slot] = value
+    preferred_constraints = {
+        slot: value
+        for slot in domain.get_informable_slots()
+        for value, _ in [preference_model.get_slot_preference(slot)]
+        if value is not None
+    }
 
-    target_item = item_collection.get_random_item()
-    if preferred_constraints:
-        anchor_slot = random.choice(list(preferred_constraints.keys()))
-        anchor_value = preferred_constraints[anchor_slot]
-        matching_items = item_collection.get_items_by_properties(
-            [SlotValueAnnotation(anchor_slot, anchor_value)]
-        )
-        liked_items = [
-            item
-            for item in matching_items
-            if preference_model.get_item_preference(item.id)
-            >= preference_model.PREFERENCE_THRESHOLD
+    matching_items = item_collection.get_items_by_properties(
+        [
+            SlotValueAnnotation(slot, value)
+            for slot, value in preferred_constraints.items()
         ]
+    )
+    target_items = [random.choice(matching_items)] if matching_items else []
 
-        if liked_items:
-            target_item = random.choice(liked_items)
-        elif matching_items:
-            target_item = random.choice(matching_items)
-
-    preference_aligned_slots = [
-        slot
-        for slot, value in preferred_constraints.items()
-        if target_item.get_property(slot) == value
-    ]
-
-    if preference_aligned_slots:
-        num_constraints = random.randint(1, len(preference_aligned_slots))
-        sampled_slots = random.sample(preference_aligned_slots, num_constraints)
-        constraints = {
-            slot: target_item.get_property(slot) for slot in sampled_slots
+    constraint_source = (
+        {
+            slot: target_items[0].get_property(slot)
+            for slot in domain.get_informable_slots()
+            if slot in target_items[0].properties
         }
-    else:
-        constraints = {}
-        informable_slots = set(domain.get_informable_slots()).intersection(
-            target_item.properties.keys()
-        )
-        if informable_slots:
-            num_constraints = random.randint(1, len(informable_slots))
-            for slot in random.sample(list(informable_slots), num_constraints):
-                constraints[slot] = target_item.get_property(slot)
+        if target_items
+        else preferred_constraints
+    )
+
+    constraints = (
+        {
+            slot: constraint_source[slot]
+            for slot in random.sample(
+                list(constraint_source),
+                random.randint(1, len(constraint_source)),
+            )
+        }
+        if constraint_source
+        else {}
+    )
 
     requestable_slots = [
         slot
         for slot in domain.get_requestable_slots()
         if slot not in constraints
     ]
-    if requestable_slots:
-        num_requests = random.randint(1, len(requestable_slots))
-        requests = random.sample(requestable_slots, num_requests)
-    else:
-        requests = []
+    requests = (
+        random.sample(
+            requestable_slots, random.randint(1, len(requestable_slots))
+        )
+        if requestable_slots
+        else []
+    )
 
-    return InformationNeed([target_item], constraints, requests)
+    return InformationNeed(target_items, constraints, requests)
 
 
 class InformationNeed:
