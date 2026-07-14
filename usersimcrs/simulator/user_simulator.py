@@ -8,9 +8,6 @@ from dialoguekit.participant.user import User, UserType
 from usersimcrs.core.information_need import generate_random_information_need
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
-from usersimcrs.simulator.information_need.heuristic_interface import (
-    HeuristicInformationNeedInterface,
-)
 
 
 class UserSimulator(User, ABC):
@@ -24,7 +21,6 @@ class UserSimulator(User, ABC):
         super().__init__(id, UserType.SIMULATOR)
         self._domain = domain
         self._item_collection = item_collection
-        self._information_need_interface = HeuristicInformationNeedInterface()
         self.get_new_information_need()
 
     def get_new_information_need(self) -> None:

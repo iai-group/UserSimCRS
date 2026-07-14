@@ -22,6 +22,15 @@ class HeuristicInformationNeedInterface(InformationNeedInterface):
     def _get_target_slot_values(
         self, information_need: InformationNeed, slot: str
     ) -> List[str]:
+        """Collects normalized target values for a slot.
+
+        Args:
+            information_need: Information need with target items.
+            slot: Slot name.
+
+        Return:
+            Normalized target values.
+        """
         normalized_values: List[str] = []
         for item in information_need.target_items:
             value = item.get_property(slot)
@@ -36,6 +45,17 @@ class HeuristicInformationNeedInterface(InformationNeedInterface):
     def _slot_update(
         self, kind: str, slot: str, is_complete: bool, value=None
     ) -> SlotUpdate:
+        """Builds a slot update with complete or attempted status.
+
+        Args:
+            kind: Slot kind, either request or constraint.
+            slot: Slot name.
+            is_complete: Whether the slot is complete.
+            value: Slot value for request completion.
+
+        Return:
+            Slot update.
+        """
         return SlotUpdate(
             kind,
             slot,
