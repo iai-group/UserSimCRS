@@ -10,6 +10,9 @@ from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.llm_interfaces.llm_interface import LLMInterface
+from usersimcrs.simulator.information_need.interface import (
+    apply_information_need_update,
+)
 from usersimcrs.simulator.llm.prompt.stop_prompt import (
     DEFAULT_STOP_DEFINITION,
     StopPrompt,
@@ -64,7 +67,12 @@ class LLMDualPromptUserSimulator(UserSimulator):
         Returns:
             User utterance.
         """
-        self._update_information_need_state_from_utterance(agent_utterance)
+        apply_information_need_update(
+            self.information_need,
+            self._information_need_interface.update_from_utterance(
+                self.information_need, agent_utterance
+            ),
+        )
         self.generation_prompt.update_prompt_context(
             agent_utterance, DialogueParticipant.AGENT
         )

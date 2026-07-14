@@ -11,9 +11,6 @@ from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.simulator.information_need.heuristic_interface import (
     HeuristicInformationNeedInterface,
 )
-from usersimcrs.simulator.information_need.interface import (
-    apply_information_need_update,
-)
 
 
 class UserSimulator(User, ABC):
@@ -35,19 +32,6 @@ class UserSimulator(User, ABC):
         self.information_need = generate_random_information_need(
             self._domain, self._item_collection
         )
-
-    def _update_information_need_state_from_utterance(
-        self, utterance: Utterance
-    ) -> None:
-        """Updates information-need state from an utterance.
-
-        Args:
-            utterance: Utterance.
-        """
-        update = self._information_need_interface.update_from_utterance(
-            self.information_need, utterance
-        )
-        apply_information_need_update(self.information_need, update)
 
     @abstractmethod
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:

@@ -322,8 +322,11 @@ class InteractionModel:
         """
         current_state = self.dialogue_state_tracker.get_current_state()
         agent_dialogue_acts = current_state.agent_dialogue_acts[-1]
-        self._update_information_need_state_from_agent_dialogue_acts(
-            information_need, agent_dialogue_acts
+        apply_information_need_update(
+            information_need,
+            self._information_need_interface.update_from_agent_dialogue_acts(
+                information_need, agent_dialogue_acts
+            ),
         )
         user_dialogue_acts = []
         for dialogue_act in agent_dialogue_acts:
@@ -364,25 +367,6 @@ class InteractionModel:
 
         self.agenda.push_dialogue_acts(user_dialogue_acts)
         self.agenda.clean_agenda(information_need)
-
-    def _update_information_need_state_from_agent_dialogue_acts(
-        self,
-        information_need: InformationNeed,
-        agent_dialogue_acts: List[DialogueAct],
-    ) -> None:
-        """Updates information-need progress from the latest agent dialogue
-        acts.
-
-        Args:
-            information_need: Information need to update.
-            agent_dialogue_acts: Latest dialogue acts produced by the agent.
-        """
-        update = (
-            self._information_need_interface.update_from_agent_dialogue_acts(
-                information_need, agent_dialogue_acts
-            )
-        )
-        apply_information_need_update(information_need, update)
 
     def _get_preference_intent(
         self, preference: float, preference_model: PreferenceModel
