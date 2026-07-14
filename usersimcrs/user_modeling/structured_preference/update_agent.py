@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Set, Tuple
+from typing import Iterable
 
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
@@ -96,15 +96,9 @@ class PreferenceUpdateAgent:
         """
         current = self._session_preferences.get(slot, value)
         if current is None:
-            initial_score = (
-                score
-                if abs(score) < self._preference_threshold
-                else (
-                    self._update_step * 2
-                    if score > 0
-                    else -self._update_step * 2
-                )
-            )
+            initial_score = score
+            if abs(score) >= self._preference_threshold:
+                initial_score = self._update_step * 2 * (1 if score > 0 else -1)
             self._session_preferences.set(slot, value, initial_score, 1)
             return
         self._update_existing_preference(
@@ -145,35 +139,6 @@ class PreferenceUpdateAgent:
                     )
         return slot_signals
 
-    def _combine_signals(
-        self, signals: Iterable[PreferenceSignal]
-    ) -> list[PreferenceSignal]:
-        """Combines repeated signals for the same slot-value pair.
-
-        Args:
-            signals: Signals to combine.
-
-        Returns:
-            Combined signals.
-        """
-        combined: dict[Tuple[str, str], PreferenceSignal] = {}
-        for signal in signals:
-            if not signal.slot or signal.value is None:
-                continue
-            key = (signal.slot, signal.value)
-            if key not in combined:
-                combined[key] = PreferenceSignal(
-                    slot=signal.slot,
-                    value=signal.value,
-                    score=signal.score,
-                    source=signal.source,
-                )
-                continue
-            combined[key].score += signal.score
-            if combined[key].source != "attribute":
-                combined[key].source = signal.source
-        return list(combined.values())
-
     def apply(self, signals: Iterable[PreferenceSignal]) -> None:
         """Applies extracted signals.
 
@@ -185,7 +150,7 @@ class PreferenceUpdateAgent:
             for signal in signals
             if signal.slot and signal.value is not None
         ]
-        explicit_keys: Set[Tuple[str, str]] = {
+        explicit_keys = {
             (signal.slot, signal.value) for signal in explicit_signals
         }
 
@@ -195,15 +160,15 @@ class PreferenceUpdateAgent:
             if (signal.slot, signal.value) not in explicit_keys
         ]
 
-        for signal in self._combine_signals([*explicit_signals, *item_signals]):
+        for signal in [*explicit_signals, *item_signals]:
             self.update_slot_value_preference(
                 signal.slot,
                 signal.value,
                 max(-1.0, min(1.0, signal.score)),
             )
 
-    def promote_session_preferences_to_long_term(self) -> None:
-        """Promotes repeated session preferences to long-term memory."""
+    def end_session(self) -> None:
+        """Promotes session preferences and clears session memory."""
         for slot, value, score, count in self._session_preferences.items():
             if count < self._promotion_min_confirmations:
                 continue
@@ -222,3 +187,4 @@ class PreferenceUpdateAgent:
                 self._long_term_preferences.get(slot, value),
                 updated_count,
             )
+        self._session_preferences.clear()

@@ -1,7 +1,6 @@
 """Structured preference model backed by historical ratings and metadata."""
 
 from __future__ import annotations
-
 from collections import defaultdict
 from typing import Dict, Iterable, List, Optional, Tuple
 
@@ -78,6 +77,10 @@ class StructuredPreferenceModel(PreferenceModel):
                 self.LONG_TERM_PROMOTION_MIN_CONFIRMATIONS
             ),
         )
+        self._initialize_preferences()
+
+    def _initialize_preferences(self) -> None:
+        """Initializes preferences from historical ratings."""
         self._initialize_item_preferences()
         self._initialize_slot_value_preferences()
 
@@ -243,8 +246,7 @@ class StructuredPreferenceModel(PreferenceModel):
             return
 
         if normalize_preference_value(text) in self.DIALOGUE_STOP_TOKENS:
-            self._update_agent.promote_session_preferences_to_long_term()
-            self._session_preferences.clear()
+            self._update_agent.end_session()
             return
 
         self._update_agent.apply(self._signals_extractor.extract(text))

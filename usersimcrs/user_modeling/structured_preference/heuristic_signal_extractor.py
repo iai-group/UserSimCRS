@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
@@ -58,24 +58,25 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
         for slot in self._domain.get_slot_names():
             if slot.upper() in {"TITLE", "NAME"}:
                 continue
-            values = {
-                normalize_preference_value(value)
-                for value in self._item_collection.get_possible_property_values(
-                    slot
-                )
-                if value is not None
-                and len(normalize_preference_value(value)) >= 3
-            }
+            values = set()
+            for value in self._item_collection.get_possible_property_values(
+                slot
+            ):
+                if value is None:
+                    continue
+                normalized_value = normalize_preference_value(value)
+                if len(normalized_value) >= 3:
+                    values.add(normalized_value)
             catalog_slot_values[slot] = sorted(values, key=len, reverse=True)
         return catalog_slot_values
 
-    def _build_item_names(self) -> Dict[str, List[Tuple[str, str]]]:
+    def _build_item_names(self) -> Dict[str, str]:
         """Builds normalized item titles and names.
 
         Returns:
-            Mapping from normalized item name to item identifiers.
+            Mapping from item identifier to normalized item name.
         """
-        item_names: Dict[str, List[Tuple[str, str]]] = {}
+        item_names: Dict[str, str] = {}
         available_slots = [
             slot
             for slot in ("TITLE", "NAME")
@@ -97,57 +98,9 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
                 normalized = normalize_preference_value(value)
                 if len(normalized) < 3:
                     continue
-                item_names.setdefault(row["id"], []).append((slot, normalized))
+                item_names[row["id"]] = normalized
+                break
         return item_names
-
-    def _extract_matched_values(self, text: str) -> List[Tuple[str, str]]:
-        """Extracts matched slot values from text.
-
-        Args:
-            text: Normalized text.
-
-        Returns:
-            Matched slot-value pairs.
-        """
-        matches: List[Tuple[str, str]] = []
-        for slot, values in self._catalog_slot_values.items():
-            for value in values:
-                if value in text:
-                    matches.append((slot, value))
-        return self._deduplicate_matches(matches)
-
-    def _extract_matched_items(self, text: str) -> List[str]:
-        """Extracts matched item identifiers from text.
-
-        Args:
-            text: Normalized text.
-
-        Returns:
-            Matched item identifiers.
-        """
-        matches: List[Tuple[str, str]] = []
-        for item_id, item_name in self._item_names.items():
-            if item_name and item_name[0][1] in text:
-                matches.append((item_id, item_name[0][1]))
-        return [item_id for item_id, _ in self._deduplicate_matches(matches)]
-
-    def _deduplicate_matches(
-        self, matches: List[Tuple[str, str]]
-    ) -> List[Tuple[str, str]]:
-        """Removes shorter duplicate matches.
-
-        Args:
-            matches: Raw matches.
-
-        Returns:
-            Filtered matches.
-        """
-        filtered: List[Tuple[str, str]] = []
-        for key, value in sorted(matches, key=lambda match: -len(match[1])):
-            if any(value != kept and value in kept for _, kept in filtered):
-                continue
-            filtered.append((key, value))
-        return filtered
 
     def _score_value_in_text(self, text: str, value: str) -> float:
         """Scores a matched value in text.
@@ -183,33 +136,39 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
         rating: float | None = None,
         past_dialogues: List[str] | None = None,
     ) -> List[PreferenceSignal]:
+        """Extracts preference signals from user text.
+
+        Args:
+            user_utterance: User utterance.
+            rating: Optional rating signal.
+            past_dialogues: Optional past dialogue texts.
+
+        Returns:
+            Extracted preference signals.
+        """
         text = normalize_preference_value(user_utterance)
+        if not text:
+            return []
         signals: List[PreferenceSignal] = []
 
-        for slot, value in self._extract_matched_values(text):
-            score = self._score_value_in_text(text, value)
-            if score:
-                signals.append(
-                    PreferenceSignal(
-                        slot=slot,
-                        value=value,
-                        score=score,
-                        source="attribute",
+        for slot, values in self._catalog_slot_values.items():
+            for value in values:
+                if value not in text:
+                    continue
+                score = self._score_value_in_text(text, value)
+                if score:
+                    signals.append(
+                        PreferenceSignal(
+                            slot=slot,
+                            value=value,
+                            score=score,
+                            source="attribute",
+                        )
                     )
-                )
 
-        for item_id in self._extract_matched_items(text):
-            item = self._item_collection.get_item(item_id)
-            if item is None:
+        for item_id, item_name in self._item_names.items():
+            if item_name not in text:
                 continue
-            item_name = next(
-                (
-                    normalize_preference_value(item.get_property(slot))
-                    for slot in ("TITLE", "NAME")
-                    if item.get_property(slot)
-                ),
-                "",
-            )
             score = self._score_value_in_text(text, item_name)
             if score:
                 signals.append(
