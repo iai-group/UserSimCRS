@@ -216,50 +216,6 @@ class InformationNeed:
             self.requested_slots[slot] = value
             self.request_states[slot] = self.SLOT_STATE_COMPLETE
 
-    def _get_slot_progress(self, states: Dict[str, str]) -> Dict[str, int]:
-        """Returns status counts for a single slot category."""
-        values = list(states.values())
-        return {
-            self.SLOT_STATE_INCOMPLETE: values.count(
-                self.SLOT_STATE_INCOMPLETE
-            ),
-            self.SLOT_STATE_ATTEMPTED: values.count(self.SLOT_STATE_ATTEMPTED),
-            self.SLOT_STATE_COMPLETE: values.count(self.SLOT_STATE_COMPLETE),
-            "total": len(values),
-        }
-
-    def get_information_need_progress(self) -> Dict[str, Dict[str, int]]:
-        """Returns progress counters for constraints and requests."""
-        constraint_progress = self._get_slot_progress(self.constraint_states)
-        request_progress = self._get_slot_progress(self.request_states)
-        total_states = [
-            *self.constraint_states.values(),
-            *self.request_states.values(),
-        ]
-        return {
-            "constraints": constraint_progress,
-            "requests": request_progress,
-            "overall": {
-                self.SLOT_STATE_INCOMPLETE: total_states.count(
-                    self.SLOT_STATE_INCOMPLETE
-                ),
-                self.SLOT_STATE_ATTEMPTED: total_states.count(
-                    self.SLOT_STATE_ATTEMPTED
-                ),
-                self.SLOT_STATE_COMPLETE: total_states.count(
-                    self.SLOT_STATE_COMPLETE
-                ),
-                "total": len(total_states),
-            },
-        }
-
-    def get_information_need_completion_ratio(self) -> float:
-        """Returns the fraction of completed information-need components."""
-        progress = self.get_information_need_progress()["overall"]
-        if progress["total"] == 0:
-            return 1.0
-        return progress[self.SLOT_STATE_COMPLETE] / progress["total"]
-
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> InformationNeed:
         """Creates information need from a dictionary."""
