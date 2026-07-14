@@ -58,7 +58,6 @@ class LLMSinglePromptUserSimulator(UserSimulator):
             agent_utterance, DialogueParticipant.AGENT
         )
         user_utterance = self.llm_interface.generate_utterance(self.prompt)
-        self._update_information_need_state_from_utterance(user_utterance)
         self.prompt.update_prompt_context(
             user_utterance, DialogueParticipant.USER
         )

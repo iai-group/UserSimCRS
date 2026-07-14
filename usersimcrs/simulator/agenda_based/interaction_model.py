@@ -27,6 +27,12 @@ from usersimcrs.dialogue_management.dialogue_state_tracker import (
 )
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.simulator.agenda_based.agenda import Agenda
+from usersimcrs.simulator.information_need.heuristic_interface import (
+    HeuristicInformationNeedInterface,
+)
+from usersimcrs.simulator.information_need.interface import (
+    apply_information_need_update,
+)
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 _LEMMATIZER = WordNetLemmatizer()
@@ -75,6 +81,7 @@ class InteractionModel:
 
         self._initialize_required_intents()
         self._domain = domain
+        self._information_need_interface = HeuristicInformationNeedInterface()
         (
             self.transition_matrix_single,
             self.transition_matrix_compound,
@@ -366,32 +373,16 @@ class InteractionModel:
         """Updates information-need progress from the latest agent dialogue
         acts.
 
-        Marks requested slots as attempted or complete depending on whether
-        the agent provided a value, and marks mentioned constraint slots as
-        attempted.
-
         Args:
             information_need: Information need to update.
             agent_dialogue_acts: Latest dialogue acts produced by the agent.
         """
-        for dialogue_act in agent_dialogue_acts:
-            for annotation in dialogue_act.annotations:
-                slot = annotation.slot
-                value = annotation.value
-                if slot in information_need.request_states:
-                    if value is not None:
-                        information_need.mark_request_complete(slot, value)
-                    else:
-                        information_need.mark_request_attempted(slot)
-
-                if slot in information_need.constraint_states:
-                    constraint_value = information_need.get_constraint_value(
-                        slot
-                    )
-                    if value == constraint_value:
-                        information_need.mark_constraint_complete(slot)
-                    else:
-                        information_need.mark_constraint_attempted(slot)
+        update = (
+            self._information_need_interface.update_from_agent_dialogue_acts(
+                information_need, agent_dialogue_acts
+            )
+        )
+        apply_information_need_update(information_need, update)
 
     def _get_preference_intent(
         self, preference: float, preference_model: PreferenceModel
