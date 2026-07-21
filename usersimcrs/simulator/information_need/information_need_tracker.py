@@ -1,0 +1,81 @@
+"""Information need tracker.
+
+It updates the state of the information need during the conversation. That is,
+tracking the state (incomplete, attempted, complete) of the constraints and
+requests.
+"""
+
+from __future__ import annotations
+
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from typing import Any, List
+
+from dialoguekit.core.dialogue_act import DialogueAct
+from dialoguekit.core.utterance import Utterance
+
+from usersimcrs.core.information_need import InformationNeed
+
+
+@dataclass
+class SlotUpdate:
+    kind: str
+    slot: str
+    status: str
+    value: Any = None
+
+
+class InformationNeedTracker(ABC):
+    """Tracks conversation progress against an information need."""
+
+    def __init__(self, information_need: InformationNeed) -> None:
+        """Initializes the tracker with the information need to update."""
+        self.information_need = information_need
+
+    @abstractmethod
+    def update_from_utterance(self, utterance: Utterance) -> List[SlotUpdate]:
+        """Builds information-need updates from an utterance.
+
+        Args:
+            utterance: Utterance to inspect.
+
+        Return:
+            List of slot updates.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def update_from_agent_dialogue_acts(
+        self, agent_dialogue_acts: List[DialogueAct]
+    ) -> List[SlotUpdate]:
+        """Builds information-need updates from agent dialogue acts.
+
+        Args:
+            agent_dialogue_acts: Agent dialogue acts to inspect.
+
+        Return:
+            List of slot updates.
+        """
+        raise NotImplementedError
+
+    def apply_updates(self, updates: List[SlotUpdate]) -> None:
+        """Applies slot updates to the tracked information need."""
+        self.apply_updates_to_information_need(self.information_need, updates)
+
+    @staticmethod
+    def apply_updates_to_information_need(
+        information_need: InformationNeed, updates: List[SlotUpdate]
+    ) -> None:
+        """Applies slot updates to an information need."""
+        for update in updates:
+            if update.kind == "request":
+                if update.status == InformationNeed.SLOT_STATE_COMPLETE:
+                    information_need.mark_request_complete(
+                        update.slot, update.value
+                    )
+                elif update.status == InformationNeed.SLOT_STATE_ATTEMPTED:
+                    information_need.mark_request_attempted(update.slot)
+            elif update.status == InformationNeed.SLOT_STATE_COMPLETE:
+                information_need.mark_constraint_complete(update.slot)
+            elif update.status == InformationNeed.SLOT_STATE_ATTEMPTED:
+                information_need.mark_constraint_attempted(update.slot)

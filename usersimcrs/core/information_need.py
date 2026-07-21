@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import random
 from collections import defaultdict
-from typing import Any, Dict, List, Optional
+from typing import Any, DefaultDict, Dict, List, Optional
 
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from usersimcrs.core.simulation_domain import SimulationDomain
@@ -156,17 +156,25 @@ class InformationNeed:
         self.requested_slots = defaultdict(
             None, {slot: None for slot in requests}
         )
-        self.constraint_states = {
-            slot: (constraint_states or {}).get(
-                slot, self.SLOT_STATE_INCOMPLETE
-            )
-            for slot in constraints
-        }
+        self.constraint_states: DefaultDict[str, str] = defaultdict(
+            lambda: self.SLOT_STATE_INCOMPLETE,
+            {
+                slot: (constraint_states or {}).get(
+                    slot, self.SLOT_STATE_INCOMPLETE
+                )
+                for slot in constraints
+            },
+        )
 
-        self.request_states = {
-            slot: (request_states or {}).get(slot, self.SLOT_STATE_INCOMPLETE)
-            for slot in requests
-        }
+        self.request_states: DefaultDict[str, str] = defaultdict(
+            lambda: self.SLOT_STATE_INCOMPLETE,
+            {
+                slot: (request_states or {}).get(
+                    slot, self.SLOT_STATE_INCOMPLETE
+                )
+                for slot in requests
+            },
+        )
 
     def get_constraint_value(self, slot: str) -> Any:
         """Returns the value of a constraint slot.
@@ -201,17 +209,21 @@ class InformationNeed:
             states[slot] = state
 
     def mark_constraint_attempted(self, slot: str) -> None:
+        """Marks a constraint slot as attempted."""
         self._mark_state(
             self.constraint_states, slot, self.SLOT_STATE_ATTEMPTED
         )
 
     def mark_constraint_complete(self, slot: str) -> None:
+        """Marks a constraint slot as complete."""
         self._mark_state(self.constraint_states, slot, self.SLOT_STATE_COMPLETE)
 
     def mark_request_attempted(self, slot: str) -> None:
+        """Marks a request slot as attempted."""
         self._mark_state(self.request_states, slot, self.SLOT_STATE_ATTEMPTED)
 
-    def mark_request_complete(self, slot: str, value: Any = None) -> None:
+    def mark_request_complete(self, slot: str, value: Any) -> None:
+        """Marks a request slot as complete with the observed value."""
         if slot in self.request_states:
             self.requested_slots[slot] = value
             self.request_states[slot] = self.SLOT_STATE_COMPLETE
@@ -224,8 +236,8 @@ class InformationNeed:
             target_items=target_items,
             constraints=data["constraints"],
             requests=data["requests"],
-            constraint_states=data.get("constraint_states"),
-            request_states=data.get("request_states"),
+            constraint_states=data.get("constraint_states", {}),
+            request_states=data.get("request_states", {}),
         )
 
     def to_dict(self) -> Dict[str, Any]:
@@ -237,6 +249,6 @@ class InformationNeed:
             ],
             "constraints": self.constraints,
             "requests": list(self.requested_slots.keys()),
-            "constraint_states": dict(self.constraint_states),
-            "request_states": dict(self.request_states),
+            "constraint_states": self.constraint_states,
+            "request_states": self.request_states,
         }

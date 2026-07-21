@@ -27,11 +27,8 @@ from usersimcrs.dialogue_management.dialogue_state_tracker import (
 )
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.simulator.agenda_based.agenda import Agenda
-from usersimcrs.simulator.information_need.heuristic_interface import (
-    HeuristicInformationNeedInterface,
-)
-from usersimcrs.simulator.information_need.interface import (
-    apply_information_need_update,
+from usersimcrs.simulator.information_need import (
+    HeuristicInformationNeedTracker,
 )
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 
@@ -81,7 +78,6 @@ class InteractionModel:
 
         self._initialize_required_intents()
         self._domain = domain
-        self._information_need_interface = HeuristicInformationNeedInterface()
         (
             self.transition_matrix_single,
             self.transition_matrix_compound,
@@ -322,11 +318,13 @@ class InteractionModel:
         """
         current_state = self.dialogue_state_tracker.get_current_state()
         agent_dialogue_acts = current_state.agent_dialogue_acts[-1]
-        apply_information_need_update(
-            information_need,
-            self._information_need_interface.update_from_agent_dialogue_acts(
-                information_need, agent_dialogue_acts
-            ),
+        information_need_tracker = HeuristicInformationNeedTracker(
+            information_need
+        )
+        information_need_tracker.apply_updates(
+            information_need_tracker.update_from_agent_dialogue_acts(
+                agent_dialogue_acts
+            )
         )
         user_dialogue_acts = []
         for dialogue_act in agent_dialogue_acts:

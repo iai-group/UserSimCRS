@@ -9,11 +9,8 @@ from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.llm_interfaces.llm_interface import LLMInterface
-from usersimcrs.simulator.information_need.heuristic_interface import (
-    HeuristicInformationNeedInterface,
-)
-from usersimcrs.simulator.information_need.interface import (
-    apply_information_need_update,
+from usersimcrs.simulator.information_need import (
+    HeuristicInformationNeedTracker,
 )
 from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
     DEFAULT_TASK_DEFINITION,
@@ -45,7 +42,9 @@ class LLMSinglePromptUserSimulator(UserSimulator):
             persona: Persona of the user. Defaults to None.
         """
         super().__init__(id, domain, item_collection)
-        self._information_need_interface = HeuristicInformationNeedInterface()
+        self._information_need_tracker = HeuristicInformationNeedTracker(
+            self.information_need
+        )
         self.llm_interface = llm_interface
         self.prompt = UtteranceGenerationPrompt(
             self.information_need, item_type, task_definition, persona
@@ -60,11 +59,10 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         Returns:
             User utterance.
         """
-        apply_information_need_update(
-            self.information_need,
-            self._information_need_interface.update_from_utterance(
-                self.information_need, agent_utterance
-            ),
+        self._information_need_tracker.apply_updates(
+            self._information_need_tracker.update_from_utterance(
+                agent_utterance
+            )
         )
         self.prompt.update_prompt_context(
             agent_utterance, DialogueParticipant.AGENT

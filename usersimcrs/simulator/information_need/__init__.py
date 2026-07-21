@@ -1,17 +1,15 @@
-"""Information-need interfaces and helpers."""
+"""Information need trackers."""
 
-from .heuristic_interface import HeuristicInformationNeedInterface
-from .interface import (
-    InformationNeedInterface,
+from .heuristic_interface import HeuristicInformationNeedTracker
+from .information_need_tracker import (
+    InformationNeedTracker,
     SlotUpdate,
-    apply_information_need_update,
 )
-from .llm_interface import LLMInformationNeedInterface
+from .llm_interface import LLMInformationNeedTracker
 
 __all__ = [
-    "HeuristicInformationNeedInterface",
-    "InformationNeedInterface",
-    "LLMInformationNeedInterface",
+    "HeuristicInformationNeedTracker",
+    "InformationNeedTracker",
+    "LLMInformationNeedTracker",
     "SlotUpdate",
-    "apply_information_need_update",
 ]
