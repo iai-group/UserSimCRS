@@ -20,16 +20,18 @@ from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.participant import DialogueParticipant
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
+from usersimcrs.information_need_management.information_need_tracker import (
+    InformationNeedTracker,
+)
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
 )
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.simulator.agenda_based.agenda import Agenda
-from usersimcrs.simulator.information_need import (
-    HeuristicInformationNeedTracker,
-)
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 _LEMMATIZER = WordNetLemmatizer()
@@ -212,14 +214,16 @@ class InteractionModel:
                     user_dialogue_acts = []
         return agent_user_interactions
 
-    def initialize_agenda(self, information_need: InformationNeed):
+    def initialize_agenda(
+        self, information_need_tracker: InformationNeedTracker
+    ):
         """Initializes user agenda.
 
         Args:
-            information_need: Information need.
+            information_need_tracker: Information need tracker.
         """
         self.agenda = Agenda(
-            information_need,
+            information_need_tracker.get_information_need(),
             self.INTENT_DISCLOSE,  # type: ignore[attr-defined]
             self.INTENT_INQUIRE,  # type: ignore[attr-defined]
             self.INTENT_STOP,  # type: ignore[attr-defined]
@@ -303,7 +307,7 @@ class InteractionModel:
 
     def update_agenda(
         self,
-        information_need: InformationNeed,
+        information_need_tracker: InformationNeedTracker,
         preference_model: PreferenceModel,
         item_collection: ItemCollection,
     ) -> None:
@@ -314,17 +318,15 @@ class InteractionModel:
         neither. Once the push operations are done, we clean the stack.
 
         Args:
-            information_need: Information need.
+            information_need_tracker: Information need tracker.
         """
+        information_need = information_need_tracker.get_information_need()
         current_state = self.dialogue_state_tracker.get_current_state()
         agent_dialogue_acts = current_state.agent_dialogue_acts[-1]
-        information_need_tracker = HeuristicInformationNeedTracker(
-            information_need
-        )
-        information_need_tracker.apply_updates(
+        information_need_tracker.apply_updates_to_information_need(
             information_need_tracker.update_from_agent_dialogue_acts(
                 agent_dialogue_acts
-            )
+            ),
         )
         user_dialogue_acts = []
         for dialogue_act in agent_dialogue_acts:

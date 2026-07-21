@@ -8,8 +8,10 @@ from typing import List
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.utterance import Utterance
 
-from usersimcrs.core.information_need import InformationNeed
-from usersimcrs.simulator.information_need.information_need_tracker import (
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
+from usersimcrs.information_need_management.information_need_tracker import (
     InformationNeedTracker,
     SlotUpdate,
 )
@@ -29,7 +31,8 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
             Normalized target values.
         """
         normalized_values: List[str] = []
-        for item in self.information_need.target_items:
+        information_need = self.get_information_need()
+        for item in information_need.target_items:
             value = item.get_property(slot)
             if value is None:
                 continue
@@ -73,7 +76,8 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
 
         updates: List[SlotUpdate] = []
 
-        for slot in self.information_need.request_states:
+        information_need = self.get_information_need()
+        for slot in information_need.request_states:
             normalized_slot = self._normalize_text(slot)
             target_values = self._get_target_slot_values(slot)
             value_mentioned = any(value in text for value in target_values)
@@ -88,7 +92,7 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
                     )
                 )
 
-        for slot, value in self.information_need.constraints.items():
+        for slot, value in information_need.constraints.items():
             normalized_slot = self._normalize_text(slot)
             values = value if isinstance(value, list) else [value]
             normalized_values = [self._normalize_text(str(v)) for v in values]
@@ -115,20 +119,21 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
             for annotation in dialogue_act.annotations:
                 slot = annotation.slot
                 value = annotation.value
-                if slot in self.information_need.request_states:
+                information_need = self.get_information_need()
+                if slot in information_need.request_states:
                     updates.append(
                         self._slot_update(
                             "request", slot, value is not None, value
                         )
                     )
 
-                if slot in self.information_need.constraint_states:
+                if slot in information_need.constraint_states:
                     updates.append(
                         self._slot_update(
                             "constraint",
                             slot,
                             value
-                            == self.information_need.get_constraint_value(slot),
+                            == information_need.get_constraint_value(slot),
                         ),
                     )
         return updates

@@ -6,7 +6,12 @@ from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.intent import Intent
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
+from usersimcrs.information_need_management.information_need_trackers import (
+    HeuristicInformationNeedTracker,
+)
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.simulator.agenda_based.interaction_model import (
     InteractionModel,
@@ -29,7 +34,7 @@ def im_crsv1(
         domain,
         ANNOTATED_CONVERSATIONS,
     )
-    im.initialize_agenda(information_need)
+    im.initialize_agenda(HeuristicInformationNeedTracker(information_need))
     return im
 
 
@@ -45,7 +50,9 @@ def test_initialize_with_error(domain: SimulationDomain) -> None:
 def test_initialize_agenda(
     im_crsv1: InteractionModel, information_need: InformationNeed
 ) -> None:
-    im_crsv1.initialize_agenda(information_need)
+    im_crsv1.initialize_agenda(
+        HeuristicInformationNeedTracker(information_need)
+    )
     assert len(im_crsv1.agenda.stack) == 6
     assert im_crsv1.agenda.stack[0].intent == im_crsv1.INTENT_START
     assert im_crsv1.agenda.stack[1].intent == im_crsv1.INTENT_DISCLOSE

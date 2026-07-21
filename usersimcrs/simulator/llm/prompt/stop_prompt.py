@@ -1,6 +1,8 @@
 """Define the prompt for stopping the conversation."""
 
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 from usersimcrs.simulator.llm.prompt.prompt import Prompt
 from usersimcrs.user_modeling.persona import Persona
 

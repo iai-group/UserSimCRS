@@ -11,7 +11,9 @@ for Task-Oriented Dialog Systems", arXiv 2306.00774.
 
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 from usersimcrs.simulator.llm.prompt.prompt import Prompt
 from usersimcrs.user_modeling.persona import Persona
 

@@ -14,7 +14,9 @@ from typing import Any, List
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.utterance import Utterance
 
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 
 
 @dataclass
@@ -30,7 +32,15 @@ class InformationNeedTracker(ABC):
 
     def __init__(self, information_need: InformationNeed) -> None:
         """Initializes the tracker with the information need to update."""
-        self.information_need = information_need
+        self._information_need = information_need
+
+    def get_information_need(self) -> InformationNeed:
+        """Returns the tracked information need.
+
+        Returns:
+            Information need.
+        """
+        return self._information_need
 
     @abstractmethod
     def update_from_utterance(self, utterance: Utterance) -> List[SlotUpdate]:
@@ -58,24 +68,19 @@ class InformationNeedTracker(ABC):
         """
         raise NotImplementedError
 
-    def apply_updates(self, updates: List[SlotUpdate]) -> None:
-        """Applies slot updates to the tracked information need."""
-        self.apply_updates_to_information_need(self.information_need, updates)
-
-    @staticmethod
     def apply_updates_to_information_need(
-        information_need: InformationNeed, updates: List[SlotUpdate]
+        self, updates: List[SlotUpdate]
     ) -> None:
-        """Applies slot updates to an information need."""
+        """Applies slot updates to the tracked information need."""
         for update in updates:
             if update.kind == "request":
                 if update.status == InformationNeed.SLOT_STATE_COMPLETE:
-                    information_need.mark_request_complete(
+                    self._information_need.mark_request_complete(
                         update.slot, update.value
                     )
                 elif update.status == InformationNeed.SLOT_STATE_ATTEMPTED:
-                    information_need.mark_request_attempted(update.slot)
+                    self._information_need.mark_request_attempted(update.slot)
             elif update.status == InformationNeed.SLOT_STATE_COMPLETE:
-                information_need.mark_constraint_complete(update.slot)
+                self._information_need.mark_constraint_complete(update.slot)
             elif update.status == InformationNeed.SLOT_STATE_ATTEMPTED:
-                information_need.mark_constraint_attempted(update.slot)
+                self._information_need.mark_constraint_attempted(update.slot)

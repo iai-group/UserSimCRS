@@ -1,7 +1,7 @@
 """Information need trackers."""
 
 from .heuristic_interface import HeuristicInformationNeedTracker
-from .information_need_tracker import (
+from usersimcrs.information_need_management.information_need_tracker import (
     InformationNeedTracker,
     SlotUpdate,
 )

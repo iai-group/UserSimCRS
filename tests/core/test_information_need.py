@@ -2,7 +2,7 @@
 
 import pytest
 
-from usersimcrs.core.information_need import (
+from usersimcrs.information_need_management.information_need import (
     InformationNeed,
     generate_random_information_need,
 )

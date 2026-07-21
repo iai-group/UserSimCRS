@@ -5,7 +5,12 @@ from abc import ABC, abstractmethod
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.user import User, UserType
-from usersimcrs.core.information_need import generate_random_information_need
+from usersimcrs.information_need_management.information_need import (
+    generate_random_information_need,
+)
+from usersimcrs.information_need_management.information_need_trackers import (
+    HeuristicInformationNeedTracker,
+)
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 
@@ -25,8 +30,10 @@ class UserSimulator(User, ABC):
 
     def get_new_information_need(self) -> None:
         """Generates a new information need."""
-        self.information_need = generate_random_information_need(
-            self._domain, self._item_collection
+        self.information_need_tracker = HeuristicInformationNeedTracker(
+            generate_random_information_need(
+                self._domain, self._item_collection
+            )
         )
 
     @abstractmethod

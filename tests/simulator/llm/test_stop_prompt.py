@@ -2,7 +2,9 @@
 
 import pytest
 
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 from usersimcrs.simulator.llm.prompt.stop_prompt import (
     DEFAULT_STOP_DEFINITION,
     StopPrompt,

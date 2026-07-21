@@ -10,9 +10,6 @@ from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.llm_interfaces.llm_interface import LLMInterface
-from usersimcrs.simulator.information_need import (
-    HeuristicInformationNeedTracker,
-)
 from usersimcrs.simulator.llm.prompt.stop_prompt import (
     DEFAULT_STOP_DEFINITION,
     StopPrompt,
@@ -50,15 +47,18 @@ class LLMDualPromptUserSimulator(UserSimulator):
             persona: Persona of the user. Defaults to None.
         """
         super().__init__(id, domain, item_collection)
-        self._information_need_tracker = HeuristicInformationNeedTracker(
-            self.information_need
-        )
         self.llm_interface = llm_interface
         self.generation_prompt = UtteranceGenerationPrompt(
-            self.information_need, item_type, task_definition, persona
+            self.information_need_tracker.get_information_need(),
+            item_type,
+            task_definition,
+            persona,
         )
         self.stop_prompt = StopPrompt(
-            self.information_need, item_type, stop_definition, persona
+            self.information_need_tracker.get_information_need(),
+            item_type,
+            stop_definition,
+            persona,
         )
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:
@@ -70,10 +70,10 @@ class LLMDualPromptUserSimulator(UserSimulator):
         Returns:
             User utterance.
         """
-        self._information_need_tracker.apply_updates(
-            self._information_need_tracker.update_from_utterance(
+        self.information_need_tracker.apply_updates_to_information_need(
+            self.information_need_tracker.update_from_utterance(
                 agent_utterance
-            )
+            ),
         )
         self.generation_prompt.update_prompt_context(
             agent_utterance, DialogueParticipant.AGENT

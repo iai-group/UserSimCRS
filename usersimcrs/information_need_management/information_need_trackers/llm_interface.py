@@ -5,7 +5,7 @@ from __future__ import annotations
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.utterance import Utterance
 
-from usersimcrs.simulator.information_need.information_need_tracker import (
+from usersimcrs.information_need_management.information_need_tracker import (
     InformationNeedTracker,
     SlotUpdate,
 )
