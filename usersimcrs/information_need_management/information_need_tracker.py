@@ -28,8 +28,6 @@ class SlotUpdate:
 
 
 class InformationNeedTracker(ABC):
-    """Tracks conversation progress against an information need."""
-
     def __init__(self, information_need: InformationNeed) -> None:
         """Initializes the tracker with the information need to update."""
         self._information_need = information_need
@@ -71,7 +69,11 @@ class InformationNeedTracker(ABC):
     def apply_updates_to_information_need(
         self, updates: List[SlotUpdate]
     ) -> None:
-        """Applies slot updates to the tracked information need."""
+        """Applies slot updates to the tracked information need.
+
+        Args:
+            updates: Slot updates to apply to the tracked information need.
+        """
         for update in updates:
             if update.kind == "request":
                 if update.status == InformationNeed.SLOT_STATE_COMPLETE:
