@@ -94,11 +94,6 @@ class UtteranceGenerationPrompt(Prompt):
         return initial_prompt
 
     @property
-    def _preference_context_label(self) -> str:
-        """Returns the label used for preference context."""
-        return "YOUR PREFERENCES"
-
-    @property
     def _preference_context_guidance(self) -> str:
         """Returns the guidance appended after the preference summary."""
         return (

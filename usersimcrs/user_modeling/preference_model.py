@@ -14,6 +14,7 @@ from abc import ABC, abstractmethod
 from typing import Tuple
 
 import joblib
+from dialoguekit.core.utterance import Utterance
 
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
@@ -109,11 +110,11 @@ class PreferenceModel(ABC):
         Args:
             item_id: Item ID.
 
+        Raises:
+            NotImplementedError: If the method is not implemented in a subclass.
+
         Returns:
             Item preference, which is generally in [-1,1].
-
-        Raises:
-            NotImplementedError: If not implemented in derived class.
         """
         raise NotImplementedError
 
@@ -127,11 +128,11 @@ class PreferenceModel(ABC):
             slot: Slot name (needs to exist in the domain).
             value: Slot value.
 
+        Raises:
+            NotImplementedError: If the method is not implemented in a subclass.
+
         Returns:
             Slot-value preference.
-
-        Raises:
-            NotImplementedError: If not implemented in derived class.
         """
         raise NotImplementedError
 
@@ -179,31 +180,26 @@ class PreferenceModel(ABC):
         """Returns a compact preference summary for prompts.
 
         Args:
-            max_preferences: Maximum number of preferences to include in the
-                summary.
+            max_preferences: Maximum number of preferences to show in the
+              summary.
+
+        Raises:
+            NotImplementedError: If the method is not implemented in a subclass.
 
         Returns:
             Compact preference summary.
-
-        Raises:
-            NotImplementedError: If the method is not implemented in a
-                subclass.
         """
         raise NotImplementedError
 
     @abstractmethod
-    def update_from_dialogue(self, dialogue) -> None:
+    def update_from_dialogue(self, utterance: Utterance) -> None:
         """Updates preferences from dialogue if supported by the model.
 
         Args:
-            dialogue: Dialogue used to update preferences.
-
-        Returns:
-            None.
+            utterance: User utterance used to update preferences.
 
         Raises:
-            NotImplementedError: If the method is not implemented in a
-                subclass.
+            NotImplementedError: If the method is not implemented in a subclass.
         """
         raise NotImplementedError
 

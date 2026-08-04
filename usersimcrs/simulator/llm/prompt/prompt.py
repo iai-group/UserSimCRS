@@ -58,15 +58,10 @@ class Prompt(ABC):
             return ""
 
         return (
-            f"{self._preference_context_label}: "
+            "PREFERENCES: "
             f"{preference_summary}\n"
             f"{self._preference_context_guidance}\n"
         )
-
-    @property
-    def _preference_context_label(self) -> str:
-        """Returns the label used for preference context."""
-        return "YOUR PREFERENCES"
 
     @property
     def _preference_context_guidance(self) -> str:

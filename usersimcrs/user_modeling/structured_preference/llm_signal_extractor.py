@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List
 
 from usersimcrs.user_modeling.structured_preference.signal_extractor import (
     PreferenceSignal,
@@ -11,10 +11,13 @@ from usersimcrs.user_modeling.structured_preference.signal_extractor import (
 
 
 class LLMPreferenceSignalsExtractor(PreferenceSignalsExtractor):
-    def extract(
-        self,
-        user_utterance: str,
-        rating: float | None = None,
-        past_dialogues: Optional[List[str]] = None,
-    ) -> List[PreferenceSignal]:
+    def extract(self, user_utterance: str) -> List[PreferenceSignal]:
+        """Extracts preference signals from user text.
+
+        Args:
+            user_utterance: User utterance.
+
+        Returns:
+            Extracted preference signals.
+        """
         raise NotImplementedError

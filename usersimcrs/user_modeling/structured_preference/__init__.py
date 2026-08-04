@@ -6,9 +6,7 @@ from .preference_memory import PreferenceMemory
 from .signal_extractor import (
     PreferenceSignal,
     PreferenceSignalsExtractor,
-    normalize_preference_value,
 )
-from .update_agent import PreferenceUpdateAgent
 
 __all__ = [
     "HeuristicPreferenceSignalsExtractor",
@@ -16,6 +14,4 @@ __all__ = [
     "PreferenceMemory",
     "PreferenceSignal",
     "PreferenceSignalsExtractor",
-    "PreferenceUpdateAgent",
-    "normalize_preference_value",
 ]

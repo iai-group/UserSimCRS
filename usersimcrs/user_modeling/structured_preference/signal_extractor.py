@@ -7,10 +7,6 @@ from dataclasses import dataclass
 from typing import List, Optional
 
 
-def normalize_preference_value(value: str) -> str:
-    return " ".join(str(value).lower().replace("-", " ").split())
-
-
 @dataclass
 class PreferenceSignal:
     """Represents one extracted preference signal.
@@ -31,19 +27,24 @@ class PreferenceSignal:
 
 
 class PreferenceSignalsExtractor(ABC):
+    @staticmethod
+    def normalize_preference_value(value: str) -> str:
+        """Normalizes a preference value for matching and memory keys.
+
+        Args:
+            value: Raw preference value.
+
+        Returns:
+            Normalized preference value.
+        """
+        return " ".join(str(value).lower().replace("-", " ").split())
+
     @abstractmethod
-    def extract(
-        self,
-        user_utterance: str,
-        rating: float | None = None,
-        past_dialogues: Optional[List[str]] = None,
-    ) -> List[PreferenceSignal]:
+    def extract(self, user_utterance: str) -> List[PreferenceSignal]:
         """Extracts preference signals from user input.
 
         Args:
             user_utterance: User utterance.
-            rating: Optional rating signal.
-            past_dialogues: Optional past dialogue texts.
 
         Returns:
             Extracted preference signals.

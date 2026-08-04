@@ -10,7 +10,6 @@ from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.user_modeling.structured_preference.signal_extractor import (
     PreferenceSignal,
     PreferenceSignalsExtractor,
-    normalize_preference_value,
 )
 
 
@@ -64,7 +63,7 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
             ):
                 if value is None:
                     continue
-                normalized_value = normalize_preference_value(value)
+                normalized_value = self.normalize_preference_value(value)
                 if len(normalized_value) >= 3:
                     values.add(normalized_value)
             catalog_slot_values[slot] = sorted(values, key=len, reverse=True)
@@ -95,7 +94,7 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
                 value = row[slot]
                 if value is None:
                     continue
-                normalized = normalize_preference_value(value)
+                normalized = self.normalize_preference_value(value)
                 if len(normalized) < 3:
                     continue
                 item_names[row["id"]] = normalized
@@ -130,23 +129,16 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
                 return self.PREFERENCE_SCORE
         return 0
 
-    def extract(
-        self,
-        user_utterance: str,
-        rating: float | None = None,
-        past_dialogues: List[str] | None = None,
-    ) -> List[PreferenceSignal]:
+    def extract(self, user_utterance: str) -> List[PreferenceSignal]:
         """Extracts preference signals from user text.
 
         Args:
             user_utterance: User utterance.
-            rating: Optional rating signal.
-            past_dialogues: Optional past dialogue texts.
 
         Returns:
             Extracted preference signals.
         """
-        text = normalize_preference_value(user_utterance)
+        text = self.normalize_preference_value(user_utterance)
         if not text:
             return []
         signals: List[PreferenceSignal] = []
