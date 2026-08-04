@@ -32,6 +32,14 @@ class InformationNeedTracker(ABC):
         """Initializes the tracker with the information need to update."""
         self._information_need = information_need
 
+    def set_information_need(self, information_need: InformationNeed) -> None:
+        """Sets the information need tracked by this tracker.
+
+        Args:
+            information_need: Information need to track.
+        """
+        self._information_need = information_need
+
     def get_information_need(self) -> InformationNeed:
         """Returns the tracked information need.
 
@@ -47,8 +55,11 @@ class InformationNeedTracker(ABC):
         Args:
             utterance: Utterance to inspect.
 
-        Return:
+        Returns:
             List of slot updates.
+
+        Raises:
+            NotImplementedError: If not implemented in derived class.
         """
         raise NotImplementedError
 
@@ -61,8 +72,11 @@ class InformationNeedTracker(ABC):
         Args:
             agent_dialogue_acts: Agent dialogue acts to inspect.
 
-        Return:
+        Returns:
             List of slot updates.
+
+        Raises:
+            NotImplementedError: If not implemented in derived class.
         """
         raise NotImplementedError
 

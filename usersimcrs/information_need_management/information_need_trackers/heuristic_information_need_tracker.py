@@ -1,9 +1,14 @@
-"""Heuristic information need tracker."""
+"""Heuristic information need tracker.
+
+The tracker inspects utterance text and dialogue-act annotations for mentions of
+the slots and values contained in an information need. Slot mentions mark the
+slot as attempted, while matching target or constraint values mark it complete.
+"""
 
 from __future__ import annotations
 
 import re
-from typing import List
+from typing import Any, List
 
 from dialoguekit.core.dialogue_act import DialogueAct
 from dialoguekit.core.utterance import Utterance
@@ -19,6 +24,14 @@ from usersimcrs.information_need_management.information_need_tracker import (
 
 class HeuristicInformationNeedTracker(InformationNeedTracker):
     def _normalize_text(self, text: str) -> str:
+        """Normalizes text for matching.
+
+        Args:
+            text: Text to normalize.
+
+        Returns:
+            Normalized text.
+        """
         return " ".join(re.sub(r"[_-]", " ", text.lower()).split())
 
     def _get_target_slot_values(self, slot: str) -> List[str]:
@@ -27,7 +40,7 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
         Args:
             slot: Slot name.
 
-        Return:
+        Returns:
             Normalized target values.
         """
         normalized_values: List[str] = []
@@ -43,7 +56,7 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
         return normalized_values
 
     def _slot_update(
-        self, kind: str, slot: str, is_complete: bool, value=None
+        self, kind: str, slot: str, is_complete: bool, value: Any = None
     ) -> SlotUpdate:
         """Builds a slot update with complete or attempted status.
 
@@ -53,7 +66,7 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
             is_complete: Whether the slot is complete.
             value: Slot value for request completion.
 
-        Return:
+        Returns:
             Slot update.
         """
         return SlotUpdate(
@@ -68,6 +81,14 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
         )
 
     def update_from_utterance(self, utterance: Utterance) -> List[SlotUpdate]:
+        """Builds information-need updates from an utterance.
+
+        Args:
+            utterance: Utterance to inspect.
+
+        Returns:
+            List of slot updates.
+        """
         raw = getattr(utterance, "text", "")
         text = self._normalize_text(raw)
 
@@ -114,6 +135,14 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
         self,
         agent_dialogue_acts: List[DialogueAct],
     ) -> List[SlotUpdate]:
+        """Builds information-need updates from agent dialogue acts.
+
+        Args:
+            agent_dialogue_acts: Agent dialogue acts to inspect.
+
+        Returns:
+            List of slot updates.
+        """
         updates: List[SlotUpdate] = []
         for dialogue_act in agent_dialogue_acts:
             for annotation in dialogue_act.annotations:

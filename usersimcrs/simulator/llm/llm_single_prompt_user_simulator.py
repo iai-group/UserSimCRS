@@ -7,6 +7,9 @@ model.
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.simulation_domain import SimulationDomain
+from usersimcrs.information_need_management.information_need_tracker import (
+    InformationNeedTracker,
+)
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
@@ -27,6 +30,7 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         item_type: str,
         task_definition: str = DEFAULT_TASK_DEFINITION,
         persona: Persona = None,
+        information_need_tracker: InformationNeedTracker = None,
     ) -> None:
         """Initializes the user simulator.
 
@@ -37,8 +41,10 @@ class LLMSinglePromptUserSimulator(UserSimulator):
             task_definition: Definition of the task to be performed.
               Defaults to DEFAULT_TASK_DEFINITION.
             persona: Persona of the user. Defaults to None.
+            information_need_tracker: Tracker to use for the generated
+              information need. Defaults to a heuristic tracker.
         """
-        super().__init__(id, domain, item_collection)
+        super().__init__(id, domain, item_collection, information_need_tracker)
         self.llm_interface = llm_interface
         self.prompt = UtteranceGenerationPrompt(
             self.information_need_tracker.get_information_need(),
@@ -56,11 +62,7 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         Returns:
             User utterance.
         """
-        self.information_need_tracker.apply_updates_to_information_need(
-            self.information_need_tracker.update_from_utterance(
-                agent_utterance
-            ),
-        )
+        self._update_information_need_from_utterance(agent_utterance)
         self.prompt.update_prompt_context(
             agent_utterance, DialogueParticipant.AGENT
         )
@@ -68,4 +70,5 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         self.prompt.update_prompt_context(
             user_utterance, DialogueParticipant.USER
         )
+        self._update_information_need_from_utterance(user_utterance)
         return user_utterance

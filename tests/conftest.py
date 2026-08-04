@@ -28,7 +28,7 @@ def domain() -> SimulationDomain:
     return SimulationDomain(DOMAIN_YAML_FILE)
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def information_need() -> InformationNeed:
     """Information need fixture."""
     constraints = {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"}

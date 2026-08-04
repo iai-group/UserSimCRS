@@ -151,6 +151,9 @@ class InformationNeed:
             constraint_states: Optional states for constraints.
             request_states: Optional states for requests.
         """
+        constraint_states = constraint_states or {}
+        request_states = request_states or {}
+
         self.target_items = target_items
         self.constraints = constraints
         self.requested_slots = defaultdict(
@@ -159,9 +162,7 @@ class InformationNeed:
         self.constraint_states: DefaultDict[str, str] = defaultdict(
             lambda: self.SLOT_STATE_INCOMPLETE,
             {
-                slot: (constraint_states or {}).get(
-                    slot, self.SLOT_STATE_INCOMPLETE
-                )
+                slot: constraint_states.get(slot, self.SLOT_STATE_INCOMPLETE)
                 for slot in constraints
             },
         )
@@ -169,9 +170,7 @@ class InformationNeed:
         self.request_states: DefaultDict[str, str] = defaultdict(
             lambda: self.SLOT_STATE_INCOMPLETE,
             {
-                slot: (request_states or {}).get(
-                    slot, self.SLOT_STATE_INCOMPLETE
-                )
+                slot: request_states.get(slot, self.SLOT_STATE_INCOMPLETE)
                 for slot in requests
             },
         )

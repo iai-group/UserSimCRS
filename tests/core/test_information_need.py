@@ -63,23 +63,8 @@ def test_get_requestable_slots(information_need: InformationNeed) -> None:
     assert information_need.get_requestable_slots() == ["PLOT"]
 
 
-def test_to_dict() -> None:
+def test_to_dict(information_need: InformationNeed) -> None:
     """Test to_dict."""
-    information_need = InformationNeed(
-        [
-            Item(
-                "1",
-                {
-                    "GENRE": "Comedy",
-                    "DIRECTOR": "Steven Spielberg",
-                    "RATING": 4.5,
-                    "PLOT": "A movie plot",
-                },
-            )
-        ],
-        {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"},
-        ["PLOT", "RATING"],
-    )
     assert information_need.to_dict() == {
         "target_items": [
             {
