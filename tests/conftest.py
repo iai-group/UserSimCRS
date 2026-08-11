@@ -47,7 +47,7 @@ def information_need() -> InformationNeed:
     return InformationNeed(target_items, constraints, requests)
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def item_collection(domain: SimulationDomain):
     """Item collection fixture."""
     item_collection = ItemCollection("tests/data/items.db", "test_collection")

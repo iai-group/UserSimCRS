@@ -251,6 +251,6 @@ class InformationNeed:
             ],
             "constraints": self.constraints,
             "requests": list(self.requested_slots.keys()),
-            "constraint_states": self.constraint_states,
-            "request_states": self.request_states,
+            "constraint_states": dict(self.constraint_states),
+            "request_states": dict(self.request_states),
         }
