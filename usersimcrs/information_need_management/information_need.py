@@ -63,9 +63,11 @@ def generate_preference_grounded_information_need(
 ) -> InformationNeed:
     """Generates an information need aligned with a preference model.
 
-    The function samples preferred slot-value pairs from the preference model,
-    then tries to find an item matching that subset. If no matching item is
-    found, the information need is returned without target items.
+    The function samples a random number of informable slots, obtains
+    preference constraints for those slots, then tries to find an item matching
+    them. If no matching item is found, constraints are relaxed until a match is
+    found. If no constraints match any items, the information need is returned
+    without target items.
 
     Args:
         domain: Domain knowledge.
@@ -75,49 +77,45 @@ def generate_preference_grounded_information_need(
     Returns:
         Information need.
     """
+    informable_slots = list(domain.get_informable_slots())
+    preferred_slots = random.sample(
+        informable_slots, random.randint(1, len(informable_slots))
+    )
     preferred_constraints = {
         slot: value
-        for slot in domain.get_informable_slots()
+        for slot in preferred_slots
         for value, _ in [preference_model.get_slot_preference(slot)]
         if value is not None
     }
 
-    if preferred_constraints:
-        preferred_constraints = dict(
-            random.sample(
-                list(preferred_constraints.items()),
-                random.randint(1, len(preferred_constraints)),
-            ),
+    matching_items = []
+    matching_constraints = preferred_constraints
+    preferred_constraint_items = list(preferred_constraints.items())
+    for num_constraints in range(len(preferred_constraint_items), 0, -1):
+        candidate_constraints = dict(
+            preferred_constraint_items[:num_constraints]
         )
+        matching_items = item_collection.get_items_by_properties(
+            [
+                SlotValueAnnotation(slot, value)
+                for slot, value in candidate_constraints.items()
+            ]
+        )
+        if matching_items:
+            matching_constraints = candidate_constraints
+            break
 
-    matching_items = item_collection.get_items_by_properties(
-        [
-            SlotValueAnnotation(slot, value)
-            for slot, value in preferred_constraints.items()
-        ]
-    )
     target_items = [random.choice(matching_items)] if matching_items else []
-
-    constraint_source = (
-        {
-            slot: target_items[0].get_property(slot)
-            for slot in domain.get_informable_slots()
-            if slot in target_items[0].properties
-        }
-        if target_items
-        else preferred_constraints
-    )
 
     constraints = (
         {
-            slot: constraint_source[slot]
-            for slot in random.sample(
-                list(constraint_source),
-                random.randint(1, len(constraint_source)),
-            )
+            slot: value
+            for slot in matching_constraints
+            for value in [target_items[0].get_property(slot)]
+            if value is not None
         }
-        if constraint_source
-        else {}
+        if target_items
+        else matching_constraints
     )
 
     requestable_slots = [

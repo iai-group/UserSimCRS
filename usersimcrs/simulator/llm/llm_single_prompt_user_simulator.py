@@ -28,9 +28,9 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         item_collection: ItemCollection,
         llm_interface: LLMInterface,
         item_type: str,
+        information_need_tracker: InformationNeedTracker,
         task_definition: str = DEFAULT_TASK_DEFINITION,
         persona: Persona = None,
-        information_need_tracker: InformationNeedTracker = None,
     ) -> None:
         """Initializes the user simulator.
 
@@ -38,11 +38,10 @@ class LLMSinglePromptUserSimulator(UserSimulator):
             id: User simulator ID.
             llm_interface: Interface to the large language model.
             item_type: Type of the item to be recommended. Defaults to None.
+            information_need_tracker: Tracker for the information need.
             task_definition: Definition of the task to be performed.
               Defaults to DEFAULT_TASK_DEFINITION.
             persona: Persona of the user. Defaults to None.
-            information_need_tracker: Tracker to use for the generated
-              information need. Defaults to a heuristic tracker.
         """
         super().__init__(id, domain, item_collection, information_need_tracker)
         self.llm_interface = llm_interface

@@ -104,15 +104,25 @@ class HeuristicInformationNeedTracker(InformationNeedTracker):
             value_mentioned = any(value in text for value in target_values)
             slot_mentioned = normalized_slot in text
             if slot_mentioned or value_mentioned:
-                is_complete = value_mentioned or (
-                    slot_mentioned and not information_need.target_items
-                )
                 updates.append(
                     self._slot_update(
                         "request",
                         slot,
-                        is_complete,
-                        raw.strip() if is_complete else None,
+                        value_mentioned,
+                        raw.strip() if value_mentioned else None,
+                    )
+                )
+
+        if not information_need.target_items and not updates:
+            attempted_requests = [
+                slot
+                for slot, state in information_need.request_states.items()
+                if state == InformationNeed.SLOT_STATE_ATTEMPTED
+            ]
+            if len(attempted_requests) == 1:
+                updates.append(
+                    self._slot_update(
+                        "request", attempted_requests[0], True, raw.strip()
                     )
                 )
 
