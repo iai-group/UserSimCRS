@@ -630,9 +630,12 @@ class InteractionModel:
                     )
                 )
             elif sampled_intent == self.INTENT_INQUIRE:  # type: ignore[attr-defined] # noqa
-                slot = random.choice(information_need.get_requestable_slots())
-                if not slot:
-                    slot = random.choice(self._domain.get_requestable_slots())
+                requestable_slots = information_need.get_requestable_slots()
+                slot = (
+                    random.choice(requestable_slots)
+                    if requestable_slots
+                    else random.choice(self._domain.get_requestable_slots())
+                )
                 if slot in information_need.request_states:
                     information_need.mark_request_attempted(slot)
                 user_dialogue_acts.append(

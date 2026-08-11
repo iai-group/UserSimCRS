@@ -7,6 +7,7 @@ requests.
 
 from __future__ import annotations
 
+import copy
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Any, List
@@ -30,7 +31,7 @@ class SlotUpdate:
 class InformationNeedTracker(ABC):
     def __init__(self, information_need: InformationNeed) -> None:
         """Initializes the tracker with the information need to update."""
-        self._information_need = information_need
+        self.set_information_need(information_need)
 
     def set_information_need(self, information_need: InformationNeed) -> None:
         """Sets the information need tracked by this tracker.
@@ -38,14 +39,10 @@ class InformationNeedTracker(ABC):
         Args:
             information_need: Information need to track.
         """
-        self._information_need = information_need
+        self._information_need = copy.deepcopy(information_need)
 
     def get_information_need(self) -> InformationNeed:
-        """Returns the tracked information need.
-
-        Returns:
-            Information need.
-        """
+        """Returns the tracked information need."""
         return self._information_need
 
     @abstractmethod
@@ -55,11 +52,11 @@ class InformationNeedTracker(ABC):
         Args:
             utterance: Utterance to inspect.
 
-        Returns:
-            List of slot updates.
-
         Raises:
             NotImplementedError: If not implemented in derived class.
+
+        Returns:
+            List of slot updates.
         """
         raise NotImplementedError
 
@@ -72,11 +69,11 @@ class InformationNeedTracker(ABC):
         Args:
             agent_dialogue_acts: Agent dialogue acts to inspect.
 
-        Returns:
-            List of slot updates.
-
         Raises:
             NotImplementedError: If not implemented in derived class.
+
+        Returns:
+            List of slot updates.
         """
         raise NotImplementedError
 

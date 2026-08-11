@@ -34,7 +34,7 @@ class UserSimulator(User, ABC):
             domain: Domain.
             item_collection: Item collection.
             information_need_tracker: Tracker to use for the generated
-              information need. Defaults to a heuristic tracker.
+              information need. Defaults to None.
         """
         super().__init__(id, UserType.SIMULATOR)
         self._domain = domain
@@ -53,18 +53,6 @@ class UserSimulator(User, ABC):
             )
         else:
             self.information_need_tracker.set_information_need(information_need)
-
-    def _update_information_need_from_utterance(
-        self, utterance: Utterance
-    ) -> None:
-        """Updates the information need from an utterance.
-
-        Args:
-            utterance: Utterance to inspect.
-        """
-        self.information_need_tracker.apply_updates_to_information_need(
-            self.information_need_tracker.update_from_utterance(utterance),
-        )
 
     @abstractmethod
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:

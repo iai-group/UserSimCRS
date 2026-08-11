@@ -62,7 +62,9 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         Returns:
             User utterance.
         """
-        self._update_information_need_from_utterance(agent_utterance)
+        self.information_need_tracker.apply_updates_to_information_need(
+            self.information_need_tracker.update_from_utterance(agent_utterance)
+        )
         self.prompt.update_prompt_context(
             agent_utterance, DialogueParticipant.AGENT
         )
@@ -70,5 +72,7 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         self.prompt.update_prompt_context(
             user_utterance, DialogueParticipant.USER
         )
-        self._update_information_need_from_utterance(user_utterance)
+        self.information_need_tracker.apply_updates_to_information_need(
+            self.information_need_tracker.update_from_utterance(user_utterance)
+        )
         return user_utterance

@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import random
 from collections import defaultdict
-from typing import Any, DefaultDict, Dict, List, Optional
+from typing import Any, DefaultDict, Dict, List
 
 from dialoguekit.core.slot_value_annotation import SlotValueAnnotation
 from usersimcrs.core.simulation_domain import SimulationDomain
@@ -63,8 +63,8 @@ def generate_preference_grounded_information_need(
 ) -> InformationNeed:
     """Generates an information need aligned with a preference model.
 
-    The function first samples preferred slot-value pairs from the preference
-    model, then tries to find an item matching them. If no matching item is
+    The function samples preferred slot-value pairs from the preference model,
+    then tries to find an item matching that subset. If no matching item is
     found, the information need is returned without target items.
 
     Args:
@@ -81,6 +81,14 @@ def generate_preference_grounded_information_need(
         for value, _ in [preference_model.get_slot_preference(slot)]
         if value is not None
     }
+
+    if preferred_constraints:
+        preferred_constraints = dict(
+            random.sample(
+                list(preferred_constraints.items()),
+                random.randint(1, len(preferred_constraints)),
+            ),
+        )
 
     matching_items = item_collection.get_items_by_properties(
         [
@@ -138,8 +146,8 @@ class InformationNeed:
         target_items: List[Item],
         constraints: Dict[str, Any],
         requests: List[str],
-        constraint_states: Optional[Dict[str, str]] = None,
-        request_states: Optional[Dict[str, str]] = None,
+        constraint_states: Dict[str, str] = {},
+        request_states: Dict[str, str] = {},
     ) -> None:
         """Initializes an information need.
 
@@ -148,12 +156,9 @@ class InformationNeed:
             constraints: Slot-value pairs representing constraints on the item
               of interest.
             requests: Slots representing the desired information.
-            constraint_states: Optional states for constraints.
-            request_states: Optional states for requests.
+            constraint_states: States for constraints.
+            request_states: States for requests.
         """
-        constraint_states = constraint_states or {}
-        request_states = request_states or {}
-
         self.target_items = target_items
         self.constraints = constraints
         self.requested_slots = defaultdict(
