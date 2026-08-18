@@ -99,11 +99,7 @@ class PreferenceMemory:
         ]
 
     def ranked_preferences(self) -> List[Tuple[str, str, float]]:
-        """Returns preferences ranked by evidence count and score.
-
-        Returns:
-            Ranked slot-value preferences.
-        """
+        """Returns preferences ranked by evidence count and score."""
         return sorted(
             [(slot, value, score) for slot, value, score, _ in self.items()],
             key=lambda preference: (

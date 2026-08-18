@@ -6,6 +6,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import List, Optional
 
+from dialoguekit.core.utterance import Utterance
+
 
 @dataclass
 class PreferenceSignal:
@@ -40,11 +42,11 @@ class PreferenceSignalsExtractor(ABC):
         return " ".join(str(value).lower().replace("-", " ").split())
 
     @abstractmethod
-    def extract(self, user_utterance: str) -> List[PreferenceSignal]:
+    def extract(self, utterance: Utterance) -> List[PreferenceSignal]:
         """Extracts preference signals from user input.
 
         Args:
-            user_utterance: User utterance.
+            utterance: User utterance.
 
         Returns:
             Extracted preference signals.

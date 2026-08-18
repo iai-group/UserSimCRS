@@ -5,6 +5,8 @@ from __future__ import annotations
 import re
 from typing import Dict, List, Tuple
 
+from dialoguekit.core.utterance import Utterance
+
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.user_modeling.structured_preference.signal_extractor import (
@@ -106,6 +108,24 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
                 break
         return item_names
 
+    def _item_metadata_preference_candidates(
+        self, item_id: str
+    ) -> List[Tuple[str, str]]:
+        """Returns item metadata as slot-value preference candidates."""
+        item = self._item_collection.get_item(item_id)
+        if item is None:
+            return []
+
+        slot_values = []
+        for slot in self._domain.get_informable_slots():
+            value = item.get_property(slot)
+            if value is None:
+                continue
+            values = value if isinstance(value, list) else [value]
+            for entry in values:
+                slot_values.append((slot, str(entry)))
+        return slot_values
+
     def _score_value_in_text(self, text: str, value: str) -> float:
         """Scores a matched value in text.
 
@@ -134,16 +154,16 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
                 return self.PREFERENCE_SCORE
         return 0
 
-    def extract(self, user_utterance: str) -> List[PreferenceSignal]:
+    def extract(self, utterance: Utterance) -> List[PreferenceSignal]:
         """Extracts preference signals from user text.
 
         Args:
-            user_utterance: User utterance.
+            utterance: User utterance.
 
         Returns:
             Extracted preference signals.
         """
-        text = self.normalize_preference_value(user_utterance)
+        text = self.normalize_preference_value(utterance.text)
         if not text:
             return []
         signals: List[PreferenceSignal] = []
@@ -168,12 +188,17 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
                 continue
             score = self._score_value_in_text(text, item_name)
             if score:
-                signals.append(
-                    PreferenceSignal(
-                        item_id=item_id,
-                        score=score,
-                        source="item",
+                for slot, value in self._item_metadata_preference_candidates(
+                    item_id
+                ):
+                    signals.append(
+                        PreferenceSignal(
+                            slot=slot,
+                            value=value,
+                            score=score,
+                            item_id=item_id,
+                            source="item",
+                        )
                     )
-                )
 
         return signals
