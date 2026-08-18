@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
@@ -47,17 +47,17 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
         self._catalog_slot_values = self._build_catalog_slot_values()
         self._item_names = self._build_item_names()
 
-    def _build_catalog_slot_values(self) -> Dict[str, List[str]]:
-        """Builds normalized catalog slot values.
+    def _build_catalog_slot_values(self) -> Dict[str, List[Tuple[str, str]]]:
+        """Builds catalog slot values and normalized forms.
 
         Returns:
-            Mapping from slot to normalized values.
+            Mapping from slot to original and normalized values.
         """
-        catalog_slot_values: Dict[str, List[str]] = {}
+        catalog_slot_values: Dict[str, List[Tuple[str, str]]] = {}
         for slot in self._domain.get_slot_names():
             if slot.upper() in {"TITLE", "NAME"}:
                 continue
-            values = set()
+            values = {}
             for value in self._item_collection.get_possible_property_values(
                 slot
             ):
@@ -65,8 +65,13 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
                     continue
                 normalized_value = self.normalize_preference_value(value)
                 if len(normalized_value) >= 3:
-                    values.add(normalized_value)
-            catalog_slot_values[slot] = sorted(values, key=len, reverse=True)
+                    values[normalized_value] = str(value)
+            catalog_slot_values[slot] = [
+                (value, normalized_value)
+                for normalized_value, value in sorted(
+                    values.items(), key=lambda item: len(item[0]), reverse=True
+                )
+            ]
         return catalog_slot_values
 
     def _build_item_names(self) -> Dict[str, str]:
@@ -144,10 +149,10 @@ class HeuristicPreferenceSignalsExtractor(PreferenceSignalsExtractor):
         signals: List[PreferenceSignal] = []
 
         for slot, values in self._catalog_slot_values.items():
-            for value in values:
-                if value not in text:
+            for value, normalized_value in values:
+                if normalized_value not in text:
                     continue
-                score = self._score_value_in_text(text, value)
+                score = self._score_value_in_text(text, normalized_value)
                 if score:
                     signals.append(
                         PreferenceSignal(

@@ -85,8 +85,8 @@ class PKGPreferenceModel(PreferenceModel):
         """
         return ""
 
-    def update_from_dialogue(self, utterance: Utterance) -> None:
-        """PKG-backed dialogue updates are not implemented yet.
+    def update_from_utterance(self, utterance: Utterance) -> None:
+        """PKG-backed utterance updates are not implemented yet.
 
         Args:
             utterance: User utterance used to update preferences.

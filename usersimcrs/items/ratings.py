@@ -144,7 +144,7 @@ class Ratings:
         """Returns a random user ID.
 
         Returns:
-            User ID.
+            User ID, or None if no ratings are available.
         """
         return random.choice(list(self._user_ratings.keys()))
 

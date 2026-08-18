@@ -1,8 +1,8 @@
-from __future__ import annotations
-
 """Persona, which is a profile of the user to represent different backgrounds
 (e.g., age, gender, education), personality types, and behavioral tendencies
 (e.g., patience, conscientiousness, or curiosity)."""
+
+from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Any, Dict, Optional

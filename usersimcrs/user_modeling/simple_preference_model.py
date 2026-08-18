@@ -112,8 +112,8 @@ class SimplePreferenceModel(PreferenceModel):
         """
         return ""
 
-    def update_from_dialogue(self, utterance: Utterance) -> None:
-        """Simple preferences do not update from dialogue.
+    def update_from_utterance(self, utterance: Utterance) -> None:
+        """Simple preferences do not update from utterances.
 
         Args:
             utterance: User utterance used to update preferences.

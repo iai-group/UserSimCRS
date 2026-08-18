@@ -11,7 +11,7 @@ import os
 import random
 import string
 from abc import ABC, abstractmethod
-from typing import Tuple
+from typing import Optional, Tuple
 
 import joblib
 from dialoguekit.core.utterance import Utterance
@@ -38,7 +38,7 @@ class PreferenceModel(ABC):
         domain: SimulationDomain,
         item_collection: ItemCollection,
         historical_ratings: Ratings,
-        historical_user_id: str = None,
+        historical_user_id: Optional[str] = None,
     ) -> None:
         """Initializes the preference model of a simulated user.
 
@@ -192,8 +192,8 @@ class PreferenceModel(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def update_from_dialogue(self, utterance: Utterance) -> None:
-        """Updates preferences from dialogue if supported by the model.
+    def update_from_utterance(self, utterance: Utterance) -> None:
+        """Updates preferences from an utterance if supported by the model.
 
         Args:
             utterance: User utterance used to update preferences.

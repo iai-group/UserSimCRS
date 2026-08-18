@@ -1,10 +1,13 @@
 """Structured preference model backed by historical ratings and metadata."""
 
 from __future__ import annotations
-from collections import defaultdict
-from typing import Any, Dict, Iterable, List, Optional, Tuple
 
+from collections import defaultdict
+from typing import Dict, Iterable, List, Optional, Tuple
+
+from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.utterance import Utterance
+from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.participant.user_preferences import UserPreferences
 
 from usersimcrs.core.simulation_domain import SimulationDomain
@@ -26,18 +29,8 @@ from usersimcrs.user_modeling.structured_preference import (
 class StructuredPreferenceModel(PreferenceModel):
 
     UPDATE_STEP = 0.25
-    LONG_TERM_PROMOTION_MIN_CONFIRMATIONS = 2
     RATING_HISTORY_WEIGHT = 1.0
     DIALOGUE_HISTORY_WEIGHT = 1.0
-    DIALOGUE_STOP_TOKENS = {
-        "exit",
-        "goodbye",
-        "bye",
-        "quit",
-        "stop",
-        "end",
-        "giveup",
-    }
 
     def __init__(
         self,
@@ -46,7 +39,7 @@ class StructuredPreferenceModel(PreferenceModel):
         historical_ratings: Optional[Ratings] = None,
         historical_user_id: Optional[str] = None,
         preference_threshold: float = PreferenceModel.PREFERENCE_THRESHOLD,
-        dialogue_history: Optional[Iterable[Any]] = None,
+        dialogue_history: Optional[List[Dialogue]] = None,
         signals_extractor: Optional[PreferenceSignalsExtractor] = None,
         rating_history_weight: float = RATING_HISTORY_WEIGHT,
         dialogue_history_weight: float = DIALOGUE_HISTORY_WEIGHT,
@@ -56,23 +49,21 @@ class StructuredPreferenceModel(PreferenceModel):
         Args:
             domain: Domain.
             item_collection: Item collection.
-            historical_ratings: Optional historical ratings.
+            historical_ratings: Optional historical ratings. Defaults to None.
             historical_user_id: Historical user ID. Defaults to None.
             preference_threshold: Minimum absolute score to store as a
               meaningful preference. Defaults to
               `PreferenceModel.PREFERENCE_THRESHOLD`.
-            dialogue_history: Optional previous dialogues or user utterances to
-              initialize session preferences from. Defaults to None.
+            dialogue_history: Optional previous dialogues to initialize session
+              preferences from. Defaults to None.
             signals_extractor: Optional preference signal extractor. Defaults
-              to a heuristic extractor.
+              to None.
             rating_history_weight: Weight for evidence extracted from
               historical ratings. Defaults to 1.0.
             dialogue_history_weight: Weight for evidence extracted from
               historical dialogues. Defaults to 1.0.
         """
         historical_ratings = historical_ratings or Ratings(item_collection)
-        if historical_user_id is None and not historical_ratings._user_ratings:
-            historical_user_id = "dialogue_history"
         super().__init__(
             domain, item_collection, historical_ratings, historical_user_id
         )
@@ -92,10 +83,10 @@ class StructuredPreferenceModel(PreferenceModel):
     def _initialize_preferences(self) -> None:
         """Initializes preferences from historical ratings and dialogues."""
         self._long_term_preferences.set_weighted_scores(
-            self._rating_scores(),
-            self._dialogue_scores(),
-            self._rating_history_weight,
-            self._dialogue_history_weight,
+            [
+                (self._rating_scores(), self._rating_history_weight),
+                (self._dialogue_scores(), self._dialogue_history_weight),
+            ],
             self._preference_threshold,
         )
 
@@ -127,14 +118,32 @@ class StructuredPreferenceModel(PreferenceModel):
             Dialogue scores keyed by slot-value pair.
         """
         dialogue_scores: Dict[Tuple[str, str], List[float]] = defaultdict(list)
-        for text in self._iter_dialogue_history_texts():
-            for signal in self._extract_slot_signals_from_text(text):
-                if not signal.slot or signal.value is None:
-                    continue
-                dialogue_scores[(signal.slot, signal.value)].append(
-                    signal.score
-                )
+        for dialogue in self._dialogue_history:
+            for utterance in self._user_utterances(dialogue):
+                for signal in self._extract_slot_signals_from_text(
+                    utterance.text
+                ):
+                    if not signal.slot or signal.value is None:
+                        continue
+                    dialogue_scores[(signal.slot, signal.value)].append(
+                        signal.score
+                    )
         return dialogue_scores
+
+    def _user_utterances(self, dialogue: Dialogue) -> List[Utterance]:
+        """Returns user utterances from a dialogue.
+
+        Args:
+            dialogue: Dialogue to read.
+
+        Returns:
+            User utterances.
+        """
+        return [
+            utterance
+            for utterance in dialogue.utterances
+            if utterance.participant is DialogueParticipant.USER
+        ]
 
     def _extract_slot_signals_from_text(
         self, text: str
@@ -148,28 +157,14 @@ class StructuredPreferenceModel(PreferenceModel):
             Slot-value preference signals.
         """
         text = text.strip()
-        if not text or self._is_stop_token(text):
+        if not text:
             return []
 
         signals = self._signals_extractor.extract(text)
         return list(self._slot_preference_signals(signals))
 
-    def _is_stop_token(self, text: str) -> bool:
-        """Checks whether text ends preference updates.
-
-        Args:
-            text: User utterance text.
-
-        Returns:
-            True if text is a stop token, otherwise False.
-        """
-        normalized_text = self._signals_extractor.normalize_preference_value(
-            text
-        )
-        return normalized_text in self.DIALOGUE_STOP_TOKENS
-
     def _item_slot_values(self, item: Item) -> List[Tuple[str, str]]:
-        """Returns normalized preference slot values for an item.
+        """Returns preference slot values for an item.
 
         Args:
             item: Item to read.
@@ -184,46 +179,8 @@ class StructuredPreferenceModel(PreferenceModel):
                 continue
             values = value if isinstance(value, list) else [value]
             for entry in values:
-                normalized_value = (
-                    self._signals_extractor.normalize_preference_value(entry)
-                )
-                slot_values.append((slot, normalized_value))
+                slot_values.append((slot, str(entry)))
         return slot_values
-
-    def _iter_dialogue_history_texts(self) -> List[str]:
-        """Returns user utterance texts from supported history formats.
-
-        Returns:
-            User utterance texts.
-        """
-        texts = []
-        for entry in self._dialogue_history:
-            if isinstance(entry, str):
-                texts.append(entry)
-                continue
-
-            utterances = getattr(entry, "utterances", None)
-            if utterances is not None:
-                for utterance in utterances:
-                    participant = getattr(utterance, "participant", None)
-                    participant_name = getattr(participant, "name", None)
-                    if participant_name and participant_name != "USER":
-                        continue
-                    texts.append(getattr(utterance, "text", ""))
-                continue
-
-            if isinstance(entry, dict):
-                if "conversation" in entry:
-                    for utterance in entry["conversation"]:
-                        if utterance.get("participant") != "USER":
-                            continue
-                        texts.append(utterance.get("utterance", ""))
-                    continue
-                texts.append(entry.get("utterance", entry.get("text", "")))
-                continue
-
-            texts.append(getattr(entry, "text", ""))
-        return texts
 
     def _slot_preference_signals(
         self, signals: Iterable[PreferenceSignal]
@@ -236,26 +193,20 @@ class StructuredPreferenceModel(PreferenceModel):
         Returns:
             Slot-value preference signals.
         """
-        signals = list(signals)
         explicit_keys = set()
         slot_signals = []
         for signal in signals:
-            if not signal.slot or signal.value is None:
-                continue
-            normalized_value = (
-                self._signals_extractor.normalize_preference_value(signal.value)
-            )
-            explicit_keys.add((signal.slot, normalized_value))
-            slot_signals.append(
-                PreferenceSignal(
-                    slot=signal.slot,
-                    value=normalized_value,
-                    score=max(-1.0, min(1.0, signal.score)),
-                    source=signal.source,
+            score = max(-1.0, min(1.0, signal.score))
+            if signal.slot and signal.value is not None:
+                explicit_keys.add((signal.slot, signal.value))
+                slot_signals.append(
+                    PreferenceSignal(
+                        slot=signal.slot,
+                        value=signal.value,
+                        score=score,
+                        source=signal.source,
+                    )
                 )
-            )
-
-        for signal in signals:
             if not signal.item_id:
                 continue
             item = self._item_collection.get_item(signal.item_id)
@@ -268,34 +219,11 @@ class StructuredPreferenceModel(PreferenceModel):
                     PreferenceSignal(
                         slot=slot,
                         value=value,
-                        score=max(-1.0, min(1.0, signal.score)),
+                        score=score,
                         source=signal.source,
                     )
                 )
         return slot_signals
-
-    def _promote_session_preferences(self) -> None:
-        """Promotes confirmed session preferences to long-term memory."""
-        session_items = list(self._session_preferences.items())
-        for slot, value, score, count in session_items:
-            if count < self.LONG_TERM_PROMOTION_MIN_CONFIRMATIONS:
-                continue
-
-            long_term_score = self._long_term_preferences.get(slot, value)
-            if long_term_score is None:
-                self._long_term_preferences.set(slot, value, score, count)
-                continue
-
-            long_term_count = self._long_term_preferences.get_count(slot, value)
-            total_count = long_term_count + count
-            merged_score = (
-                long_term_score * long_term_count + score * count
-            ) / total_count
-            self._long_term_preferences.set(
-                slot, value, merged_score, total_count
-            )
-
-        self._session_preferences.clear()
 
     def get_item_preference(self, item_id: str) -> float:
         """Returns preference score for an item.
@@ -324,12 +252,9 @@ class StructuredPreferenceModel(PreferenceModel):
             Preference score for the slot-value pair, or 0 if unavailable.
         """
         self._assert_slot_exists(slot)
-        normalized_value = self._signals_extractor.normalize_preference_value(
-            value
-        )
-        preference = self._session_preferences.get(slot, normalized_value)
+        preference = self._session_preferences.get(slot, value)
         if preference is None:
-            preference = self._long_term_preferences.get(slot, normalized_value)
+            preference = self._long_term_preferences.get(slot, value)
         return preference if preference is not None else 0
 
     def update_slot_value_preference(
@@ -345,7 +270,7 @@ class StructuredPreferenceModel(PreferenceModel):
         self._assert_slot_exists(slot)
         self._session_preferences.increment_towards(
             slot,
-            self._signals_extractor.normalize_preference_value(value),
+            value,
             max(-1.0, min(1.0, score)),
             self.UPDATE_STEP,
         )
@@ -357,12 +282,12 @@ class StructuredPreferenceModel(PreferenceModel):
             max_preferences: Total number of preferences. Defaults to 20.
 
         Returns:
-            Summary for the LLM of long-term preferences.
+            Summary for the LLM of session and long-term preferences.
         """
-        session_preferences = self._session_preferences.ranked_items()[
+        session_preferences = self._session_preferences.ranked_preferences()[
             : max(1, max_preferences // 2)
         ]
-        long_term_preferences = self._long_term_preferences.ranked_items()
+        long_term_preferences = self._long_term_preferences.ranked_preferences()
         positive_preferences = [
             preference
             for preference in long_term_preferences
@@ -389,18 +314,13 @@ class StructuredPreferenceModel(PreferenceModel):
             if preferences
         )
 
-    def update_from_dialogue(self, utterance: Utterance) -> None:
-        """Updates preferences from one user turn.
+    def update_from_utterance(self, utterance: Utterance) -> None:
+        """Updates preferences from a user utterance.
 
         Args:
             utterance: User utterance used to update preferences.
         """
-        text = getattr(utterance, "text", "")
-        if self._is_stop_token(text):
-            self._promote_session_preferences()
-            return
-
-        for signal in self._extract_slot_signals_from_text(text):
+        for signal in self._extract_slot_signals_from_text(utterance.text):
             if not signal.slot or signal.value is None:
                 continue
             self.update_slot_value_preference(
