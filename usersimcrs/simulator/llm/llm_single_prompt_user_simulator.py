@@ -4,6 +4,8 @@ The responses are generated via a single prompt template with a large language
 model.
 """
 
+from typing import Optional
+
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant import DialogueParticipant
 from usersimcrs.core.simulation_domain import SimulationDomain
@@ -14,6 +16,7 @@ from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
     UtteranceGenerationPrompt,
 )
 from usersimcrs.simulator.user_simulator import UserSimulator
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 from usersimcrs.user_modeling.persona import Persona
 
 
@@ -26,7 +29,8 @@ class LLMSinglePromptUserSimulator(UserSimulator):
         llm_interface: LLMInterface,
         item_type: str,
         task_definition: str = DEFAULT_TASK_DEFINITION,
-        persona: Persona = None,
+        persona: Optional[Persona] = None,
+        preference_model: Optional[PreferenceModel] = None,
     ) -> None:
         """Initializes the user simulator.
 
@@ -37,11 +41,16 @@ class LLMSinglePromptUserSimulator(UserSimulator):
             task_definition: Definition of the task to be performed.
               Defaults to DEFAULT_TASK_DEFINITION.
             persona: Persona of the user. Defaults to None.
+            preference_model: Preference model. Defaults to None.
         """
-        super().__init__(id, domain, item_collection)
+        super().__init__(id, domain, item_collection, preference_model)
         self.llm_interface = llm_interface
         self.prompt = UtteranceGenerationPrompt(
-            self.information_need, item_type, task_definition, persona
+            self.information_need,
+            item_type,
+            task_definition,
+            persona,
+            preference_model,
         )
 
     def _generate_response(self, agent_utterance: Utterance) -> Utterance:

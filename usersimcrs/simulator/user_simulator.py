@@ -1,6 +1,7 @@
 """User simulator abstract class."""
 
 from abc import ABC, abstractmethod
+from typing import Optional
 
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.utterance import Utterance
@@ -8,6 +9,7 @@ from dialoguekit.participant.user import User, UserType
 from usersimcrs.core.information_need import generate_random_information_need
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 
 
 class UserSimulator(User, ABC):
@@ -16,11 +18,13 @@ class UserSimulator(User, ABC):
         id: str,
         domain: SimulationDomain,
         item_collection: ItemCollection,
+        preference_model: Optional[PreferenceModel] = None,
     ) -> None:
         """Initializes the user simulator."""
         super().__init__(id, UserType.SIMULATOR)
         self._domain = domain
         self._item_collection = item_collection
+        self.preference_model = preference_model
         self.get_new_information_need()
 
     def get_new_information_need(self) -> None:
@@ -53,4 +57,6 @@ class UserSimulator(User, ABC):
         response = self._generate_response(utterance)
         if not isinstance(response, AnnotatedUtterance):
             response = AnnotatedUtterance.from_utterance(response)
+        if self.preference_model:
+            self.preference_model.update_from_utterance(response)
         self._dialogue_connector.register_user_utterance(response)

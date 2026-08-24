@@ -1,7 +1,10 @@
 """Define the prompt for stopping the conversation."""
 
+from typing import Optional
+
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.simulator.llm.prompt.prompt import Prompt
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 from usersimcrs.user_modeling.persona import Persona
 
 DEFAULT_STOP_DEFINITION = (
@@ -21,7 +24,8 @@ class StopPrompt(Prompt):
         information_need: InformationNeed,
         item_type: str,
         prompt_definition: str = DEFAULT_STOP_DEFINITION,
-        persona: Persona = None,
+        persona: Optional[Persona] = None,
+        preference_model: Optional[PreferenceModel] = None,
     ) -> None:
         """Initializes the prompt.
 
@@ -31,20 +35,37 @@ class StopPrompt(Prompt):
             prompt_definition: The definition of the task to be performed.
               Defaults to DEFAULT_STOP_DEFINITION.
             persona: The persona of the user. Defaults to None.
+            preference_model: Preference model. Defaults to None.
         """
         super().__init__(
-            information_need, item_type, prompt_definition, persona
+            information_need,
+            item_type,
+            prompt_definition,
+            persona,
+            preference_model,
         )
 
     @property
     def prompt_text(self) -> str:
         """Prompt for the user simulator."""
+        prompt_text = self._initial_prompt
+
+        if self._preference_context:
+            prompt_text += self._preference_context.rstrip("\n")
+
+        prompt_text += "\n"
+
+        if self._prompt_context:
+            prompt_text += self._prompt_context.rstrip("\n")
+
+        return prompt_text + "\nCONTINUE: "
+
+    @property
+    def _preference_context_guidance(self) -> str:
+        """Returns the guidance appended after the preference summary."""
         return (
-            self._initial_prompt
-            + "\n"
-            + self._prompt_context
-            + "\n"
-            + "CONTINUE: "
+            "Use these preferences only as soft context when deciding "
+            "whether the conversation is still productive."
         )
 
     def build_new_prompt(self) -> str:
@@ -60,13 +81,7 @@ class StopPrompt(Prompt):
                 " Take into account your PERSONA when deciding to stop the "
                 "conversation.\n"
             )
-            stringified_characteristics = ", ".join(
-                [
-                    f"{key}={value}"
-                    for key, value in self.persona.characteristics.items()
-                ]
-            )
-            initial_prompt += f"PERSONA: {stringified_characteristics}\n"
+            initial_prompt += f"PERSONA: {self._persona_text}\n"
 
         initial_prompt += "\nHISTORY:\n"
         return initial_prompt

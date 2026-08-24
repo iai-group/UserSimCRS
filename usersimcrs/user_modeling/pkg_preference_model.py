@@ -9,6 +9,8 @@ depends on the release of the PKG API.
 See: https://github.com/iai-group/UserSimCRS/issues/110
 """
 
+from dialoguekit.core.utterance import Utterance
+
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
@@ -45,11 +47,11 @@ class PKGPreferenceModel(PreferenceModel):
         Args:
             item_id: Item ID.
 
-        Returns:
-            Item preference, which is in [-1,1].
-
         Raises:
             ValueError: If the item does not exist in the collection.
+
+        Returns:
+            Item preference, which is in [-1,1].
         """
         self._assert_item_exists(item_id)
         # TODO: Query PKG to retrieve item preference.
@@ -70,3 +72,23 @@ class PKGPreferenceModel(PreferenceModel):
         # TODO: Query PKG to retrieve slot-value preference.
         preference = None
         return preference
+
+    def get_preference_summary(self, max_preferences: int = 10) -> str:
+        """Returns an empty summary until PKG prompt support is added.
+
+        Args:
+            max_preferences: Maximum number of preferences to show in the
+              summary.
+
+        Returns:
+            Empty summary.
+        """
+        return ""
+
+    def update_from_utterance(self, utterance: Utterance) -> None:
+        """PKG-backed utterance updates are not implemented yet.
+
+        Args:
+            utterance: User utterance used to update preferences.
+        """
+        return None

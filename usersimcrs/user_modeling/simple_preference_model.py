@@ -23,6 +23,7 @@ has not seen a single action movie).
 
 import random
 
+from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.user_preferences import UserPreferences
 
 from usersimcrs.core.simulation_domain import SimulationDomain
@@ -67,11 +68,11 @@ class SimplePreferenceModel(PreferenceModel):
         Args:
             item_id: Item ID.
 
-        Returns:
-            Randomly chosen preference, which is either -1 or +1.
-
         Raises:
             ValueError: If the item does not exist in the collection.
+
+        Returns:
+            Randomly chosen preference, which is either -1 or +1.
         """
         self._assert_item_exists(item_id)
         preference = self._item_preferences.get_preference(KEY_ITEM_ID, item_id)
@@ -98,3 +99,23 @@ class SimplePreferenceModel(PreferenceModel):
             preference = random.choice([-1, 1])
             self._slot_value_preferences.set_preference(slot, value, preference)
         return preference
+
+    def get_preference_summary(self, max_preferences: int = 10) -> str:
+        """Returns an empty summary for non-structured preferences.
+
+        Args:
+            max_preferences: Maximum number of preferences to show in the
+              summary.
+
+        Returns:
+            Empty summary.
+        """
+        return ""
+
+    def update_from_utterance(self, utterance: Utterance) -> None:
+        """Simple preferences do not update from utterances.
+
+        Args:
+            utterance: User utterance used to update preferences.
+        """
+        return None

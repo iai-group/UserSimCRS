@@ -11,9 +11,10 @@ import os
 import random
 import string
 from abc import ABC, abstractmethod
-from typing import Tuple
+from typing import Optional, Tuple
 
 import joblib
+from dialoguekit.core.utterance import Utterance
 
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item_collection import ItemCollection
@@ -37,7 +38,7 @@ class PreferenceModel(ABC):
         domain: SimulationDomain,
         item_collection: ItemCollection,
         historical_ratings: Ratings,
-        historical_user_id: str = None,
+        historical_user_id: Optional[str] = None,
     ) -> None:
         """Initializes the preference model of a simulated user.
 
@@ -109,11 +110,11 @@ class PreferenceModel(ABC):
         Args:
             item_id: Item ID.
 
+        Raises:
+            NotImplementedError: If the method is not implemented in a subclass.
+
         Returns:
             Item preference, which is generally in [-1,1].
-
-        Raises:
-            NotImplementedError: If not implemented in derived class.
         """
         raise NotImplementedError
 
@@ -127,11 +128,11 @@ class PreferenceModel(ABC):
             slot: Slot name (needs to exist in the domain).
             value: Slot value.
 
+        Raises:
+            NotImplementedError: If the method is not implemented in a subclass.
+
         Returns:
             Slot-value preference.
-
-        Raises:
-            NotImplementedError: If not implemented in derived class.
         """
         raise NotImplementedError
 
@@ -173,6 +174,34 @@ class PreferenceModel(ABC):
                 return None, 0
 
         return value, preference
+
+    @abstractmethod
+    def get_preference_summary(self, max_preferences: int = 10) -> str:
+        """Returns a compact preference summary for prompts.
+
+        Args:
+            max_preferences: Maximum number of preferences to show in the
+              summary.
+
+        Raises:
+            NotImplementedError: If the method is not implemented in a subclass.
+
+        Returns:
+            Compact preference summary.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def update_from_utterance(self, utterance: Utterance) -> None:
+        """Updates preferences from an utterance if supported by the model.
+
+        Args:
+            utterance: User utterance used to update preferences.
+
+        Raises:
+            NotImplementedError: If the method is not implemented in a subclass.
+        """
+        raise NotImplementedError
 
     @classmethod
     def load_preference_model(cls, path: str) -> PreferenceModel:

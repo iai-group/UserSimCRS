@@ -9,10 +9,13 @@ Reference: Terragni, S., et al. (2023). "In-Context Learning User Simulators
 for Task-Oriented Dialog Systems", arXiv 2306.00774.
 """
 
+from typing import Optional
+
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
 from usersimcrs.core.information_need import InformationNeed
 from usersimcrs.simulator.llm.prompt.prompt import Prompt
+from usersimcrs.user_modeling.preference_model import PreferenceModel
 from usersimcrs.user_modeling.persona import Persona
 
 DEFAULT_TASK_DEFINITION = (
@@ -34,7 +37,8 @@ class UtteranceGenerationPrompt(Prompt):
         information_need: InformationNeed,
         item_type: str,
         prompt_definition: str = DEFAULT_TASK_DEFINITION,
-        persona: Persona = None,
+        persona: Optional[Persona] = None,
+        preference_model: Optional[PreferenceModel] = None,
     ) -> None:
         """Initializes the prompt.
 
@@ -44,9 +48,14 @@ class UtteranceGenerationPrompt(Prompt):
             prompt_definition: The definition of the task to be performed.
               Defaults to DEFAULT_TASK_DEFINITION.
             persona: The persona of the user. Defaults to None.
+            preference_model: Preference model. Defaults to None.
         """
         super().__init__(
-            information_need, item_type, prompt_definition, persona
+            information_need,
+            item_type,
+            prompt_definition,
+            persona,
+            preference_model,
         )
 
     def build_new_prompt(self) -> str:
@@ -61,13 +70,7 @@ class UtteranceGenerationPrompt(Prompt):
             initial_prompt += (
                 " Adapt your responses considering your PERSONA.\n"
             )
-            stringified_characteristics = ", ".join(
-                [
-                    f"{key}={value}"
-                    for key, value in self.persona.characteristics.items()
-                ]
-            )
-            initial_prompt += f"PERSONA: {stringified_characteristics}\n"
+            initial_prompt += f"PERSONA: {self._persona_text}\n"
         else:
             initial_prompt += (
                 "Be precise with the REQUIREMENTS, clear and concise.\n"
@@ -89,6 +92,14 @@ class UtteranceGenerationPrompt(Prompt):
             f"information: {requestable_slot}.\nHISTORY:\n"
         )
         return initial_prompt
+
+    @property
+    def _preference_context_guidance(self) -> str:
+        """Returns the guidance appended after the preference summary."""
+        return (
+            "Use these preferences to shape what the user accepts, rejects, "
+            "asks to avoid, or follows up on."
+        )
 
     def update_prompt_context(
         self, utterance: Utterance, participant: DialogueParticipant
