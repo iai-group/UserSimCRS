@@ -10,7 +10,9 @@ import logging
 import os
 
 from dialoguekit.core.dialogue import Dialogue
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 from usersimcrs.llm_interfaces.llm_interface import LLMInterface
 
 DEFAULT_INITIAL_PROMPT_MOVIES_FILE = "scripts/datasets/information_need_annotation/information_need_prompt_movies_default.txt"  # noqa: E501

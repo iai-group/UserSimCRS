@@ -10,6 +10,9 @@ from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.dialogue_management.dialogue_state_tracker import (
     DialogueStateTracker,
 )
+from usersimcrs.information_need_management.information_need_tracker import (
+    InformationNeedTracker,
+)
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.simulator.agenda_based.interaction_model import InteractionModel
@@ -25,6 +28,7 @@ class AgendaBasedSimulator(UserSimulator):
         item_collection: ItemCollection,
         preference_model: PreferenceModel,
         interaction_model: InteractionModel,
+        information_need_tracker: InformationNeedTracker,
         nlu: NLU,
         nlg: ConditionalNLG,
         ratings: Ratings,
@@ -37,14 +41,20 @@ class AgendaBasedSimulator(UserSimulator):
             item_collection: Item collection.
             preference_model: Preference model.
             interaction_model: Interaction model.
+            information_need_tracker: Tracker for the information need.
             nlu: NLU module performing dialogue act extraction.
             nlg: NLG module generating textual responses.
             ratings: Historical ratings.
         """
-        super().__init__(id=id, domain=domain, item_collection=item_collection)
+        super().__init__(
+            id=id,
+            domain=domain,
+            item_collection=item_collection,
+            information_need_tracker=information_need_tracker,
+        )
         self._preference_model = preference_model
         self._interaction_model = interaction_model
-        self._interaction_model.initialize_agenda(self.information_need)
+        self._interaction_model.initialize_agenda(self.information_need_tracker)
         self._nlu = nlu
         self._nlg = nlg
         self._dialogue_state_tracker = DialogueStateTracker()
@@ -92,7 +102,7 @@ class AgendaBasedSimulator(UserSimulator):
 
         # Update agenda based on the agent's dialogue acts.
         self._interaction_model.update_agenda(
-            self.information_need,
+            self.information_need_tracker,
             self._preference_model,
             self._item_collection,
         )

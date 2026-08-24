@@ -23,6 +23,12 @@ from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
 from usersimcrs.core.simulation_domain import SimulationDomain
+from usersimcrs.information_need_management.information_need import (
+    generate_random_information_need,
+)
+from usersimcrs.information_need_management.information_need_tracker import (
+    InformationNeedTracker,
+)
 from usersimcrs.items.item_collection import ItemCollection
 from usersimcrs.items.ratings import Ratings
 from usersimcrs.nlu.llm.llm_dialogue_act_extractor import (
@@ -34,6 +40,30 @@ from usersimcrs.user_modeling.persona import Persona
 from usersimcrs.user_modeling.simple_preference_model import (
     SimplePreferenceModel,
 )
+
+
+def _get_information_need_tracker(
+    config: confuse.Configuration,
+    domain: SimulationDomain,
+    item_collection: ItemCollection,
+) -> InformationNeedTracker:
+    """Creates an information need tracker from configuration.
+
+    Args:
+        config: Configuration of the run.
+        domain: Domain.
+        item_collection: Item collection.
+
+    Returns:
+        Information need tracker.
+    """
+    tracker_config = config["information_need_tracker"].get()
+    tracker_class = map_path_to_class(tracker_config["class_path"])
+    tracker_args = dict(tracker_config.get("args", {}))
+    tracker_args["information_need"] = generate_random_information_need(
+        domain, item_collection
+    )
+    return tracker_class(**tracker_args)
 
 
 def map_path_to_class(cls_path: str) -> Type:
@@ -180,6 +210,9 @@ def _get_agenda_based_simulator_config(
     return {
         "preference_model": preference_model,
         "interaction_model": interaction_model,
+        "information_need_tracker": _get_information_need_tracker(
+            config, domain, item_collection
+        ),
         "nlu": nlu,
         "nlg": nlg,
         "domain": domain,
@@ -322,6 +355,9 @@ def _get_llm_single_prompt_user_simulator_config(
         "item_collection": item_collection,
         "llm_interface": llm_interface,
         "item_type": item_type,
+        "information_need_tracker": _get_information_need_tracker(
+            config, domain, item_collection
+        ),
         "task_definition": task_definition,
         "persona": persona,
     }

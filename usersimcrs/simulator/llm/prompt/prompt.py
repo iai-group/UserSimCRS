@@ -4,7 +4,9 @@ from abc import ABC, abstractmethod
 
 from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.participant import DialogueParticipant
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 from usersimcrs.user_modeling.persona import Persona
 
 
