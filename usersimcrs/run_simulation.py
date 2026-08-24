@@ -31,11 +31,6 @@ def main(config: confuse.Configuration) -> None:
         config: Configuration generated from YAML configuration file.
     """
     agent_class, agent_config = utils.get_agent_information(config)
-    (
-        simulator_id,
-        simulator_class,
-        simulator_config,
-    ) = utils.get_simulator_information(config)
 
     platform = SimulationPlatform(agent_class, agent_config)
     platform.start()
@@ -44,6 +39,11 @@ def main(config: confuse.Configuration) -> None:
         range(config["num_simulated_dialogues"].get()),
         desc=" Simulated dialogues",
     ):
+        (
+            simulator_id,
+            simulator_class,
+            simulator_config,
+        ) = utils.get_simulator_information(config)
         platform.connect(simulator_id, simulator_class, simulator_config)
         platform.disconnect(simulator_id)
 
