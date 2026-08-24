@@ -402,7 +402,7 @@ def _get_preference_model(
         "usersimcrs.user_modeling.simple_preference_model."
         "SimplePreferenceModel",
     )
-    preference_model_args = preference_model_config.get("args", {})
+    preference_model_args = dict(preference_model_config.get("args", {}))
 
     signals_extractor_config = preference_model_args.get("signals_extractor")
     if signals_extractor_config:
