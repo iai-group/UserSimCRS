@@ -63,10 +63,11 @@ class PreferenceMemory:
             self.set(slot, value, score, 1)
             return
 
-        direction = 1 if score > current else -1
-        updated = max(-1.0, min(1.0, current + direction * step))
-        self.set(slot, value, updated)
-        self._counts[(slot, value)] = self.get_count(slot, value) + 1
+        count = self.get_count(slot, value)
+        weighted_step = step / max(1, count)
+        updated = current + weighted_step * (score - current)
+        updated = max(-1.0, min(1.0, updated))
+        self.set(slot, value, updated, count + 1)
 
     def get_count(self, slot: str, value: str) -> float:
         """Returns evidence count for a preference.
