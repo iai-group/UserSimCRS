@@ -19,7 +19,6 @@ from usersimcrs.user_modeling.preference_model import (
     PreferenceModel,
 )
 from usersimcrs.user_modeling.structured_preference import (
-    HeuristicPreferenceSignalsExtractor,
     PreferenceMemory,
     PreferenceSignalsExtractor,
 )
@@ -35,19 +34,20 @@ class StructuredPreferenceModel(PreferenceModel):
         self,
         domain: SimulationDomain,
         item_collection: ItemCollection,
+        signals_extractor: PreferenceSignalsExtractor,
         historical_ratings: Optional[Ratings] = None,
         historical_user_id: Optional[str] = None,
         preference_threshold: float = PreferenceModel.PREFERENCE_THRESHOLD,
         dialogue_history: Optional[List[Dialogue]] = None,
         rating_history_weight: float = RATING_HISTORY_WEIGHT,
         dialogue_history_weight: float = DIALOGUE_HISTORY_WEIGHT,
-        signals_extractor: Optional[PreferenceSignalsExtractor] = None,
     ) -> None:
         """Initializes structured preferences.
 
         Args:
             domain: Domain.
             item_collection: Item collection.
+            signals_extractor: Preference signal extractor.
             historical_ratings: Optional historical ratings. Defaults to None.
             historical_user_id: Historical user ID. Defaults to None.
             preference_threshold: Minimum absolute score to store as a
@@ -59,8 +59,6 @@ class StructuredPreferenceModel(PreferenceModel):
               historical ratings. Defaults to 1.0.
             dialogue_history_weight: Weight for evidence extracted from
               historical dialogues. Defaults to 1.0.
-            signals_extractor: Optional preference signal extractor. Defaults
-              to a heuristic extractor.
         """
         historical_ratings = historical_ratings or Ratings(item_collection)
         super().__init__(
@@ -73,9 +71,7 @@ class StructuredPreferenceModel(PreferenceModel):
         self._item_preferences = UserPreferences(self._user_id)
         self._long_term_preferences = PreferenceMemory(self._user_id)
         self._session_preferences = PreferenceMemory(self._user_id)
-        self._signals_extractor = signals_extractor or (
-            HeuristicPreferenceSignalsExtractor(domain, item_collection)
-        )
+        self._signals_extractor = signals_extractor
         self._initialize_preferences()
 
     def _initialize_preferences(self) -> None:
