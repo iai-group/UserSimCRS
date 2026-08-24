@@ -10,7 +10,9 @@ from dialoguekit.core.dialogue import Dialogue
 from dialoguekit.core.intent import Intent
 from dialoguekit.utils.dialogue_reader import json_to_dialogues
 
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 from usersimcrs.core.simulation_domain import SimulationDomain
 from usersimcrs.items.item import Item
 from usersimcrs.items.item_collection import ItemCollection
@@ -26,7 +28,7 @@ def domain() -> SimulationDomain:
     return SimulationDomain(DOMAIN_YAML_FILE)
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def information_need() -> InformationNeed:
     """Information need fixture."""
     constraints = {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"}

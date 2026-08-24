@@ -1,0 +1,22 @@
+output_name: "moviebot_llm_social_explorer"
+num_simulated_dialogues: 10
+
+simulator_class_path: "usersimcrs.simulator.llm.llm_dual_prompt_user_simulator.LLMDualPromptUserSimulator"
+item_type: "movie"
+
+llm_interface:
+  llm_interface_class_path: "usersimcrs.llm_interfaces.openai_interface.OpenAILLMInterface"
+  llm_interface_args:
+    configuration_path: config/llm_interface/config_openai_default.yaml
+
+persona:
+  characteristics:
+    assertiveness: -0.1
+    precision_of_needs: -0.7
+    initial_domain_knowledge: 0.4
+    information_richness: 0.5
+    formality: -0.3
+    response_length: 0.6
+    patience: 0.6
+    exploration: 1.0
+  persona_description: "A novelty-seeking movie explorer who starts with uncertain preferences, is open to unusual recommendations, asks for alternatives across genres, and values discovery over quickly matching a fixed target."

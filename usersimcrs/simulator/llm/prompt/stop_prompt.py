@@ -2,7 +2,9 @@
 
 from typing import Optional
 
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 from usersimcrs.simulator.llm.prompt.prompt import Prompt
 from usersimcrs.user_modeling.preference_model import PreferenceModel
 from usersimcrs.user_modeling.persona import Persona

@@ -1,0 +1,21 @@
+output_name: "moviebot_llm_direct_impatient"
+num_simulated_dialogues: 10
+
+simulator_class_path: "usersimcrs.simulator.llm.llm_dual_prompt_user_simulator.LLMDualPromptUserSimulator"
+item_type: "movie"
+
+llm_interface:
+  llm_interface_class_path: "usersimcrs.llm_interfaces.openai_interface.OpenAILLMInterface"
+  llm_interface_args:
+    configuration_path: config/llm_interface/config_openai_default.yaml
+
+persona:
+  characteristics:
+    assertiveness: 0.9
+    precision_of_needs: 0.4
+    initial_domain_knowledge: 0.2
+    information_richness: -0.5
+    formality: -0.4
+    response_length: -0.7
+    patience: -0.8
+    exploration: -0.5

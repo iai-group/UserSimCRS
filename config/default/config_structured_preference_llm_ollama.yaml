@@ -1,0 +1,73 @@
+output_name: "moviebot_llm_structured_preference"
+debug: False
+fix_random_seed: True
+num_simulated_dialogues: 2
+
+### AGENT CONFIGURATION ###
+agent_class_path: "sample_agents.moviebot_agent.MovieBotAgent"
+agent_id: "IAI MovieBot"
+agent_uri: "http://127.0.0.1:5001"
+
+### SIMULATOR CONFIGURATION ###
+simulator_class_path: "usersimcrs.simulator.llm.llm_dual_prompt_user_simulator.LLMDualPromptUserSimulator"
+simulator_id: "User Simulator"
+item_type: "movie"
+
+information_need_tracker:
+  class_path: "usersimcrs.information_need_management.information_need_trackers.HeuristicInformationNeedTracker"
+  args: {}
+
+task_definition: "You are simulating a USER talking to an ASSISTANT about getting a movie recommendation. Generate only the next USER message. Stay in the role of the user at all times and never speak as the assistant, narrator, or system. Use the REQUIREMENTS as the concrete goal of the conversation. Use USER PREFERENCES only as background tastes: they may influence what the user accepts, rejects, asks to avoid, or follows up on, but they must not replace or expand the REQUIREMENTS into a different goal. Use PERSONA only to control how the user speaks and behaves, such as how direct, patient, detailed, or exploratory they are. If the assistant gives a suitable recommendation and the requested information, terminate by sending exit. If the assistant is clearly unhelpful or the conversation is not going anywhere, terminate by sending exit."
+stop_definition: "Decide whether the conversation should continue. Return FALSE only if one of these is true: 1. The user has explicitly said goodbye, exit, end, stop, or give up. 2. The assistant has provided a satisfactory recommendation and the requested information. 3. The assistant has failed to make progress for at least two consecutive assistant turns after the user corrected or clarified the request. For the first assistant question or the first imperfect recommendation, return TRUE. If the assistant asks a clarification question, return TRUE. Only return TRUE or FALSE."
+
+persona:
+  characteristics:
+    assertiveness: 0.4
+    patience: -0.5
+    exploration: -0.4
+  persona_description: "A concise movie seeker. They answer briefly, mention only one or two preferences per turn, and prefer simple direct replies over long explanations."
+
+llm_interface:
+  llm_interface_class_path: "usersimcrs.llm_interfaces.ollama_interface.OllamaLLMInterface"
+  llm_interface_args:
+    configuration_path: config/llm_interface/config_ollama_default.yaml
+
+domain: data/domains/moviebot.yaml
+intents: data/interaction_models/crs_v1.yaml
+
+collection_db_path: "data/item_collections.db"
+collection_name: "movies_w_keywords"
+items: data/item_collections/movielens-25m-sample/movies_w_keywords.csv
+id_col: movieId
+domain_mapping:
+  title:
+    slot: TITLE
+  genres:
+    slot: GENRE
+    multi-valued: True
+    delimiter: "|"
+  keywords:
+    slot: KEYWORD
+    multi-valued: True
+    delimiter: "|"
+ratings: data/item_collections/movielens-25m-sample/ratings.csv
+historical_ratings_ratio: 0.8
+
+preference_model:
+  class_path: "usersimcrs.user_modeling.structured_preference_model.StructuredPreferenceModel"
+  args:
+    historical_user_id: "13"
+    preference_threshold: 0.25
+    rating_history_weight: 1.0
+    dialogue_history_weight: 0.0
+    signals_extractor:
+      class_path: "usersimcrs.user_modeling.structured_preference.HeuristicPreferenceSignalsExtractor"
+      args: {}
+
+nlu:
+  type: "cosine"
+
+dialogues: data/datasets/moviebot/annotated_dialogues.json
+
+nlg:
+  type: conditional

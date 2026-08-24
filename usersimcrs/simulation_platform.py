@@ -104,6 +104,7 @@ class SimulationPlatform(Platform):
             agent_id: Agent ID.
             user_id: User ID. Defaults to None.
         """
+        print(f"DIALOGUE | {agent_id}: {utterance.text}")
         logging.debug(f"{agent_id}: {utterance.text}")
 
     def display_user_utterance(
@@ -115,4 +116,5 @@ class SimulationPlatform(Platform):
             utterance: An instance of Utterance.
             user_id: User ID.
         """
+        print(f"DIALOGUE | {user_id}: {utterance.text}")
         logging.debug(f"{user_id}: {utterance.text}")

@@ -4,7 +4,9 @@ import pytest
 
 from dialoguekit.core import Utterance
 from dialoguekit.participant import DialogueParticipant
-from usersimcrs.core.information_need import InformationNeed
+from usersimcrs.information_need_management.information_need import (
+    InformationNeed,
+)
 from usersimcrs.simulator.llm.prompt.utterance_generation_prompt import (
     DEFAULT_TASK_DEFINITION,
     UtteranceGenerationPrompt,

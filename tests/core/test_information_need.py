@@ -2,7 +2,7 @@
 
 import pytest
 
-from usersimcrs.core.information_need import (
+from usersimcrs.information_need_management.information_need import (
     InformationNeed,
     generate_random_information_need,
 )
@@ -59,16 +59,12 @@ def test_get_requestable_slots(information_need: InformationNeed) -> None:
         information_need: Information need.
     """
     assert information_need.get_requestable_slots() == ["PLOT", "RATING"]
-    information_need.requested_slots["RATING"] = 4.5
+    information_need.mark_request_complete("RATING", 4.5)
     assert information_need.get_requestable_slots() == ["PLOT"]
 
 
 def test_to_dict(information_need: InformationNeed) -> None:
-    """Test to_dict.
-
-    Args:
-        information_need: Information need.
-    """
+    """Test to_dict."""
     assert information_need.to_dict() == {
         "target_items": [
             {
@@ -83,6 +79,14 @@ def test_to_dict(information_need: InformationNeed) -> None:
         ],
         "constraints": {"GENRE": "Comedy", "DIRECTOR": "Steven Spielberg"},
         "requests": ["PLOT", "RATING"],
+        "constraint_states": {
+            "GENRE": InformationNeed.SLOT_STATE_INCOMPLETE,
+            "DIRECTOR": InformationNeed.SLOT_STATE_INCOMPLETE,
+        },
+        "request_states": {
+            "PLOT": InformationNeed.SLOT_STATE_INCOMPLETE,
+            "RATING": InformationNeed.SLOT_STATE_INCOMPLETE,
+        },
     }
 
 
@@ -139,4 +143,12 @@ def test_from_dict() -> None:
     assert (
         loaded_information_need.requested_slots
         == expected_information_need.requested_slots
+    )
+    assert (
+        loaded_information_need.constraint_states
+        == expected_information_need.constraint_states
+    )
+    assert (
+        loaded_information_need.request_states
+        == expected_information_need.request_states
     )
